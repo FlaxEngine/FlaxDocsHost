@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Input Settings | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Input Settings | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="input-settings">Input Settings</h1>
+
+<p>The <strong>Input Settings asset</strong> is used to specify the initial game input configuration. This asset contains a description of the virtual actions and axes that are used to map physical input data into the more unified usage. See <a href="virtual-input.html">Virtual Input</a> to learn more about it.</p>
+<h2 id="create-input-settings">Create input settings</h2>
+<ol>
+<li><p>Navigate to the Content directory in the <em>Content</em> window</p>
+</li>
+<li><p>Right-click and select option <strong>New -&gt; Settings</strong>, specify the asset name (eg. <em>Input Settings</em>) and hit <em>Enter</em>
+<br><img src="media/new-settings.jpg" alt="Tutorial"></p>
+</li>
+<li><p>Choose option <strong>Input Settings</strong> and press the <strong>Create</strong> button
+<br><img src="media/input-settings-new.jpg" alt="Tutorial"></p>
+</li>
+<li><p>Double-click on an asset to open and edit it.
+<br><img src="media/empty-input-settings.jpg" alt="Tutorial"></p>
+</li>
+</ol>
+<h2 id="use-input-settings">Use input settings</h2>
+<p>You can create as many input settings as you want (even special versions per platform) but only one can be used during game building. Use <strong>Game Settings</strong> asset (always located in <code>Content/GameSettings.json</code>) to link the input options. If your game is using a more advanced configuration, you can edit the game settings from code in your build script (use <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Load">GameSettings.Load</a> and <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Save__1___0_">GameSettings.Save</a> from C# API).</p>
+<p><img src="media/use-input-settings.jpg" alt="Use Input Settings"></p>
+<h2 id="action-mappings">Action Mappings</h2>
+<p><img src="media/input-action-mappings.jpg" alt="Action Mappings"></p>
+<p><strong>Action Mappings</strong> are used to configure virtual actions. It&#39;s useful to bind a physical mouse or gamepad buttons to specific actions identified by the name. Later the game may track those input events using action names.</p>
+<p>Useful C# API: <a href="https://docs.flaxengine.com/api/FlaxEngine.InputEvent.html">InputEvent</a>, <a href="https://docs.flaxengine.com/api/FlaxEngine.Input.ActionConfig.html">Input.ActionConfig</a> and <a href="https://docs.flaxengine.com/api/FlaxEngine.Input.html#FlaxEngine_Input_ActionMappings">Input.ActionMappings</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Desciption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>The action <em>&quot;friendly name&quot;</em> used to access it from code.</td>
+</tr>
+<tr>
+<td><strong>Mode</strong></td>
+<td>The trigger mode. Allows to specify when input event should be fired. See <a href="https://docs.flaxengine.com/api/FlaxEngine.InputActionMode.html">InputActionMode</a>.</td>
+</tr>
+<tr>
+<td><strong>Key</strong></td>
+<td>The <a href="https://docs.flaxengine.com/api/FlaxEngine.KeyboardKeys.html">keyboard key</a> to map for this action. Use <em>None</em> to ignore it.</td>
+</tr>
+<tr>
+<td><strong>Mouse Button</strong></td>
+<td>The <a href="https://docs.flaxengine.com/api/FlaxEngine.MouseButton.html">mouse button</a> to map for this action. Use <em>None</em> to ignore it.</td>
+</tr>
+<tr>
+<td><strong>Gamepad Button</strong></td>
+<td>The <a href="https://docs.flaxengine.com/api/FlaxEngine.GamepadButton.html">gamepad button</a> to map for this action. Use <em>None</em> to ignore it.</td>
+</tr>
+<tr>
+<td><strong>Gamepad</strong></td>
+<td>Which gamepad should be used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="axis-mappings">Axis Mappings</h2>
+<p><img src="media/input-axis-mappings.jpg" alt="Axis Mappings"></p>
+<p><strong>Axis Mappings</strong> are used to configure virtual axes. It&#39;s useful to bind a physical gamepad trigger or a mouse movement into a normalized and unified input source. Later the game may access those input axes values using a virtual input interface.</p>
+<p>Useful C# API: <a href="https://docs.flaxengine.com/api/FlaxEngine.InputAxis.html">InputAxis</a>, <a href="https://docs.flaxengine.com/api/FlaxEngine.Input.AxisConfig.html">Input.AxisConfig</a> and <a href="https://docs.flaxengine.com/api/FlaxEngine.Input.html#FlaxEngine_Input_AxisMappingsAxisConfig">Input.AxisMappings</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Desciption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>The axis <em>&quot;friendly name&quot;</em> used to access it from code.</td>
+</tr>
+<tr>
+<td><strong>Axis</strong></td>
+<td>The axis type (mouse, gamepad, etc.). See <a href="https://docs.flaxengine.com/api/FlaxEngine.InputAxisType.html">InputAxisType</a>.</td>
+</tr>
+<tr>
+<td><strong>Gamepad</strong></td>
+<td>Which gamepad should be used.</td>
+</tr>
+<tr>
+<td><strong>Positive Button</strong></td>
+<td>The button to be pressed for movement in positive direction. Use <em>None</em> to ignore it.</td>
+</tr>
+<tr>
+<td><strong>Negative Button</strong></td>
+<td>The button to be pressed for movement in negative direction. Use <em>None</em> to ignore it.</td>
+</tr>
+<tr>
+<td><strong>Dead Zone</strong></td>
+<td>Any positive or negative values that are less than this number will register as zero. Useful for gamepads to specify the deadzone.</td>
+</tr>
+<tr>
+<td><strong>Sensitivity</strong></td>
+<td>For keyboard input, a larger value will result in faster response time (in units/s). A lower value will be more smooth. For Mouse delta the value will scale the actual mouse delta.</td>
+</tr>
+<tr>
+<td><strong>Gravity</strong></td>
+<td>For keyboard input, this describes how fast the input recenters. Speed (in units/s) at which the output value resets to the neutral value when the device is at rest.</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>Additional scale parameter applied to the axis value. Allows to invert it or modify the range.</td>
+</tr>
+<tr>
+<td><strong>Snap</strong></td>
+<td>If checked, the axis value will be immediately reset to zero after it receives opposite inputs. Used for keyboard input only.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keyboard-keys-selection">Keyboard Keys selection</h2>
+<p><img src="media/keyboard-navigation-context-menu.gif" alt="Keyboard Keys enum picking with keyboard"></p>
+<p>Sometimes picking the right key for the action/axis mapping might be problematic because there are so many keyboard keys to scroll. To make this easier <strong>use your keyboard to search</strong> the item in the open context menu popup. You can also <strong>navigate with arrow keys</strong> around the list and <strong>confirm the choice with Enter</strong>. This makes it easier to setup your input settings. This feature works with all long context menu lists across the Editor.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/input/input-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Change Anim Graph parameter from code | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Change Anim Graph parameter from code | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-change-anim-graph-parameter-from-code">HOWTO: Change Anim Graph parameter from code</h1>
+
+<p>In this tutorial you will learn how to create and access the <a href="../anim-graph/index.html">Anim Graph</a> parameter using the C# script. You can think about the graph parameters as public variables of the graph which can be modified from outside to configure the logic. For example, you can create a parameter called <strong>Speed</strong> and use it to blend between <em>Run</em> and <em>Walk</em> animations fo your character to implement the proper animation playback for your game.</p>
+<h2 id="1-create-anim-graph">1. Create Anim Graph</h2>
+<p><img src="media/anim-walk-playback.gif" alt="Anim Graph Window"></p>
+<p>Firstly prepare your Anim Graph asset. To learn how to setup one see the related tutorial <a href="create-anim-graph.html">How to create Anim Graph</a>.</p>
+<h2 id="2-add-graph-parameter">2. Add graph parameter</h2>
+<p><img src="media/add-param-button.jpg" alt="Anim Graph Add Param"></p>
+<p>Now add one or more graph parameter. To do it simply specify the parameter type (with combo box menu) and click the <strong>Add parameter</strong> button. It will add a new parameter. You can rename or remove the created parameters by using the dedicated context menu. Simply right click on a parameter name label. You can also specify the default value for the parametrs.</p>
+<p><img src="media/anim-param-edit.jpg" alt="Anim Graph Edit Param"></p>
+<h2 id="3-use-graph-parameter">3. Use graph parameter</h2>
+<p>Next step is to access this parameter in the graph. To do it simply spawn the <strong>Get Parameter</strong> node and then select your parameter from the dropdown menu.</p>
+<p><img src="media/get-param-node-add.jpg" alt="Anim Graph Get Param"></p>
+<p>After that connect your parameter outputs with the other nodes to implement the desired usage. In this example, the <strong>Head Scale</strong> parameter is used to scale the skeleton bone using the <strong>Transform Bone (local space)</strong> node. Note that Anim Graph supports implicit type casting so the value type <strong>float</strong> gets converted into the <strong>Vector3</strong> type which is used for the bone transformation scale.</p>
+<p><img src="media/get-param-node-use.png" alt="Anim Graph Get Param"></p>
+<h2 id="4-set-graph-parameter-from-c">4. Set graph parameter from C#</h2>
+<p>In the following code sample, the graph script gets the animated model parameter and sets the value. You can cache the graph parameters, iterate over them and access from any part of your code.</p>
+<pre><code class="lang-cs">using FlaxEngine;
+
+public class EditAnimGraphParam : Script
+{
+    [Range(0.5f, 2.5f)]
+    public float HeadScale  = 1.0f;
+
+    private AnimGraphParameter _parameter;
+
+    public override void OnStart()
+    {
+        // Cache the parameter handle
+        _parameter = Actor.As&lt;AnimatedModel&gt;().GetParameter(&quot;Head Scale&quot;);
+    }
+
+    public override void OnUpdate()
+    {
+        // Update the value
+        _parameter.Value = HeadScale;
+    }
+}
+</code></pre><h2 id="5-see-the-results">5. See the results</h2>
+<p>Here is the example usage that scales the character head bone.</p>
+<p><img src="media/edit-anim-graph-param-code.gif" alt="Anim Graph Param Edit"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/tutorials/change-anim-graph-param.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

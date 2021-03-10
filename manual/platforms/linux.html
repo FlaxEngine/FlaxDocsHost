@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Linux | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Linux | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="linux">Linux</h1>
+
+<h2 id="technical-information">Technical information</h2>
+<p>Flax is compiled for Linux platform using <strong>Clang 7.0</strong> compiler and uses <strong>X11</strong>. Binaries are tested on Ubuntu 18.</p>
+<p>If your device has multiple GPUs installed you can select one using the cmd line argument: <code>-nvidia</code>, <code>-intel</code>, or <code>-amd</code>. Flax uses <strong>Vulkan</strong> for rendering.</p>
+<p>If your game build runs on Linux as a server build then you can pass <code>-mute -null -headless -std</code> command line arguments to disable specific features (audio, graphics, window, log to std). To elarn more about command line access see <a href="../editor/advanced/command-line-access.html">this page</a>.</p>
+<h2 id="build-options">Build options</h2>
+<p><img src="media/build-linux.jpg" alt="Build Options"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Output</strong></td>
+<td>The builded game output folder (relative to the project).</td>
+</tr>
+<tr>
+<td><strong>Show Output</strong></td>
+<td>If checked, after building the output folder will be shown in an Explorer.</td>
+</tr>
+<tr>
+<td><strong>Configuration Mode</strong></td>
+<td>Game building mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Release</strong></td><td>The release build ready for shipment.</td></tr><tr><td><strong>Debug</strong></td><td>The debug build for testing and profiling. Most of the code optimizations are disabled for the best debugging experience.</td></tr><tr><td><strong>Development</strong></td><td>The development build for testing and profiling but is more optimized for runtime than Debug build.</td></tr></tbody></table></td>
+</tr>
+</tbody>
+</table>
+<h2 id="platform-settings">Platform settings</h2>
+<p><img src="media/settings-linux.jpg" alt="Settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Window Mode</strong></td>
+<td>The default game window mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Windowed</strong></td><td>The window has borders and does not take up the full screen.</td></tr><tr><td><strong>Fullscreen</strong></td><td>The window exclusively takes up the full screen.</td></tr><tr><td><strong>Borderless</strong></td><td>The window behaves like in Windowed mode but has no borders.</td></tr><tr><td><strong>Fullscreen Borderless</strong></td><td>Same as in Borderless, but is of the size of the screen.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Screen Width</strong></td>
+<td>The default game window width (in pixels).</td>
+</tr>
+<tr>
+<td><strong>Screen Height</strong></td>
+<td>The default game window height (in pixels).</td>
+</tr>
+<tr>
+<td><strong>Resizable Window</strong></td>
+<td>Enables resizing the game window by the user.</td>
+</tr>
+<tr>
+<td><strong>Run In Background</strong></td>
+<td>Enables game running when application window loses focus.</td>
+</tr>
+<tr>
+<td><strong>Force Single Instance</strong></td>
+<td>Limits maximum amount of concurrent game instances running to one, otherwise user may launch application more than once.</td>
+</tr>
+<tr>
+<td><strong>Override Icon</strong></td>
+<td>Custom icon texture to use for the application (overrides the default one).</td>
+</tr>
+<tr>
+<td><strong>Support Vulkan</strong></td>
+<td>Enables support for Vulkan. Disabling it reduces compiled shaders count.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/platforms/linux.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

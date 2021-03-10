@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TransformObjectsAction
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TransformObjectsAction
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FlaxEditor.TransformObjectsAction">
+  <h1 id="FlaxEditor_TransformObjectsAction" data-uid="FlaxEditor.TransformObjectsAction">Class TransformObjectsAction
+  </h1>
+  <div class="markdown level0 summary"><p>Implementation of <a class="xref" href="FlaxEditor.IUndoAction.html">IUndoAction</a> used to transform a selection of <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html">SceneGraphNode</a>.
+The same logic could be achieved using <a class="xref" href="FlaxEditor.UndoMultiBlock.html">UndoMultiBlock</a> but it would be slower.
+Since we use this kind of action very ofter (for <a class="xref" href="FlaxEditor.Gizmo.TransformGizmo.html">TransformGizmo</a> operations) it&apos;s better to provide faster implementation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEditor_TransformObjectsAction" data-uid="FlaxEditor.TransformObjectsAction"><a href="#collapsible-inheritance-FlaxEditor_TransformObjectsAction" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEditor_TransformObjectsAction" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FlaxEditor.UndoActionBase-1.html">UndoActionBase</a>&lt;<a class="xref" href="FlaxEditor.TransformObjectsAction.DataStorage.html">TransformObjectsAction.DataStorage</a>&gt;</div>
+    <div class="level2"><span class="xref">TransformObjectsAction</span></div>
+    </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEditor_TransformObjectsAction" data-uid="FlaxEditor.IUndoAction"><a href="#collapsible-implements-FlaxEditor_TransformObjectsAction" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEditor_TransformObjectsAction" class="collapse">
+    <div><a class="xref" href="FlaxEditor.IUndoAction.html">IUndoAction</a></div>
+    <div><a class="xref" href="FlaxEditor.History.IHistoryAction.html">IHistoryAction</a></div>
+    <div><a class="xref" href="FlaxEditor.ISceneEditAction.html">ISceneEditAction</a></div>
+  </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-FlaxEditor_TransformObjectsAction" data-uid="FlaxEditor.UndoActionBase{FlaxEditor.TransformObjectsAction.DataStorage}._data"><a href="#collapsible-inheritedMembers-FlaxEditor_TransformObjectsAction" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-FlaxEditor_TransformObjectsAction" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEditor.UndoActionBase-1.html#FlaxEditor_UndoActionBase_1__data">UndoActionBase&lt;TransformObjectsAction.DataStorage&gt;._data</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.UndoActionBase-1.html#FlaxEditor_UndoActionBase_1_Dispose">UndoActionBase&lt;TransformObjectsAction.DataStorage&gt;.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.UndoActionBase-1.html#FlaxEditor_UndoActionBase_1_Data">UndoActionBase&lt;TransformObjectsAction.DataStorage&gt;.Data</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEditor.html">FlaxEditor</a></h6>
+  <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
+  
+  <h5 id="FlaxEditor_TransformObjectsAction_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TransformObjectsAction : UndoActionBase&lt;TransformObjectsAction.DataStorage&gt;, IUndoAction, IHistoryAction, ISceneEditAction</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FlaxEditor_TransformObjectsAction_ActionString_" data-uid="FlaxEditor.TransformObjectsAction.ActionString*"></a>
+  
+  <h4 id="FlaxEditor_TransformObjectsAction_ActionString" data-uid="FlaxEditor.TransformObjectsAction.ActionString"><a href="#collapsible-FlaxEditor_TransformObjectsAction_ActionString" class="expander" data-toggle="collapse">ActionString</a></h4>
+  
+  <div id="collapsible-FlaxEditor_TransformObjectsAction_ActionString" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ActionString { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">FlaxEditor.UndoActionBase&lt;FlaxEditor.TransformObjectsAction.DataStorage&gt;.ActionString</span></div>
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEditor_TransformObjectsAction_Do_" data-uid="FlaxEditor.TransformObjectsAction.Do*"></a>
+  
+  <h4 id="FlaxEditor_TransformObjectsAction_Do" data-uid="FlaxEditor.TransformObjectsAction.Do"><a href="#collapsible-FlaxEditor_TransformObjectsAction_Do" class="expander" data-toggle="collapse">Do()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_TransformObjectsAction_Do" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Do()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">FlaxEditor.UndoActionBase&lt;FlaxEditor.TransformObjectsAction.DataStorage&gt;.Do()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_TransformObjectsAction_Undo_" data-uid="FlaxEditor.TransformObjectsAction.Undo*"></a>
+  
+  <h4 id="FlaxEditor_TransformObjectsAction_Undo" data-uid="FlaxEditor.TransformObjectsAction.Undo"><a href="#collapsible-FlaxEditor_TransformObjectsAction_Undo" class="expander" data-toggle="collapse">Undo()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_TransformObjectsAction_Undo" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Undo()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">FlaxEditor.UndoActionBase&lt;FlaxEditor.TransformObjectsAction.DataStorage&gt;.Undo()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="FlaxEditor_TransformObjectsAction_FlaxEditor_ISceneEditAction_MarkSceneEdited_" data-uid="FlaxEditor.TransformObjectsAction.FlaxEditor#ISceneEditAction#MarkSceneEdited*"></a>
+  
+  <h4 id="FlaxEditor_TransformObjectsAction_FlaxEditor_ISceneEditAction_MarkSceneEdited_FlaxEditor_Modules_SceneModule_" data-uid="FlaxEditor.TransformObjectsAction.FlaxEditor#ISceneEditAction#MarkSceneEdited(FlaxEditor.Modules.SceneModule)"><a href="#collapsible-FlaxEditor_TransformObjectsAction_FlaxEditor_ISceneEditAction_MarkSceneEdited_FlaxEditor_Modules_SceneModule_" class="expander" data-toggle="collapse">ISceneEditAction.MarkSceneEdited(SceneModule)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_TransformObjectsAction_FlaxEditor_ISceneEditAction_MarkSceneEdited_FlaxEditor_Modules_SceneModule_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ISceneEditAction.MarkSceneEdited(SceneModule sceneModule)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.Modules.SceneModule.html">SceneModule</a></span>
+        <span class="parametername">sceneModule</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditAction.html#FlaxEditor_ISceneEditAction_MarkSceneEdited_FlaxEditor_Modules_SceneModule_">ISceneEditAction.MarkSceneEdited(SceneModule)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>
+  </div>
+  
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="FlaxEditor.IUndoAction.html">IUndoAction</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

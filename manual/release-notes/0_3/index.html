@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.3 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.3 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-03-release-notes">Flax 0.3 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="terrain">Terrain</h3>
+<p><img src="media/terrain.png" alt="Terrain"></p>
+<p>We&#39;ve added <strong>Terrain</strong> to Flax! This includes not only terrain importing and rendering but also full collsiions support, holes in terrain support, advanced terrain generation from heightmaps and splatmaps, terrain live modifications and painting in Editor with full undo support. We&#39;ve added new material domain type dedicated for terrain and added support for generating terrain at runtime.</p>
+<p>Terrain is using <strong>Continuous LOD</strong> system with streaming which enables to create very large landscapes and render them at high view distances with no performance drop. Under the hood, Terrain actor uses a collection of patches, where each patch contains a quad of 4×4 chunks. Size of the chunk is adjustable per terrain and by default, we use the value of 127. This allows Flax to efficiently cull and draw only visible chunks with smooth LODs transitions (no cracks or visual artifacts on different LOD edges).</p>
+<p><img src="media/terrain_pic_05.gif" alt="Terrain Editing"></p>
+<p>Terrain can be imported from external tools as a heightmap with a collection of splatmaps or created right in the Editor using the terrain sculpting tools. Flax Editor support using simple carving brush, smoothing brush, noise brush, and flatten brush. Full undo-redo support and intuitive editing tools make it very nice to modify the terrain right inside the editor. Flax supports also creating holes in terrain for caves and tunnels (including proper collisions handling).</p>
+<p><img src="media/terrain_pic_08.gif" alt="Terrain Painting"></p>
+<p>To learn more about terrain see the related documentation <a href="../../terrain/index.html">here</a>.</p>
+<h3 id="anim-graph-state-machines">Anim Graph State Machines</h3>
+<p><img src="media/anim-graph-state-machine.png" alt="State Machine"></p>
+<p>We keep improving <strong>Anim Graph</strong> to enable developers to create even more realistic and unique animated models. In this update, we&#39;ve shipped many exciting featured for Anim Graph including <strong>State Machines</strong> support. Using State Machines is a very common technique creating characters animations blending graph and now can be also used in Flax. Alongside this feature we&#39;ve added a series of new nodes to the Anim Graph to helps using this feature such as value comparison nodes, boolean math nodes, bitwise inteager math nodes and more.</p>
+<p>To learn how to create state machine see <a href="../../animation/tutorials/setup-state-machine.html">this tutorial</a>.</p>
+<h3 id="editor-improvements">Editor Improvements</h3>
+<p>Flax Editor is a great collection of tools but we cannot stop improving it. In this update we&#39;ve focused on improving overall productivity by adding features such as:</p>
+<ul>
+<li>Modified properties highlight and revert to default value</li>
+<li>Read-only script properties support</li>
+<li>Resizing texture on import</li>
+<li>Source Code editor option and C# API for other IDE integrations</li>
+<li>Undo/redo support to Material Instance editor window</li>
+<li>Highlighting modified material instance parameters (compared to base material)</li>
+<li>and more...</li>
+</ul>
+<h3 id="model-lod-improvements">Model LOD Improvements</h3>
+<p><img src="media/lod_transition.gif" alt="Model LOD Dithered Transition"></p>
+<p>Now, Flax supports <strong>Dithered LOD Transition</strong> and advanced model LODs configuration. We&#39;ve added <code>LOD Bias</code> and <code>Forced LOD</code> properties to models (and even terrain itself). This enabled developers to adjust the model visual quality to match the desired effect. You can also control the LODs per scene view by using a dedicated C# API.</p>
+<p>Model Asset Window contains an option to preview a selected LOD.</p>
+<h3 id="multi-blend-nodes-in-anim-graph">Multi Blend nodes in Anim Graph</h3>
+<p>We&#39;ve added more blending nodes to Anim Graph that can be used to achieve more advanced setup of model animations blending.</p>
+<h5 id="multi-blend-2d">Multi Blend 2D</h5>
+<p>Blend up to 14 different animations in 2D space. This node can be very useful to implement player locomotion animations blending or to create character aiming blending.</p>
+<p><img src="media/multi-blend-2d.png" alt="Multi Blend 2D"></p>
+<h5 id="multi-blend-1d">Multi Blend 1D</h5>
+<p>Multi Blend 1D node works similar to Multi Blend 2D except it uses simplified single axis for blending. It&#39;s more optimized and can be used for player crouching forward or left or right animations blending.</p>
+<p><img src="media/multi-blend-1d.png" alt="Multi Blend 1D"></p>
+<h5 id="blend-poses">Blend Poses</h5>
+<p>In some cases it may be useful to play character animation selected by the pose index (random or provided by the parameter). For instance, you can play a player death animation by selecting a one from a set of various possible death type animations. This node offers also blending between two animations on selected pose change so the transition can be smooth.</p>
+<p><img src="media/blend-poses.png" alt="Blend Poses"></p>
+<h3 id="open-world-optimizations">Open World Optimizations</h3>
+<p><img src="media/terrain_pic_09.gif" alt="Terrain World"></p>
+<p>Creating terrain system was not enough to enable developers to create huge worlds. While Flax rendering pipeline is already quite optimized for big scenes we applied more optimizations to CPU rendering code and scene ticking code to make it run even faster. This results in <strong>great performance</strong> and <strong>less memory usage</strong>. Scene objects culling has been improved (using <em>Radix</em> sort and better data locality). Draw calls sorting is not only faster but Flax does not allocate any memory during scene rendering.</p>
+<h3 id="scripting-improvements">Scripting Improvements</h3>
+<p>Alongside the Editor improvements, we keep adding more features to the C# scripting API. Now you can use <code>Int2</code>, <code>Int3</code> and <code>Int4</code> types in your code for integer-type vectors. Flax will also display them in a proper way in Editor. We&#39;ve improves scripts update logic so if your game doesn&#39;t use many scripts but has large scenes you will see a significant performance improvement.</p>
+<p>Now, you can also use <strong>default value</strong> for your properties. The dedicated attribute is not integrated into the editor and helps with scripts properties editing. See the following example code:</p>
+<pre><code class="lang-cs">[DefaultValue(3.14f)]
+public float MyValue;
+
+[DefaultValue(typeof(Vector2), &quot;1,2&quot;)]
+public Vector2 StartPosition;
+</code></pre><p>You can also use <strong>read-only</strong> values attribute for value-preview only purpose:</p>
+<pre><code class="lang-cs">[ReadOnly]
+public Int2 MyValue2;
+</code></pre><p>Finally, we&#39;ve exposed even more Editor C# API to the public so plugins can integrate with it even more and extend in future.</p>
+<h3 id="modelactor-renamed-to-staticmodel"><code>ModelActor</code> renamed to <code>StaticModel</code></h3>
+<p>The last very important change to mention is the <strong>ModelActor</strong> name refactor. Now it has type name <strong>StaticModel</strong>. We&#39;ve decided to rename it early now to match the naming convention (as <em>AnimatedModel</em> type) and make it more related to its actual behavior: it&#39;s non-animated, static geometry model. To match this change you will be required to update you game scripts and code to match the new type. All your scenes and assets should not be affected by this change (except minor cases of usage in Json assets that requires manual fixing). We&#39;ve also updated our <em>FlaxSamples</em> so you can grab the updated project to try the out.</p>
+<p>We just want to remember that during <strong>Alpha</strong> releases we still may introduce breaking changes to naming or data so please keep in mind that many engine parts may be still subject to change. However, it&#39;s not likely to be done since we want to stabilize the engine before <strong>Beta</strong> release.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-036176---7-january-2019">Version 0.3.6176 - 7 January 2019</h3>
+<ul>
+<li>Add option to serialize scene to compact Json</li>
+<li>Add support for recording GC collection events in profiler</li>
+<li>Optimize Scripting Engine object cache</li>
+<li>Optimize Actor::OnTransformChanged</li>
+<li>Optimize play mode enter</li>
+<li>Optimize scenes loading, unloading and saving</li>
+<li>Optimize object reference Id serialization and caching in Json serializer</li>
+<li>Optimize C# objects deserialization</li>
+<li>Optimize SSAO shader</li>
+<li>Add SSAO fade distance parameter</li>
+<li>Add TextureDimensions</li>
+<li>Adjust SSAO fade parameters</li>
+<li>Fix SSAO sampling radius on huge far plane setting</li>
+<li>Reduce scene loading and saving memory allocations</li>
+<li>Fix too dark color of not selected anim graph blend points</li>
+<li>Fix crash when using custom draw call with mesh that is not initialized yet</li>
+<li>Fix using View node in materials</li>
+<li>Fix actor location when spawning it to the parent</li>
+<li>Fix terrain first splatmap deserialization</li>
+<li>Fix showing memory allocations in profiler (include sub events allocations)</li>
+<li>Fix sprite atlas names gather write barrier</li>
+<li>Fix handling ReadOnly attribute for editors with group inside</li>
+<li>Fix invoking OnDebugDraw and OnDebugDrawSelected for scripts in editor</li>
+<li>Fix AssetPicker for SceneReference</li>
+<li>Fix transform gizmo rotation in World mode</li>
+<li>Fix updating RigidBody bounds when has no colliders and on collider attach</li>
+<li>Fix profiler event names collecting (use proper GC write barriers)</li>
+<li>Fix code documentation comments</li>
+</ul>
+<h3 id="version-036175---28-december-2018">Version 0.3.6175 - 28 December 2018</h3>
+<ul>
+<li>Add support for wireframe GUI material</li>
+<li>Add printing inner exceptions via DebugLog exceptions reporting service</li>
+<li>Fix using <code>ServicePointManager.ServerCertificateValidationCallback</code> and Mono backend configuration</li>
+<li>Fix depth clipping for GUI materials</li>
+<li>Fix Windows version detection for Windows 8.1</li>
+<li>Fix game window focus on mouse down when using UICanvas in game viewport</li>
+<li>Fix crash after creating new scene and opening game settings asset</li>
+<li>Fix handling Scripts implemented as nested classes</li>
+<li>Fix crash on scripts reload in editor when using <code>XmlQueryType</code></li>
+<li>Fix drawing TextRender when using characters from different texture atlases</li>
+<li>Fix enabling/disabling scene objects in more complex usage cases</li>
+<li>Fix default values for ToneMap_WhiteTint and ToneMap_FilmBlackClip</li>
+<li>Fix ray intersection test for <code>StaticMode</code> meshes</li>
+<li>Fix typo in <code>ThumbnailRequest.States</code> enum</li>
+<li>Fix crash when loading script that is not a valid script type anymore</li>
+<li>Fix plugin assembly name validation and add more useful error messages</li>
+<li>Fix exporting plugin after changing its name</li>
+<li>Fix System.Version serialization to Json</li>
+<li>Fix debug log messages overflow by clipping too long text</li>
+</ul>
+<h3 id="version-036174---18-december-2018">Version 0.3.6174 - 18 December 2018</h3>
+<ul>
+<li>Add Capsule to basic models toolbox in editor</li>
+<li>Add <strong>content searching with filters</strong></li>
+<li>Add <strong>scene and prefab hierarchy searching</strong></li>
+<li>Add content folders hierarchy searching</li>
+<li>Add <code>AnimatedModel.ResetAnimation</code></li>
+<li>Add C# API for extracting audio data from AudioClip (internal format, raw PCM or normalized float)</li>
+<li>Add <code>Application.VirtualDesktopBounds</code></li>
+<li>Add support for drawing <strong>audio clips previews</strong> and thumbnails</li>
+<li>Add expand all and collapse all to content and scene tree context menus</li>
+<li>Add Editor undo limit support to options</li>
+<li>Add double-click option to import assets settings window to rename the designation filename</li>
+<li>Add context menu for import file dialog entries (rename, remove, show in explorer)</li>
+<li>Add restoring editor selection on scripts reload</li>
+<li>Add support for using virtual assets in AssetPicker</li>
+<li>Add option to show floor model in animated model and model windows previews</li>
+<li>Add dock panel windows context menu for quick closing windows</li>
+<li>Add button for adding/removing new items to collection in editor</li>
+<li>Add move up/down buttons to collection property items labels</li>
+<li>Add support for saving and restoring <strong>workspace layout slots</strong></li>
+<li>Fix HistoryStack leaks on buffers overflow</li>
+<li>Fix editor windows layout loading for some specific windows setup for virtual desktop environment</li>
+<li>Fix building CSG mesh during play mode (disabled to prevent issues)</li>
+<li>Fix screenshots brightness</li>
+<li>Fix editor atlas missing icons</li>
+<li>Fix crash on one of the sample projects</li>
+<li>Fix character controller move filter for rare issues while moving</li>
+<li>Minor fixes</li>
+</ul>
+<h3 id="version-036173---9-december-2018">Version 0.3.6173 - 9 December 2018</h3>
+<ul>
+<li>Fix using custom SSE Intel instructions for float to/from half data conversion</li>
+<li>Rebuild UWP dependencies libraries to use v141 toolset and Windows 10 SDK 10.0.17134.0</li>
+<li>Remove VC++ 2015 redistribute libs from Flax binaries (launcher installs them if missing, the game has to package them on its own as documentation states)</li>
+</ul>
+<h3 id="version-036172---4-december-2018">Version 0.3.6172 - 4 December 2018</h3>
+<ul>
+<li>Fix materials loading issue</li>
+<li>Fix missing terrain assets for editor</li>
+</ul>
+<h3 id="version-036171---4-december-2018">Version 0.3.6171 - 4 December 2018</h3>
+<p>Contributors: stefnotch</p>
+<ul>
+<li>Add <strong>Terrain</strong> system</li>
+<li>Rename <strong>ModelActor</strong> to <strong>StaticModel</strong></li>
+<li><strong>Anim Graph state machines</strong> with custom transitions and blending between states</li>
+<li>Add Terrain Carving Tools to editor toolbox window</li>
+<li>Add <strong>State Machine</strong> node to Anim Graph</li>
+<li>Add support for subgraphs in Visject Surface</li>
+<li><strong>Optimize rendering</strong> and <strong>improve performance in huge worlds</strong> (CPU side, GPU side was already blazing fast)</li>
+<li>Add <code>Vector2.Perpendicular</code></li>
+<li>Add <code>Vector2.Cross</code></li>
+<li>Add Editor C# API for importing files from code without options dialog popup</li>
+<li>Add <code>EnumDisplayAttribute</code> for custom enum items display mode in Editor</li>
+<li>Add Int2, Int3, Int4 editors</li>
+<li>Allow mixing material layers using different domain materials (eg. Surface material in Terrain)</li>
+<li>Add <strong>XAudio2</strong> support for UWP and Xbox One</li>
+<li>Add support for importing .RAW files (16-bit, grayscale in little-endian byte order, square dimensions)</li>
+<li>Add support for resizing texture on import to a custom value</li>
+<li>Add <strong>Interpolate VS To PS</strong> node to materials</li>
+<li>Add <code>LOD Bias</code> and <code>Forced LOD</code> to <em>Model</em></li>
+<li>Add <code>Model LOD Bias</code> and <code>Model LOD Distance Factor</code> to <em>RenderView</em></li>
+<li>Add debugging single model LOD in Model Window in Editor</li>
+<li>Add <code>Local</code> space transformation in materials (aka object space)</li>
+<li>Add undo/redo support to Material Instance editor window</li>
+<li>Add support for layered materials with blended displacement and tessellation factor</li>
+<li>Add <strong>Use Dithered LOD Transition</strong> option to materials for smoother LOD transitions</li>
+<li>Add <em>Use Input World Space Normal</em> option to materials</li>
+<li>Add Draw Time chart to profiler main page</li>
+<li>Add <code>GraphicsDevice.VendorId</code> and <code>GraphicsDevice.Description</code> to C# API</li>
+<li>Add caching editor viewport properties in windows layout</li>
+<li>Add validation for model LODs Screen Size sequence (warns on error)</li>
+<li>Add pack/unpack material layer nodes with world displacement and tessellation multiplier</li>
+<li>Add <strong>Multi Blend 2D</strong> node to Anim Graph</li>
+<li>Add <strong>Multi Blend 1D</strong> node to Anim Graph</li>
+<li>Add <strong>Blend Pose</strong> node to Anim Graph</li>
+<li>Add Anim Graph nodes for get/set/add root motion</li>
+<li>Add floor model to Anim Graph animation preview</li>
+<li>Add closing import dialog on escape key and import on enter</li>
+<li>Adjust model preview lighting  in editor</li>
+<li>Add <em>Boolean</em> math nodes to Anim Graph (boolean math)</li>
+<li>Add <em>Bitwise</em> operations to Anim Graph (integer math)</li>
+<li>Add <em>Comparisons</em> operations to Anim Graph (values comparing)</li>
+<li>Add <em>Near Equal</em> method to Anim Graph math library</li>
+<li>Add shortcut for renaming content folders in tree view with F2 key</li>
+<li>Add option to drag and drop items using content window navigation buttons</li>
+<li>Add option to delete or duplicate folder in workspace tree view</li>
+<li>Add selecting textbox range with Shift key being pressed</li>
+<li>Add navigation with keyboard arrows in viewport without mouse captured</li>
+<li>Add navigation between profiler frames using keyboard arrows</li>
+<li>Add Reset to default option for custom editor property context menu</li>
+<li>Add default value attribute for various asset import options and engine types</li>
+<li>Add default values for material instance parameters (from base material)</li>
+<li>Add support for properties copy/paste in editor</li>
+<li>Add improvements to Visject Surface context menu</li>
+<li>Add <code>TextRender.LocalBox</code></li>
+<li>Add Near Plane setting to editor viewports</li>
+<li>Add more editor camera speed factors</li>
+<li>Add default values to PostFxSettings for easier editing</li>
+<li>Add <code>Blur Strength</code> property to Depth Of Field settings</li>
+<li>Add <em>Focus Game Win On Play</em> to editor options</li>
+<li>Add default value restoring option to editor options</li>
+<li>Add support for virtual CollisionData asset and cooking mesh collision at runtime</li>
+<li>Add support for choosing an animation clip index to import from source file</li>
+<li>Add support for Pause button in game view to pause gameplay</li>
+<li>Add <code>RigidBody.ClosestPoint</code></li>
+<li>Add <code>RigidBody.AddRelativeForce</code> and <code>RigidBody.AddRelativeTorque</code></li>
+<li>Add <code>ReadOnly</code> attribute and support for it in editor</li>
+<li>Adjust limits for various properties for better usage when adjusting for the big scenes</li>
+<li>Improve dynamic box types update and boolean value editing for Visject Surface nodes</li>
+<li>Upgrade Xbox One Win 10 SDK to <em>10.0.17763.0</em></li>
+<li>Improve Windows Driver Kit (WDK) install location finding for tools used by UWP/XboxOne deployment</li>
+<li>Improve streamable audio sources buffers queue submission</li>
+<li>Refactor source code editors, add support for custom source code editing plugins</li>
+<li>Use white color as default vertex color when none binded</li>
+<li>Use string.Empty for converting empty c++ string to c# world</li>
+<li>Remove camera far plane limit</li>
+<li>Add source code editor option in Editor</li>
+<li>Optimize serialization</li>
+<li>Fix updating dependent boxes types on Visject Surface load</li>
+<li>Fix AssetPicker focus on some actions</li>
+<li>Fix main material node boxes update</li>
+<li>Fix settings material parameter using double value type to float or int parameter</li>
+<li>Fix material generator material features flags gather for layered materials</li>
+<li>Fix render viewport properties setup for shadow passes</li>
+<li>Fix various typos and improve code documentation</li>
+<li>Fix bool type param get node init (in Visject Surface)</li>
+<li>Fix color for Bool type boxes in Visject Surface</li>
+<li>Fix crash for prefab apply with removed objects from prefab</li>
+<li>Fix audio source velocity update</li>
+<li>Fix audio clip quality option restoring on reimport</li>
+<li>Fix Xbox One support</li>
+<li>Fix rare text layout calculating issues for words wrapping option enabled</li>
+<li>Refactor material parameters gather in vertex shader to be more optimized (better instructions reusing)</li>
+<li>Refactor scene rendering (linear list of geometry instances instead of tree traversal)</li>
+<li>Refactor UI window mouse events</li>
+<li>Optimize float/half transformation using SIMD</li>
+<li>Disable per mesh culling during model drawing</li>
+<li>Optimize draw calls sorting (use radix sort and better data locality to reduce cache misses)</li>
+<li>Optimize writing to instance buffer</li>
+<li>Optimize scene ticking</li>
+<li>Draw animation filename in thumbnail</li>
+<li>Don&#39;t rebuild Visject param get node boxes on value change if param type is the same</li>
+<li>Optimize visject graph backend (reduced amount of dynamic memory allocations and faster graph processing times)</li>
+<li>Reduce thread locks in render code</li>
+<li>Prevent drawing 2 or more frames in a row without update or fixed update</li>
+<li>Allow to model LOD Screen Size be higher than 1</li>
+<li>Remove <code>ViewFlags.DynamicActors</code></li>
+<li>Fix <code>VisibleIf</code> attribute processing</li>
+<li>Fix Actor.LocalToWorldMatrix getter</li>
+<li>Fix Screen.Size in editor when game window is not selected</li>
+<li>Fix editing script reference property via drag in editor</li>
+<li>Fix <code>Actor.LookAt</code> in certain cases</li>
+<li>Fix minor memory leaks on engine exit</li>
+<li>Fix baking lightmap for scenes with many lightmaps required</li>
+<li>Fix combobox crash with anim graph bone picker controls</li>
+<li>Fix engine startup crash when no audio devices found</li>
+<li>Fix crash when playing audio without audio devices</li>
+<li>Fix motion vectors rendering for objects linked to Bone Socket actor</li>
+<li>Fix minor bug with visject value parsing with regex</li>
+<li>Fix parameter get Visject node if one of the params is invisible to UI</li>
+<li>Maaaaaany fixes (oh sooo many)</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_3/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Geometry Drawing | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Geometry Drawing | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-geometry-drawing">Custom Geometry Drawing</h1>
+
+<p>In this tutorial you will learn how to implement custom geometry drawing. This technique allows to create custom geometry data, proces sit and display on a screen. It can be used to implement custom rendering for a game.</p>
+<h2 id="1-create-new-shader">1. Create new shader</h2>
+<p>Firstly, create empty file in folder <strong>Source/Shaders</strong> and name it in a proper way, eg. <code>CustomGeometryDrawing.shader</code>. You can do it manually or use Editor and <em>right-click</em> in Content window shaders source folder <strong>New -&gt; Shader</strong>.</p>
+<p><img src="media/new-shader-source.png" alt="New Shader Source"></p>
+<p>If you&#39;re working with Visual Studio then use <strong>File -&gt; Generate project file</strong> option to ensure new file was added to VS project. Then you can <strong>double-click</strong> to open shader in code editor.</p>
+<p><img src="media/shader-editing.png" alt="Editing Shader Source"></p>
+<h2 id="2-write-vertex-and-pixel-shaders">2. Write Vertex and Pixel shaders</h2>
+<p>Now, we want to write a simple Vertex and Pixel shaders that will process our geometry and display it on a screen. To do so we first declare a constant buffer with object transformation (<code>WorldMatrix</code>) and camera+screen transformation (<code>ViewProjectionMatrix</code>). Those matrices are used to transform the vertex from model local-space to the world-space and then to the screen. This transformation is performed per-vertex in function <code>VS_Custom</code>. As you can see it gets <code>ModelInput</code> structure data as input (single vertex data) and outputs the processed vertex data in structure <code>VertexOutput</code>. Then, this data is processed by GPU which builds triangles, interpolates the triangles, performs the depth-test and calls the pixel shader function <code>PS_Custom</code> for every visible pixel on a screen. In this example we simple create a colro gradient based on the pixel <code>WorldPoition.y</code> which is a location on Y axis of the pixel in the game world.</p>
+<p>Also, note that vertex shader function contains a <code>META_VS_IN_ELEMENT(..)</code> attribute that informs the shader compiler and graphics pipeline backend that this function accepts the single RGB32 data as vertex position. If your ModelInput needs more data, remember to add the attributes there.</p>
+<pre><code class="lang-hlsl">#include &quot;./Flax/Common.hlsl&quot;
+
+META_CB_BEGIN(0, Data)
+float4x4 WorldMatrix;
+float4x4 ViewProjectionMatrix;
+META_CB_END
+
+// Geometry data passed to the vertex shader
+struct ModelInput
+{
+    float3 Position : POSITION;
+};
+
+// Interpolants passed from the vertex shader
+struct VertexOutput
+{
+    float4 Position : SV_Position;
+    float3 WorldPosition : TEXCOORD0;
+};
+
+// Interpolants passed to the pixel shader
+struct PixelInput
+{
+    float4 Position : SV_Position;
+    float3 WorldPosition : TEXCOORD0;
+};
+
+// Vertex shader function for custom geometry processing
+META_VS(true, FEATURE_LEVEL_ES2)
+META_VS_IN_ELEMENT(POSITION, 0, R32G32B32_FLOAT, 0, 0, PER_VERTEX, 0, true)
+VertexOutput VS_Custom(ModelInput input)
+{
+    VertexOutput output;
+    output.WorldPosition = mul(float4(input.Position.xyz, 1), WorldMatrix).xyz;
+    output.Position = mul(float4(output.WorldPosition.xyz, 1), ViewProjectionMatrix);
+    return output;
+}
+
+// Pixel shader fucntion for custom geoemtry drawing on a screen
+META_PS(true, FEATURE_LEVEL_ES2)
+float4 PS_Custom(PixelInput input) : SV_Target
+{
+    return lerp(float4(1, 0.1, 0, 1), float4(0.2, 0.9, 0.3, 1), frac(input.WorldPosition.y / 400));
+}
+</code></pre><h2 id="3-write-rendering-code">3. Write rendering code</h2>
+<p>Next step is to create a geometry buffers and render them with a custom shader.
+Create C# script and add it to the any actor on the scene. You can use <a href="../../scripting/new-script.html">this tutorial</a> to learn how to do it. Then, write the following code:</p>
+<pre><code class="lang-cs">using System;
+using System.Runtime.InteropServices;
+using FlaxEngine;
+
+public class CustomGeometryDrawing : PostProcessEffect
+{
+    /// &lt;summary&gt;
+    /// Shader constant buffer data structure that matches the HLSL source.
+    /// &lt;/summary&gt;
+    [StructLayout(LayoutKind.Sequential)]
+    private struct Data
+    {
+        public Matrix WorldMatrix;
+        public Matrix ViewProjectionMatrix;
+    }
+
+    private static readonly Vector3[] _vertices =
+    {
+        new Vector3(0, 0, 0),
+        new Vector3(100, 0, 0),
+        new Vector3(100, 100, 0),
+        new Vector3(0, 100, 0),
+        new Vector3(0, 100, 100),
+        new Vector3(100, 100, 100),
+        new Vector3(100, 0, 100),
+        new Vector3(0, 0, 100),
+    };
+
+    private static readonly uint[] _triangles =
+    {
+        0, 2, 1, // Face front
+        0, 3, 2,
+        2, 3, 4, // Face top
+        2, 4, 5,
+        1, 2, 5, // Face right
+        1, 5, 6,
+        0, 7, 4, // Face left
+        0, 4, 3,
+        5, 4, 7, // Face back
+        5, 7, 6,
+        0, 6, 7, // Face bottom
+        0, 1, 6
+    };
+
+    private GPUBuffer _vertexBuffer;
+    private GPUBuffer _indexBuffer;
+    private GPUPipelineState _psCustom;
+    private Shader _shader;
+
+    public Shader Shader
+    {
+        get =&gt; _shader;
+        set
+        {
+            if (_shader != value)
+            {
+                _shader = value;
+                ReleaseShader();
+            }
+        }
+    }
+
+    public override unsafe void OnEnable()
+    {
+        // Create vertex buffer for custom geometry drawing
+        _vertexBuffer = new GPUBuffer();
+        fixed (Vector3* ptr = _vertices)
+        {
+            var desc = GPUBufferDescription.Vertex(sizeof(Vector3), _vertices.Length, new IntPtr(ptr));
+            _vertexBuffer.Init(ref desc);
+        }
+
+        // Create index buffer for custom geometry drawing
+        _indexBuffer = new GPUBuffer();
+        fixed (uint* ptr = _triangles)
+        {
+            var desc = GPUBufferDescription.Index(sizeof(uint), _triangles.Length, new IntPtr(ptr));
+            _indexBuffer.Init(ref desc);
+        }
+
+#if FLAX_EDITOR
+        // Register for asset reloading event and dispose resources that use shader
+        Content.AssetReloading += OnAssetReloading;
+#endif
+
+        // Register postFx to all game views (including editor)
+        SceneRenderTask.GlobalCustomPostFx.Add(this);
+    }
+
+#if FLAX_EDITOR
+    private void OnAssetReloading(Asset asset)
+    {
+        // Shader will be hot-reloaded
+        if (asset == Shader)
+            ReleaseShader();
+    }
+#endif
+
+    public override void OnDisable()
+    {
+        // Remember to unregister from events and release created resources (it&#39;s gamedev, not webdev)
+        SceneRenderTask.GlobalCustomPostFx.Remove(this);
+#if FLAX_EDITOR
+        Content.AssetReloading -= OnAssetReloading;
+#endif
+        ReleaseShader();
+        Destroy(ref _vertexBuffer);
+        Destroy(ref _indexBuffer);
+    }
+
+    private void ReleaseShader()
+    {
+        // Release resources using shader
+        Destroy(ref _psCustom);
+    }
+
+    public override bool CanRender =&gt; base.CanRender &amp;&amp; Shader &amp;&amp; Shader.IsLoaded;
+
+    public override bool UseSingleTarget =&gt; true; // This postfx overdraws the input buffer without using output
+
+    public override PostProcessEffectLocation Location =&gt; PostProcessEffectLocation.BeforeForwardPass;
+
+    public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
+    {
+        // Here we perform custom rendering on top of the in-build drawing
+
+        // Setup missing resources
+        if (!_psCustom)
+        {
+            _psCustom = new GPUPipelineState();
+            var desc = GPUPipelineState.Description.Default;
+            desc.VS = Shader.GPU.GetVS(&quot;VS_Custom&quot;);
+            desc.PS = Shader.GPU.GetPS(&quot;PS_Custom&quot;);
+            _psCustom.Init(ref desc);
+        }
+
+        // Set constant buffer data (memory copy is used under the hood to copy raw data from CPU to GPU memory)
+        var cb = Shader.GPU.GetCB(0);
+        if (cb != IntPtr.Zero)
+        {
+            var data = new Data();
+            Matrix.Multiply(ref renderContext.View.View, ref renderContext.View.Projection, out var viewProjection);
+            Actor.GetLocalToWorldMatrix(out var world);
+            Matrix.Transpose(ref world, out data.WorldMatrix);
+            Matrix.Transpose(ref viewProjection, out data.ViewProjectionMatrix);
+            context.UpdateCB(cb, new IntPtr(&amp;data));
+        }
+
+        // Draw geometry using custom Pixel Shader and Vertex Shader
+        context.BindCB(0, cb);
+        context.BindIB(_indexBuffer);
+        context.BindVB(new[] {_vertexBuffer});
+        context.SetState(_psCustom);
+        context.SetRenderTarget(renderContext.Buffers.DepthBuffer.View(), input.View());
+        context.DrawIndexed((uint)_triangles.Length);
+    }
+}
+</code></pre><p>It overrides <strong>PostProcessEffect</strong> class which is used to inject custom rendering code into the in-build graphics pipeline.
+As you can see, the script registers in <code>OnEnable</code> and disposes in <code>OnDisable</code>. Function <code>OnAssetReloading</code> handles shader hot-reloading in editor so it will be called once you edit your shader so it can be updated. The actual rendering is performed in <code>Render</code> method that gets GPU Context, Rendering Context and Input/Output textures to use for rendering.</p>
+<p>Then <strong>add script</strong> to actor on scene and <strong>assign Shader</strong> property to the auto-imported shader source from <code>Content/Shaders</code>.</p>
+<h2 id="4-see-results">4. See results</h2>
+<p>Once you setup shader, script and add it to the scene you should be able to see in both Editor and Game viewports the rendered custom model. In case of problems see <em>Output Log</em> window in Editor as it may contain any compilation errors (for both C# script and shader code).</p>
+<p><img src="media/custom-geometry-drawing.png" alt="Sharpen Filter Example"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/shaders/custom-geometry-drawing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

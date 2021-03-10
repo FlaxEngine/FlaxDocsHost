@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Textures | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Textures | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="textures">Textures</h1>
+
+<p><img src="media/parallax-texture.png" alt="Textures"></p>
+<p><strong>Textures</strong> are assets that contain an image made of pixel-data. They are mainly used in materials to cover the surfaces.</p>
+<p>For example, texture can contain color information or material roughness variation so using it in material shader adds more realism.</p>
+<p>Textures can be also used outside the materials. For instance in UI or via direct CPU calculations. For more information about the C# scripting see <a href="http://docs.flaxengine.com/api/FlaxEngine.Texture.html">Texture</a> class page in the C# API documentation.</p>
+<h2 id="supported-file-types">Supported file types</h2>
+<p>Flax Engine supports importing the following list of file types as textures:</p>
+<ul>
+<li><code>.png</code></li>
+<li><code>.jpg</code></li>
+<li><code>.jpeg</code></li>
+<li><code>.bmp</code></li>
+<li><code>.gif</code></li>
+<li><code>.tga</code></li>
+<li><code>.tif</code></li>
+<li><code>.tiff</code></li>
+<li><code>.dds</code></li>
+<li><code>.hdr</code></li>
+<li><code>.raw</code></li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Flax imports only the first frame of animated image files, such as animated gifs or PNGs. They don&#39;t animate in Flax; they appear as static images.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>For documentation related to cube textures check out <a href="cube-textures.html">this page</a>.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>Files of type <code>.RAW</code> are assumed to contain 16-bit grayscale raw unsigned normalized values in little-endian byte order (it must be a square, width equals height). You can use them to import heightmaps for your terrain to minimalize quality loss during generating terrain from asset exported by the external tool (choose suggested <code>HdrRGBA</code> format with <code>no compression</code>).</p>
+</div>
+<h2 id="importing-a-texture">Importing a texture</h2>
+<p>The easiest way to import one or more textures is to drag them from <em>Explorer</em> to the <em>Content</em> window.</p>
+<p><img src="media/import-texture.jpg" alt="Importing Textures"></p>
+<p>Alternatively, you can use <strong>Import</strong> button in a <em>Content</em> window toolbar and then select files to import.</p>
+<p>After choosing the files <strong>Import file settings</strong> dialog shows up. It&#39;s used to specify import options per texture. In most cases the default values are fine and you can just press the <strong>Import</strong> button.</p>
+<p><img src="media/import-settings-textures.jpg" alt="Importing Textures"></p>
+<div class="NOTE"><h5>Note</h5><ul>
+<li>Flax automaticly detects imported texture type based on it&#39;s name. For instance: <em>Chair_Normal.png</em> will be detected as a normal map and <em>Chair_AO.png</em> will be detected as a grayscale texture (as it contains single channel ambient occlusion data).</li>
+<li>Using <strong>Import file settings</strong> dialog you can select more than one texture at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</li>
+</ul>
+</div>
+<p>Every texture can be reimport (relative path to the source file is cached) and import settings modified using <a href="texture-window.html">Texture Window</a>.</p>
+<p>For more information about textures import settings read dedicated documenation page <a href="import-settings.html">Textures Import Settings</a>.</p>
+<h2 id="using-textures">Using textures</h2>
+<p>To use your texture asset in a material simply drag and drop it into the material surface graph and use <em>Texture</em> node for sampling it.</p>
+<p><img src="../materials/media/texture-node.png" alt="Using Textures"></p>
+<p>To learn more about materials and using textures for rendering go to <a href="../materials/basics/index.html">Materials Basics</a> page.</p>
+<h2 id="procedural-textures">Procedural textures</h2>
+<p><img src="media/cubeResult.png" alt="Procedural texture"></p>
+<p>Flax API exposes several methods that enable you to create and use procedural textures from your code. To learn how to use it see the related tutorial here: <a href="generate-texture.html">How to create a procedural texture</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/textures/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

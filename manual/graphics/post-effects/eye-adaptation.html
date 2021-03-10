@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Eye Adaptation | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Eye Adaptation | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="eye-adaptation">Eye Adaptation</h1>
+
+<p><img src="media/eye-adaptation.png" alt="Eye Adaptation"></p>
+<p><strong>Eye Adaptation</strong>, or <strong>automatic exposure</strong>, is an effect used to simulate human eye adaptation to light exposure. In a similar way works light sensor in real cameras. It modifies the exposure to adapt the image brightness. For instance, if human moves from a bright environment into a dark environment, eyes are adjusting to the amount of incoming light.</p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/eye-adaptation-properties.jpg" alt="Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mode</strong></td>
+<td>The effect rendering mode used for the exposure processing. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>None</strong></td><td>Disabled eye adaptation effect.</td></tr><tr><td><strong>Manual</strong></td><td>The manual mode that uses a fixed exposure values.</td></tr><tr><td><strong>Automatic Histogram</strong></td><td>The automatic mode applies the eye adaptation exposure based on the scene color luminance blending using the histogram. Requires compute shader support.</td></tr><tr><td><strong>Automatic Average Luminance</strong></td><td>The automatic mode applies the eye adaptation exposure based on the scene color luminance blending using the average luminance.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Speed Up</strong></td>
+<td>The speed at which the exposure changes when the scene brightness moves from a dark area to a bright area (brightness goes up).</td>
+</tr>
+<tr>
+<td><strong>Speed Down</strong></td>
+<td>The speed at which the exposure changes when the scene brightness moves from a bright area to a dark area (brightness goes down).</td>
+</tr>
+<tr>
+<td><strong>Pre Exposure</strong></td>
+<td>The pre-exposure value applied to the scene color before performing post-processing (such as bloom, lens flares, etc.).</td>
+</tr>
+<tr>
+<td><strong>Post Exposure</strong></td>
+<td>The post-exposure value applied to the scene color after performing post-processing (such as bloom, lens flares, etc.) but before color grading and tone mapping.</td>
+</tr>
+<tr>
+<td><strong>Minimum Brightness</strong></td>
+<td>The minimum brightness for the auto exposure which limits the lower brightness the eye can adapt within.</td>
+</tr>
+<tr>
+<td><strong>Maximum Brightness</strong></td>
+<td>The maximum brightness for the auto exposure which limits the upper brightness the eye can adapt within.</td>
+</tr>
+<tr>
+<td><strong>Histogram Low Percent</strong></td>
+<td>The lower bound for the luminance histogram of the scene color. Value is in percent and limits the pixels below this brightness. Use values from range 60-80. Used only in AutomaticHistogram mode.</td>
+</tr>
+<tr>
+<td><strong>Histogram High Percent</strong></td>
+<td>The upper bound for the luminance histogram of the scene color. Value is in percent and limits the pixels above this brightness. Use values from range 80-95. Used only in AutomaticHistogram mode.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/post-effects/eye-adaptation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

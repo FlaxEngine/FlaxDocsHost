@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Importing models | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Importing models | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="importing-models">Importing models</h1>
+
+<p>Importing model files works in the same way as for other asset types. Simply drag and drop the model files from <em>Explorer</em> into the <em>Content</em> window or use the <em>Import</em> button.</p>
+<p><img src="media/import-model.jpg" alt="Importing Model"></p>
+<p>After choosing the files <strong>Import file settings</strong> dialog shows up. It&#39;s used to specify import options per model. In most cases the default values are fine and you can just press the <strong>Import</strong> button.</p>
+<div class="NOTE"><h5>Note</h5><p>Using <strong>Import file settings</strong> dialog you can select more than one model at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</p>
+</div>
+<p>Every model can be reimported (relative path to the source file is cached) and import settings modified using <a href="model-window.html">Model Window</a>.</p>
+<h2 id="supported-file-types">Supported file types</h2>
+<p>Flax Engine supports importing the following list of file types as models:</p>
+<ul>
+<li><code>.fbx</code> - currently recommended format</li>
+<li><code>.gltf</code></li>
+<li><code>.glb</code></li>
+<li><code>.obj</code></li>
+<li><code>.x</code></li>
+<li><code>.dae</code></li>
+<li><code>.blend</code></li>
+<li><code>.lwo</code></li>
+<li><code>.lws</code></li>
+<li><code>.lxo</code></li>
+<li><code>.ply</code></li>
+<li><code>.q3o</code></li>
+<li><code>.q3s</code></li>
+<li><code>.stl</code></li>
+</ul>
+<h2 id="importing-model-lods">Importing model LODs</h2>
+<p>Flax supports up to 6 model level of details. To import them use <code>LODx</code> (where <code>x</code> is a LOD index, zero-based) postfix for object nodes in model file. Also when importing model ensure to check the <strong>Import LODs</strong> option.</p>
+<p>Example usage (from Blender):</p>
+<p><img src="media/model-lods-example.jpg" alt="Model LODs import example"></p>
+<h2 id="model-import-settings">Model import settings</h2>
+<p><img src="media/imort-model-settigns.jpg" alt="Models"></p>
+<p>Flax uses the same import settings data scheme for <strong>models</strong>, <strong>skinned models</strong> and <strong>animations</strong> as they all can be imported from the same source files (eg. <code>.fbx</code> or <code>.dae</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>The type of the imported asset. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Model</strong></td><td>The model asset.</td></tr><tr><td><strong>Skinned Model</strong></td><td>The skinned model asset.</td></tr><tr><td><strong>Animation</strong></td><td>The animation asset.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Geometry</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Calculate Normals</strong></td>
+<td>If checked, model normal vectors will be recalculated.</td>
+</tr>
+<tr>
+<td><strong>Smoothing Normals Angle</strong></td>
+<td>Specifies the maximum angle (in degrees) that may be between two face normals at the same vertex position that their are smoothed together. Used only if <em>Calculate Normals</em> is checked. The default value is 175.</td>
+</tr>
+<tr>
+<td><strong>Calculate Tangents</strong></td>
+<td>If checked, model tangent vectors will be recalculated.</td>
+</tr>
+<tr>
+<td><strong>Smoothing Tangents Angle</strong></td>
+<td>Specifies the maximum angle (in degrees) that may be between two vertex tangents that their tangents and bi-tangents are smoothed. Used only if <em>Calculate Tangents</em> is checked. The default value is 45.</td>
+</tr>
+<tr>
+<td><strong>Optimize Meshes</strong></td>
+<td>If checked, model meshes geometry will be optimized. Duplicated or invalid vertices will be removed. Index buffer will be reordered to improve performance and other modification will be applied. However, importing time will be increased.</td>
+</tr>
+<tr>
+<td><strong>Merge Meshes</strong></td>
+<td>If checked, meshes with the same materials will be merged. Helps with rendering performance.</td>
+</tr>
+<tr>
+<td><strong>Import LODs</strong></td>
+<td>If checked, model importer will try to find LODs and import them. See <em>Importing model LODs</em> section to learn more.</td>
+</tr>
+<tr>
+<td><strong>Import Vertex Colors</strong></td>
+<td>If checked, vertex colors will be imported (channel 0 only, if exists).</td>
+</tr>
+<tr>
+<td><strong>Import Blend Shapes</strong></td>
+<td>If checked, blend shapes will be imported (morph targets).</td>
+</tr>
+<tr>
+<td><strong>Lightmap UVs Source</strong></td>
+<td>Specifies model lightmap texture coordinates source. Can import them from the source model or generate them with in-build tool. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Disable</strong></td><td>Don&#39;t use lightmap UVs.</td></tr><tr><td><strong>Generate</strong></td><td>Generate lightmap UVs from model geometry. Requires proper normal/tangent vectors. Highly increases the importing time.</td></tr><tr><td><strong>Channel 0</strong></td><td>Use input mesh texture coordinates channel 0.</td></tr><tr><td><strong>Channel 1</strong></td><td>Use input mesh texture coordinates channel 1.</td></tr><tr><td><strong>Channel 2</strong></td><td>Use input mesh texture coordinates channel 2.</td></tr><tr><td><strong>Channel 3</strong></td><td>Use input mesh texture coordinates channel 3.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Transform</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>Custom uniform scale applied to the imported model data.</td>
+</tr>
+<tr>
+<td><strong>Rotation</strong></td>
+<td>Custom import geometry rotation applied to the imported model data.</td>
+</tr>
+<tr>
+<td><strong>Translation</strong></td>
+<td>Custom import geometry offset applied to the imported model data.</td>
+</tr>
+<tr>
+<td><strong>Center Geometry</strong></td>
+<td>If checked, the imported geometry will be shifted to the center of mass.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Animation</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>Specifies the imported animation duration mode. Can use the original value or overriden by settings. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Imported</strong></td><td>The imported duration.</td></tr><tr><td><strong>Custom</strong></td><td>The custom duration specified via keyframes range.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Frames Range Start</strong></td>
+<td>Imported animation first frame index. Used only if Duration mode is set to Custom.</td>
+</tr>
+<tr>
+<td><strong>Frames Range End</strong></td>
+<td>Imported animation last frame index. Used only if Duration mode is set to Custom.</td>
+</tr>
+<tr>
+<td><strong>Default Frame Rate</strong></td>
+<td>The imported animation default frame rate. Can specify the default frames per second amount for imported animation. If value is 0 then the original animation frame rate will be used.</td>
+</tr>
+<tr>
+<td><strong>Sampling Rate</strong></td>
+<td>The imported animation sampling rate. If value is 0 then the original animation speed will be used.</td>
+</tr>
+<tr>
+<td><strong>Skip Empty Curves</strong></td>
+<td>If checked, the imported animation will have removed tracks with no keyframes or unspecified data. Disable it to leave the data as it is.</td>
+</tr>
+<tr>
+<td><strong>Optimize Keyframes</strong></td>
+<td>If checked, the imported animation channels will be optimized to remove redundant keyframes. This option helps with getting better animation sampling performance.</td>
+</tr>
+<tr>
+<td><strong>Enable Root Motion</strong></td>
+<td>If checked, enables root motion extraction support from this animation.</td>
+</tr>
+<tr>
+<td><strong>Root Node Name</strong></td>
+<td>The custom node name to be used as a root motion source. If not specified the actual root node will be used.</td>
+</tr>
+<tr>
+<td><strong>Animation Index</strong></td>
+<td>The zero-based index for the animation clip to import. If the source file has more than one animation it can be used to pick a desired clip.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Generate LODs</strong></td>
+<td>If checked, the importer will generate a sequence of LODs based on the base LOD index.</td>
+</tr>
+<tr>
+<td><strong>Base LOD</strong></td>
+<td>The index of the LOD from the source model data to use as a reference for following LODs generation.</td>
+</tr>
+<tr>
+<td><strong>LOD Count</strong></td>
+<td>The amount of LODs to include in the model (all reaming ones starting from Base LOD will be generated).</td>
+</tr>
+<tr>
+<td><strong>Triangle Reduction</strong></td>
+<td>The target amount of triangles for the generated LOD (based on the higher LOD). Normalized to range 0-1. For instance 0.4 cuts the triangle count to 40%.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Import Materials</strong></td>
+<td>If checked, the importer will create materials for model meshes as specified in the file.</td>
+</tr>
+<tr>
+<td><strong>Import Textures</strong></td>
+<td>If checked, the importer will import texture files used by the model and any embedded texture resources.</td>
+</tr>
+<tr>
+<td><strong>Restore Materials On Reimport</strong></td>
+<td>If checked, the importer will try to restore the assigned materials to the model slots.</td>
+</tr>
+
+</tbody></table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

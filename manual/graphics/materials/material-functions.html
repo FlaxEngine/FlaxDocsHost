@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Material Functions | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Material Functions | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="material-functions">Material Functions</h1>
+
+<p><strong>Material Function</strong> is an asset that contains a reusable material graph that contains a set of customizable inputs and outputs. Material functions can be used in materials and other material functions to implement custom logic that can be reused multiple times. For instance, you can create a custom tri-planar mapping function and call it in multiple terrain shaders. Material functions are a great way of improving content creation and technical art.</p>
+<h2 id="how-to-create-a-material-function">How to create a Material Function</h2>
+<p><img src="media/new-material-function.png" alt="New Material Function"></p>
+<p>The first step is to <em>right-click</em> in <em>Content</em> window and choose option <strong>New -&gt; Material Function</strong>. Then specify its name and confirm with <em>Enter</em>. Open the asset editor by double-clicking on it.</p>
+<p><img src="media/material-function-empty.png" alt="Empty Material Function"></p>
+<p>Now, you can let out your creativity and implement literally anything here. Material Function is a graph of normal material nodes but it contains custom <strong>Function Output</strong> and <strong>Function Input</strong> nodes on the graph that represent the function arguments and returned values. Material function can use textures and perform complex calculations enclosed in a reusable graph.</p>
+<p>By default, a new function will contain single <em>Float</em> output. You can edit the returned value type using the combobox and rename the output variable by double-clicking on the name label (<em>Output</em> by default).</p>
+<p>Below is an example of the function that gets the <em>Color</em> input of type <em>Vector3</em> and multiplies it by <em>R</em> channel of a sampled texture. Material functions can have multiple inputs and outputs that accept basic types and texture references too. Input nodes contain <strong>Default Value</strong> box that is optional and can be used to assign the default value of the input if caller doesn&#39;t specify it.</p>
+<p><img src="media/material-function.png" alt="Material Function"></p>
+<h2 id="how-to-use-material-function">How to use Material Function</h2>
+<p>Material function can be used in any other material function (excluding cyclic references) or material asset. To use it you can simply drag and drop the asset item into the target graph or use <em>right-click</em> and pick <strong>Material Function</strong> node, then pick the asset you&#39;ve created. The node will populate the input and output boxes according to the function signature.</p>
+<p>Finally, Flax will automatically update all materials using the material function if you modify it so you can freely work on the art content easily.</p>
+<p><img src="media/material-function-usage.png" alt="Material Function Usage"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/materials/material-functions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

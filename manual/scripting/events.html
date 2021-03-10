@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Script events | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Script events | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="script-events">Script events</h1>
+
+<p>Scripts in Flax does not work like the traditional programs where code runs continuously in a loop until end.
+Instead, Flax calls declared in script functions to handle specific game events like update or physics collision.
+These functions are called <strong>event functions</strong> because they are executed by Flax in response to events that occur during gameplay. Using these function allows you to implement gameplay logic and handle different situations inside your game.</p>
+<pre><code class="lang-cs">public class MyScript : Script
+{
+    public override void OnStart()
+    {
+        // Here you can add code that needs to be called when script is created
+    }
+
+    public override void OnUpdate()
+    {
+        // Here you can add code that needs to be called every frame
+    }
+}
+</code></pre><h2 id="event-functions">Event functions</h2>
+<p>The following table lists all the available event functions to override from the base <strong>Script</strong> class.</p>
+<div class="TIP"><h5>Tip</h5><p>You don&#39;t have to call the base class methods if you script inherits directly from Script type. The default implementations are empty.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>void OnAwake()</strong></td>
+<td>Called after the object is loaded. Before the enabling it or calling start.</td>
+</tr>
+<tr>
+<td><strong>void OnEnable()</strong></td>
+<td>Called when object becomes enabled and active.</td>
+</tr>
+<tr>
+<td><strong>void OnDisable()</strong></td>
+<td>Called when object becomes disabled and inactive.</td>
+</tr>
+<tr>
+<td><strong>void OnDestroy()</strong></td>
+<td>Called before the object will be destroyed.</td>
+</tr>
+<tr>
+<td><strong>void OnStart()</strong></td>
+<td>Called when a script is enabled just before any of the Update methods is called for the first time.</td>
+</tr>
+<tr>
+<td><strong>void OnUpdate()</strong></td>
+<td>Called every frame if object is enabled.</td>
+</tr>
+<tr>
+<td><strong>void OnLateUpdate()</strong></td>
+<td>Called every frame (after <em>Update</em>) if object is enabled.</td>
+</tr>
+<tr>
+<td><strong>void OnFixedUpdate()</strong></td>
+<td>Called every fixed framerate frame if object is enabled.</td>
+</tr>
+<tr>
+<td><strong>void OnDebugDraw()</strong></td>
+<td>Called during drawing debug shapes in editor. Use <a href="https://docs.flaxengine.com/api/FlaxEngine.DebugDraw.html">DebugDraw</a>.</td>
+</tr>
+<tr>
+<td><strong>void OnDebugDrawSelected()</strong></td>
+<td>Called during drawing debug shapes in editor when the object is selected. Use <a href="https://docs.flaxengine.com/api/FlaxEngine.DebugDraw.html">DebugDraw</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="order-of-execution-for-event-functions">Order of execution for event functions</h2>
+<p>Script events are invoked in the following order:</p>
+<p><img src="media/script-events.png" alt="Script Events Order"></p>
+<h3 id="initialization">Initialization</h3>
+<p>Every created and added to <em>Actor</em> script receives <strong>OnAwake</strong>. If Script and its parent are active in the hierarchy then <strong>OnStart</strong> and <strong>OnEnable</strong> are being called (on game start or object spawn). Otherwise, this call is postponed until someone enables that script.</p>
+<p>Events OnAwake and OnStart can be called only once on a script. OnStart is always called before the first OnEnable.</p>
+<h3 id="game-logic">Game Logic</h3>
+<p>Engine main loop update is highly configurable and supports performing the game update, physics update and drawing at different framerates. This means that update, fixed update, and a draw might be desynchronized and not called in the same order. Event <strong>OnUpdate</strong> is called during the game update, then is followed by <strong>OnLateUpdate</strong>. During physics update engine invokes <strong>OnFixedUpdate</strong>. During rendering engine can invoke <strong>OnDebugDraw</strong> and <strong>OnDebugDrawSelected</strong> (used by the editor).</p>
+<h3 id="deinitialization">Deinitialization</h3>
+<p>On game end all scripts are disabled and <strong>OnDisable</strong> event is called when removing the object from gameplay. Then during actual object destruction, the <strong>OnDestroy</strong> is invoked. Also, if the script becomes inactive (eg. someone disables it or one of its parents in its hierarchy) then the engine invokes <strong>OnDisable</strong>. The disabled script can be activated again and receive <em>OnEnable</em> to begin being part of the gameplay logic.</p>
+<p>Event OnDestroy can be called only once on a script. Flax does not use the script anymore after OnDestroy event invocation.</p>
+<h3 id="events-in-editor">Events in Editor</h3>
+<p>Flax does not invoke any script events during <code>edit-time</code> (when the scene is loaded and the user modifies it) except <strong>OnDebugDraw</strong> and <strong>OnDebugDrawSelected</strong>. Only when in-build play mode starts the actual game logic is being simulated. However, if the game script wants to receive events during editing it can be marked with <code>[ExecuteInEditMode]</code> attribute. Then all events will be called normally.</p>
+<h3 id="order">Order</h3>
+<p>The Script event&#39;s invocation order depends on the event type. Gameplay logic events (update, fixed update and debug drawing) are called in non-stable order so gameplay logic should not depend on it. Initialization events (awake, enable, start) and deinitialization events (disable, destroy) are always called for the parent objects first, then further down into the hierarchy. This means that script in parent actor can query the child actors&#39; objects and scripts but they might not be initialized yet.</p>
+<p>However, you can still use initialization events to add new objects as child actors/scripts because Flax will invoke initialization for them when required.</p>
+<p>All script events are called when a script is already deserialized and has valid data ready to use.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

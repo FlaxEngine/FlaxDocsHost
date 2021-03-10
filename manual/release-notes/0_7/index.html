@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.7 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.7 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-07-release-notes">Flax 0.7 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="new-project-format">New Project Format</h3>
+<p><img src="media/project-structure.png" alt="New Projects Format"></p>
+<p>One of the most important changes before releasing 0.7 update was to modernize Flax project format and layout to ensure they will be able to scale in the future. Old <em>Project.xml</em> descriptor was replaced with <strong>&lt;project_name&gt;.flaxproj</strong> file that is in Json format and conatins all basic project information as well as <strong>project references</strong> which makes it possible to use external plugin projects in your game. We&#39;ve also added <a href="../../scripting/index.html">scripting modules</a> so your game code can be modular (similar to Flax Engine codebase).</p>
+<p>Flax Editor will <strong>automatically upgrade old projects</strong> and ask to perform a <strong>safe backup</strong> before any operations so all your data will be secure.</p>
+<p>If you download the new Flax Launcher or update the own you have it will allow you to open Flax Project files with a double-click and use the context menu to generate scripts project files.</p>
+<h3 id="c-scripting">C++ Scripting</h3>
+<p><img src="media/cpp-scripting.png" alt="C++ Scripting"></p>
+<p>It finally happened! You can use <strong>C++ in Flax</strong> games to script gameplay. Starting from this update we will distribute engine header files and build tools to compile and run native code in Flax. All you need to do is to install platform-dependant toolset with compiler and you are ready to go!</p>
+<p>Flax supports <strong>seamless C++ and C# scripting</strong>. We&#39;ve created an open ecosystem where you can mix both languages and leverage Flax tools to create great projects. We&#39;ve managed to write <strong>automatic C# bindings generator</strong> in <a href="../../editor/flax-build/index.html">Flax.Build</a>, create <strong>hacking native objects vtables for virtual calls</strong>, and support <strong>hot-reloading C++ and C# in Editor</strong>.</p>
+<p>To learn more see the official documentation <a href="../../scripting/cpp/index.html">here</a>.</p>
+<p>New C++ scripting support required to modernize the existing game building pipeline. As a result, build logging has been improved, the build process has more customizable events as well as custom files deployment is supported. Shaders can also be cooked with additional debug data or without optimizations to debug them at the target device (eg. PS4 DevKit).</p>
+<h3 id="playstation-4-and-xbox-scarlett-support">PlayStation 4 and Xbox Scarlett support</h3>
+<p><img src="media/flax-ps4-gameplay.gif" alt="PlayStation 4 with Flax"></p>
+<p>Every update moves Flax towards the AAA-ready engine. This time we&#39;ve ported the engine to <strong>PlayStation 4</strong> and upcoming <strong>Xbox Scarlett</strong> (aka. Xbox Series X). With Flax power, you can create amazing experiences and easily ship them to the multiple platforms.</p>
+<p>Support for PlayStation 4 and Xbox Scarlett platforms in Flax is NDA-protected. If you want to develop your game on PS4 please contact (available only for developers approved by Sony with access to PS4 SDK).</p>
+<h3 id="graphics-programming-with-shaders">Graphics Programming with Shaders</h3>
+<p><img src="media/sharpen-filter-example.png" alt="Custom Shaders and GPU API in Flax"></p>
+<p>Flax already has great tools for shaders creation with Material Graph but we wanted to move it even further. In this update, you can user our low-level graphics abstraction layer that supports using GPU directly in your C++/C# code. You can create and use GPU resources such as textures/buffers and create graphics commands.</p>
+<p>Another step was to add full <strong>HLSL</strong> shaders support in game and plugin projects so you can write own shader libraries and use them in games. We&#39;ve shipped our Shader API library with the engine sources which contains lots of utilities to create fancy shaders. You can write Pixel, Geometry, Hull, Vertex, and Compute Shaders to perform any GPU computing. We&#39;ve exposed low-level drawing API so you can create own geometry and render it with own shaders or extend the existing in-build rendering. Finally, shaders support now automatic hot-reloading in Editor (when source file gets modified or any of the included files).</p>
+<p>To start creating own shaders see our documentation and tutorials <a href="../../graphics/shaders/index.html">here</a>.</p>
+<h3 id="gameplay-globals">Gameplay Globals</h3>
+<p><img src="media/gameplay-globals-editing.gif" alt="Gampleay Globals Runtime"></p>
+<p>When creating more complex game systems that rely on the content or when creating technical art it’s often useful to give global parameters that can affect the whole gameplay. For example, player team color, wind direction, wind speed or other weather parameters. <strong>Gameplay Globals</strong> asset contains a list of named parameters that can be accessed globally in the project including materials, animations, and particles. Their values can be set by the artist in the editor or driven from code. This vastly improves production speed and gives game developers a great tool to enrich the content of their games.</p>
+<p><img src="media/gameplay-globals-4.png" alt="Gameplay Globals in asset"></p>
+<h3 id="ui-anchors-and-offsets">UI Anchors and Offsets</h3>
+<p><img src="media/anchor-presets.png" alt="UI Anchors and Offsets"></p>
+<p>We&#39;ve mdoernized UI positioning and anchors system to be mroe flexible (or <em>flax</em>ible). The controls have now anchor min and anchor max properties which can be set manually or via <em>Anchor Presets</em> editor. The control anchors are normalized (to range 0-1) position in the parent control that the upper left and bottom right corners. This can be used to dock control inside the parent container so control location/size can depends on parent container bounds.</p>
+<h3 id="material-particle-graph-and-anim-graph-functions">Material, Particle Graph and Anim Graph Functions</h3>
+<p><img src="media/material-function.png" alt="Material Functions"></p>
+<p>When creating complex materials, animation graphs, or particle systems often you need to reuse the same part of the graph multiple times. For instance, the tri-planar mapping calculation could be reused in multiple terrain shaders without copy-paste. To achieve this we&#39;ve created new set of assets: <strong>Material Functions</strong>, <strong>Anim Graph Functions</strong>, and <strong>Particle Graph Functions</strong>. They can contain a custom set of input and outputs with graph that implement a certain logic. Then you can reuse that function in many other assets and Flax will automatically handle reloads and live content editing to make your game development process even smoother.</p>
+<p>To start <a href="../../graphics/materials/material-functions.html">here</a> is a tutorial about Material Functions.</p>
+<h3 id="blend-shapes-support">Blend Shapes support</h3>
+<p>Flax supports importing and using Blend Shapes (aka. morph targets) for skinned models. This can be useful to implement character  face emotions or lipsync during dialog scenes. When importing asset check <strong>Import Blend Shapes</strong> option. Then you will be able to preview the blend shapes in the skinned model window (each channel is adjustable under Blend Shapes group). Then you can control blend shapes appearance at runtime from code using <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html">AnimatedModel</a> class methods <em>SetBlendShapeWeight</em> / <em>GetBlendShapeWeight</em> / <em>ClearBlendShapeWeights</em>.</p>
+<h3 id="inverse-kinematics">Inverse Kinematics</h3>
+<p><img src="media/two-bone-ik.gif" alt="Two Bone IK"></p>
+<p>This update contains new AnimGraph nodes: <strong>Two Bone IK</strong> that performs inverse kinematic on a three nodes chain (eg. player hands picking a gun) and <strong>Aim IK</strong> that rotates a node so it aims at a target (eg. for player header look at). We&#39;ve also improved skeleton nodes transformations in the graph as a result it runs faster with better stability.</p>
+<h3 id="automatic-model-lod">Automatic Model LOD</h3>
+<p><img src="media/automatic-model-lod.gif" alt="Automatic Model LOD"></p>
+<p>Another exciting feature is the automated model LODs generation during source asset importing. When importing model file simply check <strong>Generate LODs</strong> property (under <em>Level Of Detail</em> group) and adjust the settings. The imported model will contain simplified LODs that will gracefully improve the performance of your game. This option works for skinned models too. Flax will also pick better screen-sizes for switching the LODs so players won&#39;t notice LODs transitions (<em>Dithered LOD Transition</em> option in material helps to hide popping artifacts). Also, lower LODs can use different materials - eg. more optimized with fewer textures used so you can develop even more performant games.
+We use: <a href="https://github.com/zeux/meshoptimizer">https://github.com/zeux/meshoptimizer</a> lib for mesh simplification and optimization of generated geometry. Part of the log from importing this model:</p>
+<pre><code>Generated LOD1: triangles: 7100 (48% of base LOD), verteces: 3052 (16% of base LOD)
+Generated LOD2: triangles: 3352 (22% of base LOD), verteces: 1153 (6% of base LOD)
+Generated LOD3: triangles: 1516 (10% of base LOD), verteces: 484 (2% of base LOD)
+Generated LODs for 3 meshes in 17 ms
+</code></pre><h3 id="more-editor-features">More Editor Features</h3>
+<p><img src="media/model-uv-preview.gif" alt="Model Textures Coords Preview in Editor"></p>
+<p>Every update brings more stability, performance and shiny features to Flax Editor. The most interesting ones are:</p>
+<ul>
+<li><strong>Custom Editor Themes</strong> support (made by <em>stefnotch</em>)</li>
+<li>Model TexCoord, LightmapUVs preview</li>
+<li>Geoemtry vertex colors and lightmapUVs density debug views</li>
+<li>Search tab for spawning custom actors</li>
+<li>Opening shader assets in editor</li>
+<li>Tooltips for models/textures with asset info</li>
+<li><strong>Automatic materials and textures import</strong> from models</li>
+<li>View options in Content Window</li>
+</ul>
+<p><img src="media/editor-custom-theme.png" alt="Custom Editor Theme"></p>
+<h3 id="the-last-refactor">The Last Refactor</h3>
+<p>Finally, we&#39;ve modified the C# scripting API (FlaxAPI repo won&#39;t receive new sources). This is related to the new automatic bindings generator we use and major projects refactor. Since this update, we&#39;ve started preparing for the first stable 1.0 version so we&#39;re waiting for your feedback (especially on new C++ scripting). After Beta version end, API changes won&#39;t break existing code between minor updates and any old code will be marked as deprecated. Also, we will keep the automatic conversion code for old assets for at least a year to ensure no one loses its data. In case of problems with upograding your existing Flax projects let us know. Finally, we&#39;ve updated our <a href="https://github.com/FlaxEngine/FlaxSamples">Flax Samples</a> so you can check it out.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-076196---13-july-2020">Version 0.7.6196 - 13 July 2020</h3>
+<ul>
+<li>Add <strong>support for Visual Studio Code</strong></li>
+<li>Add <code>Spacing</code> feature to <code>CollectionAttribute</code></li>
+<li>Add spacing between material slots, input actions/axes and model entries in Editor UI</li>
+<li>Add VS Code detection in Flax.Build and Editor on Windows</li>
+<li>Add support for automatic adding of new scripts to Visual Studio projects</li>
+<li>Add editor camera speed change with shift+mouse wheel</li>
+<li>Add <em>Interface Scale</em> option to Editor Options</li>
+<li>Add autofocus to game UI root control on play in editor (if selected)</li>
+<li>Add support for Visject parameters attributes</li>
+<li>Add Anim Graph parameters attributes to Animated Model params listing in Editor</li>
+<li>Add Material parameters attributes to Material Instance interface</li>
+<li>Add Particle Emitter Graph parameters attributes usage in Particle System Window and Particle Effect properties panel</li>
+<li>Add expanding Value group in ObjectSwitcherEditor editor</li>
+<li>Add support for displaying current amount of GPU particles in the simulation</li>
+<li>Add support for whole arguments quoited for Flax.Build</li>
+<li>Add drag&amp;drop for Gameplay Globals asset into graph surfaces</li>
+<li>Increase scroll bars sizes in Output Log Window</li>
+<li>Increase default scene lighting brightness for better look</li>
+<li>Disable scrolling in Content Window when renaming an item</li>
+<li>Optimize stack trace for Visject Graph callbacks</li>
+<li>Optimize codebase for Shader Graph and Visject Graph</li>
+<li>Fix scrolling to item in Content Window for renaming</li>
+<li>Fix memory allocation on MAssembly::GetClass by fullname when using dictionary lookup</li>
+<li>Fix culling single text block in RichTextBoxBase</li>
+<li>Fix SliderControl usage with mouse</li>
+<li>Fix skeleton nodes names importing if using namespaces</li>
+<li>Fix support for C# 7.2</li>
+<li>Fix possible exception on Windows Toolchains checking in Flax.Build</li>
+<li>Fix skipping including C++ Flax project if game scripts are c# only</li>
+<li>Fix undo exception on VisjectSurfaceWindow closing with reaming property edit action end</li>
+<li>Fix terrain creation</li>
+<li>Fix running Flax.Build without project</li>
+</ul>
+<h3 id="version-076195---5-july-2020">Version 0.7.6195 - 5 July 2020</h3>
+<ul>
+<li>Fix crash when importing fbx model with invalid material</li>
+<li>Fix building and using C#-only projects without Windows 10 SDK installed</li>
+<li>Fix project files generation for C#-only projects (skip native projects and toolchain checks)</li>
+<li>Fix crash when converting invalid UTF-8 string to UTF-16</li>
+</ul>
+<h3 id="version-076194---3-july-2020">Version 0.7.6194 - 3 July 2020</h3>
+<p>Contributors: stefnotch, devjarmo</p>
+<ul>
+<li>Add <strong>new projects format</strong></li>
+<li>Add <strong>modules support for scripts</strong></li>
+<li>Add Flax.Build integration with game projects</li>
+<li>Add full-support for C++ scripting (requires engine source)</li>
+<li>Add support for <strong>overriding C++ objects virtual functions in C#</strong> (via vtables)</li>
+<li>Add support for hiding scripts from picking in editor via HideInEditor attribute</li>
+<li>Add support for <strong>custom actors in C#</strong></li>
+<li>Add <code>Search</code> tab to Toolbox for spawning any object with search box</li>
+<li>Add more funny quotes to the splash screen</li>
+<li>Add automatic Visual Studio project files generation on file open if solution is missing</li>
+<li>Add BoxVolume actor class for navmesh bounds actor and posFx volume actor</li>
+<li>Add support for creating scripting objects via C# object constructor</li>
+<li>Add checking if Visual Studio has Flax.VS installed (skip generating special C# projects if extension is missing)</li>
+<li>Add <strong>Xbox Scarlett support</strong> (Xbox Series X) - experimental</li>
+<li>Add new DirectX Shader Compiler support for <em>Shader Model 6</em> for D3D12</li>
+<li>Add <code>ForDistribution</code> option to Build Settings</li>
+<li>Add Remap to math lib</li>
+<li>Add custom <strong>color grading LUT</strong> support</li>
+<li>Add support for creating generic json assets from any class</li>
+<li>Add gray out sequence indication to play if game is not playing in editor</li>
+<li>Add bindable input shortcuts for dock windows navigation and closing</li>
+<li>Add SetViewportAndScissors to GPUContext</li>
+<li>Add more GPUBuffer C# API</li>
+<li>Add showing shaders source code in Editor</li>
+<li>Add support for adding new shader files from editor</li>
+<li>Add support for using <strong>shaders in game</strong>/plugins projects</li>
+<li>Add project file dialog when opening editor without project path specified</li>
+<li>Add tooltip for texture/model items with metadata</li>
+<li>Add Maximize/Restore options to dock window context menu (also via double click)</li>
+<li>Add skipping adding CSG actors if not using CSG</li>
+<li>Add Scenes Build feature to build all scenes data at once</li>
+<li>Add <strong>GPUShader to C# scripting API</strong></li>
+<li>Add model UVs and Lightmap UVs preview to Model Window in editor</li>
+<li>Add Draw event to scripting for custom rendering</li>
+<li>Add <code>RenderToTextureControl</code></li>
+<li>Add support for automatic materials and textures import from model files</li>
+<li>Add support for opening project with project file path specified instead of directory</li>
+<li>Add <code>LightmapUVsDensity</code> debug view</li>
+<li>Add <code>VertexColors</code> debug view</li>
+<li>Add area-weight-based coordinates space placement and rect-pack to allocate more space for bigger meshes in the model lightmap chart</li>
+<li>Add low-level GPU programming to C# API</li>
+<li>Add opening shader sources in code editor</li>
+<li>Add support for collecting native code crashes (stacktrace, memory dump, log)</li>
+<li>Add <code>-GenProjectFiles</code> command line option</li>
+<li>Add option to reset view flags</li>
+<li>Add generating scripts project files in a background</li>
+<li>Add logging parent actor name for missing objects when loading scene</li>
+<li>Add support for C++ scripting in editor content workspace</li>
+<li>Add support for hot-reloading C++ game modules at runtime in Editor</li>
+<li>Add always showing extension for script items in content window</li>
+<li>Add <strong>PlayStation 4 support</strong></li>
+<li>Add automatic hot reload for shaders based on their includes</li>
+<li>Add output log window auto focus on game build fail</li>
+<li>Add support for auto compiling shaders for game cooking when included file gets modified</li>
+<li>Add <strong>Gameplay Globals</strong></li>
+<li>Add tooltips for UI enums</li>
+<li>Add Visject surface parameter renaming validation</li>
+<li>Add support for undo recording for dictionary</li>
+<li>Add <strong>Anchors and Offsets</strong> to UI Controls</li>
+<li>Add View options to Content Window (iles extensions showing, view scale field, items filters picking and view list mode)</li>
+<li>Add tooltips support for content items</li>
+<li>Add NoOptimizeShaders option to Build Settings</li>
+<li>Add ShadersGenerateDebugData build option to generate debug info for shaders</li>
+<li>Add <strong>custom editor themes</strong> support</li>
+<li>Add more splash screen quotes</li>
+<li>Add highlight for selected node connections in Visject</li>
+<li>Add prioritize for Visject node search matches where the text starts with the text you&#39;re searching for (e.g. prevents sin from showing asin and cosine before sine)</li>
+<li>Add bringing the context menu for spawned nodes into view when typing in Visject</li>
+<li>Add CanOpenUrl and OpenUrl to Platform</li>
+<li>Add NetworkConnectionType to Platform</li>
+<li>Add error on invalid material param type setting instead of crashing</li>
+<li>Add support for <strong>overriding particle emitter parameters</strong> in edit-time (with values preview)</li>
+<li>Add <strong>new C# bindings generator</strong></li>
+<li>Add check to prevent resizing texture if texture size doesn&#39;t change</li>
+<li>Add support for NDA-protected platforms usage in Engine and Editor source codebase</li>
+<li>Add GPUDevice.VideoOutputModes</li>
+<li>Add Content.GetAllAssetsByType</li>
+<li>Add <strong>Material, Particle Graph and Anim Graph Functions</strong></li>
+<li>Add terrain and particle materials preview</li>
+<li>Add AdditionalAssets and AdditionalAssetFolders to build settings</li>
+<li>Add Platform Switch node to surface graphs</li>
+<li>Add FlipNormals option to model import settings</li>
+<li>Add support for panoramic skyboxes</li>
+<li>Add <strong>automatic LOD generation</strong> for static models</li>
+<li>Add support for skinned models LOD</li>
+<li>Add event Content.AssetReloading</li>
+<li>Add option for showing current LOD and it&#39;s stats in model window</li>
+<li>Add support for asset Dependencies in binary assets</li>
+<li>Add random values generation nodes to Anim Graph</li>
+<li>Add <strong>blend shapes support</strong></li>
+<li>Add caching skinned models data on CPU</li>
+<li>Add hiding too deep nodes in profiler events table-tree</li>
+<li>Add auto-detection for hdr textures on import to pick proper format by default</li>
+<li>Refactor game build configuration options</li>
+<li>Refactor engine services</li>
+<li>Refactor shader includes</li>
+<li>Refactor shader cache invalidation on includes editing and improve hot-reload</li>
+<li>Refactor high-level rendering API</li>
+<li>Rename SceneManager to Level</li>
+<li>Rename Keys to KeyboardKeys</li>
+<li>Move ProfilingTools from Editor module to Engine (available in Debug and Development builds)</li>
+<li>Disable sorting particles for shadow map renderign views</li>
+<li>Remove engine version postfix from asset cache file</li>
+<li>Remove calling OnDebugDrawSelected for full actors hierarchy</li>
+<li>Remove double-click for renaming actor in scene tree (use <code>F2</code> shortcut or properties window or right-click context menu)</li>
+<li>Remove showing scripts compilation errors/warnings in Debug Log window (use Output Log window for more detailed info)</li>
+<li>Remove Version from GameSettings (use value from project file)</li>
+<li>Remove Plugin Exporter - now plugins can be placed in plugin projects referenced by game modules</li>
+<li>Rename attribute MemberCollection to Collection</li>
+<li>Refactor UI controls system to support more flexible anchors</li>
+<li>Merge GPU shader constant buffers into objects to reduce dynamic memory allocations</li>
+<li>Change default plane to be 100x100 and rotated with proper axis</li>
+<li>Optimize surface shaders tangent frame passing from vertex to pixels shaders (use less registers)</li>
+<li>Optimize scissor rectangles to match viewport bounds to improve GPU perf in rendering code</li>
+<li>Improve asset file unlock on removing file with very slow HDD in use</li>
+<li>Improve model previews camera location</li>
+<li>Improve dictionaries editing in object properties</li>
+<li>Improve performance and memory usage when importing fbx models</li>
+<li>Improve debug drawing wire volumes</li>
+<li>Improve picking wire volumes</li>
+<li>Fix camera check if Scene Render Task</li>
+<li>Fix Alt+F4 on Windows</li>
+<li>Fix sRGB textures importing</li>
+<li>Fix scroll bars usage after undock</li>
+<li>Fix calling C# events from Actor::OnTransformChanged event</li>
+<li>Fix opening some source files in Visual Studio via Flax connection module</li>
+<li>Fix discarding shader cache if asset was modified externally</li>
+<li>Fix Windows 7 support (due to CreateDXGIFactory2 func missing)</li>
+<li>Fix maximizing editor tool windows</li>
+<li>Fix D3D11 object leak on read-only depth buffer handle</li>
+<li>Fix draw calls sorting for particle emitters that use World simulation space</li>
+<li>Fix crash when starting baking lightmaps when the lightmap textures are not fully loaded</li>
+<li>Fix text render flushing geometry buffers every draw</li>
+<li>Fix directional light shadow map pass view position</li>
+<li>Fix collecting asset references from nested state machine in Anim Graph</li>
+<li>Fix depth buffer view to cover full view distance</li>
+<li>Fix missing SkyboxMaterial in cooked game build</li>
+<li>Fix RichTextBoxBase bug with text hit testing</li>
+<li>Fix animated model LOD picking for aniamtion update frequency</li>
+<li>Fix ShaderProfile entries naming for DirectX</li>
+<li>Fix Windows file system watcher in some cases</li>
+<li>Fix moving the window when the context menu is open in Visject (no more zooming off into infinity)</li>
+<li>Fix showing connection line in Visject when right clicking after starting a connection</li>
+<li>Fix crash when extracting Audio Clip data that is not yet loaded</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_7/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

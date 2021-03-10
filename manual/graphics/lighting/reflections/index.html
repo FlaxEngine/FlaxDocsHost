@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reflections | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Reflections | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="reflections">Reflections</h1>
+
+<p><img src="media/reflections.png" alt="Reflections"></p>
+<p>One of the key aspects in bringing realism into you scenes is creating a proper <strong>reflection environment</strong>.
+Many materials like metals, marbles or shiny plastics relay on having reflections in all directions.
+Flax Engine offsers wide variety of features to setup scenes for reflections.</p>
+<h2 id="environment-probes">Environment Probes</h2>
+<p><img src="media/env-probe.png" alt="Environment Probe"></p>
+<p>The best way to add reflections into your scene is to use <strong>Environment Probe</strong> actor. It&#39;s dedicated object that captures the scene around it&#39;s origin and creates a 360 cubemap that is later used to calculate per-pixel reflections on materials.</p>
+<p>Reflection probes should be generally placed in strategic points, where the appearance of a reflective object would change noticeably (eg, tunnels, areas near buildings and places where the ground colour changes). When a reflective object passes near to a probe, the reflection sampled by the probe can be used for the object’s reflection map. Furthermore, when several probes are nearby or even overlap, Flax can interpolate between them to allow for gradual changes in reflections. Thus, the use of reflection probes can create quite convincing reflections with an acceptable processing overhead.</p>
+<p>To learn more about placing and using <em>environment probes</em> see dedicated <a href="env-probe.html">page</a>.</p>
+<h2 id="screen-space-reflections">Screen Space Reflections</h2>
+<p><img src="../../post-effects/media/screen-space-reflections.png" alt="Screen Space Reflections"></p>
+<p>Using environment probes may be very limited and in many siturations objects may suffer from invalid reflection color. For those situation using <strong>Screen Space Reflections</strong> (<em>SSR</em>) effect helps with creating realistic local reflections. This effect is rendered in screen space, which means reflected can be only objects that are already on the screen (it doesn&#39;t work for offscreen or obscured objects).</p>
+<p>This means SSR works well in enclosed areas such as corridors and rooms, but less well in open spaces, where you&#39;d expect more of the world to be reflected. They also work best on bumpy surfaces, which hide imperfections in reflections, and less well on very glossy, mirror-like surfaces. Missing reflections are noticeable in mirrors, for example. As a fallback value is used reflection color from placed Environment Probes.</p>
+<p>To learn more about using <em>Screen Space Reflections</em> see dedicated <a href="../../post-effects/screen-space-reflections.html">page</a>.</p>
+<h2 id="visualizing">Visualizing</h2>
+<p><img src="media/reflections-debug.png" alt="Reflections Debug"></p>
+<p>Flax Editor provides in-build option to debug full scene reflections right inside the editor viewport. To do this, click the <strong>View</strong> widget and select option <strong>Debug View -&gt; Reflections Buffer</strong>. This will change view mode. To revert choose <em>Default</em> option.</p>
+<p><img src="media/reflections-debug-option.jpg" alt="Reflections Debug"></p>
+<div class="NOTE"><h5>Note</h5><p>To learn more about <em>Debug View</em> and other debugging tools see related page <a href="../../debugging-tools/debug-view.html">here</a>.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/lighting/reflections/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Game Settings | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Game Settings | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="game-settings">Game Settings</h1>
+
+<p><strong>Game Settings</strong> infrastructure is used to prepare the Flax options for the builded game.
+By using game settings you can set the initial game scene, link your plugin runtime options or more.
+This section covers the main concept of game settings and documents the related asset types.</p>
+<h2 id="root-asset">Root asset</h2>
+<p>In order to provide more universal design and unify the <a href="../../get-started/project-structure.html">projects structure</a> game settings asset is <strong>always located</strong> in <code>Content/GameSettings.json</code>. This file is in json format and contains the basic game description (product name, company, etc.) and references other assets (time settings, layers and tags, etc.).
+Example game settings file can be found <a href="https://github.com/FlaxEngine/FlaxSamples/blob/master/BasicTemplate/Content/GameSettings.json">here</a>. By default all Flax samples and templates contain a proper game settings to use.</p>
+<h2 id="creating-settings">Creating settings</h2>
+<p><img src="../../physics/media/new-settings.jpg" alt="New Settings"></p>
+<p>You can use the <em>Content</em> window to create new settings. Simply right-click in the Content folder and select option <strong>New -&gt; Settings</strong>, specify its name and press <em>Enter</em>. Then select the new asset type. Game settings asset or any other settings asset is normal Json resource so you can rename/move/edit them like other asset types. It&#39;s highly recommended to use a <a href="../../get-started/version-control.html">version control</a> system for settings as they are text files and should be versioned when working in a team.</p>
+<p><img src="../../physics/media/physics-settings-new.jpg" alt="New Settings"></p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/game-settings.png" alt="Flax Game Settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product Name</strong></td>
+<td>The name of your game.</td>
+</tr>
+<tr>
+<td><strong>Company Name</strong></td>
+<td>The name of your company or organization.</td>
+</tr>
+<tr>
+<td><strong>Copyright Notice</strong></td>
+<td>The copyright note used for content signing (eg. source code header).</td>
+</tr>
+<tr>
+<td><strong>Icon</strong></td>
+<td>The default application icon. Can be overriden per platform.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>FirstScene</strong></td>
+<td>Reference to the first scene to load on a game startup.</td>
+</tr>
+<tr>
+<td><strong>No Splash Screen</strong></td>
+<td>True if skip showing splash screen image on the game startup.</td>
+</tr>
+<tr>
+<td><strong>Splash Screen</strong></td>
+<td>Reference to the splash screen image to show on a game startup.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Time</strong></td>
+<td>Reference to <a href="time-settings.html">Time Settings</a> asset. Contains initial time manager options.</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>Reference to <a href="../../audio/audio-settings.html">Audio Settings</a> asset. Contains initial audio playback engine options.</td>
+</tr>
+<tr>
+<td><strong>Layers And Tags</strong></td>
+<td>Reference to <a href="layers-and-tags-settings.html">Layers And Tags Settings</a> asset. Contains actors tags and layer names used in your game.</td>
+</tr>
+<tr>
+<td><strong>Physics</strong></td>
+<td>Reference to <a href="../../physics/physics-settings.html">Physics Settings</a> asset. Contains physics simulation options.</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>Reference to <a href="../../input/input-settings.html">Input Settings</a> asset. Contains initial virtual input layout.</td>
+</tr>
+<tr>
+<td><strong>Graphics</strong></td>
+<td>Reference to <a href="graphics-settings.html">Graphics Settings</a> asset. Contains initial rendering options.</td>
+</tr>
+<tr>
+<td><strong>Navigation</strong></td>
+<td>Reference to <a href="../../navigation/navigation-settings.html">Navigation Settings</a> asset. Contains initial navmesh building options.</td>
+</tr>
+<tr>
+<td><strong>Game Cooking</strong></td>
+<td>Reference to <a href="build-settings.html">Build Settings</a> asset. Contains Game Cooker profiles and additional options used during games building.</td>
+</tr>
+<tr>
+<td><strong>Custom Settings</strong></td>
+<td>Collection of custom json assets used by the game and plugins. To learn more see the related documentation <a href="custom-settings.html">here</a>.</td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>Reference to <a href="../../platforms/windows.html">Windows Settings</a> asset. Contains options used when building game for Windows.</td>
+</tr>
+<tr>
+<td><strong>Universal Windows Platform</strong></td>
+<td>Reference to <a href="../../platforms/uwp.html">Universal Windows Platform Settings</a> asset. Contains options used when building game for Xbox One and Windows Store.</td>
+</tr>
+<tr>
+<td><strong>PlayStation 4</strong></td>
+<td>Reference to <a href="../../platforms/ps4.html">PlayStation 4 Settings</a> settings. Contains options used when building game for PlayStation 4.</td>
+</tr>
+<tr>
+<td><strong>Xbox Scarlett</strong></td>
+<td>Reference to <a href="../../platforms/xbox-scarlett.html">Xbox Scarlett Settings</a> settings. Contains options used when building game for Xbox Scarlett.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="accessing-settings-at-runtime">Accessing settings at runtime</h2>
+<p>Example code to access game settings data in game code.</p>
+<p>C#:</p>
+<pre><code class="lang-cs">using FlaxEditor.Content.Settings;
+using FlaxEngine;
+
+public class TestSettingsUsage : Script
+{
+    public override void OnEnable()
+    {
+        var gameSettings = GameSettings.Load();
+        Debug.Log(&quot;Game name: &quot; + gameSettings.ProductName);
+        var timeSettings = GameSettings.Load&lt;TimeSettings&gt;();
+        Debug.Log(&quot;Draw FPS from settings: &quot; + timeSettings.DrawFPS);
+    }
+}
+</code></pre><p>C++:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Log.h&quot;
+#include &quot;Engine/Core/Config/GameSettings.h&quot;
+#include &quot;Engine/Core/Config/TimeSettings.h&quot;
+#include &quot;Engine/Scripting/Script.h&quot;
+
+class GAME_API TestSettingsUsage : public Script
+{
+DECLARE_SCRIPTING_TYPE(TestSettingsUsage);
+public:
+    void OnEnable() override
+    {
+        const auto gameSettings = GameSettings::Get();
+        LOG(Info, &quot;Game name: {0}&quot;, gameSettings-&gt;ProductName);
+        const auto timeSettings = TimeSettings::Get();
+        LOG(Info, &quot;Draw FPS from settings: {0}&quot;, timeSettings-&gt;DrawFPS);
+    }
+};
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/game-settings/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Compute Shader | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Compute Shader | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-compute-shader">Custom Compute Shader</h1>
+
+<p>In this tutorial you will learn how to create and use a simple <strong>blur effect</strong> that will use a Compute Shader in two-pass to blur the input image.
+This example requires compute shaders and draw-indirect support from GPU which might not be available on low-end GPUs.</p>
+<p>Compute shaders are GPU programs that don&#39;t use classical GPU pipeline such as vertex transformations, fragment shading or MSAA. They are fully configurable code that can run on GPU in async. They can be used for massively parallel computational algorithms, or to accelerate parts of game rendering. Compute shaders don&#39;t need vertex/index buffers and don&#39;t write to output render target directly but instead can read and write to arbitrary buffers and textures provided by the user.</p>
+<h2 id="1-create-new-shader">1. Create new shader</h2>
+<p>Firstly, create empty file in folder <strong>Source/Shaders</strong> and name it in a proper way, eg. <code>BlurComputeShader.shader</code>. You can do it manually or use Editor and <em>right-click</em> in Content window shaders source folder <strong>New -&gt; Shader</strong>.</p>
+<p><img src="media/new-shader-source.png" alt="New Shader Source"></p>
+<p>If you&#39;re working with Visual Studio then use <strong>File -&gt; Generate project file</strong> option to ensure new file was added to VS project. Then you can <strong>double-click</strong> to open shader in code editor.</p>
+<p><img src="media/shader-editing.png" alt="Editing Shader Source"></p>
+<h2 id="2-writing-compute-shader">2. Writing compute shader</h2>
+<p>Now, let&#39;s write the compute shader. In this example we use two functions: one will blur the input image horizotnally (<code>CS_BlurH</code>), second one will perform a vertical blur (<code>CS_BlurV</code>). The blur will use a configurable radius (in range 0-10) and blending intensity.</p>
+<p>Here is an example code used in this tutorial. Follow code comments to better understand how it works.</p>
+<pre><code class="lang-hlsl">#include &quot;./Flax/Common.hlsl&quot;
+
+// Configuration constants (must match C#)
+#define BLUR_MAX_SAMPLE_RADIUS 10
+#define BLUR_GRID_SIZE 450
+#define BLUR_APRON_SIZE BLUR_MAX_SAMPLE_RADIUS
+#define BLUR_THREAD_GROUP_SIZE (BLUR_GRID_SIZE + (BLUR_APRON_SIZE * 2))
+
+// Constant buffers data passed from CPU to GPU
+META_CB_BEGIN(0, Data)
+float2 Dummy0;
+float BlurStrength;
+float BlurRadius;
+META_CB_END
+
+// Input texture to blur and the output texture to write to
+Texture2D Input : register(t0);
+RWTexture2D&lt;float4&gt; Output : register(u0);
+
+// Shared memory used by all threads in the group
+groupshared float4 Samples[BLUR_THREAD_GROUP_SIZE];
+
+// Compute shader blur function for horizontal pass
+META_CS(true, FEATURE_LEVEL_SM5)
+[numthreads(BLUR_THREAD_GROUP_SIZE, 1, 1)]
+void CS_BlurH(uint3 groupID : SV_GroupID, uint3 groupThreadID : SV_GroupThreadID)
+{
+    // These positions are relative to the &quot;grid&quot;, AKA the horizontal group of pixels that this thread group is writing to
+    const int2 gridStartXY = groupID.xy * BLUR_GRID_SIZE;
+    const int2 gridXY = groupThreadID.xy - BLUR_APRON_SIZE;
+
+    // These positions are relative to the pixel coordinates
+    const int sampleX = gridStartXY.x + gridXY.x;
+    const int sampleY = groupID.y;
+    const int groupIndex = groupThreadID.x;
+
+    uint2 textureSize;
+    Input.GetDimensions(textureSize.x, textureSize.y);
+    const int2 samplePos = int2(sampleX, sampleY);
+
+    // Sample the texture
+    float2 sampleCoord = saturate(((float2)samplePos + 0.5f) / float2(textureSize));
+    float4 color = Input.SampleLevel(SamplerPointClamp, sampleCoord, 0.0f);
+
+    // Store in shared memory and sync threads
+    Samples[groupIndex] = color;
+    GroupMemoryBarrierWithGroupSync();
+
+    // Don&#39;t continue for threads in the apron, and threads outside the render target size
+    if (gridXY.x &gt;= 0 &amp;&amp; gridXY.x &lt; BLUR_GRID_SIZE &amp;&amp; sampleX &lt; textureSize.x)
+    {
+        float4 outputColor = 0.0f;
+        float totalContribution = 0.0f;
+
+        // Gather sample taps inside the radius
+        for (int i = -BLUR_MAX_SAMPLE_RADIUS; i &lt;= BLUR_MAX_SAMPLE_RADIUS; i++)
+        {
+            // Grab the sample from shared memory
+            float4 tap = Samples[groupIndex + i];
+
+            // Reject the sample if it&#39;s outside the CoC radius
+            float tapWeight = saturate(BlurRadius + 1.0f - abs(float(i)));
+
+            outputColor += tap * tapWeight;
+            totalContribution += tapWeight;
+        }
+
+        // Write out the result
+        outputColor /= totalContribution;
+        outputColor = max(outputColor, 0);
+        outputColor = lerp(color, outputColor, BlurStrength);
+        Output[samplePos] = outputColor;
+    }
+}
+
+// Compute shader blur function for vertical pass
+META_CS(true, FEATURE_LEVEL_SM5)
+[numthreads(1, BLUR_THREAD_GROUP_SIZE, 1)]
+void CS_BlurV(uint3 groupID : SV_GroupID, uint3 groupThreadID : SV_GroupThreadID)
+{
+    // These positions are relative to the &quot;grid&quot;, AKA the horizontal group of pixels that this thread group is writing to
+    const int2 gridStartXY = groupID.xy * BLUR_GRID_SIZE;
+    const int2 gridXY = groupThreadID.xy - BLUR_APRON_SIZE;
+
+    // These positions are relative to the pixel coordinates
+    const int sampleX = groupID.x;
+    const int sampleY = gridStartXY.y + gridXY.y;
+    const int groupIndex = groupThreadID.y;
+
+    uint2 textureSize;
+    Input.GetDimensions(textureSize.x, textureSize.y);
+    const int2 samplePos = int2(sampleX, sampleY);
+
+    // Sample the texture
+    float2 sampleCoord = saturate(((float2)samplePos + 0.5f) / float2(textureSize));
+    float4 color = Input.SampleLevel(SamplerPointClamp, sampleCoord, 0.0f);
+
+    // Store in shared memory and sync threads
+    Samples[groupIndex] = color;
+    GroupMemoryBarrierWithGroupSync();
+
+    // Don&#39;t continue for threads in the apron, and threads outside the render target size
+    if (gridXY.y &gt;= 0 &amp;&amp; gridXY.y &lt; BLUR_GRID_SIZE &amp;&amp; sampleY &lt; textureSize.y)
+    {
+        float4 outputColor = 0.0f;
+        float totalContribution = 0.0f;
+
+        // Gather sample taps inside the radius
+        for (int i = -BLUR_MAX_SAMPLE_RADIUS; i &lt;= BLUR_MAX_SAMPLE_RADIUS; i++)
+        {
+            // Grab the sample from shared memory
+            float4 tap = Samples[groupIndex + i];
+
+            // Reject the sample if it&#39;s outside the CoC radius
+            float tapWeight = saturate(BlurRadius + 1.0f - abs(float(i)));
+
+            outputColor += tap * tapWeight;
+            totalContribution += tapWeight;
+        }
+
+        // Write out the result
+        outputColor /= totalContribution;
+        outputColor = max(outputColor, 0);
+        outputColor = lerp(color, outputColor, BlurStrength);
+        Output[samplePos] = outputColor;
+    }
+}
+</code></pre><h2 id="3-dispatching-compute">3. Dispatching compute</h2>
+<p>Next step is to write a script that will invoke the compute shader execution on a GPU. To do so we will use a C# script that implements <strong>PostProcessEffect</strong> class which is used to inject custom rendering code into the in-built graphics pipeline. You can also override the <em>Order</em> and <em>Location</em> properties to have even more control over rendering.</p>
+<p>Create C# script and add it to the any actor on the scene. You can use <a href="../../scripting/new-script.html">this tutorial</a> to learn how to do it. Then, write the following code:</p>
+<pre><code class="lang-cs">using System;
+using System.Runtime.InteropServices;
+using FlaxEngine;
+
+public class BlurComputeShader : PostProcessEffect
+{
+    /// &lt;summary&gt;
+    /// Shader constant buffer data structure that matches the HLSL source.
+    /// &lt;/summary&gt;
+    [StructLayout(LayoutKind.Sequential)]
+    private struct Data
+    {
+        public Vector2 Dummy0;
+        public float BlurStrength;
+        public float BlurRadius;
+    }
+
+    [Tooltip(&quot;Blur effect intensity (0-1)&quot;), Limit(0, 1.0f, 0.01f)]
+    public float BlurStrength = 1.0f;
+
+    [Tooltip(&quot;Blur effect radius (0-10)&quot;), Limit(0, 10.0f, 0.1f)]
+    public float BlurRadius = 10.0f;
+
+    private bool _isComputeSupported;
+
+    public Shader Shader;
+
+    public override void OnEnable()
+    {
+        _isComputeSupported = GPUDevice.Instance.Limits.HasCompute;
+
+        // Register postFx to game view
+        MainRenderTask.Instance.CustomPostFx.Add(this);
+    }
+
+    public override void OnDisable()
+    {
+        // Remember to unregister from drawing
+        MainRenderTask.Instance?.CustomPostFx.Remove(this);
+    }
+
+    public override bool CanRender =&gt; base.CanRender &amp;&amp; _isComputeSupported &amp;&amp; Shader &amp;&amp; Shader.IsLoaded;
+
+    public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
+    {
+        // Here we perform custom rendering on top of the in-build drawing
+
+        // Set constant buffer data (memory copy is used under the hood to copy raw data from CPU to GPU memory)
+        var cb = Shader.GPU.GetCB(0);
+        if (cb != IntPtr.Zero)
+        {
+            var data = new Data
+            {
+                BlurStrength = BlurStrength,
+                BlurRadius = BlurRadius,
+            };
+            context.UpdateCB(cb, new IntPtr(&amp;data));
+        }
+
+        // Allocate temporary textures for blurring
+        var desc = input.Description;
+        desc.Flags = GPUTextureFlags.UnorderedAccess | GPUTextureFlags.ShaderResource | GPUTextureFlags.RenderTarget;
+        var blurH = RenderTargetPool.Get(ref desc);
+        var blurV = RenderTargetPool.Get(ref desc);
+
+        // Configuration constants (must match HLSL)
+        const int BLUR_GRID_SIZE = 450;
+
+        // Dispatch the Compute Shader to blur input image horizontally to blurH
+        context.BindCB(0, cb);
+        context.BindSR(0, input);
+        context.BindUA(0, blurH.View());
+        var csBlurH = Shader.GPU.GetCS(&quot;CS_BlurH&quot;);
+        int groupCountX = (desc.Width / BLUR_GRID_SIZE) + ((desc.Width % BLUR_GRID_SIZE) &gt; 0 ? 1 : 0);
+        int groupCountY = desc.Height;
+        context.Dispatch(csBlurH, (uint) groupCountX, (uint) groupCountY, 1);
+
+        // Clean output slot
+        context.BindUA(0, null);
+        context.FlushState();
+
+        // Dispatch the Compute Shader to blur blurH image vertically to blurV
+        context.BindCB(0, cb);
+        context.BindSR(0, blurH);
+        context.BindUA(0, blurV.View());
+        var csBlurV = Shader.GPU.GetCS(&quot;CS_BlurV&quot;);
+        groupCountX = desc.Width;
+        groupCountY = (desc.Height / BLUR_GRID_SIZE) + ((desc.Height % BLUR_GRID_SIZE) &gt; 0 ? 1 : 0);
+        context.Dispatch(csBlurV, (uint) groupCountX, (uint) groupCountY, 1);
+
+        // Clean slots
+        context.BindSR(0, (GPUTexture) null);
+        context.BindUA(0, null);
+        context.FlushState();
+
+        // Copy blurred image to the output
+        context.Draw(output, blurV);
+
+        RenderTargetPool.Release(blurH);
+        RenderTargetPool.Release(blurV);
+    }
+}
+</code></pre><h2 id="4-see-results">4. See results</h2>
+<p>The final step is to <strong>add script</strong> to actor on scene and <strong>assign Shader</strong> property to the auto-imported shader source from <code>Content/Shaders</code>.  When changing <strong>Blur Radius</strong> property from 0 to 10 you can see the effect in action real-time. In case of problems see <em>Output Log</em> window in Editor as it may contain any compilation errors (for both C# script and shader code).</p>
+<p><img src="media/compute-blur.gif" alt="Compute Shader Blur"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/shaders/custom-compute-shader.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

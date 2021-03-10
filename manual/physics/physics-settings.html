@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Physics Settings | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Physics Settings | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="physics-settings">Physics Settings</h1>
+
+<p><strong>Physics Settings asset</strong> is used to specify the initial physics simulation configuration. In fact, some of its options can be set only on physics engine startup so using that asset can be very handy. Hovewer, most of the physics simulation options can be adjusted at runtime using <a href="https://docs.flaxengine.com/api/FlaxEngine.Physics.html">Physics</a> class.</p>
+<h2 id="create-physics-settings">Create physics settings</h2>
+<ol>
+<li><p>Navigate to the Content directory in the <em>Content</em> window</p>
+</li>
+<li><p>Right-click and select option <strong>New -&gt; Settings</strong>, specify the asset name (eg. <em>Physics Settings</em>) and hit <em>Enter</em>
+<br><img src="media/new-settings.jpg" alt="Tutorial"></p>
+</li>
+<li><p>Choose option <strong>Physics Settings</strong> and press <strong>Create</strong> button
+<br><img src="media/physics-settings-new.jpg" alt="Tutorial"></p>
+</li>
+<li><p>Double-click on an asset to open it and edit
+<br><img src="media/empty-physics-settings.jpg" alt="Tutorial"></p>
+</li>
+</ol>
+<h2 id="use-physics-settings">Use physics settings</h2>
+<p>You can create as many physics settings as you want (even special versions per platform) but only one can be used during game building. Use <strong>Game Settings</strong> asset (always located in <code>Content/GameSettings.json</code>) to link the physics options. If your game is using more advanced confgiuration you can edit the game settings from code in your build script (use <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Load">GameSettings.Load</a> and <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Save__1___0_">GameSettings.Save</a> from C# API).</p>
+<p><img src="media/use-physics-settings.jpg" alt="Use Physics Settings"></p>
+<h2 id="simulation-options">Simulation options</h2>
+<p><img src="media/physics-simulation-options.jpg" alt="Simulation"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Default Gravity</strong></td>
+<td>The default gravity force value (in cm^2/s).</td>
+</tr>
+<tr>
+<td><strong>Queries Hit Triggers</strong></td>
+<td>If checked, any <a href="raycasting.html">raycast</a> or other scene query that intersects with a collider marked as a trigger will returns with a hit. Individual raycasts can override this behavior.</td>
+</tr>
+<tr>
+<td><strong>Triangle Mesh Triangle Min Area Threshold</strong></td>
+<td>Triangles from triangle meshes (CSG) with an area less than or equal to this value will be removed from physics collision data. Set to less than or equal 0 to disable.</td>
+</tr>
+<tr>
+<td><strong>Bounce Threshold Velocity</strong></td>
+<td>Minimum relative velocity required for an object to bounce. A typical value for simulation stability is about 0.2 * gravity.</td>
+</tr>
+<tr>
+<td><strong>Friction Combine Mode</strong></td>
+<td>The default friction combine mode, controls how friction is computed for multiple materials.</td>
+</tr>
+<tr>
+<td><strong>Restitution Combine Mode</strong></td>
+<td>The default restitution combine mode, controls how restitution is computed for multiple materials.</td>
+</tr>
+<tr>
+<td><strong>Disable CCD</strong></td>
+<td>If checked, CCD will be ignored. This is an optimization when CCD is never used which removes the need for physics engine to check it internally.</td>
+</tr>
+<tr>
+<td><strong>Enable Adaptive Force</strong></td>
+<td>Enables adaptive forces to accelerate convergence of the solver. Can improve physics simulation performance but lead to artifacts.</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP"><h5>Tip</h5><p>When Continuous Collision Detection (<strong>CCD</strong>) is turned on, the affected rigid bodies will not go through other objects at high velocities (a problem also known as <em>tunnelling</em>).</p>
+</div>
+<h2 id="framerate-options">Framerate options</h2>
+<p><img src="media/physics-framerate-options.jpg" alt="Simulation"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Max Delta Time</strong></td>
+<td>The maximum allowed delta time (in seconds) for the physics simulation step.</td>
+</tr>
+<tr>
+<td><strong>Enable Substepping</strong></td>
+<td>Whether to substep the physics simulation.</td>
+</tr>
+<tr>
+<td><strong>Substep Delta Time</strong></td>
+<td>Delta time (in seconds) for an individual simulation substep.</td>
+</tr>
+<tr>
+<td><strong>Max Substeps</strong></td>
+<td>The maximum number of substeps for physics simulation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="layers-matrix-options">Layers Matrix options</h2>
+<p><img src="media/physics-layers-options.jpg" alt="Simulation"></p>
+<p>Flax physics simulation supports layer-based collision detection. You can specify collisions mask for each layer that will be used to describe if objects from that layer can collider with objetcs from the other layers.</p>
+<p>This uses the global layers settings and shows them as a layers matrix. Use checkboxes to define the layers collision mask.</p>
+<h2 id="other">Other</h2>
+<p><img src="media/physics-other-options.jpg" alt="Other"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Support Cooking At Runtime</strong></td>
+<td>Enables support for cooking physical collision shapes geometry at runtime. Use it to enable generating runtime terrain collision or convex mesh colliders.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/physics/physics-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

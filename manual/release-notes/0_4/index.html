@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.4 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.4 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-04-release-notes">Flax 0.4 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="foliage">Foliage</h3>
+<p><img src="media/foliage-rendering.gif" alt="Foliage"></p>
+<p>New <strong>Foliage</strong> system will definitely improve open world games development and complete the recently added terrain system. The most important purpose of the foliage system is that it can easily scale and result in very solid performance. If your game needs huge open worlds full of trees, grass, and rocks then you definitely need to use foliage system. It supports placing and rendering hundreds of thousands of foliage instances in the level with no performance drop.</p>
+<p>Each foliage actor contains a list of predefined foliage types and a collection of foliage instances. Each foliage type defines the model asset to use for rendering, placement properties, and painting properties. Each foliage instance contains information about what type it uses and the actual placement transformation in the world. Both instances and types collections are encapsulated inside the foliage actor internally to improve performance.</p>
+<p>Flax Editor contains ready to use tools for creating and editing foliage however the whole system can be used directly from code to generate procedural foliage at runtime in your game.</p>
+<p><img src="media/foliage-painting.gif" alt="Foliage Painting"></p>
+<p>To learn more about foliage see the related documentation <a href="../../foliage/index.html">here</a>.</p>
+<h3 id="nav-mesh-and-navigation">Nav Mesh and Navigation</h3>
+<p><img src="media/navmesh-agent.gif" alt="Navigation Pathfinding"></p>
+<p>We&#39;ve added <strong>Navigation</strong> support and pathfinding utilities for various types of games. You can use navigation system to control how AI characters and other objects navigate around the game environment without colliding with the walls and avoiding obstacles.</p>
+<p><img src="media/navmesh-dynamic-rebuild.gif" alt="NavMesh"></p>
+<p>Navigation system uses <strong>Navigation Meshes</strong> (shorten as navmeshes) which are polygon surfaces that define the &#39;walkable&#39; area of the scene. They are used to query paths for objects to navigate around the game level.
+Flax supports both runtime generated navmesh and prebuild in Editor. The navmesh building process is asynchronous and does not block game logic thread. Progress reporting is also supported.</p>
+<p>To learn how to use it in your game see <a href="../../navigation/index.html">this section</a>.</p>
+<h3 id="custom-animgraph-nodes-support">Custom AnimGraph nodes support</h3>
+<p><img src="media/custom-node-results.gif" alt="Custom AnimGraph Node"></p>
+<p><strong>AnimGraph</strong> has become a fully features evironment for creating various types of animated objects. While we keep adding new nodes and improving performance of the existing ones there will be always a need to extend the default behaviour. Now, we would like to introduce a <strong>Custom Nodes</strong> support for Anim Graph! Using this feature you can easily define and implement own Anim Graph nodes to implement literally anything for animations processing.</p>
+<p>This feature can be used to fetch data from external animation source such as live-rig, or to implement custom IK solver. Also, plugins can contain custom nodes to be reused across different projects.</p>
+<p>We&#39;ve prepared a sample tutorial about custom nodes usage <a href="../../animation/anim-graph/custom-nodes.html">here</a>.</p>
+<h3 id="null-renderer">Null Renderer</h3>
+<p><strong>Null Renderer</strong> is a feature which allows you to run the engine without rendering backend. If you are doing your game builds in a cloud using command line you can pass flag <code>-null</code> to disable GPU rendering. This can be used to improve the performance when graphics rendering is not required (also for server builds).</p>
+<h3 id="locking-rigidbody-positonrotation-axis">Locking Rigidbody positon/rotation axis</h3>
+<p><img src="media/rigidbody-constraints.jpg" alt="Locking Rigidbody Position and Rotation"></p>
+<p>Now, Flax supports <strong>rigidbody constraints</strong>. This feature can be used to lock the object rotation or position on a certain set of axes. If you want to allow player to slide a box only over single axis and prevent its rotation just use this feature to freeze the rigidbody movement to a certain level freedom.</p>
+<h3 id="rendering-quality-and-performance-improvements">Rendering quality and performance improvements</h3>
+<p>We always keep working on Flax Renderer. This time we&#39;ve:</p>
+<ul>
+<li>Added <strong>Subpixel Morphological Antialiasing (SMAA)</strong></li>
+<li>Added <strong>Temporal Antialiasing (TAA)</strong> - preview</li>
+<li>Improved <strong>Screen Space Reflections (SSR)</strong> - more stable and in HDR</li>
+<li>Improved <strong>Screen Space Ambient Occlusion (SSAO)</strong> - better quality on far distance</li>
+<li>Improved rendering flow</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-046181---1-april-2019">Version 0.4.6181 - 1 April 2019</h3>
+<ul>
+<li>Add showing overridden filename for imported asset in import files dialog</li>
+<li>Add <code>UIControl.FallbackParentGetDelegate</code></li>
+<li>Add showing UIControls in prefab preview</li>
+<li>Add showing UIControl in prefab thumbnails</li>
+<li>Increase default timeout for <code>Asset.WaitForLoaded</code> to 30s</li>
+<li>Use MainCamera if UICanvas uses CameraSpace without camera specified</li>
+<li>Fix UIControl deserialization without control type</li>
+<li>Fix UICanvas deserialziation on prefab changes apply</li>
+<li>Fix crash when removing object from prefab which instance is selected in editor</li>
+<li>Fix crash when applying prefab changes after removing one of the actors that has child actors</li>
+<li>Fix prefab diff serialization for members that value has different types</li>
+<li>Fix various crashes when reloading scripts in Editor</li>
+<li>Fix importing skinned models that has valid skeleton but no skinning information</li>
+</ul>
+<h3 id="version-046180---14-march-2019">Version 0.4.6180 - 14 March 2019</h3>
+<ul>
+<li>Add <code>JsonSerializer.Deserialize&lt;T&gt;(string json)</code> helper method</li>
+<li>Add <code>Render.DrawRectangle</code> with 4 vertex colors</li>
+<li>Add Show Default Scene option to editor asset previews</li>
+<li>Add padding for material parameters alignment</li>
+<li>Add profile event for Distortion pass</li>
+<li>Add support for virtual RawDataAsset, saving it and editing Data property</li>
+<li>Add <code>Scripting.InvokeOnUpdate</code></li>
+<li>Add support for async loading of solution and source code files</li>
+<li>Remove deprecated ReferencedBy from surface parameter</li>
+<li>Fix CollisionData cooking</li>
+<li>Fix DeepClone and utils class name</li>
+<li>Fix crash when connecting Visject boxes with autokey popup without popup created</li>
+<li>Fix crash when using Bool value cast in Material</li>
+</ul>
+<h3 id="version-046179---26-february-2019">Version 0.4.6179 - 26 February 2019</h3>
+<ul>
+<li>Add <strong>Foliage</strong> system</li>
+<li>Add various foliage tools for <strong>spawning and editing foliage</strong></li>
+<li>Add utility method for finding actors and scripts by type</li>
+<li>Add <strong>Custom Anim Graph nodes</strong> support</li>
+<li>Add support for custom nodes in visject surface (from game scripts and plugins)</li>
+<li>Add bone to node mapping for skinned model skeleton (in c# api)</li>
+<li>Add skinned model skeleton nodes c# api</li>
+<li>Add <strong>rigidbody constraints</strong> support</li>
+<li>Add showing skinned model nodes hierarchy in editor window</li>
+<li>Add Linearize Depth node to materials</li>
+<li>Add <code>InputEvent.Dispose</code></li>
+<li>Add <code>Show Selection Outline</code> editor option</li>
+<li>Add <strong>Navigation</strong> system</li>
+<li>Add <em>Nav Mesh Bounds Volume</em> actor type</li>
+<li>Add <em>Nav Link</em> actor type</li>
+<li>Add navigation mesh building and related tools</li>
+<li>Add helper events to SceneEditingModule for easier extending Editor</li>
+<li>Add <code>BoxCollider.OrientedBox</code> getter</li>
+<li>Add <em>Navigation Settings</em> asset for navmesh configuration</li>
+<li>Add more <strong>Debug Draw</strong> rendering features (wireframe, solid, transparent, triangles, vertex indexing)</li>
+<li>Add orthographic projection support for editor viewports</li>
+<li>Add setter to <code>Camera.MainCamera</code></li>
+<li>Add <em>StaticFlags.Navigation</em></li>
+<li>Add separate <code>DebugDraw.DrawWire*</code> methods for wireframe debug shapes rendering and <code>DebugDraw.Draw*</code> methods for solid debug shapes rendering</li>
+<li>Add alpha blending support for DebugDraw shapes rendering</li>
+<li>Add context menu to debug window log entries</li>
+<li><strong>Improve Screen Space Reflections quality</strong> (better temporal reconstruction filter and HDR)</li>
+<li>Add helper Vector3 distance method with ref input but return result</li>
+<li>Add profile events for drawing foliage and terrain (cpu events)</li>
+<li>Add GetNodeByName and GetBoneByName to SkinnedModel</li>
+<li>Add profile events support for DirectX 12 backend</li>
+<li>Add queries support for DirectX 12 backend</li>
+<li>Add improved Visject nodes connections updating when changing type of variable type node</li>
+<li>Add <strong>Snap to ground</strong> feature for editor gizmo (with End key)</li>
+<li>Add <code>AlphaBlendMode</code> to engine C# API and <code>Mathf.InterpolateAlphaBlend</code></li>
+<li>Add more value interpolation methods to Mathf library</li>
+<li>Add <code>IDrawable</code></li>
+<li>Add explicit casting methods for Int2/3/4 structures to float vectors</li>
+<li>Add error if material uses too many textures</li>
+<li>Add <strong>Temporal Antialiasing</strong> support (preview)</li>
+<li>Add jitter projection matrix support</li>
+<li>Add anti-aliasing method option to PostFx Volume</li>
+<li>Add <strong>Subpixel Morphological Antialiasing (SMAA)</strong> support</li>
+<li>Add setter for <code>Script.Actor</code> for easy reparenting scripts</li>
+<li>Add F, 1, 2, 3 shortcuts to Scene Tree window</li>
+<li>Add support for zooming in Editor viewport with mouse scroll without pressing mouse</li>
+<li>Add warning when user tries to add generic type script to the actor (not supported)</li>
+<li>Increase Shader Resources binding limit to 32</li>
+<li>Increase default Env Probe near plane to 10</li>
+<li>Expand <code>SkinnedModel</code> C# API for editing skeleton from code (user can modify both nodes and bones hierarchy)</li>
+<li>Refactor actors and other objects intersection methods to output hit normal vector</li>
+<li>Optimize rigidbodies transformations synchronization</li>
+<li>Focus scene search box on Ctrl+F</li>
+<li>Optimize drawing shapes using DebugDraw</li>
+<li>Implement serialization for all basic types in Visject Surface</li>
+<li>Skip editor primitives when spawning item in viewport via drag and drop</li>
+<li>Rename Flax.Build to Flax.BuildLogger</li>
+<li>Disable restore windows layout button if no layouts are saved</li>
+<li>Remove <code>Input.ScanGamepads</code> as engine will always automatically scan for gamepads change</li>
+<li>Disable clamping screen space reflections color and use HDR format for resolve pass</li>
+<li>Remove <code>PostFxVolume.Center</code> property</li>
+<li>Show all assets in content window (even in-build flax types)</li>
+<li>Refactor editor viewports View widget to use subcategory for showing things</li>
+<li>Fix adding and rigidbodies and editing them right after (deferred adding queue was an issue)</li>
+<li>Fix <code>AddRelativeForce</code> and <code>AddRelativeTorque</code> issues</li>
+<li>Fix and improve PostFx volume editing via gizmo handles</li>
+<li>Fix CapsuleCollider and CharacterController bounds drawing in debug view mode when using scale</li>
+<li>Fix Control.Defocus when one of the children has focus</li>
+<li>Fix showing context menu when it gets hidden on start</li>
+<li>Fix using animation speed as param</li>
+<li>Fix using custom postFx with inheritance for Render method</li>
+<li>Fix showing decals in env probes</li>
+<li>Fix SSAO artifacts near camera when using high radius</li>
+<li>Fix handling fields in editor that are declared with <code>readonly</code> keyword</li>
+<li>Fix C# scripts assembly reload crashes</li>
+<li>Fix using all parameter types in Anim Graph</li>
+<li>Fix infrequent directional light shadows issues</li>
+<li>Fix importing with Restore Materials on Reimport option enabled</li>
+<li>Fix CustomEditor values synchronization up on editing structure member</li>
+<li>Fix Visject surface scroll when menu is opened</li>
+<li>Fix creating terrain from heightmap/splatmap using format <code>R11G11B10_Float</code></li>
+<li>Fix Visject context menu highlights drawing when score mark is visible</li>
+<li>Fix <code>Actor.AddChild</code> with <em>worldPositionStays</em> set to <code>false</code></li>
+<li>Fix game scripts caching when initial compilation fails</li>
+<li>Fix directional light shadows on distance from world origin</li>
+<li>Fix clamping character controller Contact Offset if set to 0</li>
+<li>Fix invoking DebugDraw for scripts attached to Scene actor</li>
+<li>Fix removing state machine state (break incoming transitions)</li>
+<li>Fix texture mipmaps generation if texture uses alpha channel</li>
+<li>Fix PhysX crash when using negative scale on terrain</li>
+<li>Fix importing sRGB textures</li>
+<li>Fix using renderer cache for scene rendering during nested scene rendering</li>
+<li>Fix calling OnDisable on unlinking script from actor and OnEnable when link it back</li>
+<li>Fix crash when calling Destory on script during Start/Awake events</li>
+<li>Fix scrolling debug logs if none is visible on adding (eg. due to filtering)</li>
+<li>Fix UICanvas Enable/Disable events handling</li>
+<li>Fix opening files in Visual Studio (use proper view kind option and use project items search)</li>
+<li>Fix changing enum value to one of the subflags (eg. chaneg actor static flag from FullyStatic to Transform only)</li>
+<li>Fix preserving selected objects on play mode enter/exit in Editor</li>
+<li>Fix materials constant buffer binding (skip if not used)</li>
+<li>Fix game hiccups when scanning for gamepads update on Windows platform (it is done in a background now to prevent game logic stalls)</li>
+<li>Fix SSR when UseColorBufferMips is disabled</li>
+<li>Fix ScreenSize node in GUI material to return valid viewport dimensions</li>
+<li>Fix crash on play mode start when CSG brush was attached to rigidbody</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_4/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

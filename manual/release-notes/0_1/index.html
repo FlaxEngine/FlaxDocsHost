@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.1 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.1 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-01-release-notes">Flax 0.1 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="decals">Decals</h3>
+<p><img src="media/decals.png" alt="Decals"></p>
+<p>We&#39;ve added a new material type: <strong>Decal</strong> and new <strong>Decal Actor</strong> which can be used to draw decal materials on top of the surface of the scene geometry. It&#39;s a very common and easy way to add special effects like blood drops, footsteps or more. Draw calls rendering is very optimized and fits needs of most of the games. To learn more about decals see the related documentation <a href="../../graphics/decals/index.html">here</a>.</p>
+<h3 id="c-72-support">C# 7.2 support</h3>
+<p>Now you can use the newest <strong>C# 7.2</strong> features including:</p>
+<ul>
+<li>local functions</li>
+<li>binary literals</li>
+<li>digit separators</li>
+<li>pattern matching</li>
+<li><code>out</code> variables</li>
+<li>expression bodied members</li>
+<li><code>ref readonly</code></li>
+<li><code>private protected</code></li>
+<li>and more...</li>
+</ul>
+<p>The current Flax version includes <a href="https://github.com/dotnet/roslyn">Roslyn</a> compiler and supports using the newest C# language version in your scripts.</p>
+<h3 id="games-ui">Games UI</h3>
+<p>New <strong>UICanvas</strong> and <strong>UIControl</strong> actor types enable game developers to create easily UI for game menus, player HUD and other level interfaces like control panels. User Interface can be created from code or right inside the editor with full serialization and undo support.</p>
+<h3 id="editor-options">Editor Options</h3>
+<p>Now you can modify the editor options and keep the globally for all installed engine instanced. You can adjust scripts recompilation logic, change the interface, modify the selection outline colors and more.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-016163---14-july-2018">Version 0.1.6163 - 14 July 2018</h3>
+<p>Contributors: stefnotch, Sauler</p>
+<ul>
+<li>Add <em>IndirectLightingIntensity</em> parameter to lights and to the scene setting (global)</li>
+<li>Add <code>StaticModel.HiddenShadow</code> for rendering only model shadow</li>
+<li>Add <code>StaticModel.BoundsScale</code> for scale its bounds</li>
+<li>Add <code>Border</code> control</li>
+<li>Add <code>BlurPanel</code> for blurring GUI background with Gaussian blur</li>
+<li>Add <strong>GUI material preview in Editor</strong></li>
+<li>Add <code>Mesh.UpdateTriangles</code></li>
+<li>Add <code>ShowInEditor</code> attribute to display object private fields/properties in editor</li>
+<li>Add more styling options to GUI controls</li>
+<li>Add <code>SolidColorBrush</code>, <code>LinearGradientBrush</code> and <code>MaterialBrush</code></li>
+<li>Add support for rendering text in GUI with a custom material</li>
+<li>Add support for masking GUI materials</li>
+<li>Add <em>CSG.Model</em> to Scene for CSG geometry rendering (exposed)</li>
+<li>Add events <code>Collider.TriggerEnter</code> and <code>Collider.TriggerExit</code></li>
+<li>Add renaming selected actor with <code>F2</code> key (via scene tree)</li>
+<li>Add arrow Keys &amp; Enter to choose an autocomplete suggestion in Visject</li>
+<li>Add alternative names for nodes (<code>*</code> for multiply, <code>+</code> for add, etc.) in Visject</li>
+<li>Add auto connecting selected nodes in Visject when new node is added</li>
+<li>Add adding new Visject nodes to selection</li>
+<li>Rename <code>IImageSource</code> to <code>IBrush</code> (and related symbols)</li>
+<li>Remove <code>ViewFlags.CSG</code></li>
+<li>Move <code>Tree</code>, <code>TreeNode</code>, <code>ContextMenu</code>, <code>ComboBox</code>, and <code>ValueBox</code> control types to Editor assembly</li>
+<li>Fix sampling directional light shadow map cascades for volumetric fog scattering</li>
+<li>Fix texture mip data downloading</li>
+<li>Fix focus in Visject on node creation</li>
+<li>Fix Debug Window messages count button size</li>
+<li>Fix expanding tree nodes in some cases</li>
+<li>Fix for missing reference in FlaxObjectRefEditor</li>
+<li>Fix World Position sampling in GUI material types</li>
+<li>Fix control location constraint for Anchor Style set to Center</li>
+<li>Fix main thread stall when loading scene in async</li>
+<li>Fix crash when renaming actor during scripts reload</li>
+<li>Minor fixes</li>
+</ul>
+<h3 id="version-016162---2-july-2018">Version 0.1.6162 - 2 July 2018</h3>
+<ul>
+<li>Add support for DirectX profile events</li>
+<li>Fix rendering on Intel GPUs</li>
+<li>Fix dynamic models bounds updating</li>
+<li>Fix various memory leaks</li>
+<li>Fix <code>VerticalPanel</code> layout</li>
+</ul>
+<h3 id="version-016161---1-july-2018">Version 0.1.6161 - 1 July 2018</h3>
+<ul>
+<li>Added support for importing <code>.hdr</code> files</li>
+<li>Added support for <strong>exporting assets</strong> in Editor (textures, sprite atlases, cube textures, audio clips, models and skinned models)</li>
+<li>Added support for virtual texture assets (with updating from code)</li>
+<li>Added support for saving textures to file (in Editor)</li>
+<li>Added API to get texture mip data</li>
+<li>Added more C# API for creating models with custom LODs from code</li>
+<li>Added support for virtual skinned models creating from code</li>
+<li>Added support for updating skinned model properties at runtime</li>
+<li>Added support for editing material slots collection for Model/SkinnedModel</li>
+<li>Added support for saving Model/SkinnedModel to other asset and saving generated geometry to the file (in Editor)</li>
+<li>Added support for downloading vertex and index buffers data from the Mesh/SkinnedMesh (from GPU or from memory/drive)</li>
+<li>Added <code>Mesh.HasVertexColors</code>, <code>Mesh.HasLightmapUVs</code> and <code>Mesh.IndexBufferFormat</code></li>
+<li>Added <code>Int4</code> type</li>
+<li>Added <code>DebugDraw.DrawArrow</code></li>
+<li>Added support for uploading mesh data from the other threads</li>
+<li>Added <code>MessageBox.BrowseFolderDialog</code></li>
+<li>Added <code>AllowUnsafeCode</code> for projects template</li>
+<li>Added drawing arrow with selected directional/spot light direction in Editor</li>
+<li>Fix node values types for Surface copy paste</li>
+<li>Fix project regenerate on script change</li>
+<li>Fix import file dialog list</li>
+</ul>
+<h3 id="version-016160---27-june-2018">Version 0.1.6160 - 27 June 2018</h3>
+<ul>
+<li>Added <strong>UICanvas</strong> and <strong>UIControl</strong> actor types for building Game UI systems</li>
+<li>Added texture import option <em>Flip Y</em></li>
+<li>Added support for global custom PostFx applied to all game scene viewports</li>
+<li>Added using position snapping when spawning the object via drag and drop</li>
+<li>Added C# API to get GPU memory usage and dump resources info to log</li>
+<li>Added <code>RenderBuffers.DepthBuffer</code> to be accessed from the C# API</li>
+<li>Added new attribute <code>VisibleIf</code> to show/hide properties in editor based on object state</li>
+<li>Added creating mesh from code with 16bit index buffer</li>
+<li>Added new PostFx Material rendering location: <code>BeforeReflectionsPass</code>, can be used to implement custom light types and extend the shading pipeline</li>
+<li>Added <code>PostProcessEffect.Location</code> that specifies location during frame rendering when to execute the custom postFx</li>
+<li>Added <code>PostProcessEffect.UseSingleTarget</code> that allows to render graphics in additive mode to the input texture (can be used to optimize game performance)</li>
+<li>Added <code>PostProcessEffect.Order</code> that allows to sort the effects</li>
+<li>Added new PostFx location <code>AfterAntiAliasingPass</code> for PostFx Materials and Custom PostFx, can be used to perform rendering after full-screen AA filter</li>
+<li>Added more C# API for the scenes management</li>
+<li>Added helper API for scene assets referencing</li>
+<li>Added events <code>Collider.CollisionEnter</code> and <code>Collider.CollisionExit</code></li>
+<li>Added <code>Camera.ConvertMouseToRay</code></li>
+<li>Added dedicated editors for primitive types: double, long, ulong, byte, sbyte, short, ushort, uint and char</li>
+<li>Added dedicated editor for Guid type</li>
+<li>Added <code>Actor.AddChild&lt;T&gt;</code></li>
+<li>Added <code>ExpandGroupsAttribute</code> to help with editor UI rule creating</li>
+<li>Added showing material slot name in selected StaticModel/AnimatedModel entries list</li>
+<li>Added showing tooltips for Scripts (use TooltipAttribute on a script class)</li>
+<li>Added showing tooltips for inlined groups in editor</li>
+<li>Added ability to create object in editor for null reference in script</li>
+<li>Support importing <code>.dds</code> files as a single texture (not only cube texture)</li>
+<li>Change default editor font to Roboto (bigger characters set)</li>
+<li>Improve materiał instances performance</li>
+<li>Implement proper GUI serialization and editing (via attributes)</li>
+<li>Improve GPU memory usage efficiency (better render targets sharing)</li>
+<li>Improve reflections specular occlusion</li>
+<li>Increase sun shadow maps resolution for quality level Medium</li>
+<li>General GUI refactoring and improvements</li>
+<li>Reduce dynamic memory allocations during rendering</li>
+<li>Remove <code>Control.Name</code></li>
+<li>Remove <code>LH</code> postfix from math functions</li>
+<li>Remove <code>CharacterController.Velocity</code> setter (not supported by PhysX), getter still works</li>
+<li>Refactor editor asset picker</li>
+<li>Refactor Flax GUI library controls to be more usable in games</li>
+<li>Move Editor-only GUI controls to FlaxEditor assembly</li>
+<li>Change default Editor update rate to 60FPS</li>
+<li>Optimize collision events sending (less memory allocations)</li>
+<li>Optimize memory allocations during rendering</li>
+<li>Optimize <code>Render2D.DrawText</code> memory allocations</li>
+<li>Change default Contact Offset for the Colliders to 10</li>
+<li>Change scene tree node double click to start rename it (not focus on actor)</li>
+<li>Change <code>EnvironmentProbe.AutoUpdate</code> to be disabled by default</li>
+<li>Fix fog blending mode (can can be black now)</li>
+<li>Fix transforming meshes to root node when importing animated models</li>
+<li>Fix applying scale on imported model if any mesh has additional transformation</li>
+<li>Fix rare crashes when baking the collision mesh data</li>
+<li>Fix Parallax Occlusion mapping ignores custom UVs</li>
+<li>Fix duplicated content item when selecting with shift</li>
+<li>Fix auto-detecting workspace modification for scripts recompilation</li>
+<li>Fix <code>PostFxVolume</code> blending with blend radius set to 0</li>
+<li>Fix issue with material instance params not syncing layout in builded game</li>
+<li>Fix Get Parameter node width based on param name</li>
+<li>Fix crash when disabling script without a parent actor (eg. created from code)</li>
+<li>Fix crash when using parameter getter spawned with Visject context menu</li>
+<li>Fix recording immediate undo action after using Color Picker</li>
+<li>Fix scale gizmo snapping</li>
+<li>Fix alpha blended GUI rendering</li>
+<li>Fix AnchorStyle update for Center mode</li>
+<li>Minor fixes</li>
+</ul>
+<h3 id="version-016159---9-june-2018">Version 0.1.6159 - 9 June 2018</h3>
+<ul>
+<li>Fix <code>Actor.Scene</code> (was always returning parent actor)</li>
+</ul>
+<h3 id="version-016158---9-june-2018">Version 0.1.6158 - 9 June 2018</h3>
+<ul>
+<li>Added BoneSocket.UseScale</li>
+<li>Added showing <code>No camera</code> text in game window when no enabled cameras</li>
+<li>Implement all <code>Control.AnchorTypes</code> logic</li>
+<li>Fix crash on material compilation error</li>
+<li>Fix project shaders database caching to use also materials format version</li>
+<li>Fix crash when searching for <code>CustomEditorAttribute</code></li>
+<li>Fix deadlock when compiling 20 or more layered materials at once (recursive layers)</li>
+<li>Fix crash when using PostFx with not used parameters</li>
+<li>Fix typo in Mask Z node</li>
+</ul>
+<h3 id="version-016157---7-june-2018">Version 0.1.6157 - 7 June 2018</h3>
+<ul>
+<li>Added <strong>Editor Options</strong></li>
+<li>Added scroll bar to tabs menu in Toolbox window</li>
+<li>Added live preview for the color picker</li>
+<li>Added caching expanded actor nodes in Scene Tree</li>
+<li>Added <code>Font.Asset</code> to get font object parent asset</li>
+<li>Added new event <code>Scripting.Exit</code> to handle engine closing</li>
+<li>Added calling Start function if Script is enabled for the first time from code at runtime</li>
+<li>Added support for Matrix parameter type for Materials</li>
+<li>Added dedicated MatrixEditor</li>
+<li>Added Depth node to Materials (linear distance of the pixel/vertex to the camera)</li>
+<li>Added Mask nodes to Material/AnimGraph to get swizzle values like X,Y or XY, ZW</li>
+<li>Added dragging the Material/AnimGraph parameter into the surface</li>
+<li>Added creating Material Instance from Material in Content Window</li>
+<li>Added spawning surface parameters getter node via context menu</li>
+<li>Added showing scene filename on a Scene Tree node name</li>
+<li>Rotate decal actor in Material Preview (easier to use on Plane model)</li>
+<li>Support importing TIFF files with extension <code>.tif</code></li>
+<li>Improve Material/AnimGraph parameter renaming with left mouse double click</li>
+<li>Improve selecting actors in editor (don’t pick colliders if Physics Debug mode is off)</li>
+<li>Improve texture format auto-detection</li>
+<li>Improve gizmo and camera usage with Alt to orbit and move objects</li>
+<li>Improve internal C++ calls to prevent crashes in invalid object usage cases</li>
+<li>Improve C# assemblies debug symbols loading (don’t use pdb2mdb tool)</li>
+<li>Improve editor status strip message to use the editor state messages</li>
+<li>Improve filtering property name labels (cut common prefixes, share memory)</li>
+<li>Improve GPU and I/O async tasks cleanup and cancellation on exit</li>
+<li>Fix crash for Copy Bone if skeleton has only a single bone</li>
+<li>Fix crash when sampling material pixel shader surface properties in vertex shader</li>
+<li>Fix importing 1x1 texture with mipmaps generation turned on</li>
+<li>Fix crash when reimporting binary asset to the different type</li>
+<li>Fix crash when spawning in editor model with more than 300 meshes</li>
+<li>Fix drawing gizmos, editor primitives and debug shapes in debug render modes</li>
+<li>Fix setting scene modified flax on actor spawn</li>
+<li>Fix rare errors when reimporting the asset</li>
+<li>Fix <code>Camera.Viewport</code> property (invalid size)</li>
+<li>Fix removing tag from the actor</li>
+<li>Fix minor memory leaks</li>
+<li>Fix crash for empty PostFx/GUI material which is not using constant buffer</li>
+</ul>
+<h3 id="version-016156---1-june-2018">Version 0.1.6156 - 1 June 2018</h3>
+<p>Contributors: klukule</p>
+<ul>
+<li>Added <strong>Decals</strong> support</li>
+<li>Added <strong>C# 7.2</strong> support</li>
+<li>Upgrade to <strong>Mono 5.12</strong></li>
+<li>Added SGen for C# Garbage Collection (multi-threaded GC)</li>
+<li>Added support for catching StackOverflowException</li>
+<li>Added Decal actor</li>
+<li>Added Material types: Decal and GUI</li>
+<li>Added selecting the material preview mesh (cube, sphere, plane, cylinder or cone)</li>
+<li>Added <code>atan2</code> function to materials</li>
+<li>Improve initial asset registry building (faster files discovery)</li>
+<li>Improve managed objects performance (don&#39;t pin persistent managed objects)</li>
+<li>Optimize scenes reload on scripts reload (keep data cached in memory)</li>
+<li>Optimize draw calls sorting performance (for 2k+ draw calls)</li>
+<li>Support <code>Position Offset</code> in layered materials</li>
+<li>Support sampling material layer that is using material layer input</li>
+<li>Support copy/paste files and folders in the Content Window</li>
+<li>Support calling Update/LateUpdate/FixedUpdate in editor for scripts marked with ExecuteInEditModeAttribute</li>
+<li>Improve materials compilation</li>
+<li>Optimize DirectX 11 backend state changes</li>
+<li>Swap Roughness with AO in GBuffer</li>
+<li>Use <code>CreateDXGIFactory1</code> on DirectX 11 backend (min Win7 support)</li>
+<li>Added scripts define <code>FLAX_X_Y_Z</code> for scripting to include patches</li>
+<li>Added tooltip to Visject Surface graph nodes with the node type</li>
+<li>Added C# API to copy folders and files with a system clipboard</li>
+<li>Fix Combobox text clipping</li>
+<li>Fix Character Controller collisions filter</li>
+<li>Fix many crashes on scripts reload in editor</li>
+<li>Fix C# various internal structures serialization</li>
+<li>Fix scriptis builder events sending</li>
+<li>Stability improvements related to meshes rendering</li>
+<li>Minor fixes</li>
+</ul>
+<h3 id="version-016155---20-may-2018">Version 0.1.6155 - 20 May 2018</h3>
+<ul>
+<li>Added feature to center the imported model geometry</li>
+<li>Added feature to copy/paste/cut/duplicate nodes in Material and Anim Graph editors</li>
+<li>Added support for range selection in Content Window with Shift key</li>
+<li>Changing Actor.Parent does not preserve the object world transformation (use Actor.SetParent(value, true) to keep it, otherwise local transform will be unchanged)</li>
+<li>Use editor viewport grid for the objects placement</li>
+<li>Implement ExecuteInEditModeAttribute</li>
+<li>Script events in editor (during editing) are now executed only for types with [ExecuteInEditMode] attribute assigned</li>
+<li>Support importing folders with contents</li>
+<li>Improve Env Probes usage with Auto Bake option set</li>
+<li>Improve startup on Windows 7 systems</li>
+<li>Improve spawning Visject Surface nodes via drag and drop</li>
+<li>Use First Person camera in the Collision Data asset editor</li>
+<li>Fix local transformation issue when using undo after reparenting actor</li>
+<li>Fix mouse pos when no capture</li>
+<li>Fixes for importing various model files</li>
+<li>Fixes for scripts that have base class other than Scritpt type (eg. Actor)</li>
+<li>Fix crash when updating the Collision Data asset</li>
+<li>Fix Animated Model update when offscreen (better sync and stable looping)</li>
+<li>Fix RayCast with layer specified</li>
+<li>Fix ShadowsMode deserialization for the meshes</li>
+<li>Fix black screen issue in a builded game</li>
+<li>Fix error when trying to create a new folder in a project root folder</li>
+<li>Fix Game Cooker progress reporting to be more thread-safe</li>
+<li>Serialize Sky.SunDiscScale</li>
+<li>Fix sampling textures in material’s vertex shader</li>
+<li>Fix initial OpenAL warning</li>
+<li>Fix error when dragging and dropping actors in tree structure</li>
+</ul>
+<h3 id="version-016154---15-may-2018">Version 0.1.6154 - 15 May 2018</h3>
+<p>Initial release. We&#39;re getting started...</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_1/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

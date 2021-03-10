@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Rigid Bodies | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Rigid Bodies | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="rigid-bodies">Rigid Bodies</h1>
+
+<p><img src="media/rigidbodies.gif" alt="Rigidbodies"></p>
+<p><strong>Rigidbodies</strong> are dynamic objects that can collide and provide physical behaviour. Their movement is based on physical forces, such as gravity. In general rigidbodies are good choise for objects that can be moved or pushes like boxes, furniture, and obstacles. Rigidbodies use attached <a href="colliders/index.html">Colliders</a> to define their physical <em>shape</em>.</p>
+<h2 id="create-a-rigidbody">Create a rigidbody</h2>
+<p>You can easily spawn a rigidbody actor right inside the editor using a <em>Toolbox</em> window or a context menu i the <em>Scene</em> window.</p>
+<p><img src="tutorials/media/spawn-rigidbody.jpg" alt="Add Rigidbody"></p>
+<p>You can also spawn rigidbodies from C# code at runtime. Here is an example that spawns a bullet and shoots it:</p>
+<pre><code class="lang-cs">var ball = new RigidBody();
+var ballCollider = new SphereCollider();
+var ballModel = new StaticModel();
+ballModel.Model = SphereModel;
+ballModel.Parent = ball;
+ballCollider.Parent = ball;
+ball.UseCCD = true;
+ball.Transform = Transform;
+ball.LinearVelocity = Actor.Direction * 600.0f;
+Destroy(ball, 5.0f);
+</code></pre><h2 id="properties">Properties</h2>
+<p><img src="media/rigidbody-properties.jpg" alt="Rigidbody Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Is Kinematic</strong></td>
+<td>If checked, enables kinematic mode for the rigidbody. See <a href="rigid-bodies.html#kinematic-rigidbodies">Kinematic rigidbodies</a> section down below.</td>
+</tr>
+<tr>
+<td><strong>Enable Simulation</strong></td>
+<td>If checked, simulation and collisions detection will be enabled for the rigidbody.</td>
+</tr>
+<tr>
+<td><strong>Use CCD</strong></td>
+<td>If checked, Continuous Collision Detection (CCD) will be used for this object.</td>
+</tr>
+<tr>
+<td><strong>Enable Gravity</strong></td>
+<td>If checked, object should have the force of gravity applied.</td>
+</tr>
+<tr>
+<td><strong>Start Awake</strong></td>
+<td>If checked, object should start awake. Otherwise it will be initially be sleeping.</td>
+</tr>
+<tr>
+<td><strong>Linear Damping</strong></td>
+<td>Used to slow down an object. The higher the drag the more the object slows down.</td>
+</tr>
+<tr>
+<td><strong>Angular Damping</strong></td>
+<td>Used to slow down the rotation of an object. The higher the drag the more the rotation slows down.</td>
+</tr>
+<tr>
+<td><strong>Max Angular Velocity</strong></td>
+<td>Used to clamp the angular velocity of rigidbodies to avoid numerical instability with fast rotating bodies. Because this may prevent intentional fast rotations on objects such as wheels, you can override this value per rigidbody.</td>
+</tr>
+<tr>
+<td><strong>Mass</strong></td>
+<td>The object mass value is computed from the density and attached colliders (taking into account other parameters like <em>MassScale</em>). Use may override it by enabling <em>OverrideMass</em> and providing a custom value.</td>
+</tr>
+<tr>
+<td><strong>Mass Scale</strong></td>
+<td>Per-instance scaling of the mass. Used only for auto computed mass, not the overriden value.</td>
+</tr>
+<tr>
+<td><strong>Update Mass When Scale Changes</strong></td>
+<td>If checked, mass will be updated when actor scale changes. Used only when mass is not being overriden.</td>
+</tr>
+<tr>
+<td><strong>Center Of Mass Offset</strong></td>
+<td>Custom offset for the center of mass of this object, from the calculated location. In actor local space.</td>
+</tr>
+<tr>
+<td><strong>Constraints</strong></td>
+<td>The object movement constraint flags that define degrees of freedom are allowed for the simulation of object.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rigidbody-constraints">Rigidbody Constraints</h2>
+<p>Dynamic rigidbodies movement and rotation can be locked using the constraints. They can be used to provide a mechanism to lock motion along/around a specific axis or set of axes to constrain object motion.</p>
+<table>
+<thead>
+<tr>
+<th>Constraints</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>None</strong></td>
+<td>No constraints.</td>
+</tr>
+<tr>
+<td><strong>Lock Position X</strong></td>
+<td>Freeze motion along the X-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Position Y</strong></td>
+<td>Freeze motion along the Y-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Position Z</strong></td>
+<td>Freeze motion along the Z-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Rotation X</strong></td>
+<td>Freeze rotation along the X-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Rotation Y</strong></td>
+<td>Freeze rotation along the Y-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Rotation Z</strong></td>
+<td>Freeze rotation along the Z-axis.</td>
+</tr>
+<tr>
+<td><strong>Lock Position</strong></td>
+<td>Freeze motion along all axes.</td>
+</tr>
+<tr>
+<td><strong>Lock Rotation</strong></td>
+<td>Freeze rotation along all axes.</td>
+</tr>
+<tr>
+<td><strong>Lock All</strong></td>
+<td>Freeze rotation and motion along all axes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kinematic-rigidbodies">Kinematic rigidbodies</h2>
+<p>Kinematic rigidbodies are special dynamic actors that are not influenced by forces (such as gravity), and have no momentum. They are considered to have infinite mass and can push regular dynamic actors out of the way.Kinematics will not collide with static or other kinematic objects.</p>
+<p>Kinematic rigidbodies are great for moving platforms or characters, where direct motion control is desired.</p>
+<div class="NOTE"><h5>Note</h5><p>Kinematic rigidbodies are incompatible with CCD.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/physics/rigid-bodies.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

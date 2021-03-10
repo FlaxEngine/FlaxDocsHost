@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Visject Surfaces | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Visject Surfaces | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-visject-surfaces">Custom Visject Surfaces</h1>
+
+<p>The Flax Engine has a visual scripting language called Visject. It&#39;s used by <a href="../../graphics/materials/material-editor/index.html">Materials</a>, <a href="../../particles/particle-emitter.html">Particles</a>, and <a href="../../animation/anim-graph/index.html">Animations</a>. It offers a wide range of features to be used by content creation tools.</p>
+<p>You can also use it for your own purposes which can range from a simple graphing plugin to a full-blown scripting system.</p>
+<p>These tutorials will go over the process of creating your own Visject surface for an expression graph. Something very simple that takes a few numbers, performs a few calculations and outputs a number. It is recommended to first check out the <a href="../../scripting/plugins/index.html">custom plugin tutorials</a>.</p>
+<p><img src="media/expression-graph-advanced.png" alt="Graphing Calculator"></p>
+<h2 id="asset">Asset</h2>
+<p>The first step is creating our own asset type. This asset type needs a <code>byte[]</code> to save the Visject surface.</p>
+<p>It also needs a version of the graph that you can execute in a built game. This part will be covered in a later tutorial.</p>
+<pre><code class="lang-cs">public class ExpressionGraph
+{
+    /// &lt;summary&gt;
+    /// Serialized Visject surface
+    /// &lt;/summary&gt;
+    public byte[] VisjectSurface { get; set; }
+
+    // TODO: Stuff that you can execute in a built game
+}
+</code></pre><p>This asset type will be a <a href="https://docs.flaxengine.com/api/FlaxEngine.JsonAsset.html">json asset</a>.</p>
+<h2 id="asset-proxy">Asset Proxy</h2>
+<p>To create and open assets using the Flax Editor, an <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.AssetProxy.html">asset proxy</a> is required. Since it&#39;s an editor file, it needs to be in the editor assembly. To do so, create a new folder called <code>Editor</code>. In this folder, create a new asset proxy.</p>
+<pre><code class="lang-cs">public class ExpressionGraphProxy : JsonAssetProxy
+{
+    /// &lt;inheritdoc /&gt;
+    public override string Name =&gt; &quot;Expression Graph&quot;;
+
+    /// &lt;inheritdoc /&gt;
+    // This will be implemented in the next step...
+    //public override EditorWindow Open(FlaxEditor.Editor editor, ContentItem item)
+    //{
+    //    return new ExpressionGraphWindow(editor, (JsonAssetItem)item);
+    //}
+
+    /// &lt;inheritdoc /&gt;
+    public override Color AccentColor =&gt; Color.FromRGB(0x0F0371);
+
+    /// &lt;inheritdoc /&gt;
+    public override string TypeName { get; } = typeof(ExpressionGraph).FullName;
+
+    /// &lt;inheritdoc /&gt;
+    public override bool CanCreate(ContentFolder targetLocation)
+    {
+        return targetLocation.CanHaveAssets;
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void Create(string outputPath, object arg)
+    {
+        FlaxEditor.Editor.SaveJsonAsset(outputPath, new ExpressionGraph());
+    }
+}
+</code></pre><h3 id="register-the-proxy">Register the proxy</h3>
+<p>Then, we have to use an editor <a href="../../scripting/plugins/index.html">plugin</a> to register the proxy.</p>
+<div class="NOTE"><h5>Note</h5><p>Make sure to add it <em>before</em> the <code>GenericJsonAssetProxy</code>, which is the last proxy in the list and is used as a fallback proxy.</p>
+</div>
+<pre><code class="lang-cs">public class ExpressionGraphPlugin : EditorPlugin
+{
+    private ExpressionGraphProxy _expressionGraphProxy;
+
+    /// &lt;inheritdoc /&gt;
+    public override void InitializeEditor()
+    {
+        base.InitializeEditor();
+
+        _expressionGraphProxy = new ExpressionGraphProxy();
+
+        // Register the proxy
+        Editor.ContentDatabase.Proxy.Insert(0, _expressionGraphProxy);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void Deinitialize()
+    {
+        // Cleanup on plugin deinit
+        Editor.ContentDatabase.Proxy.Remove(_expressionGraphProxy);
+
+        base.Deinitialize();
+    }
+}
+</code></pre><p>Once this is done, you should be able to create a new expression graph asset in your <code>Content</code> folder.</p>
+<p><img src="media/content-create-expression-graph.png" alt="Creating a new expression graph"></p>
+<h2 id="visject-window">Visject Window</h2>
+<p>Opening the expression graph is currently rather disappointing. So, in this step, we&#39;ll create our own window with a Visject surface for it. Such a window has an asset, a temporary copy of the asset, a number of parameters, a surface and a live-preview.</p>
+<h3 id="basic-implementation">Basic Implementation</h3>
+<p>To do so, we create a file in the <code>Editor</code> folder that inherits from <code>VisjectSurfaceWindow</code>. We&#39;ll also need a preview and a surface in the <code>Editor</code> folder.</p>
+<pre><code class="lang-cs">public class ExpressionGraphPreview : AssetPreview
+{
+    // Preview will be expanded later
+    public ExpressionGraphPreview(bool useWidgets) : base(useWidgets)
+    {
+    }
+
+    public ExpressionGraph ExpressionGraph { get; set; }
+}
+</code></pre><pre><code class="lang-cs">public class ExpressionGraphSurface : VisjectSurface
+{
+    public const int MainNodeGroupId = 1;
+    public const int MainNodeTypeId = 1;
+
+    // Surface will be expanded later
+    public ExpressionGraphSurface(IVisjectSurfaceOwner owner, Action onSave, FlaxEditor.Undo undo = null, SurfaceStyle style = null, List&lt;GroupArchetype&gt; groups = null)
+    : base(owner, onSave, undo, style, groups)
+    {
+    }
+}
+</code></pre><pre><code class="lang-cs">public class ExpressionGraphWindow : VisjectSurfaceWindow&lt;JsonAsset, ExpressionGraphSurface, ExpressionGraphPreview&gt;
+{
+    /// &lt;summary&gt;
+    /// The allowed parameter types.
+    /// &lt;/summary&gt;
+    private readonly ScriptType[] _newParameterTypes =
+    {
+        new ScriptType(typeof(float)),
+        new ScriptType(typeof(Vector2)),
+        new ScriptType(typeof(Vector3)),
+        new ScriptType(typeof(Vector4)),
+    };
+
+    /// &lt;summary&gt;
+    /// The properties proxy object.
+    /// &lt;/summary&gt;
+    private sealed class PropertiesProxy
+    {
+        [EditorOrder(1000), EditorDisplay(&quot;Parameters&quot;), CustomEditor(typeof(ParametersEditor)), NoSerialize]
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        public ExpressionGraphWindow Window { get; set; }
+
+        [EditorOrder(20), EditorDisplay(&quot;General&quot;), Tooltip(&quot;It&#39;s for demo purposes&quot;)]
+        public int DemoInteger { get; set; }
+
+        [HideInEditor, Serialize]
+        public List&lt;SurfaceParameter&gt; Parameters
+        {
+            get =&gt; Window.Surface.Parameters;
+            set =&gt; throw new Exception(&quot;No setter.&quot;);
+        }
+
+        /// &lt;summary&gt;
+        /// Gathers parameters from the specified window.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;window&quot;&gt;The window.&lt;/param&gt;
+        public void OnLoad(ExpressionGraphWindow window)
+        {
+            // Link
+            Window = window;
+        }
+
+        /// &lt;summary&gt;
+        /// Clears temporary data.
+        /// &lt;/summary&gt;
+        public void OnClean()
+        {
+            // Unlink
+            Window = null;
+        }
+    }
+
+    private readonly PropertiesProxy _properties;
+
+    private ExpressionGraph _assetInstance;
+
+    /// &lt;inheritdoc /&gt;
+    public ExpressionGraphWindow(FlaxEditor.Editor editor, AssetItem item)
+    : base(editor, item)
+    {
+        // Asset preview
+        _preview = new ExpressionGraphPreview(true)
+        {
+            Parent = _split2.Panel1
+        };
+
+        // Asset properties proxy
+        _properties = new PropertiesProxy();
+        _propertiesEditor.Select(_properties);
+
+        // Surface
+        _surface = new ExpressionGraphSurface(this, Save, _undo)
+        {
+            Parent = _split1.Panel1,
+            Enabled = false
+        };
+
+        // Toolstrip
+        _toolstrip.AddSeparator();
+        _toolstrip.AddButton(editor.Icons.BracketsSlash32, () =&gt; ShowJson(_asset)).LinkTooltip(&quot;Show asset contents&quot;);
+    }
+
+    /// &lt;summary&gt;
+    /// Shows the JSON contents window.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;asset&quot;&gt;The JSON asset.&lt;/param&gt;
+    public static void ShowJson(JsonAsset asset)
+    {
+        FlaxEditor.Utilities.Utils.ShowSourceCodeWindow(asset.Data, &quot;Asset JSON&quot;);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override IEnumerable&lt;ScriptType&gt; NewParameterTypes =&gt; _newParameterTypes;
+
+    /// &lt;inheritdoc /&gt;
+    protected override void UnlinkItem()
+    {
+        // Cleanup
+        _properties.OnClean();
+        _preview.ExpressionGraph = null;
+
+        base.UnlinkItem();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    protected override void OnAssetLinked()
+    {
+        // Setup
+        _assetInstance = _asset.CreateInstance&lt;ExpressionGraph&gt;();
+        _preview.ExpressionGraph = _assetInstance;
+
+        base.OnAssetLinked();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override string SurfaceName =&gt; &quot;Expression Graph&quot;;
+
+    /// &lt;inheritdoc /&gt;
+    public override byte[] SurfaceData
+    {
+        get =&gt; ExpressionGraphSurface.LoadSurface(_asset, _assetInstance, true);
+        set
+        {
+            // Save data to the temporary asset
+            if (ExpressionGraphSurface.SaveSurface(_asset, _assetInstance, value))
+            {
+                // Error
+                _surface.MarkAsEdited();
+                Debug.LogError(&quot;Failed to save surface data&quot;);
+            }
+            // Optionally reset the preview
+        }
+    }
+
+    /// &lt;inheritdoc /&gt;
+    protected override bool LoadSurface()
+    {
+        // Init asset properties and parameters proxy
+        _properties.OnLoad(this);
+
+        // Load surface graph
+        if (_surface.Load(data))
+        {
+            // Error
+            Debug.LogError(&quot;Failed to load expression graph surface.&quot;);
+            return true;
+        }
+
+        return false;
+    }
+
+    /// &lt;inheritdoc /&gt;
+    protected override bool SaveSurface()
+    {
+        // TODO: Graph compilation
+        _surface.Save();
+        return false;
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void SetParameter(int index, object value)
+    {
+        // TODO: Update the asset value to have nice live preview
+        //_assetInstance.Parameters[index].Value = value;
+
+        base.SetParameter(index, value);
+    }
+}
+</code></pre><h3 id="saving-and-loading">Saving and Loading</h3>
+<p>Usually an asset has a <code>SaveSurface</code> and a <code>LoadSurface</code> method. To implement those methods, we need to call functions from the editor assembly such as <code>FlaxEditor.Editor.SaveJsonAsset</code>. However, we can&#39;t reference the editor assembly from the game assembly. Thus, we&#39;ll put those functions in <code>ExpressionGraphSurface.cs</code>.</p>
+<p>The surface loading method tried to load the surface from an ExpressionGraph instance. If the surface doesn&#39;t exist yet, it creates a new Visject surface context with a main node and returns that.</p>
+<p>The surface saving method saves the surface to the asset instance. It then saves the asset instance as json to the hard drive.</p>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// For saving and loading surfaces
+/// &lt;/summary&gt;
+private class FakeSurfaceContext : ISurfaceContext
+{
+    public string SurfaceName =&gt; throw new NotImplementedException();
+
+    public byte[] SurfaceData { get; set; }
+
+    public void OnContextCreated(VisjectSurfaceContext context)
+    {
+
+    }
+}
+
+/// &lt;summary&gt;
+/// Tries to load surface graph from the asset.
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;createDefaultIfMissing&quot;&gt;True if create default surface if missing, otherwise won&#39;t load anything.&lt;/param&gt;
+/// &lt;returns&gt;Loaded surface bytes or null if cannot load it or it&#39;s missing.&lt;/returns&gt;
+public static byte[] LoadSurface(JsonAsset asset, ExpressionGraph assetInstance, bool createDefaultIfMissing)
+{
+    if (!asset) throw new ArgumentNullException(nameof(asset));
+    if (assetInstance == null) throw new ArgumentNullException(nameof(assetInstance));
+
+    // Return its data
+    if (assetInstance.VisjectSurface?.Length &gt; 0)
+    {
+        return assetInstance.VisjectSurface;
+    }
+
+    // Create it if it&#39;s missing
+    if (createDefaultIfMissing)
+    {
+        // A bit of a hack
+        // Create a Visject Graph with a main node and serialize it!
+        var surfaceContext = new VisjectSurfaceContext(null, null, new FakeSurfaceContext());
+
+        // Add the main node
+        // TODO: Change NodeFactory.DefaultGroups to your list of group archetypes
+        var node = NodeFactory.CreateNode(NodeFactory.DefaultGroups, 1, surfaceContext, MainNodeGroupId, MainNodeTypeId);
+
+        if (node == null)
+        {
+            Debug.LogWarning(&quot;Failed to create main node.&quot;);
+            return null;
+        }
+        surfaceContext.Nodes.Add(node);
+        node.Location = Vector2.Zero;
+        surfaceContext.Save();
+        return surfaceContext.Context.SurfaceData;
+    }
+    else
+    {
+        return null;
+    }
+}
+
+/// &lt;summary&gt;
+/// Updates the surface graph asset (save new one, discard cached data, reload asset).
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;data&quot;&gt;Surface data.&lt;/param&gt;
+/// &lt;returns&gt;True if cannot save it, otherwise false.&lt;/returns&gt;
+public static bool SaveSurface(JsonAsset asset, ExpressionGraph assetInstance, byte[] surfaceData)
+{
+    if (!asset) throw new ArgumentNullException(nameof(asset));
+
+    assetInstance.VisjectSurface = surfaceData;
+
+    bool success = FlaxEditor.Editor.SaveJsonAsset(asset.Path, assetInstance);
+    asset.Reload();
+    return success;
+}
+</code></pre><h3 id="use-the-window">Use the window</h3>
+<p>To actually use the window, we need to uncomment the following in <code>ExpressionGraphProxy.cs</code></p>
+<pre><code class="lang-cs">public override EditorWindow Open(FlaxEditor.Editor editor, ContentItem item)
+{
+    return new ExpressionGraphWindow(editor, (JsonAssetItem)item);
+}
+</code></pre><p>Congratulations, you now have your own Visject surface!</p>
+<p><img src="media/visject-graph-window.png" alt="Expression Graph Surface"></p>
+<h2 id="custom-nodes">Custom Nodes</h2>
+<p>Every Visject node has a <code>NodeArchetype</code> , which specifies the type of the node. A number of <code>NodeArchetype</code>s are grouped together in a <code>GroupArchetype</code>.</p>
+<p>To add custom nodes, we need to pass our own list of group archetypes to the surface&#39;s base constructor.</p>
+<pre><code class="lang-cs">public static readonly List&lt;GroupArchetype&gt; ExpressionGraphGroups = new List&lt;GroupArchetype&gt;();
+
+public ExpressionGraphSurface(IVisjectSurfaceOwner owner, Action onSave, FlaxEditor.Undo undo = null, SurfaceStyle style = null)
+    : base(owner, onSave, undo, style, ExpressionGraphGroups) // Note the last parameter
+{
+}
+</code></pre><p>And then we can fill our list of group archetypes with our own ones. We can also use <a href="https://github.com/FlaxEngine/FlaxEngine/tree/master/Source/Editor/Surface/Archetypes">existing node archetypes</a>.</p>
+<pre><code class="lang-cs">// Our own node archetypes
+public static readonly NodeArchetype[] ExpressionGraphNodes =
+{
+    // Main node
+    new NodeArchetype
+    {
+        TypeID = 1,
+        Title = &quot;ExpressionGraph&quot;,
+        Description = &quot;Main number graph node&quot;,
+        Flags = NodeFlags.AllGraphs | NodeFlags.NoRemove | NodeFlags.NoSpawnViaGUI | NodeFlags.NoCloseButton,
+        Size = new Vector2(150, 300),
+        Elements = new[]
+        {
+            NodeElementArchetype.Factory.Input(0, &quot;Float&quot;, true, typeof(float), 0),
+            NodeElementArchetype.Factory.Input(1, &quot;Vector2&quot;, true, typeof(Vector2), 1),
+            NodeElementArchetype.Factory.Input(2, &quot;Vector3&quot;, true, typeof(Vector3), 2)
+        }
+    },
+    // Random float
+    new NodeArchetype
+    {
+        TypeID = 2,
+        Title = &quot;Random float&quot;,
+        Description = &quot;A random float&quot;,
+        Flags = NodeFlags.AllGraphs,
+        Size = new Vector2(150, 30),
+        Elements = new[]
+        {
+            NodeElementArchetype.Factory.Output(0, &quot;Float&quot;, typeof(float), 0),
+        }
+    }
+};
+
+// List of group archetypes
+public static readonly List&lt;GroupArchetype&gt; ExpressionGraphGroups = new List&lt;GroupArchetype&gt;()
+{
+    // Our own nodes, including the main node
+    new GroupArchetype
+    {
+        GroupID = 1,
+        Name = &quot;ExpressionGraph&quot;,
+        Color = new Color(231, 231, 60),
+        Archetypes = ExpressionGraphNodes
+    },
+    // All math nodes
+    new GroupArchetype
+    {
+        GroupID = 3,
+        Name = &quot;Math&quot;,
+        Color = new Color(52, 152, 219),
+        Archetypes = FlaxEditor.Surface.Archetypes.Math.Nodes
+    },
+    // Just a single parameter node
+    new GroupArchetype
+    {
+        GroupID = 6,
+        Name = &quot;Parameters&quot;,
+        Color = new Color(52, 73, 94),
+        Archetypes = new []{ FlaxEditor.Surface.Archetypes.Parameters.Nodes[0] }
+    }
+};
+</code></pre><p>Lastly, we need to update the <code>LoadSurface</code> method to use the <code>ExpressionGraphGroups</code> instead of <code>NodeFactory.DefaultGroups</code>.</p>
+<pre><code class="lang-cs">var node = NodeFactory.CreateNode(ExpressionGraphGroups, 1, surfaceContext, MainNodeGroupId, MainNodeTypeId);
+</code></pre><p><img src="media/expression-graph-custom-nodes.png" alt="Custom Nodes"></p>
+<h2 id="compiling-and-running">Compiling and Running</h2>
+<p>To run the Visject surface in a built game, you need to create a runtime representation of it. For example, you could go over every node and turn it into shader code. Or you could copy the surface nodes and run a simple interpreter at runtime.</p>
+<p>The Visject graph has a number of important parts that need to be compiled into our output</p>
+<ul>
+<li>Input parameters</li>
+<li>Nodes<ul>
+<li>with their inputs and outputs</li>
+</ul>
+</li>
+<li>An output node</li>
+</ul>
+<p>For the surface compilation, add a method to <code>ExpressionGraphSurface.cs</code>. </p>
+<pre><code class="lang-cs">public void CompileSurface(ExpressionGraph graph)
+{
+    // Code
+}
+</code></pre><p>Then, to automatically compile the surface, modify the <code>SaveSurface</code> method in <code>ExpressionGraphWindow.cs</code> to include a call to the surface compilation method.</p>
+<pre><code class="lang-cs"> /// &lt;inheritdoc /&gt;
+ protected override bool SaveSurface()
+ {
+     // Compile the surface
+     _surface.CompileSurface(_assetInstance);
+     // Save it
+     _surface.Save();
+     return false;
+ }
+</code></pre><p>The input parameters are stored in the <a href="https://docs.flaxengine.com/api/FlaxEditor.Surface.VisjectSurface.html#FlaxEditor_Surface_VisjectSurface_Parameters">&#39;Parameters&#39; list</a>. The most important parts of a parameter are the following</p>
+<pre><code class="lang-cs">var param = Parameters[0];
+param.ID; // Used to map the parameter-nodes to the parameters
+param.Name; // The name of the param
+param.Value; // The value of the param
+0 // The index of the param in the list. Used for live-updating the preview.
+</code></pre><p>The index of the parameter in the <code>Parameters</code> list is used for the live-updating the preview in the <code>SetParameter</code> function in the file <code>ExpressionGraphWindow.cs</code>.</p>
+<pre><code class="lang-cs">public override void SetParameter(int index, object value)
+{
+    // Update the asset value to have nice live preview
+    _assetInstance.Parameters.First(p =&gt; p.Index == index).Value = value;
+
+    base.SetParameter(index, value);
+}
+</code></pre><p>The nodes are stored in the <a href="https://docs.flaxengine.com/api/FlaxEditor.Surface.VisjectSurface.html#FlaxEditor_Surface_VisjectSurface_Nodes"><code>Nodes</code> list</a>. The most important parts of a node are the following</p>
+<pre><code class="lang-cs">node.GroupArchetype.GroupID; // Which group-archetype the node belongs to
+node.Archetype.TypeID; // Which node-archetype
+node.Values; // The internal values of the node
+node.Elements.OfType&lt;InputBox&gt;(); // Inputs
+node.Elements.OfType&lt;OutputBox&gt;(); // Outputs
+</code></pre><p>Every node has a number of <a href="https://docs.flaxengine.com/api/FlaxEditor.Surface.Elements.Box.html"><code>Box</code></a>es for the inputs and outputs. Those boxes have</p>
+<pre><code class="lang-cs">box.Connections[index]; // The boxes connected to this one
+box.Archetype.ValueIndex; // Index of the box in node.Values[ ]
+</code></pre><p>Lastly, the output node, or main node, can be obtained using <a href="https://docs.flaxengine.com/api/FlaxEditor.Surface.VisjectSurface.html#collapsible-FlaxEditor_Surface_VisjectSurface_FindNode_System_UInt16_System_UInt16_"><code>FindNode(MainNodeGroupId, MainNodeTypeId)</code></a>.</p>
+<h3 id="example-implementation">Example Implementation</h3>
+<p>A simple way to execute a Visject surface at runtime is making a copy of it and running an interpreter over it.</p>
+<div class="NOTE"><h5>Note</h5><p>You cannot reference <code>SurfaceNode</code> at runtime, because it is in the Editor assembly. So, you have to copy every single node to your own class if you want to write an interpreter.</p>
+</div>
+<p>To copy a surface, iterate over it in a <em>depth first</em> manner. This makes it easy to execute the nodes in a correct order, where every node gets executed <em>after</em> the nodes before it have finished. It also conveniently detects cycles in the graph.</p>
+<p>An example implementation can be found in the <a href="https://github.com/FlaxCommunityProjects/flax-custom-visject-plugin">custom Visject surface sample project</a>.</p>
+<h3 id="preview">Preview</h3>
+<p>A simple text only preview</p>
+<pre><code class="lang-cs">public class ExpressionGraphPreview : AssetPreview
+{
+    public ExpressionGraphPreview(bool useWidgets) : base(useWidgets)
+    {
+    }
+
+    public ExpressionGraph ExpressionGraph { get; set; }
+
+    public override void Update(float deltaTime)
+    {
+        base.Update(deltaTime);
+
+        // Manually update simulation
+        ExpressionGraph?.Update(deltaTime);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void Draw()
+    {
+        base.Draw();
+
+        if (ExpressionGraph == null) return;
+
+        Render2D.DrawText(
+            Style.Current.FontLarge,
+            $&quot;Float: {ExpressionGraph.OutputFloat}\n&quot;,
+            new Rectangle(Vector2.Zero, Size),
+            Color.Wheat,
+            TextAlignment.Near,
+            TextAlignment.Far);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDestroy()
+    {
+        ExpressionGraph = null;
+        base.OnDestroy();
+    }
+}
+</code></pre><p>The final result should look similar to this</p>
+<p><img src="media/expression-graph.png" alt="End result"></p>
+<h2 id="going-further">Going Further</h2>
+<p>A simple idea for going further is to evaluate the same graph multiple times. For example, the material graph is evaluated for every single pixel on the screen.</p>
+<p>So, a simple graphing calculator can be created by adding a custom &quot;Get X-Coordinate&quot; node and then evaluating the graph once for every value on the x-axis. Then, the output can be plotted by drawing line segments through those points.</p>
+<p>This can be found in the <a href="https://github.com/FlaxCommunityProjects/flax-custom-visject-plugin/tree/graphing-demo">graphing-demo</a> branch in the sample project.</p>
+<p><img src="media/expression-graph-graphing.gif" alt="Gif"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/advanced/custom-visject-surface.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

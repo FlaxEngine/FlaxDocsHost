@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API tags | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="API tags | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="api-tags">API tags</h1>
+
+<h2 id="apiclass">API_CLASS(...)</h2>
+<p>Use it on a class to expose it to the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">/// &lt;summary&gt;
+/// Actor that links to the animated model skeleton node transformation.
+/// &lt;/summary&gt;
+API_CLASS(Sealed) class BoneSocket : public Actor
+{
+...
+}
+</code></pre><h2 id="apistruct">API_STRUCT(...)</h2>
+<p>Use it on a structure to expose it to the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">API_STRUCT() struct MyGameData
+{
+...
+}
+</code></pre><h2 id="apiinterface">API_INTERFACE(...)</h2>
+<p>Use it on a class to expose it as class interface for the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">API_INTERFACE() class IMyInterface
+{
+...
+}
+</code></pre><h2 id="apiproperty">API_PROPERTY(...)</h2>
+<p>Use it on the property getter/setter methods to expose the property to the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">/// &lt;summary&gt;
+/// Gets the value indicating whenever use the target node scale. Otherwise won&#39;t override the actor scale.
+/// &lt;/summary&gt;
+/// &lt;returns&gt;If set to &lt;c&gt;true&lt;/c&gt; the node socket will use target node scale, otherwise it will be ignored.&lt;/returns&gt;
+API_PROPERTY()
+FORCE_INLINE bool GetUseScale() const
+{
+    return _useScale;
+}
+
+/// &lt;summary&gt;
+/// Sets the value indicating whenever use the target node scale. Otherwise won&#39;t override the actor scale.
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;value&quot;&gt;If set to &lt;c&gt;true&lt;/c&gt; the node socket will use target node scale, otherwise it will be ignored.&lt;/param&gt;
+API_PROPERTY()
+void SetUseScale(bool value);
+</code></pre><h2 id="apifield">API_FIELD(...)</h2>
+<p>Use it on a field to expose it to the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">/// &lt;summary&gt;
+/// The custom scale option.
+/// &lt;/summary&gt;
+API_FIELD()
+float Scale = 1.0f;
+</code></pre><h2 id="apifunction">API_FUNCTION(...)</h2>
+<p>Use it on a function to expose it to the scripting API. You can specify custom attributes in the braces.
+Example:</p>
+<pre><code class="lang-cpp">/// &lt;summary&gt;
+/// Updates the actor transformation based on a skeleton node.
+/// &lt;/summary&gt;
+API_FUNCTION()
+void UpdateTransformation();
+</code></pre><h2 id="apiparam">API_PARAM(...)</h2>
+<p>Use it on the function parameters to adjust the parameter conversion between scripting and native.
+Example:</p>
+<pre><code class="lang-cpp">API_FUNCTION()
+int32 CalculateSpeedParams(API_PARAM(ref) Vector3&amp; offset);
+</code></pre><h2 id="apievent">API_EVENT(...)</h2>
+<p>Use it on the delegate field to expose it as an event to the scripting API.
+Example:</p>
+<pre><code class="lang-cpp">API_EVENT() Delegate&lt;float&gt; SpeedChanged;
+</code></pre><h2 id="apiautoserialization">API_AUTO_SERIALIZATION()</h2>
+<p>Use it inside a class or structure to generate automatic object data serialization code for <code>ISerializable</code> interface.
+Example:</p>
+<pre><code class="lang-cpp">API_STRUCT() struct ToneMappingSettings : ISerializable
+{
+API_AUTO_SERIALIZATION();
+DECLARE_SCRIPTING_TYPE_NO_SPAWN(ToneMappingSettings);
+};
+</code></pre><h2 id="tag-parameters">Tag parameters</h2>
+<p>Tag attributes that can be added to the API tags braces to adjust the bindings logic:</p>
+<ul>
+<li><code>Static</code> - marks the method/class/property to not use instance of the object but be static in code</li>
+<li><code>Sealed</code> - makes the class to be final and blocks inheritance</li>
+<li><code>Abstract</code> - makes the class to be abstract (cannot create object of it, can be only inherited)</li>
+<li><code>Public</code>/<code>Protected</code>/<code>Private</code> - access levels specified for methods/classes/properties to define the visibility in the scripting API</li>
+<li><code>InBuild</code> - marks type (class, struct, enum) as in-build into scripting API (skips generation by assuming it&#39;s already in the bindings API)</li>
+<li><code>Attributes=&quot;...&quot;</code> - adds a custom attributes to the generated type or member that are added to C# types attributes</li>
+<li><code>ReadOnly</code> - makes the field in class as read-only (only getter will be generated, no setter)</li>
+<li><code>NoProxy</code> - skips proxy method generation (for methods)</li>
+<li><code>NoConstructor</code> - skips class constructor method generation</li>
+<li><code>Ref</code> - marks the function parameter to be passed by reference</li>
+<li><code>NoPod</code> - marks the structure as non-POD type by force (bindings generator will use wrapper structure by force and structure won&#39;t be passed by native value in bindings glue code)</li>
+<li><code>NoArray</code> - marks the fixed-size array to use fixed-size data instead of dynamic memory array allocation in bindings (structure field of that type will be inlined into series of fields instead of array)</li>
+<li><code>Name=&quot;...&quot;</code> - overrides the name of the type to be used in the bindings</li>
+<li><code>Namespace=&quot;...&quot;</code> - overrides the namespace of the type to be used in the bindings</li>
+</ul>
+<h2 id="special-cases">Special cases</h2>
+<h3 id="arraylttgt">Array&lt;T&gt;</h3>
+<p>If property or method uses native Array&lt;T&gt; as input or output it will be interpreted as T[] in scripting.
+Also, the bindings generator will implement automatic conversion between native and managed object type (including copy operation).
+If you want to return an array of items from native method you can return it by value (eg. <code>API_FUNCTION() Array&lt;Guid&gt; GetIds()</code>). Bindings generator will convert it into managed array (supported types for array elements are value types, enums, strings and scripting objects such as actors, scripts, assets pointers, object references).</p>
+<h3 id="dictionaryltkeytype-valuetypegt">Dictionary&lt;KeyType, ValueType&gt;</h3>
+<p>If property or method uses native Dictionary&lt;KeyType, ValueType&gt; as input or output it will be interpreted as System.Collections.Generic.Dictionary&lt;KeyType, ValueType&gt; in scripting.
+Also, the bindings generator will implement automatic conversion between native and managed object type (including copy operation).</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/flax-build/api-tags.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

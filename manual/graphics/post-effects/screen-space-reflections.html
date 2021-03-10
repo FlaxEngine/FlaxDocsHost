@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Screen Space Reflections | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Screen Space Reflections | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="screen-space-reflections">Screen Space Reflections</h1>
+
+<p><img src="media/screen-space-reflections.png" alt="Screen Space Reflections"></p>
+<p><strong>Screen Space Reflections</strong> (shorten as <strong>SSR</strong>) effect adds local reflections to the objects pushing forward the realism of scenes. This effect is rendered in <em>screen space</em>, which means reflected can be only objects that are already on the screen (it doesn&#39;t work for offscreen or obscured objects).</p>
+<p>This means SSR works well in enclosed areas such as corridors and rooms, but less well in open spaces, where you&#39;d expect more of the world to be reflected. They also work best on bumpy surfaces, which hide imperfections in reflections, and less well on very glossy, mirror-like surfaces. Missing reflections are noticeable in mirrors, for example.
+As a fallback value is used reflection color from placed Environment Probes.</p>
+<h2 id="algorithm">Algorithm</h2>
+<p>Flax Engine renders SSR in several passes:</p>
+<ol>
+<li>The <strong>raycast</strong> pass performs screen space ray tracing over the depth buffer to find geometry intersections.</li>
+<li>The <strong>resolve</strong> pass resolves the rays and calculates the reflection color.</li>
+<li>The <strong>temporal</strong> pass uses the history buffer to blur constantly between the current and the previous frames. This reduces noise in the reflection, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. You can adjust or disable this step to create the effect you want.</li>
+<li>The <strong>combine</strong> pass mixes the results of the effect with the rendered image.</li>
+</ol>
+<h2 id="properties">Properties</h2>
+<p><img src="media/screen-space-reflections-properties.jpg" alt="Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intensity</strong></td>
+<td>Reflections intensity scale (in range from 0 to 1).</td>
+</tr>
+<tr>
+<td><strong>Depth Resolution</strong></td>
+<td>Downscales the depth buffer to optimize raycast performance. <em>Full</em> gives better quality, but <em>half</em> improves performance. The default is half.</td>
+</tr>
+<tr>
+<td><strong>Ray Trace Resolution</strong></td>
+<td>The raycast resolution. There are two options: <em>full</em> and <em>half</em>. Full gives better quality, but half improves performance. The default value is half.</td>
+</tr>
+<tr>
+<td><strong>BRDF Bias</strong></td>
+<td>The reflection spread parameter. This value controls source roughness effect on reflections blur. Smaller values produce wider reflections spread but also introduce more noise. Higher values provide more mirror-like reflections. Default value is <code>0.82</code>.</td>
+</tr>
+<tr>
+<td><strong>Roughness Threshold</strong></td>
+<td>The maximum amount of roughness a material can have to reflect the scene. For example, if this value is set to <code>0.4</code>, only materials with a roughness value of <code>0.4</code> below above reflect the scene. The default value is <code>0.45</code>.</td>
+</tr>
+<tr>
+<td><strong>Wolrd Anti Self Occlusion Bias</strong></td>
+<td>The offset of the raycast origin. Lower values produce more correct reflection placement, but produce minor artifacts. We recommend values of <code>0.3</code> or lower. The default value is <code>0.1</code>.</td>
+</tr>
+<tr>
+<td><strong>Resolve Resolution</strong></td>
+<td>Calculates reflection color using raycast results. There are two options: <em>full</em> and <em>half</em>. Full gives the best results, but half improves performance. The default value is full.</td>
+</tr>
+<tr>
+<td><strong>Resolve Samples</strong></td>
+<td>The number of rays used to resolve the reflection color. Higher values produce less noise, but worse performance. The default value is <code>4</code>. Use 1 for the highest speed.</td>
+</tr>
+<tr>
+<td><strong>Edge Fade Factor</strong></td>
+<td>The point at which the far edges of the reflection begin to fade. This has no effect on performance. The default value is <code>0.1</code>.</td>
+</tr>
+<tr>
+<td><strong>Use Color Buffer Mips</strong></td>
+<td>If checked, downscales the input color buffer and uses blurred mipmaps chain when resolving the reflection color. This produces more realistic results by blurring distant parts of reflections in rough (high-roughness) materials. It also improves performance on most platforms. However, it uses more memory, so you might want to disable it on (for example) mobile platforms.</td>
+</tr>
+<tr>
+<td><strong>Enable Temporal Effect</strong></td>
+<td>If checked, enables the temporal pass. This reduces noise, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. The temporal effect is enabled by default.</td>
+</tr>
+<tr>
+<td><strong>Temporal Scale</strong></td>
+<td>Controls intensity of the temporal effect. Lower values produce reflections faster, but with more noise. The default value is <code>8</code>.</td>
+</tr>
+<tr>
+<td><strong>Temporal Response</strong></td>
+<td>Defines how quickly reflections blend between the reflection in the current frame and the history buffer. Lower values produce reflections faster, but with more jittering. Note the jittering in the reflection below. If the camera in your game doesn&#39;t move much, we recommend values closer to <code>1</code>. The default value is <code>0.8</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE"><h5>Note</h5><p>If the temporal effect is disabled, the other temporal properties have no effect.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/post-effects/screen-space-reflections.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

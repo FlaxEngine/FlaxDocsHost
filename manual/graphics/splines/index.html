@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Splines | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Splines | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="splines">Splines</h1>
+
+<p><img src="media/spline-chain.gif" alt="Spline Chain"></p>
+<p><strong>Splines</strong> are shape actors that define spatial curve with utility functions for general purpose usage. They are a great tool for creating levels and gameplay components such as rail tracks, rivers, ropes, chains, stairs and so on.</p>
+<p>Spline is defined by the <strong>bezier curve</strong> points represented as series of transformations in 3D space (with tangents). Points are stored in local-space of the actor. Spline contains a wide scripting API for curve evaluation for procedural objects placement or any other gameplay logic use cases. For instance, you can easily animate object to fly over the spline as shown below.</p>
+<p>To learn more about splines follow the dedicated tutorials in this section.</p>
+<p><img src="media/splines-editing.gif" alt="Spline"></p>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="animate-object.html">How to animate object over spline</a></li>
+<li><a href="create-road.html">How to create road from spline</a></li>
+<li><a href="create-chain.html">How to create dynamic chain from spline</a></li>
+</ul>
+<h2 id="how-to-create-spline">How to create spline?</h2>
+<p>To add spline to your scene simply <em>drag&amp;drop</em> from the <em>Toolbox</em> window into the level viewport or use <em>right-click</em> and select option <strong>New -&gt; Other -&gt; Spline</strong>.</p>
+<p><img src="media/spline-editor.png" alt="Selected Spline Editor"></p>
+<p>After selecting created spline <em>Properties</em> window will display the spline settings and spline keyframes list. It can be used to manually edit the Bezier curve (value and both tangents per point). You can also use utility buttons to adjust curves to have a linear shape or smooth shape (automatic tangents calculation). Splines support looping which automatically synchronizes the last spline curve point with the first one to make it loop.</p>
+<p>The editor supports selecting spline points in the level editor and using gizmo to transform them. After selecting a point it will display its tangent points which can be edited too. You can quickly create curves in the level with gizmo and using <em>Shift</em> key to insert new points.</p>
+<p><img src="media/spline-duplicating.gif" alt="Spline Points Duplicating Editor"></p>
+<h2 id="how-to-create-spline-from-code">How to create spline from code?</h2>
+<p>Spline actors have very rich scripting API and support dynamic generation at runtime from code. In the following example script spawn a spline and creates a few points over it.</p>
+<pre><code class="lang-cs">var spline = new Spline
+{
+    Name = &quot;My Spline&quot;,
+};
+spline.AddSplineLocalPoint(new Vector3(0, 0, 0), false);
+spline.AddSplineLocalPoint(new Vector3(0, 0, 500), false);
+spline.AddSplineLocalPoint(new Vector3(0, 400, 700), false);
+spline.SetTangentsSmooth();
+Level.SpawnActor(spline);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/splines/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

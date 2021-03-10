@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Inverse Kinematics | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Inverse Kinematics | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="inverse-kinematics">Inverse Kinematics</h1>
+
+<p><strong>Inverse Kinematics</strong> (shorten as <strong>IK</strong>) is a solution to perform reactive animation that better fits the gameplay environment. This feature can be for instance used to:</p>
+<ul>
+<li>make character look at desire object</li>
+<li>place character foot on the uneven ground</li>
+<li>grab gun with player hands</li>
+<li>pick up bottle with player hand.</li>
+</ul>
+<p>Flax provides various nodes for Anim Graph that support adding IK to games. Follow this documentation to learn how to enrich your gameplay. You can also implement custom animations processing nodes using <a href="custom-nodes.html">custom nodes</a> feature.</p>
+<h2 id="aim-ik">Aim IK</h2>
+<p><img src="media/aim-ik-node.png" alt="Aim IK Node"></p>
+<p><strong>Aim IK</strong> rotates a node so it aims at a target. You can use this node to make player look at the specific object by rotating player <em>head</em> node. This node can be also used to rotate player feet to align to the ground surface normal vector.</p>
+<p>The node takes animated pose and adjusts the specified <em>node</em> rotation. The <em>target</em> input is a location for node to aim to defined in mode-space (local space of the Animated Model actor). The <em>weight</em> is alpha blend of the aiming correction (normalized to range 0-1).</p>
+<p><img src="media/aim-ik.gif" alt="Aim IK"></p>
+<h2 id="two-bone-ik">Two Bone IK</h2>
+<p><img src="media/two-bone-ik-node.png" alt="Two Bone IK Node"></p>
+<p><strong>Two Bone IK</strong> performs inverse kinematic on a three nodes chain (2 nearby bones). You can use this node to place character hand or feet over the specific target location or make player grap the weapon with both hand </p>
+<p>The node takes animated pose and adjusts the specified <em>node</em>, <em>parent node</em> and <em>parent of the parent node</em> transformations. The <em>target</em> input is a location for node to reach which defined in mode-space (local space of the Animated Model actor). The <em>weight</em> is alpha blend of the aiming correction (normalized to range 0-1).
+The input property <em>Joint Target</em> specifies the target location for the middle node (joint) to target to and can be used to orient the middle node into a specific direction (eg. make player elbows move ouside the spline, instead of penetrate body).
+If the target cannot be reached (eg. target is too far) the node can strech bones up to specified <em>Max Stretch Scale</em>. You can enable it by checking <em>Allow Stretching</em>.eached (eg. target is too far) the node can strech bones up to specified <em>Max Stretch Scale</em>. You can enable it by checking <em>Allow Stretching</em>.</p>
+<p><img src="media/two-bone-ik.gif" alt="Two Bone IK"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/anim-graph/inverse-kinematics.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

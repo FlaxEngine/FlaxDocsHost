@@ -1,0 +1,808 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class EditorState
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class EditorState
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FlaxEditor.States.EditorState">
+  <h1 id="FlaxEditor_States_EditorState" data-uid="FlaxEditor.States.EditorState">Class EditorState
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for all Editor states.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEditor_States_EditorState" data-uid="FlaxEditor.States.EditorState"><a href="#collapsible-inheritance-FlaxEditor_States_EditorState" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEditor_States_EditorState" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FlaxEngine.Utilities.State.html">State</a></div>
+    <div class="level2"><span class="xref">EditorState</span></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.BuildingLightingState.html">BuildingLightingState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.BuildingScenesState.html">BuildingScenesState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.ChangingScenesState.html">ChangingScenesState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.ClosingState.html">ClosingState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.EditingSceneState.html">EditingSceneState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.LoadingState.html">LoadingState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.PlayingState.html">PlayingState</a></div>
+      <div class="level3"><a class="xref" href="FlaxEditor.States.ReloadingScriptsState.html">ReloadingScriptsState</a></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-FlaxEditor_States_EditorState" data-uid="FlaxEngine.Utilities.State.CanEnter"><a href="#collapsible-inheritedMembers-FlaxEditor_States_EditorState" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-FlaxEditor_States_EditorState" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Utilities.State.html#FlaxEngine_Utilities_State_CanEnter">State.CanEnter()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Utilities.State.html#FlaxEngine_Utilities_State_OnEnter">State.OnEnter()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Utilities.State.html#FlaxEngine_Utilities_State_OnExit_FlaxEngine_Utilities_State_">State.OnExit(State)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Utilities.State.html#FlaxEngine_Utilities_State_IsActive">State.IsActive</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEditor.States.html">FlaxEditor.States</a></h6>
+  <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
+  
+  <h5 id="FlaxEditor_States_EditorState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+public abstract class EditorState : State</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FlaxEditor_States_EditorState__ctor_" data-uid="FlaxEditor.States.EditorState.#ctor*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState__ctor_FlaxEditor_Editor_" data-uid="FlaxEditor.States.EditorState.#ctor(FlaxEditor.Editor)"><a href="#collapsible-FlaxEditor_States_EditorState__ctor_FlaxEditor_Editor_" class="expander" data-toggle="collapse">EditorState(Editor)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState__ctor_FlaxEditor_Editor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.States.EditorState.html">EditorState</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EditorState(Editor editor)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.Editor.html">Editor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The editor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  
+  <h4 id="FlaxEditor_States_EditorState_Editor" data-uid="FlaxEditor.States.EditorState.Editor"><a href="#collapsible-FlaxEditor_States_EditorState_Editor" class="expander" data-toggle="collapse">Editor</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_Editor" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the editor object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Editor Editor</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Editor.html">Editor</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanChangeScene_" data-uid="FlaxEditor.States.EditorState.CanChangeScene*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanChangeScene" data-uid="FlaxEditor.States.EditorState.CanChangeScene"><a href="#collapsible-FlaxEditor_States_EditorState_CanChangeScene" class="expander" data-toggle="collapse">CanChangeScene</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanChangeScene" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can change scene in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanChangeScene { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanEditContent_" data-uid="FlaxEditor.States.EditorState.CanEditContent*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanEditContent" data-uid="FlaxEditor.States.EditorState.CanEditContent"><a href="#collapsible-FlaxEditor_States_EditorState_CanEditContent" class="expander" data-toggle="collapse">CanEditContent</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanEditContent" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can edit assets in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanEditContent { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanEditScene_" data-uid="FlaxEditor.States.EditorState.CanEditScene*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanEditScene" data-uid="FlaxEditor.States.EditorState.CanEditScene"><a href="#collapsible-FlaxEditor_States_EditorState_CanEditScene" class="expander" data-toggle="collapse">CanEditScene</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanEditScene" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can edit scene in this state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanEditScene { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanEnterPlayMode_" data-uid="FlaxEditor.States.EditorState.CanEnterPlayMode*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanEnterPlayMode" data-uid="FlaxEditor.States.EditorState.CanEnterPlayMode"><a href="#collapsible-FlaxEditor_States_EditorState_CanEnterPlayMode" class="expander" data-toggle="collapse">CanEnterPlayMode</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanEnterPlayMode" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can enter play mode in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanEnterPlayMode { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanReloadScripts_" data-uid="FlaxEditor.States.EditorState.CanReloadScripts*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanReloadScripts" data-uid="FlaxEditor.States.EditorState.CanReloadScripts"><a href="#collapsible-FlaxEditor_States_EditorState_CanReloadScripts" class="expander" data-toggle="collapse">CanReloadScripts</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanReloadScripts" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can enter recompile scripts in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanReloadScripts { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanUseToolbox_" data-uid="FlaxEditor.States.EditorState.CanUseToolbox*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanUseToolbox" data-uid="FlaxEditor.States.EditorState.CanUseToolbox"><a href="#collapsible-FlaxEditor_States_EditorState_CanUseToolbox" class="expander" data-toggle="collapse">CanUseToolbox</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanUseToolbox" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can use toolbox in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanUseToolbox { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanUseUndoRedo_" data-uid="FlaxEditor.States.EditorState.CanUseUndoRedo*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanUseUndoRedo" data-uid="FlaxEditor.States.EditorState.CanUseUndoRedo"><a href="#collapsible-FlaxEditor_States_EditorState_CanUseUndoRedo" class="expander" data-toggle="collapse">CanUseUndoRedo</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanUseUndoRedo" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can use undo/redo in this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool CanUseUndoRedo { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_IsEditorReady_" data-uid="FlaxEditor.States.EditorState.IsEditorReady*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_IsEditorReady" data-uid="FlaxEditor.States.EditorState.IsEditorReady"><a href="#collapsible-FlaxEditor_States_EditorState_IsEditorReady" class="expander" data-toggle="collapse">IsEditorReady</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_IsEditorReady" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if static is valid for Editor UI calls and other stuff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsEditorReady { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_IsPerformanceHeavy_" data-uid="FlaxEditor.States.EditorState.IsPerformanceHeavy*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_IsPerformanceHeavy" data-uid="FlaxEditor.States.EditorState.IsPerformanceHeavy"><a href="#collapsible-FlaxEditor_States_EditorState_IsPerformanceHeavy" class="expander" data-toggle="collapse">IsPerformanceHeavy</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_IsPerformanceHeavy" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if state requires more device resources (eg. for lightmaps baking or navigation cooking). Can be used to disable other engine and editor features during this state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsPerformanceHeavy { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_StateMachine_" data-uid="FlaxEditor.States.EditorState.StateMachine*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_StateMachine" data-uid="FlaxEditor.States.EditorState.StateMachine"><a href="#collapsible-FlaxEditor_States_EditorState_StateMachine" class="expander" data-toggle="collapse">StateMachine</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_StateMachine" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the editor state machine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorStateMachine StateMachine { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.States.EditorStateMachine.html">EditorStateMachine</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_Status_" data-uid="FlaxEditor.States.EditorState.Status*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_Status" data-uid="FlaxEditor.States.EditorState.Status"><a href="#collapsible-FlaxEditor_States_EditorState_Status" class="expander" data-toggle="collapse">Status</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_Status" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the state status message for the UI. Returns null if use the default value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Status { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEditor_States_EditorState_CanExit_" data-uid="FlaxEditor.States.EditorState.CanExit*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_CanExit_FlaxEngine_Utilities_State_" data-uid="FlaxEditor.States.EditorState.CanExit(FlaxEngine.Utilities.State)"><a href="#collapsible-FlaxEditor_States_EditorState_CanExit_FlaxEngine_Utilities_State_" class="expander" data-toggle="collapse">CanExit(State)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_CanExit_FlaxEngine_Utilities_State_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can exit from that state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanExit(State nextState)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Utilities.State.html">State</a></span>
+        <span class="parametername">nextState</span>
+        <p><p>Next state to enter after exit from the current state</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if can exit from that state, otherwise false</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.Utilities.State.html#FlaxEngine_Utilities_State_CanExit_FlaxEngine_Utilities_State_">State.CanExit(State)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_Update_" data-uid="FlaxEditor.States.EditorState.Update*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_Update" data-uid="FlaxEditor.States.EditorState.Update"><a href="#collapsible-FlaxEditor_States_EditorState_Update" class="expander" data-toggle="collapse">Update()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_Update" class="collapse in">
+  <div class="markdown level1 summary"><p>Update state. Called every Editor tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Update()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_States_EditorState_UpdateFPS_" data-uid="FlaxEditor.States.EditorState.UpdateFPS*"></a>
+  
+  <h4 id="FlaxEditor_States_EditorState_UpdateFPS" data-uid="FlaxEditor.States.EditorState.UpdateFPS"><a href="#collapsible-FlaxEditor_States_EditorState_UpdateFPS" class="expander" data-toggle="collapse">UpdateFPS()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_States_EditorState_UpdateFPS" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the Time settings for Update/FixedUpdate/Draw frequency. Can be overriden per-state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void UpdateFPS()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>
+  </div>
+  
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="FlaxEngine.Utilities.State.html">State</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

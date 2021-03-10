@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Scripting Games | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Scripting Games | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="scripting-games">Scripting Games</h1>
+
+<p><img src="media/title.jpg" alt="Scripting"></p>
+<p>The most important part of every game are <strong>Scripts</strong>. Creating chunks of code that handle game events, respond to user input, and control objects is an essential ingredient in all games. In short, scripts make games interactive by adding gameplay. It applies to both small and huge production. This documentation section covers the most important parts of the scripting pipeline and helps with starting the game programming.</p>
+<p>Flax supports <strong>C#</strong>, <strong>C++</strong> and <strong>Visual</strong> scripting. The mix of those three languages is highly integrated into the engine as it&#39;s written in those languages (engine is C++, editor is C#).</p>
+<div class="NOTE"><h5>Note</h5><p>Explaining C#, C++ and vector math is out of the scope of this documentation.</p>
+</div>
+<h2 id="code-modules">Code Modules</h2>
+<p>Important concepts related to programming in Flax are <strong>binary modules</strong>. Binary modules are compiled source code libraries that can reference other modules (eg. Editor, Graphics, or plugins).</p>
+<p>In most cases, the main game code is in the module named <code>&lt;project_name&gt;</code> or named <code>Game</code> located in <code>Source</code> folder (eg. <code>Source/Game</code>). That&#39;s the place where you can add new scripts so build tool will compile them. For more, advanced uses game can contain multiple modules and have code split for better organization (as for example engine does - it&#39;s made of multiple modules working together). For instance, you can create an editor-only module and use its code only in the Editor.</p>
+<p>To learn more about build tools and infrastructure see <a href="../editor/flax-build/index.html">Flax.Build</a> utility documentation.</p>
+<h2 id="c-scripting">C# Scripting</h2>
+<p>You can write scripts in <strong>C#</strong> and add them to scene objects. To learn more about it see the pages in this section. Most of the documentation related to scripting covers C# to implement various gameplay logic. If you need help with learning C# see <a href="http://www.letmegooglethat.com/?q=C%23+tutorial">this page</a>.</p>
+<p>Flax uses <a href="https://www.mono-project.com">Mono</a> to load, compile and execute C# scripts.
+Currently the newest <strong>C# 7.2</strong> version is fully supported (with .Net Framework 4.5). Flax Editor ships with C# Roslyn  Compiler - no need to install any external tools to compile and run C# code.</p>
+<p>If you want to use custom .NET libraries use build scripts to reference them as <a href="tutorials/use-third-party-library.html">shown here</a>.</p>
+<h2 id="c-scripting-1">C++ Scripting</h2>
+<p>Flax supports native <strong>C++</strong> scripting with direct access to whole engine API. C++ scripts can be created side-by-side with C# scripts and expose own types/functions/properties via automatic bindings as decscribed <a href="../editor/flax-build/api-tags.html">here</a>. To write and use C++ code engine headers and platform toolset are requried.</p>
+<p>To start native scripting in C++ see the related documentation <a href="cpp/index.html">here</a>.</p>
+<h2 id="visual-scripting">Visual Scripting</h2>
+<p>Flax supports <strong>Visual</strong> scripting with fully-featured Editor tools for creating, using and debugging Visual Scripts. Visual Scripts can inherit from C++ or C# classes (eg. custom Actor or Script) to provide more logic and data. Visual Scripting is very light-weight and extensible solution for prototyping games especially boosting the rapid development.</p>
+<p>Visual Scripts can access to whole engine API and the game code. Visual Scripts can be created side-by-side with C# and C++ scripts to expose own functions/properties. Also, Visual Scripting doesn&#39;t requrie any additional tools nor compiler as it&#39;s hot-reloading in Editor without any processing to provide even more robust development.</p>
+<p>To start visual scripting see the related documentation <a href="visual/index.html">here</a>.</p>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="new-script.html">Create and use a script</a></li>
+<li><a href="properties.html">Script properties and fields</a></li>
+<li><a href="events.html">Script events</a></li>
+<li><a href="scene-objects.html">Accessing scene objects</a></li>
+<li><a href="objects-lifetime.html">Creating and destroying objects</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<li><a href="debugging/index.html">Scripts debugging</a><ul>
+<li><a href="debugging/visual-studio.html">Visual Studio</a></li>
+<li><a href="debugging/visual-studio-code.html">Visual Studio Code</a></li>
+<li><a href="debugging/rider.html">Rider</a></li>
+</ul>
+</li>
+<li><a href="serialization/index.html">Scripts serialization</a></li>
+<li><a href="empty-actor.html">Empty Actor</a></li>
+<li><a href="custom-editors/index.html">Custom Editors</a><ul>
+<li><a href="tutorials/custom-editor.html">Custom script editor</a></li>
+<li><a href="custom-editors/attributes.html">Attributes</a></li>
+</ul>
+</li>
+<li><a href="preprocessor.html">Preprocessor variables</a></li>
+<li><a href="restrictions.html">Scripting restrictions</a></li>
+<li><a href="cpp/index.html">C++ Scripting</a></li>
+<li><a href="visual/index.html">Visual Scripting</a></li>
+<li><a href="plugins/index.html">Plugins</a><ul>
+<li><a href="plugins/plugins-window.html">Plugins Window</a></li>
+<li><a href="plugins/plugin-project.html">Plugin Project</a></li>
+</ul>
+</li>
+<li><a href="advanced/index.html">Advanced</a><ul>
+<li><a href="advanced/raw-data-asset.html">Raw Data Asset</a></li>
+<li><a href="advanced/custom-editor-options.html">Custom Editor Options</a></li>
+<li><a href="advanced/curve.html">Curve</a></li>
+<li><a href="advanced/access-game-window.html">Access Game Window</a></li>
+<li><a href="advanced/multithreading.html">Multithreading</a></li>
+<li><a href="advanced/screenshots.html">Screenshots</a></li>
+<li><a href="advanced/gameplay-globals.html">Gameplay Globals</a></li>
+</ul>
+</li>
+<li><a href="tutorials/index.html">Tutorials</a><ul>
+<li><a href="tutorials/custom-editor.html">How to create a custom editor</a></li>
+<li><a href="tutorials/custom-window.html">How to create a custom editor window</a></li>
+<li><a href="tutorials/custom-plugin.html">How to create a custom editor plugin</a></li>
+<li><a href="tutorials/custom-asset.html">How to create a custom asset type</a></li>
+<li><a href="tutorials/change-scene.html">How to change scene from script</a></li>
+<li><a href="tutorials/custom-settings.html">How to use custom settings</a></li>
+<li><a href="tutorials/import-asset-from-code.html">How to import asset from code</a></li>
+<li><a href="tutorials/control-postfx-from-code.html">How to control PostFx from code</a></li>
+<li><a href="tutorials/use-third-party-library.html">How to use third-party library</a></li>
+<li><a href="tutorials/add-scripts-module.html">How to add scripts module</a></li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

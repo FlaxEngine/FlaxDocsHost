@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Anim Graph Custom Nodes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Anim Graph Custom Nodes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="anim-graph-custom-nodes">Anim Graph Custom Nodes</h1>
+
+<p>Anim Graph supports extending it by defining and using <strong>custom nodes</strong>. This feature can be used to implement custom IK solver or to perform very specific animation data processing or using custom animation data source such as live-rigging. Follow this documentation page to learn more about how to create and use custom nodes in Anim Graph. Also, <a href="../../scripting/plugins/index.html">plugins</a> can ship with custom nodes to be reused across different projects.</p>
+<div class="NOTE"><h5>Note</h5><p>Anim Graph uses low-level optimizations to reduce memory allocations and memory copies. Extending it with custom nodes requires basic knowledge about unmanaged memory pointers usage and skinned model skeleton nodes/bones scheme.</p>
+</div>
+<h2 id="defining-custom-node-archetype">Defining custom node archetype</h2>
+<p>Every custom node consists of two parts: the <em>surface node descriptor factor</em> and the <em>runtime logic controller</em>.</p>
+<p>The first step is to add a new C# script inside the <code>Source/&lt;module_name&gt;</code> directory and use the target class name with <em>Editor</em> postfix. Alternatively, you can use an additional editor-only scripts module as shown in tutorial <a href="../../scripting/tutorials/add-scripts-module.html">here</a>.</p>
+<p>Here is an example code that defines a simple node which takes animation pose and scale parameter as inputs and outputs modified animation pose.</p>
+<pre><code class="lang-cs">using FlaxEditor.Surface;
+using FlaxEngine;
+
+[AnimationGraph.CustomNodeArchetypeFactory]
+public static class MyAnimGraphNodeFactory
+{
+    public static NodeArchetype GetMyNodeArchetype()
+    {
+        return new NodeArchetype
+        {
+            // Define node title and metadata
+            Title = &quot;My Scale Node&quot;,
+            Description = &quot;&quot;,
+            Flags = NodeFlags.AnimGraph,
+
+            // Define node variables (per instance)
+            // DefaultValues[0] must specify the C# runtime controller typename
+            // DefaultValues[1] must specify the node group name
+            // use other slots to store custom data per-node
+            DefaultValues = new object[]
+            {
+                &quot;MyScaleNode&quot;, // Runtime node typename
+                &quot;Tools&quot;, // Group name
+                1.0f, // Custom value stored per node
+                // ..here you can store more per-node data
+            },
+
+            // Define node visuals and elements
+            Size = new Vector2(200, 70),
+            Elements = new[]
+            {
+                NodeElementArchetype.Factory.Input(0, &quot;Input&quot;, true, typeof(void), 0),
+                NodeElementArchetype.Factory.Input(1, &quot;Scale&quot;, true, typeof(float), 1, 2),
+                NodeElementArchetype.Factory.Output(0, &quot;Output&quot;, typeof(void), 2),
+            },
+        };
+    }
+}
+</code></pre><p>In general, classes in Editor assembly or Editor plugins assemblies marked with <code>AnimationGraph.CustomNodeArchetypeFactory</code> attribute are scanned to find static parameter-less methods that return <code>NodeArchetype</code> type. You can define many node types in the factory.</p>
+<div class="NOTE"><h5>Note</h5><p>If your custom node doesn&#39;t show in the editor or doesn&#39;t work as intended see the engine log file for warning information.</p>
+</div>
+<h2 id="implementing-runtime-logic-controller">Implementing runtime logic controller</h2>
+<p>Next step is to implement runtime-part of the node that is being executed in the game (node factory is used only in Editor to define node data and UI). Add the following class <code>MyScaleNode</code> to you game assembly.</p>
+<pre><code class="lang-cs">using System;
+using FlaxEngine;
+
+public class MyScaleNode : AnimationGraph.CustomNode
+{
+    private float _defaultScale;
+
+    public override void Load(ref InitData initData)
+    {
+        // Here you can access the node value and graph skinned model to setup data
+        // This method is called once per node initialization on graph load
+        // (usually from the content loading thread)
+
+        // Cache default scale value
+        _defaultScale = (float)initData.Values[2];
+    }
+
+    public override unsafe object Evaluate(ref Context context)
+    {
+        // Here node is getting called to evaluate the output for the given context
+
+        // Evaluate the input bones pose
+        var input = (Impulse*)(IntPtr)GetInputValue(ref context, 0);
+
+        // Evaluate the input scale
+        var scale = HasConnection(ref context, 1) ? (float)GetInputValue(ref context, 1) : _defaultScale;
+
+        // Get the output bones pose (cached internally to improve performance)
+        var output = GetOutputImpulseData(ref context);
+
+        // Copy the input and apply the scale to the root node (always the first one)
+        CopyImpulseData(input, output);
+        output-&gt;Nodes[0].Scale *= scale;
+
+        // Return the bone pose for further processing
+        return new IntPtr(output);
+    }
+}
+</code></pre><h2 id="using-custom-node">Using custom node</h2>
+<p>The last step is to test the created custom node. To do so simply <em>right-click</em> and select you node from the list or type to search by name.</p>
+<p><img src="media/custom-node-add.png" alt="Custom Anim Graph Node"></p>
+<p>Result:</p>
+<p><img src="media/custom-node-results.gif" alt="Anim Graph Custom Node"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/anim-graph/custom-nodes.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

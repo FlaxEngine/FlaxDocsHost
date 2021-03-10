@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Fonts | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Fonts | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="fonts">Fonts</h1>
+
+<p><img src="media/title.jpg" alt="Font"></p>
+<p><strong>Font Assets</strong> are binary resources that contain font characters description (and/or prerendered characters texture).
+Flax performs required importing, loading and rasterization of the font glyphs. Fonts are used by 3D <a href="../text-render/index.html">Text Render</a> actor, as well as, <a href="../index.html">UI</a> system.</p>
+<p>Flax uses the <strong>FreeType</strong> library for font characters rasterization and offline rendering.</p>
+<h2 id="importing-fonts">Importing fonts</h2>
+<p>You can import font files to use as font assets in your project. Flax supports importing the following list of file types as fonts:</p>
+<ul>
+<li><code>.ttf</code></li>
+<li><code>.otf</code></li>
+</ul>
+<p>The easiest way to import one or more fonts is to drag them from the file explorer to the <em>Content Window</em>.
+Alternatively, you can use <strong>Import</strong> button in the <em>Content Window</em> toolbar and then select the files to import.</p>
+<h2 id="font-window">Font Window</h2>
+<p><strong>Double-click</strong> on an imported font asset in <em>Content Window</em> to open the dedicated font asset tool window.
+You can use it to type the text and preview the font characters.</p>
+<p><img src="media/font-window.png" alt="Font Window"></p>
+<h2 id="font-properties">Font Properties</h2>
+<p>The font window can be used to preview and edit the font rasterization options:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hinting</strong></td>
+<td>The font hinting used when rendering characters. Possible options include: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Default</strong></td><td>Use the default hinting specified in the font.</td></tr><tr><td><strong>Auto</strong></td><td>Force the use of an automatic hinting algorithm (over the font&#39;s native hinter).</td></tr><tr><td><strong>Auto Light</strong></td><td>Force the use of an automatic light hinting algorithm, optimized for non-monochrome displays.</td></tr><tr><td><strong>Monochrome</strong></td><td>Force the use of an automatic hinting algorithm optimized for monochrome displays.</td></tr><tr><td><strong>None</strong></td><td>Do not use hinting. This generally generates &#39;blurrier&#39; bitmap glyphs when the glyph are rendered in any of the anti-aliased modes.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Anti Aliasing</strong></td>
+<td>Enables using anti-aliasing for font characters. Otherwise font will use monochrome data.</td>
+</tr>
+<tr>
+<td><strong>Bold</strong></td>
+<td>Enables artificial embolden effect.</td>
+</tr>
+<tr>
+<td><strong>Italic</strong></td>
+<td>Enables slant effect, emulating italic style.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="media/font-tools.gif" alt="Font Window"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/ui/fonts/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

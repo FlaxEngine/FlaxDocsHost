@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Particles | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Particles | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="particles">Particles</h1>
+
+<p><img src="media/title.jpg" alt="Particles"></p>
+<p>Flax supports large-scale particles simulation and performant rendering of sprite, mesh and ribbon particles. Advanced toolset in Editor helps to create complex visual effects. Particle system allows to easily extend it and produce desire particle effects. Use this documentation section to learn how to create your particles effects to create a great visual experience.</p>
+<h2 id="basics">Basics</h2>
+<p><img src="media/particles.gif" alt="Particles"></p>
+<p><strong>Particles</strong> are objects that, used in large numbers, create visual effects. You can use particles to create effects such as fire, explosion, liquid, smoke, lightning, magic effects, heat distortion, etc.</p>
+<p>Particle system is designed to enable developers to create visual effects quickly and with the ability to scale the content. Adding particles to the game requires creating <a href="particle-emitter.html">Particle Emitter</a> asset, setting up <a href="particle-system.html">Particle System</a> asset, and particles playback via <a href="particle-effect.html">Particle Effect</a> actor that is placed on a scene to simulate the visual effect. This content-oriented pipeline allows to easily create and reuse different types of emitters to make various types of effects. Also, particle emitter is defined via visual graph to improve the creation process for the artists.</p>
+<h2 id="technical-details">Technical details</h2>
+<p>Flax supports both <strong>CPU and GPU particles simulation</strong>. Particle Emitter Graph can be executed directly on the CPU to simulate particles or used to generate compute shader source for the large-scale GPU particles simulation.</p>
+<p>For better understanding please read the following comparison:</p>
+<table>
+<thead>
+<tr>
+<th>CPU Simulation</th>
+<th>GPU Simulation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low-latency</td>
+<td>High-throughput</td>
+</tr>
+<tr>
+<td>Up to 200k particles</td>
+<td>Up to 5,000k particles</td>
+</tr>
+<tr>
+<td>Optimized for small systems</td>
+<td>Optimized for huge simulations</td>
+</tr>
+<tr>
+<td>Requries sending draw data to GPU every frame</td>
+<td>All simulation data stored on GPU</td>
+</tr>
+<tr>
+<td>Cannot sample scene textures</td>
+<td>Can sample scene textures</td>
+</tr>
+<tr>
+<td>No requirements</td>
+<td>Compute Shaders and Draw Indirect requried</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, GPU particles are not supported if emitter uses ribbons or lights. However, GPU particles can sample textures efficiently and perform depth-buffer collisions for a large number of particles.</p>
+<div class="NOTE"><h5>Note</h5><p>Always try to assign the particle emitter capacity to the actual required value to improve simulation performance and reduce memory usage.</p>
+</div>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="particle-emitter.html">Particle Emitter</a></li>
+<li><a href="particle-system.html">Particle System</a></li>
+<li><a href="particle-effect.html">Particle Effect</a></li>
+<li><a href="particle-parameters.html">Particle Parameters</a></li>
+<li><a href="particle-materials.html">Particle Materials</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="tutorials/fade-near-camera.html">How to fade particles near camera</a></li>
+<li><a href="tutorials/soft-particles.html">How to make soft particles</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/particles/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Events in Visual Scripts | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Events in Visual Scripts | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="events-in-visual-scripts">Events in Visual Scripts</h1>
+
+<p><strong>Visual Scripting</strong> supports binding for various events for easier gameplay scripting. Follow this documentation page to learn how to use them in your project.</p>
+<h2 id="how-to-handle-trigger-event">How to handle trigger event?</h2>
+<p>Onve you&#39;ve created Visual Script use <strong>Bind XXX</strong> node to register custom function for event that will be executed every time event gets called. Flax supports registering member or static functions to member and static events.</p>
+<p>Firstly, <strong>override OnEnable</strong> method.</p>
+<p><img src="media/override-on-enable.png" alt="Override OnEnable method in Visual Script"></p>
+<p>Then use <strong>Get Actor</strong> node from <strong>Script</strong> class and <strong>Cast</strong> node to cast it to <strong>PhysicsColliderActor</strong>.</p>
+<p><img src="media/cast-actor-to-collder.png" alt="Cast Actor to Physicsc Collider Actor"></p>
+<p>Now, add <strong>Bind TriggerEnter</strong> method and connect it to Cast outputs. We will use it to register for trigger collider to call our function every time something enters the trigger.</p>
+<p><img src="media/bind-trigger-enter.png" alt="Bind Trigger Enter Event"></p>
+<p>As you can see it shows the handler function dropdown menu as disabled which means there are no valid functions on a graph to call for event. Let&#39;s <strong>use red button</strong> to quickly create new event handler function and use it in that bind node.</p>
+<p><img src="media/add-trigger-event-handler.gif" alt="Add Trigger Event Handler Function"></p>
+<p>After that you can use this function to perform any custom logic every time this collider gets triggered. In this example we simply print the custom message with the object name that activated the trigger</p>
+<p><img src="media/event-trigger-handler.png" alt="Event Handler Function"></p>
+<p>Finally we can test this script. Create collider (eg. box collider), adjust it&#39;s size and check <strong>Is Trigger</strong>, then add the script we&#39;ve created to it.</p>
+<p><img src="media/event-trigger-setup.png" alt="Trigger Event Setup"></p>
+<p>Then you can <strong>play game</strong> and see the log print when something enters this trigger.</p>
+<p><img src="media/vs-trigger-event-showcase.gif" alt="Trigger Event Showcase"></p>
+<div class="TIP"><h5>Tip</h5><p>You can manually unregister function from event by using <strong>Unbind XXX</strong> node. Also, Flax will unregister event automatically when script gets deleted.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/visual/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create foliage from code | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create foliage from code | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-foliage-from-code">HOWTO: Create foliage from code</h1>
+
+<p>In this tutorial, you will learn how to create foliage from code at-runtime. This technique can be used to implement using foliage in games that generate the world at runtime (eg. RTS games).</p>
+<h2 id="1-create-new-script">1. Create new script</h2>
+<p>You can use <a href="../../scripting/new-script.html">this tutorial</a> to learn how to do it.</p>
+<h2 id="2-implement-foliage-generator">2. Implement foliage generator</h2>
+<p>Write the following code to implement example foliage generator.</p>
+<pre><code class="lang-cs">using System;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using FlaxEngine;
+using FlaxEngine.Utilities;
+
+public class FoliageFromCode : Script
+{
+    private Foliage _foliage;
+
+    public struct FoliageType
+    {
+        [Tooltip(&quot;The foliage type mode asset.&quot;)]
+        public Model Model;
+
+        [DefaultValue(10.0f), Tooltip(&quot;The instances spawning density.&quot;)]
+        public float Density;
+    }
+
+    [Tooltip(&quot;The generated foliage instances bounds (in actor local-space).&quot;)]
+    public Vector2 Bounds = new Vector2(5000);
+
+    [Tooltip(&quot;The foliage types collection.&quot;)]
+    public FoliageType[] Types;
+
+    public override void OnStart()
+    {
+        // Create new dynamic foliage actor and add it to the scene
+        _foliage = new Foliage();
+        _foliage.HideFlags = HideFlags.DontSave;
+        _foliage.Name = &quot;My Foliage&quot;;
+        _foliage.Parent = Actor;
+
+        // Generate foliage using the async task to prevent game stalls
+        // You can also use C# thread to perform this work
+        // Your game can display progress bar or loading screen while foliage is being generated
+        Task.Run(new Action(GenerateFoliage));
+    }
+
+#if FLAX_EDITOR
+    public override void OnDebugDrawSelected()
+    {
+        // Draw bounds area in editor
+        var bounds = new BoundingBox(Vector3.Zero, new Vector3(Bounds.X, 1000.0f, Bounds.Y));
+        bounds = BoundingBox.Transform(bounds, Actor.LocalToWorldMatrix);
+        DebugDraw.DrawBox(bounds, Color.AliceBlue);
+    }
+#endif
+
+    private void GenerateFoliage()
+    {
+        if (Types == null || Types.Length == 0)
+        {
+            Debug.LogError(&quot;No foliage types defined!&quot;);
+            return;
+        }
+
+        // Setup foliage types (do it before adding instances to improve performance)
+        for (int typeIndex = 0; typeIndex &lt; Types.Length; typeIndex++)
+        {
+            var type = Types[typeIndex];
+            _foliage.AddFoliageType(type.Model);
+        }
+
+        // Spawn instances using random generation within the bounds
+        var boundsArea = Bounds.X * Bounds.Y;
+        var rand = new Random();
+        for (int typeIndex = 0; typeIndex &lt; Types.Length; typeIndex++)
+        {
+            var type = Types[typeIndex];
+            var instancesCount = boundsArea * type.Density / (1000.0f * 1000.0f);
+
+            for (int i = 0; i &lt; instancesCount; i++)
+            {
+                var instance = new Foliage.Instance();
+                instance.Type = typeIndex;
+                instance.Transform.Translation = new Vector3(rand.NextFloat() * Bounds.X, 0, rand.NextFloat() * Bounds.Y);
+                instance.Transform.Scale = new Vector3(rand.NextFloat(0.7f, 1.3f));
+                _foliage.AddInstance(ref instance);
+            }
+        }
+
+        // Ensure to update quad-tree after editing foliage
+        _foliage.RebuildClusters();
+    }
+}
+</code></pre><h2 id="3-add-script-to-scene">3. Add script to scene</h2>
+<p>Drag and drop the script to empty actor or use <em>Properties</em> window and <strong>Add script</strong> button.</p>
+<p><img src="media/add-foliage-generator-script.png" alt="Add script"></p>
+<h2 id="4-setup-foliage-types">4. Setup foliage types</h2>
+<p>Add foliage types descriptors by specifying foliage type model and spawn density.</p>
+<p><img src="media/edit-foliage-types-properties.png" alt="Edit Foliage Type Properties"></p>
+<h2 id="5-test-it-in-play-mode">5. Test it in Play Mode</h2>
+<p>Press <strong>Play</strong> button on the toolbar or hit <em>F5</em> key and see the results. Foliage should quickly generate in a background. You can use it in your games that need to generate a foliage at runtime or in the editor.</p>
+<p><img src="media/generated-foliage.png" alt="Foliage From Code Results"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/foliage/tutorials/foliage-from-code.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

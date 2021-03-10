@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Depth of Field | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Depth of Field | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="depth-of-field">Depth of Field</h1>
+
+<p><img src="media/depth-of-field.png" alt="Depth of Field"></p>
+<p><strong>Depth of Field</strong> effect simulates the behavior of a real-life camera lens focusing on an object. This is effect buries image areas that are out of focus and generates Bokeh shapes. It really helps with creating realistic looking scenes and is one of the most important parts of the game cut-scenes.</p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/depth-of-field-properties.jpg" alt="Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>If checked, depth of field effect will be visible.</td>
+</tr>
+<tr>
+<td><strong>Blur Strength</strong></td>
+<td>The blur intensity in the out-of-focus areas. Allows reducing blur amount by scaling down the Gaussian Blur radius. Normalized to range 0-1.</td>
+</tr>
+<tr>
+<td><strong>Focal Distance</strong></td>
+<td>Distance from the camera (in world units) of the center point of the focus area.</td>
+</tr>
+<tr>
+<td><strong>Focal Region</strong></td>
+<td>Controls length of the focal region (in world units).</td>
+</tr>
+<tr>
+<td><strong>Near Transition Range</strong></td>
+<td>Near camera blur transition distance (in world units).</td>
+</tr>
+<tr>
+<td><strong>Far Transition Range</strong></td>
+<td>Far camera blur transition distance (in world units).</td>
+</tr>
+<tr>
+<td><strong>Depth Limit</strong></td>
+<td>The maximum pixel depth to be affected by the depth of field (in world units). Useful for rejecting effect on sky and skyboxes.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Enable</strong></td>
+<td>If checked, bokeh shapes will be rendered.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Size</strong></td>
+<td>Controls size of the bokeh shapes.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Shape</strong></td>
+<td>Defines bokeh shapes type. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Hexagon</strong></td><td>The hexagon shape.<br><img src="media/Bokeh/Bokeh_Hex.png" alt="Hexagon"></td></tr><tr><td><strong>Octagon</strong></td><td>The octagon shape.<br><img src="media/Bokeh/Bokeh_Oct.png" alt="Octagon"></td></tr><tr><td><strong>Circle</strong></td><td>The circle shape.<br><img src="media/Bokeh/Bokeh_Circle.png" alt="Circle"></td></tr><tr><td><strong>Cross</strong></td><td>The cross shape.<br><img src="media/Bokeh/Bokeh_Cross.png" alt="HexaCrossgon"></td></tr><tr><td><strong>Custom</strong></td><td>The custom texture shape (uses <em>Bokeh Shape Custom Texture</em> property).</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Bokeh Shape Custom Texture</strong></td>
+<td>If <em>Bokeh Shape</em> is set to <strong>Custom</strong>, then this texture will be used for the bokeh shapes. For best performance, use small, compressed, grayscale textures (for instance 32px).</td>
+</tr>
+<tr>
+<td><strong>Bokeh Brightness Threshold</strong></td>
+<td>The minimum pixel brightness to create bokeh. Pixels with lower brightness will be skipped.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Blur Threshold</strong></td>
+<td>Controls Bokeh shapes blur threshold value.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Falloff</strong></td>
+<td>Controls bokeh shapes brightness falloff. Higher values reduce bokeh visibility.</td>
+</tr>
+<tr>
+<td><strong>Bokeh Depth Cutoff</strong></td>
+<td>Controls bokeh shape generation for depth discontinuities.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/post-effects/depth-of-field.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

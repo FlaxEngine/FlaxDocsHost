@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>State Machines | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="State Machines | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="state-machines">State Machines</h1>
+
+<p><img src="../tutorials/media/example-state-machine-2.png" alt="State Machines"></p>
+<p>Anim Graph can contain nested <strong>state machine</strong> nodes that can be used to define the animated character states and perform smooth transitions between them. State machines provide a visual way to divide the animation logic into a series of states. Each state can define the custom animation pose logic that it represents (common states are <strong>Idle</strong>, <strong>Run</strong>, <strong>Falling</strong>, etc.). These states are then governed by transitions that control how to blend from one state to another.</p>
+<p>Using state machine scan greatly simplify the design and implementation process of creating animated models. Using graph with visualized animation states and connection between can improve the tool workflow even when working with complex characters. Follow this documentation section to learn more how to use them in your project.</p>
+<h2 id="how-to-create-a-state-machine">How to create a state machine?</h2>
+<p><img src="../tutorials/media/punching-state-example.gif" alt="Anim Graph State Machine Example"></p>
+<p>To learn how to create and use state machine in Anim Graph please follow <a href="../tutorials/setup-state-machine.html">this tutorial</a>.</p>
+<h2 id="state-transitions">State Transitions</h2>
+<p><img src="../tutorials/media/transition-properties-panel.png" alt="State Transition Properties"></p>
+<p>Each transition has a set of various properties that you can define. Disabled transitions are gray-out in the editor to help you guide. You can also adjust the transition time and blending mode. Option <strong>Use Default Rule</strong> can be used to fire the automatic transition when the state animation is about to end. This is useful when creating single-shot states without manually creating a rule.</p>
+<h3 id="transition-properties">Transition Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>If checked, the transition can be triggered, otherwise it will be ignored.</td>
+</tr>
+<tr>
+<td><strong>Solo</strong></td>
+<td>If checked, animation graph will ignore other transitions from the source state and use only this transition.</td>
+</tr>
+<tr>
+<td><strong>Use Default Rule</strong></td>
+<td>If checked, animation graph will perform automatic transition based on the state animation pose (single shot animation play).</td>
+</tr>
+<tr>
+<td><strong>Order</strong></td>
+<td>The transition order. Transitions with the higher order are handled before the ones with the lower order.</td>
+</tr>
+<tr>
+<td><strong>Blend Duration</strong></td>
+<td>Transition blend duration (in seconds).</td>
+</tr>
+<tr>
+<td><strong>BlendMode</strong></td>
+<td>Transition blending mode for blend alpha.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transition-rule">Transition Rule</h2>
+<p><img src="../tutorials/media/state-transition-definition-1.png" alt="State Transition Rule 1"></p>
+<p>To edit state transition rule trigger logic use <strong>Edit Rule</strong> button or <strong>double-click</strong> on it (on connection line).
+Then the transition graph will show. Again, it works like a State Machine graph. This sub-graph contains a single output node that samples the boolean value which determinates whenever trigger the transition.</p>
+<p>Also, remember about using special <strong>Transition Source State Anim</strong> node that can be added to the transition graph to access the source state animation playback information. It can be used to trigger the animation in a specific moment, for instance when the source state animation is about to end.</p>
+<p><img src="../tutorials/media/transition-source-state-anim.png" alt="Transition Source State Anim"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/anim-graph/state-machine.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

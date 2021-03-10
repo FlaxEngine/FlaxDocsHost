@@ -1,0 +1,2823 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CollisionsHelper
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CollisionsHelper
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FlaxEngine.CollisionsHelper">
+  <h1 id="FlaxEngine_CollisionsHelper" data-uid="FlaxEngine.CollisionsHelper">Class CollisionsHelper
+  </h1>
+  <div class="markdown level0 summary"><p>Contains static methods to help in determining intersections, containment, etc.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEngine_CollisionsHelper" data-uid="FlaxEngine.CollisionsHelper"><a href="#collapsible-inheritance-FlaxEngine_CollisionsHelper" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEngine_CollisionsHelper" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">CollisionsHelper</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-FlaxEngine_CollisionsHelper" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_CollisionsHelper" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-FlaxEngine_CollisionsHelper" class="collapse">
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
+  <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
+  
+  <h5 id="FlaxEngine_CollisionsHelper_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CollisionsHelper</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_BoxContainsBox_" data-uid="FlaxEngine.CollisionsHelper.BoxContainsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_BoxContainsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" data-uid="FlaxEngine.CollisionsHelper.BoxContainsBox(FlaxEngine.BoundingBox@,FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_BoxContainsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">BoxContainsBox(ref BoundingBox, ref BoundingBox)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_BoxContainsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box1</span>
+        <p><p>The first box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box2</span>
+        <p><p>The second box to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_BoxContainsPoint_" data-uid="FlaxEngine.CollisionsHelper.BoxContainsPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_BoxContainsPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.BoxContainsPoint(FlaxEngine.BoundingBox@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_BoxContainsPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">BoxContainsPoint(ref BoundingBox, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_BoxContainsPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsPoint(ref BoundingBox box, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_BoxContainsSphere_" data-uid="FlaxEngine.CollisionsHelper.BoxContainsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_BoxContainsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.BoxContainsSphere(FlaxEngine.BoundingBox@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_BoxContainsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">BoxContainsSphere(ref BoundingBox, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_BoxContainsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsSphere(ref BoundingBox box, ref BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_BoxIntersectsBox_" data-uid="FlaxEngine.CollisionsHelper.BoxIntersectsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_BoxIntersectsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" data-uid="FlaxEngine.CollisionsHelper.BoxIntersectsBox(FlaxEngine.BoundingBox@,FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_BoxIntersectsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">BoxIntersectsBox(ref BoundingBox, ref BoundingBox)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_BoxIntersectsBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box1</span>
+        <p><p>The first box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box2</span>
+        <p><p>The second box to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_BoxIntersectsSphere_" data-uid="FlaxEngine.CollisionsHelper.BoxIntersectsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_BoxIntersectsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.BoxIntersectsSphere(FlaxEngine.BoundingBox@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_BoxIntersectsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">BoxIntersectsSphere(ref BoundingBox, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_BoxIntersectsSphere_FlaxEngine_BoundingBox__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsSphere(ref BoundingBox box, ref BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointBoxPoint_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointBoxPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointBoxPoint(FlaxEngine.BoundingBox@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ClosestPointBoxPoint(ref BoundingBox, ref Vector3, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointBoxPoint(ref BoundingBox box, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointPlanePoint_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPlanePoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointPlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPlanePoint(FlaxEngine.Plane@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointPlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ClosestPointPlanePoint(ref Plane, ref Vector3, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointPlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPlanePoint(ref Plane plane, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointPointLine_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPointLine*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointPointLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPointLine(FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointPointLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="expander" data-toggle="collapse">ClosestPointPointLine(ref Vector2, ref Vector2, ref Vector2, out Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointPointLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a point and a line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPointLine(ref Vector2 point, ref Vector2 p0, ref Vector2 p1, out Vector2 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">p0</span>
+        <p><p>The line first point.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">p1</span>
+        <p><p>The line second point.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointPointTriangle_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPointTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointPointTriangle_FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointPointTriangle(FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointPointTriangle_FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ClosestPointPointTriangle(ref Vector3, ref Vector3, ref Vector3, ref Vector3, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointPointTriangle_FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a point and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPointTriangle(ref Vector3 point, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointRectanglePoint_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointRectanglePoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointRectanglePoint_FlaxEngine_Rectangle__FlaxEngine_Vector2__FlaxEngine_Vector2__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointRectanglePoint(FlaxEngine.Rectangle@,FlaxEngine.Vector2@,FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointRectanglePoint_FlaxEngine_Rectangle__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="expander" data-toggle="collapse">ClosestPointRectanglePoint(ref Rectangle, ref Vector2, out Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointRectanglePoint_FlaxEngine_Rectangle__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointRectanglePoint(ref Rectangle rect, ref Vector2 point, out Vector2 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a></span>
+        <span class="parametername">rect</span>
+        <p><p>The rectangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointSpherePoint_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointSpherePoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointSpherePoint(FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ClosestPointSpherePoint(ref BoundingSphere, ref Vector3, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSpherePoint(ref BoundingSphere sphere, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_ClosestPointSphereSphere_" data-uid="FlaxEngine.CollisionsHelper.ClosestPointSphereSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_ClosestPointSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.ClosestPointSphereSphere(FlaxEngine.BoundingSphere@,FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_ClosestPointSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ClosestPointSphereSphere(ref BoundingSphere, ref BoundingSphere, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_ClosestPointSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2, out Vector3 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere1</span>
+        <p><p>The first sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere2</span>
+        <p><p>The second sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionsHelper_ClosestPointSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__FlaxEngine_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the two spheres are overlapping, but not directly on top of each other, the closest point
+is the &apos;closest&apos; point of intersection. This can also be considered is the deepest point of
+intersection.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_DistanceBoxBox_" data-uid="FlaxEngine.CollisionsHelper.DistanceBoxBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_DistanceBoxBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" data-uid="FlaxEngine.CollisionsHelper.DistanceBoxBox(FlaxEngine.BoundingBox@,FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_DistanceBoxBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">DistanceBoxBox(ref BoundingBox, ref BoundingBox)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_DistanceBoxBox_FlaxEngine_BoundingBox__FlaxEngine_BoundingBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box1</span>
+        <p><p>The first box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box2</span>
+        <p><p>The second box to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The distance between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_DistanceBoxPoint_" data-uid="FlaxEngine.CollisionsHelper.DistanceBoxPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_DistanceBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.DistanceBoxPoint(FlaxEngine.BoundingBox@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_DistanceBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">DistanceBoxPoint(ref BoundingBox, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_DistanceBoxPoint_FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxPoint(ref BoundingBox box, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The distance between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_DistancePlanePoint_" data-uid="FlaxEngine.CollisionsHelper.DistancePlanePoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_DistancePlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.DistancePlanePoint(FlaxEngine.Plane@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_DistancePlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">DistancePlanePoint(ref Plane, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_DistancePlanePoint_FlaxEngine_Plane__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistancePlanePoint(ref Plane plane, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The distance between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_DistanceSpherePoint_" data-uid="FlaxEngine.CollisionsHelper.DistanceSpherePoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_DistanceSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.DistanceSpherePoint(FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_DistanceSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">DistanceSpherePoint(ref BoundingSphere, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_DistanceSpherePoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSpherePoint(ref BoundingSphere sphere, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The distance between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_DistanceSphereSphere_" data-uid="FlaxEngine.CollisionsHelper.DistanceSphereSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_DistanceSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.DistanceSphereSphere(FlaxEngine.BoundingSphere@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_DistanceSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">DistanceSphereSphere(ref BoundingSphere, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_DistanceSphereSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere1</span>
+        <p><p>The first sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere2</span>
+        <p><p>The second sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The distance between the two objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_IsPointInTriangle_" data-uid="FlaxEngine.CollisionsHelper.IsPointInTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_IsPointInTriangle_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" data-uid="FlaxEngine.CollisionsHelper.IsPointInTriangle(FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_IsPointInTriangle_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="expander" data-toggle="collapse">IsPointInTriangle(ref Vector2, ref Vector2, ref Vector2, ref Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_IsPointInTriangle_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the given 2D point is inside the specified triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPointInTriangle(ref Vector2 point, ref Vector2 a, ref Vector2 b, ref Vector2 c)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to check.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">a</span>
+        <p><p>The first vertex of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">b</span>
+        <p><p>The second vertex of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">c</span>
+        <p><p>The third vertex of the triangle.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if point is inside the triangle; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_LineIntersectsLine_" data-uid="FlaxEngine.CollisionsHelper.LineIntersectsLine*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_LineIntersectsLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" data-uid="FlaxEngine.CollisionsHelper.LineIntersectsLine(FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_LineIntersectsLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="expander" data-toggle="collapse">LineIntersectsLine(ref Vector2, ref Vector2, ref Vector2, ref Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_LineIntersectsLine_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a line intersects with the other line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool LineIntersectsLine(ref Vector2 l1p1, ref Vector2 l1p2, ref Vector2 l2p1, ref Vector2 l2p2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">l1p1</span>
+        <p><p>The first line point 0.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">l1p2</span>
+        <p><p>The first line point 1.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">l2p1</span>
+        <p><p>The second line point 0.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">l2p2</span>
+        <p><p>The second line point 1.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if line intersects with the other line</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_LineIntersectsRect_" data-uid="FlaxEngine.CollisionsHelper.LineIntersectsRect*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_LineIntersectsRect_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Rectangle__" data-uid="FlaxEngine.CollisionsHelper.LineIntersectsRect(FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Rectangle@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_LineIntersectsRect_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Rectangle__" class="expander" data-toggle="collapse">LineIntersectsRect(ref Vector2, ref Vector2, ref Rectangle)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_LineIntersectsRect_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Rectangle__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a line intersects with the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool LineIntersectsRect(ref Vector2 p1, ref Vector2 p2, ref Rectangle rect)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">p1</span>
+        <p><p>The line point 0.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">p2</span>
+        <p><p>The line point 1.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a></span>
+        <span class="parametername">rect</span>
+        <p><p>The rectangle.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if line intersects with the rectangle</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsBox_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsBox_FlaxEngine_Plane__FlaxEngine_BoundingBox__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsBox(FlaxEngine.Plane@,FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsBox_FlaxEngine_Plane__FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">PlaneIntersectsBox(ref Plane, ref BoundingBox)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsBox_FlaxEngine_Plane__FlaxEngine_BoundingBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsBox(ref Plane plane, ref BoundingBox box)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PlaneIntersectionType.html">PlaneIntersectionType</a>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPlane*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPlane(FlaxEngine.Plane@,FlaxEngine.Plane@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__" class="expander" data-toggle="collapse">PlaneIntersectsPlane(ref Plane, ref Plane)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a <a class="xref" href="FlaxEngine.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref Plane plane1, ref Plane plane2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane1</span>
+        <p><p>The first plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane2</span>
+        <p><p>The second plane to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPlane*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__FlaxEngine_Ray__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPlane(FlaxEngine.Plane@,FlaxEngine.Plane@,FlaxEngine.Ray@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__FlaxEngine_Ray__" class="expander" data-toggle="collapse">PlaneIntersectsPlane(ref Plane, ref Plane, out Ray)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__FlaxEngine_Ray__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a <a class="xref" href="FlaxEngine.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref Plane plane1, ref Plane plane2, out Ray line)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane1</span>
+        <p><p>The first plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane2</span>
+        <p><p>The second plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">line</span>
+        <p><p>When the method completes, contains the line of intersection
+as a <a class="xref" href="FlaxEngine.Ray.html">Ray</a>, or a zero ray if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionsHelper_PlaneIntersectsPlane_FlaxEngine_Plane__FlaxEngine_Plane__FlaxEngine_Ray___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Although a ray is set to have an origin, the ray returned by this method is really
+a line in three dimensions which has no real origin. The ray is considered valid when
+both the positive direction is used and when the negative direction is used.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsPoint_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsPoint_FlaxEngine_Plane__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsPoint(FlaxEngine.Plane@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPoint_FlaxEngine_Plane__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">PlaneIntersectsPoint(ref Plane, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsPoint_FlaxEngine_Plane__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsPoint(ref Plane plane, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PlaneIntersectionType.html">PlaneIntersectionType</a>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsSphere_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsSphere_FlaxEngine_Plane__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsSphere(FlaxEngine.Plane@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsSphere_FlaxEngine_Plane__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">PlaneIntersectsSphere(ref Plane, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsSphere_FlaxEngine_Plane__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsSphere(ref Plane plane, ref BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PlaneIntersectionType.html">PlaneIntersectionType</a>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_PlaneIntersectsTriangle_" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_PlaneIntersectsTriangle_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.PlaneIntersectsTriangle(FlaxEngine.Plane@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsTriangle_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">PlaneIntersectsTriangle(ref Plane, ref Vector3, ref Vector3, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_PlaneIntersectsTriangle_FlaxEngine_Plane__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Plane.html">Plane</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsTriangle(ref Plane plane, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PlaneIntersectionType.html">PlaneIntersectionType</a>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsBox_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsBox(FlaxEngine.Ray@,FlaxEngine.BoundingBox@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsBox(ref Ray, ref BoundingBox, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref Ray ray, ref BoundingBox box, out Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsBox_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__System_Single__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsBox(FlaxEngine.Ray@,FlaxEngine.BoundingBox@,System.Single@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__System_Single__" class="expander" data-toggle="collapse">RayIntersectsBox(ref Ray, ref BoundingBox, out Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsBox_FlaxEngine_Ray__FlaxEngine_BoundingBox__System_Single__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref Ray ray, ref BoundingBox box, out float distance)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">distance</span>
+        <p><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsPlane_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPlane*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPlane(FlaxEngine.Ray@,FlaxEngine.Plane@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsPlane(ref Ray, ref Plane, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref Ray ray, ref Plane plane, out Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsPlane_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPlane*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__System_Single__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPlane(FlaxEngine.Ray@,FlaxEngine.Plane@,System.Single@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__System_Single__" class="expander" data-toggle="collapse">RayIntersectsPlane(ref Ray, ref Plane, out Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPlane_FlaxEngine_Ray__FlaxEngine_Plane__System_Single__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref Ray ray, ref Plane plane, out float distance)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Plane.html">Plane</a></span>
+        <span class="parametername">plane</span>
+        <p><p>The plane to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">distance</span>
+        <p><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersect.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsPoint_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsPoint_FlaxEngine_Ray__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsPoint(FlaxEngine.Ray@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPoint_FlaxEngine_Ray__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsPoint(ref Ray, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsPoint_FlaxEngine_Ray__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPoint(ref Ray ray, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersect.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsRay_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsRay*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsRay_FlaxEngine_Ray__FlaxEngine_Ray__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsRay(FlaxEngine.Ray@,FlaxEngine.Ray@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsRay_FlaxEngine_Ray__FlaxEngine_Ray__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsRay(ref Ray, ref Ray, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsRay_FlaxEngine_Ray__FlaxEngine_Ray__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsRay(ref Ray ray1, ref Ray ray2, out Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray1</span>
+        <p><p>The first ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray2</span>
+        <p><p>The second ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersect.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionsHelper_RayIntersectsRay_FlaxEngine_Ray__FlaxEngine_Ray__FlaxEngine_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method performs a ray vs ray intersection test based on the following formula
+from Goldman.</p>
+<pre><code>s = det([o_2 - o_1, d_2, d_1 x d_2]) / ||d_1 x d_2||^2</code></pre>
+<pre><code>t = det([o_2 - o_1, d_1, d_1 x d_2]) / ||d_1 x d_2||^2</code></pre>
+<p>Where o_1 is the position of the first ray, o_2 is the position of the second ray,
+d_1 is the normalized direction of the first ray, d_2 is the normalized direction
+of the second ray, det denotes the determinant of a matrix, x denotes the cross
+product, [ ] denotes a matrix, and || || denotes the length or magnitude of a vector.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsSphere_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsSphere(FlaxEngine.Ray@,FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsSphere(ref Ray, ref BoundingSphere, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref Ray ray, ref BoundingSphere sphere, out Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsSphere_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__System_Single__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsSphere(FlaxEngine.Ray@,FlaxEngine.BoundingSphere@,System.Single@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__System_Single__" class="expander" data-toggle="collapse">RayIntersectsSphere(ref Ray, ref BoundingSphere, out Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsSphere_FlaxEngine_Ray__FlaxEngine_BoundingSphere__System_Single__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref Ray ray, ref BoundingSphere sphere, out float distance)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">distance</span>
+        <p><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsTriangle_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsTriangle(FlaxEngine.Ray@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">RayIntersectsTriangle(ref Ray, ref Vector3, ref Vector3, ref Vector3, out Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_RayIntersectsTriangle_" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__System_Single__" data-uid="FlaxEngine.CollisionsHelper.RayIntersectsTriangle(FlaxEngine.Ray@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,System.Single@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__System_Single__" class="expander" data-toggle="collapse">RayIntersectsTriangle(ref Ray, ref Vector3, ref Vector3, ref Vector3, out Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__System_Single__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out float distance)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">distance</span>
+        <p><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionsHelper_RayIntersectsTriangle_FlaxEngine_Ray__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__System_Single___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method tests if the ray intersects either the front or back of the triangle.
+If the ray is parallel to the triangle&apos;s plane, no intersection is assumed to have
+happened. If the intersection of the ray and the triangle is behind the origin of
+the ray, no intersection is assumed to have happened. In both cases of assumptions,
+this method returns false.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereContainsBox_" data-uid="FlaxEngine.CollisionsHelper.SphereContainsBox*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereContainsBox_FlaxEngine_BoundingSphere__FlaxEngine_BoundingBox__" data-uid="FlaxEngine.CollisionsHelper.SphereContainsBox(FlaxEngine.BoundingSphere@,FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereContainsBox_FlaxEngine_BoundingSphere__FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">SphereContainsBox(ref BoundingSphere, ref BoundingBox)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereContainsBox_FlaxEngine_BoundingSphere__FlaxEngine_BoundingBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsBox(ref BoundingSphere sphere, ref BoundingBox box)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The box to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereContainsPoint_" data-uid="FlaxEngine.CollisionsHelper.SphereContainsPoint*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereContainsPoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.SphereContainsPoint(FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereContainsPoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">SphereContainsPoint(ref BoundingSphere, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereContainsPoint_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsPoint(ref BoundingSphere sphere, ref Vector3 point)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereContainsSphere_" data-uid="FlaxEngine.CollisionsHelper.SphereContainsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereContainsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.SphereContainsSphere(FlaxEngine.BoundingSphere@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereContainsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">SphereContainsSphere(ref BoundingSphere, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereContainsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere1</span>
+        <p><p>The first sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere2</span>
+        <p><p>The second sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereContainsTriangle_" data-uid="FlaxEngine.CollisionsHelper.SphereContainsTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereContainsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.SphereContainsTriangle(FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereContainsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">SphereContainsTriangle(ref BoundingSphere, ref Vector3, ref Vector3, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereContainsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> contains a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
+        <p><p>The type of containment the two objects have.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereIntersectsSphere_" data-uid="FlaxEngine.CollisionsHelper.SphereIntersectsSphere*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereIntersectsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" data-uid="FlaxEngine.CollisionsHelper.SphereIntersectsSphere(FlaxEngine.BoundingSphere@,FlaxEngine.BoundingSphere@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereIntersectsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="expander" data-toggle="collapse">SphereIntersectsSphere(ref BoundingSphere, ref BoundingSphere)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereIntersectsSphere_FlaxEngine_BoundingSphere__FlaxEngine_BoundingSphere__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a
+<a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere1</span>
+        <p><p>First sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere2</span>
+        <p><p>Second sphere to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionsHelper_SphereIntersectsTriangle_" data-uid="FlaxEngine.CollisionsHelper.SphereIntersectsTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionsHelper_SphereIntersectsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.CollisionsHelper.SphereIntersectsTriangle(FlaxEngine.BoundingSphere@,FlaxEngine.Vector3@,FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_CollisionsHelper_SphereIntersectsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">SphereIntersectsTriangle(ref BoundingSphere, ref Vector3, ref Vector3, ref Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionsHelper_SphereIntersectsTriangle_FlaxEngine_BoundingSphere__FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingSphere.html">BoundingSphere</a></span>
+        <span class="parametername">sphere</span>
+        <p><p>The sphere to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex1</span>
+        <p><p>The first vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex2</span>
+        <p><p>The second vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">vertex3</span>
+        <p><p>The third vertex of the triangle to test.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>Whether the two objects intersected.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

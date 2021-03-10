@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.5 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.5 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-05-release-notes">Flax 0.5 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="particles">Particles</h3>
+<p><img src="media/particles.gif" alt="Particles"></p>
+<p>The major feature of this update is <strong>particle support</strong>. Particles are one of the most essential parts of modern games. Every time you see a fire, smoke, explosion or dust, you can be sure – those are particles. However, nowadays gamers and game developers are more demanding so we put lots of effort to create the particles system that will be able to bring more awesomeness to the games.</p>
+<p><img src="media/particle-parameters.gif" alt="Particles"></p>
+<p>To do so Flax supports seamless <strong>CPU and GPU particles simulation</strong>, <strong>high performant rendering</strong> and provides a set of <strong>great tools for content creators</strong>. We know that visual effects are a major aspect of every game so we wanted to allow game developers to easily create particle emitters, define the simulations and construct everything from simple effects to complex particle systems.</p>
+<p>See the related documentation to learn more <a href="../../particles/index.html">here</a>.</p>
+<h3 id="vulkan-support">Vulkan support</h3>
+<p><img src="media/vulkan.jpg" alt="Vulkan Graphics"></p>
+<p>Now, Flax supports rendering graphics with <strong>Vulkan</strong>. Adding Vulkan backend enables us to move towards cross-platform gaming and better performance.</p>
+<p>The current implementation supports full graphics pipeline and compute shaders (only stream-output and counter buffers are missing). We use descriptors pool manager to reuse descriptor set layouts and optimized pipeline binding to reduce API calls. The pipeline state objects are cached on request and reused later which reduces memory usage. Also using ring-buffer for uniforms data reduces descriptors changes due to dynamic offset assignment that is more efficient.</p>
+<p>You can read more about on the <a href="https://flaxengine.com/blog/flax-facts-25-vulkan/">blog</a>.</p>
+<h3 id="curves-editing">Curves editing</h3>
+<p><img src="media/curve1.png" alt="Curves"></p>
+<p>This update features many new additions to the scripting. This includes a new <strong>Curve&lt;T&gt;</strong> type and related editor tools. You can easily add curve object to your script and use it to animate objects or for general purpose. This comes very handy during game production and is now in-build engine feature.</p>
+<h3 id="new-script-events">New script events</h3>
+<p>Our C# scripting keeps evolving. During this update, we refactored the script events and improved their execution performance. Firstly, deprecated <code>OnTriggerEnter/Stay/Exit</code>, <code>OnCollisionEnter/Stay/Exit</code>, and <code>OnJointBreak</code> events have been removed as using <code>Collider.TriggerEnter/Exit</code>, <code>Collider.CollisionEnter/Exit</code>, and <code>Joint.JointBreak</code> is more performant and allows developers to register for multiple colliders events in the same script instead of adding a script to collider actor. Secondly, we added the <strong>virtual methods to Script base class</strong> which makes it easier to override the proper method and get proper documentation right in the IDE. The simplified script events callbacks are easier to use and match better our engine design vision. Note: calling base methods of Script class is not required and can be skipped to safe performance.</p>
+<p>Also, we updated the Flax Documentation and Flax Samples to include these changes. To help you upgrade your existing code please take a look at the improved documentation about script events <a href="../../scripting/events.html">here</a>.</p>
+<h3 id="content-finder-tool">Content Finder tool</h3>
+<p><img src="media/content-finder.gif" alt="Particles"></p>
+<p>One of the greatest features added to Editor is <strong>content finder tool</strong>. This little dialog allows you to very quickly navigate around the whole project by simply pressing <strong>Ctrl+O</strong> anywhere and typing the search query. It can be used to browse through the content assets but also the scene actors so you can find literally anything.</p>
+<p>This feature has been implemented by <a href="https://github.com/JimiVacarians">JimiVacarians</a>. Thanks!</p>
+<h3 id="new-command-line-options">New command line options</h3>
+<p>As Flax is often used in various scenarios and we want to keep very agile here is a list of new command-line options added to the engine:</p>
+<ul>
+<li><code>-vulkan</code> - use Vulkan rendering backend</li>
+<li><code>-skipcompile</code> - skips the automatic C# scripts compilation on startup</li>
+<li><code>-mute</code> - disables audio system (engine will use Null Audio backend)</li>
+<li><code>-nvidia</code> - hints to use NVIDIA GPU if available</li>
+<li><code>-amd</code> - hints to use AMD GPU if available</li>
+<li><code>-intel</code> - hints to use Intel GPU if available</li>
+<li><code>-mononolog</code> - enables advanced debugging for Mono runtime</li>
+</ul>
+<p>Additionally, the startup command-line arguments are exposed to C# API via <code>Platform.CommandLine</code> for your applications.</p>
+<h3 id="new-material-nodes">New material nodes</h3>
+<p><img src="media/curve.png" alt="Curves"></p>
+<p>Materials system is constantly growing every update. This time we extended the standard nodes collection by adding new useful nodes such as:</p>
+<ul>
+<li>Append - appends vectors and scalars</li>
+<li>Sample Gradient - linear color gradient sampling with preview</li>
+<li>Curve - float/vector2,3,4 curves editing and sampling</li>
+<li>Degrees/Radians - angle units conversion tool (works with vectors too)</li>
+<li>Bitwise operations - integer math operations set</li>
+<li>Boolean math - boolean math operations set</li>
+<li>Comparison nodes - an easier way to compare values</li>
+<li>Branch - picks a value based on a condition</li>
+<li>Flipbook - samples sprite sheet</li>
+<li>Depth fade - implements soft-particles and transparency</li>
+</ul>
+<h3 id="more-editor-features">More Editor features</h3>
+<p><img src="media/input-values-parsing.gif" alt="Editor features"></p>
+<p>Flax Editor is already a great tool. However, every update makes it even more outstanding. This time we wanted to add lots of usability features including: <strong>Auto Save</strong> (configurable via options), <strong>Undo for Visject</strong> (materials, anim graph, particles graphs), <strong>parsing input fields</strong> (just type <code>2 + 2 * 2</code> and editor will calculate result), <strong>custom editor options</strong> (editor plugins can add own settings to editor UI), <strong>input shortcuts settings</strong> (define own bindings for keyboard).</p>
+<p>Many of those changes will improve your game development and editor usage experience. To learn more just look at the complete update changelog.</p>
+<h3 id="actors-type-serialization">Actors type serialization</h3>
+<p>The scene objects (actors and scripts) have now fully unified type serialization and class meta caching that improves the performance and standardizes the design. From now on, every actor will use <em>TypeName</em> for its type info instead of old <em>TypeID</em> ( <code>&quot;TypeID&quot;: 1</code> -&gt; <code>&quot;TypeName&quot;: &quot;FlaxEngine.StaticModel&quot;</code>). This change will be visible in scene and prefab files saved with the newest version. We will continue supports the old format of scenes in next engine updates for at least a year.</p>
+<h3 id="third-party-libraries-updates">Third-Party libraries updates</h3>
+<p>The new Flax version is the first shipped update that uses our brand <strong>new build system</strong>. We put a lot of effects to make it more performant and fit our development. This was also a great opportunity to update most of the dependency third-party libraries that we use.</p>
+<ul>
+<li>Update Mono to 5.20.1</li>
+<li>Update Assimp to 5.0 RC 1</li>
+<li>Update DirectXMesh to April 26, 2019</li>
+<li>Update DirectXTex to April 26, 2019</li>
+<li>Update UVAtlas to April 26, 2019</li>
+<li>Update freetype to 2.10</li>
+<li>Update curl to 7.64.1</li>
+<li>Update fmt to 5.3</li>
+<li>Update OpenAL to 1.19.1</li>
+<li>Update PhysX to 4.1</li>
+<li>Use static linking for PhysX on Windows</li>
+<li>Use static linking for Mono on Windows</li>
+<li>Use AOT for C# assemblies on UWP platform</li>
+</ul>
+<p>To learn more about Flax.Build see <a href="https://flaxengine.com/blog/flax-facts-26-build-system/">this blog post</a>.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-056187---26-october-2019">Version 0.5.6187 - 26 October 2019</h3>
+<ul>
+<li>Fix and improve animations looping and playback with negative speed factor</li>
+<li>Fix crash on skinned mesh update draw with cached data missing</li>
+<li>Fix Blend Pose crash</li>
+</ul>
+<h3 id="version-056186---27-september-2019">Version 0.5.6186 - 27 September 2019</h3>
+<ul>
+<li>Update ofbx</li>
+<li>Fix Lerp in Anim Graph and CPU particles graph</li>
+<li>Fix importing skinned models from fbx (invalid offset matrix calculations)</li>
+</ul>
+<h3 id="version-056185---5-september-2019">Version 0.5.6185 - 5 September 2019</h3>
+<ul>
+<li>Add UpdateMesh and UpdateTriangles methods to Mesh that use List&lt;T&gt;</li>
+<li>Add <code>Collider.ComputePenetration</code></li>
+<li>Add <code>CollisionData.CookCollision</code> from custom geometry buffers</li>
+<li>Add default value attributes to actors properties</li>
+<li>Update ofbx library</li>
+<li>Remove SceneRenderTask.Flags and SceneRenderTask.Mode (use View structure)</li>
+<li>Optimize CollisionCooking to allocate less memory in certain cases</li>
+<li>Fix using Assert library from FlaxAPI</li>
+<li>Fix Sky shader to place pixels always on max depth</li>
+<li>Fix mouse position issues in locked cursor mode in editor</li>
+<li>Fix FirstScene setting in Game Settings</li>
+<li>Fix crash when using physics overlap test with too many results</li>
+<li>Fix errors when editing material instance parameters</li>
+<li>Fix parsing values on different system language settings</li>
+</ul>
+<h3 id="version-056184---19-august-2019">Version 0.5.6184 - 19 August 2019</h3>
+<p>Contributors: JimiVacarians, stefnotch</p>
+<ul>
+<li>Add <strong>Particles</strong></li>
+<li>Add <em>Particle Emitter</em> asset</li>
+<li>Add <em>Particle System</em> asset</li>
+<li>Add <em>Particle Effect</em> actor</li>
+<li>Add <strong>Vulkan</strong> support</li>
+<li>Add <code>-vulkan</code> command line to use Vulkan rendering backend</li>
+<li>Add showing documentation tooltips for Visject Surface nodes</li>
+<li>Add tooltips support for Visject surface elements</li>
+<li>Add explicit editors for Vector2/3/4 to modify all components of default value for input box</li>
+<li>Add support for reading particle attributes in materials (Particle shader type)</li>
+<li>Add support for unsigned integer connection types in Visject Surface</li>
+<li>Add Flipbook node to materials</li>
+<li>Add <strong>support for Visual Studio 2019</strong></li>
+<li>Add Text Wrapping to the Text Box control</li>
+<li>Add DirectX 10 and 11 support options for UWP</li>
+<li>Add support for UWP builds to run on Xbox One</li>
+<li>Add x86 builds support for Windows</li>
+<li>Add <code>OnEnable</code> and <code>OnDisable</code> events to script template</li>
+<li>Add more extendibility to SelectionOutline in Editor API</li>
+<li>Add support for <code>-headless</code> flag in cooked game on Windows</li>
+<li>Add support for Windows Server</li>
+<li>Add <strong>Curve&lt;T&gt;</strong> type to C# API</li>
+<li>Add undo support for enable/disable script</li>
+<li>Add support for native Scripts and Actors (engine source requried)</li>
+<li>Add command line switches for picking GPU device by vendor</li>
+<li>Add <code>-skipcompile</code> cmd line to skip automatic scripts compilation on startup (useful when launching engine from IDE)</li>
+<li>Add <code>-mute</code> cmd line to disable audio</li>
+<li>Add option to disable audio in build game</li>
+<li>Add <strong>content finder tool</strong> to Editor (use <strong>Ctrl+O</strong>)</li>
+<li>Add postFx for LightBuffer view mode</li>
+<li>Add OnUnDirty to CustomEditor</li>
+<li>Add Curve editing and sampling for all Visject graphs</li>
+<li>Add <code>Panel.AlwaysShowScrollbars</code></li>
+<li>Add read-only depth buffer to the graphics backends</li>
+<li>Add fallback to dummy white texture if material wants to sample scene depth buffer but cannot</li>
+<li>Add <strong>Depth Fade</strong> node to materials</li>
+<li>Add support for sampling scene depth in particle and transparent materials</li>
+<li>Add support for serialization of Editor&#39;s IUndoActions</li>
+<li>Add Degrees and Radians functions to Visject math library</li>
+<li>Add Bitwise operations, Booolean math and Comparisons nodes groups to materials</li>
+<li>Add VectorX and IntX modulus operation support</li>
+<li>Add DisabledTint property to Image control</li>
+<li>Add Timeline control to Editor UI library</li>
+<li>Add helper popup with info if no shader source to show</li>
+<li>Add Sky Light support for transparent materials</li>
+<li>Add option to search in the Content Window by asset ID</li>
+<li>Add Branch node to all Visject graphs</li>
+<li>Add Append node to all Visject surface types</li>
+<li>Add Shunting Yard algorithm <strong>parser for input value fields</strong> for easier usage (eg. type 2 + 2 * 2 to set 6)</li>
+<li>Add <code>GameWindowMode</code> option for Windows platform to specify game window mode</li>
+<li>Add pausing game time progression if game logic is disabled (eg. has no focus and game should not run in a background)</li>
+<li>Add Sample Gradient node to all Visject graphs (particles, materials, animations)</li>
+<li>Add <code>CreateAndSetVirtualMaterialInstance()</code> to Decal, Animated Model and Static Model actors</li>
+<li>Add auto-save feature to editor</li>
+<li>Add showing Skinned Model bounds in properties window</li>
+<li>Add AutoWidth to Label</li>
+<li>Add vertical scroll to selected entry in debug log window</li>
+<li>Add support for custom editor options for plugins</li>
+<li>Add logging FlaxAPI build version on startup</li>
+<li>Add support for custom editor options for plugins</li>
+<li>Add helper Json serialization methods for objects of unknown type</li>
+<li>Add <strong>Visject Surface undo support</strong></li>
+<li>Add undo support for materials editor</li>
+<li>Add content items rename validation to popup</li>
+<li>Add moving nodes inside comment when moving comment</li>
+<li>Add <code>Add SurfaceNode.DepthFirstTraversal()</code></li>
+<li>Add VisjectSurfaceWindow and refactor Visject surface editing windows</li>
+<li>Add Force Script Compilation On Startup to editor options</li>
+<li>Add Mouse Sensitivity to editor options</li>
+<li>Add editor options for viewports defaults</li>
+<li>Add StartupSceneMode to editor options</li>
+<li>Add DebugLogTimestampsFormat to editor options</li>
+<li>Add HighlightColor to editor options</li>
+<li>Add custom editor fonts options</li>
+<li>Update Mono to 5.20.1</li>
+<li>Update Assimp to 5.0 RC 1</li>
+<li>Update DirectXMesh to April 26, 2019</li>
+<li>Update DirectXTex to April 26, 2019</li>
+<li>Update UVAtlas to April 26, 2019</li>
+<li>Update freetype to 2.10</li>
+<li>Update curl to 7.64.1</li>
+<li>Update fmt to 5.3</li>
+<li>Update OpenAL to 1.19.1</li>
+<li>Update PhysX to 4.1</li>
+<li>Use static linking for PhysX on Windows</li>
+<li>Use static linking for Mono on Windows</li>
+<li>Use AOT for C# assemblies on UWP platform</li>
+<li>Improve UWP builds stability</li>
+<li>Disable distortion pass for transparent materials that don&#39;t use Refraction to optimize performance</li>
+<li>Don&#39;t write to C# project files if nothing changes</li>
+<li>Remove <code>Mathf.Clamp01</code> - use <code>Mathf.Saturate</code> instead</li>
+<li>Rename <code>CustomRenderTask.OnRender</code> to <code>CustomRenderTask.Render</code></li>
+<li>Copy deploy pdb files for AOT assemblies in Debug builds</li>
+<li>Implement proper graphics backend selection and win platforms settings</li>
+<li>Improve material shader padding members generation</li>
+<li>Remove Flax copyright note from generates material shaders</li>
+<li>Disable setting Update/Draw/Physics fps to 0</li>
+<li>Improve Visject Surface style and user interface</li>
+<li>Improve rendering performance</li>
+<li>Move ContentDomain enum to editor assembly</li>
+<li>Improve Visject Surface rendering and input handling</li>
+<li>Rename <code>Control.CanFocus</code> into <code>AutoFocus</code></li>
+<li>Use unscaled game time in materials</li>
+<li>Disable Rotation node in Material graphs (not supported)</li>
+<li>Rename <code>Object.id</code> to <code>Object._internalId</code> to prevent name collisions in scripts</li>
+<li>Refactor FlaxAPI assemblies location (no need to rebuild engine to change from Release to Debug assembly)</li>
+<li>Refactor Visject surface comments to be nodes</li>
+<li>Remove Left/Right shift and control keys (not supported)</li>
+<li>Improve default terrain creation dialog options</li>
+<li>Improve asset and actor types registration</li>
+<li>Refactor serialized actor/script type id to be full type name</li>
+<li>Refactor script events</li>
+<li>Refactor material properties</li>
+<li>Ensure that state machines and states have unique names</li>
+<li>Optimize scene objects deserialziation</li>
+<li>Optimize script types caching</li>
+<li>Optimize UTF16 string serialization to Json</li>
+<li>Optimize physics events processing and sending</li>
+<li>Fix crash when disposing AudioClip after audio system shutdown</li>
+<li>Fix crash when using transparent material for skybox</li>
+<li>Fix picking objects in editor in ortho camera mode</li>
+<li>Fix scene rendering when using orthographic projection</li>
+<li>Fix serialization of protected/private properties with SerializeAttribute in script</li>
+<li>Fix arguments order in <code>ContentEditingModule.CloneAssetFile</code></li>
+<li>Fix Null backend usage with shaders cache preloading</li>
+<li>Fix rare window cleanup crash</li>
+<li>Fix Panel to handle proper scrolling of child controls with scale or rotation</li>
+<li>Fix negative minimum range value for scroll bar</li>
+<li>Fix panel scrollbars in various cases</li>
+<li>Fix showing tooltips for Visject Surface controls</li>
+<li>Fix VerticalPanel and HorizontalPanel spacing insertion</li>
+<li>Fix Visject input box initial state for boolean values</li>
+<li>Fix rare Anim Graph transition crashes</li>
+<li>Fix Game Cooker thread crashing on 2nd build</li>
+<li>Fix crash on <code>Actor.Direction = Vector3.Up</code></li>
+<li>Fix shader assets building on graphics platform options change</li>
+<li>Fix error when changing control size with AnchorStyle set Center without parent control</li>
+<li>Fix material params binding when no constant buffer is in use</li>
+<li>Fix typo in Skybox</li>
+<li>Fix Camera Depth Fade node in materials to clamp result between 0 and 1</li>
+<li>Fix crash when editing null Version type value in Custom Editor</li>
+<li>Fix transparent materials texture slots usage</li>
+<li>Fix settings PostFx material in PostFx volume actor</li>
+<li>Fix EditorViewport to ignore mouse events passed outside the viewport control</li>
+<li>Fix using Alt+Tab and fullscreen mode</li>
+<li>Fix engine version macros in game build compilation</li>
+<li>Fix <code>Render2D.FillRectangle</code> with 4 colors and alpha blending</li>
+<li>Fix Bias and Scale node to handle various input valeu types</li>
+<li>Fix namespaces for Editor types (GUI mostly moved from Engine assembly)</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_5/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

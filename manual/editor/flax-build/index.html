@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax.Build | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax.Build | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flaxbuild">Flax.Build</h1>
+
+<p><img src="media/title.jpg" alt="Flax.Build build tool"></p>
+<p><strong>Flax.Build</strong> is an in-built utility which is a complete build system written in C#. It supports:</p>
+<ul>
+<li>compiling and linking of engine, game and tools projects</li>
+<li>downloading and pre-building engine dependencies</li>
+<li>updating 3rd party libraries</li>
+<li>generating project files</li>
+<li>deploying the engine</li>
+<li>generating C# bindings for native code.</li>
+</ul>
+<p>Major features:</p>
+<ul>
+<li>high-performance build system</li>
+<li>rapid iterative builds and fast caching</li>
+<li>deep integration with Flax</li>
+<li>extensibility via plugins</li>
+<li>multi-platform support.</li>
+</ul>
+<p>This documentation section covers most of the topics related to Flax.Build tool. To learn more please refer to Flax.Build sources located under <code>Source\Tools\Flax.Build</code> and/or use <code>Binaries\Tools\Flax.Build.exe -help</code> to learn more about usage. The engine repository contains useful scripts that are wrappers against the build tool and automatically compile its sources.</p>
+<h2 id="build-scripts">Build Scripts</h2>
+<p>The main source of build configuration are <strong>.Build.cs</strong> files located in the project <code>Source</code> directory. Written in <strong>C#</strong>, scripts can contain targets, modules, SDKs, or other utilities used for building. When generating project scripts files, all build scripts are included in <strong>Rules</strong> project which defines the build rules and can be explored with code IDE.</p>
+<p>Build scripts are using C# 7.2 with full .Net 4.5 support. Additionally Flax.Build assembly is referenced with many useful utilities to use during build setup like:</p>
+<ul>
+<li><code>CommandLine</code> attribute for command line parsing</li>
+<li><code>Log</code> utility with info/errors logging capabilities (to log file and to console output)</li>
+<li><code>Tokenizer</code> class for pasing code as tokens</li>
+<li><code>Utilities</code> class with many usefull tools (eg. <code>WriteFileIfChanged</code>, <code>ReplaceInFiles</code>, <code>Run</code>, <code>GetFileSize</code>..)</li>
+<li><code>Sdk</code> searching and caching tools (used for ex. <code>PS4Sdk</code>, <code>GDK</code>, <code>VulkanSdk</code>)</li>
+<li><code>VCEnvironment</code> tool that can invoke <em>MSBuild</em> tool (works on Windows and Linux).</li>
+</ul>
+<p>Using build scripts you can automate many processes related to game/engine/plugin development.</p>
+<h2 id="targets-and-modules">Targets and Modules</h2>
+<p>A build <strong>Target</strong> is a script that combines modules to produce a final executable file or composite library. A <a href="../../scripting/tutorials/add-scripts-module.html">build <strong>Module</strong></a> is a script that can be compiled from source and used by other modules and targets. Targets in general define the global build environment (eg. global definitions) and include modules into the binary build. Modules are chunks of code compiled into binaries linked later into a target output binary (eg. game executable file). Modules can have references between each other for example if a game script wants to create GPU Texture resource, the game module needs to reference the Graphics module that implements a GPU texture.</p>
+<p>Using modules can greatly improve code readability, allow to split huge codebase into more independent chunks, and they help to organize the structure of the project sources. Modules can be referenced in <code>Setup</code> method which means they can have conditional references (eg. Profiler module is not included in Release builds).</p>
+<p>Modules and targets are identified by name of C# class which must be unique.</p>
+<h2 id="building-binaries">Building Binaries</h2>
+<p>Flax.Build uses game project to pick a target for a build (eg. <code>EditorTarget</code> property from <code>.flaxproj</code> file is used to pick a target for editor). Then the given target <code>Modules</code> list is used to collect all modules for building. Depending on the <code>LinkType</code> of the target all modules can be merged into a single binary (<code>Monolithic</code> build) or every binary module outputs a single binary (<code>Modular</code> build).</p>
+<p>Modules are collected using <code>PublicDependencies</code> and <code>PrivateDependencies</code> lists that define direct referenced from the given module.</p>
+<p>To modify the build options override <code>void Setup(BuildOptions options)</code> method. It contains many build properties that can be adjusted or used in a build script:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Target</em></td>
+<td>The target that builds this module.</td>
+</tr>
+<tr>
+<td><em>Platform</em></td>
+<td>The build platform.</td>
+</tr>
+<tr>
+<td><em>Toolchain</em></td>
+<td>The build platform toolchain.</td>
+</tr>
+<tr>
+<td><em>Configuration</em></td>
+<td>The build configuration.</td>
+</tr>
+<tr>
+<td><em>CompileEnv</em></td>
+<td>The module compilation environment.</td>
+</tr>
+<tr>
+<td><em>LinkEnv</em></td>
+<td>The module linking environment.</td>
+</tr>
+<tr>
+<td><em>SourcePaths</em></td>
+<td>The source file directories. By default it contains the directory that contains this module file.</td>
+</tr>
+<tr>
+<td><em>SourceFiles</em></td>
+<td>The source files to include in module build.</td>
+</tr>
+<tr>
+<td><em>PublicDependencies</em></td>
+<td>The collection of the modules that are required by this module (for linking). Inherited by the modules that include it.</td>
+</tr>
+<tr>
+<td><em>PrivateDependencies</em></td>
+<td>The collection of the modules that are required by this module (for linking).</td>
+</tr>
+<tr>
+<td><em>PublicDefinitions</em></td>
+<td>The collection of defines with preprocessing symbol for a source files of this module. Inherited by the modules that include it.</td>
+</tr>
+<tr>
+<td><em>PrivateDefinitions</em></td>
+<td>The collection of defines with preprocessing symbol for a source files of this module.</td>
+</tr>
+<tr>
+<td><em>PublicIncludePaths</em></td>
+<td>The collection of additional include paths for a source files of this module. Inherited by the modules that include it.</td>
+</tr>
+<tr>
+<td><em>PrivateIncludePaths</em></td>
+<td>The collection of additional include paths for a source files of this module.</td>
+</tr>
+<tr>
+<td><em>DependencyFiles</em></td>
+<td>The dependency files to include with output (additional debug files, dynamic libraries, etc.).</td>
+</tr>
+<tr>
+<td><em>OptionalDependencyFiles</em></td>
+<td>The optional dependency files to include with output (additional debug files, dynamic libraries, etc.).</td>
+</tr>
+<tr>
+<td><em>Libraries</em></td>
+<td>The list of libraries to link (typically external and third-party plugins).</td>
+</tr>
+<tr>
+<td><em>DelayLoadLibraries</em></td>
+<td>The list of libraries to link for delay-load (typically external and third-party plugins).</td>
+</tr>
+<tr>
+<td><em>OutputFiles</em></td>
+<td>The build output files (binaries, object files and static or dynamic libraries).</td>
+</tr>
+<tr>
+<td><em>IntermediateFolder</em></td>
+<td>The intermediate build artifacts folder directory.</td>
+</tr>
+<tr>
+<td><em>OutputFolder</em></td>
+<td>The output build artifacts folder directory.</td>
+</tr>
+<tr>
+<td><em>WorkingDirectory</em></td>
+<td>The build commands working folder directory.</td>
+</tr>
+<tr>
+<td><em>HotReloadPostfix</em></td>
+<td>The hot reload postfix added to the output binaries.</td>
+</tr>
+<tr>
+<td><em>ScriptingAPI</em></td>
+<td>The scripting API building options. Contains additional C# defines, system references, and file references to be used when building C# bindings library (.Net Module).</td>
+</tr>
+</tbody>
+</table>
+<p>Flax.Build generates <code>&lt;target_name&gt;.Build.json</code> file with build output artifacts description and binary modules metadata used by the engine to load C#/C++ scripting modules. This file is stored in build output directory.</p>
+<h2 id="api-bindings-generation">API Bindings Generation</h2>
+<p>Flax.Build contains an automatic utility for parsing C++ header files and generates the C# API for the scripting types. This includes classes, structures, enums, functions, etc.</p>
+<p>For modules that have assigned <code>BinaryModuleName</code> property, then defines the name of the binary module they should be included in, they build tool generates and compiles C# API. The bindings blue code is automatically generated and contains 2 parts:</p>
+<ul>
+<li>C++ glue code - stored in <em>&lt;module_name&gt;.Gen.cpp</em> in module build intermediate folder and compiled with module sources</li>
+<li>C# glue code - stored in <em>&lt;module_name&gt;.Gen.cs</em> in module build intermediate folder and compiled with module sources</li>
+</ul>
+<p>To learn more about using C++ API in C# see the related documentation <a href="api-tags.html">here</a> (about <strong>API_</strong> tags).</p>
+<p>Flax.Build supports also virtual table slots overriding for virtual methods of the scripts types and generates wrapper for invoking that method overridden in C# code. This allows inheriting C++ types and override methods in C# and still use the same objects in code.</p>
+<h2 id="project-files-generation">Project Files Generation</h2>
+<p>Flax.Build uses targets and modules to generate the scripting project files for editing the sources in the code editor environment such as Visual Studio or Visual Studio Code. For Visual Studio the project files are stored in <code>Cache/Projects</code> folder. Generated solution organizes the referenced projects in sub-folders and includes both C++ and C# scripts projects.</p>
+<p>Additionally, all build scripts are included in <strong>BuildScripts</strong> C# project which defines the build rules and can be explored with code IDE to easily edit them with contextual tooltips and code completion tools.</p>
+<h2 id="platforms-support">Platforms Support</h2>
+<p>Flax.Build is a <strong>multiplatform</strong> utility that has been battle-tested on Windows and Linux to build engine and games to the different target platforms including Windows, PS4, XboxOne, XboxScarlett, Linux, UWP. Each target platform implementation is stored in a separate directory under <code>Source\Tools\Flax.Build\Platforms</code> and contain <strong>Platform</strong> implementation and <strong>Toolchain</strong> implementation. Different platforms can use external SDKs, toolsets, or custom compilers to build code for a runtime.</p>
+<p>Also, engine dependency packages contain automatic build scripts to prepare pre-build deps for development. When adding new platform support many deps packages have to be ported too. The related code can be found in <code>Source\Tools\Flax.Build\Deps\Dependencies</code> folder.</p>
+<h2 id="extensibility">Extensibility</h2>
+<p>Flax.Build tool is written in modern C# and supports extending with custom <strong>plugins</strong> inside build scripts. To learn how to use them see related documentation <a href="plugins.html">here</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/flax-build/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

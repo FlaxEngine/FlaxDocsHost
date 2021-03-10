@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create a custom editor window | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create a custom editor window | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-a-custom-editor-window">HOWTO: Create a custom editor window</h1>
+
+<p>In this tutorial you will learn how to extend the Flax Editor by creating a fully customized tool window.</p>
+<p>Flax Editor supports two basic types of window</p>
+<ul>
+<li><em>Native window</em> - uses C# UI to setup the GUI</li>
+<li><em>Custom Editor window</em> - uses <a href="../custom-editors/index.html">Custom Editors</a> pipeline to set up the GUI</li>
+</ul>
+<p>This tutorial covers how to create the second one.</p>
+<h3 id="1-prepare-a-sample-script-with-a-custom-editor-or-use-one-from-your-game">1. Prepare a sample script with a custom editor (or use one from your game)</h3>
+<p>To show custom editor window we will use a custom editor with a button.
+To learn more about it see tutorial <a href="custom-editor.html">HOWTO: Render create a custom editor</a>.</p>
+<p>Game script example:</p>
+<pre><code class="lang-cs">public class MyScript : Script
+{
+    public float Speed = 11;
+
+    public Color LightColor = Color.Yellow;
+
+    public override void OnStart()
+    {
+    }
+}
+</code></pre><p>Custom Editor example:</p>
+<pre><code class="lang-cs">[CustomEditor(typeof(MyScript))]
+public class MyScriptEditor : GenericEditor
+{
+    public override void Initialize(LayoutElementsContainer layout)
+    {
+        base.Initialize(layout);
+
+        layout.Space(20);
+        var button = layout.Button(&quot;Click me&quot;, Color.Green);
+        button.Button.Clicked += () =&gt; Debug.Log(&quot;Button clicked!&quot;);
+    }
+}
+</code></pre><h3 id="2-create-a-new-script">2. Create a new script</h3>
+<p>Navigate to <code>Source/&lt;module_name&gt;</code> directory and create new <code>MyWindow</code> script. Alternatively, you can use an additional editor-only scripts module as shown in tutorial <a href="add-scripts-module.html">here</a>.</p>
+<p><img src="media/custom-window-tutorial-1.jpg" alt="Tutorial"></p>
+<h3 id="3-implement-editor-window">3. Implement editor window</h3>
+<p>Open a code editor and write the following code of the editor window. It should implement <a href="https://docs.flaxengine.com/api/FlaxEditor.CustomEditorWindow.html">CustomEditorWindow</a> class. Note that it requries to override <code>public override void Initialize(LayoutElementsContainer layout)</code> function similar to custom editors.</p>
+<pre><code class="lang-cs">public class MyWindow : CustomEditorWindow
+{
+    private TextBoxElement textbox;
+
+    public override void Initialize(LayoutElementsContainer layout)
+    {
+        layout.Label(&quot;My Window&quot;, TextAlignment.Center);
+        layout.Space(20);
+        textbox = layout.TextBox();
+        var button = layout.Button(&quot;Click me&quot;, Color.Blue);
+        button.Button.Clicked += OnButtonClicked;
+    }
+
+    private void OnButtonClicked()
+    {
+        MessageBox.Show(&quot;Entered value: &quot; + textbox.TextBox.Text);
+    }
+}
+</code></pre><h3 id="4-add-code-to-show-a-window">4. Add code to show a window</h3>
+<p>Navigate to <code>MyScriptEditor</code> and modify the green button click event handler. It should create new window and show it to the user.</p>
+<pre><code class="lang-cs">button.Button.Clicked += () =&gt; new MyWindow().Show();
+</code></pre><h3 id="5-see-the-results">5. See the results</h3>
+<p>Go back to editor, wait for scripts reload and select object with <code>MyScript</code> attached.</p>
+<p><img src="media/custom-window-tutorial-2.jpg" alt="Tutorial"></p>
+<p>Then press the button. Your custom window should show up. It works like other editor window so you can drag and dock it or move it around.</p>
+<p><img src="media/custom-window-tutorial-3.jpg" alt="Tutorial"></p>
+<p>Now write something in the text box and click the blue button to see the message box with the entered text. If you want to close this window just click the cross icon in the upper right corner.</p>
+<p><img src="media/custom-window-tutorial-4.jpg" alt="Tutorial"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/tutorials/custom-window.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

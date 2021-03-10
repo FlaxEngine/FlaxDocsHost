@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Anim Graph Window Interface | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Anim Graph Window Interface | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="anim-graph-window-interface">Anim Graph Window Interface</h1>
+
+<p>The Animation Graph editor window UI consists of a toolstrip, viewport, properties panel and surface graph.</p>
+<p><img src="media/anim-graph-editor-ui.jpg" alt="Anim Graph Ediotr"></p>
+<ol>
+<li>Toolstrip</li>
+<li>Viewport</li>
+<li>Properties Panel</li>
+<li>Surface Panel</li>
+</ol>
+<h2 id="toolstrip">Toolstrip</h2>
+<p>The following table lists the options in the toolstrip and what they do.</p>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/anim-graph-editor-ui-toolstrip-1.png" alt="icon"></td>
+<td>Shows and selects the asset in the <em>Content</em> window</td>
+</tr>
+<tr>
+<td><img src="media/anim-graph-editor-ui-toolstrip-2.png" alt="icon"></td>
+<td>Saves the asset to the file</td>
+</tr>
+<tr>
+<td><img src="media/anim-graph-editor-ui-toolstrip-3.png" alt="icon"></td>
+<td>Shows the whole material graph on the surface</td>
+</tr>
+<tr>
+<td><img src="media/anim-graph-editor-ui-toolstrip-4.png" alt="icon"></td>
+<td>Shows the skinned model bone structure</td>
+</tr>
+</tbody>
+</table>
+<h2 id="viewport">Viewport</h2>
+<p><img src="media/anim-graph-viewport.png" alt="Viewport"></p>
+<p>The viewport panel shows the preview of the current animation. During editing graph (removing the node, connecting boxes, etc.) anim graph is being updated live and all the changes can be seen in the viewport.</p>
+<p>You can navigate in the viewport by using the <strong>right mouse button</strong> or zoom in/out by pressing right mouse button and using <strong>mouse scroll wheel</strong>.</p>
+<p>Like all viewports in editor, this one also comes up with a <em>View</em> widget menu. By pressing that button you can debug animated model material channels, preview different view modes or even change camera field of view angle. To learn more about using the editor viewports and related tools please read <a href="../../graphics/debugging-tools/index.html">debugging tools</a> page.</p>
+<h2 id="properties-panel">Properties panel</h2>
+<p><img src="media/anim-graph-properties.png" alt="Properties"></p>
+<p>This panel contains all anim graph asset parameters and allows to edit them.
+There is a dropdown menu and <em>Add parameter</em> button in the bottom of the panel. It&#39;s used to add new graph parameters. Simply select new parameter type from the menu and press button to spawn the new one.</p>
+<p>Additionally, you can assign the <strong>Base Model</strong> which is a skinned model used as a reference for the animated skeleton source.</p>
+<p>To learn more about anim graph parameters see dedicated <a href="parameters.html">Anim Graph Parameters</a> page.</p>
+<h2 id="surface">Surface</h2>
+<p><img src="media/anim-graph-surface.png" alt="Surface"></p>
+<p>The most important part of the anim graph editor window is a <strong>surface</strong>. This panel contains a graph of all animation nodes that belong to it. By default, each graph contains a single <code>Animation Output</code> node. This node has a main <em>pose</em> input that is used to evaluate the animated model pose (as shown in a picture below). Also the output node contains the root motion mode dropdown menu.</p>
+<p><img src="media/output-node.png" alt="Animation Output Node"></p>
+<h1 id="navigation-controls">Navigation controls</h1>
+<p>Controls in the Anim Graph Editor generally match the controls of other tools in the Flax Editor. For example, the material node graph can be navigated as with other linked object editors, the material preview mesh can be oriented as per other mesh tools, etc.</p>
+<h2 id="mouse-controls">Mouse controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RMB</strong> drag on background</td>
+<td>Pan nodes graph</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on background</td>
+<td>Show node creation menu</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on node</td>
+<td>Show node edit menu</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> drag on background</td>
+<td>Select nodes with rectangle tool</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node</td>
+<td>Select node</td>
+</tr>
+<tr>
+<td><strong>Ctrl + LMB</strong> on node</td>
+<td>Toggle selection of node</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node header</td>
+<td>Move selected nodes</td>
+</tr>
+<tr>
+<td><strong>Mouse Wheel</strong></td>
+<td>Zoom in/out</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keyboard-controls">Keyboard controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl + S</strong></td>
+<td>Save the asset</td>
+</tr>
+<tr>
+<td><strong>Delete</strong></td>
+<td>Delete selected nodes</td>
+</tr>
+</tbody>
+</table>
+<h1 id="adding-new-node">Adding new node</h1>
+<p>In order to add a new anim graph node right click on a surface background and select a node type from a popup or type its name to find it.</p>
+<p><img src="media/graph-context-menu-1.png" alt="Adding new nodes">
+<img src="media/graph-context-menu-2.png" alt="Adding new nodes"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/anim-graph/interface.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

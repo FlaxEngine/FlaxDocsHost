@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create a custom editor plugin | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create a custom editor plugin | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-a-custom-editor-plugin">HOWTO: Create a custom editor plugin</h1>
+
+<p>Editor plugins can extend the Flax Editor or implement a proper tooling for the related game plugins that they are shipping with.</p>
+<div class="NOTE"><h5>Note</h5><p>Note: if your plugin uses both <strong>Game Plugin</strong> and <strong>Editor Plugin</strong> types the remember to implement <code>EditorPlugin.GamePluginType</code> to point the type of the game plugin.</p>
+</div>
+<h3 id="1-create-editor-script">1. Create editor script</h3>
+<p>Create a new C# script named <strong>MyEditorPlugin</strong> inside the <code>Source/&lt;module_name&gt;</code> directory and use the target class name with <em>Editor</em> postfix. Alternatively, you can use an additional editor-only scripts module as shown in tutorial <a href="add-scripts-module.html">here</a>.</p>
+<p><img src="media/custom-editor-tutorial-2.jpg" alt="Tutorial"></p>
+<h3 id="2-implement-plugin-logic">2. Implement plugin logic</h3>
+<p>Next step is to implement the actual logic of the plugin. Editor plugins can access whole C# API including Editor API. Use it to extend the default editor functionalities or create new ones.</p>
+<p>Here is a sample code that adds a new button to the editor toolstrip and shows the message when a user clicks on it.
+<strong>Remember to clean up created GUI elements on editor plugin deinitialization!</strong></p>
+<pre><code class="lang-cs">#if FLAX_EDITOR
+using FlaxEditor;
+using FlaxEditor.GUI;
+using FlaxEngine;
+
+namespace ExamplePlugin
+{
+    public class MyEditorPlugin : EditorPlugin
+    {
+        private ToolStripButton _button;
+
+        /// &lt;inheritdoc /&gt;
+        public override void InitializeEditor()
+        {
+            base.InitializeEditor();
+
+            _button = Editor.UI.ToolStrip.AddButton(&quot;My Plugin&quot;);
+            _button.Clicked += () =&gt; MessageBox.Show(&quot;Button clicked!&quot;);
+        }
+
+        /// &lt;inheritdoc /&gt;
+        public override void Deinitialize()
+        {
+            if (_button != null)
+            {
+                _button.Dispose();
+                _button = null;
+            }
+
+            base.Deinitialize();
+        }
+    }
+}
+#endif
+</code></pre><p>Flax plugins use two main methods for the lifetime: <code>Initialize</code> and <code>Deinitialize</code>. However for Editor plugins when <code>Initialize</code> is called the Editor may still be uninitialized so it&#39;s better to use <code>InitializeEditor</code> to add custom GUI to the Editor.</p>
+<h3 id="3-test-it-out">3. Test it out</h3>
+<p>Go back to the Editor, wait for scripts recompilation and see the custom button is added. Click it to see the popup we have implemented. Now you are ready to implement more cool features to the editor.</p>
+<p><img src="media/editor-plugin-step-2.png" alt="Use Custom Editor Plugin"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/tutorials/custom-plugin.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

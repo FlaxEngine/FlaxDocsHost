@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Anti-Aliasing | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Anti-Aliasing | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="anti-aliasing">Anti-Aliasing</h1>
+
+<p><img src="media/anti-aliasing.png" alt="Anti-Aliasing"></p>
+<p><strong>Anti-Aliasing</strong> effect is one of the most common way to reduce pixels aliasing and smooth jagged geometry edges. Flax offers various AA implementation that are suitable for various types of games. The active antialiasing mode can be specified in PostFx Volume per-level, per-camera or per game.</p>
+<h2 id="fast-approximate-anti-aliasing">Fast Approximate Anti-Aliasing</h2>
+<p>Fast-Approximate Anti-Aliasing (<strong>FXAA</strong>) is a cheap but solid single-pass post effect that has a low-performance impact and solid quality for most games. It is the most common choice for various games.</p>
+<p>For more information, see: <a href="http://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf">FXAA Whitepaper</a>.</p>
+<h2 id="temporal-anti-aliasing">Temporal Anti-Aliasing</h2>
+<p>Temporal Anti-Aliasing (<strong>TAA</strong>) is advanced effect where frames are accumulated over time in a dedicated history buffer to be used to smooth jiterring edges. It applies sub-pixel jitter to projection matrix and requires motion vectors.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jitter Spread</strong></td>
+<td>The diameter (in texels) inside which jitter samples are spread. Smaller values result in crisper but more aliased output, whilst larger values result in more stable but blurrier output.</td>
+</tr>
+<tr>
+<td><strong>Sharpness</strong></td>
+<td>Controls the amount of sharpening applied to the color buffer. TAA can induce a slight loss of details in high frequency regions. Sharpening alleviates this issue. High values may introduce dark-border artifacts.</td>
+</tr>
+<tr>
+<td><strong>Stationary Blending</strong></td>
+<td>The blend coefficient for stationary fragments. Controls the percentage of history sample blended into final color for fragments with minimal active motion.</td>
+</tr>
+<tr>
+<td><strong>Motion Blending</strong></td>
+<td>The blending coefficient for moving fragments. Controls the percentage of history sample blended into the final color for fragments with significant active motion.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subpixel-morphological-anti-aliasing">Subpixel Morphological Anti-Aliasing</h2>
+<p>Subpixel Morphological Anti-Aliasing (<strong>SMAA</strong>) is a high quality anti-aliasing effect. Depending on the art-style of your production it can work as well as TAA while avoiding some of the shortcomings of this technique. This effect is slower than FXAA.</p>
+<p>For more information, see: <a href="http://www.iryoku.com/smaa">SMAA Publication</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/post-effects/anti-aliasing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

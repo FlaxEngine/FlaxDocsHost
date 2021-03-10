@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Visual Scripting | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Visual Scripting | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="visual-scripting">Visual Scripting</h1>
+
+<p><img src="media/vs-sample.png" alt="Visual Scripting"></p>
+<p>Flax Engine supports fully Visual Scripting with lots of great features such as: hot-reloading, full-API access, debugging, Visject Surface UI, and more. In general, Visual Scriptng offers more <strong>robust development</strong> for rapid prototyping while mainting solid performance.</p>
+<p>Follow this documentation section to learn how to create your own visual scripts and use them in a game. Also, if you see any code examples in the <em>Flax Documentation</em> that are written in C# you can similarly use them in visual scripts since the engine uses the same API in all languages.</p>
+<h3 id="in-this-section">In this section</h3>
+<ul>
+<li><a href="events.html">Events</a></li>
+</ul>
+<h2 id="how-to-create-visual-script">How to create Visual Script?</h2>
+<h3 id="new-visual-script-asset">New Visual Script asset</h3>
+<p><strong>Visual Script</strong> is an in-build binary asset that contains a graph with visual script nodes, properties and metadata. This graph is processed and executed at runtime by the engine. To create new Visual Script simply navigate to the <em>Content</em> directory, <em>right-click</em> and select option <strong>New -&gt; Visual Script</strong>. Then specify it&#39;s name and confirm with <em>Enter</em>.</p>
+<p><img src="media/new-visual-script.png" alt="New Visual Script"></p>
+<p>Now, editor allows you to pick the type of the visual script. You&#39;re asset will inherit from the specified base class. The default option is <strong>Script</strong> which fits in the most cases. You can also try extending Actor or any other type. Including custom game C++ and C# types for more robust scripting.</p>
+<p><img src="media/new-visual-script-type.png" alt="New Visual Script Type"></p>
+<p>Confirm dialog with <strong>Create</strong> button and <em>double-click</em> on the asset icon to open the editor window.</p>
+<h3 id="visual-script-editor-window">Visual Script editor window</h3>
+<p><img src="media/visual-script-window-layout.png" alt="Visual Script Editor Layout"></p>
+<p>Visual Script editor window contains:
+1) <strong>Toolstrip</strong> - utility buttons such as saving or undo control
+2) <strong>Visual Surface</strong> - the nodes graph editor
+3) <strong>Class Properties</strong> - visual script class settings
+4) <strong>Class Members</strong> - visual script functions and properties.</p>
+<h3 id="navigation-controls">Navigation controls</h3>
+<p>Controls in the Visual Script Editor generally match the controls of other tools in the Flax Editor.</p>
+<h4 id="mouse-controls">Mouse controls</h4>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RMB</strong> drag on background</td>
+<td>Pan material nodes graph</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on background</td>
+<td>Show node creation menu</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on node</td>
+<td>Show node edit menu</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> drag on background</td>
+<td>Select nodes with rectangle tool</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node</td>
+<td>Select node</td>
+</tr>
+<tr>
+<td><strong>Ctrl + LMB</strong> on node</td>
+<td>Toggle selection of node</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node header</td>
+<td>Move selected nodes</td>
+</tr>
+<tr>
+<td><strong>Mouse Wheel</strong></td>
+<td>Zoom in/out</td>
+</tr>
+</tbody>
+</table>
+<h4 id="keyboard-controls">Keyboard controls</h4>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl + S</strong></td>
+<td>Save the asset</td>
+</tr>
+<tr>
+<td><strong>Ctrl + A</strong></td>
+<td>Select all nodes</td>
+</tr>
+<tr>
+<td><strong>Delete</strong></td>
+<td>Delete selected nodes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adding-new-node">Adding new node</h3>
+<p>In order to add a new node <strong>right click</strong> on a surface background and select a node type from a popup or type its name to find it. Visual Scripts can use engine and game types API just like C++ and C# scripts.
+Also, when hovering the items with a mouse cursor the tooltip will show the documentation comments with details of every node.</p>
+<p><img src="media/new-visual-script-node.png" alt="Adding New Visual Script Node"></p>
+<h2 id="visual-scripting-with-flax">Visual Scripting with Flax</h2>
+<p>Visual Scripts can override base class methods, have custom properties and methods full of visual code. To understand some basic concepts let&#39;s create a simple script that prints the custom message to the log when user clicks the mouse button.</p>
+<p>Firstly, create a new Visual Script (like in the tutorial above). Then open it and override the <strong>OnUpdate</strong> method - it&#39;s called on active scripts during every game update so we can use it to update the game logic.</p>
+<p>To override method you can use the special button on the script functions list in the <em>Class Members</em> panel, or type the function name in the context menu and select the one under <em>Method Overrides</em> category. Both ways are correct.</p>
+<table>
+<thead>
+<tr>
+<th>Use button</th>
+<th>Use context menu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/override-method-1.png" alt="Override Method Visual Script"></td>
+<td><img src="media/override-method-2.png" alt="Override Method Visual Script"></td>
+</tr>
+</tbody>
+</table>
+<p>Now, we can use the function output impulse box to run custom script logic.</p>
+<p><img src="media/onupdate-function.png" alt="OnUpdate Function Visual Script"></p>
+<div class="NOTE"><h5>Note</h5><p>See that all functions in the script graph are listed under the <em>Functions</em> group inside the <em>Class Members</em> panel. You can use it to easily navigate to them or edit them.</p>
+</div>
+<p>Next step is to add <strong>If</strong> node that will use <strong>GetMouseButton</strong> method (from <strong>Input</strong> class) result as a <em>Condition</em>.
+You can <em>right-click</em> on <em>GetMouseButton</em> node and press <strong>Convert to pure method</strong>. This will change the method to not use input and output signals, which is useful for typical getter nodes that just return the state value.
+Set button to <strong>Left</strong> as input for <em>GetMouseButton</em> to check when that button goes down (is clicked by the user).</p>
+<p><img src="media/mouse-button-down-if-visual-script.png" alt="Visual Script input if check for mouse button down"></p>
+<p>Then, let&#39;s add a property to the script with a message to print. To do this, press <strong>Add parameter...</strong> button and select the type of the parameter - use <strong>String</strong> in this example. Then <em>double-click</em> on the <code>New parameter</code> name label to rename it to <strong>Message</strong>.</p>
+<p><img src="media/new-parameter.png" alt="Visual Script String Parameter"></p>
+<p>Here you can specify the default message text we gonna print. It can be set also on instance of this script after adding it to the actor on the scene.</p>
+<p>Finally, let&#39;s use <strong>Log</strong> method from <em>Debug</em> class that prints the custom message.</p>
+<p><img src="media/log-message-add-new-node.png" alt="Add Log Message Node Visual Script"></p>
+<p>Then, connect it with <em>True</em> output of the <em>If</em> node that so the <em>Log</em> will be executed when user clicks the mouse button. Add <strong>Get Message</strong> node or drag and drop your new parameter into the surface to connect its value with the <em>message</em> input in the <em>Log</em> method.</p>
+<p><img src="media/visual-script-print-log-message.png" alt="Visual Script Print Log"></p>
+<p>The last step is to add this script to an actor on the scene, set the Message property, and hit play to see the results! Every time user clicks the given mouse button it prints the custom log message.</p>
+<p><img src="media/visual-script-tutorial-results.png" alt="Visual Script Message Log On Click Results"></p>
+<p>Feel free to start coding your game logic in Visual Scripting language!
+Also, since Visual Scripting uses C# API of the engine you can use this <a href="https://docs.flaxengine.com/api/FlaxEngine.html">API reference</a>.</p>
+<h2 id="events-in-visual-scripts">Events in Visual Scripts</h2>
+<p>When working with physics and gameplay you might want to handle collision or <strong>trigger events</strong> inside VIsual Script. To see how to do it follow this documentation section related to <a href="events.html">Events</a>.</p>
+<h2 id="interop-with-c">Interop with C++</h2>
+<p>To call Visual Script from C++ you can do it as in the following example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Content/Assets/VisualScript.h&quot;
+..
+VisualScript* myScript = ..; // Assign it from editor or load asset manually
+ScriptingObject* instance = nullptr; // Null for static methods, assign to object instance to call member function
+Span&lt;Variant&gt; parameters; // Here you can pass parameters to the function
+Variant result = VisualScripting::Invoke(myScript-&gt;FindMethod(&quot;My Func&quot;), instance, parameters);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/visual/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

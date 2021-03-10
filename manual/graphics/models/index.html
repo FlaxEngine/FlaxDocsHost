@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Models | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Models | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="models">Models</h1>
+
+<p><img src="media/title.png" alt="Models"></p>
+<p><strong>Models</strong> are one of the most important parts of the games. Player character and whole environment can be created using them. Flax supports importing model files created by using the most common 3D modeling software (e.g. Maya, 3dsMax, Blender) or generating procedural geometry.</p>
+<p>A Model asset contains a collection of <strong>Level Of Details</strong> (shorten as <em>LOD</em>) and <strong>Material Slots</strong>. Each LOD contains a collection meshes to draw. During model rendering, each mesh uses a specific material slot which can hold the default value or be overridden by the <a href="static-model.html">Static Model</a>.</p>
+<p><img src="media/ModelDesign.png" alt="Model Design"></p>
+<div class="NOTE"><h5>Note</h5><p>The maximum amount of levels of details for the model is <code>6</code>. Also, each LOD can contain up to <code>4096</code> meshes.</p>
+</div>
+<p>A <strong>mesh</strong> consists of triangles arranged in 3D space to create the impression of a solid object. A triangle is defined by its three corner points (called vertices). In the <a href="http://docs.flaxengine.com/api/FlaxEngine.Mesh.html">Mesh</a> class, the vertices are all stored in a single array and each triangle is specified using three integers that correspond to indices of the vertex array. The triangles are also collected together into a single array of integers; the integers are taken in groups of three from the start of this array, so elements 0, 1 and 2 define the first triangle, 3, 4 and 5 define the second, and so on. Any given vertex can be reused in as many triangles as desired.</p>
+<h2 id="model-lod-switching">Model LOD switching</h2>
+<p>Flax supports dynamic model LODs switching based on a model instance screen size (in percentage). Here is an example of this feature:</p>
+<p><img src="media/model_lods_switching.gif" alt="Model LOD switching"></p>
+<p>By enabling <strong>Use Dithered LOD Transition</strong> option on model materials you can use smooth LOD transitions that reduce popping artifacts and produce a seamless way to reduce geometry complexity in the scene.</p>
+<p><img src="media/lod_transition.gif" alt="Smooth Model LOD switching"></p>
+<p>In some cases, eg. during the cut-scenes it may be required to bump the visual quality of the scene and ignore the lower LODs. To achieve this you can apply the Model LOD Bias per view using the following C# code:</p>
+<p><code>MainRenderTask.Instance.View.ModelLODBias = 2;</code></p>
+<p>or adjusting it per model instance using <strong>LOD Bias</strong> and <strong>Forced LOD</strong> properties.</p>
+<h2 id="importing-models">Importing models</h2>
+<p>To learn about importing model assets and adjusting import settings read the dedicated <a href="import.html">page here</a>.</p>
+<p>Flax supports <strong>generating LODs automatically</strong> during source asset importing. When importing model file simply check <strong>Generate LODs</strong> property (under <em>Level Of Detail</em> group) and adjust the settings.</p>
+<p><img src="media/automatic-model-lod.gif" alt="Automatic Model LOD"></p>
+<h2 id="using-models">Using models</h2>
+<p>Model assets are used by the many parts of the engine. The most common case is by creating a <strong>Static Model</strong>. That actor type renders a model and allows to override some of its properties like shadows casting or material slots collection. To learn more about it see a dedicated <a href="static-model.html">page here</a>.</p>
+<h2 id="procedural-geometry">Procedural geometry</h2>
+<p>Flax provides a C# scripting API to generate procedural mesh geometry offline or at runtime.
+Model created from code can have all the properties as the imported one. Although there are some limitations like no baking lightmaps or reduced amount of LODs. However procedural models can be saved to the asset file in the editor and then used in a game. This feature can be highly used by the Editor Plugins.</p>
+<p>To learn more about creating procedural meshes see the <a href="generate-model.html">tutorial here</a>.</p>
+<h2 id="geometry-instancing">Geometry instancing</h2>
+<p>Flax supports hardware geometry instancing out of the box. During scene rendering all model instances that use the same model and materials are batched and rendered at once to provide ultra-high performance. Flax can merge thousands of mesh instances into just a single draw call as long as they are using the same material. Instancing and draw calls batching is enabled by default on platforms that support it.</p>
+<h2 id="vertex-painting">Vertex Painting</h2>
+<p>Another important topic related to models is <strong>Vertex Painting</strong>. It is a process of applying custom colors to the model geometry represented by the vertices of the mesh. This technique can be used to customize model instance in the level. For instance, wall material can use red channel of the vertex color to display the wet areas. Then level designer can paint wall vertices to make a certaing part of the model appear wet. To learn more about this process see the related documentation <a href="vertex-painting.html">here</a>.</p>
+<h2 id="vertex-properties">Vertex properties</h2>
+<p>Flax uses fixed model data format. Although index buffer can use 16 or 32-bit format layout vertex buffers layout is strictly defined. Vertex Buffers data is highly compressed to reduce memory usage and optimize the rendering performance.</p>
+<p>Here are listed vertex structures used by the engine:</p>
+<p><strong>Vertex Buffer 0</strong>:</p>
+<ul>
+<li>Vector3 Position</li>
+</ul>
+<p><strong>Vertex Buffer 1</strong>:</p>
+<ul>
+<li>Half2 TexCoord</li>
+<li>Float1010102 Normal</li>
+<li>Float1010102 Tangent</li>
+<li>Half2 LightmapUVs</li>
+</ul>
+<p><strong>Vertex Buffer 2</strong> (<em>optional</em>):</p>
+<ul>
+<li>Color32 Color</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/models/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Editor Options | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Editor Options | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-editor-options">Custom Editor Options</h1>
+
+<p><img src="media/custom-editor-options.png" alt="Custom Editor Options"></p>
+<p><strong>Custom Editor Options</strong> can be used to extend the default editor options. Also, it&#39;s a very unified way for plugins to inject custom options into the editor. In this tutorial, you will learn how to define, create and use custom editor settings right in your game or an editor plugin.</p>
+<p>To learn more about plugins see related page <a href="../plugins/index.html">here</a>.</p>
+<h2 id="example-code">Example code</h2>
+<p>The full source code of the implemented editor plugin with options:</p>
+<pre><code class="lang-cs">public class TestPlugin : EditorPlugin
+{
+    // The custom options key used to idenify them
+    public const string SettingsName = &quot;Test Plugin&quot;;
+
+    // Custom options object that defines the data layout
+    [CustomEditor(typeof(CustomOptionsEditor))]
+    public class CustomOptions
+    {
+        [EditorOrder(0), EditorDisplay(&quot;Group 1&quot;), Tooltip(&quot;My tooltip!&quot;)]
+        public string TimerName = &quot;timer 1&quot;;
+
+        [EditorOrder(10), EditorDisplay(&quot;Group 1&quot;)]
+        public float TimerValue = 11.0f;
+    }
+
+    // Optional custom editor for the options object
+    public class CustomOptionsEditor : GenericEditor
+    {
+        public override void Initialize(LayoutElementsContainer layout)
+        {
+            base.Initialize(layout);
+
+            layout.Label(&quot;Label&quot;);
+        }
+    }
+
+    public override void InitializeEditor()
+    {
+        base.InitializeEditor();
+
+        // Register custom options type
+        Editor.Options.AddCustomSettings(SettingsName, () =&gt; new CustomOptions());
+
+        // Access editor options
+        var options = Editor.Options.Options.GetCustomSettings&lt;CustomOptions&gt;(SettingsName);
+        Debug.Log(&quot;Editor options: &quot; + options.TimerName + &quot;, &quot; + options.TimerValue);
+    }
+
+    public override void Deinitialize()
+    {
+        // Cleanup on end
+        Editor.Options.RemoveCustomSettings(SettingsName);
+
+        base.Deinitialize();
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/advanced/custom-editor-options.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

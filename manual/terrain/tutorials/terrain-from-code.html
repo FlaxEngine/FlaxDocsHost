@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create terrain from code | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create terrain from code | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-terrain-from-code">HOWTO: Create terrain from code</h1>
+
+<p>In this tutorial, you will learn how to create terrain from code at-runtime. This technique can be used to implement using terrain in games that generate the landscape at runtime (eg. RTS games).</p>
+<div class="NOTE"><h5>Note</h5><p>To support cooking collision for heightfield collider at runtime you must enable option <strong>Support Cooking At Runtime</strong> in Physics Settings.</p>
+</div>
+<h2 id="1-create-new-script">1. Create new script</h2>
+<p>You can use <a href="../../scripting/new-script.html">this tutorial</a> to learn how to do it.</p>
+<h2 id="2-implement-terrain-generator">2. Implement terrain generator</h2>
+<p>Write the following code to implement example terrain generator.</p>
+<pre><code class="lang-cs">using System;
+using System.Threading.Tasks;
+using FlaxEngine;
+
+public class TerrainFromCode : Script
+{
+    private Terrain _terrain;
+
+    [Limit(1, 10), Tooltip(&quot;Terrain patches count (in each direction on XZ plane).&quot;)]
+    public Int2 PatchesCount = new Int2(2, 2);
+
+    public override void OnStart()
+    {
+        // Create new dynamic terrain actor and add it to the scene
+        _terrain = new Terrain();
+        _terrain.HideFlags = HideFlags.DontSave;
+        _terrain.Name = &quot;My Terrain&quot;;
+        _terrain.Setup();
+        _terrain.Parent = Actor;
+
+        // Generate terrain using the async task to prevent game stalls
+        // You can also use C# thread to perform this work
+        // Your game can display progress bar or loading screen while terrain is being generated
+        Task.Run(new Action(GenerateTerrain));
+    }
+
+    private void GenerateTerrain()
+    {
+        var chunkSize = _terrain.ChunkSize;
+        var heightMapSize = chunkSize * FlaxEngine.Terrain.PatchEdgeChunksCount + 1;
+        var heightMapLength = heightMapSize * heightMapSize;
+        var heightmap = new float[heightMapLength];
+
+        for (int patchZ = 0; patchZ &lt; PatchesCount.Y; patchZ++)
+        {
+            for (int patchX = 0; patchX &lt; PatchesCount.X; patchX++)
+            {
+                // Generate heightmap (simple sine wave for example showcase)
+                for (int z = 0; z &lt; heightMapSize; z++)
+                {
+                    for (int x = 0; x &lt; heightMapSize; x++)
+                    {
+                        heightmap[z * heightMapSize + x] = Mathf.Sin((float)x / chunkSize * Mathf.PiOverFour * 3.0f) * 3000.0f;
+                    }
+                }
+
+                // Initialize patch (virtual)
+                var patchCoord = new Int2(patchX, patchZ);
+                _terrain.AddPatch(ref patchCoord);
+                _terrain.SetupPatchHeightMap(ref patchCoord, heightmap, null, true);
+            }
+        }
+    }
+}
+</code></pre><h2 id="3-add-script-to-scene">3. Add script to scene</h2>
+<p>Drag and drop the script to empty actor or use <em>Properties</em> window and <strong>Add script</strong> button.</p>
+<p><img src="media/add-terrain-generator-script.png" alt="Add script"></p>
+<h2 id="4-test-it-in-play-mode">4. Test it in Play Mode</h2>
+<p>Press <strong>Play</strong> button on the toolbar or hit <em>F5</em> key and see the results. Terrain should quickly generate in a background. The following example uses <em>virtual</em> textures for terrain heightmap and splatmaps storage which means no I/O use. Virtual terrain data is stored in memory only. You can use it in your games that need to generate a terrain at runtime or in the editor.</p>
+<p><img src="media/generated-terrain.png" alt="Terrain From Code Results"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/terrain/tutorials/terrain-from-code.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

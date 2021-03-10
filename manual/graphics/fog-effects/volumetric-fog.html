@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Volumetric Fog | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Volumetric Fog | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="volumetric-fog">Volumetric Fog</h1>
+
+<p><img src="media/volumetric-fog.png" alt="Volumetric Fog"></p>
+<p><strong>Volumetric Fog</strong> is a rendering feature that simulates the light transmission through the scene that contains fog (dust, smoke, particles, steam, etc.). The effect itself is implemented using a set of 3D textures (volume textures) that are <em>attached</em> to the camera and are used to compute the per-cell fog particle density, albedo, and lighting. This information is used to estimate the amount of light scattering through the volume to the camera. This results in realistic-looking fog and gives the very good performance-quality ratio.</p>
+<h2 id="technical-aspects">Technical aspects</h2>
+<ul>
+<li>Target PC + Consoles</li>
+<li>Requires 3D Textures + Compute Shaders</li>
+<li>~1.1ms (on GTX 840M - Witcher 3 runs stable 21 FPS on it)</li>
+<li>Low-res sampling + Temporal filtering</li>
+<li>Local fog particles density and color</li>
+<li>Volumetric shadows</li>
+</ul>
+<h2 id="algorithm">Algorithm</h2>
+<ul>
+<li>3D texture aligned to camera frustum</li>
+<li>Voxels (3d texels) store data per world-space cell</li>
+<li>Supports hardware filtering</li>
+<li>Low resolution 3D texture (e.g. 150x80x64)</li>
+<li>Outputs 3D texture with accumulated lighting and transmittance</li>
+</ul>
+<p><img src="media/volumetric-fog-3d-texture.jpg" alt="Volumetric Fog 3D Texture"></p>
+<p>Algorithm steps:</p>
+<ol>
+<li>Initialize volume properties<ul>
+<li>Writes fog attributes into the set of two 3D textures:</li>
+<li>Scattering.rgb, Absorption.a – R16G16B16A16</li>
+<li>Emissive.rgb – R11G11B10</li>
+<li>Use volume particles to modify fog locally (eg. steam coming out of pipe)</li>
+</ul>
+</li>
+<li>Lights Injection<ul>
+<li>Calculate per-cell diffuse lighting (use HDR format R11G11B10, can use shadow maps)</li>
+</ul>
+</li>
+<li>Light Scattering<ul>
+<li>Calculate scattering and extinction</li>
+<li>Apply temporal blend (~7% blend current frame with the previous)</li>
+</ul>
+</li>
+<li>Final Integration<ul>
+<li>Integrate along the view ray (the one moment in your life when you actually use ∫f(x)dx)</li>
+</ul>
+</li>
+</ol>
+<h2 id="how-to-use-it">How to use it</h2>
+<p>Use <a href="exponential-height-fog.html">Exponential Height Fog</a> actor and enable <strong>Volumetric Fog</strong> option. Then you can adjust its density and other parameters. Also, every light can affect the fog by adjusting the <strong>Volumetric Scattering Intensity</strong> value and <strong>Cast Volumetric Shadow</strong> option.</p>
+<h2 id="showcase">Showcase</h2>
+<p><img src="media/volumetric_fog_2.gif" alt="Volumetric Fog Flax Engine"></p>
+<h2 id="local-fog-via-volumetric-fog-particles">Local Fog via Volumetric Fog Particles</h2>
+<p>Exponential Height Fog actor controls the global properties of the fog on the scene such as <em>Albedo</em>, <em>Density</em>, and <em>Emission</em>. To create local-fogging effects such as smoke, dust or mist use particles with  <strong>Volumetric Fog Rendering</strong> module.</p>
+<p><img src="media/particles-fog-render-module.png" alt="Particle Volumetric Fog Rendering Module"></p>
+<p>Ensure to assign the material shader to the material created with <strong>Volume Particle</strong> domain. Then use <strong>Color</strong> input to define th albedo color of the fog, <strong>Emissive</strong> input for light emission and <strong>Mask</strong> with <strong>Opacity</strong> to define the fog particle shape (eg. use world-aligned noise texture to add more realistic look to the fog).</p>
+<p><img src="media/particle-volumetric-fog-material.jpg" alt="Particle Material Volume Shader"></p>
+<p>Volumetric Fog Particles are rendered using <strong>Sphere</strong> shape so use per-particle <strong>Radius</strong> property to control the size of the particles.</p>
+<p><img src="media/volumetric-fog-particles.gif" alt="Volumetric Fog Particles Showcase"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/fog-effects/volumetric-fog.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

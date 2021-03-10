@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Shaders | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Shaders | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="shaders">Shaders</h1>
+
+<p>Shaders are <strong>GPU program</strong> resources which can run on the GPU and are able to perform rendering calculation using textures, vertices and other resources. Follow this documentation to learn more about wrtting and using shaders in your projects.</p>
+<h2 id="graphics-rendering">Graphics rendering</h2>
+<p>Flax supports graphics programming via C++ and/or C# API that wraps the underlaying graphics beckend API with a thin abstraction layer. By using single API game and engine code can perform rendering and support multiple platforms such as DirectX, Vulkan and more. The API is <strong>low-level and object-oriented</strong>, as it contains most common types such as <em>GPUDevice</em>, <em>GPUContext</em>, <em>GPUTexture</em>, <em>GPUBuffer</em>, <em>GPUShader</em>, <em>GPUPipelineState</em>, etc.</p>
+<p>GPU pipeline uses <strong>slot-based binding model</strong> which is explicit and has low-overhead characteristic. When performing drawing or compute work dispatching the GPU resources such as textures and buffers are binded using resource views to the explicit bipeline slots - SRV/UAV/CB. The binding slots are global to all shader stages (vertex, pixel, compute, etc.) so texture view assigned to Shader Resource View slot can be used in binded pipeline state vertex/pixel/compute shaders. The engine implements shaders reflections and optimizes the direct stages binding under the hood.</p>
+<p>To learn more about graphics programming in Flax see related <a href="graphics-api.html">documentation here</a>.</p>
+<h2 id="shading-language">Shading language</h2>
+<p>Flax uses <strong>HLSL</strong> as a shading language as it&#39;s very popular in the industry and supports all major graphics rendering features. Additionally, engine will automatically compile HLSL shaders into target platform such as Vulkan or PS4 with full runtime support.
+To learn about HLSL syntax see <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-reference">Reference for HLSL</a> and <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-pguide">Programming guide for HLSL</a>.</p>
+<p>As an extension to the HLSL language, Flax uses a small set of <strong>attribute macros</strong> that are used to annotate code for the engine to understand the contents and automatically handle certain parts of the graphics pipeline such as constant buffers binding. Sample shaders (vertex, pixel, compute) in documentation showcase proper usage of those macros. Additionally you can reference the engine in-build shaders to learn more (see <code>Flax/Content/Shaders</code> assets).</p>
+<h4 id="reference-of-flax-shaders-macros">Reference of Flax Shaders Macros</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Attribute</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>META_VS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Vertex Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_VS_IN_ELEMENT(type, index, format, slot, offset, slotClass, stepRate, isVisible)</code></td>
+<td>Placed between Vertex Shader function annotation and definition marks the vertex shader input usage and defines the data properties. Can be used multiple for every possible vertex element.</td>
+</tr>
+<tr>
+<td><code>META_HS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Hull Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_HS_PATCH(inControlPoints)</code></td>
+<td>Placed between Hull Shader function annotation and definition defines the amount of control points used by the patch function.</td>
+</tr>
+<tr>
+<td><code>META_DS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Domain Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_GS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Geometry Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_PS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Pixel Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_CS(isVisible, minFeatureLevel)</code></td>
+<td>Placed above Compute Shader function annotates it.</td>
+</tr>
+<tr>
+<td><code>META_FLAG(flag)</code></td>
+<td>Marks the shader program with a custom flag. Eg. <code>Hidden</code>, <code>NoFastMath</code>, <code>VertexToGeometryShader</code>. To learn more see <code>ShaderFlags</code> enum.</td>
+</tr>
+<tr>
+<td><code>META_PERMUTATION_1(param0)</code></td>
+<td>Creates a permutation based on single macro parameter. Can be used to inject macro for the given shader compilation.</td>
+</tr>
+<tr>
+<td><code>META_PERMUTATION_2(param0, param1)</code></td>
+<td>Creates a permutation based on two macros.</td>
+</tr>
+<tr>
+<td><code>META_PERMUTATION_3(param0, param1, param2)</code></td>
+<td>Creates a permutation based on three macros.</td>
+</tr>
+<tr>
+<td><code>META_PERMUTATION_4(param0, param1, param2, param3)</code></td>
+<td>Creates a permutation based on four macros.</td>
+</tr>
+<tr>
+<td><code>META_CB_BEGIN(index, name)</code></td>
+<td>Marks the beginning of the constant buffer definition.</td>
+</tr>
+<tr>
+<td><code>META_CB_END</code></td>
+<td>Marks the end of the constant buffer definition.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="shader-permutations">Shader permutations</h4>
+<p>One of the features of the shading language in Flax is ability to explicitly permute a shader source using a meta attributes with defines. To understand it take a look at the following example:</p>
+<pre><code class="lang-hlsl">// Pixel shader for spot light rendering
+META_PS(false)
+META_PERMUTATION_2(NO_SPECULAR=0, USE_IES_PROFILE=0)
+META_PERMUTATION_2(NO_SPECULAR=1, USE_IES_PROFILE=0)
+META_PERMUTATION_2(NO_SPECULAR=0, USE_IES_PROFILE=1)
+META_PERMUTATION_2(NO_SPECULAR=1, USE_IES_PROFILE=1)
+void PS_Spot(Model_VS2PS input, out float4 output : SV_Target0)
+{
+    ...
+
+    // Sample GBuffer
+    GBuffer gBuffer = SampleGBuffer(uv);
+
+    // Calculate lighting
+    output = GetLighting(Light, gBuffer, shadow, true, true);
+
+    // Apply IES texture
+#if USE_IES_PROFILE
+    output *= ComputeLightProfileMultiplier(IESTexture, gBuffer.WorldPos, Light.LightPos, -Light.LightDir);
+#endif
+}
+</code></pre><p>This shader is used to calculate per pixel lighting for spot lights (tooltip: <strong>IES Profile</strong> is a technique to simulate real-life light bulb physical properties like non-uniform light propagation, look at the above screenshot).
+The problem is that we have to create a set of different <strong>variations of this shader</strong>.</p>
+<p>1) With specular, without IES Profile.
+2) Without specular, without IES Profile.
+3) With specular, with IES Profile.
+4) Without specular, with IES Profile.</p>
+<p>However we don’t want to write 4 shaders but single one and just permutate it.
+That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compile shader with different sets of macros (eg. <em>NO_SPECULAR=1</em>, <em>USE_IES_PROFILE=0</em>) and generate different shaders from the same source code. The key to success is that we use data-oriented design and define all possible shader permutation statically in a shader. Later at runtime we just select desire permutation by index and use it in rendering code. This approach is low-overhead and doesn&#39;t generate unnessesery permutations but only the ones delcared by the user.</p>
+<p>Also, if your code needs to be used just for a single shader function use macro <code>_&lt;function_name&gt;</code> (eg. <code>_CS_Sort</code>). In that way also resources used just by this function (eg. buffer slot or texture slot) can be exlucded from other functions compilation.</p>
+<h4 id="including-shader-files">Including shader files</h4>
+<p>Shader sources are stored in <code>.shader</code> files. Each file can contain one or more shader functions for the certain graphics rendering implementation. Hovewer when building complex graphics pipeline you might need to split some functionalities into several utility files. For this case, <code>.hlsl</code> files can be used as they can contain custom code to be included. Flax supports including files with a following pattern:</p>
+<pre><code class="lang-hlsl">#include &quot;./&lt;project_name&gt;/&lt;file_path&gt;.hlsl&quot;
+
+// Example:
+#include &quot;./Flax/GBufferCommon.hlsl&quot;
+</code></pre><h2 id="using-shaders">Using shaders</h2>
+<p>In all Flax projects shader sources are stored in <code>&lt;project_root&gt;/Source/Shaders</code> folder and automatically imported to <code>&lt;project_root&gt;/Content/Shaders</code> (as binary assets). This also supports hot-reloading shaders at runtime and including them in source project files for editing in IDE (such as Visual Studio). To learn how to create a simple PostFx shader see <a href="custom-fullscreen-shader.html">this tutorial</a>.</p>
+<p>Additionally, shader sources are used only in Editor during design-time. During game cooking all used shaders are precompiled to the target platform graphics APIs. Flax doesn&#39;t support compiling shaders at runtime in game.</p>
+<h2 id="in-this-section">In this section</h2>
+<p>To learn how to use shaders in your projects follow the documentation and tutorials in this section:</p>
+<ul>
+<li><a href="custom-fullscreen-shader.html">Custom Fullscreen Shader</a></li>
+<li><a href="custom-geometry-drawing.html">Custom Geometry Drawing</a></li>
+<li><a href="custom-compute-shader.html">Custom Compute Shader</a></li>
+<li><a href="graphics-api.html">Graphics API</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

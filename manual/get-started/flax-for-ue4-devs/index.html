@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax for UE4&#174; developers | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax for UE4&#174; developers | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-for-ue4-developers">Flax for UE4® developers</h1>
+
+<p><img src="media/title.jpg" alt="Unreal to Flax"></p>
+<p>Flax and Unreal have many similarities (materials pipeline, physics engine) and share many concepts, however there are a few differences. This page helps Unreal Engine 4 developers to translate their existing experience into the world of Flax Engine.</p>
+<div class="WARNING"><h5>Warning</h5><p>Warning! Once you switch from Unreal to Flax you will love this engine!</p>
+</div>
+<h2 id="editor">Editor</h2>
+<p>Flax Editor and Unreal Editor are very similar. You can see the color-coded, highlighted areas on screenshots of both editors that have common functionalities. Flax Editor layout is also highly customizable so you can drag and drop windows around to adapt the editor to your workflow.</p>
+<p><img src="media/unreal-layout.png" alt="Unreal Editor"></p>
+<p><img src="../media/flax-layout.png" alt="Flax Editor"></p>
+<div class="TIP"><h5>Tip</h5><p>With Flax Editor, you don&#39;t have to wait for 15 minutes before the project opens like in UE4. We are sorry that you had to waste so much time.</p>
+</div>
+<h2 id="terminology">Terminology</h2>
+<p>This section contains the most common terms used in UE4 and their Flax equivalents (or rough equivalent). Flax keywords link directly to more in-depth information inside the documentation.</p>
+<table>
+<thead>
+<tr>
+<th>Unreal</th>
+<th>Flax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actor</strong></td>
+<td><a href="../scenes/actors.html">Actor</a></td>
+</tr>
+<tr>
+<td><strong>Blueprint</strong></td>
+<td><a href="../prefabs/index.html">Prefab</a> + <a href="../../scripting/visual/index.html">Visual Script</a></td>
+</tr>
+<tr>
+<td><strong>C++</strong></td>
+<td><a href="../../scripting/index.html">C++ and C#</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>World Outliner</strong></td>
+<td><a href="../../editor/windows/scene-window.html">Scene Window</a></td>
+</tr>
+<tr>
+<td><strong>Details Panel</strong></td>
+<td><a href="../../editor/windows/properties-window.html">Properties Window</a></td>
+</tr>
+<tr>
+<td><strong>Content Browser</strong></td>
+<td><a href="../../editor/windows/content-window.html">Content Window</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="project">Project</h2>
+<p><img src="../media/project-structure.png" alt="Flax Project"></p>
+<p>Flax projects structure is similar to UE4 projects. The editor uses <strong>Cache</strong> folder to keep temporary data. Also, <strong>Content</strong> folder works the same way as in Unreal (assets-only), while <strong>Source</strong> directory is used to keep all C# and C++ scripts.</p>
+<p>Flax also generates a solution and project files for your game scripts.</p>
+<p>See <a href="../project-structure.html">Flax projects structure</a> page to learn more about the projects in Flax Engine.</p>
+<h2 id="assets">Assets</h2>
+<p>Flax also uses binary asset files with extension <code>.flax</code> (instead of <code>.uasset</code>). We are using our own binary format that is well optimized for scalability and streaming. Other assets are usually stored in <code>Json</code> format (scenes, settings, etc.).</p>
+<p>Flax supports the most popular asset files formats (for 3D models and textures) so you can import your game content.</p>
+<p>See <a href="../assets/index.html">Assets</a> page to learn more about importing and using game assets.</p>
+<h2 id="scenes-and-actors">Scenes and Actors</h2>
+<p>Flax doesn&#39;t use components to build scene objects logic. We only use <a href="../scenes/actors.html">Actors</a>. Each Actor has its own type (e.g. point light, box collider) and a collection of attached scripts. This means, in Flax the scene object hierarchy is created with Actors.</p>
+<p>However, you can still use the entity-component design with your scripts because every actor can have scripts.
+You can use <code>GetChild&lt;T&gt;()</code>/<code>GetScript&lt;T&gt;()</code> methods in your scripts to access the other objects.</p>
+<p>In Flax, Scene object is also an Actor so you can access it like any other Actor. This means that Scenes can have their own scripts and be transformed like other objects.</p>
+<p>Also, multiple actors can have the same name and you can also move assets whenever you like because Flax uses unique IDs of the objects for tracking. This unlocks your development speed. We don&#39;t want to constrain your development to some ancient-design but to allow you to iterate faster and create beautiful games even easier.</p>
+<h2 id="scripting">Scripting</h2>
+<p>When it comes to game scripting, there is a significant difference between Unreal and Flax.
+Firstly, we support both C++ and C# languages to write game code and Visual Scripting as an addition.
+Using Visual Scripts or C# helps with rapid game development and simplifies the development while writing parts of the gameplay in C++ can benefit the performance.
+The Flax Engine core itself is written in C++, while Flax Editor is mostly written in C#.</p>
+<p>You can create C# and C++ files with script classes that provide a gameplay logic. Then scripts can be attached to the actors and used in a game. Our scripting C# API is an open-source project and can be found <a href="https://github.com/FlaxEngine/FlaxEngine">here</a>. All contributions are welcome.</p>
+<p>Here is an example script that has been written for Unreal and Flax which prints the next number every frame.</p>
+<ul>
+<li>Unreal</li>
+</ul>
+<pre><code class="lang-cpp">#pragma once
+#include &quot;GameFramework/Actor.h&quot;
+#include &quot;MyScript.generated.h&quot;
+
+UCLASS()
+class AMyScript : public AActor
+{
+    GENERATED_BODY()
+    int Count;
+
+    AMyScript()
+    {
+        // Allows Tick() to be called
+        PrimaryActorTick.bCanEverTick = true;
+    }
+
+    void BeginPlay()
+    {
+        // Called when the game starts or when spawned
+        Super::BeginPlay();
+        Count = 0;
+    }
+
+    void Tick(float DeltaSeconds)
+    {
+        // Called every frame
+        Super::Tick(DeltaSeconds);
+        GLog-&gt;Log(FString::FromInt(Count++));
+    }
+};
+</code></pre><ul>
+<li>Flax</li>
+</ul>
+<pre><code class="lang-cs">using FlaxEngine;
+
+public class MyScript : Script
+{
+    int Count;
+
+    public override void OnStart()
+    {
+        // Use this for initialization
+        Count = 0;
+    }
+
+    public override void OnUpdate()
+    {
+        // Update is called once per frame
+        Debug.Log(Count++);
+    }
+}
+</code></pre><p>See <a href="../../scripting/index.html">Scripting</a> documentation to learn more about scripts in Flax.</p>
+<hr>
+
+<p>Unreal and its logo are trademarks of Epic Games, Inc.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/get-started/flax-for-ue4-devs/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

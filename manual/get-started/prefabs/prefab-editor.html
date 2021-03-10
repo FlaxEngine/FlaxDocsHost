@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Prefab Editor | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Prefab Editor | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="prefab-editor">Prefab Editor</h1>
+
+<p><img src="media/prefab-editor.jpg" alt="Prefabs"></p>
+<p><strong>Prefab Editor Window</strong> is the main tool to preview and edit prefab assets. To show it simply double-click on a prefab in a <em>Content Window</em>. Saving modified prefab asset synchronizes the changes with the existing instances of the prefab in the scene including all prefabs using this prefab as a nested prefab.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Prefab Editor works like Scene Editor combined with Scene Tree Window and Properties Window that are in-build in Flax Editor. Except Prefab Editor shows and edits only the given prefab asset.</p>
+<div class="NOTE"><h5>Note</h5><p>You can use widget <strong>View -&gt; Show Default Scene</strong> to hide the default sky, directional light, and environment probe used as a default preview scene background.</p>
+</div>
+<p>Prefab Editor Window supports full undo so any of your actions can be reverted. You can also open and edit more than one prefab at once.</p>
+<h2 id="live-reload">Live Reload</h2>
+<p><img src="media/nested_prefabs.gif" alt="Prefab Live Reload"></p>
+<p><strong>Live Reload</strong> is a feature that performs auto-synchronization of the edited prefab modification live. Updating prefab instances is very fast so the live reload can be performed very often when you edit the prefab asset. It is enabled by default but can be disabled by using dedicated tool strip button.</p>
+<p>in Live Reload mode all changes are synchronized live without pressing <em>Save</em> button. It makes editing easier and helps with rapid development.</p>
+<h2 id="interface">Interface</h2>
+<p>The prefab window UI consists of a toolstrip, hierarchy panel, viewport, and properties panel.</p>
+<p><img src="media/prefab-editor-ui.jpg" alt="Prefab Window"></p>
+<ol>
+<li>Toolstrip</li>
+<li>Hierarchy Panel</li>
+<li>Viewport</li>
+<li>Properties Panel</li>
+</ol>
+<h3 id="toolstrip">Toolstrip</h3>
+<p>The following table lists the options in the toolstrip and what they do.</p>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-1.png" alt="icon"></td>
+<td>Shows and selects the asset in the <em>Content Window</em>.</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-2.png" alt="icon"></td>
+<td>Saves the prefab to the file and updates the existing prefab instances.</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-3.png" alt="icon"></td>
+<td>Reverts the last scene modification action (Ctrl+Z).</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-4.png" alt="icon"></td>
+<td>Replies the last scene modification action (Ctrl+Y).</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-5.png" alt="icon"></td>
+<td>Changes Gizmo tool mode to <em>Translate</em> (1).</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-6.png" alt="icon"></td>
+<td>Changes Gizmo tool mode to <em>Rotate</em> (2)</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-7.png" alt="icon"></td>
+<td>Changes Gizmo tool mode to <em>Scale</em> (3)</td>
+</tr>
+<tr>
+<td><img src="media/prefab-editor-ui-toolstrip-8.png" alt="icon"></td>
+<td>Live changes preview (applies prefab changes on modification by auto).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hierarchy-panel">Hierarchy Panel</h3>
+<p>Hierarchy Panel shows a tree control with full hierarchy of the prefab objects. Use it to add, remove or move actors. It works similar to editor <a href="../../editor/windows/scene-window.html">Scene Window</a>.</p>
+<p>Every Actor is represented by a tree node (named after the actor). You can expand and collapse the scene hierarchy by using arrow icons on the left of the node names. To select one or more nodes use LMB, Ctrl + LMB or Shift + LMB to select range of nodes.</p>
+<p>If you select and drag the actor or selection of actors you can reorder it or reparent them.</p>
+<h3 id="viewport">Viewport</h3>
+<p>The viewport panel shows the preview of the prefab. You can navigate in the viewport by using the <strong>RMB + Arrows/WSAD</strong>. It works similar to editor <a href="../../editor/windows/viewport.html">Scene Window</a>. Use <strong>LMB</strong> to select the objects.</p>
+<p>In the upper left and the upper right corner of the viewport contains a widget buttons. Use them to adjust the view and configure the tool.</p>
+<h3 id="properties-panel">Properties panel</h3>
+<p>This panel shows properties of the selected objects. If you select any object from the prefab you will be able to modify its properties using this panel. It supports full undo/redo actions and uses Custom Editors pipeline to generate the UI.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/get-started/prefabs/prefab-editor.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

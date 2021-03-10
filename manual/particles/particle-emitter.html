@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Particle Emitter | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Particle Emitter | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="particle-emitter">Particle Emitter</h1>
+
+<p><img src="media/particle-emitter.png" alt="Particle Emitter"></p>
+<p><strong>Particle Emitter</strong> asset is used to define the particles simulation. Allows to specify the spawn rules, simulation logic and describe how to render particles. Emitter is based on the visual graph to define the logic and create content. This make it easier to build complex system but also to understand how the simulation works visually.</p>
+<h2 id="create-emitter">Create Emitter</h2>
+<p><img src="media/particle-emitter-create-new.jpg" alt="Create Particle Emitter"></p>
+<p>The first step is to create a new asset. It&#39;s a binary file and contains the nodes graph data as well as a set of graph parameters description. Use the <code>Content</code> window to create a new asset. Right-click and select option <strong>New -&gt; Particle Emitter</strong>. Specify its name and hit Enter to confirm. Then you can select the template for the emitter to create. Select the one for you needs to start working on content faster. You can also choose the blank emitter to start up from scratch.</p>
+<p><img src="media/particle-emitter-create-template.jpg" alt="Create Particle Emitter"></p>
+<h2 id="edit-emitter">Edit Emitter</h2>
+<p>Particle Emitter graph always contains the main node that defines the basic properties of the simulation and contains a linear list of particle modules that implement actual logic. All of it can be highly extended and customized via using graph nodes such as <em>Gradient</em>, <em>Curve</em> and so on.</p>
+<h2 id="particle-emitter-context">Particle Emitter context</h2>
+<p><img src="media/particle-emitter-main-node.png" alt="Particle Emitter context"></p>
+<p>The top of the main node defines the basic options of the particles emitter.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Capacity</strong></td>
+<td>The maximum amount of particles to simulate.</td>
+</tr>
+<tr>
+<td><strong>Simulation Mode</strong></td>
+<td>Specifies the particles simulation execution context. Use it to explicitly run a simulation on CPU or GPU. The default mode picks the best matching environment based on the emitter capacity and runtime platform.</td>
+</tr>
+<tr>
+<td><strong>Simulation Space</strong></td>
+<td>Defines how to perform particles calculations. <strong>Local</strong> space of the particle effect actor or in <strong>World</strong> space.</td>
+</tr>
+<tr>
+<td><strong>Enable Pooling</strong></td>
+<td>If checked, enables the particles buffers memory pooling to improve performance for particles effects spawned multiple times (eg. explosions, gun fire).</td>
+</tr>
+<tr>
+<td><strong>Use Auto Bounds</strong></td>
+<td>If checked, particle emitter bounds will be computed based on the position of the particles (not supported for GPU particles).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spawn-context">Spawn context</h3>
+<p><img src="media/particle-emitter-spawn.png" alt="Particle Emitter Spawn context"></p>
+<p>Before any particles simulation can take place, particles have to be spawned. <strong>Spawn context</strong> contains a list of modules that can spawn particles based on custom rules.</p>
+<h3 id="initialize-context">Initialize context</h3>
+<p><img src="media/particle-emitter-initialize.png" alt="Particle Emitter Initialize context"></p>
+<p>All modules from the <strong>Initialize context</strong> are executed for all particles before adding them to the simulation. This initialization happens for spawned particles and can be used to setup the properties, initialize particle lifetime, and place the particles.</p>
+<h3 id="update-context">Update context</h3>
+<p><img src="media/particle-emitter-update.png" alt="Particle Emitter Update context"></p>
+<p><strong>Update context</strong> defines the actual particles simulation logic. Modules are executed one after another and perform the simulation logic such as aging particles, applying gravity and simulating collisions.</p>
+<p>Update context can be used to animate anything in particles. Here is sth example of particle color animation using the <strong>Color Gradient</strong> node used to sample the gradient over the particle normalized age.</p>
+<p><img src="media/particle-color-gradient.gif" alt="Particle Color Gradient"></p>
+<h3 id="render-context">Render context</h3>
+<p><img src="media/particle-emitter-render.png" alt="Particle Emitter Render context"></p>
+<p>The last is <strong>Render context</strong> that defines how to render the particles. Can be used to set up the particles sorting and billboard sprites rendering or even render lights at particles locations. Remember to use materials with <em>Particle</em> domain to draw particles shapes.</p>
+<h2 id="parameters">Parameters</h2>
+<p><img src="media/particle-emitter-parameters.jpg" alt="Particle Parameters"></p>
+<p>Every particle emitter can contain a list of parameters. By using them you can easily configure the simulation or make it dependant of the gameplay logic. For instance, particles color can be assigned from the script and used to color the particles of the flare smoke to mark the player team color.</p>
+<pre><code class="lang-cs">var effect = Actor.As&lt;ParticleEffect&gt;();
+effect.SetParameterValue(&quot;Emitter 0&quot;, &quot;FlareColor&quot;, Color.Red);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/particles/particle-emitter.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

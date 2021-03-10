@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Color Grading | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Color Grading | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="color-grading">Color Grading</h1>
+
+<p><img src="media/color-grading.png" alt="Color Grading"></p>
+<p><strong>Color Grading</strong>, or <strong>color correction</strong> , is an effect is used to enhance the overall scene colors. Flax Engine provides solid color grading tools that enable artists to color correct cut-scenes and gameplay look right inside the editor with live preview. This means a huge step forward in good looking games production.</p>
+<p>To use custom color grading LUTs see a section below to learn how to import and apply Lookup Table texture.</p>
+<h2 id="color-wheels">Color Wheels</h2>
+<p><img src="media/color-grading-wheel.png" alt="Color Wheel"></p>
+<p>In the <em>color grading</em> options section you&#39;ll find <strong>color wheels</strong> (also called <strong>trackballs</strong>). They are used to perform <em>three-way</em> color grading with more &quot;artistic&quot; control.</p>
+<p>Adjusting the position of the point on the color wheel will have the effect of shifting the hue of the image towards that color in the given tonal range. Different color wheels are used to affect different ranges within the image. Adjusting the sliders on the right of the wheel allows you to specify desire color manually or modify only single channel (<code>Red</code>, <code>Green</code> or <code>Blue</code>). Additional <code>Alpha</code> slider is used to offsets the color lightness. You can think about it as a &#39;scale&#39; value.</p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/color-grading-properties.jpg" alt="Properties"></p>
+<p>Color grading trackballs are divided into 4 groups:</p>
+<ul>
+<li>Master</li>
+<li>Shadows</li>
+<li>Midtones</li>
+<li>Highlights</li>
+</ul>
+<p>Each group controls a selected part of the range (except <em>Master</em> which affects the whole image).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Saturation</strong></td>
+<td>Adjusts the intensity (purity) of the colors (hue) that are being represented. A higher saturation intensity will result in colors appearing more like their purest forms (red, green, blue) and when saturation is lowered colors will appear more gray or washed-out.</td>
+</tr>
+<tr>
+<td><strong>Contrast</strong></td>
+<td>Adjusts the tonal range of dark and light color values in the scene. Lowering the intensity will remove highlights and lighten the image resulting in a washed-out appearance, whereas a higher intensity will tighten the highlights and darken the overall image.</td>
+</tr>
+<tr>
+<td><strong>Gamma</strong></td>
+<td>Adjusts the luminance intensity of the image&#39;s mid-tones to accurately reproduce colors. Lowering or raising this value will result in the image being washed-out or too dark.</td>
+</tr>
+<tr>
+<td><strong>Gain</strong></td>
+<td>Adjusts the luminance intensity of the image&#39;s whites (highlights) to accurately reproduce colors. Raising or lowering this value will result in the image highlights being washed-out or too dark.</td>
+</tr>
+<tr>
+<td><strong>Offset</strong></td>
+<td>Adjusts the luminance intensity of the image&#39;s blacks (shadows) to accurately reproduce colors. Raising or lowering this value will result in the image shadows being washed-out or too dark.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Shadows</strong></td>
+<td>Saturation/Contrast/Gamma/Gain work in the same way as the master values but apply only to the scene shadows.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Midtones</strong></td>
+<td>Saturation/Contrast/Gamma/Gain work in the same way as the master values but apply only to the scene mid-tones.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Highlights</strong></td>
+<td>Saturation/Contrast/Gamma/Gain work in the same way as the master values but apply only to the scene highlights.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Shadows Max</strong></td>
+<td>Controls the luminance intensity of the image&#39;s blacks (shadows) to accurately reproduce colors. Raising or lowering this value will result in the image shadows being washed-out or too dark.</td>
+</tr>
+<tr>
+<td><strong>Highlights Min</strong></td>
+<td>Controls a multiplier of the properties that affect the color correction properties that have been adjusted in the Highlights section.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="custom-lut-textures">Custom LUT Textures</h2>
+<p><strong>Lookup Table (LUT)</strong> is used to perform color correction for the final rendered image. The blending is performed in LDR and is applied after tonemapping, procedural color correction and exposure control.</p>
+<p><strong>LUT</strong> textures used in Flax must be unwrapped <strong>256x16</strong> textures imported without compression, without mipmaps and with RGB channels usd only.</p>
+<p>Example LUT texture:
+<img src="media/LUT_LateSunsetTable.png" alt="LUT Texture"></p>
+<p>To apply the LUT simply add PostFx Volume actor and asssing the texture and weight in the <em>Color Grading</em> category.
+<img src="media/lut-example.png" alt="LUT Texture Example"></p>
+<p>To make own LUT texture you can take a screenshot of the game viewport, then perform a custom color correction to achieve the desire look. Then apply the same colro grading to the neutral LUT and use it for colro grading in engine.
+Here you can download the neutral LUT:
+<img src="media/LUT_Neutral.png" alt="Neutral LUT Texture"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/post-effects/color-grading.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

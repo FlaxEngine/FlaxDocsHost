@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Game Cooker | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Game Cooker | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="game-cooker">Game Cooker</h1>
+
+<p><img src="media/title.jpg" alt="Flax Game Cooker"></p>
+<p><strong>Game Cooker</strong> is a tool used for building the game.
+It compiles the game scripts and processes all used assets to output a standalone game files for the destination platform.
+Game Cooker is highly configurable and can be used right inside the editor, via dedicated C# API (<a href="https://docs.flaxengine.com/api/FlaxEditor.GameCooker.html">GameCooker</a> service), or using the <a href="../advanced/command-line-access.html">command line arguments</a>.</p>
+<p>Using game cooker can be described as the last step of game creation process where ready to deploy game can be cooked for many different platforms.</p>
+<div class="NOTE"><h5>Note</h5><p>Game Cooker window can be opened by selecting the main menu option <strong>Window -&gt; Game Cooker</strong> or <strong>Tools -&gt; Game Cooker</strong>.</p>
+</div>
+<h2 id="features">Features</h2>
+<p>Game Cooker features:</p>
+<ul>
+<li>Easy to use</li>
+<li>Highly configurable</li>
+<li>Command line access (<a href="../advanced/command-line-access.html">more info</a>)</li>
+<li>Custom build presets</li>
+<li>Incremental building</li>
+<li>Shaders/materials precompiling</li>
+<li>Content encryption/compression</li>
+<li>Asset references auto searching</li>
+<li>Multi-platform support</li>
+<li>C# Editor API access</li>
+</ul>
+<h2 id="build">Build</h2>
+<p><img src="media/gameCooker1.png" alt="Game Cooker"></p>
+<p>Game Cooker window is divided into two separate modes. The second one is a <strong>Build</strong> tab.
+It contains easy to use GUI for a quick game building.
+Using it is highly reccomened to perform fast test builds or if you don&#39;t need any advanced configuration.</p>
+<p>To use it simply select a target platform icon and press the Build button.
+Of course, there are some basic settings like configuration mode (release/debug) or the output directory but overall it’s meant to be used for a fast game cooking.</p>
+<div class="TIP"><h5>Tip</h5><p>Game Cooker has a local cache separate for every platform so one engine instance can build all platforms without long switching time.</p>
+</div>
+<p>Finally, when you start cooking a game in the editor it’s done on a separate thread so all editor logic including play in-editor mode is fully supported.
+Only editing asset is not allowed but a user can still edit a scene or test scripts while the game is being built.</p>
+<h2 id="presets">Presets</h2>
+<p><img src="media/gameCooker2.png" alt="Game Cooker"></p>
+<p>The biggest strength of the Game Cooker are <strong>Presets</strong>.
+Those Presets are stored in the <a href="../game-settings/build-settings.html">Build Settings</a> asset. Editor plugins can access it from C# API. Furthermore, an asset is stored in pure JSON format so any version control systems may be used to work on Flax games in a team.</p>
+<p>Each preset is named (e.g. Development, Release) and contains a group of build targets.
+Each target is also named and has custom configuration settings (e.g. pre/post build actions and script defines).
+By selecting the buttons you can choose a target to build it or even build all targets from the selected preset at once.
+It&#39;s very easy to use and provides enough functionality for bigger projects where devs need to target many different platforms and support various build modes: test builds, profiling builds and shipping builds.
+All those things can be made with Flax presets using Game Cooker window and Build Settings editor.</p>
+<h2 id="custom-defines">Custom Defines</h2>
+<p><img src="media/custom-defines.png" alt="Game Cooker Custom Defines"></p>
+<p>When working with more complex game build setups you can use <strong>Custom Defines</strong> feature which allows to inject custom symbols into build system and access them to change the scripts building rules. For instance, you can use it to switch between game client or game server builds.</p>
+<p>Game Cooker Preset contains a list of configurable <code>Custom Defines</code> (works the same for Game Cooker Build panel Custom Defines). They are injected into <code>Flax.Build</code> command when compiling game scripts. Those can be accessed from <code>.Build.cs</code> scripts using <code>Configuration.CustomDefines</code>.</p>
+<h4 id="injecting-custom-defines-into-c-scripts-compilation">Injecting custom defines into C# scripts compilation</h4>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void Setup(BuildOptions options)
+{
+    base.Setup(options);
+
+    ...
+
+    options.ScriptingAPI.Defines.AddRange(Configuration.CustomDefines);
+}
+</code></pre><h4 id="injecting-custom-defines-into-c-scripts-compilation-1">Injecting custom defines into C++ scripts compilation</h4>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void Setup(BuildOptions options)
+{
+    base.Setup(options);
+
+    ...
+
+    options.PrivateDefinitions.AddRange(Configuration.CustomDefines);
+}
+</code></pre><h4 id="conditional-game-modules-compilation-based-on-custom-defines">Conditional game modules compilation based on custom defines</h4>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void Setup(BuildOptions options)
+{
+    base.Setup(options);
+
+    ...
+
+    if (Configuration.CustomDefines.Contains(&quot;SERVER&quot;))
+        options.PrivateDependencies.Add(&quot;GameServerModule&quot;);
+    else
+        options.PrivateDependencies.Add(&quot;GameClientModule&quot;);
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/game-cooker/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

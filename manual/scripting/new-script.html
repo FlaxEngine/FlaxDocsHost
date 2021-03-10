@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create and use a script | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Create and use a script | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-and-use-a-script">Create and use a script</h1>
+
+<p>Scripts in Flax are written in the <strong>C#</strong> language (source files with extension <code>.cs</code>).
+To provide better organization in a project workspace script files are located in the <code>Source/</code> directory.
+In that way scripts are separated from the assets which reduces mess and makes it easier to work with project sources.</p>
+<p>Flax Editor creates a solution file (<code>.sln</code>) and C# projects (<code>.csproj</code>) for game scripts and editor plugins.</p>
+<p><img src="media/scripts-workspace.jpg" alt="Workspace"></p>
+<div class="NOTE"><h5>Note</h5><p>We recommend using Visual Studio for code editing with <a href="https://marketplace.visualstudio.com/items?itemName=Flax.FlaxVS">Flax Engine Tools for Visual Studio</a> installed.</p>
+</div>
+<h1 id="create-a-script">Create a script</h1>
+<ol>
+<li><p>In the <em>Content</em> window, Navigate to &#39;&lt;project_name&gt;/Source/&lt;game_module_name&gt;&#39;.
+ <br><img src="media/new-script.gif" alt="Step 1"></p>
+</li>
+<li><p>Double-click to open the script. Wait for Flax to open your IDE, which will then open the new script.</p>
+</li>
+</ol>
+<p>Once opened this is what the script file will look like.</p>
+<pre><code class="lang-cs">using System;
+using System.Collections.Generic;
+using FlaxEngine;
+
+namespace Game
+{
+    public class MyScript : Script
+    {
+        public override void OnStart()
+        {
+            // Here you can add code that needs to be called when script is created, just before the first game update
+        }
+
+        public override void OnEnable()
+        {
+            // Here you can add code that needs to be called when script is enabled (eg. register for events)
+        }
+
+        public override void OnDisable()
+        {
+            // Here you can add code that needs to be called when script is disabled (eg. unregister from events)
+        }
+
+        public override void OnUpdate()
+        {
+            // Here you can add code that needs to be called every frame
+        }
+    }
+}
+</code></pre><h1 id="use-a-script">Use a script</h1>
+<p>Scripts are <strong>attached to actors</strong>. Every actor can contain an unlimited amount of individual scripts (including multiple instances of the same script type). This means that the script&#39;s lifetime is related to that of the actor&#39;s and the scene&#39;s lifetime. For instance, if you load a scene, the scripts attached to the objects in that scene also will be loaded.</p>
+<ol>
+<li>Select an actor to add script to it (note label <em>Drag scripts here</em> in <strong>Scripts</strong> group in <em>Properties</em> window)</li>
+<li>Drag and drop the script into the <strong>Drag scripts here</strong> area</li>
+<li>Script is ready (sample script with 3 public fields)
+<br><img src="media/attach-script.gif" alt="Step 1"></li>
+</ol>
+<p>The Flax Editor shows public script properties and fields using a dedicated group (within <code>Scripts</code> group). Each script group header shows a script class type name, <strong>settings button on the right</strong> and <strong>script toggle checkbox on the left</strong>. You can disable or enable the script by using this checkbox.</p>
+<p>To <strong>remove</strong>, <strong>edit</strong> or <strong>reorder</strong> a script use the <strong>settings button</strong> which shows a popup with various options.</p>
+<p><img src="media/script-settings.png" alt="Script settings"></p>
+<p>You can also easily pick a reference to a script or reorder it. Simply click and drag the <strong>three-bar icon button</strong> as shown on a gif below:</p>
+<p><img src="media/script-reorder-with-drag.gif" alt="Reorder Script"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/new-script.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

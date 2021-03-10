@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Materials Basics | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Materials Basics | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="materials-basics">Materials Basics</h1>
+
+<p><img src="../media/sample-material-instance.jpg" alt="Graphics"></p>
+<p><strong>Material</strong> defines the appearance of the model surfaces and how they react to light. Each material describes not only it&#39;s color but also how it reflects and emits light. All those properties are used by the Flax rendering pipeline to result in realistic lighting (<em>Physically Based Rendering</em>).</p>
+<h1 id="creating-new-material">Creating new material</h1>
+<ol>
+<li><p>In the <em>Content</em> window navigate to the <em>Content</em> folder</p>
+</li>
+<li><p>Right click in the empty area</p>
+</li>
+<li><p>Select option <em>New</em> -&gt; <em>Material</em></p>
+<p> <img src="../media/new-material.jpg" alt="Creating new material"></p>
+</li>
+<li><p>Specify new material name and press <em>Enter</em></p>
+</li>
+<li><p>Double click on a material</p>
+<p> <img src="../media/my-material.png" alt="Creating new material"></p>
+</li>
+<li><p><a href="../material-editor/index.html">Material Editor</a> window shows up</p>
+</li>
+</ol>
+<h1 id="material-nodes">Material nodes</h1>
+<p>The first and the most important thing to know about the materials editing is that they are made of nodes. Each node generates a snippet of HLSL code so in that way connected nodes networks outputs full materials source code. This means that user creates a material using visual scripting instead of writing code.</p>
+<p><img src="../media/sample-material.jpg" alt="Sample material"></p>
+<p>The above picture shows a sample of mahogany floor surface properties. However it&#39;s important to say that the material node&#39;s network does not need to be so simple. In many cases, artists create complex materials to achieve the desired look.</p>
+<p>To learn more about materials editor you can find documentation in the <a href="../material-editor/index.html">Material Editor</a> section.</p>
+<h1 id="using-textures">Using textures</h1>
+<p>The most common way to supply details to material surfaces is by using <strong>Textures</strong>. In the case of materials, textures are simply images that provide some sort of pixel-based data. This data may be the color of an object, how shiny it is, its transparency, and a variety of other aspects. There is an old-school mode of thought that <em>texturing</em> is how you apply color to your game models. While the process of creating textures is still critical, it is important to think of textures as a component of materials, and not as the end result themselves.</p>
+<p>A single material may use several different textures for different purposes. For instance, s simple material may have a diffuse color texture, a roughness map and a normal map. </p>
+<p>To use texture in a material, simply drag &amp; drop it from the <em>Content</em> window into the material surface. It will automaticly create a proper texture sampling node. Alternativly you can create new <em>Texture</em> or <em>Normal Map</em> node.</p>
+<p><img src="../media/texture-node.png" alt="Sample material"></p>
+<p>To learn more about textures pipeline you can find documentation in the <a href="../../textures/index.html">Textures</a> section.</p>
+<h1 id="applying-material-to-model">Applying material to model</h1>
+<p>There are several ways to apply material to the model:</p>
+<ul>
+<li><em>Drag &amp; Drop</em> material asset right onto the model</li>
+</ul>
+<p><img src="../media/apply-material-1.jpg" alt="Apply material"></p>
+<ul>
+<li><em>Drag &amp; Drop</em> material asset into the properties window</li>
+</ul>
+<p><img src="../media/apply-material-2.jpg" alt="Apply material"></p>
+<ul>
+<li>Assign material to the model material slot</li>
+</ul>
+<p><img src="../media/apply-material-3.jpg" alt="Apply material"></p>
+<ul>
+<li>Set material using C# script</li>
+</ul>
+<pre><code class="lang-cs">public class SetMaterial : Script
+{
+    [Tooltip(&quot;Material to assign to the model&quot;)]
+    public Material Material;
+
+    public override void OnStart()
+    {
+        Actor.As&lt;StaticModel&gt;().SetMaterial(0, Material);
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/materials/basics/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

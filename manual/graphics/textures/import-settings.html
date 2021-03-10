@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Texture Import Settings | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Texture Import Settings | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="texture-import-settings">Texture Import Settings</h1>
+
+<p><img src="media/import-texture-options.jpg" alt="Textures"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>Specifies texture data type. In certain cases texture may not have alpha channel or contain very specific data so during importing and compressing, texture may be processed in a specific way. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>ColorRGB</strong></td><td>Color texture. Uses <code>RGB</code> channels. Recommended for diffuse maps.</td></tr><tr><td><strong>ColorRGBA</strong></td><td>Color texture with alpha. Uses <code>RGBA</code> channels. Recommended for transparent materials albedo or wires/chains materials. The additional alpha channel can contain packed surface roughness value to reduce the number of textures.</td></tr><tr><td><strong>NormalMap</strong></td><td>Normal map texture. Recommended for all tangent space normal maps.</td></tr><tr><td><strong>GrayScale</strong></td><td>Grayscale texture. Uses <code>R</code> channel. Recommended for roughness/specular/height/occlusion maps.</td></tr><tr><td><strong>HdrRGBA</strong></td><td>HDR color tetxture with alpha. Uses <code>RGBA</code> channels. Recommended for emission maps or other custom usage.</td></tr><tr><td><strong>HdrRGB</strong></td><td>HDR color tetxture. Uses <code>RGB</code> channels. Recommended for sky textures or emission maps.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Is Atlas</strong></td>
+<td>If checked, texture will be imported as a texture atlas (with sprites).</td>
+</tr>
+<tr>
+<td><strong>Never Stream</strong></td>
+<td>If checked, dynamic resource streaming will be disabled for this texture.</td>
+</tr>
+<tr>
+<td><strong>Compress</strong></td>
+<td>If checked, texture data will be comrpessed to use less memory.</td>
+</tr>
+<tr>
+<td><strong>Independent Channels</strong></td>
+<td>If checked, texture channels have independent data (used for compression methods). Should be used for masks or packed textures.</td>
+</tr>
+<tr>
+<td><strong>Is sRGB</strong></td>
+<td>If checked, texture contains colors in sRGB format data.</td>
+</tr>
+<tr>
+<td><strong>Flip Y</strong></td>
+<td>If checked, texture Y coordinate will be flipped.</td>
+</tr>
+<tr>
+<td><strong>Generate Mip Maps</strong></td>
+<td>If checked, full mip maps chain will be generated for the texture.</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>Custom scale parameter. Allows to increase or decrese imported texture resolution. The default value is 1.</td>
+</tr>
+<tr>
+<td><strong>Max Size</strong></td>
+<td>The maximum size of imported texture. Used to clip too big textures.</td>
+</tr>
+<tr>
+<td><strong>Resize</strong></td>
+<td>If checked, importer will resize texture. Use Size property to define texture width and height. Texture scale property will be ignored.</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>The size of the imported texture. If <em>Resize</em> property is checked then texture will be resized during the import to this value. Otherwise it will be ignored.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/textures/import-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

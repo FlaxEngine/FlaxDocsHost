@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Terrain | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Terrain | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="terrain">Terrain</h1>
+
+<p><img src="media/title.jpg" alt="Terrain"></p>
+<p>Flax supports high-quality terrain rendering and provides various tools for importing creating and editing landscape. It enables you to create realistic looking outdoor scenes full of mountains, valleys with caves. Use this documentation section to learn how to create your terrain and edit it to create great visual experience.</p>
+<h2 id="basics">Basics</h2>
+<p>To learn how to create and use terrain in your games please read the <a href="tutorials/index.html">tutorials section</a>. It provides a solid introduction into the terrain system and contains explanation with usage example of all features.</p>
+<h2 id="technical-details">Technical Details</h2>
+<p>Terrain is using <strong>Continous LOD</strong> system with streaming which enables to create very large landscapes and render them at high view distances with no performance drop. Under the hood, Terrain actor uses a collection of patches. <strong>Terrain patch</strong> is a part of terrain that contains a quad of 4x4 chunks. <strong>Terrain chunk</strong> is part of the patch and uses it&#39;s heightmap and collision. The reason to divide patches int ochunks is that engien can apply smooth LOD transitions and cull terrain more efficently. Also every chunk can have custom material for rendering to provide mroe ease of use when creating complex terrains. Size of the chunk is adjustable per terrain and by default, we use the value of 127. This allows Flax to efficiently cull and draw only visible chunks with smooth LODs transitions (no cracks or visual artifacts on different LOD edges).</p>
+<p>Terrain can be imported from external tools (such as World Creator) as a heightmap with a collection of splatmaps or created right in the Editor using the terrain sculpting tools. Flax Editor support using simple carving brush, smoothing brush, noise brush, and flatten brush. Full undo-redo support and intuitive editing tools make it very nice to modify the terrain right inside the editor. Flax supports also creating holes in terrain for caves and tunnels (including proper collisions handling).</p>
+<p>Flax supports <strong>up to 8 weights for terrain layers</strong>. This means that developers can blend between many materials to create realistic terrain. Each weight is stored in a separate texture channel (up to 2 splatmaps) and can be sampled in terrain shaders to blend between custom layers. Each terrain chunk can override default terrain the material so there is no limit in texturing advanced landscapes. We use also a more optimize terrain material shader type that is well suited for performant terrain rendering. Also, it supports <em>tessellation</em> and full <em>PBR</em>.</p>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="materials.html">Terrain Materials</a></li>
+<li><a href="editing.html">Terrain Editing</a></li>
+<li><a href="painting.html">Terrain Painting</a></li>
+<li><a href="brushes.html">Terrain Brushes</a></li>
+<li><a href="collision.html">Terrain Collision</a></li>
+<li><a href="importing.html">Importing Terrain</a></li>
+<li><a href="holes.html">Terrain Holes</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="tutorials/create-terrain.html">How to create terrain</a></li>
+<li><a href="tutorials/import-terrain.html">How to import terrain</a></li>
+<li><a href="tutorials/terrain-material.html">How to create terrain material</a></li>
+<li><a href="tutorials/terrain-from-code.html">How to create terrain from code</a></li>
+<li><a href="tutorials/terrain-holes.html">How to create holes in terrain</a></li>
+<li><a href="tutorials/tessellation-and-terrain.html">How to add tessallation to terrain</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/terrain/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

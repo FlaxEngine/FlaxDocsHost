@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Transforming Actors | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Transforming Actors | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="transforming-actors">Transforming Actors</h1>
+
+<p>To setup you scenes you need to move, rotate and scale actors. There are two major ways to transform actors in editor.</p>
+<h2 id="transform-property">Transform property</h2>
+<p>If you select one or more actors you can modify their properties in a <em>Properties</em> window. This includes editing <strong>local transformation</strong>.</p>
+<p><img src="media/edit-actor-local-transform.jpg" alt="Actor Transform"></p>
+<p>You can also use sliders near the transform properties to edit object quicker.</p>
+<p><img src="media/local-transform-usage.gif" alt="Actor Transform"></p>
+<h2 id="transform-gizmo">Transform gizmo</h2>
+<p>The most common way to transform objects is by using transform/rotate/scale gizmos.
+Using those widgets is one of the most essential parts of the level design because it allows you to place the objects using you mouse.</p>
+<p>To change the transform gizmo widget mode use keys <strong>1</strong>, <strong>2</strong> and <strong>3</strong> or toolbar buttons:</p>
+<p><img src="media/transform-gizmo-mode.jpg" alt="Toolbar Buttons"></p>
+<p>Editor viewport shows a set of buttons and options in the upper right corner.
+You can use them to adjust the gizmo settings.</p>
+<p><img src="media/gizmo-widgets.png" alt="Editor Viewport Widgets"></p>
+<h3 id="translation-widget">Translation widget</h3>
+<p><img src="media/gizmo-translate.gif" alt="Translation widget"></p>
+<p><strong>Translation</strong> gizmo moves selected objects along particular axis (or plane).
+To use it click on an axis (red, green or blue) and drag it.
+You can also move objects along the plane (use gray quads).</p>
+<h3 id="rotation-widget">Rotation widget</h3>
+<p><img src="media/gizmo-rotate.gif" alt="Rotation widget"></p>
+<p><strong>Rotation</strong> gizmo rotates selected objects along particular axis.
+To use it click on an axis circle (red, green or blue) and drag it.</p>
+<h3 id="scale-widget">Scale widget</h3>
+<p><img src="media/gizmo-scale.gif" alt="Scale widget"></p>
+<p><strong>Scale</strong> gizmo scales selected objects along particular axis.
+To use it click on an axis (red, green or blue) and drag it.
+You can also uniform scale objects by using a gray box in the center of the gizmo.</p>
+<h2 id="world-and-local-transformation-space">World and Local transformation space</h2>
+<p>Transformation widget can transform objects in two modes: world and local. In world mode gizmo widget is aligned to the world coorinates (left-handed unit X, Y and Z). In local mode, gizmo widget is aligned to the object transformation frame. In local mode editing local transformation of the objects is easier.</p>
+<p>You can toggle the active transformation space with a widget:</p>
+<p><img src="media/transformation-space-toggle.png" alt="Toggle Transformation Space"></p>
+<table>
+<thead>
+<tr>
+<th>World</th>
+<th>Local</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/world-space.jpg" alt="World Space"></td>
+<td><img src="media/local-space.jpg" alt="Local Space"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="snapping">Snapping</h2>
+<p>You can <strong>snap</strong> transformations to the grid. This means that the degree of transformation you apply to actors is rounded to the closest multiple of the number you specify. For example, if you set the rotation snap value to 10, actor rotate in multiples of 10 (0, 10, 20, 30, etc).</p>
+<p>If you transform objects hold the <strong>Ctrl</strong> key to snap the values.
+Snapping can be configured using a widget buttons:</p>
+<p><img src="media/widget-spanning.jpg" alt="Snapping Options"></p>
+<h2 id="duplicate-the-actor">Duplicate the actor</h2>
+<p>You can duplicate selected objects with a transform gizmo if you hold a <strong>Shift</strong> key and start transforming objects.</p>
+<p><img src="media/duplicate-actors.gif" alt="Duplicate actors"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/get-started/scenes/transforming-actors.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

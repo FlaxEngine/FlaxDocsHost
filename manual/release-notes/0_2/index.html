@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.2 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.2 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-02-release-notes">Flax 0.2 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="nested-prefabs">Nested Prefabs</h3>
+<p><img src="../../get-started/prefabs/media/nested_prefabs.gif" alt="Nested Prefabs"></p>
+<p>We&#39;ve added a new asset type: <strong>Prefab</strong>. It is used to build archetypes of actors and scripts to reuse them in games. The prefab acts like a template or an archetype which you can spawn in the scene. Any edits made to a prefab asset are immediately reflected in all instances produced from it but you can also override components and settings for each instance individually. This helps with creating advanced gameplay content. Also, <strong>Flax supports nesting prefabs inside the prefabs out of the box!</strong></p>
+<p>To learn more about prefabs see the related documentation <a href="../../get-started/prefabs/index.html">here</a>.</p>
+<h3 id="motion-blur">Motion Blur</h3>
+<p><img src="media/motion_blur.gif" alt="Motion Blur"></p>
+<p>Flax contains in-build <strong>Motion Blur</strong> effect that simulates the real-life camera aperture. Now, dynamic objects are rendered to the Motion Vectors buffer which is used to draw per-object (or skinned model per-bone) blur. Also, any camera movement provides realistic blur which helps with creating stunning visual effects and cut-scenes.</p>
+<h3 id="plugins">Plugins</h3>
+<p><img src="../../scripting/plugins/media/plugins-window.png" alt="Plugins"></p>
+<p>Now, Flax supports <strong>Game Plugins</strong> and <strong>Editor Plugins</strong>. Developers can also easly include .Net libraries to be used in game scripts. Flax plugins system allows adding custom functionalities and extending engine features. See the dedicated page <a href="../../scripting/plugins/index.html">here</a> to learn more about creating and using plugins.</p>
+<h3 id="subsurface-materials">Subsurface materials</h3>
+<p><img src="media/subsurface_materials.gif" alt="Subsurface Scattering"></p>
+<p>Materials will now use <strong>Shading Model</strong> property to define the type of the shading to use for it. Supported are <strong>Unlit</strong>, <strong>Lit</strong> and <strong>Subsurface</strong>. Creating skin, wax or foliage materials is now much easier and gives more possibilities.</p>
+<h3 id="tessellation-and-displacement">Tessellation and Displacement</h3>
+<p><img src="media/tessellation_support.png" alt="Tessellation and Displacement"></p>
+<p>The newest Flax version supports tessellated materials and displacement maps. Using this feature can help to achieve realistic looking terrain or water surfaces.</p>
+<h3 id="texture-arrays-and-volume-textures-in-materials">Texture arrays and volume textures in materials</h3>
+<p>New material parameter types and improve render targets C# API enable developers to create and use 3D textures and texture arrays. Also, <code>GPUContext</code> has been updated to support rendering PostFx material to a single texture slice. New C# API allows creating advanced visual effects for your games such as volumetric clouds or water flow simulations on a GPU.</p>
+<h3 id="texture-mipmap-preview">Texture mipmap preview</h3>
+<p><img src="media/texture-mipmap-preview.png" alt="Texture Mipmap Preview"></p>
+<p>Texture windows and Cube Texture windows contain now dedicated widgets to preview a single texture mipmap and an option to selected a sampler (point or linear). This helps with advanced game development and working with the textures content.</p>
+<p>Also, many editor windows contain a dedicated button to the related documentation (opens a browser with Flax documentation).</p>
+<h3 id="scene-serialization-changes">Scene serialization changes</h3>
+<p>Starting from this version scenes and actors collections will serialize scripts inlined in the actors data list, instead of inside parent actor. It is related to the scene objects serialization changes introduced during prefabs system implementation. The new engine version will still load scenes in the older format but serialized scenes will match the new design.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-026169---25-september-2018">Version 0.2.6169 - 25 September 2018</h3>
+<ul>
+<li>Add support for sampling normal map texture object in Sample Texture node with automatic normal vector unpacking</li>
+<li>Change default Material Instance editor window panels split to 0.5</li>
+<li>Fix colliders properties synchronization in prefab instances</li>
+<li>Fix  texture format autodetect on reimport</li>
+<li>Fix sample texture node to not use explicit mipmap level in some cases</li>
+<li>Fix creating comment on selected nodes with Ctrl+S</li>
+<li>Fix rare error when changing preview model in material preview</li>
+<li>Fix removing main material node in materials</li>
+<li>Fix visject surface error on parsing numbers in context menu</li>
+<li>Fix combobox deselecting</li>
+<li>Fix crash when creating prefab from model with baked lightmap data</li>
+<li>Fix importing FBX models without nodes structure but valid meshes inside</li>
+<li>Fix deadlock in asset managed objects creation in rare casesFix importing textures with alpha channel to ColorRGB with compression enabled (alpha channel was used to premultiply colors which was wrong)</li>
+<li>Fix pasting text to TextBox when it&#39;s empty</li>
+<li>Fix creating prefab from model that has baked lightmap data (remove it during prefab asset creation)</li>
+<li>Fix undo on object reparent</li>
+</ul>
+<h3 id="version-026168---23-september-2018">Version 0.2.6168 - 23 September 2018</h3>
+<p>Contributors: stefnotch</p>
+<ul>
+<li>Add <strong>Motion Blur</strong> effect</li>
+<li>Add <strong>Motion Vectors</strong> rendering support</li>
+<li>Add per-bone motion vectors for skinned meshes</li>
+<li>Add <strong>Subsurface</strong> material shading model</li>
+<li>Add <code>MaterialShadingModel</code> enum</li>
+<li>Add <strong>Tessellation</strong> support to materials</li>
+<li>Add <strong>search popup to asset picker</strong></li>
+<li>Add <em>Panner</em> node to materials</li>
+<li>Add <strong>Wireframe</strong> view mode</li>
+<li>Add support for restoring material slots on model reimport</li>
+<li>Add <em>Camera Position</em> node to materials</li>
+<li>Add <code>PerBoneMotionBlur</code> to Animated Model</li>
+<li>Add <code>RenderTask.CameraCut()</code> to mark the next rendered frame as camera cut</li>
+<li>Add removing static flags from actors added to level during play in editor (eg. via drag and drop)</li>
+<li>Add <strong>Visject Surface comments</strong> (with <code>C</code> key for selection or with <code>C + Left Mouse</code> for custom area)</li>
+<li>Add profile event for GBuffer clear</li>
+<li>Add <em>Per Instance Random</em> node to materials</li>
+<li>Add option to show material shader HLSL source code</li>
+<li>Add splash screen to build game (with Flax logo)</li>
+<li>Add support for point and spot lights shadows for volumetric fog</li>
+<li>Add filtering textbox contents (remove \r characters)</li>
+<li>Add support for scrolling multiline textbox with mouse wheel</li>
+<li>Add even smarter Visject context menu (eg. type <code>true</code> to spawn boolean literal node with value set to true)</li>
+<li>Add <em>DefaultFrameRate</em> to animation import options</li>
+<li>Refactor material shader template to simplify the code generation and improve material compilation time</li>
+<li>Refactor Visject Surface and make it easier to customize or extend</li>
+<li>Optimize Decal, GUI and PostProcess material types constant buffers usage</li>
+<li>Optimize DirectX resources binding if render stage is not used</li>
+<li>Optimize DirectX 12 backend</li>
+<li>Modify default scene lightmap options</li>
+<li>Improve Editor drag handler API</li>
+<li>Use GPU buffers resources naming in dev builds</li>
+<li>Fix selecting textbox characters if content has scale other than 1</li>
+<li>Fix text layout for many new-line characters</li>
+<li>Fix not needed remove button for some Visject nodes</li>
+<li>Fix asset picker and make it bigger in some cases to prevent buttons not matching the layout</li>
+<li>Fix quality of the skinned mesh blend weights to prevent blending issues</li>
+<li>Fix various prefab issues</li>
+<li>Fix preserving alpha channel value when using color selecting wheel control</li>
+<li>Fix selecting viewport area under FPS counter control (if counter is hidden)</li>
+<li>Fix shadows issues for materials with position offset in use</li>
+<li>Fix crash when Custom Code node in materials has no code</li>
+<li>Fix setting audio source volume on init</li>
+<li>Fix crash when adding new objects to actor in Start</li>
+<li>Fix Game window undocking in Editor on select in play mode with mouse auto-center mode enabled</li>
+<li>Fix scene graph event handling</li>
+<li>Fixes for DirectX 12 backend</li>
+<li>Fix <code>BoundingBox</code> fields/properties serialization (in C# scripts)</li>
+<li>Fix typos</li>
+</ul>
+<h3 id="version-026167---2-september-2018">Version 0.2.6167 - 2 September 2018</h3>
+<ul>
+<li>Add <strong>plugins support</strong></li>
+<li>Add <code>GamePlugin</code> class</li>
+<li>Add <code>EditorPlugin</code> class</li>
+<li>Add plugins manager window in Editor</li>
+<li>Add support for custom data stored in project cache</li>
+<li>Add loading plugin assemblies from the project and build game</li>
+<li>Add <code>Debug.Write</code> for direct message write to log</li>
+<li>Add support for accessing custom game settings at runtime</li>
+<li>Add helper C# API for editing custom game settings in editor</li>
+<li>Add <code>JsonAsset.CreateInstance&lt;T&gt;()</code> for easy settings object casting</li>
+<li>Add support for JsonAsset object from any loaded assembly</li>
+<li>Add support for  restoring custom editor windows on scripts reload</li>
+<li>Add <code>ScriptsBuilder.Compile</code> to build a custom solution</li>
+<li>Add support for <strong>showing all files from Content directory</strong> in editor</li>
+<li>Add support for renaming selected file in Content Window with F2 key</li>
+<li>Add <code>Version</code> editor</li>
+<li>Add a reference to FlaxEditor assembly for game scripts in Editor</li>
+<li>Add showing tooltip with full type name in add script popup</li>
+<li>Add support for adding scripts from all loaded assemblies (including plugins)</li>
+<li>Add <code>EditorIcons</code> container for faster editor icons caching</li>
+<li>Optimize logging by managed code</li>
+<li>Optimize control and script types searching in editor</li>
+<li>Fix too frequent editor cache saving</li>
+<li>Fix typos</li>
+</ul>
+<h3 id="version-026166---28-august-2018">Version 0.2.6166 - 28 August 2018</h3>
+<ul>
+<li>Add support object ids mapping inside scripts (use <code>ObjectIdModifier</code> on deserialization)</li>
+<li>Add <code>ISceneObject</code> interface to unify various functionalities for both Scripts and Actors</li>
+<li>Add <code>TextLayoutOptions.Scale</code></li>
+<li>Improve text layout</li>
+<li>Improve Mono backend performance</li>
+<li>Improve object references handling in scripts in prefabs</li>
+<li>Improve reverting changes to prefab for ISceneObject references</li>
+<li>Increase <strong>default editor update rate to 60 FPS</strong> and reduce physics update</li>
+<li>Remove deprecated <code>Globals.LocalizationFolder</code> and <code>Globals.ConfigFolder</code></li>
+<li>Fix rare crashes on prefabs apply</li>
+<li>Fix Script callback searching (better method signature query)</li>
+<li>Fix using Script callback methods in base classes that use generic parameters</li>
+</ul>
+<h3 id="version-026165---26-august-2018">Version 0.2.6165 - 26 August 2018</h3>
+<p>Contributors: klukule, stefnotch</p>
+<ul>
+<li>Add <strong>Nested Prefabs</strong></li>
+<li>Add creating, editing and using prefab assets</li>
+<li>Add restoring prefab instance changes or per property value</li>
+<li>Applying prefab instance change to the prefab asset</li>
+<li>Add <code>PrefabManager</code> (use <code>SpawnPrefab</code> to instantiate prefab)</li>
+<li>Add prefab thumbnails rendering</li>
+<li>Add dedicated prefabs editing window</li>
+<li>Add <code>Editor.GetActorEditorBox</code> and <code>Editor.GetActorSphere</code></li>
+<li>Add <code>Vector3.Distance2D</code> and <code>Vector3.Distance2DSquared</code></li>
+<li>Add <code>Actor.ScriptsCount</code> and <code>Actor.GetScript(int index)</code></li>
+<li>Add <code>Actor.GetScriptInChildren</code> and <code>Actor.GetScriptsInChildren</code></li>
+<li>Add <code>SceneRenderTask.FrameCount</code></li>
+<li>Add Actors query methods to get child actors and scripts via C# type (except generic methods)</li>
+<li>Add <code>TextRender.UpdateLayout</code> to sync vertex buffer and bounds manually after modification</li>
+<li>Add <code>Tangent Vector</code> and <code>Bitangent Vector</code> node types to materials graph</li>
+<li>Add <em>lazy init</em> for C# objects for Actors</li>
+<li>Add methods to Render2D to draw texture/sprite with point sampler(except of linear)</li>
+<li>Add support for volume render targets and render target arrays</li>
+<li>Add material parameter types: <strong>RenderTargetArray</strong>, <strong>RenderTargetCube</strong> and <strong>RenderTarget3D</strong></li>
+<li>Add <em>Pi</em> node to material and anim graph</li>
+<li>Add C# API to clear per render target mip or array/depth slice</li>
+<li>Add C# API to render PostFx material to a texture mip or array/depth slice with configured viewport</li>
+<li>Add C# API for the render target surface views</li>
+<li>Add functionality to create a new node in Visject when creating a new connection</li>
+<li>Add support for sampling texture arrays and volume textures in materials</li>
+<li>Add showing texture mip map in editor window</li>
+<li>Add showing texture using point sampler in editor window</li>
+<li>Add showing mip, custom channels mask or changing filter for cube texture preview</li>
+<li>Add UseVSync option to Graphics Quality Window in Editor</li>
+<li>Add changing scene preview brightness per editor viewport</li>
+<li>Add support for custom sampling Cube Textures in materials</li>
+<li>Add sync for lightmap textures set streaming</li>
+<li>Add using mipmaps from lightmap</li>
+<li>Add using script folder location to namespace of the created script in Editor</li>
+<li>Add highlighting the mesh when dragging a material over it</li>
+<li>Add <code>Int2</code> and <code>Int3</code> types to math library</li>
+<li>Add <code>Decal.CreateVirtualMaterialInstance</code> utility function</li>
+<li>Add F6 shortcut in Editor to pause/resume play in editor</li>
+<li>Add extension methods for random streams and collections utilities</li>
+<li>Add help buttons in editor with links to documentation</li>
+<li>Add logging inner exception via Debug</li>
+<li>Add <code>GraphicsDevice.NativePtr</code></li>
+<li>Add more invalid characters filtering for renaming assets validation</li>
+<li>Add reference to Newtonsoft.Json library for game code scripts (Assembly and Assembly.Editor)</li>
+<li>Add throwing Null Reference exception when using deleted object</li>
+<li>Add selecting dockpanel tab in editor via drag and drop</li>
+<li>Initialize UIControl and UICanvas during Actor Init rather than BeginPlay event</li>
+<li>Refactor Scripts and Actors to be treated as unified Scene Objects by more Engine parts</li>
+<li>Refactor Scripts serialization in Scene files (inline Scripts in the scene objects collection and use ParentID for parent actor linkage)</li>
+<li>Rename <code>UIControl.AddChild&lt;T&gt;()</code> to <code>UIControl.AddChildControl&lt;T&gt;()</code> to prevent overlapping with the Actor class method</li>
+<li>Improve actors deserialization performance</li>
+<li>Improve baked lightmaps post processing to reduce artifacts</li>
+<li>Update Newtonsoft.Json to 11.0.2</li>
+<li>Use models instead of DebugDraw for TransformGizmo parts drawing</li>
+<li>Modify Render2D draw methods with alpha blending</li>
+<li>Optimize C# GUI</li>
+<li>Optimize Decals projection model complexity</li>
+<li>Optimize <code>Actor.Scripts</code> getter if actor has no scripts</li>
+<li>Optimize Scene Graph building in Editor</li>
+<li>Reduce memory allocations during rendering</li>
+<li>Improve content loading and streaming threads responsiveness</li>
+<li>Disable auto connecting in Visject</li>
+<li>Modify objects disposing service to collect more objects per frame if needed</li>
+<li>Rename <code>Actor.ChildCount</code> to <code>Actor.ChildrenCount</code></li>
+<li>Fix AO Intensity serialization issue</li>
+<li>Fix crash related to model asset material slots count</li>
+<li>Fix lightmap mip maps generation</li>
+<li>Fix lightmap textures binding when streamed</li>
+<li>Fix TextRender bounds before transform update</li>
+<li>Fix FocalDistance deserialization issue</li>
+<li>Fixed a up/down arrow key bug in Visject context menu</li>
+<li>Fix crash when importing some FBX models</li>
+<li>Fix material instance parameters synchronization with base material</li>
+<li>Fix positioning spawned point and spot light in editor via drag and drop</li>
+<li>Fix rare NaN in Depth Of Field shader</li>
+<li>Fix various typos in documentation comments</li>
+<li>Fix various DirectX 12 rendering issues and support MSAA</li>
+<li>Fix high CPU usage  by using Condition Variables by thread pool threads</li>
+<li>Fix various crashes for huge amount of tasks cancellations</li>
+<li>Fix textbox control transparency</li>
+<li>Fix crash when casting float4 to float in materials</li>
+<li>Fix lightmap texels filter to reduce negative coefficients and improve texels blurring</li>
+<li>Fix lightmap mipmaps generation and usage</li>
+<li>Fix typos</li>
+<li>Fix many bugs and crashes</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_2/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

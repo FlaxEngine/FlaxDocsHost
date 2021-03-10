@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Use third-party library | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Use third-party library | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-use-third-party-library">HOWTO: Use third-party library</h1>
+
+<p>Flax supports using external libraries, third-party code, and SDKs in the game scripts. There are several ways to achieve this depending on the desired functionality:</p>
+<ul>
+<li>you can directly reference the pre-build build libraries</li>
+<li>you can integrate external code building with <a href="../../editor/flax-build/index.html">Flax.Build</a> scripts</li>
+<li>you can implement code modules with library (eg. <code>ThirdPartyModule</code>, <code>DepsModule</code> or <code>HeaderOnlyModule</code>) in build scripts.</li>
+</ul>
+<p>In this documentation section, you will learn how to use a third-party library in C++ or C# scripts.</p>
+<h2 id="using-c-library">Using C# library</h2>
+<p>To add a reference to prebuild .Net DLL file in your game scripts simply modify the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) by adding the file reference in overridden <code>Setup</code> method:</p>
+<pre><code class="lang-cs">// Reference C# DLL placed Content folder
+options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;JetBrains.Annotations.dll&quot;));
+</code></pre><p>Then generate scripts projects solution to use types from imported C# module inside game code.
+This will work for scripts build for the editor and cooked game as the referenced assembly will be packaged. Build system will also copy relevant <code>.pdb</code> and <code>.xml</code> files if provided.</p>
+<p>Remember that engine uses .Net Framework 4.5 (.Net Core API is not supported).</p>
+<h2 id="using-c-library-1">Using C++ library</h2>
+<p>To add a reference to the prebuild native library in your game scripts you need to modify the built environment of your game code module. It requires adding library header files location to includes search path and modification of the link environment to reference the given library. Also if you use a dynamic library you need to mark it as a dependency file to deploy during the build. To do so simply edit the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) in overridden <code>Setup</code> method:</p>
+<pre><code class="lang-cs">var bcryptPath = Path.Combine(FolderPath, &quot;..&quot;, &quot;bcrypt&quot;);
+options.CompileEnv.IncludePaths.Add(Path.Combine(bcryptPath, &quot;include&quot;));
+options.LinkEnv.InputLibraries.Add(Path.Combine(bcryptPath, &quot;lib&quot;, &quot;bcrypt.lib&quot;));
+options.DependencyFiles.Add(Path.Combine(bcryptPath, &quot;bin&quot;, &quot;bcrypt.dll&quot;));
+</code></pre><p>You can also deploy debug symbols file and/or inform module C++ code with pre-processor define that can use a library:</p>
+<pre><code class="lang-cs">options.OptionalDependencyFiles.Add(Path.Combine(bcryptPath, &quot;bin&quot;, &quot;bcrypt.pdb&quot;));
+options.CompileEnv.PreprocessorDefinitions.Add(&quot;USE_BCRYPT&quot;);
+</code></pre><p>When developing a multiplatform game you can use <code>options.Platform.Target</code> and <code>options.Toolchain.Architecture</code> in build script to switch between platform and architecture (you might want to link against different files for different platforms).</p>
+<h2 id="example-case-steamworks-c-api-with-native-dll">Example case: Steamworks C# API with native dll</h2>
+<p>To understand referencing external libraries even better let&#39;s see how to use external Steamworks API from the native library with C# bindings. In this example, we will use <a href="https://github.com/rlabrecque/Steamworks.NET">Steamworks.NET</a> project. You can download a prebuild released version and get files from the package (files from folder <code>Windows-x64</code>).</p>
+<p>Firstly, copy library files into the project workspace so we can use them. You can place them in a <code>Content/Steamworks.NET</code> folder.</p>
+<p><img src="media/steamworks-files.png" alt="ThirdParty Library Code Use Example"></p>
+<p>Next step is to modify the game code build script (eg. <code>Source/GameModule/MyGame.Build.cs</code>) to reference the library in overridden <code>Setup</code> method:</p>
+<pre><code class="lang-cs">var steamworksPath = Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;Steamworks.NET&quot;);
+options.ScriptingAPI.FileReferences.Add(Path.Combine(steamworksPath, &quot;Steamworks.NET.dll&quot;));
+options.DependencyFiles.Add(Path.Combine(steamworksPath, &quot;steam_api64.dll&quot;));
+options.DependencyFiles.Add(Path.Combine(steamworksPath, &quot;steam_appid.txt&quot;));
+</code></pre><p>Then, regenerate scripts project files and use Steamworks API in your C# scripts. It will work in Editor and Game.
+Here is an example script that initializes API:</p>
+<pre><code class="lang-cs">using System;
+using FlaxEngine;
+using Steamworks;
+
+public class Steam : Script
+{
+    public override void OnStart()
+    {
+        if (!Packsize.Test())
+        {
+            Debug.LogError(&quot;[Steamworks.NET] Packsize Test returned false, the wrong version of Steamworks.NET is being run in this platform.&quot;);
+            return;
+        }
+
+        if (!DllCheck.Test())
+        {
+            Debug.LogError(&quot;[Steamworks.NET] DllCheck Test returned false, One or more of the Steamworks binaries seems to be the wrong version.&quot;);
+            return;
+        }
+
+        try
+        {
+            if (SteamAPI.RestartAppIfNecessary(AppId_t.Invalid))
+            {
+                Engine.RequestExit();
+                return;
+            }
+        }
+        catch (DllNotFoundException ex)
+        {
+            Debug.LogException(ex);
+            Debug.LogError(&quot;[Steamworks.NET] Could not load [lib]steam_api.dll/so/dylib. It&#39;s likely not in the correct location.&quot;);
+            Engine.RequestExit();
+            return;
+        }
+
+        var initialized = SteamAPI.Init();
+        if (!initialized)
+        {
+            Debug.LogError(&quot;[Steamworks.NET] SteamAPI_Init() failed.&quot;);
+            return;
+        }
+    }
+}
+</code></pre><p>To learn more see the libary <a href="https://github.com/rlabrecque/Steamworks.NET">website</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 0.6 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 0.6 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-06-release-notes">Flax 0.6 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="scene-animations">Scene Animations</h3>
+<p><img src="media/scene-anims-cut-scenes.gif" alt="Scene Animations"></p>
+<p>One of the major features we are bringing to Flax in this update are <strong>Scene Animations</strong>. It is an in-build tool that is used to animate objects on the scene. For instance, to create cut-scenes, game objects animations, UI animations, etc. Flax provides various tools to develop and use scene animations inside game projects. This enables developers to easily animate anything on the scene (actors, scripts) and all of their properties including creating camera shots and audio playback as well as event tracks. This can be extended to implementing various gameplay mechanics based on time, like boss fights.</p>
+<p>You can read more about on the <a href="https://flaxengine.com/blog/flax-facts-28-scene-animations/">blog</a>.</p>
+<h3 id="linux-support">Linux support</h3>
+<p><img src="media/flax-on-linux.gif" alt="Flax on Linux Ubuntu"></p>
+<p>Starting from this update we will support Linux platform and distribute Flax binaries for game developers to deploy their games to support desktop gaming on Linux or use special build options to run a game in the cloud for multiplayer and streaming purposes.</p>
+<p>To learn more about it see the <a href="https://flaxengine.com/blog/flax-for-linux/">announcement</a>.</p>
+<h3 id="materials-workflow-improvements">Materials workflow improvements</h3>
+<p><img src="media/material-instance.png" alt="Material Instance Workflow Improvements"></p>
+<p>Every engine update brings new features and improvements for content creators. This time we wanted to improve materials workflow. Specifically, we added per-parameter material overrides support and the ability to use other material instances as a base for inheritance. This makes using uber-material shaders much easier and improves the overall workflow for technical artists. Editor will also highlight the modified parameters (use right-click to copy or restore default value).</p>
+<h3 id="directx-12">DirectX 12</h3>
+<p>Flax supports DirectX 12 since 2015 but it was used only for Xbox One builds. Now you can try it out in Editor and in Windows builds. Simply pass <code>-d3d12</code> command line argument to use DirectX 12 rendering backend if available (required Windows 10). Also, you can specify the supported rendering backend when building a game for a given platform (for instance Windows supports DirectX 10, DirectX 11, DirectX 12, and Vulkan).</p>
+<h3 id="anti-aliased-lines-rendering">Anti-Aliased lines rendering</h3>
+<p><img src="media/line-aa.png" alt="Anti-Aliased lines rendering"></p>
+<p>Flax 0.6 offers more improvements for text rendering quality. We also wanted to enhance the visuals of the editor UI by adding an anti-aliasing filter for line rendering. Now, working with Visject Surfaces (Anim Graph, Material, Particle Graph) is more visually appealing. Also, game UI that uses <code>Render2D</code> drawing subsystem will get more smooth lines without blocky artifacts like it used to be before.</p>
+<h3 id="editor-features">Editor features</h3>
+<p>Editor features highlights in release notes starts to be a regular section as every update brings lots of cool features. This time we&#39;ve added many great ones such as:</p>
+<ul>
+<li>High-DPI support</li>
+<li>Output Log window</li>
+<li>Exporting terrain heightmap</li>
+<li>Pilot actor mode</li>
+<li>Custom editor caption</li>
+<li>Improved editor text quality. Better fonts rasterization options.</li>
+</ul>
+<h3 id="output-log-window">Output Log window</h3>
+<p><img src="media/output-log-console.png" alt="Output Log Console Window"></p>
+<p>For advanced Flax developers, we&#39;ve added a new dedicated window to Editor for easier debugging their games: <strong>Output Log</strong>. It displays the current engine log contents with color-coded messages, searches support, filtering support and customization options (available to tweak in Editor Interface settings). Also, you can load previous log files or logs gathered from a distributed build or from the console during development.</p>
+<p>To make this possible we&#39;ve drastically improved text rendering performance including more Font API in C# to access. You can also use new controls <em>RichTextBox</em>/<em>RichTextBoxBase</em> to implement fancy stylized text rendering in your game UI.</p>
+<h3 id="particle-parameters-editing">Particle Parameters Editing</h3>
+<p><img src="media/particle-params-override.png" alt="Particle Parameters Editing"></p>
+<p>To make particle systems editing even easier we&#39;ve added particle emitter parameters overrides that are saved in the system. This enables developers to use multiple different particle emitters inside one system and adjust custom properties for each of them.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-066192---4-february-2020">Version 0.6.6192 - 4 February 2020</h3>
+<p>Contributors: stefnotch</p>
+<ul>
+<li>Add <strong>Channel Mask</strong> parameter type to materials and particles</li>
+<li>Add support for scene actions shortcuts in Properties window</li>
+<li>Add Unlit view mode with material color and ambient occlusion</li>
+<li>Add Copy name option to asset editor window title bar</li>
+<li>Add support for selecting parent of the actor with HideFlags.DontSelect when picking it</li>
+<li>Add Viewport Brightness, Viewport Resolution and Take Screenshot options to Game window</li>
+<li>Add profile event for profiler window update</li>
+<li>Add support for tooltips for enums</li>
+<li>Add <strong>tooltips for common engine enums</strong></li>
+<li>Add support for seeking scene animation timeline when no player assigned</li>
+<li>Add Min/Max/Clamp to Color</li>
+<li>Add editor option to customize editor fps</li>
+<li>Add <strong>HDR support to color picker</strong></li>
+<li>Add NonWalkableModes to CharacterController</li>
+<li>Add automatic main menu option popup when moving mouse</li>
+<li>Add support for using custom graphics quality in editor (local)</li>
+<li>Add support for editing multiple actor scripts that have the same scripts collection</li>
+<li>Add <strong>vertex snapping support to Render2D</strong> (optional via Render2D.Features flags)</li>
+<li>Add support for undo when transforming selected foliage instance</li>
+<li>Add duplicate for folders via content window context menu</li>
+<li>Add support for undo when duplicating foliage instance</li>
+<li>Add support for undo when picking foliage instance</li>
+<li>Add support for undo when editing and removing selected foliage instance</li>
+<li>Add <strong>Preserve Alpha Coverage support to textures</strong> importing</li>
+<li>Add &#39;if&#39; as alternative title to branch node</li>
+<li>Add error log when changing actor transformation to nan/inf</li>
+<li>Add support for using 0 for update/draw fps as infinity</li>
+<li>Add PageUp/PageDown shortcuts for rapid keyframes navigation in timeline</li>
+<li>Add default values for game settings</li>
+<li>Add View Flags caching for EditGameWindow</li>
+<li>Add random quotes to Editor splash screen</li>
+<li>Add support for running editor with relative project path specified</li>
+<li>Optimize Debug Draw vertices to use 32bit color</li>
+<li>Improve color picker default placement</li>
+<li>Improve naming duplicated assets and folders</li>
+<li>Improve moving and renaming assets (don&#39;t reload asset when storage changes)</li>
+<li>Refactor Skeleton Mask asset to contain a list of skeleton nodes names (instead of bone indices)</li>
+<li>Refactor Bone Socket actor to use skeleton bone as reference</li>
+<li>Refactor Content api</li>
+<li>Refactor and optimize Function class to be faster</li>
+<li>Improve using tree nodes arrows navigation</li>
+<li>Improve borderless windows support on Windows</li>
+<li>Disable ModelLOD bias/scale from RenderView task for terrain</li>
+<li>Fix drawing debug circle pointing down</li>
+<li>Fix to use utf8 for project.xml file</li>
+<li>Fix error when using native window title bar</li>
+<li>Fix drawing editor sprites when using custom view mode</li>
+<li>Fix new material rendering issue</li>
+<li>Fix short name for folder paths with dots</li>
+<li>Fix drawing selection outline when using custom view mode</li>
+<li>Fix profiler timing</li>
+<li>Fix material layers usage with tessellation</li>
+<li>Fix constant buffer alignment for materials</li>
+<li>Fix spot light debug shapes rendering</li>
+<li>Fix physics layers mask editor layer names labels positioning</li>
+<li>Fix Snap loading from Input settings</li>
+<li>Fix profiler timings for cpu</li>
+<li>Fix importing folders via drag and drop to editor</li>
+<li>Fix selection outline to draw selection child actors</li>
+<li>Fix material instance color picker usage with cancel</li>
+<li>Fix tree node if has hidden child nodes added later</li>
+<li>Fix Quaternion.LookRotation for edge cases</li>
+<li>Fix dock windows stealing user focus</li>
+<li>Fix Bezier interpolation for Quaternion when angle wraps</li>
+<li>Fix regression on inverted culling for geometry with negative scale</li>
+<li>Fix restoring windows layout to maximized when window is already maximized</li>
+</ul>
+<h3 id="version-066191---23-december-2019">Version 0.6.6191 - 23 December 2019</h3>
+<ul>
+<li>Add support for <code>FlaxEngine.Object.New&lt;GPUTexture&gt;()</code></li>
+<li>Add using async calls for content loading in editor</li>
+<li>Add warning with missing custom node typename</li>
+<li>Add output log window auto focus on game build fail</li>
+<li>Add <code>Actor.Children</code> getter</li>
+<li>Add ctrl+tab navigation for dock panel tabs</li>
+<li>Add ctrl+w shortcut for closing selected dock window</li>
+<li>Improve range for postFx intensity options max range</li>
+<li>Improve Asset.WaitForLoaded</li>
+<li>Change live relaod to be disabled by default for prefab editors</li>
+<li>Fix loading custom node in Visject without any custom nodes in project</li>
+<li>Fix deadlock in Asset::WaitForLoaded when asset load task fails</li>
+<li>Fix specular for area lights source length is non zero</li>
+<li>Fix crash on <code>AutomaticAverageLuminance</code></li>
+<li>Fix rare crash on engine exit in DirectInput gamepads scanning thread on Windows</li>
+<li>Fix text culling in RichTextBoxBase</li>
+<li>Fix duplicating actors in prefab editor</li>
+<li>Fix exception when moving actors in prefab editor</li>
+<li>Fix custom editor window title bar on High-Dpi display</li>
+<li>Fix Desaturation node elements positioning</li>
+<li>Fix Border control drawing</li>
+</ul>
+<h3 id="version-066190---17-december-2019">Version 0.6.6190 - 17 December 2019</h3>
+<p>Contributors: stefnotch, JimiVacarians</p>
+<ul>
+<li>Add <strong>Scene Animations</strong></li>
+<li>Add actors searching popup to actor reference picker</li>
+<li>Add <code>Control.PointFromParent(ContainerControl parent, Vector2 location)</code></li>
+<li>Add Screen Fade Color to fade screen via postFx settings</li>
+<li>Add AutoFitText option to Label</li>
+<li>Add <strong>Linux</strong> support</li>
+<li>Add resolution scale slider to editor viewports</li>
+<li>Add <strong>High-DPI</strong> screens support</li>
+<li>Add <code>-lowdpi</code> command line to use default DPI</li>
+<li>Add fonts upscaling for high-DPI monitors</li>
+<li>Add PerlinNoise to FlaxEngine</li>
+<li>Add Octaves to PerlinNoise</li>
+<li>Add DelayLoad to Assimp DLL to improve editor startup time</li>
+<li>Add support for shwoing getter only properties with the <code>ShowInEditor</code> attribute</li>
+<li>Add support for DirecxtTex lib on UWP and XboxOne</li>
+<li>Add <strong>Output Log window</strong> to Editor</li>
+<li>Add support for enums editing for visject node values</li>
+<li>Add Render2D.DrawText without layout formatting</li>
+<li>Add Rich Text Box to UI library</li>
+<li>Add C# API for Font and Render2D to use text substring with TextRange</li>
+<li>Add emitter parameters overrides support to particle system</li>
+<li>Add <code>Time.StartupTime</code></li>
+<li>Add caching FPS and Navigation show widgets option</li>
+<li>Add <code>Texture.FromFile</code> and <code>Texture.LoadFile</code> for loading images from files in game</li>
+<li>Add Copy asset ID option to content window context menu</li>
+<li>Add Flax icon to engine textures</li>
+<li>Add native memory allocations profiling</li>
+<li>Add Output Log window to the default windows layout</li>
+<li>Add <strong>terrain exporting</strong> feature</li>
+<li>Add navmesh updating support when editing terrain</li>
+<li>Add High DPI support to Editor</li>
+<li>Add guard to block editing scene hierarchy on other threads</li>
+<li>Add kerning table caching support for Font</li>
+<li>Add support for <strong>hinting and flags to font</strong> asset</li>
+<li>Add index buffer support for Render2D</li>
+<li>Add drag and drop support for ParticleSystemTimeline</li>
+<li>Add AddPostFxMaterial and RemovePostFxMaterial methods to PostFxVolume</li>
+<li>Add <code>GPUContext.CopyTextureRegion</code></li>
+<li>Add <strong>histogram-based eye adaptation</strong> effect</li>
+<li>Add Limit parameter to Bloom settings</li>
+<li>Add ToneMappingMode and use optimized ACES approximation instead of customizable options for curve</li>
+<li>Add feature to <strong>pilot actor in editor</strong> scene viewport</li>
+<li>Add <strong>DirectX 12 support</strong> (use <code>-d3d12</code> command line switch)</li>
+<li>Add GPU memory logging on Vulkan</li>
+<li>Add <code>Font.ProcessText</code></li>
+<li>Add ViewFlags.DebugDraw</li>
+<li>Add <strong>anti-aliased lines rendering support to Render2D</strong></li>
+<li>Add Render2D.DrawLine with separate start/end colors</li>
+<li>Add <code>FLAX</code> define to game scripts project</li>
+<li>Add <code>Editor.CustomData</code> for editor plugins to cache persistent data during session</li>
+<li>Add default values to material properties</li>
+<li>Add fade out distance parameters to SSR</li>
+<li>Add easier terrain creating via toolbox</li>
+<li>Add missing System libraries from .Net Framework</li>
+<li>Add <code>Actor.HasTag</code></li>
+<li>Add printing object ID for invalid actor/script type on scene load</li>
+<li>Add support for taking screenshots in build game</li>
+<li>Add support for receiving directional light shadows for transparent and particle materials</li>
+<li>Add assets dependencies collecting C# API (<code>Asset.GetReferences</code>)</li>
+<li>Add material parameters override support</li>
+<li>Add custom title bar to editor window</li>
+<li>Add GPUResource and GPUTexture</li>
+<li>Add GPUResourceMapMode</li>
+<li>Add Add GPUResourceUsage</li>
+<li>Add Add GPUTextureDescription</li>
+<li>Add GPUTexture.Description getter</li>
+<li>Add Half constant to Vector2 and Vector4</li>
+<li>Add <em>Set Root</em> action to prefab editor</li>
+<li>Add support for loading missing Visject nodes</li>
+<li>Add support for baking lightmaps for terrain</li>
+<li>Add support for baking lightmaps for foliage</li>
+<li>Add Visject Surface editing improvements for keyboard aka <em>fast typing</em></li>
+<li>Add exponential height fog to transparent and particle materials</li>
+<li>Add support for local lights in transparent and particle materials (point/spot lights)</li>
+<li>Add support for material instance used as a base for another instance</li>
+<li>Add draw time on GPU and drawing stats to the main profiling data access API</li>
+<li>Add support for particles and transparency shadows</li>
+<li>Add MSAA support for D3D12</li>
+<li>Add Fixed Axis facing mode for particles</li>
+<li>Add <code>DrawPass</code> masking support for better rendering configurability</li>
+<li>Add support for HideInEditor attribute used for enum items</li>
+<li>Add support for EditorDisplay attribute used for enum items</li>
+<li>Add fade out to last model LOD on hide</li>
+<li>Add fallback to default project scene if nothing saved in the cache on editor startup</li>
+<li>Add FontTextureAtlas type to C#</li>
+<li>Reduce maximum nested prefab nesting level to 8 per object</li>
+<li><strong>Rename game scripts Assembly to Game</strong> (and Assembly.Editor to Game.Editor)</li>
+<li>Refactor and optimzie scripting backend</li>
+<li>Refactor PostProcessSettings</li>
+<li>Refactor eye adaptation</li>
+<li>Refactor engine native memory allocator</li>
+<li>Refactor scripting system (C++ scripts support from native modules)</li>
+<li>Refactor managed types caching (multitheraded support)</li>
+<li>Refactor engine workspace</li>
+<li>Refactor lightmap entries to be stored one per StaticModel (instead of one per mesh)</li>
+<li>Refactor some engine logs to use logger instead of DebugLog</li>
+<li>Refactor FontReference into structure</li>
+<li>Refactor LogType</li>
+<li>Refactor log startup time to count from actual game start, not the log start</li>
+<li>Refactor ScrollBar to make it more reusable for other UI</li>
+<li>Refactor render targets pool (use shared pool for C++ and C# scripting)</li>
+<li>Rename Application to Platform (matches C++ API)</li>
+<li>Rename GraphicsQuality to GraphicsSettings</li>
+<li>Rename GraphicsDevice to GPUDevice</li>
+<li>Rename TextureFlags to GPUTextureFlags</li>
+<li>Improve exponential height fog and fix volumetric fog density</li>
+<li>Improve Visual Studio 2019 detection</li>
+<li>Improve geometry instancing performance</li>
+<li>Improve draw calls sorting performance</li>
+<li>Improve model and skinned model windows previews</li>
+<li>Improve viewport gizmos tick (use update delegate)</li>
+<li>Improve particles vertex processing performance by using index buffer for sprites</li>
+<li>Adjust default MinScreenSize for models to be lower (less aggressive culling)</li>
+<li>Remove <code>StaticModel.HiddenShadow</code> (use draw modes option)</li>
+<li>Remove ContainerControl.OnChildControlResized</li>
+<li>Remove <code>RenderTask.Create&lt;&gt;</code>, use <code>Object.New&lt;&gt;</code></li>
+<li>Remove <code>Mathf.Deg2Rad</code>/<code>Mathf.Rad2Deg</code>, use <code>Mathf.DegreesToRadians</code>/<code>Mathf.RadiansToDegrees</code></li>
+<li>Remove FlaxEngine.Rendering namespace from scripting</li>
+<li>Remove RenderTarget (use GPUTexture)</li>
+<li>Remove Depth, GBuffer and MotionVectors pass from defaults for particles</li>
+<li>Remove <code>DebugDraw.DrawSphere</code> with center and radius (use method with BoundingSphere)</li>
+<li>Disable error message boxes on engine error messages</li>
+<li>Optimize GPU memory usage when not using shadowed lights</li>
+<li>Optimize light buffer format</li>
+<li>Update C# API assemblies version to match the engine version</li>
+<li>Use OnDestroy rather than Dispose for controls cleanup</li>
+<li>Use reference when passing InitData to TextureBase.Init</li>
+<li>Change CPUInfo to contain CPU cache sizes (not cache counts)</li>
+<li>Change default box brush size to 100</li>
+<li>Change default SunDiscScale to 3</li>
+<li>Change default brightness for Point, Spot and Directional lights to 8</li>
+<li>Change editor sprites rendering to not be affected by the scene lighting and post-processing</li>
+<li>Change default for RestoreMaterialsOnReimport to true</li>
+<li>Change default near plane to 10 and far plane to 40k</li>
+<li>Change Vector3.NearEqual epsilon param to float and add default value to it</li>
+<li>Fix undo for editing UIControl control properties</li>
+<li>Fix error when changing UIControl type with undo</li>
+<li>Fixes for audio playback with seeking</li>
+<li>Fix actor scene tree node expand when it has all children hidden</li>
+<li>Fix AudioSource.GetTime for audio clips with streaming</li>
+<li>Fix usage of streaming audio</li>
+<li>Fix missing MonoPosixHelper library</li>
+<li>Fix Panel ScrollBars changing</li>
+<li>Fix selecting CSG brushes</li>
+<li>Fix particle rotation when using Face Camera Position</li>
+<li>Fix material Opacity input enabled state</li>
+<li>Fix CSG selecting after rebuild</li>
+<li>Fix editor Highlight Material</li>
+<li>Fix handling Anchor Styles when resizing UI control</li>
+<li>Fix crash on ExtractDataFloat when using 16bit audio</li>
+<li>Fix <code>EnumElement.EnumTypeValue</code> getter</li>
+<li>Fix crash when calling stop on disabled AudioSource</li>
+<li>Fix timeline tracks reorder</li>
+<li>Fix error when using Scene Texture parameter in material</li>
+<li>Fix scene graph event unregister</li>
+<li>Fix deadlock on GPUTask cancel before sync</li>
+<li>Fix ShadowsDistance to be calculated from the point/spot light bounds instead of position</li>
+<li>Fix sorting postFx volumes</li>
+<li>Fix culling last model LOD with MinScreenSize</li>
+<li>Fix culling skinned models with MinScreenSize</li>
+<li>Fix timer queries and profiling GPU on D3D12</li>
+<li>Fix rare crashes after scripts reload</li>
+<li>Fix tooltip for long description text (wrap words)</li>
+<li>Fix <code>Scripting.InvokeOnUpdate</code> to be thread-safe</li>
+<li>Fix updating rigidbody bounds when it has no colliders</li>
+<li>Fix D3D12 support, improve performance and stability</li>
+<li>Fix AnimatedModel not visible in game build if not using Anim Graph</li>
+<li>Fix custom RigidBody mass serialization and override mass flag in Prefabs</li>
+<li>Fix using Guid value in custom anim graph nodes</li>
+<li>Fix error when closing material window after using color pickup dialog</li>
+<li>Fix crash when custom editor options object deserialization fails</li>
+<li>Fix terrain rendering on Vulkan (and improve buffers uploading)</li>
+<li>Fix skylight baking (no sky clipping, no using sky light during its baking)</li>
+<li>Fix Render2D.DrawLine to apply thickens on line caps and apply current transformation scale to it too</li>
+<li>Fix managed classes cache to be thread-safe</li>
+<li>Fix reporting GPU memory on DirectX backends</li>
+<li>Fix DebugLog sending from native code for multiple threads</li>
+<li>Fix Editor splash screen title for long project names</li>
+<li>Fix RenderOnlyWithWindow Brightness apply to not use alpha</li>
+<li>Fix error when selecting terrain with missing patches on editor reopen</li>
+<li>Fix _dirtyNodes lock to prevent race conditions</li>
+<li>Fix navmesh building with terrain</li>
+<li>Fix RootNodeName default value</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/release-notes/0_6/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

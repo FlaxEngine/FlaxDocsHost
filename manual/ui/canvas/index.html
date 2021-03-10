@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UI Canvas | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="UI Canvas | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ui-canvas">UI Canvas</h1>
+
+<p><img src="media/title.jpg" alt="UI Canvas"></p>
+<p><strong>UI Canvas</strong> is an actor type that renders UI. It&#39;s the root of the UI structure and performs GUI drawing with input events handling. A canvas can be placed in 3D level (as world-space or camera-space object) or rendered directly on a screen (as screen-space mode).</p>
+<div class="NOTE"><h5>Note</h5><p>After creating a UI Canvas in the editor, it is rotated by default. This is because the GUI coordinates system uses the upper-left corner of the container as a origin for its transformations.</p>
+</div>
+<h2 id="properties">Properties</h2>
+<p><img src="media/properties.png" alt="UI Canvas Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Render Mode</strong></td>
+<td>Canvas rendering mode. Possible options include: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Screen Space</strong></td><td>The screen space rendering mode that places UI elements on the screen, rendered on top of the scene. If the screen is resized or changes resolution, the canvas will automatically change size to match this.</td></tr><tr><td><strong>Camera Space</strong></td><td>The camera space rendering mode that places canvas in a given distance in front of a specified camera. The UI elements are rendered by this camera, which means that the camera settings affect the appearance of the UI. If the camera is set to &#39;Perspective&#39;, the UI elements will be rendered with perspective and the amount of perspective distortion can be controlled by the camera field of view. If the screen is resized, changes resolution, or the camera frustum changes, the canvas will automatically change size to match as well.</td></tr><tr><td><strong>World Space</strong></td><td>The world space rendering mode places the canvas like any other object in the scene. The size of the canvas can be set manually using its transform, and UI elements will render in front of or behind other objects in the scene based on 3D placement. This is useful for UIs that are meant to be a part of the world. This is also known as a &quot;diegetic interface&quot;.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Render Location</strong></td>
+<td>Canvas rendering location within the rendering pipeline. Change this if you want GUI to affect the lighting or post processing effects like bloom. <em>Used only by 3D canvas (World Space or Camera Space).</em> Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Default</strong></td><td>The default location after the in-build PostFx pass (bloom, color grading, etc.) but before anti-aliasing effect.</td></tr><tr><td><strong>Before Post Processing Pass</strong></td><td>The &#39;before&#39; in-build PostFx pass (bloom, color grading, etc.). After Forward Pass (transparency) and fog effects.</td></tr><tr><td><strong>Before Forward Pass</strong></td><td>The &#39;before&#39; Forward pass (transparency) and fog effects. After the Light pass and Reflections pass.</td></tr><tr><td><strong>Before Reflections Pass</strong></td><td>The &#39;before&#39; Reflections pass. After the Light pass. Can be used to affect Screen Space Reflections by the GUI.</td></tr><tr><td><strong>After Anti-Aliasing Pass</strong></td><td>The &#39;after&#39; AA filter pass. Rendering is done to the output backbuffer.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Order</strong></td>
+<td>The canvas rendering and input events gather order. Created GUI canvas objects are sorted before rendering (from the lowest order to the highest order). Canvas with the highest order can handle input events first.</td>
+</tr>
+<tr>
+<td><strong>Receives Events</strong></td>
+<td>If checked, canvas can receive the input events.</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>Canvas size. <em>Used only by World Space canvas.</em></td>
+</tr>
+<tr>
+<td><strong>Ignore Depth</strong></td>
+<td>If checked, scene depth will be ignored when rendering the GUI (scene objects won&#39;t cover the interface). <em>Used only by 3D canvas (World Space or Camera Space).</em></td>
+</tr>
+<tr>
+<td><strong>Render Camera</strong></td>
+<td>Camera used to place the GUI. <em>Used only by Camera Space canvas.</em></td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>Distance from the RenderCamera to place the plane with GUI. If the screen is resized, changes resolution, or the camera frustum changes then the canvas will automatically change size to match as well. Value is in world units.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/ui/canvas/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

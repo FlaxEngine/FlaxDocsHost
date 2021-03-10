@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Terrain Editing | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Terrain Editing | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="terrain-editing">Terrain Editing</h1>
+
+<p><img src="media/terrain_pic_05.gif" alt="Terrain Editing"></p>
+<p>Flax supports editing terrain geometry right inside the editor. After you <a href="tutorials/create-terrain.html">create</a> or <a href="tutorials/import-terrain.html">import</a> terrain you can select it and use <strong>Landscape</strong> tab in a <strong>Toolbox</strong> window to modify the terrain. It supports 3 working modes: <strong>Sculpt</strong>, <strong>Paint</strong> and <strong>Edit</strong>.</p>
+<h2 id="sculpt-mode">Sculpt Mode</h2>
+<p><img src="media/sculpt-tool.png" alt="Sculpt Tool"></p>
+<p>Terrain heightmap editing using <strong>Sculpt</strong> tool allows to create mountains, hills, valles and any other landscape shapes with a brush. This tool offers various editing modes descrided below. Select a desire tool mode, edit strength and other mode properties and edit terrain with your brush.</p>
+<h3 id="sculpt">Sculpt</h3>
+<p>Sculpt tool mode edits terrain heightmap by moving area affected by brush up or down. <strong>Strength</strong> parameter defines the brush intensity of the applied changes to the terrain.</p>
+<div class="NOTE"><h5>Note</h5><p>Hold <strong>Control</strong> key to invert brush effect (eg. substract terrain height).</p>
+</div>
+<h3 id="smooth">Smooth</h3>
+<p>Sculpt tool mode that smooths the terrain heightmap area affected by brush. Alongside the <strong>Strength</strong> parameter that defines the smoothing intensity, you can adjust the smoothing filter radius. <strong>Filter Radius</strong> property defines the size of the smoothing kernel, the higher value the more nearby samples is included into normalized sum. Scaled by the brush size.</p>
+<h2 id="flatten">Flatten</h2>
+<p>Sculpt tool mode that flattens the terrain heightmap area affected by brush to the target value. Use <strong>Strength</strong> parameter to define the blending intensity from the source height to target height. <strong>Target Height</strong> parameter defines the <em>destination</em> height for the terrain under the brush. If you use <strong>Control</strong> key it will pick the target height level at the center of the brush so it&#39;s easier to flatten the terrain to match the given area level.</p>
+<h2 id="noise">Noise</h2>
+<p>Sculpt tool mode that applies the noise to the terrain heightmap area affected by brush. The noise <strong>Strength</strong> parameter defines inetsnity of the noise blending. <strong>Noise Scale</strong> can be used to adjust the noise pattern scale and <strong>Noise Amount</strong> controls the amplitude of the noise (in world units).</p>
+<p>The current implementation uses Perlin Noise for terrain heightmap perturbation.</p>
+<h2 id="holes">Holes</h2>
+<p><img src="media/terrain_pic_07.gif" alt="Terrain Holes"></p>
+<p>Terrain holes creating tool mode edits terrain holes mask by changing area affected by brush. Use it to add holes to the heightam or hold <strong>Control</strong> key to remove them.</p>
+<p>To learn more about using holes in your terrain see <a href="tutorials/terrain-holes.html">this tutorial</a>.</p>
+<h3 id="brush">Brush</h3>
+<p>To learn more about using terrain brushes see the related documentation page <a href="brushes.html">here</a>.</p>
+<h2 id="edit-mode">Edit Mode</h2>
+<p><img src="media/edit-tool.png" alt="Edit Tool"></p>
+<p>Terrain heightmap editing using <strong>Edit</strong> tool allows to add or remove terrain patch and modify single terrain chunk properties. Use it to expand your terrain or remove unused terrain parts. Also, using <em>Edit Chunk</em> mode you can pick a single terrain chunk, view its location and override the material.</p>
+<h3 id="exporting-terrain">Exporting terrain</h3>
+<p><img src="media/terrain-export-heightmap.jpg" alt="Export Terrain"></p>
+<p>Terrain created in the editor can be exported to image files using the <strong>Export terrain</strong> mode. Once terrain selected you can use export button to select the output directory for the terrain heightmap. Exported terrain heightmap uses 16-bit PNG file format to store the heights as normalized to grayscale in range 0-1.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/terrain/editing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

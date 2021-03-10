@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom engine build | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom engine build | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-engine-build">Custom engine build</h1>
+
+<p>This documentation section covers the usage of the custom engine builds. This includes compiling, distribution, and running custom editor binaries. As a requirement, the engine source code access is needed.</p>
+<h2 id="build-tool">Build Tool</h2>
+<p>Flax contains an in-build utility set called <strong>Flax.Build</strong> which is a complete build system written in C#. It supports:</p>
+<ul>
+<li>compiling and linking of engine, game and tools projects</li>
+<li>downloading and pre-building engine dependencies</li>
+<li>updating 3rd Party libraries</li>
+<li>generating project files</li>
+<li>deploying engine</li>
+<li>generating C# bindings for native code.</li>
+</ul>
+<p>For advanced engine customizations or deep integration of engine and game tools please refer to Flax.Build sources located under <code>Source\Tools\Flax.Build</code> and/or use <code>Binaries\Tools\Flax.Build.exe -help</code> to learn more about usage. Engine repository contains useful scripts that are wrappers against the build tool and automatically compile its sources.</p>
+<p>To learn more about build tool and build scripts see the related documentation page <a href="../flax-build/index.html">here</a>.</p>
+<h2 id="compiling">Compiling</h2>
+<p>To learn how to build editor from source see <strong>README.md</strong> documentation file located in the root of the repository. Under section <em>Windows</em>/<em>Linux</em> basic steps are described as well as requirements.</p>
+<p>You can use <em>Flax.Build</em> for automated editor building with a custom engine for your team members. In that case, the distribution flow is similar to binaries distributed via Flax Store except the engine is located and installed manually. To use it further follow the Engine Registration and Engine Nickname sections.</p>
+<h2 id="engine-registration">Engine Registration</h2>
+<p><strong>Flax Launcher</strong> manages a small registry of installed engine versions on a system. When installing or removing the engine from Flax Store it gets updated. To use custom engine build from any location on a drive use <strong>RegisterEngineLocation.bat</strong> script (engine repo root). It will register the engine location so the engine build can be used to open projects via Flax Launcher (or shell integration).</p>
+<h2 id="engine-nickname">Engine Nickname</h2>
+<p>When working with custom engine build (eg. in-house fork of the Flax) some team members might have installed other versions of Flax. To ensure that the game project is always opened with proper engine version your team can use <strong>Engine Nickname</strong> feature. It&#39;s a user-friendly nickname for the engine installation to use when opening the project. It can be used to open a game project with a custom engine distributed for team members. This value must be the same in engine and game projects to be paired. Then Flax Launcher will pick the matching engine build when opening a project.</p>
+<p>To use it simply add <code>EngineNickname</code> property to both <code>Flax.flaxproj</code> and <code>&lt;game&gt;.flaxproj</code> to associate project with an engine.</p>
+<pre><code class="lang-json">...
+    &quot;EngineNickname&quot;: &quot;our-cool-flax-engine&quot;,
+...
+</code></pre><p>After that Flax Launcher will also display engine nickname so it can be recognized in UI.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/editor/advanced/custom-engine.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Skinned Model | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Skinned Model | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="skinned-model">Skinned Model</h1>
+
+<p><img src="media/title.jpg" alt="Skinned Model"></p>
+<p><strong>Skinned models</strong> are <a href="../../graphics/models/index.html">models</a> that have been skinned to match the skeleton bone hierarchy. The rigged model contains a skin information that describes how mesh vertices are transformed when the model moves.</p>
+<p>Skinned models after importing contain a skeleton. <strong>Skeleton</strong> is a structure that describes the deformation pattern of the skinned model. You can think about it as a human skeleton made of bones. Each bone has a parent bone. When parent bones change their position, they also affect the positions of child&#39;s bones. For example, a hand bone might have five child bones (the fingers and thumb); when the hand moves up and down, the fingers and thumb move with it.</p>
+<h2 id="importing-skinned-model">Importing skinned model</h2>
+<p>Importing skinned models works in the same way as for other asset types. Simple drag and drop the model files from <em>Explorer</em> into the <em>Content</em> window or use the <em>Import</em> button.</p>
+<p><img src="../animation/media/import-animation.jpg" alt="Importing Skinned Model"></p>
+<p>After choosing the files <strong>Import file settings</strong> dialog shows up. It&#39;s used to specify import options per asset. In most cases the default values are fine and you can just press the <strong>Import</strong> button. Remember to set the imported model type to <strong>Skinned Model</strong>, otherwise, it will be imported as a static model asset.</p>
+<div class="NOTE"><h5>Note</h5><p>Using <strong>Import file settings</strong> dialog you can select more than one asset at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</p>
+</div>
+<p>Every asset can be reimport (relative path to the source file is cached) and import settings modified using Animation Window.</p>
+<p>To learn more about <strong>Import Options</strong> see <a href="../../graphics/models/import.html">Models Importing page</a>.</p>
+<div class="NOTE"><h5>Note</h5><p>Flax during importing separates the skeleton bones (used for the skinning) and the skeleton nodes hierarchy due to performance reasons (there are fewer bones that are used for rendering). If your model used sockets or any dedicated nodes they may be lost. However, it&#39;s better to use the Bone Socket actor in Flax.</p>
+</div>
+<p>Flax supports <strong>Level of Detail</strong> for skinned models including automatic generation on import.</p>
+<h2 id="editing-skinned-model">Editing skinned model</h2>
+<p><img src="media/skinned-model-window.jpg" alt="Skinned Model Window"></p>
+<p>To view and edit the imported skinned model asset double-click on it in <em>Content</em> window.
+You can edit the default material slots or quickly reimport the asset from the source file. That window contains also various debugging tools such as skeleton <a href="../advanced/bones-debugging.html">bones debugging</a> and meshes info panels.
+To learn more about editing the skinned model properties and exploring it see the <a href="interface.html">window interface</a> page.</p>
+<h2 id="using-skinned-model">Using skinned model</h2>
+<p>Skinned models are used by the many parts of the animation system.
+The most important usage is to feed the rendering system with the meshes data.
+Also assets like <a href="../anim-graph/index.html">Anim Graph</a> and <a href="../skeleton-mask.html">Skeleton Mask</a> are using the skeleton bones structure indiced within the skinned model asset. You can also access the skeleton data via C# scripting API (see <a href="https://docs.flaxengine.com/api/FlaxEngine.SkinnedModel.html">SkinnedModel</a> class).</p>
+<h2 id="blend-shapes">Blend Shapes</h2>
+<p><img src="media/blend-shapes.gif" alt="Blend Shapes"></p>
+<p>Flax supports importing and using Blend Shapes (aka. morph targets) for skinned models. This can be useful to implement character face emotions or lip sync during dialog scenes. When importing asset check <strong>Import Blend Shapes</strong> option. Then you will be able to preview the blend shapes in the skinned model window (each channel is adjustable under <em>Blend Shapes</em> group).
+Then you can control blend shapes appearance at runtime from code using <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html">AnimatedModel</a> class methods <em>SetBlendShapeWeight</em> / <em>GetBlendShapeWeight</em> / <em>ClearBlendShapeWeights</em>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/animation/skinned-model/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

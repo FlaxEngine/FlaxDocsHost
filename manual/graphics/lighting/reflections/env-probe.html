@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Environment Probe | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Environment Probe | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="environment-probe">Environment Probe</h1>
+
+<p><img src="media/env-probe.png" alt="Environment Probe"></p>
+<p><a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html">Environment Probe</a> actor uses cube texture and applies it onto the objects as reflection source. This technique is called reflection mapping and comes very handy to reproduce reflective surfaces like metals, marbles or shiny plastics.</p>
+<h2 id="creating-a-new-reflection-probe">Creating a new reflection probe</h2>
+<p>Creating reflection probes is done similar to other actor types. Simply right click on a actor node in the <em>Scene</em> window, and select option <strong>New -&gt; Visuals -&gt; Environment Probe</strong>.</p>
+<p><img src="media/env-probe-create.jpg" alt="New Environment Probe"></p>
+<p>Creating probes at runtime via script is also possible but not recommended. It&#39;s better to toggle existing probes visibility or modify <strong>Brightness</strong> property to fade in or out.</p>
+<p>Alternatively you can use a <em>Toolbox</em> window and drag and drop environment probe actor from group <strong>Visuals</strong> into a scene.</p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/env-probe-properties.jpg" alt="Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Brightness</strong></td>
+<td>Controls intensity of the reflection color from the probe. Can be used to fade in or out reflection.</td>
+</tr>
+<tr>
+<td><strong>Radius</strong></td>
+<td>Reflection probe influence range.</td>
+</tr>
+<tr>
+<td><strong>Auto Update</strong></td>
+<td>If checked, probe will be baked by auto every time actor is transformed (moved, rotated, or scaled).</td>
+</tr>
+<tr>
+<td><strong>Capture Near Plane</strong></td>
+<td>Defines a near clipping plane used for rendering probe. Use higher value to clip geometry near the probe.</td>
+</tr>
+<tr>
+<td><strong>Custom Probe</strong></td>
+<td>If specified, environment probe will use custom <a href="http://docs.flaxengine.com/api/FlaxEngine.CubeTexture.html">CubeTexture</a> as a reflections source.</td>
+</tr>
+</tbody>
+</table>
+<p>To capture the scene around the reflection probe press the <strong>Bake</strong> button. It will render the scene in each 6 directions into a cube map and filter it. During reflection probes rendering only actors with <a href="http://docs.flaxengine.com/api/FlaxEngine.StaticFlags.html">StaticFlags.ReflectionProbe</a> enabled will be visible.</p>
+<p>Updated environment probe cube textures are stored in a <em>SceneData</em> folder. To read more about see the <code>Scene Data storage</code> section down below.</p>
+<h2 id="blending">Blending</h2>
+<p><img src="media/env-probe-blending.png" alt="Reflections Blending"></p>
+<p>Flax Engine renders reflection probes using a dedicated pass using screen space shader into a dedicated buffer. Then mixes final reflection color into the light buffer. This gives opportunity to perform high quality <strong>per-pixel relfections color blending</strong>. Rendering starts from drawing probes with the highest radius and then the smaller ones (<strong>probes are sorted by radius</strong>). Also reflection color is being faded on the edges of the probe bounds. This results in a smooth transition and reduces any flickering. Especially for dynamic objects that move quickly through the scene.</p>
+<h2 id="scene-data-storage">Scene Data storage</h2>
+<p>By default Flax uses a dedicated content directory for <strong>scene data assets</strong>. It&#39;s used by the lightmaps, CSG meshes and also Environment Probes. Reflection probes cube textures are located in: <strong>Content/SceneData/&#39;scene_name&#39;/EnvProbes</strong>. If you want to reuse baked reflection probe or modify it you can access textures in there. Also Environment Probe actor contains a dedicated public property <a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html#FlaxEngine_EnvironmentProbe_Probe">EnvironmentProbe.Probe</a> which can be used to access the cube texture being in use.</p>
+<p>To learn more about the scene assets see <a href="../../../get-started/scenes/scene-data.html">Scene Data Storage</a> page.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/master/manual/graphics/lighting/reflections/env-probe.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>
