@@ -380,9 +380,9 @@ public int VertexCount { get; }</code></pre>
   
   <a id="FlaxEngine_ModelLOD_Draw_" data-uid="FlaxEngine.ModelLOD.Draw*"></a>
   
-  <h4 id="FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_" data-uid="FlaxEngine.ModelLOD.Draw(FlaxEngine.RenderContext@,FlaxEngine.MaterialBase,FlaxEngine.Matrix@,FlaxEngine.StaticFlags,System.Boolean)"><a href="#collapsible-FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_" class="expander" data-toggle="collapse">Draw(ref RenderContext, MaterialBase, ref Matrix, StaticFlags, Boolean)</a></h4>
+  <h4 id="FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_FlaxEngine_DrawPass_System_Single_" data-uid="FlaxEngine.ModelLOD.Draw(FlaxEngine.RenderContext@,FlaxEngine.MaterialBase,FlaxEngine.Matrix@,FlaxEngine.StaticFlags,System.Boolean,FlaxEngine.DrawPass,System.Single)"><a href="#collapsible-FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_FlaxEngine_DrawPass_System_Single_" class="expander" data-toggle="collapse">Draw(ref RenderContext, MaterialBase, ref Matrix, StaticFlags, Boolean, DrawPass, Single)</a></h4>
   
-  <div id="collapsible-FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_ModelLOD_Draw_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_Matrix__FlaxEngine_StaticFlags_System_Boolean_FlaxEngine_DrawPass_System_Single_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the meshes from the model LOD.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -391,7 +391,7 @@ public int VertexCount { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Draws the meshes from the model LOD.&quot;)]
-public void Draw(ref RenderContext renderContext, MaterialBase material, ref Matrix world, StaticFlags flags = StaticFlags.None, bool receiveDecals = true)</code></pre>
+public void Draw(ref RenderContext renderContext, MaterialBase material, ref Matrix world, StaticFlags flags = StaticFlags.None, bool receiveDecals = true, DrawPass drawModes = DrawPass.Depth | DrawPass.GBuffer | DrawPass.Forward | DrawPass.Distortion | DrawPass.MotionVectors | DrawPass.Default | DrawPass.All, float perInstanceRandom = 0F)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -433,6 +433,22 @@ public void Draw(ref RenderContext renderContext, MaterialBase material, ref Mat
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">receiveDecals</span>
         <p><p>True if rendered geometry can receive decals, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a></span>
+        <span class="parametername">drawModes</span>
+        <p><p>The draw passes to use for rendering this object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">perInstanceRandom</span>
+        <p><p>The random per-instance value (normalized to range 0-1).</p>
 </p>
       </td>
     </tr>

@@ -102,12 +102,6 @@
       <div class="level4"><a class="xref" href="FlaxEditor.Windows.Assets.PrefabWindow.CustomRootNode.html">PrefabWindow.CustomRootNode</a></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEditor_SceneGraph_RootNode" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEditor_SceneGraph_RootNode" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEditor_SceneGraph_RootNode" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEditor_SceneGraph_RootNode" data-uid="FlaxEditor.SceneGraph.ActorNode._actor"><a href="#collapsible-inheritedMembers-FlaxEditor_SceneGraph_RootNode" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -137,6 +131,9 @@
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_RayCast_FlaxEditor_SceneGraph_SceneGraphNode_RayCastData__System_Single__FlaxEngine_Vector3__">ActorNode.RayCast(SceneGraphNode.RayCastData, Single, Vector3)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_GetEditorSphere_FlaxEngine_BoundingSphere__">ActorNode.GetEditorSphere(BoundingSphere)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_PostSpawn">ActorNode.PostSpawn()</a>
     </div>
     <div>
@@ -146,10 +143,19 @@
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_Dispose">ActorNode.Dispose()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_ToString">ActorNode.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_Actor">ActorNode.Actor</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_TreeNode">ActorNode.TreeNode</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_AffectsNavigation">ActorNode.AffectsNavigation</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_AffectsNavigationWithChildren">ActorNode.AffectsNavigationWithChildren</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_CanCreatePrefab">ActorNode.CanCreatePrefab</a>
@@ -185,6 +191,12 @@
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_RayCastChildren_FlaxEditor_SceneGraph_SceneGraphNode_RayCastData__System_Single__FlaxEngine_Vector3__">SceneGraphNode.RayCastChildren(SceneGraphNode.RayCastData, Single, Vector3)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnContextMenu_FlaxEditor_GUI_ContextMenu_ContextMenu_">SceneGraphNode.OnContextMenu(ContextMenu)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_Duplicate_FlaxEditor_IUndoAction__">SceneGraphNode.Duplicate(IUndoAction)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnDispose">SceneGraphNode.OnDispose()</a>
     </div>
     <div>
@@ -195,6 +207,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_UndoRecordObject">SceneGraphNode.UndoRecordObject</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_CanUseState">SceneGraphNode.CanUseState</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_State">SceneGraphNode.State</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -212,9 +230,6 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
     <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
@@ -226,7 +241,7 @@
   <h5 id="FlaxEditor_SceneGraph_RootNode_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
-public abstract class RootNode : ActorNode, ITransformable</code></pre>
+public abstract class RootNode : ActorNode</code></pre>
   </div>
 
   
@@ -415,6 +430,45 @@ public abstract class RootNode : ActorNode, ITransformable</code></pre>
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_CanDrag">SceneGraphNode.CanDrag</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_SceneGraph_RootNode_CanDuplicate_" data-uid="FlaxEditor.SceneGraph.RootNode.CanDuplicate*"></a>
+  
+  <h4 id="FlaxEditor_SceneGraph_RootNode_CanDuplicate" data-uid="FlaxEditor.SceneGraph.RootNode.CanDuplicate"><a href="#collapsible-FlaxEditor_SceneGraph_RootNode_CanDuplicate" class="expander" data-toggle="collapse">CanDuplicate</a></h4>
+  
+  <div id="collapsible-FlaxEditor_SceneGraph_RootNode_CanDuplicate" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance can be duplicated by the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanDuplicate { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.SceneGraph.ActorNode.html#FlaxEditor_SceneGraph_ActorNode_CanDuplicate">ActorNode.CanDuplicate</a></div>
   
   
   
@@ -623,8 +677,7 @@ public abstract class RootNode : ActorNode, ITransformable</code></pre>
   <h4 id="FlaxEditor_SceneGraph_RootNode_Transform" data-uid="FlaxEditor.SceneGraph.RootNode.Transform"><a href="#collapsible-FlaxEditor_SceneGraph_RootNode_Transform" class="expander" data-toggle="collapse">Transform</a></h4>
   
   <div id="collapsible-FlaxEditor_SceneGraph_RootNode_Transform" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the transform.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 

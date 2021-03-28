@@ -102,13 +102,6 @@
     <div class="level5"><span class="xref">DistanceJoint</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_DistanceJoint" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_DistanceJoint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_DistanceJoint" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_DistanceJoint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_DistanceJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -163,15 +156,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -235,6 +219,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -315,12 +311,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -376,6 +366,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -495,7 +491,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Physics joint that maintains an upper or lower (or both) bound on the distance between two bodies.&quot;)]
-public class DistanceJoint : Joint, ITransformable, ISceneObject</code></pre>
+public class DistanceJoint : Joint</code></pre>
   </div>
 
   
@@ -588,7 +584,7 @@ public float CurrentDistance { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [Unmanaged]
-[Tooltip(&quot;The joint mode flags. Controls joint behaviour.&quot;)]
+[Tooltip(&quot;Gets or sets the joint mode flags. Controls joint behaviour.&quot;)]
 public DistanceJointFlag Flags { get; set; }</code></pre>
   </div>
 
@@ -630,7 +626,7 @@ public DistanceJointFlag Flags { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The allowed maximum distance for the joint.&quot;)]
+[Tooltip(&quot;Gets or sets the allowed maximum distance for the joint.&quot;)]
 public float MaxDistance { get; set; }</code></pre>
   </div>
 
@@ -675,7 +671,7 @@ public float MaxDistance { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The allowed minimum distance for the joint.&quot;)]
+[Tooltip(&quot;Gets or sets the allowed minimum distance for the joint.&quot;)]
 public float MinDistance { get; set; }</code></pre>
   </div>
 
@@ -719,7 +715,7 @@ public float MinDistance { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(140)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The spring parameters.&quot;)]
+[Tooltip(&quot;Gets or sets the spring parameters.&quot;)]
 public SpringParameters SpringParameters { get; set; }</code></pre>
   </div>
 
@@ -761,7 +757,7 @@ public SpringParameters SpringParameters { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The error tolerance of the joint.&quot;)]
+[Tooltip(&quot;Gets or sets the error tolerance of the joint.&quot;)]
 public float Tolerance { get; set; }</code></pre>
   </div>
 

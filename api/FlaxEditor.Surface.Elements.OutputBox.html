@@ -553,6 +553,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_RootWindow">Control.RootWindow</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_DpiScale">Control.DpiScale</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ScreenPos">Control.ScreenPos</a>
     </div>
     <div>
@@ -724,6 +727,43 @@ public class OutputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConn
   
   
   </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_OutputBox_MouseOverConnectionDistance_" data-uid="FlaxEditor.Surface.Elements.OutputBox.MouseOverConnectionDistance*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_OutputBox_MouseOverConnectionDistance" data-uid="FlaxEditor.Surface.Elements.OutputBox.MouseOverConnectionDistance"><a href="#collapsible-FlaxEditor_Surface_Elements_OutputBox_MouseOverConnectionDistance" class="expander" data-toggle="collapse">MouseOverConnectionDistance</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_OutputBox_MouseOverConnectionDistance" class="collapse in">
+  <div class="markdown level1 summary"><p>Distance for the mouse to be considered above the connection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MouseOverConnectionDistance { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -823,18 +863,28 @@ public class OutputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConn
   
   <a id="FlaxEditor_Surface_Elements_OutputBox_DrawConnections_" data-uid="FlaxEditor.Surface.Elements.OutputBox.DrawConnections*"></a>
   
-  <h4 id="FlaxEditor_Surface_Elements_OutputBox_DrawConnections" data-uid="FlaxEditor.Surface.Elements.OutputBox.DrawConnections"><a href="#collapsible-FlaxEditor_Surface_Elements_OutputBox_DrawConnections" class="expander" data-toggle="collapse">DrawConnections()</a></h4>
+  <h4 id="FlaxEditor_Surface_Elements_OutputBox_DrawConnections_FlaxEngine_Vector2__" data-uid="FlaxEditor.Surface.Elements.OutputBox.DrawConnections(FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEditor_Surface_Elements_OutputBox_DrawConnections_FlaxEngine_Vector2__" class="expander" data-toggle="collapse">DrawConnections(ref Vector2)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Surface_Elements_OutputBox_DrawConnections" class="collapse in">
+  <div id="collapsible-FlaxEditor_Surface_Elements_OutputBox_DrawConnections_FlaxEngine_Vector2__" class="collapse in">
   <div class="markdown level1 summary"><p>Draw all connections coming from this box.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void DrawConnections()</code></pre>
+    <pre><code class="lang-csharp hljs">public void DrawConnections(ref Vector2 mousePosition)</code></pre>
   </div>
 
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">mousePosition</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -874,6 +924,134 @@ public class OutputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConn
     </tr>
   </table>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_" data-uid="FlaxEditor.Surface.Elements.OutputBox.IntersectsConnection*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEditor_Surface_Elements_Box_FlaxEngine_Vector2__" data-uid="FlaxEditor.Surface.Elements.OutputBox.IntersectsConnection(FlaxEditor.Surface.Elements.Box,FlaxEngine.Vector2@)"><a href="#collapsible-FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEditor_Surface_Elements_Box_FlaxEngine_Vector2__" class="expander" data-toggle="collapse">IntersectsConnection(Box, ref Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEditor_Surface_Elements_Box_FlaxEngine_Vector2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if a point intersects a connection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IntersectsConnection(Box targetBox, ref Vector2 mousePosition)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.Surface.Elements.Box.html">Box</a></span>
+        <span class="parametername">targetBox</span>
+        <p><p>The other box.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">mousePosition</span>
+        <p><p>The mouse position</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_" data-uid="FlaxEditor.Surface.Elements.OutputBox.IntersectsConnection*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single_" data-uid="FlaxEditor.Surface.Elements.OutputBox.IntersectsConnection(FlaxEngine.Vector2@,FlaxEngine.Vector2@,FlaxEngine.Vector2@,System.Single)"><a href="#collapsible-FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single_" class="expander" data-toggle="collapse">IntersectsConnection(ref Vector2, ref Vector2, ref Vector2, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_OutputBox_IntersectsConnection_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if a point intersects a bezier curve</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IntersectsConnection(ref Vector2 start, ref Vector2 end, ref Vector2 point, float distance)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">start</span>
+        <p><p>The start location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">end</span>
+        <p><p>The end location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">point</span>
+        <p><p>The point</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">distance</span>
+        <p><p>Distance at which its an intersection</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   

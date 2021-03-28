@@ -87,7 +87,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEditor.Content.Settings.TimeSettings">
   <h1 id="FlaxEditor_Content_Settings_TimeSettings" data-uid="FlaxEditor.Content.Settings.TimeSettings">Class TimeSettings
   </h1>
-  <div class="markdown level0 summary"><p>The time settings asset archetype. Allows to edit asset via editor.</p>
+  <div class="markdown level0 summary"><p>Time and game simulation settings container.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -132,7 +132,8 @@
   
   <h5 id="FlaxEditor_Content_Settings_TimeSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TimeSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Time and game simulation settings container.&quot;)]
+public sealed class TimeSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -148,7 +149,8 @@
   <h4 id="FlaxEditor_Content_Settings_TimeSettings__ctor" data-uid="FlaxEditor.Content.Settings.TimeSettings.#ctor"><a href="#collapsible-FlaxEditor_Content_Settings_TimeSettings__ctor" class="expander" data-toggle="collapse">TimeSettings()</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_TimeSettings__ctor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.Content.Settings.TimeSettings.html">TimeSettings</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -176,7 +178,7 @@
   <h4 id="FlaxEditor_Content_Settings_TimeSettings_DrawFPS" data-uid="FlaxEditor.Content.Settings.TimeSettings.DrawFPS"><a href="#collapsible-FlaxEditor_Content_Settings_TimeSettings_DrawFPS" class="expander" data-toggle="collapse">DrawFPS</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_TimeSettings_DrawFPS" class="collapse in">
-  <div class="markdown level1 summary"><p>The target amount of the frames rendered per second (actual game FPS). Use 0 for infinity.</p>
+  <div class="markdown level1 summary"><p>The target amount of the frames rendered per second (actual game FPS).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,8 +186,8 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(3)]
 [Limit(0F, 1000F, 1F)]
-[EditorDisplay(null, &quot;Draw FPS&quot;)]
-[Tooltip(&quot;Target amount of the frames rendered per second (actual game FPS). Use 0 for infinity.&quot;)]
+[EditorDisplay(&quot;General&quot;, &quot;Draw FPS&quot;)]
+[Tooltip(&quot;The target amount of the frames rendered per second (actual game FPS).&quot;)]
 public float DrawFPS</code></pre>
   </div>
 
@@ -224,6 +226,7 @@ public float DrawFPS</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [Limit(0.1F, 1000F, 0.01F)]
+[EditorDisplay(&quot;General&quot;, null)]
 [Tooltip(&quot;The maximum allowed delta time (in seconds) for the game logic update step.&quot;)]
 public float MaxUpdateDeltaTime</code></pre>
   </div>
@@ -255,7 +258,7 @@ public float MaxUpdateDeltaTime</code></pre>
   <h4 id="FlaxEditor_Content_Settings_TimeSettings_PhysicsFPS" data-uid="FlaxEditor.Content.Settings.TimeSettings.PhysicsFPS"><a href="#collapsible-FlaxEditor_Content_Settings_TimeSettings_PhysicsFPS" class="expander" data-toggle="collapse">PhysicsFPS</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_TimeSettings_PhysicsFPS" class="collapse in">
-  <div class="markdown level1 summary"><p>The target amount of the physics simulation updates per second (also fixed updates frequency). Use 0 for infinity.</p>
+  <div class="markdown level1 summary"><p>The target amount of the physics simulation updates per second (also fixed updates frequency).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -263,8 +266,8 @@ public float MaxUpdateDeltaTime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2)]
 [Limit(0F, 1000F, 1F)]
-[EditorDisplay(null, &quot;Physics FPS&quot;)]
-[Tooltip(&quot;Target amount of the physics simulation updates per second (also fixed updates frequency). Use 0 for infinity.&quot;)]
+[EditorDisplay(&quot;General&quot;, &quot;Physics FPS&quot;)]
+[Tooltip(&quot;The target amount of the physics simulation updates per second (also fixed updates frequency).&quot;)]
 public float PhysicsFPS</code></pre>
   </div>
 
@@ -303,7 +306,8 @@ public float PhysicsFPS</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [Limit(0F, 1000F, 0.1F)]
-[Tooltip(&quot;Game time scaling factor. Default is 1 for real-time simulation.&quot;)]
+[EditorDisplay(&quot;General&quot;, null)]
+[Tooltip(&quot;The game time scale factor. Default is 1.&quot;)]
 public float TimeScale</code></pre>
   </div>
 
@@ -334,7 +338,7 @@ public float TimeScale</code></pre>
   <h4 id="FlaxEditor_Content_Settings_TimeSettings_UpdateFPS" data-uid="FlaxEditor.Content.Settings.TimeSettings.UpdateFPS"><a href="#collapsible-FlaxEditor_Content_Settings_TimeSettings_UpdateFPS" class="expander" data-toggle="collapse">UpdateFPS</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_TimeSettings_UpdateFPS" class="collapse in">
-  <div class="markdown level1 summary"><p>The target amount of the game logic updates per second (script updates frequency). Use 0 for infinity.</p>
+  <div class="markdown level1 summary"><p>The target amount of the game logic updates per second (script updates frequency).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -342,8 +346,8 @@ public float TimeScale</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1)]
 [Limit(0F, 1000F, 1F)]
-[EditorDisplay(null, &quot;Update FPS&quot;)]
-[Tooltip(&quot;Target amount of the game logic updates per second (script updates frequency). Use 0 for infinity.&quot;)]
+[EditorDisplay(&quot;General&quot;, &quot;Update FPS&quot;)]
+[Tooltip(&quot;The target amount of the game logic updates per second (script updates frequency).&quot;)]
 public float UpdateFPS</code></pre>
   </div>
 

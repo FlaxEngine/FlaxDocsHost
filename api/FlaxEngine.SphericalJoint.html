@@ -104,13 +104,6 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     <div class="level5"><span class="xref">SphericalJoint</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_SphericalJoint" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_SphericalJoint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_SphericalJoint" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_SphericalJoint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_SphericalJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -165,15 +158,6 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -237,6 +221,18 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -317,12 +313,6 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -378,6 +368,12 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -496,7 +492,7 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
   <h5 id="FlaxEngine_SphericalJoint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public class SphericalJoint : Joint, ITransformable, ISceneObject</code></pre>
+public class SphericalJoint : Joint</code></pre>
   </div>
 
   
@@ -551,7 +547,7 @@ public class SphericalJoint : Joint, ITransformable, ISceneObject</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The joint mode flags. Controls joint behaviour.&quot;)]
+[Tooltip(&quot;Gets or sets the joint mode flags. Controls joint behaviour.&quot;)]
 public SphericalJointFlag Flags { get; set; }</code></pre>
   </div>
 
@@ -592,7 +588,7 @@ public SphericalJointFlag Flags { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(110)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The joint limit properties.&quot;)]
+[Tooltip(&quot;Gets or sets the joint limit properties.&quot;)]
 public LimitConeRange Limit { get; set; }</code></pre>
   </div>
 

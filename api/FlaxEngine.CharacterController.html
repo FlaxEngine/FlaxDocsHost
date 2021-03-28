@@ -103,13 +103,6 @@
     <div class="level6"><span class="xref">CharacterController</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_CharacterController" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_CharacterController" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_CharacterController" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_CharacterController" data-uid="FlaxEngine.Collider.RayCast(FlaxEngine.Vector3,FlaxEngine.Vector3,System.Single@,System.Single)"><a href="#collapsible-inheritedMembers-FlaxEngine_CharacterController" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -199,15 +192,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
     </div>
     <div>
@@ -269,6 +253,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -349,12 +345,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -410,6 +400,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -529,7 +525,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Physical objects that allows to easily do player movement constrained by collisions without having to deal with a rigidbody.&quot;)]
-public class CharacterController : Collider, ITransformable, ISceneObject</code></pre>
+public class CharacterController : Collider</code></pre>
   </div>
 
   
@@ -623,7 +619,7 @@ public CharacterController.CollisionFlags Flags { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(110)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The height of the capsule, measured in the object's local space. The capsule height will be scaled by the actor's world scale.&quot;)]
+[Tooltip(&quot;Gets or sets the height of the capsule, measured in the object's local space. The capsule height will be scaled by the actor's world scale.&quot;)]
 public float Height { get; set; }</code></pre>
   </div>
 
@@ -694,7 +690,7 @@ public bool IsGrounded { get; }</code></pre>
   <h4 id="FlaxEngine_CharacterController_MinMoveDistance" data-uid="FlaxEngine.CharacterController.MinMoveDistance"><a href="#collapsible-FlaxEngine_CharacterController_MinMoveDistance" class="expander" data-toggle="collapse">MinMoveDistance</a></h4>
   
   <div id="collapsible-FlaxEngine_CharacterController_MinMoveDistance" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the minimum move distance of the character controller. The minimum travelled distance to consider. If travelled distance is smaller, the character doesn&apos;t move. This is used to stop the recursive motion algorithm when remaining distance to travel is small.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the minimum move distance of the character controller. The minimum traveled distance to consider. If traveled distance is smaller, the character doesn&apos;t move. This is used to stop the recursive motion algorithm when remaining distance to travel is small.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -704,7 +700,7 @@ public bool IsGrounded { get; }</code></pre>
 [Limit(0F, 1000F, 1F)]
 [EditorDisplay(&quot;Character Controller&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The minimum move distance of the character controller. The minimum travelled distance to consider. If travelled distance is smaller, the character doesn't move. This is used to stop the recursive motion algorithm when remaining distance to travel is small.&quot;)]
+[Tooltip(&quot;Gets or sets the minimum move distance of the character controller. The minimum traveled distance to consider. If traveled distance is smaller, the character doesn't move. This is used to stop the recursive motion algorithm when remaining distance to travel is small.&quot;)]
 public float MinMoveDistance { get; set; }</code></pre>
   </div>
 
@@ -745,7 +741,7 @@ public float MinMoveDistance { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(215)]
 [EditorDisplay(&quot;Character Controller&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The non-walkable mode for the character controller.&quot;)]
+[Tooltip(&quot;Gets or sets the non-walkable mode for the character controller.&quot;)]
 public CharacterController.NonWalkableModes NonWalkableMode { get; set; }</code></pre>
   </div>
 
@@ -786,7 +782,7 @@ public CharacterController.NonWalkableModes NonWalkableMode { get; set; }</code>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The radius of the sphere, measured in the object's local space. The sphere radius will be scaled by the actor's world scale.&quot;)]
+[Tooltip(&quot;Gets or sets the radius of the sphere, measured in the object's local space. The sphere radius will be scaled by the actor's world scale.&quot;)]
 public float Radius { get; set; }</code></pre>
   </div>
 
@@ -828,7 +824,7 @@ public float Radius { get; set; }</code></pre>
 [Limit(0F, 100F, 1F)]
 [EditorDisplay(&quot;Character Controller&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The slope limit (in degrees). Limits the collider to only climb slopes that are less steep (in degrees) than the indicated value.&quot;)]
+[Tooltip(&quot;Gets or sets the slope limit (in degrees). Limits the collider to only climb slopes that are less steep (in degrees) than the indicated value.&quot;)]
 public float SlopeLimit { get; set; }</code></pre>
   </div>
 
@@ -870,7 +866,7 @@ public float SlopeLimit { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Character Controller&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The step height. The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller&#8217;s height or it will generate an error.&quot;)]
+[Tooltip(&quot;Gets or sets the step height. The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller&#8217;s height or it will generate an error.&quot;)]
 public float StepOffset { get; set; }</code></pre>
   </div>
 

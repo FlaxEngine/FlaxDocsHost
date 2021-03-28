@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 1.1 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 1.1 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-11-release-notes">Flax 1.1 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="editor-for-linux">Editor for Linux</h3>
+<p><img src="media/flax-editor-linux-vulkan.png" alt="Flax Editor for Linux on Vulkan"></p>
+<p>One of the major features in this release is full support for the <strong>Flax Editor on Linux</strong>! It runs great on Ubuntu and contains all the features such as live scripting with C++/C# hot-reload, Visual Code integration, scenes editor, game cooking, terrain editing, foliage editing, and much more. It has feature parity with Editor on Windows to enable game developers on Linux to create great projects with Flax!</p>
+<p><img src="media/editor-playing-on-linux-vulkan.gif" alt="Flax Editor Play Mode on Linux with Vulkan"></p>
+<p>To learn more about how to use it see <a href="../../get-started/linux.html">Get Started</a> section. We use <strong>Vulkan</strong> for rendering (old <em>OpenGL</em> GPUs won&#39;t work).</p>
+<p>*It has been tested on <em>Ubuntu 18</em> and <em>Ubuntu 20</em> (both <em>LTS</em> versions).</p>
+<h3 id="splines">Splines</h3>
+<p><img src="media/splines-editing.gif" alt="Splines Editing"></p>
+<p>When creating games programmers, level designers and artists often need more robust tools for object placement and scene dressing. That&#39;s a great example where new <strong>Spline tools</strong> come in. Spline is a Bezier curve made of 3D points with tangents that is very easy to create and set up in Editor. Those can be used to create objects following the path (as shown above), draw the model over the spline curve, build roads and rivers, or create dynamic gameplay components like a chain (as shown below).</p>
+<p><img src="media/spline-chain.gif" alt="Spline Chain"></p>
+<p>To learn more about splines see dedicated <a href="../../graphics/splines/index.html">documentation with tutorials</a>.</p>
+<h3 id="low-level-networking">Low-level Networking</h3>
+<p>One of the most important features we want to work on during this year is <strong>networking</strong> support in Flax for multiplayer games. We&#39;ve already supported networking in C# API via .NET library. Now we&#39;re adding low-level sockets implementation that is cross-platform and will be used as a foundation for Low Level and High-Level networking solutions built-in Flax.</p>
+<p>The goal is to have fully-featured multiplayer support in the engine within this year. Right now you can already create client/servers in Flax with a new <code>Network</code> API (from <code>Engine/Platform/Network.h</code>) that comes up with methods to create and manage sockets and send or receive data over the net.</p>
+<h3 id="navigation-features">Navigation Features</h3>
+<p><img src="media/dynamic-navmesh.gif" alt="Navigation Features NavMesh"></p>
+<p>As we&#39;re starting to see more and more projects using Flax, we strive to improve various engine areas. This time we&#39;ve added lots of goodies into the Navigation system such as:</p>
+<ul>
+<li>multiple navmeshes support</li>
+<li>navmesh modifier volumes</li>
+<li>nav agent properties and queries</li>
+<li>rotated navmeshes</li>
+<li>more navmesh queries types (<code>TestPath</code>, <code>FindRandomPoint</code>, <code>FindRandomPointAroundCircle</code>)</li>
+<li>nav agents masking (eg. for nav bounds volumes)</li>
+<li>dynamic navmesh updates at runtime</li>
+</ul>
+<h3 id="visual-scripting-features">Visual Scripting Features</h3>
+<p>After 1.0 release update that introduced Visual Scripting tools in Flax, we&#39;ve seen massive adoption of it. This lead to adding even more goodies into visual scripting in Flax.</p>
+<p>Now, you can bind into <strong>Events</strong> int Visual Script to handle trigger volumes or collision events as shown below (see <a href="../../scripting/visual/events.html">tutorial</a>).</p>
+<p><img src="media/visual-script-event-trigger-handler.png" alt="Visual Script Event Handling"></p>
+<p>Another features are <strong>automatic node formatting</strong> which arranges nodes to make them more organized (use <em>Format node(s)</em> button in context menu) and <strong>reroute node</strong> for connections organization (double-click on connection to insert it).</p>
+<p><img src="media/reroute-node-visject.gif" alt="Reroute Node in Visjual Script"></p>
+<h3 id="third-person-shooter-sample">Third Person Shooter sample</h3>
+<p><img src="media/third-person-shooter.gif" alt="Third Person Shooter Flax Sample"></p>
+<p><a href="../../samples-tutorials/samples/index.html">Flax Samples</a> is a great collection of projects to pick up on at the beginning of the journey with Flax. Recently we&#39;ve added a new shooter project with 3rd person camera (community contribution). Can be used as a base for your future game project. Try it out!</p>
+<h3 id="editor-improvements">Editor Improvements</h3>
+<p><img src="media/particles-in-editor.gif" alt="Particles Live In Flax Editor"></p>
+<p>For most of the time between 1.0 and 1.1 updates, we worked on <strong>improving quality</strong> and <strong>usability</strong> of the Editor. This includes tons of issues fixed (over 140 bugs fixed), improved stability, better gizmos, better UI editing, better prefabs tooling, better everything.
+Things important to highlight are:</p>
+<ul>
+<li><strong>Rider IDE</strong> integration</li>
+<li><strong>UI editing</strong> support <strong>in Prefab</strong> Editors</li>
+<li>Full debug log stack traced in Debug Log (with double-click to navigate)</li>
+<li><strong>New UI Transformation editor</strong></li>
+<li>Script members display based on declaration order (see Editor options)</li>
+<li><strong>Live particles preview</strong> in Scene viewport</li>
+<li>Converting existing actor int odifferent type</li>
+<li><strong>Copy/paste of all script properties</strong></li>
+<li>Build button configuration in options</li>
+<li>Optimized hot-reloading of C#/C++ code performance (via caching scripting API reflection data)</li>
+</ul>
+<p><img src="media/stack-trace-debug-log.png" alt="Stack Trace Debug Log Flax Editor"></p>
+<h3 id="sprite-renderer">Sprite Renderer</h3>
+<p><img src="media/sprite-render.png" alt="Sprite Renderer"></p>
+<p>New in-built actor that can draw sprites in 3D or 2D. Highly customizable and ready to use. See docs <a href="../../ui/sprite-render/index.html">here</a>.</p>
+<h3 id="volumetric-fog-particles">Volumetric Fog Particles</h3>
+<p><img src="media/volumetric-fog-particles.gif" alt="Volumetric Fog Particles Rendering"></p>
+<p>One of the important aspects of the Volumetric Fog is the ability to adjust its density and color in local parts of the scene. To achieve it we&#39;ve added a new drawing module to particles called: Volumetric Fog Rendering. It draws particles into the volumetric fog and they can modify the fog Albedo, Density, and Emission. See documentation <a href="../../graphics/fog-effects/volumetric-fog.html">here</a> to learn more.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-116217---28-march-2021">Version 1.1.6217 - 28 March 2021</h3>
+<p>Contributors: mafiesto4, VNNCC, DaruBrub, jb-perrier, stefnotch, honzapatCZ, iliyalesani, SilentCLD, intolerantape, Evildea, Vizepi, GoaLitiuM, MinhCT, W2Wizard, Down-s, Erdroy</p>
+<p>PRs merged: 68</p>
+<ul>
+<li>Add <code>API_INTERFACE</code> to scripting API bindings for implementing interfaces</li>
+<li>Add support for loading JsonAsset instance objects if they implement ISerializable interface</li>
+<li>Add <strong>NavMesh Modifier Volume</strong> actor type</li>
+<li>Add <code>NavAgentProperties</code></li>
+<li>Add <code>NavMeshProperties</code></li>
+<li>Add <code>NavAreaProperties</code></li>
+<li>Add <code>NavAgentMask</code></li>
+<li>Add <strong>support for multiple navmeshes</strong> on a scene</li>
+<li>Add navmesh name to logs for better debugging</li>
+<li>Add support for masking navmesh agents in NavMeshBoundsVolume</li>
+<li>Add support for automatic DefaultValue attributes generation for fields in scripting API</li>
+<li>Add <strong>support for rotated navmeshes</strong></li>
+<li>Add support for dynamic updating navmesh when moving NavModifierVolume</li>
+<li>Add <code>TestPath</code> utility to navigation system</li>
+<li>Add default spacing for CollectionEditor to 10 for cleaner UI when working with arrays and lists in Editor</li>
+<li>Add invoking <code>BoxVolume::OnBoundsChanged</code> after transform changed</li>
+<li>Add default values initialization for structures and new array entries when resizing</li>
+<li>Add <code>ScriptingTypeHandle</code> debugger view to flax.natvis</li>
+<li>Add more objects types checks and casting utilities to ScriptingObject</li>
+<li>Add support for using <code>ObsoleteAttribute</code> to upgrade old C# asset/script data format after refactor</li>
+<li>Add <code>Actor.HasStaticFlag</code></li>
+<li>Add option to hide navmesh in editor debug view</li>
+<li>Add <strong>low-level networking</strong> (cross-platform sockets implementation)</li>
+<li>Add culling for decals (via DrawMinScreenSize property)</li>
+<li>Add scripting API <strong>events in Visual Script</strong></li>
+<li>Add support for Events in Scripting API reflection in Editor</li>
+<li>Add <code>IFunctionDependantNode</code> for Visject nodes</li>
+<li>Add <strong>Spline</strong> actor</li>
+<li>Add <strong>Spline Model</strong> actor (draws model over spline)</li>
+<li>Add <strong>Spline Collider</strong> actor (creates collision over spline)</li>
+<li>Add <strong>Spline Rope Body</strong> actor for ropes, chains and cables physics</li>
+<li>Add Deformable material domain (for spline models)</li>
+<li>Add default Deformable material for splines</li>
+<li>Add auto-select for spawned actors in the level</li>
+<li>Add Add/Subtract methods to Transform</li>
+<li>Add support for copy/paste/rever values for groups in Custom Editor (eg. array editor)</li>
+<li>Add <code>Transform.LocalToWorldVector</code> and <code>Transform.WorldToLocalVector</code></li>
+<li>Add first derivative calculation utilities for Curve</li>
+<li>Add Build Actions option to editor settings for build button configuration</li>
+<li>Add <code>DebugDraw.DrawWireTriangles</code> for wireframe geometry debug drawing</li>
+<li>Add <code>SoftObjectReference</code> for lazy references to assets and objects</li>
+<li>Add support for custom defines for build system via <code>Flax.Build</code> command line</li>
+<li>Add support for custom SceneGraphNode to handle delete with undo</li>
+<li>Add support for custom duplicate of SceneGraphNode</li>
+<li>Add support for using other VC++ toolset for Window and add cmd arg for selecting compiler manually</li>
+<li>Add an info group for selected Rigidbody in play mode (display speed, velocity, angular velocity, etc.)</li>
+<li>Add support for mapping objects in SceneAnimationPlayer to reuse it for different objects</li>
+<li>Add support for copy/pasting script properties</li>
+<li>Add more utilities to SceneReference</li>
+<li>Add more utilities to LayersMask</li>
+<li>Add <strong>Volumetric Fog particles</strong> to modify local fog</li>
+<li>Add skipping textbox scrolling if it has no selection</li>
+<li>Add WriteJsonDiff support for JsonConverter for custom object diff serialization</li>
+<li>Add more documentation comments improvements</li>
+<li>Add <code>F</code> to focus camera view in asset previews</li>
+<li>Add <code>WorldSpaceFaceCamera</code> mode to UICanvas</li>
+<li>Add mouse centering in Editor Viewport if initial location is too close to the edge</li>
+<li>Add separation in ContainerControl for Self/Children drawing code</li>
+<li>Add ContainerControl as a base for Common GUI controls (Border, Button, ProgressBar, TextBox)</li>
+<li>Add UICanvas culling (for 3D rendering)</li>
+<li>Add support for spawning Collision Data as Mesh Collider in viewport drag&amp;drop</li>
+<li>Add improvements for objects spawning in editor viewport</li>
+<li>Add support for debug shapes preview in prefab editor window</li>
+<li>Add support for viewport icons rendering in prefab editor window</li>
+<li>Add <code>Add mesh collider</code> option to Static Model context menu</li>
+<li>Add reusing created collision data for model when UI requests it</li>
+<li>Add layers and tags updating</li>
+<li>Add support for borderless window style on Windows that supports system docking and aero shadow</li>
+<li>Add editor window outline color to match the status bar color</li>
+<li>Add more features for platform impl on Linux</li>
+<li>Add more support for window system features in Linux (X11)</li>
+<li>Add support for C++ scripting on platforms that don&#39;t support referencing executable file when linking shared library (eg. Linux)</li>
+<li>Add support for C++ scripting on Linux</li>
+<li>Add support for Clang 8, 9 and 10 when building for Linux</li>
+<li>Add clipboard support on Linux</li>
+<li>Add support for resizing textures with stb in TextureTool</li>
+<li>Add support for importing textures with options in TextureTool with stb</li>
+<li>Add separate <code>Platform::GetStackTrace</code> and <code>Platform::GetStackFrames</code></li>
+<li>Add support for capturing stack trace of called DebugLog from C++</li>
+<li>Add newest <code>dbghelp.dll</code> lib</li>
+<li>Add support for using <code>Level.SpawnActor</code> to add scene from code</li>
+<li>Add integration with <strong>Rider IDE</strong></li>
+<li>Add <code>FindRandomPoint</code> and <code>FindRandomPointAroundCircle</code> to the navigation utilities</li>
+<li>Add <code>BoundingSphere::Transform</code> method</li>
+<li>Add support for accessing Game Settings and related assets in C# API in game build</li>
+<li>Add Absolute and Negative to Vector3 C# API</li>
+<li>Add <strong>Sprite Render</strong> actor for sprites drawing</li>
+<li>Add Render Layers to Camera and Render View for masking objects during rendering</li>
+<li>Add <code>DebugDraw::DrawText</code> for drawing 2D debug text on a screen</li>
+<li>Add <code>DebugDraw::DrawText</code> for drawing 3D debug text in the world</li>
+<li>Add support for updating particle effects in editor view when editing</li>
+<li>Add <code>Mask ZW</code> node to all Visject surfaces</li>
+<li>Add Particle Radius to in-built particle attributes</li>
+<li>Add <code>EditorScene</code> for using gameplay logic in editor preview windows</li>
+<li>Add support for audio clip playback preview in editor window</li>
+<li>Add <code>SceneGraphNode.OnContextMenu</code> for customizations</li>
+<li>Add profiler events to LocalExecutor thread workers in <code>Flax.Build</code></li>
+<li>Add <code>-shaderdebug</code> cmd line switch to Editor for shaders debugging</li>
+<li>Add support for <code>mutable</code> keyword on <code>API_FIELD</code></li>
+<li>Add support for caching scripting API bindings during build</li>
+<li>Add MaxConcurrency and ConcurrencyProcessorScale options for Flax.Build cmd line</li>
+<li>Add <code>SceneRenderTask.PreRender</code></li>
+<li>Add check for C++ bindings generator for property getter and setter method value types to match</li>
+<li>Add virtual to Camera GetMatrices for custom cameras</li>
+<li>Add support for parsing exponential (scientific) notation numbers in input fields</li>
+<li>Add Any node to material</li>
+<li>Add All node to material</li>
+<li>Add Sign node to material</li>
+<li>Add Blackbody node to material</li>
+<li>Add bringing editor window to front on focus</li>
+<li>Add safety checks for particles data to prevent division by 0</li>
+<li>Add support for UICanvas preview in Prefab Viewport</li>
+<li>Add UIControl outlines drawing in Prefab window</li>
+<li>Add virtual memory allocation utilities</li>
+<li>Add exception instead of crash when using <code>DebugDraw.DrawLines</code> with uneven amount of lines</li>
+<li>Add <code>FLAXENGINE_API</code> macro to class <code>JsonAsset</code></li>
+<li>Add <code>Level.GetActors</code> and <code>Level.GetScripts</code></li>
+<li>Add some defaults to <code>Quaternion</code> helpers</li>
+<li>Add and refactor several extension methods for Random</li>
+<li>Add <code>Render2D.DrawTexturedTriangles</code>, <code>Render2D.FillTriangles</code> and  <code>Render2D.FillTriangle</code></li>
+<li>Add <code>ScriptingTypeHandle</code> debugger view to <code>flax.natvis</code></li>
+<li>Add <code>Convert</code> feature for actors in Editor scene tree context menu</li>
+<li>Add RGB &amp; HSV conversion nodes to material graph</li>
+<li>Add more separators to <code>TextBoxBase</code></li>
+<li>Add allowance for overriding most of the methods in <code>TextBoxBase</code></li>
+<li>Add auto serialization by default in C++ script template</li>
+<li>Add optional icons to <code>DockWindow</code>s</li>
+<li>Add icon for Content window</li>
+<li>Add icon for Debug Log window (based on last unseen logs severity)</li>
+<li>Add WarningOnce, ErrorOnce, InfoOnce, VerboseOnce to Flax.Build logger</li>
+<li>Add colored icons for Debug Log entries (and adjusted entry height)</li>
+<li>Add Render2D tint color layering support</li>
+<li>Add <strong>retoute nodes to Visject</strong></li>
+<li>Add arrow key navigation to Visject</li>
+<li>Add support for binary modules with native-code only</li>
+<li>Add improved dll import/export attributes injection when building binary modules</li>
+<li>Add support for using ThirdPartyModule in game/project scripting</li>
+<li>Add <code>StringBuilder::ToStringView()</code></li>
+<li>Add write barriers for Mono GC in bindings glue code</li>
+<li>Add support for overriding most of the methods in <code>TextBoxBase</code></li>
+<li>Add <code>ClampLength</code> to Vector2/3/4</li>
+<li>Add <code>StringUtils::ConvertUTF162UTF8</code></li>
+<li>Add support for using automated codesign for binaries in deployment</li>
+<li>Add passing custom compiler switch when invoking child Flax.Build process during deployment</li>
+<li>Add DrawCylinder and DrawWireCylinder to DebugDraw</li>
+<li>Add <em>Shift+Home</em> shortcut to Text Boxes</li>
+<li>Add support for vertical and horizontal panels to arrange children based on the child anchor</li>
+<li>Add per-monitor/per-window DPI support</li>
+<li>Add <strong>new UI Control transform editor</strong></li>
+<li>Add more descriptive &quot;no scene&quot; message</li>
+<li>Add automatic rename to UIControl</li>
+<li>Add constructor to BoundingBox for single point empty box construction</li>
+<li>Add Mouse Wheel Sensitivity option to Editor</li>
+<li>Add selecting prefab root objects first in Editor</li>
+<li>Add error check to prevent changing parent of the Scene actor</li>
+<li>Add focus on acto with <code>F</code> key in editor viewpo (improvements)</li>
+<li>Add better support for orthographic projection in Editor viewport controls</li>
+<li>Add option to order script fields/properties in Editor UI based on declaration order (Editor option)</li>
+<li>Add splash screen quote</li>
+<li>Add support for Custom Defines in Game Cooker for build scripts configuration</li>
+<li>Add support for custom defines for build system via <code>Flax.Build</code> command line</li>
+<li>Optimize and improve ActorChildNodes handling</li>
+<li>Optimize build tool</li>
+<li>Optimize <code>MAssembly::GetClass(MonoClass* monoClass)</code> search via assembly image early out</li>
+<li>Optimize automatic navmesh rebuild in editor for navmesh relevant actors only</li>
+<li>Optimize Serialization.h to have separate SerializationFwd.h for more lightweight types serialization impl</li>
+<li>Optimize DebugLog stack trace formatting</li>
+<li>Optimize <code>Texture::DownloadData</code> for staging textures</li>
+<li>Optimize Blend Normal Node</li>
+<li>Optimize compilation time on Windows</li>
+<li>Optimize scripting API bindings generation if loaded API from valid cache</li>
+<li>Optimize DrawCall to pack indirect draw arg and graphics draw data with union</li>
+<li>Refactor navigation system to support multiple navmeshes with more options and API</li>
+<li>Refactored lots of logic in UI to fix various reported issues (eg. vertical and horizontal panels usage has been improved a lot and might behave different than it used to be)</li>
+<li>Refactor game settings to support using API bindings</li>
+<li>Refactor PhysicalMaterial to use API bindings</li>
+<li>Refactor draw calls and instancing logic to be more modular</li>
+<li>Refactor material shaders generator to use modular features as extensions</li>
+<li>Refactor Collider base class to improve code sharing across collider shape types</li>
+<li>Move Curve data serialization to binary format into <code>CurveSerialization.h</code></li>
+<li>Move ScreenToGameViewport from Engine to Screen (update doc comments)</li>
+<li>Remove Unlink from asset reference</li>
+<li>Remove deprecated and unused <code>ISceneObject</code> and <code>ITransformable</code></li>
+<li>Improve tokens preprocessor for scripting API headers</li>
+<li>Improve Visual Studio Code solution generation for C# projects</li>
+<li>Cleanup and optimize <code>StringUtils::ConvertUTF82UTF16</code></li>
+<li>Move Actor static flags helper methods to be manually implemented (less bindings)</li>
+<li>Update stb lib</li>
+<li>Update Recast navigation lib to <code>e75adf86f91eb3082220085e42dda62679f9a3ea</code></li>
+<li>Fixes for UI control sync</li>
+<li>Fixes for Editor layout element containers</li>
+<li>Fixes for scripting objects</li>
+<li>Fix and code cleanup for Flax Storage types</li>
+<li>Fix <code>PathRemoveRelativeParts</code> for rooted paths</li>
+<li>Fix C# assembly Guids to use cross-platform hashing for stable values</li>
+<li>Fix collecting binary modules for targets with Modular linkage</li>
+<li>Fix Debug Log stack trace collecting in Editor</li>
+<li>Fix importing models with custom UnitScaleFactor</li>
+<li>Fix crash on exit when loading storage file fails</li>
+<li>Fix some minor issues with materials previews in Editor</li>
+<li>Fix debug shapes leftovers update in editor after playmode</li>
+<li>Fix using Scripts in async</li>
+<li>Fix crash on close when using Vulkan/D3D12 rendering backend with async task being canceled</li>
+<li>Fix material Sphere Mask node if radius is specified as integer</li>
+<li>Fix sampling particle position/velocity in material for emitters simulated in Local space</li>
+<li>Fix placement and usage of the new instance creation button in GenericEditor</li>
+<li>Fix <code>MAssembly::GetClass(MonoClass* monoClass)</code> for generic classes</li>
+<li>Fix loading game assets in cooked build via path relative to the project folder</li>
+<li>Fix particles view information in Editor when Game window is unused</li>
+<li>Fix <code>findRandomPointAroundCircle</code> in Detour lib to return points inside circle</li>
+<li>Fix adding items in Array/List editors if element type is reference (eg. class)</li>
+<li>Fix <code>Color</code> struct doc comments</li>
+<li>Fix not using hardcoded order for showing Actor main properties in editor</li>
+<li>Fix loaded asset verification error for json assets that have the scripting type</li>
+<li>Fix crash when using Physical Material with missing instance</li>
+<li>Fix default field value parsing to skip whitespaces</li>
+<li>Fix crash on GPUDeviceVulkan dispose if compute queue was using graphics queue</li>
+<li>Fix using dynamic libraries resolving path on Linux</li>
+<li>Fix some editor UI controls visible in Visual Scripting</li>
+<li>Fix MAssembly classes dictionary cache allocation to be during assembly load</li>
+<li>Fix Dictionary to call ctor/dtor for Buckets when needed</li>
+<li>Fix right-click context menu for Visject Nodes</li>
+<li>Fix crash when using Find/FindLast on empty String</li>
+<li>Fix calling OnParentChanged in Actor load</li>
+<li>Fix compilation warnings</li>
+<li>Fix showing shader source code window over a calling window</li>
+<li>Fix Quaternion comparison epsilon to reduce error rate</li>
+<li>Fix using Bezier curve for Transform (Scale tangents issue)</li>
+<li>Fix for serialization problems with custom structures</li>
+<li>Fix using nested types in scripting API</li>
+<li>Fix navmesh tiles set resizing issue</li>
+<li>Fix saving assets with path containing invalid slashes</li>
+<li>Fix Vertical/Horizontal panels issue with anchored child controls</li>
+<li>Fix updating Label layout after font change when using automatic size</li>
+<li>Fix scripting reload without scenes loaded</li>
+<li>Fix UI not being updated with particular panels used when changing child control anchors</li>
+<li>Fix Scene Queries to lock scene access</li>
+<li>Fix DebugDraw DrawTriangles crash</li>
+<li>Fix <em>PhysX</em> header usage in public API</li>
+<li>Fix missing UICanvas linkage in prefab preview</li>
+<li>Fix skipping UICanvas diff serialization for Size property if render mode is ScreenSpace</li>
+<li>Fix UIControl location deserialization when using prefabs and anchors</li>
+<li>Fix control Offsets margin diff deserialziation</li>
+<li>Fix possible issue for prefab reference value for default value object that might be deleted on prefab apply</li>
+<li>Fix editor viewport camera orbiting issues</li>
+<li>Fix missing selection type in CustomEditorPresenter</li>
+<li>Fix assertion on engine close due to rare invalid storage object refs count</li>
+<li>Fix using scale mode Gizmo</li>
+<li>Fix Rename Popup direction near screen edges</li>
+<li>Fix exception in Custom Editors UI due to invalid reference value processing</li>
+<li>Fix updating UICanvas when using World/Camera Space</li>
+<li>Fix control Offsets updating for control bounds when changing anchors</li>
+<li>Fix bug with Vector Parameters in Animation Graph</li>
+<li>Fix crash on Actor deserialization if parentId is missing but actor already has a parent</li>
+<li>Fix synchronizing ActiveInTreeChanged property with event after prefab changes apply</li>
+<li>Fix crash during Mono GC when object has missing vtable</li>
+<li>Fix painting foliage on inactive objects</li>
+<li>Fix InputText length reset</li>
+<li>Fix scaling rotated objects in world space</li>
+<li>Fix HorizontalPanel children layout</li>
+<li>Fix HorizontalPanel and VerticalPanel auto-sizing if child control is using anchors</li>
+<li>Fix conversion to degrees in Vector3.Angle</li>
+<li>Fix drawing UI Control outline in Game Window</li>
+<li>Fix BlurPanel rendering</li>
+<li>Fix error on starting task to continue if it has been canceled</li>
+<li>Fix font character and hit location calculations with line spacing</li>
+<li>Fix tooltips generation for native properties to reflect getter and setter docs</li>
+<li>Fix crash when changing prefab root object</li>
+<li>Fix issue of deleting non-existent folders from the editor</li>
+<li>Fix FindActor and FindScript in Level</li>
+<li>Fix properties names formatting for UI with 2 character words</li>
+<li>Fix some prefabs editing issues</li>
+<li>Fix code style in C# code</li>
+<li>Fix using <code>get_Control</code> getter method from UIControl in Visual Script</li>
+<li>Fix error when spawning prefab with rigidbody</li>
+<li>Fix layer matrix order in ediotr UI</li>
+<li>Fix double-click mouse event not setting mouse button down</li>
+<li>Fix default frame rate for fbx imported clips to 14</li>
+<li>Fix Graphics module warnings to be sent once</li>
+<li>Fix updating prefab object reference values after apply in prefab editor</li>
+<li>Fix updating UI layout when adding control</li>
+<li>Fix Editor timeline editor controls API visible in Visual Scripting</li>
+<li>Fix using value sliders when on secondary monitor that is one the left side of the primary monitor (virtual desktop)</li>
+<li>Fix UWP build setup messing with FlaxGame target output type</li>
+<li>Fix automatic tooltip generation error</li>
+<li>Fix tooltip background when using custom theme colors in Editor</li>
+<li>Fix tree nodes mouse hovering logic</li>
+<li>Fix crash in motion blur code when screen size is very small</li>
+<li>Fix rare crashes due to <em>rgctx</em> trampolines cache not cleared on assembly reload</li>
+<li>Fix auto-importing materials and textures from model file with invalid path characters used in name</li>
+<li>Fix crash when loading string property in json that is not a string</li>
+<li>Fix missing terrain bounds update after modifying terrain</li>
+<li>Fix updating input fields on editing end without changes</li>
+<li>Fix missing CharacterController bounds if controller is missing</li>
+<li>Fix MaterialParams sync bug</li>
+<li>Fix CSG build crash</li>
+<li>Fix TextBox caret and selection size with custom DPI</li>
+<li>Fix Label auto-height and auto-width when text overflows the lines and it&#39;s wrapped</li>
+<li>Fix text not getting clipped in Label with negative margin</li>
+<li>Fix UTF-8 and UTF-16 encoding support usage in Json resources</li>
+<li>Fix deserialization of UTF-8 string for C# object properties</li>
+<li>Fix mouse jittering when pressing both mouse buttons simultaneously</li>
+<li>Fix editor dock panel to always focus tab on click</li>
+<li>Fix UIControl invalid showing in prefab window using nested prefab with UI</li>
+<li>Fix crash for empty text in Text Render</li>
+<li>Fix possible exception in actor editor bounds getters</li>
+<li>Fix memory leak for Mono image refs</li>
+<li>Fix various memory leaks on exit</li>
+<li>Fix ParticleSystemWindow overlapping text bug</li>
+<li>Fix invalid Timeline layout UI when opening timeline data</li>
+<li>Fix crash on prefab sync on instance with missing objects</li>
+<li>Fix Label text alignment in auto size text</li>
+<li>Fix synchronizing nested prefabs when adding new <code>ObjectsLookupIdMapping</code></li>
+<li>Fix actor layer editor setup</li>
+<li>Fix UICanvas state synchronization when working with prefabs</li>
+<li>Fix fullscreen mode on D3D11 and D3D12</li>
+<li>Fix crash in navmesh builder when scene gets unloaded after navmesh tile gets dirty</li>
+<li>Fix preserving objects order in prefab instances on apply (based on the prefab)</li>
+<li>Fix updating UI layout after changing control order</li>
+<li>Fix crash on using Space char in font with no font atlases initialized</li>
+<li>Fix <code>IncrementNameNumber</code> in Editor for Unicode strings (wrong inversing method)</li>
+<li>Fix marking asset as edited when using Multi Blend node positions in Anim Graph</li>
+<li>Fix crash when calling navigation system before navmesh init (eg. in build)</li>
+<li>Fix exception when loading Android NDKs with invalid version folder</li>
+<li>Fix AssetPicker buttons usage without mouse down click over the control</li>
+<li>Fix low-level <code>WindowsPlatform::Log</code> to not print invalid characters</li>
+<li>Fix VS debugger config for Dictionary and HashSet to show only Occupied buckets</li>
+<li>Fix ResizeAuto in SurfaceNode to include custom controls</li>
+<li>Fix C# assemblies id generation to use cross-platform hash code impl</li>
+<li>Fix exposing Mono API when using dynamic linking</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0ee104a7822c45092f690e56d60d91f095a03dc7/manual/release-notes/1_1/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

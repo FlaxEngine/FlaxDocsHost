@@ -87,7 +87,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEditor.Content.Settings.BuildSettings">
   <h1 id="FlaxEditor_Content_Settings_BuildSettings" data-uid="FlaxEditor.Content.Settings.BuildSettings">Class BuildSettings
   </h1>
-  <div class="markdown level0 summary"><p>The game building settings container. Allows to edit asset via editor.</p>
+  <div class="markdown level0 summary"><p>The game building rendering settings.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -132,7 +132,8 @@
   
   <h5 id="FlaxEditor_Content_Settings_BuildSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class BuildSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The game building rendering settings.&quot;)]
+public sealed class BuildSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -148,7 +149,8 @@
   <h4 id="FlaxEditor_Content_Settings_BuildSettings__ctor" data-uid="FlaxEditor.Content.Settings.BuildSettings.#ctor"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings__ctor" class="expander" data-toggle="collapse">BuildSettings()</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings__ctor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.Content.Settings.BuildSettings.html">BuildSettings</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -176,7 +178,7 @@
   <h4 id="FlaxEditor_Content_Settings_BuildSettings_AdditionalAssetFolders" data-uid="FlaxEditor.Content.Settings.BuildSettings.AdditionalAssetFolders"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings_AdditionalAssetFolders" class="expander" data-toggle="collapse">AdditionalAssetFolders</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings_AdditionalAssetFolders" class="collapse in">
-  <div class="markdown level1 summary"><p>The additional folders with assets to include into build (into root assets set). List of paths relative to the project directory (or absolute).</p>
+  <div class="markdown level1 summary"><p>The list of additional folders with assets to include into build (into root assets set). Paths relative to the project directory (or absolute).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,7 +186,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
 [EditorDisplay(&quot;Additional Data&quot;, null)]
-[Tooltip(&quot;The additional folders with assets to include into build (to root assets set). List of paths relative to the project directory (or absolute).&quot;)]
+[Tooltip(&quot;The list of additional folders with assets to include into build (into root assets set). Paths relative to the project directory (or absolute).&quot;)]
 public string[] AdditionalAssetFolders</code></pre>
   </div>
 
@@ -215,7 +217,7 @@ public string[] AdditionalAssetFolders</code></pre>
   <h4 id="FlaxEditor_Content_Settings_BuildSettings_AdditionalAssets" data-uid="FlaxEditor.Content.Settings.BuildSettings.AdditionalAssets"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings_AdditionalAssets" class="expander" data-toggle="collapse">AdditionalAssets</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings_AdditionalAssets" class="collapse in">
-  <div class="markdown level1 summary"><p>The additional assets to include into build (into root assets set).</p>
+  <div class="markdown level1 summary"><p>The list of additional assets to include into build (into root assets set).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -223,7 +225,7 @@ public string[] AdditionalAssetFolders</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
 [EditorDisplay(&quot;Additional Data&quot;, null)]
-[Tooltip(&quot;The additional assets to include into build (into root assets set).&quot;)]
+[Tooltip(&quot;The list of additional assets to include into build (into root assets set).&quot;)]
 public Asset[] AdditionalAssets</code></pre>
   </div>
 
@@ -254,15 +256,16 @@ public Asset[] AdditionalAssets</code></pre>
   <h4 id="FlaxEditor_Content_Settings_BuildSettings_ContentKey" data-uid="FlaxEditor.Content.Settings.BuildSettings.ContentKey"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings_ContentKey" class="expander" data-toggle="collapse">ContentKey</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings_ContentKey" class="collapse in">
-  <div class="markdown level1 summary"><p>The game content cooking Keys. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.</p>
+  <div class="markdown level1 summary"><p>The game content cooking keycode. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
+[Limit(1F, 16F, 65535F)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;The game content cooking Keys. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.&quot;)]
+[Tooltip(&quot;The game content cooking keycode. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.&quot;)]
 public int ContentKey</code></pre>
   </div>
 
@@ -332,16 +335,16 @@ public bool ForDistribution</code></pre>
   <h4 id="FlaxEditor_Content_Settings_BuildSettings_MaxAssetsPerPackage" data-uid="FlaxEditor.Content.Settings.BuildSettings.MaxAssetsPerPackage"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings_MaxAssetsPerPackage" class="expander" data-toggle="collapse">MaxAssetsPerPackage</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings_MaxAssetsPerPackage" class="collapse in">
-  <div class="markdown level1 summary"><p>The maximum amount of assets to include into a single assets package. Assets will be split into several packages if need to.</p>
+  <div class="markdown level1 summary"><p>The maximum amount of assets to include into a single assets package. Asset packages will split into several packages if need to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
-[Limit(32F, 32767F, 1F)]
+[Limit(1F, 32F, 65535F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max assets per package&quot;)]
-[Tooltip(&quot;The maximum amount of assets to include into a single assets package. Assets will be split into several packages if need to.&quot;)]
+[Tooltip(&quot;The maximum amount of assets to include into a single assets package. Asset packages will split into several packages if need to.&quot;)]
 public int MaxAssetsPerPackage</code></pre>
   </div>
 
@@ -372,16 +375,16 @@ public int MaxAssetsPerPackage</code></pre>
   <h4 id="FlaxEditor_Content_Settings_BuildSettings_MaxPackageSizeMB" data-uid="FlaxEditor.Content.Settings.BuildSettings.MaxPackageSizeMB"><a href="#collapsible-FlaxEditor_Content_Settings_BuildSettings_MaxPackageSizeMB" class="expander" data-toggle="collapse">MaxPackageSizeMB</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_BuildSettings_MaxPackageSizeMB" class="collapse in">
-  <div class="markdown level1 summary"><p>The maximum size of the single assets package (in megabytes). Assets will be split into several packages if need to.</p>
+  <div class="markdown level1 summary"><p>The maximum size of the single assets package (in megabytes). Asset packages will split into several packages if need to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
-[Limit(16F, 32767F, 1F)]
+[Limit(1F, 16F, 65535F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max package size (in MB)&quot;)]
-[Tooltip(&quot;The maximum size of the single assets package (in megabytes). Assets will be split into several packages if need to.&quot;)]
+[Tooltip(&quot;The maximum size of the single assets package (in megabytes). Asset packages will split into several packages if need to.&quot;)]
 public int MaxPackageSizeMB</code></pre>
   </div>
 

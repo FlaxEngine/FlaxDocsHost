@@ -132,7 +132,8 @@
   
   <h5 id="FlaxEditor_Content_Settings_NavigationSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class NavigationSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The navigation system settings container.&quot;)]
+public sealed class NavigationSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -148,7 +149,8 @@
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings__ctor" data-uid="FlaxEditor.Content.Settings.NavigationSettings.#ctor"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings__ctor" class="expander" data-toggle="collapse">NavigationSettings()</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings__ctor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.Content.Settings.NavigationSettings.html">NavigationSettings</a> class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -173,18 +175,95 @@
   
   
   
+  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_AutoAddMissingNavMeshes" data-uid="FlaxEditor.Content.Settings.NavigationSettings.AutoAddMissingNavMeshes"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_AutoAddMissingNavMeshes" class="expander" data-toggle="collapse">AutoAddMissingNavMeshes</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_AutoAddMissingNavMeshes" class="collapse in">
+  <div class="markdown level1 summary"><p>If checked, enables automatic navmesh actors spawning on a scenes that are using it during navigation building.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(100)]
+[EditorDisplay(&quot;Navigation&quot;, null)]
+[Tooltip(&quot;If checked, enables automatic navmesh actors spawning on a scenes that are using it during navigation building.&quot;)]
+public bool AutoAddMissingNavMeshes</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_AutoRemoveMissingNavMeshes" data-uid="FlaxEditor.Content.Settings.NavigationSettings.AutoRemoveMissingNavMeshes"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_AutoRemoveMissingNavMeshes" class="expander" data-toggle="collapse">AutoRemoveMissingNavMeshes</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_AutoRemoveMissingNavMeshes" class="collapse in">
+  <div class="markdown level1 summary"><p>If checked, enables automatic navmesh actors removing from a scenes that are not using it during navigation building.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(110)]
+[EditorDisplay(&quot;Navigation&quot;, null)]
+[Tooltip(&quot;If checked, enables automatic navmesh actors removing from a scenes that are not using it during navigation building.&quot;)]
+public bool AutoRemoveMissingNavMeshes</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings_CellHeight" data-uid="FlaxEditor.Content.Settings.NavigationSettings.CellHeight"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_CellHeight" class="expander" data-toggle="collapse">CellHeight</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_CellHeight" class="collapse in">
-  <div class="markdown level1 summary"><p>The height of a grid cell in the navigation mesh building steps using heightfields. 
-A lower number means higher precision on the vertical axis but longer build times.</p>
+  <div class="markdown level1 summary"><p>The height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the vertical axis but longer build times.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 400F, 1F)]
-[EditorOrder(10)]
+[EditorOrder(210)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;The height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the vertical axis but longer build times.&quot;)]
 public float CellHeight</code></pre>
@@ -217,17 +296,16 @@ public float CellHeight</code></pre>
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings_CellSize" data-uid="FlaxEditor.Content.Settings.NavigationSettings.CellSize"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_CellSize" class="expander" data-toggle="collapse">CellSize</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_CellSize" class="collapse in">
-  <div class="markdown level1 summary"><p>The width/height of a grid cell in the navigation mesh building steps using heightfields. 
-A lower number means higher precision on the horizontal axes but longer build times.</p>
+  <div class="markdown level1 summary"><p>The width/height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the horizontal axes but longer build times.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 400F, 1F)]
-[EditorOrder(20)]
+[EditorOrder(220)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The width/height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the vertical axis but longer build times.&quot;)]
+[Tooltip(&quot;The width/height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the horizontal axes but longer build times.&quot;)]
 public float CellSize</code></pre>
   </div>
 
@@ -258,14 +336,14 @@ public float CellSize</code></pre>
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings_DetailSamplingDist" data-uid="FlaxEditor.Content.Settings.NavigationSettings.DetailSamplingDist"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_DetailSamplingDist" class="expander" data-toggle="collapse">DetailSamplingDist</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_DetailSamplingDist" class="collapse in">
-  <div class="markdown level1 summary"><p>The sampling distance to use when generating the detail mesh. For height detail only.</p>
+  <div class="markdown level1 summary"><p>The sampling distance to use when generating the detail mesh.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 3.40282347E+38F, 1F)]
-[EditorOrder(80)]
+[EditorOrder(280)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, &quot;Detail Sampling Distance&quot;)]
 [Tooltip(&quot;The sampling distance to use when generating the detail mesh.&quot;)]
 public float DetailSamplingDist</code></pre>
@@ -298,14 +376,14 @@ public float DetailSamplingDist</code></pre>
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings_MaxDetailSamplingError" data-uid="FlaxEditor.Content.Settings.NavigationSettings.MaxDetailSamplingError"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_MaxDetailSamplingError" class="expander" data-toggle="collapse">MaxDetailSamplingError</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_MaxDetailSamplingError" class="collapse in">
-  <div class="markdown level1 summary"><p>The maximum distance the detail mesh surface should deviate from heightfield data. For height detail only.</p>
+  <div class="markdown level1 summary"><p>The maximum distance the detail mesh surface should deviate from heightfield data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3F, 1F)]
-[EditorOrder(90)]
+[EditorOrder(290)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;The maximum distance the detail mesh surface should deviate from heightfield data.&quot;)]
 public float MaxDetailSamplingError</code></pre>
@@ -345,7 +423,7 @@ public float MaxDetailSamplingError</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0.1F, 4F, 1F)]
-[EditorOrder(70)]
+[EditorOrder(270)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;The maximum distance a simplified contour's border edges should deviate from the original raw contour.&quot;)]
 public float MaxEdgeError</code></pre>
@@ -385,7 +463,7 @@ public float MaxEdgeError</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(100F, 3.40282347E+38F, 1F)]
-[EditorOrder(60)]
+[EditorOrder(260)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, &quot;Max Edge Length&quot;)]
 [Tooltip(&quot;The maximum allowed length for contour edges along the border of the mesh.&quot;)]
 public float MaxEdgeLen</code></pre>
@@ -425,7 +503,7 @@ public float MaxEdgeLen</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 1F)]
-[EditorOrder(50)]
+[EditorOrder(250)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;Any regions with a span count smaller than this value will, if possible, be merged with larger regions.&quot;)]
 public int MergeRegionArea</code></pre>
@@ -465,7 +543,7 @@ public int MergeRegionArea</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 1F)]
-[EditorOrder(40)]
+[EditorOrder(240)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;The minimum number of cells allowed to form isolated island areas.&quot;)]
 public int MinRegionArea</code></pre>
@@ -495,6 +573,84 @@ public int MinRegionArea</code></pre>
   
   
   
+  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_NavAreas" data-uid="FlaxEditor.Content.Settings.NavigationSettings.NavAreas"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_NavAreas" class="expander" data-toggle="collapse">NavAreas</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_NavAreas" class="collapse in">
+  <div class="markdown level1 summary"><p>The configuration for nav areas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
+[EditorDisplay(&quot;Areas&quot;, &quot;__inline__&quot;)]
+[Tooltip(&quot;The configuration for nav areas.&quot;)]
+public NavAreaProperties[] NavAreas</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.NavAreaProperties.html">NavAreaProperties</a>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_NavMeshes" data-uid="FlaxEditor.Content.Settings.NavigationSettings.NavMeshes"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_NavMeshes" class="expander" data-toggle="collapse">NavMeshes</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_NavMeshes" class="collapse in">
+  <div class="markdown level1 summary"><p>The configuration for navmeshes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
+[EditorDisplay(&quot;Agents&quot;, &quot;__inline__&quot;)]
+[Tooltip(&quot;The configuration for navmeshes.&quot;)]
+public NavMeshProperties[] NavMeshes</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.NavMeshProperties.html">NavMeshProperties</a>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_Content_Settings_NavigationSettings_TileSize" data-uid="FlaxEditor.Content.Settings.NavigationSettings.TileSize"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_TileSize" class="expander" data-toggle="collapse">TileSize</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_TileSize" class="collapse in">
@@ -505,7 +661,7 @@ public int MinRegionArea</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(8F, 4096F, 1F)]
-[EditorOrder(30)]
+[EditorOrder(230)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
 [Tooltip(&quot;Tile size used for Navigation mesh tiles, the final size of a tile is CellSize*TileSize.&quot;)]
 public int TileSize</code></pre>
@@ -519,166 +675,6 @@ public int TileSize</code></pre>
     <tr>
       <td>
         <span class="xref">System.Int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  
-  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_WalkableHeight" data-uid="FlaxEditor.Content.Settings.NavigationSettings.WalkableHeight"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableHeight" class="expander" data-toggle="collapse">WalkableHeight</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableHeight" class="collapse in">
-  <div class="markdown level1 summary"><p>The height of the smallest objects to traverse this nav mesh. Objects can&apos;t enter areas with ceilings lower than this value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
-[EditorOrder(1010)]
-[EditorDisplay(&quot;Agent Options&quot;, null)]
-[Tooltip(&quot;The height of the smallest objects to traverse this nav mesh. Objects can't enter areas with ceilings lower than this value.&quot;)]
-public float WalkableHeight</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Single</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  
-  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxClimb" data-uid="FlaxEditor.Content.Settings.NavigationSettings.WalkableMaxClimb"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxClimb" class="expander" data-toggle="collapse">WalkableMaxClimb</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxClimb" class="collapse in">
-  <div class="markdown level1 summary"><p>The maximum ledge height that is considered to still be traversable.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
-[EditorOrder(1020)]
-[EditorDisplay(&quot;Agent Options&quot;, null)]
-[Tooltip(&quot;The maximum ledge height that is considered to still be traversable.&quot;)]
-public float WalkableMaxClimb</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Single</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  
-  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxSlopeAngle" data-uid="FlaxEditor.Content.Settings.NavigationSettings.WalkableMaxSlopeAngle"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxSlopeAngle" class="expander" data-toggle="collapse">WalkableMaxSlopeAngle</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableMaxSlopeAngle" class="collapse in">
-  <div class="markdown level1 summary"><p>The maximum slope that is considered walkable (in degrees). Objects can&apos;t go up or down slopes higher than this value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 89F, 1F)]
-[EditorOrder(1030)]
-[EditorDisplay(&quot;Agent Options&quot;, null)]
-[Tooltip(&quot;The maximum slope that is considered walkable (in degrees). Objects can't go up or down slopes higher than this value.&quot;)]
-public float WalkableMaxSlopeAngle</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Single</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  
-  <h4 id="FlaxEditor_Content_Settings_NavigationSettings_WalkableRadius" data-uid="FlaxEditor.Content.Settings.NavigationSettings.WalkableRadius"><a href="#collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableRadius" class="expander" data-toggle="collapse">WalkableRadius</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_Settings_NavigationSettings_WalkableRadius" class="collapse in">
-  <div class="markdown level1 summary"><p>The radius of the smallest objects to traverse this nav mesh. Objects can&apos;t pass through gaps of less than twice the radius.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
-[EditorOrder(1000)]
-[EditorDisplay(&quot;Agent Options&quot;, null)]
-[Tooltip(&quot;The radius of the smallest objects to traverse this nav mesh. Objects can't pass through gaps of less than twice the radius.&quot;)]
-public float WalkableRadius</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Single</span>
         <p>
       </td>
     </tr>

@@ -102,13 +102,6 @@
     <div class="level5"><span class="xref">RigidBody</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_RigidBody" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_RigidBody" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_RigidBody" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_RigidBody" data-uid="FlaxEngine.Actor.HasTag"><a href="#collapsible-inheritedMembers-FlaxEngine_RigidBody" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -139,15 +132,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -211,6 +195,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -291,12 +287,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -352,6 +342,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -471,7 +467,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Physics simulation driven object.&quot;)]
-public class RigidBody : PhysicsActor, ITransformable, ISceneObject</code></pre>
+public class RigidBody : PhysicsActor</code></pre>
   </div>
 
   
@@ -527,7 +523,7 @@ public class RigidBody : PhysicsActor, ITransformable, ISceneObject</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The 'drag' force added to reduce angular movement.&quot;)]
+[Tooltip(&quot;Gets or sets the 'drag' force added to reduce angular movement.&quot;)]
 public float AngularDamping { get; set; }</code></pre>
   </div>
 
@@ -570,7 +566,6 @@ public float AngularDamping { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The angular velocity of the rigidbody measured in radians per second.&quot;)]
 public Vector3 AngularVelocity { get; set; }</code></pre>
   </div>
 
@@ -653,7 +648,7 @@ public Vector3 CenterOfMass { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(140)]
 [EditorDisplay(&quot;Rigid Body&quot;, &quot;Center Of Mass Offset&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The user specified offset for the center of mass of this object, from the calculated location.&quot;)]
+[Tooltip(&quot;Gets or sets the user specified offset for the center of mass of this object, from the calculated location.&quot;)]
 public Vector3 CenterOfMassOffset { get; set; }</code></pre>
   </div>
 
@@ -694,7 +689,7 @@ public Vector3 CenterOfMassOffset { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(150)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The object movement constraint flags that define degrees of freedom are allowed for the simulation of object.&quot;)]
+[Tooltip(&quot;Gets or sets the object movement constraint flags that define degrees of freedom are allowed for the simulation of object.&quot;)]
 public RigidbodyConstraints Constraints { get; set; }</code></pre>
   </div>
 
@@ -909,7 +904,7 @@ public bool IsSleeping { get; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The 'drag' force added to reduce linear movement.&quot;)]
+[Tooltip(&quot;Gets or sets the 'drag' force added to reduce linear movement.&quot;)]
 public float LinearDamping { get; set; }</code></pre>
   </div>
 
@@ -952,7 +947,6 @@ public float LinearDamping { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The linear velocity of the rigidbody.&quot;)]
 public Vector3 LinearVelocity { get; set; }</code></pre>
   </div>
 
@@ -997,7 +991,7 @@ public Vector3 LinearVelocity { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The mass value measured in kilograms (use override value only if EnableOverrideMass is enabled).&quot;)]
+[Tooltip(&quot;Gets or sets the mass value measured in kilograms (use override value only if EnableOverrideMass is enabled).&quot;)]
 public float Mass { get; set; }</code></pre>
   </div>
 
@@ -1039,7 +1033,7 @@ public float Mass { get; set; }</code></pre>
 [Limit(0.001F, 100F, 1F)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The per-instance scaling of the mass.&quot;)]
+[Tooltip(&quot;Gets or sets the per-instance scaling of the mass.&quot;)]
 public float MassScale { get; set; }</code></pre>
   </div>
 
@@ -1081,7 +1075,7 @@ public float MassScale { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Rigid Body&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The maximum angular velocity that a simulated object can achieve.&quot;)]
+[Tooltip(&quot;Gets or sets the maximum angular velocity that a simulated object can achieve.&quot;)]
 public float MaxAngularVelocity { get; set; }</code></pre>
   </div>
 
@@ -1125,7 +1119,6 @@ Because this may prevent intentional fast rotations on objects such as wheels, y
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The maximum depenetration velocity when rigidbody moving out of penetrating state.&quot;)]
 public float MaxDepenetrationVelocity { get; set; }</code></pre>
   </div>
 
@@ -1169,7 +1162,6 @@ Using this property can smooth objects moving out of colliding state and prevent
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;Override the auto computed mass.&quot;)]
 public bool OverrideMass { get; set; }</code></pre>
   </div>
 
@@ -1209,7 +1201,6 @@ public bool OverrideMass { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The mass-normalized kinetic energy threshold below which an actor may go to sleep.&quot;)]
 public float SleepThreshold { get; set; }</code></pre>
   </div>
 

@@ -102,13 +102,6 @@
     <div class="level5"><span class="xref">StaticModel</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_StaticModel" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_StaticModel" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_StaticModel" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_StaticModel" data-uid="FlaxEngine.ModelInstanceActor.SetMaterial(System.Int32,FlaxEngine.MaterialBase)"><a href="#collapsible-inheritedMembers-FlaxEngine_StaticModel" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -154,15 +147,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -226,6 +210,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -306,12 +302,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -367,6 +357,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -486,7 +482,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Renders model on the screen.&quot;)]
-public class StaticModel : ModelInstanceActor, ITransformable, ISceneObject</code></pre>
+public class StaticModel : ModelInstanceActor</code></pre>
   </div>
 
   
@@ -542,7 +538,7 @@ public class StaticModel : ModelInstanceActor, ITransformable, ISceneObject</cod
 [EditorDisplay(&quot;Model&quot;, null)]
 [Limit(0F, 10F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;The model bounds scale. It is useful when using Position Offset to animate the vertices of the object outside of its bounds. Increasing the bounds of an object will reduce performance.&quot;)]
+[Tooltip(&quot;Gets or sets the model bounds scale. It is useful when using Position Offset to animate the vertices of the object outside of its bounds. Increasing the bounds of an object will reduce performance.&quot;)]
 public float BoundsScale { get; set; }</code></pre>
   </div>
 
@@ -625,7 +621,7 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The model forced Level Of Detail index. Allows to bind the given model LOD to show. Value -1 disables this feature.&quot;)]
+[Tooltip(&quot;Gets or sets the model forced Level Of Detail index. Allows to bind the given model LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -745,7 +741,7 @@ public bool HasVertexColors { get; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The model Level Of Detail bias value. Allows to increase or decrease rendered model quality.&quot;)]
+[Tooltip(&quot;Gets or sets the model Level Of Detail bias value. Allows to increase or decrease rendered model quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -828,7 +824,7 @@ public Model Model { get; set; }</code></pre>
 [EditorDisplay(&quot;Model&quot;, &quot;Scale In Lightmap&quot;)]
 [Limit(0F, 1000F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;The model scale in lightmap (applied to all the meshes).&quot;)]
+[Tooltip(&quot;Gets or sets the model scale in lightmap (applied to all the meshes).&quot;)]
 public float ScaleInLightmap { get; set; }</code></pre>
   </div>
 
