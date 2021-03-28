@@ -101,13 +101,6 @@
     <div class="level4"><span class="xref">SceneAnimationPlayer</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_SceneAnimationPlayer" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_SceneAnimationPlayer" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_SceneAnimationPlayer" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_SceneAnimationPlayer" data-uid="FlaxEngine.Actor.HasTag"><a href="#collapsible-inheritedMembers-FlaxEngine_SceneAnimationPlayer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -138,15 +131,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -210,6 +194,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -290,12 +286,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -351,6 +341,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -470,7 +466,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;The scene animation playback actor.&quot;)]
-public class SceneAnimationPlayer : Actor, ITransformable, ISceneObject</code></pre>
+public class SceneAnimationPlayer : Actor</code></pre>
   </div>
 
   
@@ -929,7 +925,6 @@ public float StartTime { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[NoSerialize]
 [HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The current animation playback time position (seconds).&quot;)]
 public float Time { get; set; }</code></pre>
   </div>
 
@@ -1038,6 +1033,55 @@ public bool UseTimeScale { get; set; }</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="FlaxEngine_SceneAnimationPlayer_MapObject_" data-uid="FlaxEngine.SceneAnimationPlayer.MapObject*"></a>
+  
+  <h4 id="FlaxEngine_SceneAnimationPlayer_MapObject_System_Guid_System_Guid_" data-uid="FlaxEngine.SceneAnimationPlayer.MapObject(System.Guid,System.Guid)"><a href="#collapsible-FlaxEngine_SceneAnimationPlayer_MapObject_System_Guid_System_Guid_" class="expander" data-toggle="collapse">MapObject(Guid, Guid)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SceneAnimationPlayer_MapObject_System_Guid_System_Guid_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds an object mapping. The object <code>from</code> represented by it&apos;s unique ID will be redirected to the specified <code>to</code>. Can be used to reuse the same animation for different objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Adds an object mapping. The object `from` represented by it's unique ID will be redirected to the specified `to`. Can be used to reuse the same animation for different objects.&quot;)]
+public void MapObject(Guid from, Guid to)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Guid</span></span>
+        <span class="parametername">from</span>
+        <p><p>The source object from the scene animation asset to replace.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Guid</span></span>
+        <span class="parametername">to</span>
+        <p><p>The destination object to animate.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   <a id="FlaxEngine_SceneAnimationPlayer_Pause_" data-uid="FlaxEngine.SceneAnimationPlayer.Pause*"></a>

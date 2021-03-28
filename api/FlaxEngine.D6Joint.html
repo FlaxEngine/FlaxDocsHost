@@ -105,13 +105,6 @@ It also allows you to constrain limits to only specific axes or completely lock 
     <div class="level5"><span class="xref">D6Joint</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_D6Joint" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_D6Joint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_D6Joint" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_D6Joint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_D6Joint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -166,15 +159,6 @@ It also allows you to constrain limits to only specific axes or completely lock 
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -238,6 +222,18 @@ It also allows you to constrain limits to only specific axes or completely lock 
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -318,12 +314,6 @@ It also allows you to constrain limits to only specific axes or completely lock 
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -379,6 +369,12 @@ It also allows you to constrain limits to only specific axes or completely lock 
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -497,7 +493,7 @@ It also allows you to constrain limits to only specific axes or completely lock 
   <h5 id="FlaxEngine_D6Joint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public class D6Joint : Joint, ITransformable, ISceneObject</code></pre>
+public class D6Joint : Joint</code></pre>
   </div>
 
   
@@ -668,7 +664,6 @@ public float CurrentTwist { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The drive's target angular velocity.&quot;)]
 public Vector3 DriveAngularVelocity { get; set; }</code></pre>
   </div>
 
@@ -708,7 +703,6 @@ public Vector3 DriveAngularVelocity { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The drive's target linear velocity.&quot;)]
 public Vector3 DriveLinearVelocity { get; set; }</code></pre>
   </div>
 
@@ -748,7 +742,6 @@ public Vector3 DriveLinearVelocity { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The drive's target position relative to the joint's first body.&quot;)]
 public Vector3 DrivePosition { get; set; }</code></pre>
   </div>
 
@@ -788,7 +781,6 @@ public Vector3 DrivePosition { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [Unmanaged]
-[Tooltip(&quot;The drive's target rotation relative to the joint's first body.&quot;)]
 public Quaternion DriveRotation { get; set; }</code></pre>
   </div>
 

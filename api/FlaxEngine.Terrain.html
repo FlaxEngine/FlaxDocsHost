@@ -102,13 +102,6 @@
     <div class="level5"><span class="xref">Terrain</span></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_Terrain" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_Terrain" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_Terrain" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEngine_Terrain" data-uid="FlaxEngine.PhysicsColliderActor.OnCollisionEnter(FlaxEngine.Collision)"><a href="#collapsible-inheritedMembers-FlaxEngine_Terrain" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
@@ -166,15 +159,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts_System_Type_">Actor.GetScripts(Type)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddMovement_FlaxEngine_Vector3_">Actor.AddMovement(Vector3)</a>
@@ -238,6 +222,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEndPlay">Actor.OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddStaticFlags_FlaxEngine_StaticFlags_">Actor.AddStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveStaticFlags_FlaxEngine_StaticFlags_">Actor.RemoveStaticFlags(StaticFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetStaticFlag_FlaxEngine_StaticFlags_System_Boolean_">Actor.SetStaticFlag(StaticFlags, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_">Actor.HasStaticFlag(StaticFlags)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ResetLocalTransform">Actor.ResetLocalTransform()</a>
@@ -318,12 +314,6 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsActiveInHierarchy">Actor.IsActiveInHierarchy</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_StaticFlags">Actor.StaticFlags</a>
     </div>
     <div>
@@ -379,6 +369,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsTransformStatic">Actor.IsTransformStatic</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_EulerAngles">Actor.EulerAngles</a>
@@ -498,7 +494,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Represents a single terrain object.&quot;)]
-public sealed class Terrain : PhysicsColliderActor, ITransformable, ISceneObject</code></pre>
+public sealed class Terrain : PhysicsColliderActor</code></pre>
   </div>
 
   
@@ -735,7 +731,7 @@ public sealed class Terrain : PhysicsColliderActor, ITransformable, ISceneObject
     <pre><code class="lang-csharp hljs">[EditorOrder(120)]
 [EditorDisplay(&quot;Terrain&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The terrain chunks bounds extent. Values used to expand terrain chunks bounding boxes. Use it when your terrain material is performing vertex offset operations on a GPU.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain chunks bounds extent. Values used to expand terrain chunks bounding boxes. Use it when your terrain material is performing vertex offset operations on a GPU.&quot;)]
 public Vector3 BoundsExtent { get; set; }</code></pre>
   </div>
 
@@ -816,7 +812,7 @@ public int ChunkSize { get; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Collision&quot;, &quot;Collision LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The terrain geometry LOD index used for collision.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain geometry LOD index used for collision.&quot;)]
 public int CollisionLOD { get; set; }</code></pre>
   </div>
 
@@ -899,7 +895,7 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The terrain forced Level Of Detail index. Allows to bind the given chunks LOD to show. Value -1 disables this feature.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain forced Level Of Detail index. Allows to bind the given chunks LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -941,7 +937,7 @@ public int ForcedLOD { get; set; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The terrain Level Of Detail bias value. Allows to increase or decrease rendered terrain quality.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain Level Of Detail bias value. Allows to increase or decrease rendered terrain quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -1022,7 +1018,7 @@ public int LODCount { get; }</code></pre>
 [Limit(0F, 5F, 0.01F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;LOD Distribution&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The terrain LODs distribution parameter. Adjusts terrain chunks transitions distances. Use lower value to increase terrain quality or higher value to increase performance. Default value is 0.75.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain LODs distribution parameter. Adjusts terrain chunks transitions distances. Use lower value to increase terrain quality or higher value to increase performance. Default value is 0.75.&quot;)]
 public float LODDistribution { get; set; }</code></pre>
   </div>
 
@@ -1187,7 +1183,7 @@ public JsonAsset PhysicalMaterial { get; set; }</code></pre>
 [Limit(0F, 10000F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;Scale In Lightmap&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The terrain scale in lightmap (applied to all the chunks). Use value higher than 1 to increase baked lighting resolution.&quot;)]
+[Tooltip(&quot;Gets or sets the terrain scale in lightmap (applied to all the chunks). Use value higher than 1 to increase baked lighting resolution.&quot;)]
 public float ScaleInLightmap { get; set; }</code></pre>
   </div>
 

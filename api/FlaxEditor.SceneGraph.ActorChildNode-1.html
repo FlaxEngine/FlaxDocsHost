@@ -103,18 +103,18 @@
       <div class="level4"><a class="xref" href="FlaxEditor.SceneGraph.Actors.NavLinkNode.LinkNode.html">NavLinkNode.LinkNode</a></div>
     </div>
   </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEditor_SceneGraph_ActorChildNode_1" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEditor_SceneGraph_ActorChildNode_1" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEditor_SceneGraph_ActorChildNode_1" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-  </div>
-  </div>
   
   <div class="inheritedMembers">
     <h5 id="inheritedMembers-FlaxEditor_SceneGraph_ActorChildNode_1" data-uid="FlaxEditor.SceneGraph.ActorChildNode.Index"><a href="#collapsible-inheritedMembers-FlaxEditor_SceneGraph_ActorChildNode_1" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEditor_SceneGraph_ActorChildNode_1" class="collapse">
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_Index">ActorChildNode.Index</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_Dispose">ActorChildNode.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_CanBeSelectedDirectly">ActorChildNode.CanBeSelectedDirectly</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_Name">ActorChildNode.Name</a>
@@ -139,6 +139,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_CanCopyPaste">ActorChildNode.CanCopyPaste</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_CanDuplicate">ActorChildNode.CanDuplicate</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.ActorChildNode.html#FlaxEditor_SceneGraph_ActorChildNode_CanDrag">ActorChildNode.CanDrag</a>
@@ -171,16 +174,19 @@
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_RayCastSelf_FlaxEditor_SceneGraph_SceneGraphNode_RayCastData__System_Single__FlaxEngine_Vector3__">SceneGraphNode.RayCastSelf(SceneGraphNode.RayCastData, Single, Vector3)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_GetEditorSphere_FlaxEngine_BoundingSphere__">SceneGraphNode.GetEditorSphere(BoundingSphere)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnDebugDraw_FlaxEditor_ViewportDebugDrawData_">SceneGraphNode.OnDebugDraw(ViewportDebugDrawData)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnContextMenu_FlaxEditor_GUI_ContextMenu_ContextMenu_">SceneGraphNode.OnContextMenu(ContextMenu)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_Delete">SceneGraphNode.Delete()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_Dispose">SceneGraphNode.Dispose()</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnDispose">SceneGraphNode.OnDispose()</a>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_Duplicate_FlaxEditor_IUndoAction__">SceneGraphNode.Duplicate(IUndoAction)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnParentChanged">SceneGraphNode.OnParentChanged()</a>
@@ -199,6 +205,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_ParentNode">SceneGraphNode.ParentNode</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_CanUseState">SceneGraphNode.CanUseState</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_State">SceneGraphNode.State</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -229,7 +241,7 @@
   
   <h5 id="FlaxEditor_SceneGraph_ActorChildNode_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ActorChildNode&lt;T&gt; : ActorChildNode, ITransformable where T : ActorNode</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ActorChildNode&lt;T&gt; : ActorChildNode where T : ActorNode</code></pre>
   </div>
 
   
@@ -261,7 +273,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ActorChildNode(T actor, Guid id, int index)</code></pre>
+    <pre><code class="lang-csharp hljs">protected ActorChildNode(T node, Guid id, int index)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -269,8 +281,8 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">T</span></span>
-        <span class="parametername">actor</span>
-        <p><p>The parent actor.</p>
+        <span class="parametername">node</span>
+        <p><p>The parent actor node.</p>
 </p>
       </td>
     </tr>
@@ -308,16 +320,16 @@
   
   
   
-  <h4 id="FlaxEditor_SceneGraph_ActorChildNode_1__actor" data-uid="FlaxEditor.SceneGraph.ActorChildNode`1._actor"><a href="#collapsible-FlaxEditor_SceneGraph_ActorChildNode_1__actor" class="expander" data-toggle="collapse">_actor</a></h4>
+  <h4 id="FlaxEditor_SceneGraph_ActorChildNode_1__node" data-uid="FlaxEditor.SceneGraph.ActorChildNode`1._node"><a href="#collapsible-FlaxEditor_SceneGraph_ActorChildNode_1__node" class="expander" data-toggle="collapse">_node</a></h4>
   
-  <div id="collapsible-FlaxEditor_SceneGraph_ActorChildNode_1__actor" class="collapse in">
-  <div class="markdown level1 summary"><p>The actor.</p>
+  <div id="collapsible-FlaxEditor_SceneGraph_ActorChildNode_1__node" class="collapse in">
+  <div class="markdown level1 summary"><p>The actor node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly T _actor</code></pre>
+    <pre><code class="lang-csharp hljs">protected T _node</code></pre>
   </div>
 
   
@@ -335,6 +347,38 @@
   
   
   
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEditor_SceneGraph_ActorChildNode_1_OnDispose_" data-uid="FlaxEditor.SceneGraph.ActorChildNode`1.OnDispose*"></a>
+  
+  <h4 id="FlaxEditor_SceneGraph_ActorChildNode_1_OnDispose" data-uid="FlaxEditor.SceneGraph.ActorChildNode`1.OnDispose"><a href="#collapsible-FlaxEditor_SceneGraph_ActorChildNode_1_OnDispose" class="expander" data-toggle="collapse">OnDispose()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_SceneGraph_ActorChildNode_1_OnDispose" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when node or parent node is disposing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDispose()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.SceneGraph.SceneGraphNode.html#FlaxEditor_SceneGraph_SceneGraphNode_OnDispose">SceneGraphNode.OnDispose()</a></div>
   
   
   

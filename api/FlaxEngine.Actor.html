@@ -113,6 +113,7 @@
       <div class="level4"><a class="xref" href="FlaxEngine.Light.html">Light</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.ModelInstanceActor.html">ModelInstanceActor</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.NavLink.html">NavLink</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.NavMesh.html">NavMesh</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.ParticleEffect.html">ParticleEffect</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PhysicsActor.html">PhysicsActor</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PhysicsColliderActor.html">PhysicsColliderActor</a></div>
@@ -120,17 +121,13 @@
       <div class="level4"><a class="xref" href="FlaxEngine.SceneAnimationPlayer.html">SceneAnimationPlayer</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Sky.html">Sky</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Skybox.html">Skybox</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.Spline.html">Spline</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.SplineRopeBody.html">SplineRopeBody</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.SpriteRender.html">SpriteRender</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.TextRender.html">TextRender</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.UICanvas.html">UICanvas</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.UIControl.html">UIControl</a></div>
     </div>
-  </div>
-  <div classs="implements">
-    <h5 id="implements-FlaxEngine_Actor" data-uid="FlaxEngine.ITransformable"><a href="#collapsible-implements-FlaxEngine_Actor" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
-  <div id="collapsible-implements-FlaxEngine_Actor" class="collapse">
-    <div><a class="xref" href="FlaxEngine.ITransformable.html">ITransformable</a></div>
-    <div><a class="xref" href="FlaxEngine.ISceneObject.html">ISceneObject</a></div>
-  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -239,7 +236,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Base class for all actor objects on the scene.&quot;)]
-public abstract class Actor : SceneObject, ITransformable, ISceneObject</code></pre>
+public abstract class Actor : SceneObject</code></pre>
   </div>
 
   
@@ -411,7 +408,6 @@ public Actor[] Children { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets amount of child actors.&quot;)]
 public int ChildrenCount { get; }</code></pre>
   </div>
 
@@ -452,7 +448,6 @@ public int ChildrenCount { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets actor direction vector (forward vector).&quot;)]
 public Vector3 Direction { get; set; }</code></pre>
   </div>
 
@@ -693,7 +688,6 @@ public bool HasContentLoaded { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;The hide flags.&quot;)]
 public HideFlags HideFlags { get; set; }</code></pre>
   </div>
 
@@ -734,7 +728,7 @@ public HideFlags HideFlags { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-70)]
 [Unmanaged]
-[Tooltip(&quot;Gets value indicating if actor is active in the scene.&quot;)]
+[Tooltip(&quot;Gets or sets value indicating if actor is active in the scene.&quot;)]
 public bool IsActive { get; set; }</code></pre>
   </div>
 
@@ -775,7 +769,6 @@ public bool IsActive { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets value indicating if actor is active in the scene graph. It must be active as well as that of all it's parents.&quot;)]
 public bool IsActiveInHierarchy { get; }</code></pre>
   </div>
 
@@ -933,8 +926,9 @@ public bool IsTransformStatic { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-69)]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorLayerEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The object layer (index). Can be used for selective rendering or ignoring raycasts.&quot;)]
+[Tooltip(&quot;Gets or sets the object layer (index). Can be used for selective rendering or ignoring raycasts.&quot;)]
 public int Layer { get; set; }</code></pre>
   </div>
 
@@ -1058,8 +1052,9 @@ Angles order (xyz): pitch, yaw and roll.</p>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Rotation&quot;)]
 [EditorOrder(-20)]
 [NoSerialize]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+OrientationEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets local rotation of the actor in parent actor space.&quot;)]
+[Tooltip(&quot;Gets or sets local rotation of the actor in parent actor space.&quot;)]
 public Quaternion LocalOrientation { get; set; }</code></pre>
   </div>
 
@@ -1100,8 +1095,9 @@ public Quaternion LocalOrientation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Position&quot;)]
 [EditorOrder(-30)]
 [NoSerialize]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets local position of the actor in parent actor space.&quot;)]
+[Tooltip(&quot;Gets or sets local position of the actor in parent actor space.&quot;)]
 public Vector3 LocalPosition { get; set; }</code></pre>
   </div>
 
@@ -1143,8 +1139,9 @@ public Vector3 LocalPosition { get; set; }</code></pre>
 [Limit(-3.40282347E+38F, 3.40282347E+38F, 0.01F)]
 [EditorOrder(-10)]
 [NoSerialize]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets local scale vector of the actor in parent actor space.&quot;)]
+[Tooltip(&quot;Gets or sets local scale vector of the actor in parent actor space.&quot;)]
 public Vector3 LocalScale { get; set; }</code></pre>
   </div>
 
@@ -1222,7 +1219,6 @@ public Vector3 LocalScale { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Gets local transform of the actor in parent actor space.&quot;)]
 public Transform LocalTransform { get; set; }</code></pre>
   </div>
 
@@ -1254,7 +1250,7 @@ public Transform LocalTransform { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Name" data-uid="FlaxEngine.Actor.Name"><a href="#collapsible-FlaxEngine_Actor_Name" class="expander" data-toggle="collapse">Name</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Name" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the actor name.</p>
+  <div class="markdown level1 summary"><p>Gets the actor name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1305,7 +1301,6 @@ public string Name { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets actor orientation in 3D space&quot;)]
 public Quaternion Orientation { get; set; }</code></pre>
   </div>
 
@@ -1385,7 +1380,6 @@ public float PerInstanceRandom { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;The actor's world transform position.&quot;)]
 public Vector3 Position { get; set; }</code></pre>
   </div>
 
@@ -1417,7 +1411,7 @@ public Vector3 Position { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Rotation" data-uid="FlaxEngine.Actor.Rotation"><a href="#collapsible-FlaxEngine_Actor_Rotation" class="expander" data-toggle="collapse">Rotation</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Rotation" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets actor rotation matrix</p>
+  <div class="markdown level1 summary"><p>Gets or sets actor rotation matrix.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1426,7 +1420,6 @@ public Vector3 Position { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets actor rotation matrix&quot;)]
 public Matrix Rotation { get; set; }</code></pre>
   </div>
 
@@ -1458,7 +1451,7 @@ public Matrix Rotation { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Scale" data-uid="FlaxEngine.Actor.Scale"><a href="#collapsible-FlaxEngine_Actor_Scale" class="expander" data-toggle="collapse">Scale</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Scale" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets actor scale in 3D space</p>
+  <div class="markdown level1 summary"><p>Gets or sets actor scale in 3D space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1467,7 +1460,6 @@ public Matrix Rotation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets actor scale in 3D space&quot;)]
 public Vector3 Scale { get; set; }</code></pre>
   </div>
 
@@ -1508,7 +1500,6 @@ public Vector3 Scale { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;The scene object which contains this actor.&quot;)]
 public Scene Scene { get; }</code></pre>
   </div>
 
@@ -1528,8 +1519,6 @@ public Scene Scene { get; }</code></pre>
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="FlaxEngine.ISceneObject.html#FlaxEngine_ISceneObject_Scene">ISceneObject.Scene</a></div>
   
   
   
@@ -1554,7 +1543,6 @@ public Scene Scene { get; }</code></pre>
 [EditorDisplay(&quot;Scripts&quot;, &quot;__inline__&quot;)]
 [Collection(ReadOnly = true, NotNullItems = true, CanReorderItems = false)]
 [Unmanaged]
-[Tooltip(&quot;List with all scripts attached to the actor (readonly). All items are valid (not null).&quot;)]
 public Script[] Scripts { get; }</code></pre>
   </div>
 
@@ -1595,7 +1583,6 @@ public Script[] Scripts { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;Gets amount of scripts.&quot;)]
 public int ScriptsCount { get; }</code></pre>
   </div>
 
@@ -1675,8 +1662,9 @@ public BoundingSphere Sphere { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-80)]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorStaticFlagsEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The actor static fags.&quot;)]
+[Tooltip(&quot;Gets or sets the actor static fags.&quot;)]
 public StaticFlags StaticFlags { get; set; }</code></pre>
   </div>
 
@@ -1708,7 +1696,7 @@ public StaticFlags StaticFlags { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Tag" data-uid="FlaxEngine.Actor.Tag"><a href="#collapsible-FlaxEngine_Actor_Tag" class="expander" data-toggle="collapse">Tag</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Tag" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the name of the tag.</p>
+  <div class="markdown level1 summary"><p>Gets the name of the tag.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1717,6 +1705,7 @@ public StaticFlags StaticFlags { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-68)]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTagEditor&quot;)]
 [Unmanaged]
 [Tooltip(&quot;The name of the tag.&quot;)]
 public string Tag { get; set; }</code></pre>
@@ -1759,7 +1748,6 @@ public string Tag { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-[Tooltip(&quot;The actor's world transformation.&quot;)]
 public Transform Transform { get; set; }</code></pre>
   </div>
 
@@ -1779,8 +1767,6 @@ public Transform Transform { get; set; }</code></pre>
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="FlaxEngine.ITransformable.html#FlaxEngine_ITransformable_Transform">ITransformable.Transform</a></div>
   
   
   
@@ -2946,14 +2932,14 @@ public Script GetScript(int index)</code></pre>
   <h4 id="FlaxEngine_Actor_GetScript_System_Type_" data-uid="FlaxEngine.Actor.GetScript(System.Type)"><a href="#collapsible-FlaxEngine_Actor_GetScript_System_Type_" class="expander" data-toggle="collapse">GetScript(Type)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_GetScript_System_Type_" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the script of the given type.</p>
+  <div class="markdown level1 summary"><p>Gets the script of the given type from this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The script of the given type.&quot;)]
+[Tooltip(&quot;The script of the given type from this actor.&quot;)]
 public Script GetScript(Type type)</code></pre>
   </div>
 
@@ -2997,7 +2983,7 @@ public Script GetScript(Type type)</code></pre>
   <h4 id="FlaxEngine_Actor_GetScript__1" data-uid="FlaxEngine.Actor.GetScript``1"><a href="#collapsible-FlaxEngine_Actor_GetScript__1" class="expander" data-toggle="collapse">GetScript&lt;T&gt;()</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_GetScript__1" class="collapse in">
-  <div class="markdown level1 summary"><p>Finds the script of the given type.</p>
+  <div class="markdown level1 summary"><p>Finds the script of the given type from this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3046,14 +3032,14 @@ public Script GetScript(Type type)</code></pre>
   <h4 id="FlaxEngine_Actor_GetScripts_System_Type_" data-uid="FlaxEngine.Actor.GetScripts(System.Type)"><a href="#collapsible-FlaxEngine_Actor_GetScripts_System_Type_" class="expander" data-toggle="collapse">GetScripts(Type)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_GetScripts_System_Type_" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the scripts of the given type.</p>
+  <div class="markdown level1 summary"><p>Gets the scripts of the given type from this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scripts of the given type.&quot;)]
+[Tooltip(&quot;The scripts of the given type from this actor.&quot;)]
 public Script[] GetScripts(Type type)</code></pre>
   </div>
 
@@ -3097,7 +3083,7 @@ public Script[] GetScripts(Type type)</code></pre>
   <h4 id="FlaxEngine_Actor_GetScripts__1" data-uid="FlaxEngine.Actor.GetScripts``1"><a href="#collapsible-FlaxEngine_Actor_GetScripts__1" class="expander" data-toggle="collapse">GetScripts&lt;T&gt;()</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_GetScripts__1" class="collapse in">
-  <div class="markdown level1 summary"><p>Searches for all scripts of a specific type.</p>
+  <div class="markdown level1 summary"><p>Searches for all scripts of a specific type from this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3267,6 +3253,57 @@ public bool HasActorInHierarchy(Actor a)</code></pre>
       <td>
         <span class="xref">System.Boolean</span>
         <p><p>Found actor or null.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_HasStaticFlag_" data-uid="FlaxEngine.Actor.HasStaticFlag*"></a>
+  
+  <h4 id="FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_" data-uid="FlaxEngine.Actor.HasStaticFlag(FlaxEngine.StaticFlags)"><a href="#collapsible-FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_" class="expander" data-toggle="collapse">HasStaticFlag(StaticFlags)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_HasStaticFlag_FlaxEngine_StaticFlags_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if object has given flag(s) set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Returns true if object has given flag(s) set..&quot;)]
+public bool HasStaticFlag(StaticFlags flag)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.StaticFlags.html">StaticFlags</a></span>
+        <span class="parametername">flag</span>
+        <p><p>The flag(s) to check.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if has flag(s) set, otherwise false.</p>
 </p>
       </td>
     </tr>
@@ -3971,7 +4008,7 @@ public string ToJson()</code></pre>
   <h4 id="FlaxEngine_Actor_TryGetScript__1___0__" data-uid="FlaxEngine.Actor.TryGetScript``1(``0@)"><a href="#collapsible-FlaxEngine_Actor_TryGetScript__1___0__" class="expander" data-toggle="collapse">TryGetScript&lt;T&gt;(out T)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_TryGetScript__1___0__" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries to find the script of the given type.</p>
+  <div class="markdown level1 summary"><p>Tries to find the script of the given type from this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

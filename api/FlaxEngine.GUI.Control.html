@@ -118,14 +118,10 @@
       <div class="level2"><a class="xref" href="FlaxEditor.Surface.ContextMenu.VisjectCMItem.html">VisjectCMItem</a></div>
       <div class="level2"><a class="xref" href="FlaxEditor.Surface.SurfaceNodeElementControl.html">SurfaceNodeElementControl</a></div>
       <div class="level2"><a class="xref" href="FlaxEditor.Viewport.Widgets.ViewportWidgetButton.html">ViewportWidgetButton</a></div>
-      <div class="level2"><a class="xref" href="FlaxEngine.GUI.Border.html">Border</a></div>
-      <div class="level2"><a class="xref" href="FlaxEngine.GUI.Button.html">Button</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.GUI.CheckBox.html">CheckBox</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.GUI.ContainerControl.html">ContainerControl</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.GUI.Dropdown.html">Dropdown</a></div>
-      <div class="level2"><a class="xref" href="FlaxEngine.GUI.ProgressBar.html">ProgressBar</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.GUI.ScrollBar.html">ScrollBar</a></div>
-      <div class="level2"><a class="xref" href="FlaxEngine.GUI.TextBoxBase.html">TextBoxBase</a></div>
     </div>
   </div>
   <div classs="implements">
@@ -410,6 +406,7 @@ public object Tag</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serialize]
+[HideInEditor]
 [ExpandGroups]
 [Limit(0F, 1F, 0.01F)]
 [EditorDisplay(&quot;Transform&quot;, null)]
@@ -453,6 +450,7 @@ public Vector2 AnchorMax { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serialize]
+[HideInEditor]
 [ExpandGroups]
 [Limit(0F, 1F, 0.01F)]
 [EditorDisplay(&quot;Transform&quot;, null)]
@@ -497,6 +495,7 @@ public Vector2 AnchorMin { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoSerialize]
 [EditorDisplay(&quot;Transform&quot;, null)]
+[HideInEditor]
 [EditorOrder(980)]
 [Tooltip(&quot;The anchor preset used by the control anchors.&quot;)]
 public AnchorPresets AnchorPreset { get; set; }</code></pre>
@@ -894,6 +893,43 @@ public Tooltip CustomTooltip { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.GUI.Tooltip.html">Tooltip</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_Control_DpiScale_" data-uid="FlaxEngine.GUI.Control.DpiScale*"></a>
+  
+  <h4 id="FlaxEngine_GUI_Control_DpiScale" data-uid="FlaxEngine.GUI.Control.DpiScale"><a href="#collapsible-FlaxEngine_GUI_Control_DpiScale" class="expander" data-toggle="collapse">DpiScale</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_Control_DpiScale" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the control DPI scale factor (1 is default). Includes custom DPI scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DpiScale { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
         <p>
       </td>
     </tr>
@@ -1372,6 +1408,7 @@ public bool IsScrollable { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoSerialize]
+[HideInEditor]
 [ExpandGroups]
 [EditorDisplay(&quot;Transform&quot;, null)]
 [EditorOrder(1000)]
@@ -1414,6 +1451,7 @@ public Vector2 Location { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serialize]
+[HideInEditor]
 [ExpandGroups]
 [EditorDisplay(&quot;Transform&quot;, null)]
 [EditorOrder(992)]
@@ -1494,7 +1532,8 @@ public ContainerControl Parent { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, null)]
+    <pre><code class="lang-csharp hljs">[ExpandGroups]
+[EditorDisplay(&quot;Transform&quot;, null)]
 [Limit(0F, 1F, 0.1F)]
 [EditorOrder(1030)]
 [Tooltip(&quot;The control rotation pivot location in normalized control size. Point (0,0) is upper left corner, (0.5,0.5) is center, (1,1) is bottom right corner.&quot;)]
@@ -1640,15 +1679,16 @@ public Vector2 Pivot { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_Control_Rotation" data-uid="FlaxEngine.GUI.Control.Rotation"><a href="#collapsible-FlaxEngine_GUI_Control_Rotation" class="expander" data-toggle="collapse">Rotation</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_Control_Rotation" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the rotation angle (in degrees).</p>
+  <div class="markdown level1 summary"><p>Gets or sets the rotation angle (in degrees). Control is rotated around it&apos;s pivot point (middle of the control by default).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, null)]
+    <pre><code class="lang-csharp hljs">[ExpandGroups]
+[EditorDisplay(&quot;Transform&quot;, null)]
 [EditorOrder(1050)]
-[Tooltip(&quot;The control rotation angle (in degrees).&quot;)]
+[Tooltip(&quot;The control rotation angle (in degrees). Control is rotated around it's pivot point (middle of the control by default).&quot;)]
 public float Rotation { get; set; }</code></pre>
   </div>
 
@@ -1680,16 +1720,17 @@ public float Rotation { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_Control_Scale" data-uid="FlaxEngine.GUI.Control.Scale"><a href="#collapsible-FlaxEngine_GUI_Control_Scale" class="expander" data-toggle="collapse">Scale</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_Control_Scale" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the scale.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the scale. Scales control according to its Pivot which by default is (0.5,0.5) (middle of the control). If you set pivot to (0,0) it will scale the control based on it&apos;s upper-left corner.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, null)]
+    <pre><code class="lang-csharp hljs">[ExpandGroups]
+[EditorDisplay(&quot;Transform&quot;, null)]
 [Limit(-3.40282347E+38F, 3.40282347E+38F, 0.1F)]
 [EditorOrder(1020)]
-[Tooltip(&quot;The control scale parameter.&quot;)]
+[Tooltip(&quot;The control scale parameter. Scales control according to its Pivot which by default is (0.5,0.5) (middle of the control). If you set pivot to (0,0) it will scale the control based on it's upper-left corner.&quot;)]
 public Vector2 Scale { get; set; }</code></pre>
   </div>
 
@@ -1758,15 +1799,16 @@ public Vector2 Scale { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_Control_Shear" data-uid="FlaxEngine.GUI.Control.Shear"><a href="#collapsible-FlaxEngine_GUI_Control_Shear" class="expander" data-toggle="collapse">Shear</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_Control_Shear" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the shear transform angles (x, y). Defined in degrees.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the shear transform angles (x, y). Defined in degrees. Shearing happens relative to the control pivot point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, null)]
+    <pre><code class="lang-csharp hljs">[ExpandGroups]
+[EditorDisplay(&quot;Transform&quot;, null)]
 [EditorOrder(1040)]
-[Tooltip(&quot;The shear transform angles (x, y). Defined in degrees.&quot;)]
+[Tooltip(&quot;The shear transform angles (x, y). Defined in degrees. Shearing happens relative to the control pivot point.&quot;)]
 public Vector2 Shear { get; set; }</code></pre>
   </div>
 
@@ -1845,6 +1887,7 @@ public Vector2 Shear { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoSerialize]
+[HideInEditor]
 [EditorDisplay(&quot;Transform&quot;, null)]
 [EditorOrder(1010)]
 [Tooltip(&quot;The size of the control bounds.&quot;)]

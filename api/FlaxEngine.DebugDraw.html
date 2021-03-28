@@ -144,6 +144,46 @@ public static class DebugDraw</code></pre>
   </h3>
   
   
+  <a id="FlaxEngine_DebugDraw_AllocateContext_" data-uid="FlaxEngine.DebugDraw.AllocateContext*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_AllocateContext" data-uid="FlaxEngine.DebugDraw.AllocateContext"><a href="#collapsible-FlaxEngine_DebugDraw_AllocateContext" class="expander" data-toggle="collapse">AllocateContext()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_AllocateContext" class="collapse in">
+  <div class="markdown level1 summary"><p>Allocates the context for Debug Drawing. Can be use to redirect debug shapes collecting to a separate container (instead of global state).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Allocates the context for Debug Drawing. Can be use to redirect debug shapes collecting to a separate container (instead of global state).&quot;)]
+public static IntPtr AllocateContext()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.IntPtr</span>
+        <p><p>The context object. Release it wil FreeContext. Returns null if failed.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_Draw_" data-uid="FlaxEngine.DebugDraw.Draw*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_Draw_FlaxEngine_RenderContext__FlaxEngine_GPUTextureView_FlaxEngine_GPUTextureView_System_Boolean_" data-uid="FlaxEngine.DebugDraw.Draw(FlaxEngine.RenderContext@,FlaxEngine.GPUTextureView,FlaxEngine.GPUTextureView,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_Draw_FlaxEngine_RenderContext__FlaxEngine_GPUTextureView_FlaxEngine_GPUTextureView_System_Boolean_" class="expander" data-toggle="collapse">Draw(ref RenderContext, GPUTextureView, GPUTextureView, Boolean)</a></h4>
@@ -211,9 +251,9 @@ public static void Draw(ref RenderContext renderContext, GPUTextureView target =
   
   <a id="FlaxEngine_DebugDraw_DrawActors_" data-uid="FlaxEngine.DebugDraw.DrawActors*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_" data-uid="FlaxEngine.DebugDraw.DrawActors(System.IntPtr,System.Int32)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_" class="expander" data-toggle="collapse">DrawActors(IntPtr, Int32)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawActors(System.IntPtr,System.Int32,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">DrawActors(IntPtr, Int32, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawActors_System_IntPtr_System_Int32_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the debug shapes for the given collection of selected actors and other scene actors debug shapes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -222,7 +262,7 @@ public static void Draw(ref RenderContext renderContext, GPUTextureView target =
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Draws the debug shapes for the given collection of selected actors and other scene actors debug shapes.&quot;)]
-public static void DrawActors(IntPtr selectedActors, int selectedActorsCount)</code></pre>
+public static void DrawActors(IntPtr selectedActors, int selectedActorsCount, bool drawScenes)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -240,6 +280,14 @@ public static void DrawActors(IntPtr selectedActors, int selectedActorsCount)</c
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">selectedActorsCount</span>
         <p><p>The size of the list of actors.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">drawScenes</span>
+        <p><p>True if draw all debug shapes from scenes too or false if draw just from specified actor list.</p>
 </p>
       </td>
     </tr>
@@ -558,6 +606,95 @@ public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Co
   </div>
   
   
+  <a id="FlaxEngine_DebugDraw_DrawCylinder_" data-uid="FlaxEngine.DebugDraw.DrawCylinder*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawCylinder_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCylinder(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCylinder_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCylinder(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawCylinder_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the cylinder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the cylinder.&quot;)]
+public static void DrawCylinder(Vector3 position, Quaternion orientation, float radius, float height, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">height</span>
+        <p><p>The height.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_DrawLine_" data-uid="FlaxEngine.DebugDraw.DrawLine*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_DrawLine_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawLine(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawLine_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawLine(Vector3, Vector3, Color, Single, Boolean)</a></h4>
@@ -751,6 +888,225 @@ public static void DrawSphere(BoundingSphere sphere, Color color, float duration
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">depthTest</span>
         <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawText_" data-uid="FlaxEngine.DebugDraw.DrawText*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Transform,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Transform, Color, Int32, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the text (3D).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the text (3D).&quot;)]
+public static void DrawText(string text, Transform transform, Color color, int size = 32, float duration = 0F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">text</span>
+        <p><p>The text.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation of the text (world-space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">size</span>
+        <p><p>The font size.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawText_" data-uid="FlaxEngine.DebugDraw.DrawText*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Vector2,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Vector2, Color, Int32, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the text on a screen (2D).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the text on a screen (2D).&quot;)]
+public static void DrawText(string text, Vector2 position, Color color, int size = 20, float duration = 0F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">text</span>
+        <p><p>The text.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">position</span>
+        <p><p>The position of the text on the screen (in screen-space coordinates).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">size</span>
+        <p><p>The font size.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawText_" data-uid="FlaxEngine.DebugDraw.DrawText*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector3_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Vector3,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector3_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Vector3, Color, Int32, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector3_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the text (3D) that automatically faces the camera.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the text (3D) that automatically faces the camera.&quot;)]
+public static void DrawText(string text, Vector3 position, Color color, int size = 32, float duration = 0F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">text</span>
+        <p><p>The text.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The position of the text (world-space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">size</span>
+        <p><p>The font size.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
 </p>
       </td>
     </tr>
@@ -1499,6 +1855,144 @@ public static void DrawWireTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color co
   </div>
   
   
+  <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Vector3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Vector3[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the wireframe triangles.&quot;)]
+public static void DrawWireTriangles(Vector3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Vector3[], Int32[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe triangles using the given index buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Draws the wireframe triangles using the given index buffer.&quot;)]
+public static void DrawWireTriangles(Vector3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">indices</span>
+        <p><p>The triangle indices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_DrawWireTube_" data-uid="FlaxEngine.DebugDraw.DrawWireTube*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_DrawWireTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTube(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTube(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
@@ -1570,6 +2064,137 @@ public static void DrawWireTube(Vector3 position, Quaternion orientation, float 
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">depthTest</span>
         <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_FreeContext_" data-uid="FlaxEngine.DebugDraw.FreeContext*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_FreeContext_System_IntPtr_" data-uid="FlaxEngine.DebugDraw.FreeContext(System.IntPtr)"><a href="#collapsible-FlaxEngine_DebugDraw_FreeContext_System_IntPtr_" class="expander" data-toggle="collapse">FreeContext(IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_FreeContext_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Frees the context for Debug Drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Frees the context for Debug Drawing.&quot;)]
+public static void FreeContext(IntPtr context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_SetContext_" data-uid="FlaxEngine.DebugDraw.SetContext*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_SetContext_System_IntPtr_" data-uid="FlaxEngine.DebugDraw.SetContext(System.IntPtr)"><a href="#collapsible-FlaxEngine_DebugDraw_SetContext_System_IntPtr_" class="expander" data-toggle="collapse">SetContext(IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_SetContext_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the context for Debug Drawing to a custom or null to use global default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Sets the context for Debug Drawing to a custom or null to use global default.&quot;)]
+public static void SetContext(IntPtr context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The context or null.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_UpdateContext_" data-uid="FlaxEngine.DebugDraw.UpdateContext*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_UpdateContext_System_IntPtr_System_Single_" data-uid="FlaxEngine.DebugDraw.UpdateContext(System.IntPtr,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_UpdateContext_System_IntPtr_System_Single_" class="expander" data-toggle="collapse">UpdateContext(IntPtr, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_UpdateContext_System_IntPtr_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the context for Debug Drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Updates the context for Debug Drawing.&quot;)]
+public static void UpdateContext(IntPtr context, float deltaTime)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">deltaTime</span>
+        <p><p>The update delta time (in seconds).</p>
 </p>
       </td>
     </tr>

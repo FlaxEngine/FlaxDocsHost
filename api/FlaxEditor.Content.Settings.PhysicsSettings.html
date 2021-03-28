@@ -87,7 +87,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEditor.Content.Settings.PhysicsSettings">
   <h1 id="FlaxEditor_Content_Settings_PhysicsSettings" data-uid="FlaxEditor.Content.Settings.PhysicsSettings">Class PhysicsSettings
   </h1>
-  <div class="markdown level0 summary"><p>The physics simulation settings container. Allows to edit asset via editor.</p>
+  <div class="markdown level0 summary"><p>Physics simulation settings container.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -132,7 +132,8 @@
   
   <h5 id="FlaxEditor_Content_Settings_PhysicsSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PhysicsSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Physics simulation settings container.&quot;)]
+public sealed class PhysicsSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -185,7 +186,6 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Limit(0F, 3.40282347E+38F, 1F)]
 [Tooltip(&quot;Minimum relative velocity required for an object to bounce. A typical value for simulation stability is about 0.2 * gravity&quot;)]
 public float BounceThresholdVelocity</code></pre>
   </div>
@@ -256,15 +256,15 @@ public Vector3 DefaultGravity</code></pre>
   <h4 id="FlaxEditor_Content_Settings_PhysicsSettings_DisableCCD" data-uid="FlaxEditor.Content.Settings.PhysicsSettings.DisableCCD"><a href="#collapsible-FlaxEditor_Content_Settings_PhysicsSettings_DisableCCD" class="expander" data-toggle="collapse">DisableCCD</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_PhysicsSettings_DisableCCD" class="collapse in">
-  <div class="markdown level1 summary"><p>If true CCD will be ignored. This is an optimization when CCD is never used which removes the need for PhysX to check it internally.</p>
+  <div class="markdown level1 summary"><p>If true CCD will be ignored. This is an optimization when CCD is never used which removes the need for physx to check it internally.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(70)]
-[EditorDisplay(&quot;Simulation&quot;, &quot;Disable CCD&quot;)]
-[Tooltip(&quot;If true CCD will be ignored. This is an optimization when CCD is never used which removes the need for PhysX to check it internally.&quot;)]
+[EditorDisplay(&quot;Simulation&quot;, null)]
+[Tooltip(&quot;If true CCD will be ignored. This is an optimization when CCD is never used which removes the need for physx to check it internally.&quot;)]
 public bool DisableCCD</code></pre>
   </div>
 
@@ -459,7 +459,6 @@ public uint[] LayerMasks</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Limit(0.0013F, 2F, 1F)]
 [Tooltip(&quot;The maximum allowed delta time (in seconds) for the physics simulation step.&quot;)]
 public float MaxDeltaTime</code></pre>
   </div>
@@ -499,7 +498,6 @@ public float MaxDeltaTime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1020)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Limit(1F, 16F, 1F)]
 [Tooltip(&quot;The maximum number of substeps for physics simulation.&quot;)]
 public int MaxSubsteps</code></pre>
   </div>
@@ -538,7 +536,7 @@ public int MaxSubsteps</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
-[EditorDisplay(&quot;Simulation&quot;, null)]
+[EditorDisplay(&quot;Framerate&quot;, null)]
 [Tooltip(&quot;If enabled, any Raycast or other scene query that intersects with a Collider marked as a Trigger will returns with a hit. Individual raycasts can override this behavior.&quot;)]
 public bool QueriesHitTriggers</code></pre>
   </div>
@@ -576,7 +574,7 @@ public bool QueriesHitTriggers</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(50)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
 [Tooltip(&quot;Default restitution combine mode, controls how restitution is computed for multiple materials.&quot;)]
 public PhysicsCombineMode RestitutionCombineMode</code></pre>
@@ -617,7 +615,6 @@ public PhysicsCombineMode RestitutionCombineMode</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Limit(0.0013F, 1F, 1F)]
 [Tooltip(&quot;Delta time (in seconds) for an individual simulation substep.&quot;)]
 public float SubstepDeltaTime</code></pre>
   </div>
@@ -656,7 +653,7 @@ public float SubstepDeltaTime</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1100)]
-[EditorDisplay(&quot;Other&quot;, &quot;Support Cooking At Runtime&quot;)]
+[EditorDisplay(&quot;Other&quot;, null)]
 [Tooltip(&quot;Enables support for cooking physical collision shapes geometry at runtime. Use it to enable generating runtime terrain collision or convex mesh colliders.&quot;)]
 public bool SupportCookingAtRuntime</code></pre>
   </div>
@@ -696,7 +693,6 @@ public bool SupportCookingAtRuntime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Limit(-1F, 10F, 1F)]
 [Tooltip(&quot;Triangles from triangle meshes (CSG) with an area less than or equal to this value will be removed from physics collision data. Set to less than or equal 0 to disable.&quot;)]
 public float TriangleMeshTriangleMinAreaThreshold</code></pre>
   </div>
