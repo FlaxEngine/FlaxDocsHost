@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tips &amp; Tricks for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Tips &amp; Tricks for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tips--tricks-for-c-in-flax">Tips &amp; Tricks for C++ in Flax</h1>
+
+<ul>
+<li>To create new object use <code>New&lt;Type&gt;()</code> - it allocates memory using Flax allocators</li>
+<li>For string literalts use <code>TEXT(&quot;My  Cool Text in UTF-16&quot;)</code> macro</li>
+<li>You can use raw pointers to the assets but the safe way is with <code>AssetReference&lt;T&gt;</code> or <code>WeakAssetReference&lt;T&gt;</code></li>
+<li>To reference scene objects and other scripts in a safe way <code>ScriptingObjectReference&lt;T&gt;</code> is preferred</li>
+<li>Scripting classes can be visible in Editor and C# scripting needs to have <code>API_CLASS()</code> meta macro before and <code>DECLARE_SCRIPTING_TYPE(&lt;typename&gt;);</code> added</li>
+<li>By default script objects contain a constructor that takes a single parameter <code>const SpawnParams&amp; params</code></li>
+<li>To expose a field into the editor and C# scripting use <code>API_FIELD()</code> prefix macro that can contain additional metadata attributes</li>
+<li>To expose a function to the editor and C# scripting use <code>API_FUNCTION</code> prefix macro</li>
+<li>You can use engine API similar to C# (eg. Camera, Physics, Input...)</li>
+<li>The <code>&lt;module_name&gt;_API</code> define used between <code>class</code> and class name (i.e. <code>class MYPROJECT_API MouseDecalShoot</code>) is to export the C++ class to public module symbols so it can be used by other code</li>
+<li>You can manually override <code>Serialize</code>/<code>Deserialize</code> method or use <code>API_AUTO_SERIALIZATION</code> macro to automatically generate serialziation code for the type (for classes and structures that inherit from <code>ISerializable</code>)</li>
+<li>If your game module uses types from various engine modules (eg. Graphics, Physics) you have to add a reference to the in a build script so build tools can handle modules dependencies and properly link binaries - simply add <code>options.PublicDependencies.Add(&quot;&lt;module_name&gt;&quot;);</code> in you build script (where module name is Physics/Terrain/etc. - see BuildScripts for all modules you can use)</li>
+<li>Custom constructor example for class object:
+```cpp
+// .h
+API_CLASS() class GAME_API Primitives : public Actor
+{
+DECLARE_SCRIPTING_TYPE(Primitives);
+public:
+  Primitives(const SpawnParams&amp; params, int32 pt);
+};</li>
+</ul>
+<p>// .cpp
+Primitives::Primitives(const SpawnParams&amp; params)
+    : Actor(params)
+{
+    // Default constructor body
+}
+Primitives::Primitives(const SpawnParams&amp; params, int32 pt)
+    : Actor(params)
+{
+    // Custom constructor body
+}</p>
+<p>// usage
+int32 pt = 11;
+auto obj = New<primitives>(SpawnParams(Guid::New(), Primitives::TypeInitializer), pt);<p>
+<pre><code>
+</code></pre></primitives></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/tips-tricks.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -93,15 +93,33 @@
 <p>Another way to create a new prefab asset is by using the existing actors as an archetype. To do it simply select the actor on a scene that you want to turn into a prefab and drag it into the <em>Content Window</em>. Specify its name and hit enter to confirm. Then double-click and edit your new asset.</p>
 <p><img src="media/new-prefab2.png" alt="New Prefab Asset"></p>
 <h2 id="from-code">From code</h2>
-<p>The last way to create a new prefab is by using an editor script that creates a new prefab asset using Flax C# API.</p>
+<p>The last way to create a new prefab is by using an editor script that creates a new prefab asset using C# or C++.</p>
+<h3 id="c">C#</h3>
 <pre><code class="lang-cs">// Setup prefab objects
-var myLight = new PointLight();
-myLight.Color = Color.Red;
-var myDecal = new Decal();
-myDecal.Parent = myLight;
+var myLight = new PointLight
+{
+    Color = Color.Red
+};
+
+new Decal
+{
+    Parent = myLight
+};
 
 // Create a prefab
-Editor.CreatePrefab(StringUtils.CombinePaths(Globals.ProjectContentFolder, &quot;myPrefab.prefab&quot;), myLight, false);
+PrefabManager.CreatePrefab(myLight, StringUtils.CombinePaths(Globals.ProjectContentFolder, &quot;myPrefab.prefab&quot;), false);
+</code></pre><h3 id="c-1">C++</h3>
+<pre><code class="lang-cpp">// Setup prefab objects
+PointLight* myLight = New&lt;PointLight&gt;();
+myLight-&gt;SetName(TEXT(&quot;PointLight&quot;));
+myLight-&gt;Color = Color::Red;
+
+Decal* myDecal = New&lt;Decal&gt;();
+myDecal-&gt;SetName(TEXT(&quot;Decal&quot;));
+myDecal-&gt;SetParent(myLight);
+
+// Create a prefab
+PrefabManager::CreatePrefab(myLight, Globals::ProjectContentFolder / TEXT(&quot;myPrefab.prefab&quot;), false);
 </code></pre></article>
           </div>
           
@@ -110,7 +128,7 @@ Editor.CreatePrefab(StringUtils.CombinePaths(Globals.ProjectContentFolder, &quot
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/get-started/prefabs/creating-prefabs.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/get-started/prefabs/creating-prefabs.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

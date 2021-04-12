@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Collections for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Collections for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="collections-for-c-in-flax">Collections for C++ in Flax</h1>
+
+<h2 id="array">Array</h2>
+<p><code>Array&lt;T&gt;</code> is a general-purpose dynamic allocated and resizable list object. Use it to store a list of values.</p>
+<p>Examples:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/Array.h&quot;
+
+Array&lt;String&gt; messages;
+messages.Add(TEXT(&quot;one&quot;)); // add items to the list
+messages.Add(TEXT(&quot;two&quot;));
+messages.Add(TEXT(&quot;three&quot;));
+int32 count = messages.Count(); // access amount of items
+bool hasTwo = messages.Contains(TEXT(&quot;two&quot;)); // utilities like Find, Contains, IndexOf, Reverse
+messages.Insert(0, TEXT(&quot;zero&quot;)); // inserting at index
+messages.Dequeue(); messages.Enqueue(TEXT(&quot;a&quot;)); // can work like a queue
+messages.Pop(); messages.Push(TEXT(&quot;a&quot;)); // can work like a stack
+
+// iteration over the list with for-range loop
+for (auto&amp; item : messages)
+    LOG_STR(Info, item);
+
+// iteration over the list with for loop
+for (int32 i = 0; i &lt; messages.Count(); i++)
+    LOG_STR(Info, messages[i]);
+
+Array&lt;int32&gt; values;
+int32 defaults[] = {1, 2, 3, 4};
+values.SetCapacity(100); // dynamic resizable allocation
+values.Add(defaults, ARRAY_COUNT(defaults)); // adding range of values
+values.Clear(); // clearing values (preserves allocation)
+values.SetCapacity(0); // clears the allocartion too
+</code></pre><h3 id="arrayextensions">ArrayExtensions</h3>
+<p>For more advanced usage of the Array use <code>ArrayExtensions</code>, example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/ArrayExtensions.h&quot;
+
+const std::function&lt;bool(const ModelInstanceEntry&amp;)&gt; IsValidMaterial = [](const ModelInstanceEntry&amp; e) -&gt; bool
+{
+    return e.Material;
+};
+// utilities like Any, All, IndexOf, GroupBy
+if (ArrayExtensions::Any(Entries, IsValidMaterial))
+{
+    // do sth...
+}
+</code></pre><h2 id="dictionary">Dictionary</h2>
+<p><code>Dictionary&lt;Key, Value&gt;</code> is a template for unordered dictionary with mapped key with value pairs.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/Dictionary.h&quot;
+
+Dictionary&lt;String, int32&gt; map;
+map[TEXT(&quot;Speed&quot;)] = 10;
+map[TEXT(&quot;Car&quot;)] = 0;
+map.Add(TEXT(&quot;Key&quot;), 11);
+bool containsCar = map.ContainsKey(TEXT(&quot;Car&quot;));
+bool contains0 = map.ContainsValue(0);
+for (auto&amp; e : map)
+    LOG(Info, &quot;Key: {0}, Value: {1}&quot;, e.Key, e.Value);
+</code></pre><h2 id="hashset">HashSet</h2>
+<p><code>HashSet&lt;T&gt;</code> is a template for unordered set of values (without duplicates with <em>O(1)</em> lookup access). It works like <code>Dictionary</code> except it stores only keys without paired value.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/HashSet.h&quot;
+
+HashSet&lt;String&gt; map;
+map.Add(TEXT(&quot;Speed&quot;));
+map.Add(TEXT(&quot;Car&quot;));
+map.Add(TEXT(&quot;Key&quot;));
+bool containsCar = map.Contains(TEXT(&quot;Car&quot;));
+for (auto&amp; e : map)
+    LOG(Info, &quot;Item: {0}&quot;, e.Item);
+</code></pre><h2 id="chunkedarray">ChunkedArray</h2>
+<p><code>ChunkedArray&lt;T, ChunkSize&gt;</code> is a template for dynamic array with variable capacity that uses fixed size memory chunks for data storage rather than linear allocation. It&#39;s more optimized for cases where single linear allocation would no be performant (eg. very large data sets) that keep growing.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/ChunkedArray.h&quot;
+
+ChunkedArray&lt;int32, 1024&gt; flags;
+for (int32 i = 0; i &lt; 4096; i++)
+    flags.Add((int32)(Math::Cos((float)i / 100.0f) * 100.0f));
+</code></pre><h2 id="bitarray">BitArray</h2>
+<p><code>BitArray&lt;&gt;</code> is a template for dynamic array with variable capacity that stores the bit values. It uses <code>uint32</code> to use optimized storage for 32 bits per-item and contains API for accessing the data.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/BitArray.h&quot;
+
+BitArray&lt;&gt; flags;
+for (int32 i = 0; i &lt; 100; i++)
+    flags.Add(i % 2);
+</code></pre><h2 id="hash-functions">Hash Functions</h2>
+<p><code>Dictionary</code> and <code>HashSet</code> collections use key hashing to implement fast lookups. Flax uses <code>uint32 GetHash(const Type&amp; key)</code> signature to natch the hash function for <code>Type</code> (reference is optional). Example hash functions are implemented in <code>Engine/Core/Collections/HashFunctions.h</code>.</p>
+<h2 id="sorting">Sorting</h2>
+<p>For sorting data, especially when using <code>Array</code> it&#39;s possible to use sorting methods implemented in <code>Sorting</code> header.</p>
+<p>Example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Collections/Sorting.h&quot;
+
+Array&lt;String&gt; names;
+names.Add(TEXT(&quot;zzzz&quot;));
+names.Add(TEXT(&quot;bbb&quot;));
+names.Add(TEXT(&quot;aaa&quot;));
+names.Add(TEXT(&quot;fff&quot;));
+Sorting::QuickSort(names.Get(), names.Count());
+for (auto&amp; e : names)
+    LOG_STR(Info, e);
+</code></pre><h2 id="allocators">Allocators</h2>
+<p>By default all collections are using heap-allocated memory using <code>Platform::Allocate</code> to store data. Hovewer is some cases when programmer knows that collection will store up to X items or will be unlikely to grow very large the custom, more optimized allocator can be used to gain more performance.</p>
+<p>Allocators:</p>
+<ul>
+<li><code>HeapAllocation</code></li>
+<li><code>InlinedAllocation</code></li>
+<li><code>FixedAllocation</code></li>
+</ul>
+<p>For example if the Array used in the following example can hold up to 10 items it can use <code>FixedAllocation&lt;&gt;</code> with predefined capacity which will use stack-memory to place items - it&#39;s faster.</p>
+<pre><code class="lang-cpp">Array&lt;int32, FixedAllocation&lt;10&gt;&gt; myItens;
+for (int32 i = 0; i &lt; 10; i++)
+{
+    if (i % 2 == 0) // perform some cool check
+    {
+        myItens.Add(i * 2 + 1);
+    }
+}
+// do sth with myItens...
+</code></pre><p>If the array is more likely to contain up to 10 items but i can be resized to be bigger for a given case the <code>InlinedAllocation&lt;&gt;</code> can be used:</p>
+<pre><code class="lang-cpp">Array&lt;int32, InlinedAllocation&lt;10&gt;&gt; myItens;
+</code></pre><p>Using allocators is more advanced use-case but can benefit the game performance. Also, scripting API bindings generator supports using custom allocators when exposing gameplay components for C#/Visual Script using <code>API_</code> macros.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/collections.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

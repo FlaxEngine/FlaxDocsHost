@@ -86,26 +86,56 @@
 <h1 id="script-properties-and-fields">Script properties and fields</h1>
 
 <p>Every script can contain various fields and properties. By default Flax shows all <strong>public fields and properties</strong> in the <em>Properties</em> window so user may edit them (undo/redo is supported).</p>
-<ul>
-<li><p>Script</p>
-<pre><code class="lang-cs">public class MyScript : Script
+<h1 id="script">Script</h1>
+<h2 id="c">C#</h2>
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
+
+public class MyScript : Script
 {
-  public float Field1 = 11;
-  public Color Field2 = Color.Yellow;
-  public DirectionalLight Field3 { get; set; }
+	public bool Field1 = 11;
+	public Color Field2 = Color.Yellow;
+	public DirectionalLight Field3 { get; set; }
 }
-</code></pre></li>
-<li><p>Editor
-<br><img src="media/script-ui.png" alt="Script Properties"></p>
-</li>
-</ul>
+</code></pre><h2 id="c-1">C++</h2>
+<pre><code class="lang-cpp" name="Example2">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &lt;Engine/Core/Math/Color.h&gt;
+#include &lt;Engine/Level/Actors/DirectionalLight.h&gt;
+#include &lt;Engine/Scripting/ScriptingObjectReference.h&gt;
+
+API_CLASS() class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+public:
+    API_FIELD() bool Field1 = 11;
+    API_FIELD() Color Field2 = Color::Yellow;
+    API_FIELD() ScriptingObjectReference&lt;DirectionalLight&gt; Field3;
+
+public:
+    // [Script]
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
+};
+</code></pre><h2 id="editor">Editor</h2>
+<p><img src="media/script-ui.png" alt="Script Properties"></p>
 <h1 id="attributes">Attributes</h1>
+<h2 id="c-2">C#</h2>
 <p>If you want to <strong>hide</strong> a public property or a field simply use <a href="https://docs.flaxengine.com/api/FlaxEngine.HideInEditorAttribute.html">HideInEditor</a> attribute.</p>
 <pre><code class="lang-cs">[HideInEditor]
 public float Field1 = 11;
 </code></pre><p>If you want to <strong>don&#39;t serialize</strong> a public property or a field use <a href="https://docs.flaxengine.com/api/FlaxEngine.NoSerializeAttribute.html">NoSerialize</a> attribute.</p>
 <pre><code class="lang-cs">[NoSerialize]
 public float Field1 = 11;
+</code></pre><h2 id="c-3">C++</h2>
+<p>The C++ API supports the exact same attributes which can be used as shown.</p>
+<pre><code class="lang-cpp">API_FIELD(Attributes=&quot;HideInEditor&quot;)
+float Field1 = 11;
+</code></pre><pre><code class="lang-cpp">API_FIELD(Attributes=&quot;NoSerialize&quot;)
+float Field1 = 11;
 </code></pre><p>To learn more about using attributes see this <a href="attributes.html">page</a>.</p>
 <p>To learn more about scripts serialization see this <a href="serialization/index.html">page</a>.</p>
 </article>
@@ -116,7 +146,7 @@ public float Field1 = 11;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/scripting/properties.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/properties.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

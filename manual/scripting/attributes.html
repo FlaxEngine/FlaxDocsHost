@@ -85,13 +85,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="attributes">Attributes</h1>
 
-<p>Flax provides various attributes that are used to extend the default logic or provide metadata about the code (serialization and editing options).</p>
+<p>Flax provides various attributes that are used to extend the default logic or provide metadata about the code (serialization and editing options). These attributes can be used in both C# as well as C++.</p>
+<h2 id="using-attributes">Using Attributes</h2>
 <p>Most of the attributes can be used for both: fields and properties:</p>
+<h3 id="c">C#</h3>
 <pre><code class="lang-cs">[Limit(0, 10)]
-public float Field1 = 11;
+public float Field1 = 11f;
 
 [Tooltip(&quot;Light color&quot;)]
 public Color Field2 { get; set; }
+</code></pre><h3 id="c-1">C++</h3>
+<pre><code class="lang-cpp">API_FIELD(Attributes = &quot;Limit(0, 10)&quot;)
+float Field1 = 11f;
+
+API_FIELD(Attributes = &quot;Tooltip(\&quot;Light color\&quot;)&quot;)
+Color ColorVal;
 </code></pre><h2 id="common-attributes">Common attributes</h2>
 <p>The following table lists the most common attributes with usage description.</p>
 <table>
@@ -190,7 +198,10 @@ public Color Field2 { get; set; }
 </table>
 <h2 id="script-execution-in-editor">Script execution in editor</h2>
 <p>By using <strong>ExecuteInEditMode</strong> you can enable your scripts to run in Editor. This is useful to generate procedural content for your game from code. Here is an example script that generates a grid of lights in Editor:</p>
-<pre><code class="lang-cs">[ExecuteInEditMode]
+<h3 id="c-2">C#</h3>
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
+
+[ExecuteInEditMode]
 public class MyGenerator : Script
 {
     public override void OnStart()
@@ -199,16 +210,52 @@ public class MyGenerator : Script
         {
             for (int z = 0; z &lt; 5; z++)
             {
-                var light = new PointLight();
-                light.Radius = 1000;
-                light.ShadowsMode = ShadowsCastingMode.None;
-                light.Position = new Vector3(x * 100.0f, 0, z * 100.0f);
-                light.Parent = Actor;
-                //light.HideFlags = HideFlags.DontSave; // Uncomment to don&#39;t save generated actors
+                var light = new PointLight
+                {
+                    Radius = 1000,
+                    ShadowsMode = ShadowsCastingMode.None,
+                    Position = new Vector3(x * 100.0f, 0, z * 100.0f),
+                    Parent = Actor
+                    //HideFlags = HideFlags.DontSave; // Uncomment to don&#39;t save generated actors
+                };
             }
         }
     }
 }
+</code></pre><h3 id="c-3">C++</h3>
+<pre><code class="lang-cpp" name="Example2">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Level/Actors/PointLight.h&quot;
+
+API_CLASS(Attributes = &quot;ExecuteInEditMode&quot;) class GAME_API MyGenerator : public Script
+{
+public:
+    API_AUTO_SERIALIZATION();
+
+    DECLARE_SCRIPTING_TYPE(MyGenerator);
+
+public:
+    // [Script]
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
+    void OnStart() override
+    {
+        for (int x = 0; x &lt; 5; x++)
+        {
+            for (int z = 0; z &lt; 5; z++)
+            {
+                auto light = New&lt;PointLight&gt;();
+                light-&gt;SetRadius(1000.0f);
+                light-&gt;ShadowsMode = ShadowsCastingMode::None;
+                light-&gt;SetPosition({ x * 100.0f, 0, z * 100.0f });
+                light-&gt;SetParent(GetActor());
+                //light-&gt;HideFlags = HideFlags::DontSave; // Uncomment to don&#39;t save generated actors
+            }
+        }
+    }
+};
 </code></pre></article>
           </div>
           
@@ -217,7 +264,7 @@ public class MyGenerator : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

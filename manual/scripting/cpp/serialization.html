@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Data Serialization for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Data Serialization for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="data-serialization-for-c-in-flax">Data Serialization for C++ in Flax</h1>
+
+<h2 id="iserializable">ISerializable</h2>
+<p><code>ISerializable</code> is a interface for objects that implement data serialization. It contains 2 methods:</p>
+<ul>
+<li><code>virtual void Serialize(SerializeStream&amp; stream, const void* otherObj)</code> - serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties.</li>
+<li><code>virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</code> - deserializes object from the input stream.</li>
+</ul>
+<p>In C++ scripts yo ucan use <code>API_AUTO_SERIALIZATION()</code> macro to inject automatic data serialization generated based on object <code>API_FIELDS()</code>. Alternatively you can manually implement this interface and use helper macros and tools from <code>Engine/Serialization/Serialization.h</code>.</p>
+<h2 id="json">Json</h2>
+<p>Flax uses <a href="https://rapidjson.org">RapidJSON</a> library to serialize data into <em>json</em> format.</p>
+<p>Example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Serialization/JsonWriters.h&quot;
+
+rapidjson_flax::StringBuffer buffer;
+CompactJsonWriter writer(buffer);
+writer.SceneObject(this);
+</code></pre><h2 id="streams">Streams</h2>
+<p>Flax contains in-built file and memory streams for robust binary data serialization.</p>
+<ul>
+<li><code>MemoryReadStream</code> - reading from memory</li>
+<li><code>MemoryWriteStream</code> - writting to memory</li>
+<li><code>FileReadStream</code> - reading from file (uses buffer to improve file access)</li>
+<li><code>FileWriteStream</code> - writting to file (uses buffer to improve file access)</li>
+</ul>
+<p>All types are in <code>Engine/Serialization/..</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

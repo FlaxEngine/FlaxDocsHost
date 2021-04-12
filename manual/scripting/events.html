@@ -88,11 +88,25 @@
 <p>Scripts in Flax does not work like the traditional programs where code runs continuously in a loop until end.
 Instead, Flax calls declared in script functions to handle specific game events like update or physics collision.
 These functions are called <strong>event functions</strong> because they are executed by Flax in response to events that occur during gameplay. Using these function allows you to implement gameplay logic and handle different situations inside your game.</p>
-<pre><code class="lang-cs">public class MyScript : Script
+<h2 id="examples">Examples</h2>
+<h3 id="c">C#</h3>
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
+
+public class MyScript : Script
 {
     public override void OnStart()
     {
-        // Here you can add code that needs to be called when script is created
+        // Here you can add code that needs to be called when script is created, just before the first game update
+    }
+
+    public override void OnEnable()
+    {
+        // Here you can add code that needs to be called when script is enabled (eg. register for events)
+    }
+
+    public override void OnDisable()
+    {
+        // Here you can add code that needs to be called when script is disabled (eg. unregister from events)
     }
 
     public override void OnUpdate()
@@ -100,6 +114,25 @@ These functions are called <strong>event functions</strong> because they are exe
         // Here you can add code that needs to be called every frame
     }
 }
+</code></pre><h3 id="c-1">C++</h3>
+<pre><code class="lang-cpp" name="Example2">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+
+API_CLASS() class GAME_API MyScript : public Script
+{
+public:
+    API_AUTO_SERIALIZATION();
+
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+public:
+    // [Script]
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
+    void OnStart() override;
+};
 </code></pre><h2 id="event-functions">Event functions</h2>
 <p>The following table lists all the available event functions to override from the base <strong>Script</strong> class.</p>
 <div class="TIP"><h5>Tip</h5><p>You don&#39;t have to call the base class methods if you script inherits directly from Script type. The default implementations are empty.</p>
@@ -179,7 +212,7 @@ These functions are called <strong>event functions</strong> because they are exe
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

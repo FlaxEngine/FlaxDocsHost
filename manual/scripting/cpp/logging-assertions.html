@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logging and Assertions for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Logging and Assertions for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="logging-and-assertions-for-c-in-flax">Logging and Assertions for C++ in Flax</h1>
+
+<h2 id="output-log">Output Log</h2>
+<p>The best way to log data and messages from C++ code is to use the <code>LOG</code> macros that output messages directly to the engine log output file (in folder <code>projectFolder/Logs</code>) and to the <em>Output Log</em> window in Editor.</p>
+<p>To access logging tool use the following include:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Log.h&quot;
+</code></pre><p>Then you can use the following macros:</p>
+<ul>
+<li><code>LOG(messageType, format, arguments..)</code> - formats the message with arguments and prints it to the log (see <a href="string-formatting.html">formatting docs</a>)</li>
+<li><code>LOG_STR(messageType, str)</code> - writes the string to the log</li>
+</ul>
+<p>Supported message types:</p>
+<ul>
+<li><code>Info</code></li>
+<li><code>Warning</code></li>
+<li><code>Error</code></li>
+<li><code>Fatal</code></li>
+</ul>
+<p>Examples:</p>
+<pre><code class="lang-cpp">String info = TEXT(&quot;Object: &quot;) + this-&gt;ToString();
+LOG_STR(Info, info);
+LOG(Warning, &quot;hello there! {0}&quot;, info);
+LOG(Error, &quot;player speed: {0}, direction: {1}&quot;, 11.0f, Vector3::UnitX);
+</code></pre><p>Those logs are also redirected to the low-level platform output (via <code>Platform::Log</code>) so can be seen when using target platform debugger andor utilities (eg. <em>Visual Studio</em> program output, or Android <em>adb</em> output).</p>
+<h2 id="debug-log">Debug Log</h2>
+<p>C++ API contains access to <code>DebugLog</code> utility used in C# scripts. It displays messages in <em>Debug Log</em> window in Editor. It also supports showing the complete stack trace of the log location for easier debugging (including copying messages with <em>Ctrl+C</em>).</p>
+<p>Examples:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Debug/DebugLog.h&quot;
+
+DebugLog::Log(LogType::Info, TEXT(&quot;Hello there!&quot;));
+DebugLog::LogError(String::Format(TEXT(&quot;error number: {0}&quot;), 11));
+</code></pre><h2 id="assertions">Assertions</h2>
+<p>To prevent invalid code execution or to provide validation for runtime values you can use assertions in your code. Assertion are a hard way of validation and result in crash.</p>
+<p>Example:</p>
+<pre><code class="lang-cpp">const int32 counter = 100;
+ASSERT(counter != 0); // will assert if counter gets set to 0
+</code></pre><h2 id="checks">Checks</h2>
+<p>Checks work just like assertions instead are not crashing the program but just result in error and return from current scope method.</p>
+<p>Example:</p>
+<pre><code class="lang-cpp">const int32 counter = 100;
+CHECK(counter != 0); // will print error and return if counter gets set to 0
+
+CHECK_RETURN(counter != 0, false); // will print error and return false if count == 0
+</code></pre><h2 id="stack-traces">Stack Traces</h2>
+<p>Flax supports capturing the stack trace of the current thread execution for both C++ and C# code. This feature might not be supported on all platforms and is disabled in <em>Release</em> builds.</p>
+<p>Example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Debug/DebugLog.h&quot;
+
+String managedStackTrace = DebugLog::GetStackTrace();
+LOG_STR(Info, managedStackTrace);
+
+String nativeStackTrace = Platform::GetStackTrace();
+LOG_STR(Info, nativeStackTrace);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/logging-assertions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>String Formatting for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="String Formatting for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="string-formatting-for-c-in-flax">String Formatting for C++ in Flax</h1>
+
+<p>Flax uses <a href="https://fmt.dev/latest/index.html">fmt</a> lib to format strings. The formatting syntax is similar to the one in C# and is considered as easy to use and quite extensible. The same formatting style can be used also in <code>LOG</code> macro to print formatted messages.</p>
+<h2 id="syntax">Syntax</h2>
+<p>Format strings contain <code>replacement fields</code> surrounded by curly braces <code>{}</code>. Anything that is not contained in braces is considered literal text, which is copied unchanged to the output. If you need to include a brace character in the literal text, it can be escaped by doubling: <code>{{</code> and <code>}}</code>.</p>
+<p>To learn more see the reference: <a href="https://fmt.dev/latest/syntax.html">fmt syntax</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>Example usage of <code>String::Format</code> that provides string formatting. Macro <code>LOG_STR</code> prints the String directly to the Output Log.</p>
+<pre><code class="lang-cpp">auto str1 = String::Format(TEXT(&quot;a: {0}, b: {1}, a: {0}&quot;), TEXT(&quot;a&quot;), TEXT(&quot;b&quot;));
+LOG_STR(Info, str1);
+auto str2 = String::Format(TEXT(&quot;1: {}, 2: {}, 3: {}&quot;), 1, 2, 3);
+LOG_STR(Info, str2);
+auto str3 = String::Format(TEXT(&quot;vector: {0}&quot;), Vector3(1, 2, 3));
+LOG_STR(Info, str3);
+auto str4 = String::Format(TEXT(&quot;string: {0}&quot;), this-&gt;ToString());
+LOG_STR(Info, str4);
+auto str5 = String::Format(TEXT(&quot;boolean: {0}&quot;), true);
+LOG_STR(Info, str5);
+</code></pre><h2 id="custom-type-formatting">Custom Type Formatting</h2>
+<p>Here is an example how to implement automatic formatting for custom types:</p>
+<pre><code class="lang-cpp">// Custom structure
+struct MyStruct
+{
+    Vector2 Direction;
+    float Speed;
+};
+
+// Use helper define to declare printing for a custom structure
+#include &quot;Engine/Core/Formatting.h&quot;
+DEFINE_DEFAULT_FORMATTING(MyStruct, &quot;Direction:{0} Speed:{1}&quot;, v.Direction, v.Speed);
+
+// Print structure as string
+MyStruct data = { Vector2(1, 2), 10.0f };
+auto str1 = String::Format(TEXT(&quot;{0}&quot;), data);
+LOG_STR(Info, str1);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/string-formatting.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

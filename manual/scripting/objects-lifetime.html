@@ -87,7 +87,8 @@
 
 <p>Scene objects lifetime is controlled by the Flax but the game can also access <strong>New/Destroy methods</strong> that allow to manage the scene at runtime. Some games keep a constant number of objects in the scene, but it is very common for characters, treasures and other object to be created and removed during gameplay.</p>
 <h2 id="spawning-objects">Spawning objects</h2>
-<p>Example code that spawn a new point light:</p>
+<h3 id="c">C#</h3>
+<p>Example code that spawns a new point light:</p>
 <pre><code class="lang-cs">public override void OnStart()
 {
     var light = new PointLight();
@@ -100,21 +101,40 @@
     var player = Actor.AddScript&lt;Player&gt;();
     player.HP = 100;
 }
+</code></pre><h3 id="c-1">C++</h3>
+<p>In C++ the implementation is the same.</p>
+<pre><code class="lang-cpp">void ExampleScript::OnStart()
+{
+    auto light = New&lt;PointLight&gt;();
+    light-&gt;Color = Color::Blue;
+    light-&gt;SetParent(GetActor());
+}
+</code></pre><p>In order to add a script you just create a new instance and set the parent.</p>
+<pre><code class="lang-cpp">void ExampleScript::OnStart()
+{
+    auto script = New&lt;SecondaryScript&gt;();
+    script-&gt;SetParent(GetActor());
+}
 </code></pre><div class="NOTE"><h5>Note</h5><p>Scene objects (actors, scripts) should <strong>not use constructors</strong> to prevent issues.</p>
 </div>
 <h2 id="removing-objects">Removing objects</h2>
 <p>Flax supports immediate and delayed objects removing system. This helps with cleanup up the scene from killed players or unused actors.</p>
-<pre><code class="lang-cs">public class MyScript : Script
+<h3 id="c-2">C#</h3>
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
+
+public class MyScript : Script
 {
     public SpotLight Flashlight;
 
-    public override void OnEnable()
+    public override void OnStart()
     {
         Destroy(ref Flashlight);
     }
 }
 </code></pre><p>Here is an example script that will remove object after a specified timeout (in seconds):</p>
-<pre><code class="lang-cs">public class AutoRemoveObj : Script
+<pre><code class="lang-csharp" name="Example2">using FlaxEngine;
+
+public class AutoRemoveObj : Script
 {
     [Tooltip(&quot;The time left to destroy object (in seconds).&quot;)]
     public float Timeout = 5.0f;
@@ -126,6 +146,60 @@
 }
 </code></pre><p>In the same way you can remove scripts:</p>
 <pre><code class="lang-cs">Destroy(Actor.GetScript&lt;Player&gt;());
+</code></pre><h3 id="c-3">C++</h3>
+<p>Simple deletion of a referenced object:</p>
+<pre><code class="lang-cpp" name="Example3">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &lt;Engine/Level/Actors/SpotLight.h&gt;
+#include &lt;Engine/Scripting/ScriptingObjectReference.h&gt;
+
+API_CLASS() class EXAMPLE_API MyScript : public Script
+{
+public:
+    API_AUTO_SERIALIZATION();
+
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+
+    API_FIELD()
+    ScriptingObjectReference&lt;SpotLight&gt; Flashlight;
+
+public:
+    void OnDisable() override;
+    void OnUpdate() override;
+    void OnEnable() override;
+    void OnStart() override
+    {
+        Flashlight.Get()-&gt;DeleteObject();
+    }
+};
+</code></pre><p>How to time object deletion:</p>
+<pre><code class="lang-cpp" name="Example4">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+
+API_CLASS() class EXAMPLE_API AutoRemoveObj : public Script
+{
+public:
+    API_AUTO_SERIALIZATION();
+
+    DECLARE_SCRIPTING_TYPE(AutoRemoveObj);
+
+    API_FIELD(Attributes = &quot;Tooltip(\&quot;The time left to destroy object (in seconds).\&quot;)&quot;)
+    float Timeout = 5.0f;
+
+public:
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
+    void OnStart() override 
+    {
+        GetActor()-&gt;DeleteObject(Timeout);
+    }
+};
+</code></pre><p>How to delete script:</p>
+<pre><code class="lang-cpp">GetActor()-&gt;GetScript&lt;ExampleScript&gt;()-&gt;DeleteObject();
 </code></pre></article>
           </div>
           
@@ -134,7 +208,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

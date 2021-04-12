@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Common Types for C++ in Flax | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Common Types for C++ in Flax | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="common-types-for-c-in-flax">Common Types for C++ in Flax</h1>
+
+<h2 id="string">String</h2>
+<p>For character strings container Flax uses <code>String</code> class that holds a null-terminated text, encoded in UTF-16 (as <code>Char</code> type, 2-bytes per character) and provides extensive API for string operations like splitting, formatting, merging, etc.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/String.h&quot;
+
+String myText = TEXT(&quot;hello there&quot;); // string from constant
+String substring = myText.Substring(0, 5);
+String connected = myText + TEXT(&quot; &quot;) + substring; // join strings
+int32 length = connected.Length(); // access string length
+const Char* str = connected.Get(); // access string memory buffer
+String objectName = this-&gt;ToString(); // most of C++ types implement ToString() method
+String formatted = String::Format(TEXT(&quot;my custom message number {0}&quot;), 11); // format strings like a pro
+LOG(Info, &quot;Connected: {0}&quot;, connected); // print to log
+</code></pre><p>For ANSI and UTF-8 strings use <code>StringAnsi</code> that holds characters in <code>char</code> format (1 byte per-char).</p>
+<p>To learn more about string formatting see <a href="string-formatting.html">this documentation</a>.</p>
+<h2 id="stringview">StringView</h2>
+<p><code>StringView</code> holds information about a text, except it&#39;s not allocated inside it (unlike <code>String</code> does) but just provided as a view to a characters sequence with it&#39;s length. It doesn&#39;t have to be null-terminated. It&#39;s used in various Engine APIs and gets implicitly created from String or constant strings.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/StringView.h&quot;
+
+StringView myText = TEXT(&quot;hello there&quot;); // string view from constant
+StringView fromStr = this-&gt;ToString(); // string view from string
+LOG(Info, &quot;Connected: {0}&quot;, myText); // print to log
+</code></pre><p>For ANSI and UTF-8 strings use <code>StringAnsiView</code> that uses characters in <code>char</code> format (1 byte per-char).</p>
+<h2 id="stringbuilder">StringBuilder</h2>
+<p><code>StringBuilder</code> is just like <code>String</code> except it uses resizable <code>Array</code> under the hood to provide better performance when generating longer strings (eg. generating log message).</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/StringBuilder.h&quot;
+
+StringBuilder sb;
+sb.Append(TEXT(&quot;here&quot;)); // append strings to the buffer
+sb.Append(TEXT(&quot; comes &quot;));
+sb.Append(11); // automatic formatting of basic types
+sb.AppendFormat(TEXT(&quot; and {0}&quot;), 12); // append formatted text
+String str = sb.ToString(); // extract String (or use ToStringView)
+LOG(Info, &quot;sb: {0}&quot;, str); // print to log
+</code></pre><h2 id="variant">Variant</h2>
+<p><code>Variant</code> is a multi-purpose value container for generic data types including:</p>
+<ul>
+<li>basic types (eg. <code>int</code>, <code>float</code>, <code>bool</code>)</li>
+<li>common types (eg. <code>String</code>, <code>Guid</code>)</li>
+<li>math types (eg. <code>Vector3</code>, <code>Transform</code>, <code>BoundingBox</code>)</li>
+<li>collections (eg. <code>Array&lt;&gt;</code>, <code>Dictionary&lt;&gt;</code>)</li>
+<li>object references (eg. <code>Asset*</code>, <code>Actor*</code>)</li>
+<li>enum types (eg. <code>ShadowsCastingMode</code>)</li>
+<li>structure types (eg. <code>RayCastHit</code>)</li>
+<li>raw daya (eg. <code>byte[]</code>)</li>
+<li>C# objects references (eg. <code>MonoObject*</code>)</li>
+</ul>
+<p>It contains wide scripting API for accessing data and querying the value type including casting and comparisions. It can be serialized to raw bytes stream or to json (and loaded back). Scripting API supports automatic translation between <code>Variant</code> in C++ and <code>object</code> in C#.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Variant.h&quot;
+
+Variant myValue = 11; // store int
+LOG(Info, &quot;Variant type: {0}, value: {1}&quot;, myValue.Type.ToString(), myValue.ToString());
+float asFloat = (float)myValue;
+myValue = Vector3(1, 2, 3); // store Vector3
+LOG(Info, &quot;Variant type: {0}, value: {1}&quot;, myValue.Type.ToString(), myValue.ToString());
+myValue = this; // store object reference
+LOG(Info, &quot;Variant type: {0}, value: {1}&quot;, myValue.Type.ToString(), myValue.ToString());
+</code></pre><h2 id="guid">Guid</h2>
+<p><code>Guid</code> is <em>Globally Unique Identifier</em> that uses 128 bits to encode a number that is meant to be unique. Guids are used for objects identification - each Asset has unique ID and every scripting object uses it too. This allows to reference objects and assets by their ID rather than name. It also means fast objects searching via quick lookup.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Guid.h&quot;
+
+Guid objId = this-&gt;GetID(); // get this object id
+auto obj = Scripting::FindObject&lt;ScriptingObject&gt;(objId); // find object by id
+LOG(Info, &quot;id: {0}&quot;, objId); // print to log
+</code></pre><div class="TIP"><h5>Tip</h5><p>Flax Guid uses different string represenation compared to .Net Guid. In C# use <code>FlaxEngine.Json.JsonSerializer.GetStringID(id)</code> to print <code>System.Guid</code> to string in Flax-format (and <code>ParseID</code> to parse it back).</p>
+</div>
+<h2 id="nullable">Nullable</h2>
+<p>For optional values use <code>Nullable&lt;&gt;</code> type that supports holding value that can be undefined (not specified).</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Nullable.h&quot;
+
+Nullable&lt;int32&gt; optionA;
+LOG(Info, &quot;Is Set? {0}&quot;, optionA.HasValue());
+if (optionA.HasValue())
+    LOG(Info, &quot;Value {0}&quot;, optionA.GetValue());
+optionA = 11;
+LOG(Info, &quot;Is Set? {0}&quot;, optionA.HasValue());
+if (optionA.HasValue())
+    LOG(Info, &quot;Value {0}&quot;, optionA.GetValue());
+</code></pre><h2 id="pair">Pair</h2>
+<p><code>Pair&lt;Key, Value&gt;</code> is a structure that wraps the <em>Key</em> and <em>Value</em> together and can be used to easily connect two values together. Utility method <code>ToPair</code> converts two values into a pair structure.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Pair.h&quot;
+
+Pair&lt;int32, float&gt; pair1(11, 200.0f);
+int32 key = pair1.First;
+float value = pair1.Second;
+auto pair2 = ToPair(12, 230.0f);
+</code></pre><h2 id="span">Span</h2>
+<p><code>Span&lt;&gt;</code> is a small container for raw data pointer and data length.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Span.h&quot;
+
+byte rawData[] = { 1, 2, 3, 4, 5};
+Span&lt;byte&gt; span1(rawData, ARRAY_COUNT(rawData));
+byte* ptr = span1.Get(); // memory pointer
+int32 length = span1.Length(); // amount of items
+</code></pre><h2 id="datacontainer">DataContainer</h2>
+<p><code>DataContainer&lt;&gt;</code> works just like <code>Span&lt;&gt;</code> except it can contain self allocated memory block and supports easy data serialization and operation with other types. Can be used to manage raw data in memory with an ease. Also, <code>BytesContainer</code> which is <code>DataContainer&lt;byte&gt;</code> can be used to hold pure bytes data.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/DataContainer.h&quot;
+
+DataContainer&lt;float&gt; someFloats;
+someFloats.Allocate(10); // Allocate memory for 10 floats
+for (int32 i = 0; i &lt; someFloats.Length(); i++)
+    someFloats.Get()[i] = 11.0f;
+
+byte rawData[] = { 1, 2, 3, 4, 5};
+BytesContainer rawBytes;
+rawBytes.Link(rawData, ARRAY_COUNT(rawData)); // Link static data without allocating
+rawBytes.Copy(rawData, ARRAY_COUNT(rawData)); // Copy static data into self allocated memory
+</code></pre><h2 id="datetime">DateTime</h2>
+<p>To perform operations based date and calendar use in-built <code>DateTime</code> type which contains numerous functionalities such as: date math operations and conversion to string.  It uses ticks in 100 nanoseconds resolution since <em>January 1, 0001 A.D.</em> to represent the date and time. Flax also supports accessing current system time in both Local and UTC time (implemented on all supported platforms).</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/DateTime.h&quot;
+
+DateTime currentDateTime = DateTime::Now();
+LOG(Info, &quot;Date and time: {0}&quot;, currentDateTime); // print to log
+int32 year = currentDateTime.GetYear();
+int32 hour = currentDateTime.GetHour();
+int32 minute = currentDateTime.GetMinute();
+</code></pre><h2 id="timespan">TimeSpan</h2>
+<p><code>TimeSpan</code> defines a difference between two moments in time. For instance it can be used to perform math on DateTime or to perform conversion between seconds and milliseconds. It offers wide scripting API for timespan calculations.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/TimeSpan.h&quot;
+#include &quot;Engine/Core/Types/DateTime.h&quot;
+
+auto time1 = DateTime::Now();
+Platform::Sleep(10);
+auto time2 = DateTime::Now();
+TimeSpan timeDiff = time2 - time1; // compute time difference
+LOG(Info, &quot;Time diff: {0}&quot;, timeDiff); // print to log
+double miliseconds = timeDiff.GetTotalMilliseconds();
+</code></pre><h2 id="version">Version</h2>
+<p><code>Version</code> represents the version number made of <em>major</em>, <em>minor</em>, <em>build</em> and <em>revision</em> numbers. Can be easily parsed from string, compared or converted into string.</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Core/Types/Version.h&quot;
+
+Version version1(1, 0);
+Version version2(1, 3, 323, 15);
+LOG(Info, &quot;Version1: {0}&quot;, version1.ToString());
+LOG(Info, &quot;Version2: {0}&quot;, version2.ToString());
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/cpp/common-types.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

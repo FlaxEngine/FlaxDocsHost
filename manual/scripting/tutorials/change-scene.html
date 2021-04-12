@@ -85,29 +85,62 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="howto-change-scene-from-script">HOWTO: Change scene from script</h1>
 
-<p>In this tutorial you will learn how to unload existing scenes and load different one using C# script.</p>
-<h3 id="1-prepare-a-new-script">1. Prepare a new script</h3>
-<p>Navigate to <code>Source</code> directory, <strong>right-click</strong>, and select option <strong>New -&gt; Script</strong>. Then specify its name (eg. <code>SceneChanger</code>) and hit Enter.</p>
-<h3 id="2-implement-scene-change-logic">2. Implement scene change logic</h3>
-<p>Here is a sample code that exposes a public variable with a reference to the scene asset to load. It check in Update function if key <code>G</code> was pressed, then it changes the current scene into the selected one.</p>
-<pre><code class="lang-cs">public class SceneChanger : Script
-{
-    public SceneReference AnotherScene;
+<p>In this tutorial you will learn how to unload existing scenes and load a different one using a script.</p>
+<h2 id="1-prepare-a-new-script">1. Prepare a new script</h2>
+<p>Navigate to <code>Source</code> directory, <strong>right-click</strong>, and select the option <strong>New -&gt; Script</strong>. Then specify its name (eg. <code>SceneChanger</code>) and hit Enter.</p>
+<h2 id="2-implement-scene-change-logic">2. Implement scene change logic</h2>
+<p>Here is a sample code that exposes a public variable with a reference to a scene asset that it should load. It checks in the Update function if the <code>G</code> key was pressed, it then changes the current scene into the selected one.</p>
+<h3 id="c">C#</h3>
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
-    public override void OnUpdate()
-    {
-        if (Input.GetKeyDown(KeyboardKeys.G))
-            Level.ChangeSceneAsync(AnotherScene);
-    }
+public class SceneChanger : Script
+{
+	public SceneReference AnotherScene;
+
+	public override void OnUpdate()
+	{
+		if (Input.GetKeyDown(KeyboardKeys.G))
+			Level.ChangeSceneAsync(AnotherScene);
+	}
 }
-</code></pre><h3 id="3-add-script">3. Add script</h3>
-<p>Now, add the script to the object in your scene (select object and use <code>Add script</code> button).</p>
+</code></pre><h3 id="c-1">C++</h3>
+<pre><code class="lang-cpp" name="Example2">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Input/Input.h&quot;
+#include &quot;Engine/Level/Level.h&quot;
+
+API_CLASS() class EXAMPLE_API SceneChanger : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(SceneChanger);
+
+public:
+
+    API_FIELD(Attributes = &quot;CustomEditorAlias(\&quot;FlaxEditor.CustomEditors.Editors.SceneRefEditor\&quot;), AssetReference(typeof(SceneReference))&quot;)
+        Guid AnotherScene;
+
+public:
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override
+    {
+        if (Input::GetKeyDown(KeyboardKeys::G) &amp;&amp; AnotherScene.IsValid())
+        {
+			// Does the same as the C# API
+			Level::UnloadAllScenesAsync();
+			Level::LoadSceneAsync(AnotherScene);
+        }
+    }
+};
+</code></pre><h2 id="3-add-script">3. Add script</h2>
+<p>Now, add the script to an actor in your scene (select the actor and use <code>Add script</code> button).</p>
 <p><img src="media/change-scene-1.png" alt="Change Scene From Code"></p>
-<h3 id="4-assign-scene">4. Assign scene</h3>
-<p>Then <em>drag and drop</em> scene that you want to load from the Content Window into the asset picker.</p>
+<h2 id="4-assign-scene">4. Assign scene</h2>
+<p>Then <em>drag and drop</em> the scene that you want to load from the <em>Content Window</em> into the asset picker.</p>
 <p><img src="media/change-scene-2.png" alt="Change Scene From Code"></p>
-<h3 id="5-test-it-out">5. Test it out</h3>
-<p>Finally, hit the play button (or <strong>F5</strong>) and test the script logic but pressing the <code>G</code>. Your scene will be unloaded and a new scene will be loaded at runtime.</p>
+<h2 id="5-test-it-out">5. Test it out</h2>
+<p>Finally, hit the play button (or <strong>F5</strong>) and test the script logic by pressing the <code>G</code> key. Your scene will be unloaded and a new scene will be loaded at runtime.</p>
 </article>
           </div>
           
@@ -116,7 +149,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a81da28b1d37f0f65312b24ece7ca27a72e7b0d7/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
