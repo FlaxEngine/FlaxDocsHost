@@ -4,19 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Profiler | Flax Documentation </title>
+    <title>Engine API | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Profiler | Flax Documentation ">
+    <meta name="title" content="Engine API | Flax Documentation ">
     <meta name="generator" content="docfx 2.40.4.0">
     
-    <link rel="shortcut icon" href="../../../favicon.ico">
-    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../toc.html">
-    <meta property="docfx:tocrel" content="../../toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:rel" content="../../">
     <meta property="docfx:newtab" content="true">
     
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
@@ -40,7 +40,7 @@
               </button>
               <a class="navbar-brand" href="https://www.flaxengine.com">
         		<div style="text-align:center; line-height:45px">
-        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
         		</div>
         	  </a>
             </div>
@@ -83,34 +83,30 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="profiler">Profiler</h1>
+<h1 id="engine-api">Engine API</h1>
 
-<p>The <strong>Profiler</strong> window provides various ways of measuring game performance and helps the optimization process. It can be used to collect data about game performance right in the Editor.</p>
-<h2 id="interface">Interface</h2>
-<p><img src="media/profiler-layout.png" alt="Profiler Interface"></p>
-<p>Profiler window is divided into 3 parts:</p>
+<p>Scripting API list for gameplay programming (available in both C++, C# and Visual Scripting):</p>
 <ul>
-<li>Toolbar</li>
-<li>Sections list</li>
-<li>Details panel</li>
+<li><code>Engine</code> - global engine API</li>
+<li><code>Content</code> - assets loading and content management</li>
+<li><code>Audio</code> - audio effects and music playback</li>
+<li><code>DebugDraw</code> - debug shapes drawing</li>
+<li><code>DebugLog</code> - debug log messages sending</li>
+<li><code>Globals</code> - global engine variables container</li>
+<li><code>Screen</code> - utility for game viewport management</li>
+<li><code>Time</code> - game ticking and time management</li>
+<li><code>Graphics</code> - rendering quality and management</li>
+<li><code>Input</code> - user input reading, access and processing</li>
+<li><code>Level</code> - scene manager for actors and scene object lifetime handling</li>
+<li><code>Navigation</code> - pathfinding and navigation utilities for AI</li>
+<li><code>Physics</code> - physical simulation manager</li>
+<li><code>Platform</code> - low-level runtime platform implementation (memory access, system info, etc.)</li>
+<li><code>Clipboard</code> - system clipboard</li>
+<li><code>MessageBox</code> - native platform message box popup utility</li>
+<li><code>Render2D</code> - 2D graphics rendering system</li>
+<li><code>Renderer</code> - 3D graphics rendering system</li>
+<li><code>Scripting</code> - game scripting manager</li>
 </ul>
-<h2 id="sections">Sections</h2>
-<h3 id="overall">Overall</h3>
-<p>The general profiling mode with major game performance charts and stats.</p>
-<h3 id="cpu">CPU</h3>
-<p>The CPU performance profiling mode.</p>
-<p>To add code section to be included in profile blocks use the following code:</p>
-<pre><code class="lang-cs">Profiler.BeginEvent(&quot;MyFunction&quot;);
-// do something
-Profiler.EndEvent();
-</code></pre><h3 id="gpu">GPU</h3>
-<p>The GPU performance profiling mode.</p>
-<p>To add code section to be included in profile blocks use the following code:</p>
-<pre><code class="lang-cs">Profiler.BeginEventGPU(&quot;MyFunction&quot;);
-// do something on GPU with GPUContext
-Profiler.EndEventGPU();
-</code></pre><h3 id="memory">Memory</h3>
-<p>The memory profiling mode focused on breaking down system memory allocations. This includes separate stats for native memory allocation and managed C# allocations.</p>
 </article>
           </div>
           
@@ -119,7 +115,7 @@ Profiler.EndEventGPU();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/508ba29a4e86a416dd4f369b6caccee3105be2fc/manual/editor/profiling/profiler.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/508ba29a4e86a416dd4f369b6caccee3105be2fc/manual/scripting/engine-api.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -145,8 +141,8 @@ Profiler.EndEventGPU();
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

@@ -104,9 +104,49 @@
 <ul>
 <li>References to the scene objects (actors, scripts) are serialized as <code>Guid</code> (hex format, inlined). See <a href="https://docs.flaxengine.com/api/FlaxEngine.Object.html#FlaxEngine_Object_ID">Object.ID</a>.</li>
 <li>Editor uses default serialization rules for Undo</li>
-<li>Flax deserializes all child scene object before calling <code>Awake</code>/<code>Start</code> methods on loaded objects (parent object may not be deserialized yet).</li>
+<li>Flax deserializes all child scene object before calling <code>OnAwake</code>/<code>OnStart</code> methods on loaded objects (parent object may not be deserialized yet).</li>
 <li>Avoid recursive references for custom objects types. It&#39;s better to use loop-references for scene objects.</li>
+<li>When performing code refactoring see <a href="../advanced/refactoring-renaming.html">this tutorial</a> about supporting old data format loading</li>
 </ul>
+<h2 id="serialization-callbacks">Serialization Callbacks</h2>
+<p>Flax supports serialization callback methods. A callback can be used to manipulate an object before and/or after its serialization and deserialization by the serializer.</p>
+<ul>
+<li>OnSerializing</li>
+<li>OnSerialized</li>
+<li>OnDeserializing</li>
+<li>OnDeserialized</li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-cs">using System.Runtime.Serialization;
+
+public class MyScript : Script
+{
+    [OnSerializing]
+    internal void OnSerializing(StreamingContext context)
+    {
+        Debug.Log(&quot;OnSerializing&quot;);
+    }
+
+    [OnSerialized]
+    internal void OnSerialized(StreamingContext context)
+    {
+        Debug.Log(&quot;OnSerialized&quot;);
+    }
+
+    [OnDeserializing]
+    internal void OnDeserializing(StreamingContext context)
+    {
+        Debug.Log(&quot;OnDeserializing&quot;);
+    }
+
+    [OnDeserialized]
+    internal void OnDeserialized(StreamingContext context)
+    {
+        Debug.Log(&quot;OnDeserialized&quot;);
+    }
+}
+</code></pre><h2 id="native-c-serialization">Native C++ serialization</h2>
+<p>To learn about C++ objects serialization see related documentation <a href="../cpp/serialization.html">here</a>.</p>
 </article>
           </div>
           
@@ -115,7 +155,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/45783b93c66b1b6dc054a41c4b703a8e599f0c2d/manual/scripting/serialization/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/508ba29a4e86a416dd4f369b6caccee3105be2fc/manual/scripting/serialization/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
