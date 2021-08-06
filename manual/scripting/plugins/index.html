@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Plugins | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -85,14 +89,19 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="plugins">Plugins</h1>
 
-<p>Plugins are standalone chunks of code added to your Flax project that can be used to implement persistent game or utility classes, the custom engine features, or to extend the editor by adding custom tools with UI representation. This documentation section explains the basics of creating and using plugins. Follow these notes to learn more about the plugins system in Flax.</p>
-<p>Example plugin project can be found <a href="https://github.com/FlaxEngine/ExamplePlugin">here</a>. Use it as a reference.</p>
+<p>Plugins are collection of source code added to your Flax project that can be used to implement persistent game or utility classes, custom engine features, or to extend the editor by adding custom tools with UI representation. This documentation section explains the basics of creating and using plugins. Follow these notes to learn more about the plugin system in Flax.</p>
+<p>Example plugin project can be found <a href="https://github.com/FlaxEngine/ExamplePlugin">here</a>, use this as a reference.</p>
 <h2 id="introduction">Introduction</h2>
-<p>Flax supports loading C# libraries (from <em>.dll</em> files) and adding references to game scripts. Many Flax Engine systems are designed to be extensible, enabling developers to add entire new features and to modify built-in functionality without modifying Engine Core code directly.</p>
-<p>Using plugins allows the use of external .Net libraries to be used within a game. For instance, the developer can use custom game classes, custom networking libraries, or a social media plugin. To reference .Net module in your game scripts simply modify the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) by adding the file reference in overridden <code>Setup</code> method:</p>
+<p>Flax supports loading native .dll files, C# libraries from <em>.dll</em> files and adding references to game projects for use in scripts. Many Flax Engine systems are designed to be extensible, enabling developers to add new features and to modify built-in functionality without modifying engine source code directly.</p>
+<p>Using plugins allows the use of external .Net libraries to be used within a game. For instance, the developer can use custom game classes, custom networking libraries, or a social media plugin. To reference .Net module in your game scripts modify the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) by adding a file reference in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">// Reference C# DLL placed Content folder
 options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;JetBrains.Annotations.dll&quot;));
-</code></pre><p>This will work for scripts build for the editor and cooked game as the referenced assembly will be packaged.</p>
+</code></pre><p>After this entry has been added and the .dll file is available on the filesystem at this path you will need to <em>generate project script files</em>. Generating project script files can be done by accessing a context menu option when right-clicking the .flaxproj file in the game project root directory.</p>
+<p>To add a native .dll to your project, for example if your .Net dll wraps a native .dll, you can add an option to copy the native .dll to the output directory by adding the following to the <code>Setup</code> method:</p>
+<pre><code class="lang-cs">// Copy native DLL placed in Content folder to output directory
+options.DependencyFiles.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;native.dll&quot;));
+</code></pre><p>Remember to generate project script files anytime you modify the <code>Game.Build.cs</code> file.</p>
+<p>Build scripts work for both the editor and cooked game as the referenced assembly will be packaged.</p>
 <div class="IMPORTANT"><h5>Important</h5><p>If your plugin collects the C# types information (eg. methods cache or attributes) always remember to release them in Editor on <a href="https://docs.flaxengine.com/api/FlaxEditor.ScriptsBuilder.html#FlaxEditor_Scripting_ScriptsBuilder_ScriptsReloadBegin">FlaxEditor.ScriptsBuilder.ScriptsReloadBegin</a> event to prevent crashes during scripts reload in Editor.</p>
 </div>
 <h2 id="plugin-description">Plugin Description</h2>
@@ -187,8 +196,25 @@ options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;,
     }
 }
 </code></pre><p>Your game can also use a Game Plugins within a code to implement various gameplay features because plugins don&#39;t rely on loaded scenes or scene objects and are created before the scenes loading (compared to the normal scripts).</p>
+<h3 id="game-plugin-settings">Game Plugin Settings</h3>
 <p>If you need to include custom settings for your plugin see <a href="../tutorials/custom-settings.html">this tutorial</a> to learn more.</p>
-<h2 id="editor-plugins">Editor Plugins</h2>
+<h3 id="game-plugin-assets">Game Plugin Assets</h3>
+<p>If you want to bundle custom assets used in code-only plugin (eg. shader or debug model) override <code>OnCollectAssets</code> method as follows and provide IDs of the assets to include:</p>
+<pre><code class="lang-cs">#if FLAX_EDITOR
+/// &lt;inheritdoc /&gt;
+public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt; assets)
+{
+    base.OnCollectAssets(assets);
+
+    // Add asset ID to the list
+    assets.Add(ShaderId);
+
+    // Add asset ID based on asset path
+    var path = Path.Combine(Globals.ProjectFolder, &quot;Plugins/MyPlugin/Content/MyCustomDebugModel.flax&quot;);
+    Content.GetAssetInfo(path, out var info);
+    assets.Add(info.ID);
+#endif
+</code></pre><h2 id="editor-plugins">Editor Plugins</h2>
 <p><strong>Editor Plugins</strong> can extend the Flax Editor by adding new tools or functionalities. Editor plugin can add new buttons to the Editor GUI and/or override the Custom Editors pipeline or create custom windows to be used for game content creation. The amount of possibilities is very large. To learn more how to create and use editor plugin see the related tutorial <a href="../tutorials/custom-plugin.html">here</a>.</p>
 <div class="NOTE"><h5>Note</h5><p>Note: if your plugin uses both <strong>Game Plugin</strong> and <strong>Editor Plugin</strong> types the remember to implement <code>EditorPlugin.GamePluginType</code> to point the type of the game plugin.</p>
 </div>
@@ -207,7 +233,7 @@ options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;,
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

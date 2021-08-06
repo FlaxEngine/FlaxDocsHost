@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class RigidBody
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -100,6 +105,7 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><a class="xref" href="FlaxEngine.PhysicsActor.html">PhysicsActor</a></div>
     <div class="level5"><span class="xref">RigidBody</span></div>
+      <div class="level6"><a class="xref" href="FlaxEngine.WheeledVehicle.html">WheeledVehicle</a></div>
     </div>
   </div>
   
@@ -111,6 +117,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_System_String_">Actor.HasTag(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChild_System_Int32_">Actor.GetChild(Int32)</a>
@@ -239,6 +248,12 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_TryGetScript__1___0__">Actor.TryGetScript&lt;T&gt;(T)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript__1">Actor.FindScript&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1">Actor.FindActor&lt;T&gt;()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren__1">Actor.GetChildren&lt;T&gt;()</a>
     </div>
     <div>
@@ -246,6 +261,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -1399,7 +1417,76 @@ public void AddForce(Vector3 force, ForceMode mode = ForceMode.Force)</code></pr
   
   
   <h5 id="FlaxEngine_RigidBody_AddForce_FlaxEngine_Vector3_FlaxEngine_ForceMode__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This will not induce a torque
+  <div class="markdown level1 remarks"><p>This will not induce any torque
+<p>
+ForceMode determines if the force is to be conventional or impulsive.
+</p>
+<p>
+Each actor has an acceleration and a velocity change accumulator which are directly modified using the modes ForceMode.Acceleration
+and ForceMode.VelocityChange respectively. The modes ForceMode.Force and ForceMode.Impulse also modify these same
+accumulators and are just short hand for multiplying the vector parameter by inverse mass and then using ForceMode.Acceleration and
+ForceMode.VelocityChange respectively.
+</p></p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_RigidBody_AddForceAtPosition_" data-uid="FlaxEngine.RigidBody.AddForceAtPosition*"></a>
+  
+  <h4 id="FlaxEngine_RigidBody_AddForceAtPosition_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_ForceMode_" data-uid="FlaxEngine.RigidBody.AddForceAtPosition(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.ForceMode)"><a href="#collapsible-FlaxEngine_RigidBody_AddForceAtPosition_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_ForceMode_" class="expander" data-toggle="collapse">AddForceAtPosition(Vector3, Vector3, ForceMode)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_RigidBody_AddForceAtPosition_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_ForceMode_" class="collapse in">
+  <div class="markdown level1 summary"><p>Applies a force (or impulse) defined in the world space to the rigidbody at given position in the world space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Applies a force (or impulse) defined in the world space to the rigidbody at given position in the world space.&quot;)]
+public void AddForceAtPosition(Vector3 force, Vector3 position, ForceMode mode = ForceMode.Force)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">force</span>
+        <p><p>The force/impulse to apply defined in the world space.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The position of the force/impulse in the world space.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ForceMode.html">ForceMode</a></span>
+        <span class="parametername">mode</span>
+        <p><p>The mode to use when applying the force/impulse.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_RigidBody_AddForceAtPosition_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_ForceMode__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Also applies appropriate amount of torque
 <p>
 ForceMode determines if the force is to be conventional or impulsive.
 </p>
@@ -1460,7 +1547,7 @@ public void AddRelativeForce(Vector3 force, ForceMode mode = ForceMode.Force)</c
   
   
   <h5 id="FlaxEngine_RigidBody_AddRelativeForce_FlaxEngine_Vector3_FlaxEngine_ForceMode__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This will not induce a torque
+  <div class="markdown level1 remarks"><p>This will not induce any torque
 <p>
 ForceMode determines if the force is to be conventional or impulsive.
 </p>

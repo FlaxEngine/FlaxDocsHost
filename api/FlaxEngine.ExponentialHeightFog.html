@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class ExponentialHeightFog
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -110,6 +115,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_System_String_">Actor.HasTag(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChild_System_Int32_">Actor.GetChild(Int32)</a>
@@ -238,6 +246,12 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_TryGetScript__1___0__">Actor.TryGetScript&lt;T&gt;(T)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript__1">Actor.FindScript&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1">Actor.FindActor&lt;T&gt;()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren__1">Actor.GetChildren&lt;T&gt;()</a>
     </div>
     <div>
@@ -245,6 +259,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -522,6 +539,7 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
     <pre><code class="lang-csharp hljs">[EditorOrder(230)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Color&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Controls the color of the directional inscattering, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used.&quot;)]
 public Color DirectionalInscatteringColor { get; set; }</code></pre>
   </div>
 
@@ -564,6 +582,7 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
 [Limit(2F, 64F, 0.1F)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Exponent&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Controls the size of the directional inscattering cone, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used. Range: 2-64.&quot;)]
 public float DirectionalInscatteringExponent { get; set; }</code></pre>
   </div>
 
@@ -647,6 +666,7 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Start Distance&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Controls the start distance from the viewer of the directional inscattering, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used.&quot;)]
 public float DirectionalInscatteringStartDistance { get; set; }</code></pre>
   </div>
 
@@ -857,6 +877,7 @@ A value of 0 means the fog color will not be factored in at all.</p>
 [Limit(0F, 1F, 0.001F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
+[Tooltip(&quot;Maximum opacity of the fog. A value of 1 means the fog can become fully opaque at a distance and replace scene color completely. A value of 0 means the fog color will not be factored in at all.&quot;)]
 public float FogMaxOpacity { get; set; }</code></pre>
   </div>
 
@@ -940,6 +961,7 @@ Water particles in air have an albedo near white, while dust has slightly darker
     <pre><code class="lang-csharp hljs">[EditorOrder(320)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Albedo&quot;)]
 [Unmanaged]
+[Tooltip(&quot;The height fog particle reflectiveness used by volumetric fog. Water particles in air have an albedo near white, while dust has slightly darker value.&quot;)]
 public Color VolumetricFogAlbedo { get; set; }</code></pre>
   </div>
 
@@ -1023,6 +1045,7 @@ In most cases using a Skylight is a better choice, however, it may be useful in 
     <pre><code class="lang-csharp hljs">[EditorOrder(330)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Emissive&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Light emitted by height fog. This is a density so more light is emitted the further you are looking through the fog. In most cases using a Skylight is a better choice, however, it may be useful in certain scenarios.&quot;)]
 public Color VolumetricFogEmissive { get; set; }</code></pre>
   </div>
 
@@ -1106,6 +1129,7 @@ Values larger than 1 cause fog particles everywhere absorb more light. Range: 0.
 [Limit(0.1F, 10F, 0.1F)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Extinction Scale&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Scales the height fog particle extinction amount used by volumetric fog. Values larger than 1 cause fog particles everywhere absorb more light. Range: 0.1-10.&quot;)]
 public float VolumetricFogExtinctionScale { get; set; }</code></pre>
   </div>
 
@@ -1149,6 +1173,7 @@ In order to have visible volumetric fog light shafts from the side, the distribu
 [Limit(-0.9F, 0.9F, 0.001F)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Scattering Distribution&quot;)]
 [Unmanaged]
+[Tooltip(&quot;Controls the scattering phase function - how much incoming light scatters in various directions. A distribution value of 0 scatters equally in all directions, while 0.9 scatters predominantly in the light direction. In order to have visible volumetric fog light shafts from the side, the distribution will need to be closer to 0. Range: -0.9-0.9.&quot;)]
 public float VolumetricFogScatteringDistribution { get; set; }</code></pre>
   </div>
 

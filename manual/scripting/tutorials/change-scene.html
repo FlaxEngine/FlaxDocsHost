@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Change scene from script | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -95,13 +99,13 @@
 
 public class SceneChanger : Script
 {
-	public SceneReference AnotherScene;
+    public SceneReference AnotherScene;
 
-	public override void OnUpdate()
-	{
-		if (Input.GetKeyDown(KeyboardKeys.G))
-			Level.ChangeSceneAsync(AnotherScene);
-	}
+    public override void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyboardKeys.G))
+            Level.ChangeSceneAsync(AnotherScene);
+    }
 }
 </code></pre><h3 id="c-1">C++</h3>
 <pre><code class="lang-cpp" name="Example2">#pragma once
@@ -110,26 +114,24 @@ public class SceneChanger : Script
 #include &quot;Engine/Input/Input.h&quot;
 #include &quot;Engine/Level/Level.h&quot;
 
-API_CLASS() class EXAMPLE_API SceneChanger : public Script
+API_CLASS() class GAME_API SceneChanger : public Script
 {
     API_AUTO_SERIALIZATION();
     DECLARE_SCRIPTING_TYPE(SceneChanger);
 
-public:
-
     API_FIELD(Attributes = &quot;CustomEditorAlias(\&quot;FlaxEditor.CustomEditors.Editors.SceneRefEditor\&quot;), AssetReference(typeof(SceneReference))&quot;)
-        Guid AnotherScene;
+    Guid AnotherScene;
 
-public:
+    // [Script]
     void OnEnable() override;
     void OnDisable() override;
     void OnUpdate() override
     {
         if (Input::GetKeyDown(KeyboardKeys::G) &amp;&amp; AnotherScene.IsValid())
         {
-			// Does the same as the C# API
-			Level::UnloadAllScenesAsync();
-			Level::LoadSceneAsync(AnotherScene);
+            // Does the same as the C# API
+            Level::UnloadAllScenesAsync();
+            Level::LoadSceneAsync(AnotherScene);
         }
     }
 };
@@ -149,7 +151,7 @@ public:
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

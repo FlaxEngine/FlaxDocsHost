@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Animated Model | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -93,7 +97,27 @@ It uses an animation graph instance to evaluate the skinned model bone transform
 <p>To learn how to setup and use the animated model please see the dedicated tutorials: <a href="tutorials/setup-animated-model.html">How to setup animated model</a> and <a href="tutorials/change-anim-graph-param.html">How to change Anim Graph parameter from code</a>.</p>
 <h2 id="scripting">Scripting</h2>
 <p>Animated Model actor exposes a rich C# scripting API. You can modify the anim graph instanced parameters values via <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html#FlaxEngine_AnimatedModel_Parameters">AnimatedModel.Parameters</a>, modify rendered model meshes materials via <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html#FlaxEngine_AnimatedModel_Entries">AnimatedModel.Entries</a>, gather the current skeleton bones pose via <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html#FlaxEngine_AnimatedModel_GetCurrentPose_FlaxEngine_AnimatedModel_Pose__">AnimatedModel.GetCurrentPose</a>, or even manually update animation via <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html#FlaxEngine_AnimatedModel_UpdateAnimation">AnimatedModel.UpdateAnimation</a>.</p>
-<h2 id="properties">Properties</h2>
+<h2 id="modular-characters">Modular Characters</h2>
+<p><img src="media/modular-character.gif" alt="Modular Characters in Flax Engine Animations "></p>
+<p>When working with highly customziable characters it&#39;s an often practise to split the skinned model into modular parts that use the same skeleton. This allows to build customziable characters (eg. custom player skins or randomized enemies look). Animated Model contains support for linking to other instance for skeleton pose copying instead of evaluating it again. Use <code>SetMasterPoseModel</code> method to create such linking as shown in a example script below:</p>
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;Modular character setup script.&lt;/summary&gt;
+public class ModularCharacter : Script
+{
+    public AnimatedModel Master;
+    public AnimatedModel[] Puppets;
+
+    /// &lt;inheritdoc/&gt;
+    public override void OnStart()
+    {
+        if (Master == null || Puppets == null)
+            return;
+        foreach (var e in Puppets)
+            e.SetMasterPoseModel(Master);
+    }
+}
+</code></pre><h2 id="properties">Properties</h2>
 <p><img src="media/animated-model-properties.png" alt="Animated Model Properties"></p>
 <table>
 <thead>
@@ -122,6 +146,10 @@ It uses an animation graph instance to evaluate the skinned model bone transform
 <tr>
 <td><strong>Update When Offscreen</strong></td>
 <td>If checked, the animation will be updated even when an actor cannot be seen by any camera. Otherwise, the animations themselves will also stop running when the actor is off - screen.</td>
+</tr>
+<tr>
+<td><strong>Update Speed</strong></td>
+<td>The animation update delta time scale. Can be used to speed up animation playback or create slow motion effect.</td>
 </tr>
 <tr>
 <td><strong>Update Mode</strong></td>
@@ -153,7 +181,7 @@ It uses an animation graph instance to evaluate the skinned model bone transform
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/animation/animated-model.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/animation/animated-model.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

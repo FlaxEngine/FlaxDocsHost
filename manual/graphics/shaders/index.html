@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Shaders | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -88,7 +92,7 @@
 <p>Shaders are <strong>GPU program</strong> resources which can run on the GPU and are able to perform rendering calculation using textures, vertices and other resources. Follow this documentation to learn more about wrtting and using shaders in your projects.</p>
 <h2 id="graphics-rendering">Graphics rendering</h2>
 <p>Flax supports graphics programming via C++ and/or C# API that wraps the underlaying graphics beckend API with a thin abstraction layer. By using single API game and engine code can perform rendering and support multiple platforms such as DirectX, Vulkan and more. The API is <strong>low-level and object-oriented</strong>, as it contains most common types such as <em>GPUDevice</em>, <em>GPUContext</em>, <em>GPUTexture</em>, <em>GPUBuffer</em>, <em>GPUShader</em>, <em>GPUPipelineState</em>, etc.</p>
-<p>GPU pipeline uses <strong>slot-based binding model</strong> which is explicit and has low-overhead characteristic. When performing drawing or compute work dispatching the GPU resources such as textures and buffers are binded using resource views to the explicit bipeline slots - SRV/UAV/CB. The binding slots are global to all shader stages (vertex, pixel, compute, etc.) so texture view assigned to Shader Resource View slot can be used in binded pipeline state vertex/pixel/compute shaders. The engine implements shaders reflections and optimizes the direct stages binding under the hood.</p>
+<p>GPU pipeline uses <strong>slot-based binding model</strong> which is explicit and has low-overhead characteristic. When performing drawing or compute work dispatching the GPU resources such as textures and buffers are binded using resource views to the explicit pipeline slots - SRV/UAV/CB. The binding slots are global to all shader stages (vertex, pixel, compute, etc.) so texture view assigned to Shader Resource View slot can be used in binded pipeline state vertex/pixel/compute shaders. The engine implements shaders reflections and optimizes the direct stages binding under the hood.</p>
 <p>To learn more about graphics programming in Flax see related <a href="graphics-api.html">documentation here</a>.</p>
 <h2 id="shading-language">Shading language</h2>
 <p>Flax uses <strong>HLSL</strong> as a shading language as it&#39;s very popular in the industry and supports all major graphics rendering features. Additionally, engine will automatically compile HLSL shaders into target platform such as Vulkan or PS4 with full runtime support.
@@ -222,7 +226,7 @@ That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

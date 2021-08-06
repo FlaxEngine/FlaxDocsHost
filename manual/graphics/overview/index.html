@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Rendering Overview | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -86,10 +90,13 @@
 <h1 id="rendering-overview">Rendering Overview</h1>
 
 <p><img src="media/title.jpg" alt="Rendering Overview"></p>
-<p>Rendering system in Flax Engine uses the full power of DirectX 11 pipeline to create rich effects including deferred shading, global illumination, full-scene reflections, and post processing.</p>
+<p>Rendering system in Flax Engine uses the full power of latest Graphics APIs (DirectX 12, Vulkan, etc.) pipeline to create rich effects including deferred shading, global illumination, full-scene reflections, and post processing.</p>
 <h2 id="rendering-flow">Rendering flow</h2>
 <p>Single frame rendering flow is shown in a graph below.</p>
 <p><img src="media/RenderingFlow.jpg" alt="Rendering Flow"></p>
+<h2 id="upscaling-with-rendering-percentage">Upscaling with Rendering Percentage</h2>
+<p>Flax supports performing scene rendering in lower resolution and upscaling the image into the window backbuffer. This allows to improve game performance at slower devices. It can be configurated via <code>RenderingPercentage</code> property (per <code>SceneRenderTask</code>). To change the resolution scale for the game viewport use <code>MainRenderTask.Instance.RenderingPercentage</code> (you can preview it in <em>Graphics Quality window</em> in Editor). It&#39;s a scale of the rendering resolution relative to the output dimensions. If lower than 1 the scene and postprocessing will be rendered at a lower resolution and upscaled to the output backbuffer.</p>
+<p>Flax performs upscaling by default using Catmull-Rom filtering with 9-taps. For more advanced upscaling you can use open-source <a href="https://github.com/FlaxEngine/FidelityFX-FSR">AMD FidelityFX Super Resolution plugin for Flax Engine</a>.</p>
 </article>
           </div>
           
@@ -98,7 +105,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/graphics/overview/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/graphics/overview/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

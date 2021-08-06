@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class CurveEditor&lt;T&gt;.KeyframePoint
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -120,7 +125,7 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateTransform">Control.UpdateTransform()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean)</a>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Dispose">Control.Dispose()</a>
@@ -327,6 +332,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Y">Control.Y</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalX">Control.LocalX</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalY">Control.LocalY</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_AnchorMin">Control.AnchorMin</a>
     </div>
     <div>
@@ -337,6 +348,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Location">Control.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -463,9 +477,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tooltip">Control.Tooltip</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ShowTooltip">Control.ShowTooltip</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocationChanged">Control.LocationChanged</a>
@@ -690,28 +701,37 @@
   
   
   </div>
-  <h3 id="methods">Methods
+  <h3 id="properties">Properties
   </h3>
   
   
-  <a id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Deselect_" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Deselect*"></a>
+  <a id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Point_" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Point*"></a>
   
-  <h4 id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Deselect" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Deselect"><a href="#collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Deselect" class="expander" data-toggle="collapse">Deselect()</a></h4>
+  <h4 id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Point" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Point"><a href="#collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Point" class="expander" data-toggle="collapse">Point</a></h4>
   
-  <div id="collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Deselect" class="collapse in">
-  <div class="markdown level1 summary"><p>Removes this keyframe from the selection.</p>
+  <div id="collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Point" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the point time and value on a curve.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Deselect()</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 Point { get; }</code></pre>
   </div>
 
   
   
   
   
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -720,6 +740,50 @@
   
   
   </div>
+  
+  
+  <a id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_ShowTooltip_" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.ShowTooltip*"></a>
+  
+  <h4 id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_ShowTooltip" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.ShowTooltip"><a href="#collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_ShowTooltip" class="expander" data-toggle="collapse">ShowTooltip</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_ShowTooltip" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether show control tooltip (control is in a proper state, tooltip text is valid, etc.). Can be used to implement custom conditions for showing tooltips (eg. based on current mouse location within the control bounds).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool ShowTooltip { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ShowTooltip">Control.ShowTooltip</a></div>
+  
+  
+  <h5 id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_ShowTooltip_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Tooltip can be only visible if mouse is over the control area (see <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">IsMouseOver</a>).</p>
+</div>
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
   
   
   <a id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Draw_" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Draw*"></a>
@@ -803,34 +867,6 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseDoubleClick_FlaxEngine_Vector2_FlaxEngine_MouseButton_">Control.OnMouseDoubleClick(Vector2, MouseButton)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Select_" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Select*"></a>
-  
-  <h4 id="FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Select" data-uid="FlaxEditor.GUI.CurveEditor`1.KeyframePoint.Select"><a href="#collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Select" class="expander" data-toggle="collapse">Select()</a></h4>
-  
-  <div id="collapsible-FlaxEditor_GUI_CurveEditor_1_KeyframePoint_Select" class="collapse in">
-  <div class="markdown level1 summary"><p>Adds this keyframe to the selection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Select()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
   
   
   

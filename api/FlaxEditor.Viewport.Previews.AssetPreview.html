@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class AssetPreview
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -102,6 +107,7 @@
     <div class="level5"><span class="xref">AssetPreview</span></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.AnimatedModelPreview.html">AnimatedModelPreview</a></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.MaterialPreview.html">MaterialPreview</a></div>
+      <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.ModelBasePreview.html">ModelBasePreview</a></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.ModelPreview.html">ModelPreview</a></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.ParticleSystemPreview.html">ParticleSystemPreview</a></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Viewport.Previews.PrefabPreview.html">PrefabPreview</a></div>
@@ -112,6 +118,7 @@
   <div id="collapsible-implements-FlaxEditor_Viewport_Previews_AssetPreview" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.Gizmo.IEditorPrimitivesOwner.html">IEditorPrimitivesOwner</a></div>
   </div>
   </div>
   
@@ -153,6 +160,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_InputActions">EditorViewport.InputActions</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OrientViewport_FlaxEngine_Quaternion_">EditorViewport.OrientViewport(Quaternion)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OrientViewport_FlaxEngine_Quaternion__">EditorViewport.OrientViewport(Quaternion)</a>
@@ -282,6 +292,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_InvertPanning">EditorViewport.InvertPanning</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_IsControllingMouse">EditorViewport.IsControllingMouse</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_ShowFpsCounter">EditorViewport.ShowFpsCounter</a>
@@ -509,7 +522,7 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateTransform">Control.UpdateTransform()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean)</a>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Dispose">Control.Dispose()</a>
@@ -644,6 +657,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Y">Control.Y</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalX">Control.LocalX</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalY">Control.LocalY</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_AnchorMin">Control.AnchorMin</a>
     </div>
     <div>
@@ -654,6 +673,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Location">Control.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -816,7 +838,7 @@
   
   <h5 id="FlaxEditor_Viewport_Previews_AssetPreview_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class AssetPreview : EditorViewport, IComparable, IDrawable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class AssetPreview : EditorViewport, IComparable, IDrawable, IEditorPrimitivesOwner</code></pre>
   </div>
 
   
@@ -1105,6 +1127,43 @@
   </h3>
   
   
+  <a id="FlaxEditor_Viewport_Previews_AssetPreview_EditorPrimitives_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.EditorPrimitives*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_EditorPrimitives" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.EditorPrimitives"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_EditorPrimitives" class="expander" data-toggle="collapse">EditorPrimitives</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_Previews_AssetPreview_EditorPrimitives" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the editor primitives renderer. Valid only if <a class="xref" href="FlaxEditor.Viewport.Previews.AssetPreview.html#FlaxEditor_Viewport_Previews_AssetPreview_ShowEditorPrimitives">ShowEditorPrimitives</a> is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorPrimitives EditorPrimitives { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Gizmo.EditorPrimitives.html">EditorPrimitives</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Viewport_Previews_AssetPreview_HasLoadedAssets_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.HasLoadedAssets*"></a>
   
   <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_HasLoadedAssets" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.HasLoadedAssets"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_HasLoadedAssets" class="expander" data-toggle="collapse">HasLoadedAssets</a></h4>
@@ -1136,6 +1195,43 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_HasLoadedAssets">EditorViewport.HasLoadedAssets</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Viewport_Previews_AssetPreview_ShowDebugDraw_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.ShowDebugDraw*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_ShowDebugDraw" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.ShowDebugDraw"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_ShowDebugDraw" class="expander" data-toggle="collapse">ShowDebugDraw</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_Previews_AssetPreview_ShowDebugDraw" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether draw <a class="xref" href="FlaxEngine.DebugDraw.html">DebugDraw</a> shapes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowDebugDraw { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
   
   
   
@@ -1179,8 +1275,157 @@
   
   
   </div>
+  
+  
+  <a id="FlaxEditor_Viewport_Previews_AssetPreview_ShowEditorPrimitives_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.ShowEditorPrimitives*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_ShowEditorPrimitives" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.ShowEditorPrimitives"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_ShowEditorPrimitives" class="expander" data-toggle="collapse">ShowEditorPrimitives</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_Previews_AssetPreview_ShowEditorPrimitives" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether draw <a class="xref" href="FlaxEngine.DebugDraw.html">DebugDraw</a> shapes and other editor primitives such as gizmos.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowEditorPrimitives { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="FlaxEditor_Viewport_Previews_AssetPreview_DrawEditorPrimitives_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.DrawEditorPrimitives*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_DrawEditorPrimitives_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.DrawEditorPrimitives(FlaxEngine.GPUContext,FlaxEngine.RenderContext@,FlaxEngine.GPUTexture,FlaxEngine.GPUTexture)"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_DrawEditorPrimitives_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_" class="expander" data-toggle="collapse">DrawEditorPrimitives(GPUContext, ref RenderContext, GPUTexture, GPUTexture)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_Previews_AssetPreview_DrawEditorPrimitives_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the custom editor primitives.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DrawEditorPrimitives(GPUContext context, ref RenderContext renderContext, GPUTexture target, GPUTexture targetDepth)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUContext.html">GPUContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>The GPU commands context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">renderContext</span>
+        <p><p>The rendering context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUTexture.html">GPUTexture</a></span>
+        <span class="parametername">target</span>
+        <p><p>The output texture to render to.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUTexture.html">GPUTexture</a></span>
+        <span class="parametername">targetDepth</span>
+        <p><p>The scene depth buffer that can be used to z-buffering.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.Gizmo.IEditorPrimitivesOwner.html#FlaxEditor_Gizmo_IEditorPrimitivesOwner_DrawEditorPrimitives_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_">IEditorPrimitivesOwner.DrawEditorPrimitives(GPUContext, ref RenderContext, GPUTexture, GPUTexture)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Viewport_Previews_AssetPreview_OnDebugDraw_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.OnDebugDraw*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_Previews_AssetPreview_OnDebugDraw_FlaxEngine_GPUContext_FlaxEngine_RenderContext__" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.OnDebugDraw(FlaxEngine.GPUContext,FlaxEngine.RenderContext@)"><a href="#collapsible-FlaxEditor_Viewport_Previews_AssetPreview_OnDebugDraw_FlaxEngine_GPUContext_FlaxEngine_RenderContext__" class="expander" data-toggle="collapse">OnDebugDraw(GPUContext, ref RenderContext)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_Previews_AssetPreview_OnDebugDraw_FlaxEngine_GPUContext_FlaxEngine_RenderContext__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when drawing debug shapes with <a class="xref" href="FlaxEngine.DebugDraw.html">DebugDraw</a> for this viewport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDebugDraw(GPUContext context, ref RenderContext renderContext)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUContext.html">GPUContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>The GPU context.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">renderContext</span>
+        <p><p>The render context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   <a id="FlaxEditor_Viewport_Previews_AssetPreview_OnDestroy_" data-uid="FlaxEditor.Viewport.Previews.AssetPreview.OnDestroy*"></a>

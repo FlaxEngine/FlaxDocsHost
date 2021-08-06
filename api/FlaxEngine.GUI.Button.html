@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class Button
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -293,7 +298,7 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateTransform">Control.UpdateTransform()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean)</a>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Dispose">Control.Dispose()</a>
@@ -425,6 +430,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Y">Control.Y</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalX">Control.LocalX</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalY">Control.LocalY</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_AnchorMin">Control.AnchorMin</a>
     </div>
     <div>
@@ -435,6 +446,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Location">Control.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -774,6 +788,42 @@
   
   
   
+  <h4 id="FlaxEngine_GUI_Button__text" data-uid="FlaxEngine.GUI.Button._text"><a href="#collapsible-FlaxEngine_GUI_Button__text" class="expander" data-toggle="collapse">_text</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_Button__text" class="collapse in">
+  <div class="markdown level1 summary"><p>The text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LocalizedString _text</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.LocalizedString.html">LocalizedString</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEngine_GUI_Button_DefaultHeight" data-uid="FlaxEngine.GUI.Button.DefaultHeight"><a href="#collapsible-FlaxEngine_GUI_Button_DefaultHeight" class="expander" data-toggle="collapse">DefaultHeight</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_Button_DefaultHeight" class="collapse in">
@@ -847,6 +897,46 @@ public Color TextColor</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="FlaxEngine_GUI_Button_BackgroundBrush_" data-uid="FlaxEngine.GUI.Button.BackgroundBrush*"></a>
+  
+  <h4 id="FlaxEngine_GUI_Button_BackgroundBrush" data-uid="FlaxEngine.GUI.Button.BackgroundBrush"><a href="#collapsible-FlaxEngine_GUI_Button_BackgroundBrush" class="expander" data-toggle="collapse">BackgroundBrush</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_Button_BackgroundBrush" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the brush used for background drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Style&quot;, null)]
+[EditorOrder(2000)]
+[Tooltip(&quot;The brush used for background drawing.&quot;)]
+public IBrush BackgroundBrush { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GUI.IBrush.html">IBrush</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   <a id="FlaxEngine_GUI_Button_BackgroundColorHighlighted_" data-uid="FlaxEngine.GUI.Button.BackgroundColorHighlighted*"></a>
@@ -1133,7 +1223,7 @@ public FontReference Font { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [Tooltip(&quot;The button label text.&quot;)]
-public string Text { get; set; }</code></pre>
+public LocalizedString Text { get; set; }</code></pre>
   </div>
 
   
@@ -1144,7 +1234,7 @@ public string Text { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.String</span>
+        <a class="xref" href="FlaxEngine.LocalizedString.html">LocalizedString</a>
         <p>
       </td>
     </tr>

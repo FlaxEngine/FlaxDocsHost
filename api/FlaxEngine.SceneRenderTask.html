@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class SceneRenderTask
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -122,6 +127,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.RenderTask.html#FlaxEngine_RenderTask_FrameCount">RenderTask.FrameCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.RenderTask.html#FlaxEngine_RenderTask_LastUsedFrame">RenderTask.LastUsedFrame</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.RenderTask.html#FlaxEngine_RenderTask_CanDraw">RenderTask.CanDraw</a>
@@ -487,14 +495,14 @@ public Camera Camera { get; set; }</code></pre>
   <h4 id="FlaxEngine_SceneRenderTask_Output" data-uid="FlaxEngine.SceneRenderTask.Output"><a href="#collapsible-FlaxEngine_SceneRenderTask_Output" class="expander" data-toggle="collapse">Output</a></h4>
   
   <div id="collapsible-FlaxEngine_SceneRenderTask_Output" class="collapse in">
-  <div class="markdown level1 summary"><p>The output texture (can be null if using rendering to window swap chain). Can be sued to redirect the default scene rendering output to a texture.</p>
+  <div class="markdown level1 summary"><p>The output texture (can be null if using rendering to window swap chain). Can be used to redirect the default scene rendering output to a texture.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The output texture (can be null if using rendering to window swap chain). Can be sued to redirect the default scene rendering output to a texture.&quot;)]
+[Tooltip(&quot;The output texture (can be null if using rendering to window swap chain). Can be used to redirect the default scene rendering output to a texture.&quot;)]
 public GPUTexture Output { get; set; }</code></pre>
   </div>
 
@@ -546,6 +554,84 @@ public GPUTextureView OutputView { get; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.GPUTextureView.html">GPUTextureView</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SceneRenderTask_OutputViewport_" data-uid="FlaxEngine.SceneRenderTask.OutputViewport*"></a>
+  
+  <h4 id="FlaxEngine_SceneRenderTask_OutputViewport" data-uid="FlaxEngine.SceneRenderTask.OutputViewport"><a href="#collapsible-FlaxEngine_SceneRenderTask_OutputViewport" class="expander" data-toggle="collapse">OutputViewport</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SceneRenderTask_OutputViewport" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the rendering output viewport (after upsampling).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;The rendering output viewport (after upsampling).&quot;)]
+public Viewport OutputViewport { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Viewport.html">Viewport</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SceneRenderTask_RenderingPercentage_" data-uid="FlaxEngine.SceneRenderTask.RenderingPercentage*"></a>
+  
+  <h4 id="FlaxEngine_SceneRenderTask_RenderingPercentage" data-uid="FlaxEngine.SceneRenderTask.RenderingPercentage"><a href="#collapsible-FlaxEngine_SceneRenderTask_RenderingPercentage" class="expander" data-toggle="collapse">RenderingPercentage</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SceneRenderTask_RenderingPercentage" class="collapse in">
+  <div class="markdown level1 summary"><p>The scale of the rendering resolution relative to the output dimensions. If lower than 1 the scene and postprocessing will be rendered at a lower resolution and upscaled to the output backbuffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;The scale of the rendering resolution relative to the output dimensions. If lower than 1 the scene and postprocessing will be rendered at a lower resolution and upscaled to the output backbuffer.&quot;)]
+public float RenderingPercentage { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
         <p>
       </td>
     </tr>
@@ -678,14 +764,14 @@ public RenderView View { get; set; }</code></pre>
   <h4 id="FlaxEngine_SceneRenderTask_Viewport" data-uid="FlaxEngine.SceneRenderTask.Viewport"><a href="#collapsible-FlaxEngine_SceneRenderTask_Viewport" class="expander" data-toggle="collapse">Viewport</a></h4>
   
   <div id="collapsible-FlaxEngine_SceneRenderTask_Viewport" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the rendering render task viewport.</p>
+  <div class="markdown level1 summary"><p>Gets the rendering render task viewport (before upsampling).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The rendering render task viewport.&quot;)]
+[Tooltip(&quot;The rendering render task viewport (before upsampling).&quot;)]
 public Viewport Viewport { get; }</code></pre>
   </div>
 

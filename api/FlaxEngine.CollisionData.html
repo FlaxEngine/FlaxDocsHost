@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class CollisionData
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -298,18 +303,18 @@ public CollisionDataOptions Options { get; }</code></pre>
   
   <a id="FlaxEngine_CollisionData_CookCollision_" data-uid="FlaxEngine.CollisionData.CookCollision*"></a>
   
-  <h4 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEngine.CollisionData.CookCollision(FlaxEngine.CollisionDataType,FlaxEngine.Model,System.Int32,FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookCollision(CollisionDataType, Model, Int32, ConvexMeshGenerationFlags, Int32)</a></h4>
+  <h4 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEngine.CollisionData.CookCollision(FlaxEngine.CollisionDataType,FlaxEngine.ModelBase,System.Int32,System.UInt32,FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookCollision(CollisionDataType, ModelBase, Int32, UInt32, ConvexMeshGenerationFlags, Int32)</a></h4>
   
-  <div id="collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Cooks the mesh collision data and updates the virtual asset. action cannot be performed on a main thread.</p>
+  <div id="collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Cooks the mesh collision data and updates the virtual asset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Cooks the mesh collision data and updates the virtual asset. action cannot be performed on a main thread.&quot;)]
-public bool CookCollision(CollisionDataType type, Model model, int modelLodIndex = 0, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
+[Tooltip(&quot;Cooks the mesh collision data and updates the virtual asset.&quot;)]
+public bool CookCollision(CollisionDataType type, ModelBase model, int modelLodIndex = 0, uint materialSlotsMask = 4294967295U, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -324,9 +329,9 @@ public bool CookCollision(CollisionDataType type, Model model, int modelLodIndex
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Model.html">Model</a></span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ModelBase.html">ModelBase</a></span>
         <span class="parametername">model</span>
-        <p><p>The source model.</p>
+        <p><p>The source model. If model is virtual then this method cannot be called from the main thread.</p>
 </p>
       </td>
     </tr>
@@ -335,6 +340,14 @@ public bool CookCollision(CollisionDataType type, Model model, int modelLodIndex
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">modelLodIndex</span>
         <p><p>The source model LOD index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">materialSlotsMask</span>
+        <p><p>The source model material slots mask. One bit per-slot. Can be used to exclude particular material slots from collision cooking.</p>
 </p>
       </td>
     </tr>
@@ -372,7 +385,7 @@ public bool CookCollision(CollisionDataType type, Model model, int modelLodIndex
   
   
   
-  <h5 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32__remarks">Remarks</h5>
+  <h5 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).</p>
 </div>
   

@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Collisions | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -86,15 +90,15 @@
 <h1 id="collisions">Collisions</h1>
 
 <p><img src="media/physics3.gif" alt="Collisions"></p>
-<p>This page describes how to filter and detect objects collisions.</p>
+<p>This page describes how to filter and detect object collisions.</p>
 <h2 id="collisions-filtering">Collisions filtering</h2>
-<p>Flax supports up to 32 different collision layers. Each layer can have different collisions mask defined globally.
-You can use <a href="physics-settings.html">Physics Settings</a> to define the layers collisions mask matrix.
+<p>Flax supports up to 32 different collision layers. Each layer can have different a collisions mask defined.</p>
+<p>You can use <a href="physics-settings.html">Physics Settings</a> to define the layers collisions mask matrix.
 Every actor has property <a href="https://docs.flaxengine.com/api/FlaxEngine.Actor.html#FlaxEngine_Actor_Layer">Actor.Layer</a> which is used to peek the collisions mask for the object.</p>
 <h2 id="collisions-detection">Collisions detection</h2>
-<p>Flax uses event-based collisions detection. When the content between two objects is detected it gets reported during the <strong>fixed update</strong>. Use the <a href="https://docs.flaxengine.com/api/FlaxEngine.Collider.html">Collider</a> events to handle the collisions.
+<p>Flax uses event-based collision detection. When a collision between two objects is detected it is reported during the <strong>fixed update</strong>. Use the <a href="https://docs.flaxengine.com/api/FlaxEngine.Collider.html">Collider</a> events to handle the collisions.
 To access information about the collision use <a href="https://docs.flaxengine.com/api/FlaxEngine.Collision.html">Collision</a> class and <a href="https://docs.flaxengine.com/api/FlaxEngine.ContactPoint.html">ContactPoint</a> structures.</p>
-<p>Here is an example script that registers for the collision detection for the given input collider in your scene.</p>
+<p>Here is an example script which registers collision detection for a given input collider in the scene.</p>
 <pre><code class="lang-cs">public class MyScript : Script
 {
     public Collider TargetCollider;
@@ -125,7 +129,7 @@ To access information about the collision use <a href="https://docs.flaxengine.c
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/physics/collisions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/physics/collisions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

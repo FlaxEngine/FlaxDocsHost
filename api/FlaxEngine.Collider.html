@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class Collider
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -144,6 +149,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_System_String_">Actor.HasTag(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChild_System_Int32_">Actor.GetChild(Int32)</a>
@@ -272,6 +280,12 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_TryGetScript__1___0__">Actor.TryGetScript&lt;T&gt;(T)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript__1">Actor.FindScript&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1">Actor.FindActor&lt;T&gt;()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren__1">Actor.GetChildren&lt;T&gt;()</a>
     </div>
     <div>
@@ -279,6 +293,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -627,45 +644,6 @@ public float ContactOffset { get; set; }</code></pre>
   </div>
   
   
-  <a id="FlaxEngine_Collider_IsAttached_" data-uid="FlaxEngine.Collider.IsAttached*"></a>
-  
-  <h4 id="FlaxEngine_Collider_IsAttached" data-uid="FlaxEngine.Collider.IsAttached"><a href="#collapsible-FlaxEngine_Collider_IsAttached" class="expander" data-toggle="collapse">IsAttached</a></h4>
-  
-  <div id="collapsible-FlaxEngine_Collider_IsAttached" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether this collider is attached to the body.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this collider is attached to the body.&quot;)]
-public bool IsAttached { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_Collider_IsTrigger_" data-uid="FlaxEngine.Collider.IsTrigger*"></a>
   
   <h4 id="FlaxEngine_Collider_IsTrigger" data-uid="FlaxEngine.Collider.IsTrigger"><a href="#collapsible-FlaxEngine_Collider_IsTrigger" class="expander" data-toggle="collapse">IsTrigger</a></h4>
@@ -818,6 +796,7 @@ If objects do not overlap, the function can not compute the distance and returns
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Computes minimum translational distance between two geometry objects. Translating the first collider by direction * distance will separate the colliders apart if the function returned true. Otherwise, direction and distance are not defined. The one of the colliders has to be BoxCollider, SphereCollider CapsuleCollider or a convex MeshCollider. The other one can be any type. If objects do not overlap, the function can not compute the distance and returns false.&quot;)]
 public static bool ComputePenetration(Collider colliderA, Collider colliderB, out Vector3 direction, out float distance)</code></pre>
   </div>
 

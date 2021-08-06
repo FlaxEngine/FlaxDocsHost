@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class AssetItem
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -264,7 +269,7 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateTransform">Control.UpdateTransform()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean)</a>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Dispose">Control.Dispose()</a>
@@ -447,6 +452,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Y">Control.Y</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalX">Control.LocalX</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalY">Control.LocalY</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_AnchorMin">Control.AnchorMin</a>
     </div>
     <div>
@@ -457,6 +468,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Location">Control.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -1019,6 +1033,104 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
     </tr>
   </table>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_AssetItem_OnEditorDrag_" data-uid="FlaxEditor.Content.AssetItem.OnEditorDrag*"></a>
+  
+  <h4 id="FlaxEditor_Content_AssetItem_OnEditorDrag_System_Object_" data-uid="FlaxEditor.Content.AssetItem.OnEditorDrag(System.Object)"><a href="#collapsible-FlaxEditor_Content_AssetItem_OnEditorDrag_System_Object_" class="expander" data-toggle="collapse">OnEditorDrag(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_AssetItem_OnEditorDrag_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when user dags this item into editor viewport or scene tree node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool OnEditorDrag(object context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">context</span>
+        <p><p>The editor context (eg. editor viewport or scene tree node).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if item can be dropped in, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_AssetItem_OnEditorDrop_" data-uid="FlaxEditor.Content.AssetItem.OnEditorDrop*"></a>
+  
+  <h4 id="FlaxEditor_Content_AssetItem_OnEditorDrop_System_Object_" data-uid="FlaxEditor.Content.AssetItem.OnEditorDrop(System.Object)"><a href="#collapsible-FlaxEditor_Content_AssetItem_OnEditorDrop_System_Object_" class="expander" data-toggle="collapse">OnEditorDrop(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_AssetItem_OnEditorDrop_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when user drops the item into editor viewport or scene tree node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Actor OnEditorDrop(object context)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">context</span>
+        <p><p>The editor context (eg. editor viewport or scene tree node).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Actor.html">Actor</a>
+        <p><p>The spawned object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   
   

@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Vehicles | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Vehicles | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Vehicles | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="vehicles">Vehicles</h1>
+
+<p><img src="media/wheeled-vehicle.gif" alt="Car Vehicle"></p>
+<p>Flax supports creation of physical-based vehicles such as cars and boats based on the <a href="rigid-bodies.html">RigidBody</a> and <a href="colliders/index.html">Colliders</a>. This documentation section explains certain aspects in this topic.</p>
+<h2 id="wheeled-vehicle">Wheeled Vehicle</h2>
+<p><strong>Wheeled Vehicle</strong> is a car vehicle that uses wheels. It&#39;s built on top of the RigidBody with collider representing its chassis shape and wheels.</p>
+<h3 id="properties">Properties</h3>
+<p><img src="media/wheeled-vehicle-properties.png" alt="Car Properties"></p>
+<p>To confgiurate car driving experiance use properties grouped under <strong>Engine</strong>, <strong>Differential</strong>, and <strong>Gearbox</strong> catogoeires. See tooltips for the property labels to learn more about each setting and it&#39;s units.</p>
+<p>Additionally, you can specify <strong>Drive Type</strong>, <strong>Use Reverse As Brake</strong> and other RigidBody properties including vehicle <strong>Mass</strong> and <strong>Center Of Mass Offset</strong>.</p>
+<h3 id="wheels">Wheels</h3>
+<p><img src="media/wheel-properties.png" alt="Car Wheels"></p>
+<p>To describe vehicle wheels confgiuration <strong>Wheels</strong> array contains a list of per-wheel properties. Ensure to link proper <strong>Collider</strong> and define wheel <strong>Type</strong>. Each wheel is described as cylinder shape (radius, width) that should be approximation of the wheel collider dimensions. Each wheel can use steering by adjusting <strong>Max Steer Angle</strong>. Wheels can also use brakes and handbrakes (use appropeate properties to define torques).</p>
+<h3 id="scripting">Scripting</h3>
+<p>Vehicles contain extensive API to access them from code. If you modify car properties like engine or gearbox configuration ensure to call <code>Setup()</code> method after. It will rebuild the vehicle and reset its state.</p>
+<p>Vehicle input control:</p>
+<ul>
+<li><code>SetThrottle(float value)</code></li>
+<li><code>SetSteering(float value)</code></li>
+<li><code>SetBrake(float value)</code></li>
+<li><code>SetHandbrake(float value)</code></li>
+<li><code>ClearInput()</code></li>
+</ul>
+<p>Vehicle state access:</p>
+<ul>
+<li><code>float GetForwardSpeed()</code></li>
+<li><code>float GetSidewaysSpeed()</code></li>
+<li><code>float GetEngineRotationSpeed()</code></li>
+<li><code>int GetCurrentGear()</code> / <code>void SetCurrentGear(int value)</code></li>
+<li><code>int GetTargetGear()</code> / <code>void SetTargetGear(int value)</code></li>
+<li><code>void GetWheelState(int index, out WheelState result)</code></li>
+</ul>
+<p>Wheel state properties:</p>
+<ul>
+<li><code>bool IsInAir</code></li>
+<li><code>PhysicsColliderActor TireContactCollider</code></li>
+<li><code>Vector3 TireContactPoint</code></li>
+<li><code>Vector3 TireContactNormal</code></li>
+<li><code>float TireFriction</code></li>
+</ul>
+<p>When creating complex vehicles (eg. based on Animated Model) you can query wheel colliders state and wheels or engine state to control the skinned vehicle body (eg. rotate wheel bones in Anim Graph).</p>
+<h3 id="technical-details">Technical details</h3>
+<p>Vehicles are using <em>PhysX Vehicles SDK</em> for driving, suspension and car components simulation (gearbox, engine, clutch, suspension, differential). Many of the exposed properties can be precesly configured to enhance the driving model per-vehicle. Maximum amount of wheels used per-vehicle is 20.</p>
+<p>To learn more about vehicle physical simulation see related documentation <a href="https://gameworksdocs.nvidia.com/PhysX/4.0/documentation/PhysXGuide/Manual/Vehicles.html">here</a>.</p>
+<p>For selected wheels vehicles the wheels are drawing on red and center of mass location is drawn as blue wire sphere.</p>
+<p><img src="media/car-debug-shapes.png" alt="Car Debug Shapes"></p>
+<h3 id="how-to-setup-a-car">How to setup a car?</h3>
+<p>1) Create new <strong>Wheeled Vehicle</strong> actor (default options are configured for generic 4 wheel car)
+<img src="media/add-wheeled-vehicle.png" alt="Add Wheeled Vehicle"></p>
+<p>2) Add mesh to visualize car body (model or skinned model)</p>
+<p>3) Add collider for car body physical collision (convex mesh or set of primitive shapes - triangle meshes are not supported) - as children to vehicle
+<img src="media/car-body.png" alt="Add Vehicle Body"></p>
+<p>4) Add wheel colliders (eg. sphere colliders) - as children to vehicle and setup them in <strong>Wheels</strong> list
+<img src="media/car-wheels.png" alt="Add Vehicle Wheels"></p>
+<p>5) Setup wheels to be on a separate <a href="../editor/game-settings/layers-and-tags-settings.html">layer</a> than car body and disable collisions between them in <a href="physics-settings.html">Physics Settings</a>
+<img src="media/car-body-layers-matrix.png" alt="Car Layers Collisions Matrix Settings"></p>
+<p>6) Add script to control car - you can use the script below and set camera, car and camera target (camera target is root of camera rotation).</p>
+<pre><code class="lang-cs">using System;
+using System.Runtime.ConstrainedExecution;
+using FlaxEngine;
+
+public class CarScript : Script
+{
+    public WheeledVehicle Car;
+    public Actor CameraTarget;
+    public Camera Camera;
+
+    public float CameraSmoothing = 20.0f;
+
+    public bool UseMouse = true;
+    public float CameraDistance = 700.0f;
+
+    private float _pitch = 10.0f;
+    private float _yaw = 90.0f;
+    private float _horizontal;
+    private float _vertical;
+
+    /// &lt;summary&gt;
+    /// Adds the movement and rotation to the camera (as input).
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;horizontal&quot;&gt;The horizontal input.&lt;/param&gt;
+    /// &lt;param name=&quot;vertical&quot;&gt;The vertical input.&lt;/param&gt;
+    /// &lt;param name=&quot;pitch&quot;&gt;The pitch rotation input.&lt;/param&gt;
+    /// &lt;param name=&quot;yaw&quot;&gt;The yaw rotation input.&lt;/param&gt;
+    public void AddMovementRotation(float horizontal, float vertical, float pitch, float yaw)
+    {
+        _pitch += pitch;
+        _yaw += yaw;
+        _horizontal += horizontal;
+        _vertical += vertical;
+    }
+
+    public override void OnUpdate()
+    {
+        if (UseMouse)
+        {
+            // Cursor
+            Screen.CursorVisible = false;
+            Screen.CursorLock = CursorLockMode.Locked;
+
+            // Mouse
+            Vector2 mouseDelta = new Vector2(Input.GetAxis(&quot;Mouse X&quot;), Input.GetAxis(&quot;Mouse Y&quot;));
+            _pitch = Mathf.Clamp(_pitch + mouseDelta.Y, -88, 88);
+            _yaw += mouseDelta.X;
+        }
+    }
+
+    public override void OnFixedUpdate()
+    {
+        // Update camera
+        var camTrans = Camera.Transform;
+        var camFactor = Mathf.Saturate(CameraSmoothing * Time.DeltaTime);
+        CameraTarget.LocalOrientation = Quaternion.Lerp(CameraTarget.LocalOrientation, Quaternion.Euler(_pitch, _yaw, 0), camFactor);
+        //CameraTarget.LocalOrientation = Quaternion.Euler(pitch, yaw, 0);
+        camTrans.Translation = Vector3.Lerp(camTrans.Translation, CameraTarget.Position + CameraTarget.Direction * -CameraDistance, camFactor);
+        camTrans.Orientation = CameraTarget.Orientation;
+        Camera.Transform = camTrans;
+
+        var inputH = Input.GetAxis(&quot;Horizontal&quot;) + _horizontal;
+        var inputV = Input.GetAxis(&quot;Vertical&quot;) + _vertical;
+        _horizontal = 0;
+        _vertical = 0;
+
+        var velocity = new Vector3(inputH, 0.0f, inputV);
+        velocity.Normalize();
+        //velocity = CameraTarget.Transform.TransformDirection(velocity);
+
+        Car.SetThrottle(velocity.Z);
+        Car.SetSteering(velocity.X);
+        Car.SetHandbrake(Input.GetAction(&quot;Handbrake&quot;) ? 1.0f : 0.0f);
+    }
+}
+</code></pre><p>7) Play &amp; Test</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/physics/vehicles.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

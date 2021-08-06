@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class BuildSettings
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -263,7 +268,6 @@ public Asset[] AdditionalAssets</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
-[Limit(1F, 16F, 65535F)]
 [EditorDisplay(&quot;General&quot;, null)]
 [Tooltip(&quot;The game content cooking keycode. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.&quot;)]
 public int ContentKey</code></pre>
@@ -342,7 +346,7 @@ public bool ForDistribution</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
-[Limit(1F, 32F, 65535F)]
+[Limit(1F, 65535F, 1F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max assets per package&quot;)]
 [Tooltip(&quot;The maximum amount of assets to include into a single assets package. Asset packages will split into several packages if need to.&quot;)]
 public int MaxAssetsPerPackage</code></pre>
@@ -382,7 +386,7 @@ public int MaxAssetsPerPackage</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
-[Limit(1F, 16F, 65535F)]
+[Limit(1F, 65535F, 1F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max package size (in MB)&quot;)]
 [Tooltip(&quot;The maximum size of the single assets package (in megabytes). Asset packages will split into several packages if need to.&quot;)]
 public int MaxPackageSizeMB</code></pre>

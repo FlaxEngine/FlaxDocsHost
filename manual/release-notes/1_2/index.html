@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 1.2 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 1.2 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Flax 1.2 release notes | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-12-release-notes">Flax 1.2 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="vehicles">Vehicles</h3>
+<p><img src="media/wheeled-vehicle.gif" alt="Flax Physics Vehicles"></p>
+<p>This release includes support for <strong>Vehicles</strong>. Now, you can create cars with a custom physical shape, wheels, and engine setup. We&#39;re using Nvidia PhysX to drive the simulation and expose lots of highly configurable properties to tweak the vehicle. It can be used to make simple cars or even advanced realistic racing games. Also, unofficially cars in Flax drive better than in Cyberpunk 2077.</p>
+<p>As always we&#39;re preapred a complete documentation and tutorial how to use this new feature <a href="../../physics/vehicles.html">here</a>.</p>
+<h3 id="nintendo-switch-support">Nintendo Switch Support</h3>
+<p><img src="media/switcher.jpg" alt="Nintendo Switch Flax Engine Support Port"></p>
+<p>We&#39;re happy to announce that we&#39;re working on Nintendo Switch platform support. Very soon Flax will be available for Switch developers. We will inform you once it&#39;s ready via our dev blog. Stay tuned, we&#39;re almost ready.</p>
+<h3 id="low-level-networking">Low-level Networking</h3>
+<p><img src="media/network-sample-menu.png" alt="Network Sample Project Multiplayer"></p>
+<p>In this release, we&#39;re bringing more features into <strong>networking</strong> for multiplayer games. We&#39;ve implemented a low-level networking system featuring Network Peers for creating multiplayer sessions with network messages transportation layer. The default network driver uses ENet with the possibility to use any library you want (like ValveSockets, SteamRelay, SteamP2P, Photon Realtime, etc.).</p>
+<p>Together with this, we&#39;ve released an open-source <a href="../../networking/network-sample.html">Network Sample</a> project to help you start making multiplayer games in Flax. It features a game server-client with the game session, chat and players lobby. We have also a simple <a href="../../networking/tutorials/network-client-server.html">step-by-step tutorial</a> to help you start using networking in Flax.</p>
+<p><img src="media/network-sample-players.jpg" alt="Network Sample Players Lobby"></p>
+<h3 id="localization">Localization</h3>
+<p><img src="media/localization-preview.gif" alt="Localization Tools Flax Editor Preview"></p>
+<p>Creating games that target the global market and support multiple languages can be a challenge. In 1.2 we shipped new <strong>localization tools</strong> for games internalization. This includes UI language localization, values culture (numbers, currency, and date formatting), and creating a translation for different languages. We&#39;ve added new Localization Settings that is a dashboard with lots of utilities such as adding new locales, searching localized string is code or content. As shown on a gif above, Editor has a live-preview option of the current locale.</p>
+<p>Follow <a href="../../editor/localization/index.html">this documentation</a> to learn more.</p>
+<h3 id="new-editor-icons">New Editor icons</h3>
+<p><img src="media/editor-ui.png" alt="Flax Editor UI"></p>
+<p>The very first thing that you will probably notice after launching 1.2 update is that Flax Editor has new icons. We&#39;ve <strong>improved resolution and style</strong> of the icon set to make it crisper. The new UI just <em>feels better</em>.</p>
+<h3 id="job-system-and-task-graph">Job System and Task Graph</h3>
+<p><img src="media/animated-models-5k.gif" alt="Flax Engine Preformance Job System Task Graph"></p>
+<p>The latest 1.2 update brings a <strong>massive performance boost for large worlds</strong>. Here is an example of 5,000 animated models playing animation and being rendered at stable 60 FPS (tested on mid-price i5 CPU). To achieve this level of performance we&#39;ve created a <strong>Job System</strong> that runs a worker thread per CPU core to run extensive computations in asynchronous. For more advanced calculations used by gameplay systems or engine systems, we&#39;re implemented <strong>Task Graph</strong>. It can be used to paralyze game even better plus it supports dependencies between async systems.</p>
+<p>During this update, we&#39;ve converted all major engine systems into async Task Graph Systems to ensure the higher paralyzation of the engine code (streaming, animations, particles, etc.). It can be further extended by game-specific systems in your code. To see how to do it see <a href="../../scripting/advanced/multithreading.html">this tutorial</a>. Both Job System and Task Graph can be used in C#, C++, or Visual Scripting.</p>
+<h3 id="tracy-profiler">Tracy Profiler</h3>
+<p><img src="media/async-particles.png" alt="Flax Engien Tracy Profiler"></p>
+<p>In order to optimize engine or game the developers need proper profiling tools. The in-built profiler helps with this but for more advanced optimizations we needed something more powerful. Now, Flax supports an open-source <a href="https://github.com/wolfpld/tracy">Tracy</a> profiler for CPU instrumentation and performance analysis. It can profile both game and editor, supports remote profiling, and can be used to capture profiling sessions for comparison. Also, Flax will automatically insert profile zones for C# and Visual Script methods so gameplay performance profiling is even easier now.</p>
+<p>To help you get started with Tracy we&#39;ve created a dedicated <a href="../../editor/profiling/tracy.html">documentation page</a>. Also, for C# developers we have a tutorial for <a href="../../editor/profiling/dot-trace.html">dotTrace profiler</a> usage.</p>
+<h3 id="textures-streaming">Textures Streaming</h3>
+<p><img src="media/textures-streaming.gif" alt="Flax Engine Textures Streaming Performance Quality"></p>
+<p>Another exciting feature is <strong>textures streaming configuration</strong>. The new Streaming settings asset contains <strong>Texture Groups</strong> for managing textures quality and streaming options at runtime (every texture asset can define the texture group it belongs to).</p>
+<p>It can be used to strip textures resolution when cooking for mobile/Switch or to implement dynamic texture quality settings in game menu. Also, Flax will reduce quality of textures that are not rendered for some time (configurable) to improve game performance and reduce GPU memory usage. Additionally, we&#39;ve added a new API to query current streaming stats and content stats which can be used to implement a loading screen as showcased in a <a href="../../scripting/tutorials/loading-screen.html">tutorial here</a>.</p>
+<h3 id="amd-fidelityfx-super-resolution">AMD FidelityFX Super Resolution</h3>
+<p><img src="media/amd-fsr-flax.jpg" alt="AMD FidelityFX Super Resolution for Flax Engine"></p>
+<p><a href="https://gpuopen.com/fidelityfx-superresolution/">AMD Fidelity FX Super Resolution</a> is a cutting edge super-optimize spatial upsampling technology that produces impressive image quality at fast framerates. We&#39;ve released an open-source plugin for Flax Engine that implements FSR effect and can be easily integrated into Flax games. Visit <a href="https://github.com/FlaxEngine/FidelityFX-FSR">this repository</a> to learn more.</p>
+<h3 id="more-features">More features</h3>
+<p><img src="media/9slicing.gif" alt="9-slicing support for UI rendering"></p>
+<p>Every update brings many large features but also tons of smaller things that matter. We continued working on <strong>improving quality</strong> and <strong>usability</strong> of the Editor. Here is a list of notable ones:</p>
+<ul>
+<li><strong>9-slicing support for UI</strong> (gif above)</li>
+<li>New C++ docs and tutorials (see docs in <a href="scripting/cpp/index.md">this section</a>)</li>
+<li>Ability to show/hide GUI and DebugDraw shapes inside Game viewport</li>
+<li><strong>Daily source builds</strong> from <code>master</code> branch (<a href="https://github.com/FlaxEngine/FlaxEngine/actions/workflows/cd.yml">here</a> or via Launcher)</li>
+<li>Optimized editor/game CPU usage when idle</li>
+<li><strong>Delay node</strong> for Visual Scripting</li>
+<li>Faster scenes opening (in general both engine and editor are faster)</li>
+<li>Animation asset preview with playback debugging (play/pause/seek/slowmo)</li>
+<li>Support for C# objects and structures as Visual Script or Anim Graph parameters</li>
+<li>Tons of new APIs for easier games scripting (see changelog to learn more)</li>
+<li>Both Vulkan and D3D12 rendering backend are way more stable now in large worlds</li>
+<li>Modular animated characters support</li>
+<li>New <strong>Temporal AA</strong> with less ghosting</li>
+<li>Change default Update rate to 60</li>
+<li>Debug view for collision geometry (see image below)</li>
+</ul>
+<p><img src="media/editor-collision-preview.png" alt="Ediotr Physics Collision Preview"></p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-126222---5-august-2021">Version 1.2.6222 - 5 August 2021</h3>
+<p>Contributors: mafiesto4, honzapatCZ, GoaLitiuM, W2Wizard, jb-perrier, stefnotch, Crawcik, Vizepi, MiheevN, LCRW, VarvatosVex, herocrab, artkez, Erdroy, brbrmensch, thallard</p>
+<p>PRs merged: 62</p>
+<ul>
+<li>Add <strong>Nintendo Switch support</strong> (coming soon to registered developers)</li>
+<li>Add support for separate data and code output directories in Game Cooker</li>
+<li>Add initializer list support for arrays in C++ scripting</li>
+<li>Add <strong>Vehicles support</strong></li>
+<li>Add error log when trying to load bytes from file data that is too big</li>
+<li>Add MeshBase as shared impl part for Mesh and SkinnedMesh</li>
+<li>Add support for generating Collision Data from Skinned Models</li>
+<li>Add warning when using Triangle Mesh collider under RigidBody</li>
+<li>Add support for masking Material Slots when cooking Collision Data</li>
+<li>Add support for <code>string</code> constants as defaults in scripting API</li>
+<li>Add <strong>Localization</strong> support and tools</li>
+<li>Add support for importing <code>.po</code> files</li>
+<li>Add <code>LocalizedStringTable</code> asset type</li>
+<li>Add <code>LocalizationSettings</code></li>
+<li>Add <code>LocalizedString</code></li>
+<li>Add <code>CultureInfo</code> to C++ API</li>
+<li>Add <code>GOLDEN_RATIO</code> constant</li>
+<li>Add <strong>new editor icons</strong></li>
+<li>Add byte array deserialization from base64 encoded string</li>
+<li>Add support for importing assets into custom formats with <code>AssetsImportingManager</code></li>
+<li>Add support for custom asset type factory in game code</li>
+<li>Add support for nesting Array inside Dictionary in scripting API</li>
+<li>Add support for using generic class value types in scripting API bindings code</li>
+<li>Add importing <code>.po</code> files with strings localization</li>
+<li>Add searching for localization strings in C#/C++ code</li>
+<li>Add searching for localization strings in scenes and prefabs</li>
+<li>Add exporting localization into <code>.pot</code> file for translation</li>
+<li>Add <code>CultureInfo</code> editor with picker</li>
+<li>Add undo support for Json Asset editor window</li>
+<li>Add string localization API</li>
+<li>Add LocalizedString support for UI</li>
+<li>Add <code>CreateSearchPopup</code> to editor utils</li>
+<li>Add<code>LocalizedString</code> to <code>TextRender</code> for localized text</li>
+<li>Add support for using animated model with anim graph using different skinned model</li>
+<li>Add <code>FindClosestNode</code> to Animated Model</li>
+<li>Add <code>Keyboard.IsAnyKeyDown</code></li>
+<li>Add missing name some for GPU resources</li>
+<li>Add <strong>Low-Level Networking</strong></li>
+<li>Add depth test for point/spot lights rendering to optimize far lights rendering</li>
+<li>Add <code>HasTypedUAVLoad</code> to GPULimits (use for GPU lightmaps support baking detection)</li>
+<li>Add DRED and optional GPU-Based Validation for D3D12</li>
+<li>Add UAV slots dimensions to cache for D3D12 validation</li>
+<li>Add Bokeh DoF rendering on D3D12 (works fine after fixes)</li>
+<li>Add background color in collections (better readability for nested collections)</li>
+<li>Add support for <code>NotNullItems</code> option in collections editors</li>
+<li>Add support for using pointers in scripting API events</li>
+<li>Add support for using references in scripting API events</li>
+<li>Add <strong>Delay node</strong> to Visual Scripting</li>
+<li>Add timeline position synchronization with animation playback in Editor preview</li>
+<li>Add profiler Sleep event to Editor sleeping phrase when out of focus</li>
+<li>Add <code>Nameof</code> helper utility for C++</li>
+<li>Add automatic Game Settings setup after adding new settings asset for the first time</li>
+<li>Add <strong>Streaming settings</strong> with texture groups configuration</li>
+<li>Add support for stripping textures quality when cooking game (per-platform)</li>
+<li>Add <strong>dynamic textures streaming based on visibility</strong></li>
+<li>Add support for using per-texture group sampler in Materials</li>
+<li>Add <code>GetStringAnsiView</code> to json value</li>
+<li>Add option to open all selected assets in content window</li>
+<li>Add support for loading C# dictionaries in native json reader</li>
+<li>Add <code>Category</code> attribute for types grouping in editor dialogs</li>
+<li>Add texture groups preview to Graphics Quality window in editor</li>
+<li>Add support for editing texture group in editor (without reimporting)</li>
+<li>Add support for <strong>programmable samplers in shaders</strong></li>
+<li>Add <code>AnimationUpdated</code> event to Animated Model</li>
+<li>Add <code>SetCurrentPose</code> to Animated Model</li>
+<li>Add <code>SetMasterPoseModel</code> to Animated Model for modular characters</li>
+<li>Add digit check for scripts renaming</li>
+<li>Add <strong>Tracy profiler</strong> support</li>
+<li>Add <code>SceneTicking</code> to engine API</li>
+<li>Add <code>-debugwait</code> cmd line arg to wait for C# debugger attach on engine start</li>
+<li>Add physics queries for convex meshes</li>
+<li>Add editor option to customize the default location for new editor windows</li>
+<li>Add automatic profiler events for C# methods invocation</li>
+<li>Add automatic profiler events for Visual Script methods invocation</li>
+<li>Add automatic tooltip for ComboBox based on selected item tooltip</li>
+<li>Add option to hide GUI in Game Viewport</li>
+<li>Add <code>MapTrack</code> to SceneAnimationPlayer</li>
+<li>Add GPU profiler events to ProbesRenderer</li>
+<li>Add helper <code>FindScript&lt;T&gt;</code> and <code>FindActor&lt;T&gt;</code> to <code>Actor</code></li>
+<li>Add <code>NoUndo</code> attribute for properties without undo usage</li>
+<li>Add option to show Debug Draw shapes in Game Viewport</li>
+<li>Add option to copy/paste value from Visject box via context menu</li>
+<li>Add support for using library-style includes for build tool includes cache</li>
+<li>Add <strong>9-slicking support for UI</strong> to draw sprites and textures</li>
+<li>Add skipping generating structure fields accessors for private fields in scripting</li>
+<li>Add option to use Point sampling when drawing textures and sprites in UI via Brushes</li>
+<li>Add <code>Int16</code> and <code>Uint16</code> scripting/serialization support for Visual Scripting</li>
+<li>Add preserving package output directory across sequential package builds</li>
+<li>Add <code>-play</code> cmd line arg for Editor to play game (optional scene id arg value to play certain level)</li>
+<li>Add support for custom package output directory for engine deploy</li>
+<li>Add support for custom build configurations for engine deploy</li>
+<li>Add <strong>daily master branch builds</strong> as Continuous Deployment on Github Actions</li>
+<li>Add more indentation to scene tree items to make it more readable</li>
+<li>Add support for custom drag &amp; drop into level/prefab viewports from custom asset items</li>
+<li>Add focus to game window on play</li>
+<li>Add <strong>Job System</strong></li>
+<li>Add Foliage Density Scale option to Graphics Quality Window in Editor</li>
+<li>Add support for <code>Function&lt;&gt;</code> as method parameter in scripting</li>
+<li>Add order for Margin properties</li>
+<li>Add <code>SceneNavigation</code> for scene data for navigation system</li>
+<li>Add <strong>Task Graph</strong></li>
+<li>Add option to use seconds for timeline/media duration</li>
+<li>Add <code>Engine::UpdateGraph</code> for async engine/game update</li>
+<li>Add async animations updating via Task Graph</li>
+<li>Add async particles updating via Task Graph</li>
+<li>Add support for allocator type in <code>Dictionary</code></li>
+<li>Add idle Sleep between frames to save CPU cycles when inactive</li>
+<li>Add logging Windows build number</li>
+<li>Add <code>RingBuffer</code> template</li>
+<li>Add support for allocator type in <code>Dictionary</code></li>
+<li><ul>
+<li>Add <code>Stopwatch</code> instead of<code>DateTime.Now</code> for increased accuracy in <em>Flax.Build</em> profiling tools</li>
+</ul>
+</li>
+<li>Add keyboard shortcuts to viewpoints (numpad)</li>
+<li>Add <code>PLATFORM_THREADS_LIMIT</code> for maximum concurrency limiting</li>
+<li>Add MemoryCompare, MemoryClear and MemoryCopy for direct memory access in C#</li>
+<li>Add ignoring memory allocations from profiling tools in Editor Profiler</li>
+<li>Add intermediate data folder removing on build tool clean command</li>
+<li>Add <code>Actor.RotateAround</code></li>
+<li>Add automatic namespace usings collecting when generating scripting bindings glue code for csharp</li>
+<li>Add automatic slider speed for float value input fields with limits specified</li>
+<li>Add Alpha Panel control</li>
+<li>Add Draw Indirect support for Vulkan</li>
+<li>Add GPU Particles support for Vulkan</li>
+<li>Add support for rendering into 3d textures on Vulkan</li>
+<li>Add support for Geometry Shaders on Vulkan</li>
+<li>Add incremental actors naming when spawning them in viewport</li>
+<li>Add Network impl for PS4</li>
+<li>Add safety checks to material constants binding code to prevent invalid memory access</li>
+<li>Add <code>GPUContextVulkan::CopySubresource</code></li>
+<li>Add more profiler events for performance tracking</li>
+<li>Add <code>Content.Stats</code> for assets statistics (replaces <code>Content.AssetCount</code>)</li>
+<li>Add <code>Streaming.Stats</code> for resources streaming statistics</li>
+<li>Add view snapping mode to Directional Light shadows for better stability</li>
+<li>Add preloading initial Editor scene to improve startup performance</li>
+<li>Add support for custom background brush to Button</li>
+<li>Add <code>DebugDraw::DrawTube</code></li>
+<li>Add <code>Rectangle.Distance</code></li>
+<li>Add option for preview a single mesh UVs</li>
+<li>Add memory usage info to Animation details</li>
+<li>Add more helper methods for batched debug shapes drawing</li>
+<li>Add <strong>Physics Colliders debug view</strong> mode to display physical world shapes (solid)</li>
+<li>Add <code>UpdateSpeed</code> to Animated Model for playback speed scaling</li>
+<li>Add widgets for animation preview play/pause and speed changing</li>
+<li>Add support for creating virtual Anim Graph at runtime for a single animation playback</li>
+<li>Add Terrain physics collision debug drawing support</li>
+<li>Add faked lighting to improve Debug Draw solid shapes rendering readability</li>
+<li>Add preview panel with skinned model to the Animation window</li>
+<li>Add support for <strong>rendering percentage scale with upscaling</strong> to backbuffer</li>
+<li>Add culling and render mask check for models rendered via Custom Actors list</li>
+<li>Add warning log in build tool when target is missing</li>
+<li>Add <code>JsonSerializer.ParseID</code> with return value</li>
+<li>Add support for bundling custom assets by <code>GamePlugins</code></li>
+<li>Add <code>CustomUpscale</code> postFx to replace upscaler with a custom script</li>
+<li>Add <code>ClosestPointPointLine</code> for Vector3 to C#</li>
+<li>Add more documentation to FlaxDocs</li>
+<li>Add support for Rider 2021, use latest detected version of Rider</li>
+<li>Add using the latest detected version of Rider</li>
+<li>Add support for moving object with transform gizmo when mouse moves outside the viewport during usage</li>
+<li>Add <code>BoundingBox.MakeScaled</code></li>
+<li>Add using immediate DebugDraw for animated model skeleton drawing in Editor preview</li>
+<li>Add support for <code>Vector2/3/4</code> and <code>Quaternion</code> constants for default value attribute in C# scripting api</li>
+<li>Add option to show bounds of the animated model in Editor preview</li>
+<li>Add option to show bounds of the model in Editor preview</li>
+<li>Add support for AssetPreview to use debug drawing if needed</li>
+<li>Add support for focusing on foliage instance bounds when editing it</li>
+<li>Add support for focusing on model when painting its vertices</li>
+<li>Add support for object reference wrappers usage in hash maps and dictionaries</li>
+<li>Add serialization improvements for <code>Int2/3/4</code></li>
+<li>Add constructors <code>Vector2/3/4</code> &lt;=&gt; <code>Int2/3/4</code></li>
+<li>Add operators for <code>Int3/Int4</code></li>
+<li>Add common funcs for <code>Int2/3/4</code></li>
+<li>Add some more splash-screen quotes</li>
+<li>Add optional location for Plugin Icon to be inside plugin project root</li>
+<li>Add <code>MeshDataCache</code> utility for async mesh data caching</li>
+<li>Add buttons for play/pause/stop Animation timeline in editor window</li>
+<li>Add tint to timeline navbar buttons</li>
+<li>Add bone icon for Anim Graph connections with local skeleton nodes pose</li>
+<li>Add support for using structures as Visual Script and Anim Graph parameters</li>
+<li>Add support for object and enum properties in Anim Graph</li>
+<li>Add support for disabling Vulkan timer queries per-platform via define</li>
+<li>Add option to preview model meshes Normals and Tangents in Editor preview</li>
+<li>Add <code>AddForceAtPosition</code> to Rigidbodies</li>
+<li>Add full documentation tooltip to Visject new parameter type picker list</li>
+<li>Add support for <code>VisibleIf</code> on value editors using group panel</li>
+<li>Add support for importing assets into custom formats with <code>AssetsImportingManager</code></li>
+<li>Add strong typed <em>This</em> node output in Visual Script</li>
+<li>Add super smooth quaternion editing in Editor UI</li>
+<li>Add support <code>int64</code> values in EnumComboBox</li>
+<li>Add support for custom value propagation in CustomEditor</li>
+<li>Add <code>LocalLocation</code> to UI controls</li>
+<li>Add support for cooking collision data from model asset on main thread and fix issue if mesh is during streaming</li>
+<li>Add support for Is Null, Is Valid, As, Is and Type Reference nodes in Anim Graph</li>
+<li>Add <code>C++ Json Asset</code> and <code>C++ Function Library</code> templates</li>
+<li>Add better support for control anchors editing with bounds preserving and pivot setting (Shift and Control modifier keys))</li>
+<li>Add loading info text when opening scene animation window</li>
+<li>Add support for reusing <code>UIControlControlEditor</code> and <code>AnchorPresetsEditorPopup</code> in Editor plugins</li>
+<li>Add the namespace of a field from another module support in C# bindings code</li>
+<li>Add sorting for used namespaces in bindings and include nested types checks</li>
+<li>Add missing includes in headers</li>
+<li>Add UI Control location editing to be relative to the Pivot point</li>
+<li>Add <code>DefaultQueryExtent</code> to navmesh properties</li>
+<li>Add option to Delete Sprite in Editor</li>
+<li>Add automatic resizing for the timeline track preview values for better readability</li>
+<li>Add support for Pack/Unpack Structure nodes and Enum constant in Anim Graph</li>
+<li>Add support for OnSerializing, OnSerialized, OnDeserializing and OnDeserialized callbacks for C# types serialization with Json</li>
+<li>Move default AllocatePages/FreePages impl from Unix to PlatformBase</li>
+<li>Move JsonConverters to a separate file</li>
+<li>Rename AnimationManager to Animations and expose to public</li>
+<li>Reimplement <strong>Temporal AA with less ghosting</strong> and better quality</li>
+<li>Improve detection of Rider installations</li>
+<li>Implement DownloadDataCPU for Mesh and add result entries count</li>
+<li>Improve animation preview usability for debugging</li>
+<li>Improve tooltips generation for scripting types</li>
+<li>Improve timeline frame labels displaying</li>
+<li>Increase scroll bars size for easier usage</li>
+<li>Increase items limit for Visject secondary context menu before scroll bar usage</li>
+<li>Optimize building C#-only projects references</li>
+<li>Optimize UI for complex timelines with many tracks</li>
+<li>Optimize Vulkan Framebuffer when not using color blending</li>
+<li>Optimize Profiler window update to refresh only visible tab UI</li>
+<li>Optimize Profiler window UI</li>
+<li>Optimize Debug Log window new entries adding (manual placement instead of full layout)</li>
+<li>Optimize <code>BoundingSphere::FromBox</code></li>
+<li>Optimize Debug Draw for large amount of single-frame debug shapes and lines</li>
+<li>Optimize Debug Draw wireframe sphere to use auto-LOD</li>
+<li>Optimize Streaming service with Task Graph to use async update on a Job System</li>
+<li>Optimize Vulkan shader compiler memory allocation</li>
+<li>Optimize ContentStorageManager with Task Graph to use async update on a Job System</li>
+<li>Optimize memory allocations in Vulkan backend</li>
+<li>Optimize flushing active transform of physically simulated actors</li>
+<li>Optimize physics simulation collisions pair cache</li>
+<li>Optimize Foliage instances serialization by using raw json value write</li>
+<li>Optimize various engine code</li>
+<li>Optimize <code>Foliage::OnFoliageTypeModelLoaded</code> to rebuild only single foliage type clusters</li>
+<li>Optimize String usage with StringView for basic file paths operations</li>
+<li>Optimize C# script compile times by using Roslyn C# compiler server on Windows</li>
+<li>Optimize C# method invoke in bindings via direct Mono invoke</li>
+<li>Optimize managed memory allocations</li>
+<li>Optimize includes in <code>ThreadLocal.h</code></li>
+<li><strong>Optimize Scene Rendering</strong> (data caching and more)</li>
+<li>Optimize CPU particles sorting with Radix sort</li>
+<li>Optimize C# <code>Actor.GetChildren&lt;T&gt;()</code> and <code>Actor.GetScripts&lt;T&gt;()</code></li>
+<li>Optimize Animated Model bones matrices buffer update</li>
+<li>Optimize scripting object data deserialization</li>
+<li>Optimize Foliage with quad-tree clustering per foliage type</li>
+<li>Optimize Foliage rendering with manual instanced draw calls batching</li>
+<li>Optimizations in various parts of the engine</li>
+<li>Optimize renderer memory allocations with <code>RenderListAllocation</code> (mem pooling)</li>
+<li>Remove unused <code>WindowsManager::CalcCenteredWinPos</code></li>
+<li>Remove UI Controls from Json Asset picker dialog</li>
+<li>Remove unused <code>DictionaryInitialSize</code> from <code>MAssemblyOptions</code></li>
+<li>Refactor focusing on selection logic in Editor</li>
+<li>Refactor <code>FontReference</code> to reference type (class)</li>
+<li>Refactor base types initialization to be done during API processing</li>
+<li>Refactor AnimGraph to support asynchronous execution</li>
+<li>Refactor CPU Particles to support asynchronous execution</li>
+<li>Refactor FileSystemWatcher interface to make it simpler</li>
+<li>Refactor AnimGraph debug flows to use scripting API event (faster)</li>
+<li>Refactor Variant type ManagedObject serialization to be usable for Visual Scripting</li>
+<li>Change default Update FPS in time settings to 60</li>
+<li>Change profiler samples length to 10s at 60hz</li>
+<li>Change all Flax Samples to 60 FPS</li>
+<li>Change to not log computer/username in log files</li>
+<li>Change <code>CalculateTangents</code> to false as default and calculate normals/tangents by default if missing</li>
+<li>Change <code>WindowBase</code> to allow for better code sharing for platforms without advanced windowing</li>
+<li>Update <code>fmt</code> to version 6.2.1 (9 May 2020)</li>
+<li>Fix dummy locale on Linux</li>
+<li>Fix using TextBoxBase with child controls</li>
+<li>Fix format string errors assertions into soft checks</li>
+<li>Fix natvis display for string views</li>
+<li>Fix handling spacing in collection editors to align label in a proper way with margin</li>
+<li>Fix <code>JsonAssetProxy.IsProxyFor</code></li>
+<li>Fix stack overflow when using recursion with nested scene animations</li>
+<li>Fix escaping backslashes in generated tooltip descriptions</li>
+<li>Fix build settings limits</li>
+<li>Fix reparenting actors in editor to preserve world position</li>
+<li>Fix bounding box calculations for Animated Models</li>
+<li>Fix tooltips to be constrained by monitor bounds instead of virtual desktop or parent window bounds</li>
+<li>Fix Is Null and Is Valid nodes in Visual Script to handle managed instances comparison</li>
+<li>Fix crash when unloading scene that has been already unloaded</li>
+<li>Fix Label text positioning when using Auto Fit</li>
+<li>Fix creating reroute nodes in Visject during debugging</li>
+<li>Fix missing <code>mipIndex</code> when clearing lightmap textures with a buffer on baking start</li>
+<li>Fix error when actor from unloaded scene is selected</li>
+<li>Fix showing Game Plugins in editor plugins window</li>
+<li>Fix disabling VertexSnapping for 3D UI rendering</li>
+<li>Fix Editor UI tree control click to handle selection update before</li>
+<li>Fix camera position when changing Editor view orientation</li>
+<li>Fix gizmo in top down view on Z-axis movement (and other combination of perpendicular views)</li>
+<li>Fix showing context menu in Scene Tree window with scroll used</li>
+<li>Fix paths in plugin projects root nodes in Content Database</li>
+<li>Fix crash when importing model mesh with multiple materials but no mapping on a Geometry</li>
+<li>Fix CharacterController still colliding after being disabled at runtime</li>
+<li>Fix exception in Editor UI is model has invalid material slot index assigned</li>
+<li>Fix gizmo stability when using single axis</li>
+<li>Fix text processing with wrapping enabled if layout bounds width equals the line width</li>
+<li>Fix <code>Control.GetChildAtRecursive</code> with overlapping controls</li>
+<li>Fix crash when reading empty string from stream</li>
+<li>Fix adding particle emitter to a system timeline to have full duration</li>
+<li>Fix naming native threads on Linux and Android</li>
+<li>Fix crash when reloading virtual asset</li>
+<li>Fix false-positive of Surface node value modification</li>
+<li>Fix handling invalid asset in AssetPicker instead of throwing exception</li>
+<li>Fix buffer overrun crash in <code>ForwardShadingFeature</code></li>
+<li>Fix drawing shadows for particles that use Depth Fade node</li>
+<li>Fix importing model animations curves with scaled local bone TransformBuffer</li>
+<li>Fix missing operators and constructor in <code>Pair</code></li>
+<li>Fix asset paths to be from project rather than packages</li>
+<li>Fix loading native dependencies for binary modules from other folders than engine binaries or project root</li>
+<li>Fix auto-focus for dock window on right-click to prevent Game Window mouse steal when using context menu</li>
+<li>Fix <code>String::Resize</code> to support buffer growing</li>
+<li>Fix catching mouse focus in Editor play mode with game is paused</li>
+<li>Fix out of bound access to <code>RichTextBoxBase</code> internal buffer</li>
+<li>Fix POD structure check in scripting api if contains array field</li>
+<li>Fix some profile event names</li>
+<li>Fix crash on Font invalidate</li>
+<li>Fix C# profiler events from other threads</li>
+<li>Fix renaming selected actor in scene tree after creation and use editor shortcut</li>
+<li>Fix minor warnings in shaders</li>
+<li>Fix locale on Linux</li>
+<li>Fix file dialogs from changing the working directory (on Windows)</li>
+<li>Fix compilation on specific system locale configuration (build tool issue)</li>
+<li>Fix synchronization for dbg symbols on Windows</li>
+<li>Fix using fixed array initializers in scripting API field</li>
+<li>Fix error in context menu search on fail</li>
+<li>Fix <code>ThreadLocal</code> to use atomic operations and prevent rare race conditions</li>
+<li>Fix running Flax on Windows with STD console output</li>
+<li>Fix undo errors in editor on Margin property serialization</li>
+<li>Fix checking paths when opening Visual Studio project items to prevent dummy files creation</li>
+<li>Fix base method calls handling in scripting vtable overrides</li>
+<li>Fix game plugins initialization order in Editor play mode to mock the standalone game</li>
+<li>Fix checking min engine version for referenced projects too</li>
+<li>Fix loading game binaries in Editor if they are still missing are recompile</li>
+<li>Fix rare crash when passing array to managed world with object refs inside structures</li>
+<li>Fix calling base class of overridden scripting object via vtable entry for method that has multiple parameters</li>
+<li>Fix AnimatedModel bounds calculation to use skeleton bones locations</li>
+<li>Fix range selection in Tree to skip invisible nodes</li>
+<li>Fix deserialization of C# dictionaries for prefabs</li>
+<li>Fix Script deserialization if <code>ParentID</code> is not specified in stream</li>
+<li>Fix changing prefab root</li>
+<li>Fix undo for custom serialized objects (eg. LocalizedString)</li>
+<li>Fix missing asset register for new json resources</li>
+<li>Fix <code>API_AUTO_SERIALZIATION</code> usage if base type is not serializable</li>
+<li>Fix case sensitivity check for <code>StartsWith</code> and <code>EndsWith</code> in <code>StringView</code></li>
+<li>Fix using <code>Delegate&lt;&gt;</code> in API event</li>
+<li>Fix <code>TypeSearchPopup</code> showing types that base type is hidden</li>
+<li>Fix script template not complain about doc warnings</li>
+<li>Fix tooltip attribute generation for multi line xml doc comments</li>
+<li>Fix Transform Node/Bone in replace mode when transform is identity</li>
+<li>Fix <code>protected internal</code> access modifier usage</li>
+<li>Fix textbox bugs</li>
+<li>Fix editor viewport input when using ScreenSpace canvas in a prefab</li>
+<li>Fix <code>ScreenSpace</code> UICanvas prefab preview activate/deactivate</li>
+<li>Fix order when pasting UI Controls</li>
+<li>Fix ScreenSpace UICanvas order in Prefab preview (move back to prevent editor widgets occlusion)</li>
+<li>Fix Visual Script method override node auto-size</li>
+<li>Fix descriptors bindings to shaders on D3D12</li>
+<li>Fix missing UAV barriers on D3D12</li>
+<li>Fix GPU synchronization on D3D12</li>
+<li>Fix D3D12 resource state transitions barriers</li>
+<li>Fix lightmaps baking on D3D12</li>
+<li>Fix using custom allocator on array field in scripting class</li>
+<li>Fix UI after editing Dictionary key value</li>
+<li>Fix various Editor UI icons issues to improve reliability and design</li>
+<li>Fix <code>Asset::ToString()</code> to not depend on refs count and look simpler</li>
+<li>Fix generating includes list in c++ glue code for script (non-pod and variant wrappers can produce additional includes)</li>
+<li>Fix Blend Space 2D to use corrected additive blending</li>
+<li>Fix texture streaming minimum mips to load for block compressed textures</li>
+<li>Fix spline model visibility after enable if was disabled on start</li>
+<li>Fix default value generation for numbers and enums in scripting api</li>
+<li>Fix parsing doc comments in scripting api with inlined summary tag</li>
+<li>Fix scripts projects opening to support async open when using Editor menu option</li>
+<li>Fix using Keyboard and Mouse objects in C# scripting</li>
+<li>Fix cached font usage to use proper unmanaged object validation check</li>
+<li>Fix selecting multiple different UI controls in Editor</li>
+<li>Fix crash due to <code>SamplesBuffer::Add</code> bug</li>
+<li>Fix errors when changing UIControl type in prefab</li>
+<li>Fix crash with too big blur strength used in Render2D</li>
+<li>Fix <code>WeakAssetReference</code> handling asset unload</li>
+<li>Fix very rare cases of deadlocks in <code>Asset::WaitForLoaded</code></li>
+<li>Fix terrain normal mapping issue</li>
+<li>Fix using nested types in Visual Script</li>
+<li>Fix crash when reimporting sprite atlas</li>
+<li>Fix sprite atlas serialization after editing</li>
+<li>Fix naming new sprites in Editor</li>
+<li>Fix models uvs preview drawing</li>
+<li>Fix synchronizing ActorTreeNode order after actor duplicate</li>
+<li>Fix missing rotation parameters in capsule physics queries</li>
+<li>Fix BitonicSort constant buffer size error on Vulkan due to structure padding</li>
+<li>Fix structured UAV/SRV buffer usage on Vulkan</li>
+<li>Fix crashes during deserialization of invalid data</li>
+<li>Fix getter only properties not showing in Editor</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/release-notes/1_2/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

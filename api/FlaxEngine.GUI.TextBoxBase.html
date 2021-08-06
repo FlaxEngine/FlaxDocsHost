@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class TextBoxBase
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -291,7 +296,7 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateTransform">Control.UpdateTransform()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean)</a>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_SetAnchorPreset_FlaxEngine_GUI_AnchorPresets_System_Boolean_System_Boolean_">Control.SetAnchorPreset(AnchorPresets, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Dispose">Control.Dispose()</a>
@@ -420,6 +425,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Y">Control.Y</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalX">Control.LocalX</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalY">Control.LocalY</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_AnchorMin">Control.AnchorMin</a>
     </div>
     <div>
@@ -430,6 +441,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Location">Control.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -1600,6 +1614,43 @@ public float CaretFlashSpeed { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HasSelection { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_TextBoxBase_IsEditing_" data-uid="FlaxEngine.GUI.TextBoxBase.IsEditing*"></a>
+  
+  <h4 id="FlaxEngine_GUI_TextBoxBase_IsEditing" data-uid="FlaxEngine.GUI.TextBoxBase.IsEditing"><a href="#collapsible-FlaxEngine_GUI_TextBoxBase_IsEditing" class="expander" data-toggle="collapse">IsEditing</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_TextBoxBase_IsEditing" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether user is editing the text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEditing { get; }</code></pre>
   </div>
 
   
@@ -3674,13 +3725,54 @@ bars, sliders etc.)</p>
   <h4 id="FlaxEngine_GUI_TextBoxBase_SetText_System_String_" data-uid="FlaxEngine.GUI.TextBoxBase.SetText(System.String)"><a href="#collapsible-FlaxEngine_GUI_TextBoxBase_SetText_System_String_" class="expander" data-toggle="collapse">SetText(String)</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_TextBoxBase_SetText_System_String_" class="collapse in">
-  <div class="markdown level1 summary"><p>Sets the text.</p>
+  <div class="markdown level1 summary"><p>Sets the text (forced, even if user is editing it).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void SetText(string value)</code></pre>
+    <pre><code class="lang-csharp hljs">[NoAnimate]
+public void SetText(string value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_TextBoxBase_SetTextAsUser_" data-uid="FlaxEngine.GUI.TextBoxBase.SetTextAsUser*"></a>
+  
+  <h4 id="FlaxEngine_GUI_TextBoxBase_SetTextAsUser_System_String_" data-uid="FlaxEngine.GUI.TextBoxBase.SetTextAsUser(System.String)"><a href="#collapsible-FlaxEngine_GUI_TextBoxBase_SetTextAsUser_System_String_" class="expander" data-toggle="collapse">SetTextAsUser(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_TextBoxBase_SetTextAsUser_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the text as it was entered by user (focus, change value, defocus).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NoAnimate]
+public void SetTextAsUser(string value)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

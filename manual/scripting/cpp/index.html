@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="C++ Scripting | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -98,42 +102,42 @@
 <li><a href="tips-tricks.html">Tips &amp; Tricks</a></li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>Flax Editor contains in-build C# compiler for scripts but for C++ scripting the platform-dependent toolset is required to be installed in the machine. Every platform uses its own native tools. To learn about them see this <a href="../../platforms/index.html">page</a>. Below you can learn quickly how to setup depending on your platform.</p>
-<h4 id="windows">Windows</h4>
+<p>Flax Editor contains a build-in C# compiler for scripts but for C++ scripting the platform-dependent toolset is required to be installed on the machine. Every platform uses its own native tools. To learn about them see this <a href="../../platforms/index.html">page</a>. Below you can learn quickly how to set it up depending on your platform.</p>
+<h3 id="windows">Windows</h3>
 <ul>
 <li>Install <strong>Visual Studio 2019</strong> or 2017 or 2015 (<a href="https://visualstudio.microsoft.com/en/vs/community/">download</a>)</li>
 <li>Install <strong>Windows 10 SDK</strong> (or Windows 8.1 SDK)</li>
 <li>Install <strong>Microsoft Visual C++</strong> (v140 toolset or newer)</li>
 </ul>
-<h4 id="linux">Linux</h4>
+<h3 id="linux">Linux</h3>
 <ul>
 <li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-<li>Get compiler <code>sudo apt-get install clang lldb lld</code> (Clang 6 or newer)</li>
+<li>Get the compiler <code>sudo apt-get install clang lldb lld</code> (Clang 6 or newer)</li>
 </ul>
 <h2 id="how-to-create-c-script">How to create C++ script?</h2>
-<p>By default, new Flax projects have default game module using C# scripting. You can learn more about modules and targets <a href="../../editor/flax-build/index.html">here</a>. After installing required tools, open <code>Source/&lt;module_name&gt;/&lt;module_name&gt;.Build.cs</code> (i.e. <code>Source/Game/Game.Build.cs</code>). This file is a build script for the code module and can specify its build environment and dependencies. It contains overriden <strong>Setup(BuildOptions options)</strong> method which performs the module initialization.</p>
+<p>By default, new Flax projects have a game module using C# scripting. You can learn more about modules and targets <a href="../../editor/flax-build/index.html">here</a>. After installing the required tools, open <code>Source/&lt;module_name&gt;/&lt;module_name&gt;.Build.cs</code> (i.e. <code>Source/Game/Game.Build.cs</code>). This file is a build script for the code module and can specify its build environment and dependencies. It contains a overriden <strong>Setup(BuildOptions options)</strong> method which performs the module initialization.</p>
 <p>Find the <code>BuildNativeCode = false</code> line and change the value to <code>true</code> or add the following code at the end of the method:</p>
 <pre><code class="lang-cs">BuildNativeCode = true;
-</code></pre><p>Now, you can <strong>add a new C++ script</strong> to the project and they will be compiled into the binary libraries and loaded by the engine. To do so, navigate in <em>Content Window</em> to that module sources folder <code>Source/&lt;module_name&gt;</code>, <em>right-click</em> and choose the <strong>C++ Script</strong> option. Specify its name and confirm with <em>Enter</em>.</p>
+</code></pre><p>Now, you can <strong>add a new C++ script</strong> to the project and they will be compiled into the binary libraries and loaded by the engine. To do so, navigate in the <em>Content Window</em> to that module&#39;s source folder <code>Source/&lt;module_name&gt;</code>, <em>right-click</em> and choose the <strong>C++ Script</strong> option. Specify its name and confirm with <em>Enter</em>.</p>
 <p><img src="media/new-cpp-script.png" alt="New Native Script C++"></p>
 <p>Under File, you can select <strong>generate scripts project files</strong> or right-click on the game project file and choose a similar option.</p>
 <p><img src="media/project-files-generation.png" alt="Generate Scripts Project Files"></p>
-<p>After that open the code project (eg. Visual Studio Solution). Ensure to use <strong>Editor.Development</strong> configuration and <strong>Win64</strong> platform (if you&#39;re working on Windows).</p>
+<p>After that open the code project (eg. Visual Studio Solution). Ensure to use the <strong>Editor.Development</strong> configuration and <strong>Win64</strong> platform (if you&#39;re working on Windows).</p>
 <p><img src="media/cpp-scripts-visual-studio.png" alt="Visual Studio Scripts Project"></p>
-<p>As you can see, Editor generated a simple Script from a template that overrides <code>OnEnable</code>, <code>OnDisable</code>, and <code>OnUpdate</code> methods similar to C# scripts. Open created <code>.cpp</code> file and add following code on top to include debug logging:</p>
+<p>As you can see, the editor generated a simple script from a template that overrides the <code>OnEnable</code>, <code>OnDisable</code>, and <code>OnUpdate</code> methods similar to C# scripts. Open the created <code>.cpp</code> file and add following code on top to include debug logging:</p>
 <pre><code class="lang-cpp">#include &quot;Engine/Core/Log.h&quot;
-</code></pre><p>Then add simple log instruction in <code>OnUpdate</code> method:</p>
+</code></pre><p>Then add a simple log instruction in the <code>OnUpdate</code> method:</p>
 <pre><code class="lang-cpp">void CppScript::OnUpdate()
 {
     LOG(Info, &quot;Hello from C++!&quot;);
 }
-</code></pre><p>Go back to Editor so it autocompiles scripts or open it from Visual Studio with <strong>Local Windows Debugger</strong> button aka Debugger Start (or hit <em>F5</em>). Now, you can add the script to the Actor and see the message printed in Output Log every frame by your own C++ script.</p>
+</code></pre><p>Go back to the editor so that it can autocompile the scripts or open it from Visual Studio with <strong>Local Windows Debugger</strong> button aka Debugger Start (or hit <em>F5</em>). Now, you can add the script to the actor and see the message printed in the <em>Output Log</em> every frame by your own C++ script.</p>
 <p><img src="media/cpp-script-run.png" alt="C++ Script Runtime"></p>
 <p>Feel free to start coding your game logic in C++!</p>
 <h2 id="c-scripting-with-flax">C++ scripting with Flax</h2>
-<p>Flax supports <strong>hot-reloading C++</strong> code in Editor which greatly improves the workflow. It works in the same way as for C# scripting and can be configured in Editor Options. You can also close Editor, compile scripts from Visual Studio and open project with Visual Studio debuggeer.</p>
-<p>In many cases before using a specific API type (eg. <code>PointLight</code> actor or <code>Model</code> asset) you have to <strong>include a proper header file</strong> since Flax uses paradigm <em>include-only-what-you-see</em>. But if you want easily include all common header you can include <code>Engine/Core/Common.h</code>. Also, as you&#39;ve probably noticed the Visual Studio solution contains also <strong>Flax</strong> C++ project (in Flax folder). You can freely browse the Flax code to learn more about API and available code utilities. If you downloaded the engine from Flax Store then it will contain only header files. Flax header files use <strong>XML documentation tags</strong> and are almost 100% documented so working with them is fairly smooth as you can quickly learn what given method/field does. Those documentation comments are later parsed by the build tool and exposed to C# for scripting and editor tooltips.</p>
-<p>Now, to understand some basic concepts related to C++ scripting in Flax let&#39;s analyze the following script that spawns decals on mouse clicks and places them at the geometry using raycast from mouse location:</p>
+<p>Flax supports <strong>hot-reloading C++</strong> code which greatly improves the workflow. It works in the same way as for C# scripting and can be configured in the editor options. You can also close the editor, compile the scripts from Visual Studio and open the project with the Visual Studio debugger.</p>
+<p>In many cases before using a specific API type (eg. <code>PointLight</code> actor or <code>Model</code> asset) you have to <strong>include a proper header file</strong> since Flax uses paradigm <em>include-only-what-you-see</em>. But if you want to easily include all the common headers you can include <code>Engine/Core/Common.h</code>. Also, as you&#39;ve probably noticed the Visual Studio solution contains also <strong>Flax</strong> C++ project (in Flax folder). You can freely browse the Flax code to learn more about API and available code utilities. If you downloaded the engine from Flax Store then it will contain only header files. Flax header files use <strong>XML documentation tags</strong> and are almost 100% documented so working with them is fairly smooth as you can quickly learn what a given method/field does. Those documentation comments are later parsed by the build tool and exposed to C# for scripting and editor tooltips.</p>
+<p>Now, to understand some basic concepts related to C++ scripting in Flax let&#39;s analyze the following script that spawns decals on mouse clicks and places them at the geometry using a raycast from the mouse location:</p>
 <pre><code class="lang-cpp">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -146,7 +150,7 @@
 #include &quot;Engine/Serialization/JsonTools.h&quot;
 #include &quot;Engine/Physics/Physics.h&quot;
 
-API_CLASS() class MYPROJECT_API MouseDecalShoot : public Script
+API_CLASS() class GAME_API MouseDecalShoot : public Script
 {
 API_AUTO_SERIALIZATION();
 DECLARE_SCRIPTING_TYPE(MouseDecalShoot);
@@ -197,9 +201,9 @@ inline MouseDecalShoot::MouseDecalShoot(const SpawnParams&amp; params)
 <li><a href="object-references.html">Object References</a></li>
 <li><a href="serialization.html">Serialization</a></li>
 <li><a href="tips-tricks.html">Tips &amp; Tricks</a></li>
-<li><a href="../../editor/flax-build/api-tags.html">API_ targs</a></li>
+<li><a href="../../editor/flax-build/api-tags.html">API_ tags</a></li>
 </ul>
-<p>Also, since C# and C++ API are very similar you can use this <a href="https://docs.flaxengine.com/api/FlaxEngine.html">API reference</a>.</p>
+<p>Also, since the C# and C++ API are very similar you can use this <a href="https://docs.flaxengine.com/api/FlaxEngine.html">API reference</a>.</p>
 <h2 id="interop-with-c">Interop with C#</h2>
 <p>To call C# from C++ you need to use engine managed scripting wrappers <code>MClass</code> and <code>MMethod</code> as in the following example:</p>
 <pre><code class="lang-cs">public void CallMe()
@@ -214,7 +218,7 @@ inline MouseDecalShoot::MouseDecalShoot(const SpawnParams&amp; params)
 Script* someCSharpScript = ...;
 auto method = someCSharpScript-&gt;GetClass()-&gt;GetMethod(&quot;CallMe&quot;);
 method-&gt;Invoke(someCSharpScript-&gt;GetOrCreateManagedInstance(), nullptr, nullptr);
-</code></pre><p>This code will call parameter-less, member function named <em>CallMe</em> from the given object.</p>
+</code></pre><p>This code will call a parameter-less, member function named <em>CallMe</em> from the given object.</p>
 <p>To call C++ from C# simply expose your type with <code>API_CLASS</code> to C# and expose the given method with <code>API_FUNCTION</code> tag too. The build tool will generate the glue code for native methods invocation from C#.</p>
 <pre><code class="lang-cpp">API_FUNCTION() void CallMe()
 {
@@ -232,7 +236,7 @@ someCppScript.CallMe();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/scripting/cpp/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/scripting/cpp/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

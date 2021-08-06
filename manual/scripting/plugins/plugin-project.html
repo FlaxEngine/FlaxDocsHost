@@ -18,7 +18,11 @@
     
     <meta property="docfx:rel" content="../../../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Plugin Project | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -85,9 +89,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="plugin-project">Plugin Project</h1>
 
-<p>Flax supports references between projects including nested projects hierarchies. This concept is even used in-game projects to reference engine project. In this documentation section, you will learn how to reference and use the plugin project in your game project.</p>
+<p>Flax supports the concept of plugin projects. A plugin project is a separate Flax project that can be referenced  from a game project and distributed as a plugin. Flax supports these references between nested projects. This concept is used by default in game projects by referencing the engine project. In this documentation section, you will learn how to reference and use the plugin project in your game project.</p>
 <p>Create a new project and add it to your existing <strong>project workspace subdirectory</strong>. For instance, place it in the <code>Plugin/&lt;plugin_name&gt;</code> folder. You can also use an <a href="https://github.com/FlaxEngine/ExamplePlugin">example plugin</a> project to do this.</p>
-<p>Then, add <strong>reference</strong> from your game project to the added plugin project. Simply open <strong>&lt;project_name&gt;.flaxproj</strong> with a text editor and add reference to the plugin project:</p>
+<p>It is imperitive that you rename plugin project files as the default name of &quot;Game&quot; cannot be used or it will conflict with the primary project name in global context during build (if left with default name of &quot;Game&quot;). To rename the plugin project, you will need to first open the .flaxproj in the editor and double-click a C# source file to generate the C# project files and necessary build scripts. Then rename the .flaxproj file, the .Net project files (.csproj), source files and class names replacing &quot;Game&quot; with your plugin name (e.g. &quot;MyPlugin&quot;). Once renaming is complete right-click the .flaxproj to &quot;generate project script files&quot; there should be no issues with generating script files, if there are then comb through the naming.</p>
+<p>Next, add a <strong>reference</strong> from your game project to the added plugin project. Open <strong>&lt;project_name&gt;.flaxproj</strong> with a text editor and add reference to the plugin project:</p>
 <pre><code>    &quot;References&quot;: [
         {
             &quot;Name&quot;: &quot;$(EnginePath)/Flax.flaxproj&quot;
@@ -97,9 +102,9 @@
         }
     ],
 </code></pre><p>As you can see, by using <code>$(ProjectPath)</code> followed by the local path you can reference the plugin project file directly. Then you can open the editor and use content and scripts from the plugin project in your game.</p>
-<p>If you want to reference the types from referenced project code modules simply add reference in your game code module build script (in <code>Setup</code> function):</p>
+<p>If you want to reference the types from referenced project code modules add reference in your game code module build script (in <code>Setup</code> function):</p>
 <pre><code class="lang-cs">options.PrivateDependencies.Add(&quot;MyPlugin&quot;);
-</code></pre><p>Also, plugin projects can also reference other projects but cross-project references are not supported.</p>
+</code></pre><p>Plugin projects can also reference other projects but cross-solution references are not supported.</p>
 <p><img src="media/plugin-projects.png" alt="Plugin Project In Editor"></p>
 </article>
           </div>
@@ -109,7 +114,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/85ef1dfdc56e9ef7d7e8ea631712e73bfbfc76ef/manual/scripting/plugins/plugin-project.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/scripting/plugins/plugin-project.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class Editor
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -1341,16 +1346,16 @@
   
   <a id="FlaxEditor_Editor_CanImport_" data-uid="FlaxEditor.Editor.CanImport*"></a>
   
-  <h4 id="FlaxEditor_Editor_CanImport_System_String_" data-uid="FlaxEditor.Editor.CanImport(System.String)"><a href="#collapsible-FlaxEditor_Editor_CanImport_System_String_" class="expander" data-toggle="collapse">CanImport(String)</a></h4>
+  <h4 id="FlaxEditor_Editor_CanImport_System_String_System_String__" data-uid="FlaxEditor.Editor.CanImport(System.String,System.String@)"><a href="#collapsible-FlaxEditor_Editor_CanImport_System_String_System_String__" class="expander" data-toggle="collapse">CanImport(String, out String)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Editor_CanImport_System_String_" class="collapse in">
+  <div id="collapsible-FlaxEditor_Editor_CanImport_System_String_System_String__" class="collapse in">
   <div class="markdown level1 summary"><p>Checks if can import asset with the given extension.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool CanImport(string extension)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool CanImport(string extension, out string outputExtension)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1360,6 +1365,14 @@
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">extension</span>
         <p><p>The file extension.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">outputExtension</span>
+        <p><p>The output file extension (flax, json, etc.).</p>
 </p>
       </td>
     </tr>
@@ -1446,16 +1459,16 @@
   
   <a id="FlaxEditor_Editor_CookMeshCollision_" data-uid="FlaxEditor.Editor.CookMeshCollision*"></a>
   
-  <h4 id="FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEditor.Editor.CookMeshCollision(System.String,FlaxEngine.CollisionDataType,FlaxEngine.Model,System.Int32,FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookMeshCollision(String, CollisionDataType, Model, Int32, ConvexMeshGenerationFlags, Int32)</a></h4>
+  <h4 id="FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEditor.Editor.CookMeshCollision(System.String,FlaxEngine.CollisionDataType,FlaxEngine.ModelBase,System.Int32,System.UInt32,FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookMeshCollision(String, CollisionDataType, ModelBase, Int32, UInt32, ConvexMeshGenerationFlags, Int32)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_Model_System_Int32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
+  <div id="collapsible-FlaxEditor_Editor_CookMeshCollision_System_String_FlaxEngine_CollisionDataType_FlaxEngine_ModelBase_System_Int32_System_UInt32_FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
   <div class="markdown level1 summary"><p>Cooks the mesh collision data and saves it to the asset using <a class="xref" href="FlaxEngine.CollisionData.html">CollisionData</a> format. action cannot be performed on a main thread.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool CookMeshCollision(string path, CollisionDataType type, Model model, int modelLodIndex = 0, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool CookMeshCollision(string path, CollisionDataType type, ModelBase model, int modelLodIndex = 0, uint materialSlotsMask = 4294967295U, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1478,7 +1491,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Model.html">Model</a></span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ModelBase.html">ModelBase</a></span>
         <span class="parametername">model</span>
         <p><p>The source model.</p>
 </p>
@@ -1489,6 +1502,14 @@
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">modelLodIndex</span>
         <p><p>The source model LOD index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">materialSlotsMask</span>
+        <p><p>The source model material slots mask. One bit per-slot. Can be used to exclude particular material slots from collision cooking.</p>
 </p>
       </td>
     </tr>

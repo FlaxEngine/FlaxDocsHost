@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class AnimatedModel
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -126,6 +131,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_System_String_">Actor.HasTag(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChild_System_Int32_">Actor.GetChild(Int32)</a>
@@ -254,6 +262,12 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_TryGetScript__1___0__">Actor.TryGetScript&lt;T&gt;(T)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript__1">Actor.FindScript&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1">Actor.FindActor&lt;T&gt;()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren__1">Actor.GetChildren&lt;T&gt;()</a>
     </div>
     <div>
@@ -261,6 +275,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -1016,6 +1033,47 @@ public AnimatedModel.AnimationUpdateMode UpdateMode { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_AnimatedModel_UpdateSpeed_" data-uid="FlaxEngine.AnimatedModel.UpdateSpeed*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_UpdateSpeed" data-uid="FlaxEngine.AnimatedModel.UpdateSpeed"><a href="#collapsible-FlaxEngine_AnimatedModel_UpdateSpeed" class="expander" data-toggle="collapse">UpdateSpeed</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_UpdateSpeed" class="collapse in">
+  <div class="markdown level1 summary"><p>The animation update delta time scale. Can be used to speed up animation playback or create slow motion effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(45)]
+[EditorDisplay(&quot;Skinned Model&quot;, null)]
+[Unmanaged]
+[Tooltip(&quot;The animation update delta time scale. Can be used to speed up animation playback or create slow motion effect.&quot;)]
+public float UpdateSpeed { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_AnimatedModel_UpdateWhenOffscreen_" data-uid="FlaxEngine.AnimatedModel.UpdateWhenOffscreen*"></a>
   
   <h4 id="FlaxEngine_AnimatedModel_UpdateWhenOffscreen" data-uid="FlaxEngine.AnimatedModel.UpdateWhenOffscreen"><a href="#collapsible-FlaxEngine_AnimatedModel_UpdateWhenOffscreen" class="expander" data-toggle="collapse">UpdateWhenOffscreen</a></h4>
@@ -1130,6 +1188,65 @@ public void ClearBlendShapeWeights()</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_AnimatedModel_FindClosestNode_" data-uid="FlaxEngine.AnimatedModel.FindClosestNode*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_FindClosestNode_FlaxEngine_Vector3_System_Boolean_" data-uid="FlaxEngine.AnimatedModel.FindClosestNode(FlaxEngine.Vector3,System.Boolean)"><a href="#collapsible-FlaxEngine_AnimatedModel_FindClosestNode_FlaxEngine_Vector3_System_Boolean_" class="expander" data-toggle="collapse">FindClosestNode(Vector3, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_FindClosestNode_FlaxEngine_Vector3_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds the closest node to a given location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Finds the closest node to a given location.&quot;)]
+public int FindClosestNode(Vector3 location, bool worldSpace = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">location</span>
+        <p><p>The text location (in local-space of the actor or world-space depending on <code data-dev-comment-type="paramref" class="paramref">worldSpace</code>).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">worldSpace</span>
+        <p><p>True if convert input location is in world-space, otherwise it&apos;s in local-space of the actor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>The zero-based index of the found node. Returns -1 if skeleton is missing.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_AnimatedModel_GetBlendShapeWeight_" data-uid="FlaxEngine.AnimatedModel.GetBlendShapeWeight*"></a>
   
   <h4 id="FlaxEngine_AnimatedModel_GetBlendShapeWeight_System_String_" data-uid="FlaxEngine.AnimatedModel.GetBlendShapeWeight(System.String)"><a href="#collapsible-FlaxEngine_AnimatedModel_GetBlendShapeWeight_System_String_" class="expander" data-toggle="collapse">GetBlendShapeWeight(String)</a></h4>
@@ -1186,14 +1303,14 @@ public float GetBlendShapeWeight(string name)</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_GetCurrentPose_FlaxEngine_Matrix____System_Boolean_" data-uid="FlaxEngine.AnimatedModel.GetCurrentPose(FlaxEngine.Matrix[]@,System.Boolean)"><a href="#collapsible-FlaxEngine_AnimatedModel_GetCurrentPose_FlaxEngine_Matrix____System_Boolean_" class="expander" data-toggle="collapse">GetCurrentPose(out Matrix[], Boolean)</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_GetCurrentPose_FlaxEngine_Matrix____System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the per-node final transformations.</p>
+  <div class="markdown level1 summary"><p>Gets the per-node final transformations (skeleton pose).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The per-node final transformations.&quot;)]
+[Tooltip(&quot;The per-node final transformations (skeleton pose).&quot;)]
 public void GetCurrentPose(out Matrix[] nodesTransformation, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1606,6 +1723,96 @@ public void SetBlendShapeWeight(string name, float value)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_AnimatedModel_SetCurrentPose_" data-uid="FlaxEngine.AnimatedModel.SetCurrentPose*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_SetCurrentPose_FlaxEngine_Matrix___System_Boolean_" data-uid="FlaxEngine.AnimatedModel.SetCurrentPose(FlaxEngine.Matrix[],System.Boolean)"><a href="#collapsible-FlaxEngine_AnimatedModel_SetCurrentPose_FlaxEngine_Matrix___System_Boolean_" class="expander" data-toggle="collapse">SetCurrentPose(Matrix[], Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_SetCurrentPose_FlaxEngine_Matrix___System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the per-node final transformations (skeleton pose).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Sets the per-node final transformations (skeleton pose).&quot;)]
+public void SetCurrentPose(Matrix[] nodesTransformation, bool worldSpace = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>[]</span>
+        <span class="parametername">nodesTransformation</span>
+        <p><p>The per-node final transformation matrices.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">worldSpace</span>
+        <p><p>True if convert matrices from world-space, otherwise values are in local-space of the actor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_SetMasterPoseModel_" data-uid="FlaxEngine.AnimatedModel.SetMasterPoseModel*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_SetMasterPoseModel_FlaxEngine_AnimatedModel_" data-uid="FlaxEngine.AnimatedModel.SetMasterPoseModel(FlaxEngine.AnimatedModel)"><a href="#collapsible-FlaxEngine_AnimatedModel_SetMasterPoseModel_FlaxEngine_AnimatedModel_" class="expander" data-toggle="collapse">SetMasterPoseModel(AnimatedModel)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_SetMasterPoseModel_FlaxEngine_AnimatedModel_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the master pose model that will be used to copy the skeleton nodes animation. Useful for modular characters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;Sets the master pose model that will be used to copy the skeleton nodes animation. Useful for modular characters.&quot;)]
+public void SetMasterPoseModel(AnimatedModel masterPose)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.AnimatedModel.html">AnimatedModel</a></span>
+        <span class="parametername">masterPose</span>
+        <p><p>The master pose actor to use.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_AnimatedModel_SetParameterValue_" data-uid="FlaxEngine.AnimatedModel.SetParameterValue*"></a>
   
   <h4 id="FlaxEngine_AnimatedModel_SetParameterValue_System_Guid_System_Object_" data-uid="FlaxEngine.AnimatedModel.SetParameterValue(System.Guid,System.Object)"><a href="#collapsible-FlaxEngine_AnimatedModel_SetParameterValue_System_Guid_System_Object_" class="expander" data-toggle="collapse">SetParameterValue(Guid, Object)</a></h4>
@@ -1739,14 +1946,14 @@ public void SetupSkinningData()</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_UpdateAnimation" data-uid="FlaxEngine.AnimatedModel.UpdateAnimation"><a href="#collapsible-FlaxEngine_AnimatedModel_UpdateAnimation" class="expander" data-toggle="collapse">UpdateAnimation()</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_UpdateAnimation" class="collapse in">
-  <div class="markdown level1 summary"><p>Performs the full animation update.</p>
+  <div class="markdown level1 summary"><p>Performs the full animation update. The actual update will be performed during gameplay tick.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs the full animation update.&quot;)]
+[Tooltip(&quot;Performs the full animation update. The actual update will be performed during gameplay tick.&quot;)]
 public void UpdateAnimation()</code></pre>
   </div>
 
@@ -1762,22 +1969,23 @@ public void UpdateAnimation()</code></pre>
   
   
   </div>
+  <h3 id="events">Events
+  </h3>
   
   
-  <a id="FlaxEngine_AnimatedModel_UpdateSockets_" data-uid="FlaxEngine.AnimatedModel.UpdateSockets*"></a>
   
-  <h4 id="FlaxEngine_AnimatedModel_UpdateSockets" data-uid="FlaxEngine.AnimatedModel.UpdateSockets"><a href="#collapsible-FlaxEngine_AnimatedModel_UpdateSockets" class="expander" data-toggle="collapse">UpdateSockets()</a></h4>
+  <h4 id="FlaxEngine_AnimatedModel_AnimationUpdated" data-uid="FlaxEngine.AnimatedModel.AnimationUpdated"><a href="#collapsible-FlaxEngine_AnimatedModel_AnimationUpdated" class="expander" data-toggle="collapse">AnimationUpdated</a></h4>
   
-  <div id="collapsible-FlaxEngine_AnimatedModel_UpdateSockets" class="collapse in">
-  <div class="markdown level1 summary"><p>Updates the child bone socket actors.</p>
+  <div id="collapsible-FlaxEngine_AnimatedModel_AnimationUpdated" class="collapse in">
+  <div class="markdown level1 summary"><p>Called after animation gets updated (new skeleton pose).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the child bone socket actors.&quot;)]
-public void UpdateSockets()</code></pre>
+[Tooltip(&quot;Called after animation gets updated (new skeleton pose).&quot;)]
+public event Action AnimationUpdated</code></pre>
   </div>
 
   
@@ -1785,6 +1993,15 @@ public void UpdateSockets()</code></pre>
   
   
   
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   

@@ -20,7 +20,12 @@
     
     <meta property="docfx:rel" content="../">
     <meta property="docfx:newtab" content="true">
-    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class Utils
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -497,6 +502,123 @@
   </div>
   
   
+  <a id="FlaxEngine_Utils_MemoryClear_" data-uid="FlaxEngine.Utils.MemoryClear*"></a>
+  
+  <h4 id="FlaxEngine_Utils_MemoryClear_System_IntPtr_System_UInt64_" data-uid="FlaxEngine.Utils.MemoryClear(System.IntPtr,System.UInt64)"><a href="#collapsible-FlaxEngine_Utils_MemoryClear_System_IntPtr_System_UInt64_" class="expander" data-toggle="collapse">MemoryClear(IntPtr, UInt64)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_MemoryClear_System_IntPtr_System_UInt64_" class="collapse in">
+  <div class="markdown level1 summary"><p>Clears the memory region with zeros.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MemoryClear(IntPtr dst, ulong size)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">dst</span>
+        <p><p>Destination memory address</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt64</span></span>
+        <span class="parametername">size</span>
+        <p><p>Size of the memory to clear in bytes</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Utils_MemoryClear_System_IntPtr_System_UInt64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Uses low-level platform impl.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_MemoryCompare_" data-uid="FlaxEngine.Utils.MemoryCompare*"></a>
+  
+  <h4 id="FlaxEngine_Utils_MemoryCompare_System_IntPtr_System_IntPtr_System_UInt64_" data-uid="FlaxEngine.Utils.MemoryCompare(System.IntPtr,System.IntPtr,System.UInt64)"><a href="#collapsible-FlaxEngine_Utils_MemoryCompare_System_IntPtr_System_IntPtr_System_UInt64_" class="expander" data-toggle="collapse">MemoryCompare(IntPtr, IntPtr, UInt64)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_MemoryCompare_System_IntPtr_System_IntPtr_System_UInt64_" class="collapse in">
+  <div class="markdown level1 summary"><p>Compares two blocks of the memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int MemoryCompare(IntPtr buf1, IntPtr buf2, ulong size)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">buf1</span>
+        <p><p>The first buffer address.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">buf2</span>
+        <p><p>The second buffer address.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt64</span></span>
+        <span class="parametername">size</span>
+        <p><p>Size of the memory to compare in bytes.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Utils_MemoryCompare_System_IntPtr_System_IntPtr_System_UInt64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Uses low-level platform impl.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Utils_MemoryCopy_" data-uid="FlaxEngine.Utils.MemoryCopy*"></a>
   
   <h4 id="FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_Int32_" data-uid="FlaxEngine.Utils.MemoryCopy(System.IntPtr,System.IntPtr,System.Int32)"><a href="#collapsible-FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_Int32_" class="expander" data-toggle="collapse">MemoryCopy(IntPtr, IntPtr, Int32)</a></h4>
@@ -508,7 +630,8 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void MemoryCopy(IntPtr source, IntPtr destination, int length)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use MemoryCopy with long length and source/destination swapped to match C++ API.&quot;)]
+public static void MemoryCopy(IntPtr source, IntPtr destination, int length)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -547,7 +670,65 @@
   
   
   <h5 id="FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Uses low-level memcpy call.</p>
+  <div class="markdown level1 remarks"><p>Uses low-level platform impl.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_MemoryCopy_" data-uid="FlaxEngine.Utils.MemoryCopy*"></a>
+  
+  <h4 id="FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_UInt64_" data-uid="FlaxEngine.Utils.MemoryCopy(System.IntPtr,System.IntPtr,System.UInt64)"><a href="#collapsible-FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_UInt64_" class="expander" data-toggle="collapse">MemoryCopy(IntPtr, IntPtr, UInt64)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_UInt64_" class="collapse in">
+  <div class="markdown level1 summary"><p>Copies data from one memory location to another using an unmanaged memory pointers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MemoryCopy(IntPtr destination, IntPtr source, ulong length)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">destination</span>
+        <p><p>The destination location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">source</span>
+        <p><p>The source location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt64</span></span>
+        <span class="parametername">length</span>
+        <p><p>The length (amount of bytes to copy).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Utils_MemoryCopy_System_IntPtr_System_IntPtr_System_UInt64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Uses low-level platform impl.</p>
 </div>
   
   
@@ -733,6 +914,153 @@
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.Color32.html">Color32</a>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_ReadInt2_" data-uid="FlaxEngine.Utils.ReadInt2*"></a>
+  
+  <h4 id="FlaxEngine_Utils_ReadInt2_System_IO_BinaryReader_" data-uid="FlaxEngine.Utils.ReadInt2(System.IO.BinaryReader)"><a href="#collapsible-FlaxEngine_Utils_ReadInt2_System_IO_BinaryReader_" class="expander" data-toggle="collapse">ReadInt2(BinaryReader)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_ReadInt2_System_IO_BinaryReader_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads the Int2 from the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int2 ReadInt2(this BinaryReader stream)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryReader</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Int2.html">Int2</a>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_ReadInt3_" data-uid="FlaxEngine.Utils.ReadInt3*"></a>
+  
+  <h4 id="FlaxEngine_Utils_ReadInt3_System_IO_BinaryReader_" data-uid="FlaxEngine.Utils.ReadInt3(System.IO.BinaryReader)"><a href="#collapsible-FlaxEngine_Utils_ReadInt3_System_IO_BinaryReader_" class="expander" data-toggle="collapse">ReadInt3(BinaryReader)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_ReadInt3_System_IO_BinaryReader_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads the Int3 from the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 ReadInt3(this BinaryReader stream)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryReader</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Int3.html">Int3</a>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_ReadInt4_" data-uid="FlaxEngine.Utils.ReadInt4*"></a>
+  
+  <h4 id="FlaxEngine_Utils_ReadInt4_System_IO_BinaryReader_" data-uid="FlaxEngine.Utils.ReadInt4(System.IO.BinaryReader)"><a href="#collapsible-FlaxEngine_Utils_ReadInt4_System_IO_BinaryReader_" class="expander" data-toggle="collapse">ReadInt4(BinaryReader)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_ReadInt4_System_IO_BinaryReader_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads the Int4 from the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int4 ReadInt4(this BinaryReader stream)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryReader</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Int4.html">Int4</a>
         <p><p>The value.</p>
 </p>
       </td>
@@ -1409,6 +1737,147 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Color32.html">Color32</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value to write.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_Write_" data-uid="FlaxEngine.Utils.Write*"></a>
+  
+  <h4 id="FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int2_" data-uid="FlaxEngine.Utils.Write(System.IO.BinaryWriter,FlaxEngine.Int2)"><a href="#collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int2_" class="expander" data-toggle="collapse">Write(BinaryWriter, Int2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int2_" class="collapse in">
+  <div class="markdown level1 summary"><p>Writes the Int2 to the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(this BinaryWriter stream, Int2 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryWriter</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int2.html">Int2</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value to write.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_Write_" data-uid="FlaxEngine.Utils.Write*"></a>
+  
+  <h4 id="FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int3_" data-uid="FlaxEngine.Utils.Write(System.IO.BinaryWriter,FlaxEngine.Int3)"><a href="#collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int3_" class="expander" data-toggle="collapse">Write(BinaryWriter, Int3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Writes the Int3 to the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(this BinaryWriter stream, Int3 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryWriter</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int3.html">Int3</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value to write.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Utils_Write_" data-uid="FlaxEngine.Utils.Write*"></a>
+  
+  <h4 id="FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int4_" data-uid="FlaxEngine.Utils.Write(System.IO.BinaryWriter,FlaxEngine.Int4)"><a href="#collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int4_" class="expander" data-toggle="collapse">Write(BinaryWriter, Int4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Utils_Write_System_IO_BinaryWriter_FlaxEngine_Int4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Writes the Int4 to the binary stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(this BinaryWriter stream, Int4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IO.BinaryWriter</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The stream.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int4.html">Int4</a></span>
         <span class="parametername">value</span>
         <p><p>The value to write.</p>
 </p>

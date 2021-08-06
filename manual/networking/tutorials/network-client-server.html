@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create networking server and client | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create networking server and client | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Create networking server and client | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-networking-server-and-client">HOWTO: Create networking server and client</h1>
+
+<p>In the following tutorial you will learn how to create a simple server and client scripts using networking system in Flax. This sample uses C# but the API is also available for C++ and Visual Scripting.</p>
+<h2 id="1-create-scripts">1. Create scripts</h2>
+<p>The first step is to create empty scripts for both server and client. Those can be named <code>ServerScript</code> and <code>ClientScript</code>.</p>
+<h2 id="2-initialize-server">2. Initialize server</h2>
+<p>A server is a network peer that listens for incoming connection requests but also sends and receives messages.</p>
+<p>The server script below creates a new <code>NetworkPeer</code> when scripts get enabled with a specified configuration for the network transportation layer. After creation, the server peer starts to listen for the incoming connections (<code>Listen</code> method). The peer object is later disposed in <code>OnDisable</code>.</p>
+<pre><code class="lang-cs">public class ServerScript : Script
+{
+    private NetworkPeer _server;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        _server = NetworkPeer.CreatePeer(new NetworkConfig
+        {
+            NetworkDriverType = NetworkDriverType.ENet,
+            ConnectionsLimit = 8,
+            MessagePoolSize = 1024,
+            MessageSize = 1400,
+            Address = &quot;any&quot;,
+            Port = 7777
+        });
+        _server.Listen();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        NetworkPeer.ShutdownPeer(_server);
+        _server = null;
+    }
+}
+</code></pre><p>Peer configuration properties:</p>
+<ul>
+<li><code>NetworkDriverType</code> - network driver for the peer (must be the same for all the peers).</li>
+<li><code>ConnectionsLimit</code> - the maximum amount of active connections with this peer.</li>
+<li><code>MessagePoolSize</code> - the amount of pooled messages that can be used at once (receiving and sending). Adjusted per-game for best net performance.</li>
+<li><code>MessageSize</code> - the size of a message buffer in bytes. Should be lower than the MTU (maximal transmission unit) - typically around 1500 bytes.</li>
+<li><code>Address</code> - address used to connect to or listen at. Set it to &quot;any&quot; when you want to listen at all available addresses.</li>
+<li><code>Port</code> - port to connect to or listen at.</li>
+</ul>
+<h2 id="3-initialize-client">3. Initialize client</h2>
+<p>A client is also a network peer and works similar to the server example.</p>
+<p>In this sample client peer gets initialized with own network settings and explicitly specified localhost adress (<code>127.0.0.1</code> constant) that is the IP of the server (assumes the server runs on the same machine). Then it connects to the server peer (<code>Connect</code> method). The peer object is later disposed in <code>OnDisable</code>.</p>
+<p>In real-life game projects the target IP to connect to would be a game-server static IP address constant or domain name.</p>
+<pre><code class="lang-cs">public class ClientScript : Script
+{
+    private NetworkPeer _client;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        _client = NetworkPeer.CreatePeer(new NetworkConfig
+        {
+            NetworkDriverType = NetworkDriverType.ENet,
+            ConnectionsLimit = 32,
+            MessagePoolSize = 256,
+            MessageSize = 1400,
+            Address = &quot;127.0.0.1&quot;,
+            Port = 7777
+        });
+        _client.Connect();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        NetworkPeer.ShutdownPeer(_client);
+        _client = null;
+    }
+}
+</code></pre><h2 id="4-server-logic">4. Server logic</h2>
+<p>Now, we can set up actual network messages handling to the server. To do so simply override <code>OnUpdate</code> method in the <code>ServerScript</code> and add the code as shown below.</p>
+<p>During every game tick the server script pops the accumulated events from the network peer queue. Then each event type is handled separately: new connections, disconnections, timeouts, and messages. Every event has its <code>Sender</code> field to identify the network peer that sent this event.</p>
+<p>In this example server prints when new peer connects or disconnects and handles messages. When the server receives the message prints it and sends a simple <em>hello world</em> text as well. <code>SendHelloWorld</code> function sends a sample text message using <code>Reliable</code> (message will be always delivered).</p>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void OnUpdate()
+{
+    if (_server == null) return;
+    while (_server.PopEvent(out var eventData))
+    {
+        switch (eventData.EventType)
+        {
+        case NetworkEventType.Connected:
+        {
+            Debug.Log($&quot;Client({eventData.Sender.ConnectionId}) connected!&quot;);
+            break;
+        }
+        case NetworkEventType.Disconnected:
+        case NetworkEventType.Timeout:
+        {
+            Debug.Log($&quot;Client({eventData.Sender.ConnectionId}) disconnected!&quot;);
+            break;
+        }
+        case NetworkEventType.Message:
+        {
+            // Read the message contents
+            var message = eventData.Message;
+            var messageData = message.ReadString();
+
+            Debug.Log($&quot;Received message from Client({eventData.Sender.ConnectionId}): {messageData}&quot;);
+
+            // Send hello message to the client back
+            SendHelloWorld(eventData.Sender);
+
+            break;
+        }
+        default:
+            throw new ArgumentOutOfRangeException();
+        }
+    }
+}
+
+private void SendHelloWorld(NetworkConnection connection)
+{
+    var message = _server.BeginSendMessage();
+    message.WriteString($&quot;Hello, Client({connection.ConnectionId})!&quot;);
+    _server.EndSendMessage(NetworkChannelType.Reliable, message, connection);
+}
+</code></pre><h2 id="5-client-logic">5. Client logic</h2>
+<p>Client update loop uses a similar concept (code below). It also pops the new incoming events. When a client gets connected to the server it prints the log and sends a simple <em>hello world</em> text message (see <code>SendHelloWorld</code> method). When a client gets disconnected or timeout prints it to the log. On a new incoming message, it gets read from the stream and print into the Debug output.</p>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void OnUpdate()
+{
+    if (_client == null) return;
+    while (_client.PopEvent(out var eventData))
+    {
+        switch (eventData.EventType)
+        {
+        case NetworkEventType.Connected:
+        {
+            Debug.Log(&quot;Connected to the server!&quot;);
+
+            // Send hello message to the server
+            SendHelloWorld();
+
+            break;
+        }
+        case NetworkEventType.Disconnected:
+        case NetworkEventType.Timeout:
+        {
+            Debug.Log(&quot;Disconnected from the server!&quot;);
+            break;
+        }
+        case NetworkEventType.Message:
+        {
+            // Read the message contents
+            var message = eventData.Message;
+            var messageData = message.ReadString();
+
+            Debug.Log($&quot;Received message from server: {messageData}&quot;);
+
+            break;
+        }
+        default:
+            throw new ArgumentOutOfRangeException();
+        }
+    }
+}
+
+private void SendHelloWorld()
+{
+    var message = _client.BeginSendMessage();
+    message.WriteString(&quot;Hello, Server!&quot;);
+    _client.EndSendMessage(NetworkChannelType.Reliable, message);
+}
+</code></pre><h2 id="6-testing">6. Testing</h2>
+<p><img src="media/network-server-client-scripts.png" alt="Network Client Server Setup Scripts"></p>
+<p>Finally, the scripts can be tested. You can add them to an actor on a scene to quickly preview it in Editor in action. Later you can implement a custom logic that would run Server or Client depending on some configuration or game build.</p>
+<p>The logic flow:</p>
+<ul>
+<li>Both server and client start</li>
+<li>Client connects to the server</li>
+<li>Server gets <code>Connected</code> event and prints info</li>
+<li>Client gets <code>Connected</code> event and sends <em>Hello World</em> message to the server</li>
+<li>Server receives <em>Hello World</em> message, prints it and responds with a similar message</li>
+<li>Client receives <em>Hello World</em> message and prints it too</li>
+</ul>
+<p><img src="media/network-server-client-output.png" alt="Network Client Server Debug Log Output"></p>
+<p>As you can see it&#39;s a very basic example of how to implement server and client peers using the networking layer in Flax. To see a more advanced example of networking for a game see <a href="../network-sample.html">Network Sample</a> project that features players synchronization and game lobby with chat. It uses player listin</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/networking/tutorials/network-client-server.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
