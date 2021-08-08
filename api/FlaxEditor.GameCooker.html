@@ -149,6 +149,45 @@ public static class GameCooker</code></pre>
   </h3>
   
   
+  <a id="FlaxEditor_GameCooker_CurrentData_" data-uid="FlaxEditor.GameCooker.CurrentData*"></a>
+  
+  <h4 id="FlaxEditor_GameCooker_CurrentData" data-uid="FlaxEditor.GameCooker.CurrentData"><a href="#collapsible-FlaxEditor_GameCooker_CurrentData" class="expander" data-toggle="collapse">CurrentData</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GameCooker_CurrentData" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the current build data. Valid only during active build process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+[Tooltip(&quot;The current build data. Valid only during active build process.&quot;)]
+public static CookingData CurrentData { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.CookingData.html">CookingData</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_GameCooker_IsCancelRequested_" data-uid="FlaxEditor.GameCooker.IsCancelRequested*"></a>
   
   <h4 id="FlaxEditor_GameCooker_IsCancelRequested" data-uid="FlaxEditor.GameCooker.IsCancelRequested"><a href="#collapsible-FlaxEditor_GameCooker_IsCancelRequested" class="expander" data-toggle="collapse">IsCancelRequested</a></h4>
@@ -231,9 +270,9 @@ public static bool IsRunning { get; }</code></pre>
   
   <a id="FlaxEditor_GameCooker_Build_" data-uid="FlaxEditor.GameCooker.Build*"></a>
   
-  <h4 id="FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___" data-uid="FlaxEditor.GameCooker.Build(FlaxEngine.BuildPlatform,FlaxEngine.BuildConfiguration,System.String,FlaxEngine.BuildOptions,System.String[])"><a href="#collapsible-FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___" class="expander" data-toggle="collapse">Build(BuildPlatform, BuildConfiguration, String, BuildOptions, String[])</a></h4>
+  <h4 id="FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___System_String_System_String_" data-uid="FlaxEditor.GameCooker.Build(FlaxEngine.BuildPlatform,FlaxEngine.BuildConfiguration,System.String,FlaxEngine.BuildOptions,System.String[],System.String,System.String)"><a href="#collapsible-FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___System_String_System_String_" class="expander" data-toggle="collapse">Build(BuildPlatform, BuildConfiguration, String, BuildOptions, String[], String, String)</a></h4>
   
-  <div id="collapsible-FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___" class="collapse in">
+  <div id="collapsible-FlaxEditor_GameCooker_Build_FlaxEngine_BuildPlatform_FlaxEngine_BuildConfiguration_System_String_FlaxEngine_BuildOptions_System_String___System_String_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Starts building game for the specified platform.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -242,7 +281,7 @@ public static bool IsRunning { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
 [Tooltip(&quot;Starts building game for the specified platform.&quot;)]
-public static void Build(BuildPlatform platform, BuildConfiguration configuration, string outputPath, BuildOptions options, string[] customDefines)</code></pre>
+public static void Build(BuildPlatform platform, BuildConfiguration configuration, string outputPath, BuildOptions options, string[] customDefines, string preset = null, string presetTarget = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -284,6 +323,22 @@ public static void Build(BuildPlatform platform, BuildConfiguration configuratio
         <span class="pull-right"><span class="xref">System.String</span>[]</span>
         <span class="parametername">customDefines</span>
         <p><p>The list of custom defines passed to the build tool when compiling project scripts. Can be used in build scripts for configuration (Configuration.CustomDefines).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">preset</span>
+        <p><p>The name of build preset used for cooking (can be used by editor and game plugins).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">presetTarget</span>
+        <p><p>The name of build preset target used for cooking (can be used by editor and game plugins).</p>
 </p>
       </td>
     </tr>

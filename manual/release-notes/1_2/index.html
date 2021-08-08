@@ -111,8 +111,8 @@
 <p>The very first thing that you will probably notice after launching 1.2 update is that Flax Editor has new icons. We&#39;ve <strong>improved resolution and style</strong> of the icon set to make it crisper. The new UI just <em>feels better</em>.</p>
 <h3 id="job-system-and-task-graph">Job System and Task Graph</h3>
 <p><img src="media/animated-models-5k.gif" alt="Flax Engine Preformance Job System Task Graph"></p>
-<p>The latest 1.2 update brings a <strong>massive performance boost for large worlds</strong>. Here is an example of 5,000 animated models playing animation and being rendered at stable 60 FPS (tested on mid-price i5 CPU). To achieve this level of performance we&#39;ve created a <strong>Job System</strong> that runs a worker thread per CPU core to run extensive computations in asynchronous. For more advanced calculations used by gameplay systems or engine systems, we&#39;re implemented <strong>Task Graph</strong>. It can be used to paralyze game even better plus it supports dependencies between async systems.</p>
-<p>During this update, we&#39;ve converted all major engine systems into async Task Graph Systems to ensure the higher paralyzation of the engine code (streaming, animations, particles, etc.). It can be further extended by game-specific systems in your code. To see how to do it see <a href="../../scripting/advanced/multithreading.html">this tutorial</a>. Both Job System and Task Graph can be used in C#, C++, or Visual Scripting.</p>
+<p>The latest 1.2 update brings a <strong>massive performance boost for large worlds</strong>. Here is an example of 5,000 animated models playing animation and being rendered at stable 60 FPS (tested on mid-price i5 CPU). To achieve this level of performance we&#39;ve created a <strong>Job System</strong> that runs a worker thread per CPU core to run extensive computations in asynchronous. For more advanced calculations used by gameplay systems or engine systems, we&#39;re implemented <strong>Task Graph</strong>. It can be used to parallelize  game even better plus it supports dependencies between async systems.</p>
+<p>During this update, we&#39;ve converted all major engine systems into async Task Graph Systems to ensure the higher parallelization of the engine code (streaming, animations, particles, etc.). It can be further extended by game-specific systems in your code. To see how to do it see <a href="../../scripting/advanced/multithreading.html">this tutorial</a>. Both Job System and Task Graph can be used in C#, C++, or Visual Scripting.</p>
 <h3 id="tracy-profiler">Tracy Profiler</h3>
 <p><img src="media/async-particles.png" alt="Flax Engien Tracy Profiler"></p>
 <p>In order to optimize engine or game the developers need proper profiling tools. The in-built profiler helps with this but for more advanced optimizations we needed something more powerful. Now, Flax supports an open-source <a href="https://github.com/wolfpld/tracy">Tracy</a> profiler for CPU instrumentation and performance analysis. It can profile both game and editor, supports remote profiling, and can be used to capture profiling sessions for comparison. Also, Flax will automatically insert profile zones for C# and Visual Script methods so gameplay performance profiling is even easier now.</p>
@@ -129,7 +129,7 @@
 <p>Every update brings many large features but also tons of smaller things that matter. We continued working on <strong>improving quality</strong> and <strong>usability</strong> of the Editor. Here is a list of notable ones:</p>
 <ul>
 <li><strong>9-slicing support for UI</strong> (gif above)</li>
-<li>New C++ docs and tutorials (see docs in <a href="scripting/cpp/index.md">this section</a>)</li>
+<li>New C++ docs and tutorials (see docs in <a href="../../scripting/cpp/index.html">this section</a>)</li>
 <li>Ability to show/hide GUI and DebugDraw shapes inside Game viewport</li>
 <li><strong>Daily source builds</strong> from <code>master</code> branch (<a href="https://github.com/FlaxEngine/FlaxEngine/actions/workflows/cd.yml">here</a> or via Launcher)</li>
 <li>Optimized editor/game CPU usage when idle</li>
@@ -146,6 +146,28 @@
 </ul>
 <p><img src="media/editor-collision-preview.png" alt="Ediotr Physics Collision Preview"></p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="version-126223---8-august-2021">Version 1.2.6223 - 8 August 2021</h3>
+<p>Contributors: mafiesto4, Erdroy, thallard, marynate, blep</p>
+<p>PRs merged: 3</p>
+<ul>
+<li>Add warnings when cooking collision with empty mesh data</li>
+<li>Add <code>CookingData</code> for C# editor to extend the cooking process</li>
+<li>Add build preset and target names to access for Game Cooker extending</li>
+<li>Add option to change order of items in Content View</li>
+<li>Add support for creating custom BoxVolume type in C#</li>
+<li>Add creating Scene Graph nodes for actors inheriting from some shared custom types</li>
+<li>Fix compiling C#-only game scripts without native platform tools installed</li>
+<li>Fix editor crash on startup when Rider 2021.1 is installed</li>
+<li>Fix CharacterController minimum size checks to prevent crashes if values are too small</li>
+<li>Fix startup failure on older CPUs that don&#39;t support invariant TSC</li>
+<li>Fix potential runtime error from <code>locale::global</code></li>
+<li>Fix creating prefab in Editor from selection in Prefab window</li>
+<li>Fix undo for missing actor children and scripts when doing Convert action</li>
+<li>Fix crash when spawning C# object that inherits from abstract C++ class</li>
+<li>Fix crash when cooking collision data for multi-mesh models</li>
+<li>Fix missing mesh collider vertices transformation for navmesh building</li>
+<li>Fix crash on startup when 2 Rider installations are detected</li>
+</ul>
 <h3 id="version-126222---5-august-2021">Version 1.2.6222 - 5 August 2021</h3>
 <p>Contributors: mafiesto4, honzapatCZ, GoaLitiuM, W2Wizard, jb-perrier, stefnotch, Crawcik, Vizepi, MiheevN, LCRW, VarvatosVex, herocrab, artkez, Erdroy, brbrmensch, thallard</p>
 <p>PRs merged: 62</p>
@@ -260,10 +282,7 @@
 <li>Add logging Windows build number</li>
 <li>Add <code>RingBuffer</code> template</li>
 <li>Add support for allocator type in <code>Dictionary</code></li>
-<li><ul>
 <li>Add <code>Stopwatch</code> instead of<code>DateTime.Now</code> for increased accuracy in <em>Flax.Build</em> profiling tools</li>
-</ul>
-</li>
 <li>Add keyboard shortcuts to viewpoints (numpad)</li>
 <li>Add <code>PLATFORM_THREADS_LIMIT</code> for maximum concurrency limiting</li>
 <li>Add MemoryCompare, MemoryClear and MemoryCopy for direct memory access in C#</li>
@@ -553,7 +572,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/b55da861ca03156002605a4a53a1311ba61ff543/manual/release-notes/1_2/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/83fe3ad77917060915b24e5f6c7bb32114fd24db/manual/release-notes/1_2/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
