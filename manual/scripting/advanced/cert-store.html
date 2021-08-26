@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cert Store | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cert Store | Flax Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Cert Store | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cert-store">Cert Store</h1>
+
+<p>When using <code>WebClient</code>, <code>WebRequest</code> or other SSL/TLS network connection to 3rd party server in C# script it might fail due to <code>TrustFailure</code>. That&#39;s because by default application doesn&#39;t have any trusted root Certificate Authority. The following tutorial shows how to overcome this problem.</p>
+<h3 id="no-validation">No validation</h3>
+<p>One solution to this problem is to provide the certificates that your game trusts for validation callback:</p>
+<pre><code class="lang-cs">ServicePointManager.ServerCertificateValidationCallback +=
+               delegate (object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate,
+                                        System.Security.Cryptography.X509Certificates.X509Chain chain,
+                                        System.Net.Security.SslPolicyErrors sslPolicyErrors)
+{
+    // TODO: implement certificate validation (eg. trust official game server cert only)
+    return true; // **Always accept
+};
+</code></pre><h3 id="cert-store-plugin">Cert Store plugin</h3>
+<p>The best solution is to use a collection of root certificates that are trusted widely across the Internet such as provided by Mozzila. The example plugin below implements caching trusted root certificates collection in <code>RawDataAsset</code>. At runtime, it loads the certificates from the data and adds them to the Root so the following SSL requests will be validated upon those certificates.</p>
+<p>Note that the first plugin start will take a few seconds because it will cache the newest certificates collection to the asset (stored in <code>Content/CertStore.flax</code>). Subsequential initializations take usually between 200-500ms. You can strip the certificates list for your needs to improve the setup time if needed.</p>
+<pre><code class="lang-cs">using System;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using FlaxEngine;
+using Debug = FlaxEngine.Debug;
+
+/// &lt;summary&gt;
+/// Trusted certificates store utility.
+/// &lt;/summary&gt;
+public sealed class CertStore : GamePlugin
+{
+    // Reference: https://github.com/mono/mono/blob/main/mcs/tools/security/mozroots.cs
+
+    /// &lt;inheritdoc /&gt;
+    public override PluginDescription Description =&gt; new PluginDescription
+    {
+        Name = &quot;Cert Store&quot;,
+        Category = &quot;Other&quot;,
+        Description = &quot;Trusted certificates store utility.&quot;,
+        Author = &quot;Flax&quot;,
+        AuthorUrl = &quot;https://flaxengine.com/&quot;,
+    };
+
+    /// &lt;inheritdoc /&gt;
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        var timer = Stopwatch.StartNew();
+
+        // Get data
+        var asset = InitAsset();
+        if (asset == null || asset.WaitForLoaded())
+        {
+            Debug.LogError(&quot;Missing certificates store!&quot;);
+            return;
+        }
+        var data = asset.Data;
+
+        // Load certificates
+        var roots = new X509Certificate2Collection();
+        var sb = new StringBuilder();
+        bool processing = false;
+        using (var stream = new MemoryStream(data))
+        {
+            var reader = new StreamReader(stream);
+            while (true)
+            {
+                string line = reader.ReadLine();
+                if (line == null)
+                    break;
+                if (processing)
+                {
+                    if (line.StartsWith(&quot;END&quot;))
+                    {
+                        processing = false;
+                        var root = DecodeCertificate(sb.ToString());
+                        roots.Add(root);
+                        sb = new StringBuilder();
+                        continue;
+                    }
+                    sb.Append(line);
+                }
+                else
+                {
+                    processing = line.StartsWith(&quot;CKA_VALUE MULTILINE_OCTAL&quot;);
+                }
+            }
+        }
+        if (roots.Count == 0)
+        {
+            Debug.Log(&quot;No certificates found.&quot;);
+            return;
+        }
+
+        // Apply certificates
+        var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+        store.Open(OpenFlags.ReadWrite);
+        X509CertificateCollection trusted = store.Certificates;
+        foreach (var root in roots)
+        {
+            if (!trusted.Contains(root))
+                store.Add(root);
+        }
+        store.Close();
+
+        timer.Stop();
+        Debug.Log(string.Format(&quot;Cert Store initialized in {0} ms with {1} certs&quot;, timer.ElapsedMilliseconds, roots.Count));
+    }
+
+#if FLAX_EDITOR
+    /// &lt;inheritdoc /&gt;
+    public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt; assets)
+    {
+        base.OnCollectAssets(assets);
+
+        // Reference cached certificates asset
+        var asset = InitAsset();
+        assets.Add(asset.ID);
+    }
+#endif
+
+    private RawDataAsset InitAsset()
+    {
+        var path = Path.Combine(Globals.ProjectContentFolder, &quot;CertStore.flax&quot;);
+        var asset = Content.LoadAsync&lt;RawDataAsset&gt;(path);
+        if (asset == null)
+        {
+#if FLAX_EDITOR
+            Debug.Log(&quot;Updating certificates store...&quot;);
+            var callback = ServicePointManager.ServerCertificateValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =&gt; true;
+            try
+            {
+                // Download trusted certificates collection
+                var url = &quot;https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt&quot;;
+                Debug.Log(&quot;Downloading certs from &quot; + url);
+                var req = (HttpWebRequest)WebRequest.Create(url);
+                req.Timeout = 10000;
+                var ms = new MemoryStream();
+                req.GetResponse().GetResponseStream().CopyTo(ms);
+                var data = ms.ToArray();
+                Debug.Log(&quot;Got &quot; + data.Length + &quot; bytes&quot;);
+
+                // Save to file
+                var saver = Content.CreateVirtualAsset&lt;RawDataAsset&gt;();
+                saver.Data = data;
+                saver.Save(path);
+
+                // Load it
+                asset = Content.LoadAsync&lt;RawDataAsset&gt;(path);
+            }
+            finally
+            {
+                // Restore original certificate validation callback
+                ServicePointManager.ServerCertificateValidationCallback = callback;
+            }
+            Debug.Log(&quot;Done.&quot;);
+#endif
+        }
+        return asset;
+    }
+
+    private static X509Certificate2 DecodeCertificate(string s)
+    {
+        string[] pieces = s.Split(&#39;\\&#39;);
+        byte[] data = new byte[pieces.Length - 1];
+        for (int i = 1; i &lt; pieces.Length; i++)
+            data[i - 1] = (byte)((pieces[i][0] - &#39;0&#39; &lt;&lt; 6) + (pieces[i][1] - &#39;0&#39; &lt;&lt; 3) + (pieces[i][2] - &#39;0&#39;));
+        return new X509Certificate2(data);
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/advanced/cert-store.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

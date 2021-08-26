@@ -149,7 +149,8 @@ public struct Wheel</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Collider that represents the wheel shape and it's placement. Has to be attached as a child to the vehicle. Triangle mesh collider is not supported (use convex mesh or basic shapes).&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(4)]
+[Tooltip(&quot;Collider that represents the wheel shape and it's placement. Has to be attached as a child to the vehicle. Triangle mesh collider is not supported (use convex mesh or basic shapes).&quot;)]
 public Collider Collider</code></pre>
   </div>
 
@@ -187,6 +188,8 @@ public Collider Collider</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Steering&quot;, null)]
+[EditorOrder(11)]
 [Tooltip(&quot;Damping rate applied to wheel. Specified in kilograms metres-squared per second (kg m^2 s^-1).&quot;)]
 public float DampingRate</code></pre>
   </div>
@@ -224,7 +227,8 @@ public float DampingRate</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Combined mass of the wheel and the tire in kg. Typically, a wheel has mass between 20Kg and 80Kg but can be lower and higher depending on the vehicle.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(1)]
+[Tooltip(&quot;Combined mass of the wheel and the tire in kg. Typically, a wheel has mass between 20Kg and 80Kg but can be lower and higher depending on the vehicle.&quot;)]
 public float Mass</code></pre>
   </div>
 
@@ -262,6 +266,8 @@ public float Mass</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Steering&quot;, null)]
+[EditorOrder(12)]
 [Tooltip(&quot;Max brake torque that can be applied to wheel. Specified in kilograms metres-squared per second-squared (kg m^2 s^-2)&quot;)]
 public float MaxBrakeTorque</code></pre>
   </div>
@@ -300,6 +306,8 @@ public float MaxBrakeTorque</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Steering&quot;, null)]
+[EditorOrder(13)]
 [Tooltip(&quot;Max handbrake torque that can be applied to wheel. Specified in kilograms metres-squared per second-squared (kg m^2 s^-2)&quot;)]
 public float MaxHandBrakeTorque</code></pre>
   </div>
@@ -338,6 +346,8 @@ public float MaxHandBrakeTorque</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Steering&quot;, null)]
+[EditorOrder(10)]
 [Tooltip(&quot;Max steer angle that can be achieved by the wheel (in degrees).&quot;)]
 public float MaxSteerAngle</code></pre>
   </div>
@@ -375,8 +385,285 @@ public float MaxSteerAngle</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Distance in metres between the center of the wheel and the outside rim of the tire. It is important that the value of the radius closely matches the radius of the render mesh of the wheel. Any mismatch will result in the wheels either hovering above the ground or intersecting the ground.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(2)]
+[Tooltip(&quot;Distance in metres between the center of the wheel and the outside rim of the tire. It is important that the value of the radius closely matches the radius of the render mesh of the wheel. Any mismatch will result in the wheels either hovering above the ground or intersecting the ground.&quot;)]
 public float Radius</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_SuspensionDampingRate" data-uid="FlaxEngine.WheeledVehicle.Wheel.SuspensionDampingRate"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionDampingRate" class="expander" data-toggle="collapse">SuspensionDampingRate</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionDampingRate" class="collapse in">
+  <div class="markdown level1 summary"><p>Spring damper rate of suspension unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Suspension&quot;, null)]
+[EditorOrder(20)]
+[Tooltip(&quot;Spring damper rate of suspension unit.&quot;)]
+public float SuspensionDampingRate</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_SuspensionForceOffset" data-uid="FlaxEngine.WheeledVehicle.Wheel.SuspensionForceOffset"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionForceOffset" class="expander" data-toggle="collapse">SuspensionForceOffset</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionForceOffset" class="collapse in">
+  <div class="markdown level1 summary"><p>The vertical offset from where suspension forces are applied (relative to the vehicle center of mass). The suspension force is applies on the vertical axis going though the wheel center.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Suspension&quot;, null)]
+[EditorOrder(23)]
+[Tooltip(&quot;The vertical offset from where suspension forces are applied (relative to the vehicle center of mass). The suspension force is applies on the vertical axis going though the wheel center.&quot;)]
+public float SuspensionForceOffset</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxDrop" data-uid="FlaxEngine.WheeledVehicle.Wheel.SuspensionMaxDrop"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxDrop" class="expander" data-toggle="collapse">SuspensionMaxDrop</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxDrop" class="collapse in">
+  <div class="markdown level1 summary"><p>The maximum offset for the suspension that wheel can go below resting location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Suspension&quot;, null)]
+[EditorOrder(22)]
+[Tooltip(&quot;The maximum offset for the suspension that wheel can go below resting location.&quot;)]
+public float SuspensionMaxDrop</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxRaise" data-uid="FlaxEngine.WheeledVehicle.Wheel.SuspensionMaxRaise"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxRaise" class="expander" data-toggle="collapse">SuspensionMaxRaise</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_SuspensionMaxRaise" class="collapse in">
+  <div class="markdown level1 summary"><p>The maximum offset for the suspension that wheel can go above resting location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Suspension&quot;, null)]
+[EditorOrder(21)]
+[Tooltip(&quot;The maximum offset for the suspension that wheel can go above resting location.&quot;)]
+public float SuspensionMaxRaise</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_TireLateralMax" data-uid="FlaxEngine.WheeledVehicle.Wheel.TireLateralMax"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLateralMax" class="expander" data-toggle="collapse">TireLateralMax</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLateralMax" class="collapse in">
+  <div class="markdown level1 summary"><p>The maximum tire load (normalized) at which tire cannot provide more lateral stiffness (no matter how much extra load is applied to it).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
+[EditorOrder(31)]
+[Tooltip(&quot;The maximum tire load (normalized) at which tire cannot provide more lateral stiffness (no matter how much extra load is applied to it).&quot;)]
+public float TireLateralMax</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_TireLateralStiffness" data-uid="FlaxEngine.WheeledVehicle.Wheel.TireLateralStiffness"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLateralStiffness" class="expander" data-toggle="collapse">TireLateralStiffness</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLateralStiffness" class="collapse in">
+  <div class="markdown level1 summary"><p>The tire lateral stiffness to have given lateral slip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
+[EditorOrder(30)]
+[Tooltip(&quot;The tire lateral stiffness to have given lateral slip.&quot;)]
+public float TireLateralStiffness</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_TireLongitudinalStiffness" data-uid="FlaxEngine.WheeledVehicle.Wheel.TireLongitudinalStiffness"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLongitudinalStiffness" class="expander" data-toggle="collapse">TireLongitudinalStiffness</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_TireLongitudinalStiffness" class="collapse in">
+  <div class="markdown level1 summary"><p>The tire longitudinal stiffness to have given longitudinal slip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
+[EditorOrder(32)]
+[Tooltip(&quot;The tire longitudinal stiffness to have given longitudinal slip.&quot;)]
+public float TireLongitudinalStiffness</code></pre>
   </div>
 
   
@@ -412,7 +699,8 @@ public float Radius</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Wheel placement type.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(0)]
+[Tooltip(&quot;Wheel placement type.&quot;)]
 public WheeledVehicle.WheelTypes Type</code></pre>
   </div>
 
@@ -449,7 +737,8 @@ public WheeledVehicle.WheelTypes Type</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Full width of the wheel in metres. This parameter has no bearing on the handling but is a very useful parameter to have when trying to render debug data relating to the wheel/tire/suspension.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(3)]
+[Tooltip(&quot;Full width of the wheel in metres. This parameter has no bearing on the handling but is a very useful parameter to have when trying to render debug data relating to the wheel/tire/suspension.&quot;)]
 public float Width</code></pre>
   </div>
 
