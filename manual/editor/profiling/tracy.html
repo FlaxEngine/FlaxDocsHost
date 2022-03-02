@@ -7,7 +7,7 @@
     <title>Tracy Profiler | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Tracy Profiler | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -101,16 +101,28 @@
 </div>
 <h2 id="profiler-integration">Profiler integration</h2>
 <p>Use Flax API to inject profile blocks:</p>
-<h3 id="c">C++</h3>
+<div class="tabGroup" id="tabgroup_kazPOBc3lZ">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_kazPOBc3lZ_code-csharp" role="tab" aria-controls="tabpanel_kazPOBc3lZ_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_kazPOBc3lZ_code-cpp" role="tab" aria-controls="tabpanel_kazPOBc3lZ_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_kazPOBc3lZ_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">Profiler.BeginEvent(&quot;MyFunc&quot;);
+// do some stuff
+Profiler.EndEvent();
+</code></pre></section>
+<section id="tabpanel_kazPOBc3lZ_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">#include &quot;Engine/Profiler/ProfilerCPU.h&quot;
 
 PROFILE_CPU();
 // do some stuff
-</code></pre><h3 id="c-1">C#</h3>
-<pre><code class="lang-cs">Profiler.BeginEvent(&quot;MyFunc&quot;);
-// do some stuff
-Profiler.EndEvent();
-</code></pre><h2 id="automated-data-collection">Automated data collection</h2>
+</code></pre></section>
+</div>
+<h2 id="automated-data-collection">Automated data collection</h2>
 <p><img src="media/tracy-full-profile.png" alt="Tracy Connect"></p>
 <p>Tracy supports automatic instrumentation of the profiled code without injecting the profiler sections/macros. To do so run Flax with admin rights (privilege elevation). In this mode, Tracy will also capture the CPU cores usage by other processes and will allow for more complex application profiling.</p>
 <h2 id="memory-profiling">Memory Profiling</h2>
@@ -124,12 +136,13 @@ Profiler.EndEvent();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/editor/profiling/tracy.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/editor/profiling/tracy.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SpriteAtlas
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -123,6 +123,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetMipData_System_Int32_System_Int32__System_Int32__">TextureBase.GetMipData(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color32____System_Int32_System_Int32_">TextureBase.GetPixels(Color32[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color____System_Int32_System_Int32_">TextureBase.GetPixels(Color[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color32___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color32[], Int32, Int32, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color[], Int32, Int32, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_Init_FlaxEngine_TextureBase_InitData__">TextureBase.Init(TextureBase.InitData)</a>
@@ -236,6 +248,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -268,7 +283,6 @@
   <h5 id="FlaxEngine_SpriteAtlas_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sprite atlas asset that contains collection of sprites combined into a single texture.&quot;)]
 public class SpriteAtlas : TextureBase</code></pre>
   </div>
 
@@ -322,7 +336,6 @@ public class SpriteAtlas : TextureBase</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;List with all tiles in the sprite atlas.&quot;)]
 public Sprite[] Sprites { get; set; }</code></pre>
   </div>
 
@@ -361,7 +374,6 @@ public Sprite[] Sprites { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The sprites count.&quot;)]
 public int SpritesCount { get; }</code></pre>
   </div>
 
@@ -402,7 +414,6 @@ public int SpritesCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the sprite.&quot;)]
 public SpriteHandle AddSprite(Sprite sprite)</code></pre>
   </div>
 
@@ -453,7 +464,6 @@ public SpriteHandle AddSprite(Sprite sprite)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the sprite by the name.&quot;)]
 public SpriteHandle FindSprite(string name)</code></pre>
   </div>
 
@@ -504,7 +514,6 @@ public SpriteHandle FindSprite(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The sprite data.&quot;)]
 public Sprite GetSprite(int index)</code></pre>
   </div>
 
@@ -555,7 +564,6 @@ public Sprite GetSprite(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the sprite.&quot;)]
 public void RemoveSprite(int index)</code></pre>
   </div>
 
@@ -596,7 +604,6 @@ public void RemoveSprite(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Save the sprites (texture content won't be modified).&quot;)]
 public bool SaveSprites()</code></pre>
   </div>
 
@@ -636,7 +643,6 @@ public bool SaveSprites()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the sprite data.&quot;)]
 public void SetSprite(int index, ref Sprite value)</code></pre>
   </div>
 
@@ -697,7 +703,8 @@ public void SetSprite(int index, ref Sprite value)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PhysicalMaterial
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -102,6 +102,12 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">PhysicalMaterial</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_PhysicalMaterial" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_PhysicalMaterial" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_PhysicalMaterial" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -136,8 +142,7 @@
   
   <h5 id="FlaxEngine_PhysicalMaterial_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Physical materials are used to define the response of a physical object when interacting dynamically with the world.&quot;)]
-public sealed class PhysicalMaterial</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PhysicalMaterial : ISerializable</code></pre>
   </div>
 
   
@@ -179,6 +184,44 @@ public sealed class PhysicalMaterial</code></pre>
   
   
   
+  <h4 id="FlaxEngine_PhysicalMaterial_Density" data-uid="FlaxEngine.PhysicalMaterial.Density"><a href="#collapsible-FlaxEngine_PhysicalMaterial_Density" class="expander" data-toggle="collapse">Density</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PhysicalMaterial_Density" class="collapse in">
+  <div class="markdown level1 summary"><p>Physical material density in kilograms per cubic meter (kg/m^3). Higher density means a higher weight of the object using this material. Wood is around 700, water is 1000, steel is around 8000.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(10)]
+[EditorDisplay(&quot;Physical Material&quot;, null)]
+public float Density</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEngine_PhysicalMaterial_Friction" data-uid="FlaxEngine.PhysicalMaterial.Friction"><a href="#collapsible-FlaxEngine_PhysicalMaterial_Friction" class="expander" data-toggle="collapse">Friction</a></h4>
   
   <div id="collapsible-FlaxEngine_PhysicalMaterial_Friction" class="collapse in">
@@ -191,7 +234,6 @@ public sealed class PhysicalMaterial</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Physical Material&quot;, null)]
-[Tooltip(&quot;The friction value of surface, controls how easily things can slide on this surface.&quot;)]
 public float Friction</code></pre>
   </div>
 
@@ -230,7 +272,6 @@ public float Friction</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1)]
 [EditorDisplay(&quot;Physical Material&quot;, null)]
-[Tooltip(&quot;The friction combine mode, controls how friction is computed for multiple materials.&quot;)]
 public PhysicsCombineMode FrictionCombineMode</code></pre>
   </div>
 
@@ -344,7 +385,6 @@ public bool OverrideRestitutionCombineMode</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(3)]
 [Range(0F, 1F)]
 [EditorDisplay(&quot;Physical Material&quot;, null)]
-[Tooltip(&quot;The restitution or 'bounciness' of this surface, between 0 (no bounce) and 1 (outgoing velocity is same as incoming).&quot;)]
 public float Restitution</code></pre>
   </div>
 
@@ -383,7 +423,6 @@ public float Restitution</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(4)]
 [EditorDisplay(&quot;Physical Material&quot;, null)]
-[Tooltip(&quot;The restitution combine mode, controls how restitution is computed for multiple materials.&quot;)]
 public PhysicsCombineMode RestitutionCombineMode</code></pre>
   </div>
 
@@ -430,7 +469,8 @@ public PhysicsCombineMode RestitutionCombineMode</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

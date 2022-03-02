@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Animation Events | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Animation Events | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Animation Events | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="animation-events">Animation Events</h1>
+
+<p><img src="media/anim-event-vfx.gif" alt="Anim Event VFX in Flax Engine"></p>
+<p>Animation timeline supports special <strong>Animation Event</strong> tracks that can contain custom single-shot or continuous events. Those can be used to play footsteps sounds, spawn footstep decals or apply other animation-based effects into the gameplay.</p>
+<p>There are 2 types of animation events:</p>
+<ul>
+<li><code>AnimEvent</code> - animation notification event triggered during animation playback with a single callback executed once when animation playback passes through the given frame.</li>
+<li><code>AnimContinuousEvent</code> - animation notification event (with duration) triggered during animation playback that contains begin and end (event notification is received as a tick). It differs from a single event in that it is updated during every animation tick and is guaranteed to receive start before any ticking and end after all ticks occurred.</li>
+</ul>
+<h3 id="multithreading">Multithreading</h3>
+<p>By default Animation System uses the Job System to update all animated models asynchronously during game updates. This allows to greatly improve performance for scenes with a large number of objects. As a result, the animation event callbacks are invoked on job threads (the main thread is sleeping). Thus it&#39;s important to safely access other gameplay data during events to ensure it doesn&#39;t result in race conditions. In general, accessing a single Animated Model object or its scripts/children is safe as every model instance is updating its own animation only once during this async routing (you can spawn or edit objects belonging to that animated model within an event).</p>
+<p>To learn more about multithreading see <a href="../../scripting/advanced/multithreading.html">this documentation</a>.</p>
+<h2 id="how-to-create-anim-event-type">How to create Anim Event type?</h2>
+<p>Game and plugins can define custom anim event types with instanced data and custom gameplay logic. Here is an example of custom anim event which plays a sound clip on event at the given skeleton node location. It can be sued to play character footsteps sounds or be extended to spawn VFX and Decal too.</p>
+<div class="tabGroup" id="tabgroup_USdlhK1d5-">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_USdlhK1d5-_code-csharp" role="tab" aria-controls="tabpanel_USdlhK1d5-_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_USdlhK1d5-_code-cpp" role="tab" aria-controls="tabpanel_USdlhK1d5-_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_USdlhK1d5-_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Plays the sound clip at the given skeleton node location.
+/// &lt;/summary&gt;
+public class PlaySoundAnimEvent : AnimEvent
+{
+    /// &lt;summary&gt;
+    /// The sound clip to play.
+    /// &lt;/summary&gt;
+    public AudioClip Sound;
+
+    /// &lt;summary&gt;
+    /// The sound volume.
+    /// &lt;/summary&gt;
+    [Limit(0, 1)]
+    public float Volume = 1.0f;
+
+    /// &lt;summary&gt;
+    /// The name of the node to play sound at it&#39;s location (eg. left foot).
+    /// &lt;/summary&gt;
+    public string NodeName;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEvent(AnimatedModel actor, Animation anim, float time, float deltaTime)
+    {
+        // Play sound at the bone location (eg. foot)
+        var node = actor.SkinnedModel.FindNode(NodeName);
+        actor.GetNodeTransformation(node, out var nodeMatrix);
+        var source = new AudioSource
+        {
+            HideFlags = HideFlags.FullyHidden,
+            Volume = Volume,
+            Clip = Sound,
+            Position = nodeMatrix.TranslationVector,
+            Parent = actor,
+        };
+        source.Play();
+
+        // Auto remove source after playback ends
+        // TODO: use object pooling
+        Destroy(source, Sound.Length);
+    }
+}
+</code></pre></section>
+<section id="tabpanel_USdlhK1d5-_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">
+#pragma once
+
+#include &quot;Engine/Core/Math/Matrix.h&quot;
+#include &quot;Engine/Animations/AnimEvent.h&quot;
+#include &quot;Engine/Content/AssetReference.h&quot;
+#include &quot;Engine/Level/Actors/AnimatedModel.h&quot;
+#include &quot;Engine/Audio/AudioClip.h&quot;
+#include &quot;Engine/Audio/AudioSource.h&quot;
+
+/// &lt;summary&gt;
+/// Plays the sound clip at the given skeleton node location.
+/// &lt;/summary&gt;
+API_CLASS() class GAME_API PlaySoundAnimEvent : public AnimEvent
+{
+API_AUTO_SERIALIZATION();
+DECLARE_SCRIPTING_TYPE(PlaySoundAnimEvent);
+
+    /// &lt;summary&gt;
+    /// The sound clip to play.
+    /// &lt;/summary&gt;
+    API_FIELD() AssetReference&lt;AudioClip&gt; Sound;
+
+    /// &lt;summary&gt;
+    /// The sound volume.
+    /// &lt;/summary&gt;
+    API_FIELD(Attributes=&quot;Limit(0, 1)&quot;) float Volume = 1.0f;
+
+    /// &lt;summary&gt;
+    /// The name of the node to play sound at it&#39;s location (eg. left foot).
+    /// &lt;/summary&gt;
+    API_FIELD() String NodeName;
+
+    // [AnimEvent]
+    void OnEvent(AnimatedModel* actor, Animation* anim, float time, float deltaTime) override
+    {
+        CHECK(Sound);
+
+         // Play sound at the bone location (eg. foot)
+        int32 node = actor-&gt;SkinnedModel-&gt;FindNode(NodeName);
+        Matrix nodeMatrix;
+        actor-&gt;GetNodeTransformation(node, nodeMatrix);
+        auto source = New&lt;AudioSource&gt;();
+        source-&gt;HideFlags = HideFlags::FullyHidden;
+        source-&gt;Clip = Sound;
+        source-&gt;SetVolume(Volume);
+        source-&gt;SetPosition(nodeMatrix.GetTranslation());
+        source-&gt;SetParent(actor);
+        source-&gt;Play();
+
+        // Auto remove source after playback ends
+        // TODO: use object pooling
+        source-&gt;DeleteObject(Sound-&gt;GetLength());
+    }
+};
+</code></pre></section>
+</div>
+<h2 id="how-to-add-anim-event">How to add Anim Event?</h2>
+<p>Animation events use a separate track type inside Animation asset and can be easily placed on a timeline to trigger at very specific time locations. Use <em>Add</em> button and select <em>Animation Event</em> track. Then use <code>+</code> button or <em>right-click</em> on that track to insert a new animation event.</p>
+<p><img src="media/anim-event-new.png" alt="New Anim Event Add in Editor"></p>
+<p>Then you can <em>double-click</em> on created event or <em>right-click</em> to edit its properties.</p>
+<p><img src="media/anim-event-edit.png" alt="Edit Anim Event Add in Editor"></p>
+<p>After saving asset it will use the created event during animation playback.</p>
+<h2 id="continuous-events">Continuous Events</h2>
+<p>Continuous events are normal anim event which contain a fixed duration with well defined start and end. Those are usefull for time-based actions like attack logic for gameplay based on animations timing.</p>
+<p>Continuous events can override additional methods:</p>
+<ul>
+<li><code>OnStart</code></li>
+<li><code>OnEnd</code></li>
+</ul>
+<h2 id="event-color">Event Color</h2>
+<p><img src="media/anim-event-colors.png" alt="Anim Event colors in Editor"></p>
+<p>Every event type can adjust <code>Color</code> field to control the appearance in the Editor. This can be used to distinguish SFX, VFX or other events when editing more complex assets.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/animation/animation/anim-events.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

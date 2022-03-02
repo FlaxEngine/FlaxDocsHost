@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PreviewsCache
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -147,6 +147,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetMipData_System_Int32_System_Int32__System_Int32__">TextureBase.GetMipData(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color32____System_Int32_System_Int32_">TextureBase.GetPixels(Color32[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color____System_Int32_System_Int32_">TextureBase.GetPixels(Color[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color32___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color32[], Int32, Int32, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color[], Int32, Int32, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_Init_FlaxEngine_TextureBase_InitData__">TextureBase.Init(TextureBase.InitData)</a>
@@ -260,6 +272,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -292,7 +307,6 @@
   <h5 id="FlaxEditor_PreviewsCache_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Asset which contains set of asset items thumbnails (cached previews).&quot;)]
 [HideInEditor]
 public sealed class PreviewsCache : SpriteAtlas</code></pre>
   </div>
@@ -565,7 +579,6 @@ public sealed class PreviewsCache : SpriteAtlas</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this atlas has one or more free slots for the asset preview.&quot;)]
 public bool HasFreeSlot { get; }</code></pre>
   </div>
 
@@ -604,7 +617,6 @@ public bool HasFreeSlot { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this atlas is ready (is loaded and has texture streamed).&quot;)]
 public bool IsReady { get; }</code></pre>
   </div>
 
@@ -645,7 +657,6 @@ public bool IsReady { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates a new atlas.&quot;)]
 public static bool Create(string outputPath)</code></pre>
   </div>
 
@@ -696,7 +707,6 @@ public static bool Create(string outputPath)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the preview icon for given asset ID.&quot;)]
 public SpriteHandle FindSlot(Guid id)</code></pre>
   </div>
 
@@ -747,7 +757,6 @@ public SpriteHandle FindSlot(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Flushes atlas data from the GPU to the asset storage (saves data).&quot;)]
 public void Flush()</code></pre>
   </div>
 
@@ -777,7 +786,6 @@ public void Flush()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occupies the atlas slot.&quot;)]
 public SpriteHandle OccupySlot(GPUTexture source, Guid id)</code></pre>
   </div>
 
@@ -836,7 +844,6 @@ public SpriteHandle OccupySlot(GPUTexture source, Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Releases the used slot.&quot;)]
 public bool ReleaseSlot(Guid id)</code></pre>
   </div>
 
@@ -895,7 +902,8 @@ public bool ReleaseSlot(Guid id)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

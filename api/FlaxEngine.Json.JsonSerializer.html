@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class JsonSerializer
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -136,7 +136,8 @@
   
   <h5 id="FlaxEngine_Json_JsonSerializer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class JsonSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static class JsonSerializer</code></pre>
   </div>
 
   
@@ -561,6 +562,62 @@
   </div>
   
   
+  <a id="FlaxEngine_Json_JsonSerializer_LoadFromBytes_" data-uid="FlaxEngine.Json.JsonSerializer.LoadFromBytes*"></a>
+  
+  <h4 id="FlaxEngine_Json_JsonSerializer_LoadFromBytes_FlaxEngine_ISerializable_System_Byte___System_Int32_" data-uid="FlaxEngine.Json.JsonSerializer.LoadFromBytes(FlaxEngine.ISerializable,System.Byte[],System.Int32)"><a href="#collapsible-FlaxEngine_Json_JsonSerializer_LoadFromBytes_FlaxEngine_ISerializable_System_Byte___System_Int32_" class="expander" data-toggle="collapse">LoadFromBytes(ISerializable, Byte[], Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Json_JsonSerializer_LoadFromBytes_FlaxEngine_ISerializable_System_Byte___System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs object Json deserialization from the raw bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void LoadFromBytes(ISerializable obj, byte[] data, int engineBuild)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></span>
+        <span class="parametername">obj</span>
+        <p><p>The object to deserialize (can be null).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Byte</span>[]</span>
+        <span class="parametername">data</span>
+        <p><p>The source data to read from.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">engineBuild</span>
+        <p><p>The engine build number of the saved data. Used to resolve old object formats when loading deprecated data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Json_JsonSerializer_ParseID_" data-uid="FlaxEngine.Json.JsonSerializer.ParseID*"></a>
   
   <h4 id="FlaxEngine_Json_JsonSerializer_ParseID_System_String_" data-uid="FlaxEngine.Json.JsonSerializer.ParseID(System.String)"><a href="#collapsible-FlaxEngine_Json_JsonSerializer_ParseID_System_String_" class="expander" data-toggle="collapse">ParseID(String)</a></h4>
@@ -644,6 +701,56 @@
     </tr>
   </table>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Json_JsonSerializer_SaveToBytes_" data-uid="FlaxEngine.Json.JsonSerializer.SaveToBytes*"></a>
+  
+  <h4 id="FlaxEngine_Json_JsonSerializer_SaveToBytes_FlaxEngine_ISerializable_" data-uid="FlaxEngine.Json.JsonSerializer.SaveToBytes(FlaxEngine.ISerializable)"><a href="#collapsible-FlaxEngine_Json_JsonSerializer_SaveToBytes_FlaxEngine_ISerializable_" class="expander" data-toggle="collapse">SaveToBytes(ISerializable)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Json_JsonSerializer_SaveToBytes_FlaxEngine_ISerializable_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs object Json serialization to the raw bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static byte[] SaveToBytes(ISerializable obj)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></span>
+        <span class="parametername">obj</span>
+        <p><p>The object to serialize (can be null).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Byte</span>[]
+        <p><p>The output data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -911,7 +1018,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

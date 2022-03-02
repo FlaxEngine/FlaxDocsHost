@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RenderList
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_RenderList_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Rendering cache container object for the draw calls collecting, sorting and executing.&quot;)]
 public sealed class RenderList : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class RenderList : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Executes the collected draw calls.&quot;)]
 public void ExecuteDrawCalls(ref RenderContext renderContext, DrawCallsListType listType)</code></pre>
   </div>
 
@@ -286,7 +287,6 @@ public void ExecuteDrawCalls(ref RenderContext renderContext, DrawCallsListType 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Allocates the new renderer list object or reuses already allocated one.&quot;)]
 public static RenderList GetFromPool()</code></pre>
   </div>
 
@@ -326,7 +326,6 @@ public static RenderList GetFromPool()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Frees the list back to the pool.&quot;)]
 public static void ReturnToPool(RenderList cache)</code></pre>
   </div>
 
@@ -367,7 +366,6 @@ public static void ReturnToPool(RenderList cache)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sorts the collected draw calls list.&quot;)]
 public void SortDrawCalls(ref RenderContext renderContext, bool reverseDistance, DrawCallsListType listType)</code></pre>
   </div>
 
@@ -432,7 +430,8 @@ public void SortDrawCalls(ref RenderContext renderContext, bool reverseDistance,
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

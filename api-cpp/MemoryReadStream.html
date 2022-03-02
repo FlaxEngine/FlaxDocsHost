@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MemoryReadStream
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MemoryReadStream
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class MemoryReadStream
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="MemoryReadStream">
+  <h1 id="MemoryReadStream" data-uid="MemoryReadStream">Class MemoryReadStream
+  </h1>
+  <div class="markdown level0 summary"><p>Super fast advanced data reading from raw bytes without any overhead at all </p></div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-MemoryReadStream" data-uid="MemoryReadStream"><a href="#collapsible-inheritance-MemoryReadStream" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-MemoryReadStream" class="collapse">
+    <div class="level0"><a class="xref" href="Stream.html">Stream</a></div>
+    <div class="level1"><a class="xref" href="ReadStream.html">ReadStream</a></div>
+    <div class="level2"><span class="xref">MemoryReadStream</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-MemoryReadStream" data-uid="Stream._hasError"><a href="#collapsible-inheritedMembers-MemoryReadStream" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-MemoryReadStream" class="collapse">
+    <div>
+      <a class="xref" href="Stream.html#Stream__hasError">Stream::_hasError</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_CanRead__">ReadStream::CanRead()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stream.html#Stream_CanWrite__">Stream::CanWrite()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stream.html#Stream_HasError__">Stream::HasError()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_T___">ReadStream::Read(T* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_T___int32_">ReadStream::Read(T* data, int32 count)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadArray_Array_T__AllocationType____">ReadStream::ReadArray(Array&lt;T, AllocationType&gt;* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadBool__">ReadStream::ReadBool()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadByte__">ReadStream::ReadByte()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadByte_byte___">ReadStream::ReadByte(byte* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadChar__">ReadStream::ReadChar()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadChar_Char___">ReadStream::ReadChar(Char* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadCommonValue_CommonValue___">ReadStream::ReadCommonValue(CommonValue* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadDouble_double___">ReadStream::ReadDouble(double* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadFloat_float___">ReadStream::ReadFloat(float* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadInt16_int16___">ReadStream::ReadInt16(int16* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadInt32_int32___">ReadStream::ReadInt32(int32* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadInt64_int64___">ReadStream::ReadInt64(int64* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadInt8_int8___">ReadStream::ReadInt8(int8* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadJson_ISerializable___">ReadStream::ReadJson(ISerializable* obj)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadString_String___">ReadStream::ReadString(String* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadString_String___int16_">ReadStream::ReadString(String* data, int16 lock)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadStringAnsi_StringAnsi___">ReadStream::ReadStringAnsi(StringAnsi* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadStringAnsi_StringAnsi___int8_">ReadStream::ReadStringAnsi(StringAnsi* data, int8 lock)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadUint16_uint16___">ReadStream::ReadUint16(uint16* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadUint32_uint32___">ReadStream::ReadUint32(uint32* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadUint64_uint64___">ReadStream::ReadUint64(uint64* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadUint8_uint8___">ReadStream::ReadUint8(uint8* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadVariant_Variant___">ReadStream::ReadVariant(Variant* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_ReadVariantType_VariantType___">ReadStream::ReadVariantType(VariantType* data)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stream.html#Stream_Stream__">Stream::Stream()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stream.html#Stream__Stream__">Stream::~Stream()</a>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
+  <h6><strong>File</strong>: Engine/Serialization/MemoryReadStream.h</h6>
+  
+  <h5 id="MemoryReadStream_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public class MemoryReadStream : public ReadStream</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_MemoryReadStream__.md&amp;value=---%0Auid%3A%20MemoryReadStream.MemoryReadStream()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_MemoryReadStream_" data-uid="MemoryReadStream.MemoryReadStream*"></a>
+  
+  <h4 id="MemoryReadStream_MemoryReadStream__" data-uid="MemoryReadStream.MemoryReadStream()"><a href="#collapsible-MemoryReadStream_MemoryReadStream__" class="expander" data-toggle="collapse">MemoryReadStream()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_MemoryReadStream__" class="collapse in">
+  <div class="markdown level1 summary"><p>Init (empty, cannot access before Init()) </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public MemoryReadStream()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____.md&amp;value=---%0Auid%3A%20MemoryReadStream.MemoryReadStream(const%20Array%3CT%2C%20AllocationType%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_MemoryReadStream_" data-uid="MemoryReadStream.MemoryReadStream*"></a>
+  
+  <h4 id="MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" data-uid="MemoryReadStream.MemoryReadStream(const Array&lt;T, AllocationType&gt; &amp;)"><a href="#collapsible-MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" class="expander" data-toggle="collapse">MemoryReadStream(const Array&lt;T, AllocationType&gt;&amp; data)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" class="collapse in">
+  <div class="markdown level1 summary"><p>Init </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public MemoryReadStream(const Array&lt;T, AllocationType&gt;&amp; data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;T, AllocationType&gt;</span></span>
+        <span class="parametername">data</span>
+        <p><p>Array with data to read from</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename T</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename AllocationType</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_MemoryReadStream_const_byte___uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.MemoryReadStream(const%20byte%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L31" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_MemoryReadStream_" data-uid="MemoryReadStream.MemoryReadStream*"></a>
+  
+  <h4 id="MemoryReadStream_MemoryReadStream_const_byte___uint32_" data-uid="MemoryReadStream.MemoryReadStream(const byte *,uint32)"><a href="#collapsible-MemoryReadStream_MemoryReadStream_const_byte___uint32_" class="expander" data-toggle="collapse">MemoryReadStream(const byte* bytes, uint32 length)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_MemoryReadStream_const_byte___uint32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Init </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public MemoryReadStream(const byte* bytes, uint32 length)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">byte</span></span>
+        <span class="parametername">bytes</span>
+        <p><p>Bytes with data to read from it (no memory cloned, using input buffer)</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">length</span>
+        <p><p>Amount of bytes</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Close__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Close()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L113" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Close_" data-uid="MemoryReadStream.Close*"></a>
+  
+  <h4 id="MemoryReadStream_Close__" data-uid="MemoryReadStream.Close()"><a href="#collapsible-MemoryReadStream_Close__" class="expander" data-toggle="collapse">Close()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Close__" class="collapse in">
+  <div class="markdown level1 summary"><p>Close the stream </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void Close() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Stream.html#Stream_Close__">Stream::Close()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Flush__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Flush()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Flush_" data-uid="MemoryReadStream.Flush*"></a>
+  
+  <h4 id="MemoryReadStream_Flush__" data-uid="MemoryReadStream.Flush()"><a href="#collapsible-MemoryReadStream_Flush__" class="expander" data-toggle="collapse">Flush()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Flush__" class="collapse in">
+  <div class="markdown level1 summary"><p>Flush the stream buffers </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void Flush() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Stream.html#Stream_Flush__">Stream::Flush()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetLength__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetLength()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_GetLength_" data-uid="MemoryReadStream.GetLength*"></a>
+  
+  <h4 id="MemoryReadStream_GetLength__" data-uid="MemoryReadStream.GetLength()"><a href="#collapsible-MemoryReadStream_GetLength__" class="expander" data-toggle="collapse">GetLength()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_GetLength__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets length of the stream </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual uint32 GetLength() override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">uint32</span>
+        <p><p>Length of the stream</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Stream.html#Stream_GetLength__">Stream::GetLength()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetPosition__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetPosition()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L115" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_GetPosition_" data-uid="MemoryReadStream.GetPosition*"></a>
+  
+  <h4 id="MemoryReadStream_GetPosition__" data-uid="MemoryReadStream.GetPosition()"><a href="#collapsible-MemoryReadStream_GetPosition__" class="expander" data-toggle="collapse">GetPosition()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_GetPosition__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets current position in the stream </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual uint32 GetPosition() override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">uint32</span>
+        <p><p>Current position in the stream</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Stream.html#Stream_GetPosition__">Stream::GetPosition()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetPositionHandle__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetPositionHandle()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_GetPositionHandle_" data-uid="MemoryReadStream.GetPositionHandle*"></a>
+  
+  <h4 id="MemoryReadStream_GetPositionHandle__" data-uid="MemoryReadStream.GetPositionHandle()"><a href="#collapsible-MemoryReadStream_GetPositionHandle__" class="expander" data-toggle="collapse">GetPositionHandle()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_GetPositionHandle__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the current handle to position in buffer. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public byte* GetPositionHandle() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">byte</span>
+        <p><p>The position of the buffer in memory.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Init_const_Array_T__AllocationType____.md&amp;value=---%0Auid%3A%20MemoryReadStream.Init(const%20Array%3CT%2C%20AllocationType%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L57" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Init_" data-uid="MemoryReadStream.Init*"></a>
+  
+  <h4 id="MemoryReadStream_Init_const_Array_T__AllocationType____" data-uid="MemoryReadStream.Init(const Array&lt;T, AllocationType&gt; &amp;)"><a href="#collapsible-MemoryReadStream_Init_const_Array_T__AllocationType____" class="expander" data-toggle="collapse">Init(const Array&lt;T, AllocationType&gt;&amp; data)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Init_const_Array_T__AllocationType____" class="collapse in">
+  <div class="markdown level1 summary"><p>Init stream to the custom buffer location </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Init(const Array&lt;T, AllocationType&gt;&amp; data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;T, AllocationType&gt;</span></span>
+        <span class="parametername">data</span>
+        <p><p>Array with data to read from</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename T</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename AllocationType</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Init_const_byte___uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.Init(const%20byte%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Init_" data-uid="MemoryReadStream.Init*"></a>
+  
+  <h4 id="MemoryReadStream_Init_const_byte___uint32_" data-uid="MemoryReadStream.Init(const byte *,uint32)"><a href="#collapsible-MemoryReadStream_Init_const_byte___uint32_" class="expander" data-toggle="collapse">Init(const byte* bytes, uint32 length)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Init_const_byte___uint32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Init stream to the custom buffer location </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Init(const byte* bytes, uint32 length)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">byte</span></span>
+        <span class="parametername">bytes</span>
+        <p><p>Bytes with data to read from it (no memory cloned, using input buffer)</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">length</span>
+        <p><p>Amount of bytes</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Read__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Read()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Read_" data-uid="MemoryReadStream.Read*"></a>
+  
+  <h4 id="MemoryReadStream_Read__" data-uid="MemoryReadStream.Read()"><a href="#collapsible-MemoryReadStream_Read__" class="expander" data-toggle="collapse">Read()</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Read__" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads given data type from the stream. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T* Read()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>The pointer to the data in memory.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Read_uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.Read(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_Read_" data-uid="MemoryReadStream.Read*"></a>
+  
+  <h4 id="MemoryReadStream_Read_uint32_" data-uid="MemoryReadStream.Read(uint32)"><a href="#collapsible-MemoryReadStream_Read_uint32_" class="expander" data-toggle="collapse">Read(uint32 bytes)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_Read_uint32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads bytes without copying the data. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void* Read(uint32 bytes)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">bytes</span>
+        <p><p>The amount of bytes to read.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p><p>The pointer to the data in memory.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_ReadBytes_void___uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.ReadBytes(void%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L117" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_ReadBytes_" data-uid="MemoryReadStream.ReadBytes*"></a>
+  
+  <h4 id="MemoryReadStream_ReadBytes_void___uint32_" data-uid="MemoryReadStream.ReadBytes(void *,uint32)"><a href="#collapsible-MemoryReadStream_ReadBytes_void___uint32_" class="expander" data-toggle="collapse">ReadBytes(void* data, uint32 bytes)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_ReadBytes_void___uint32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reads bytes from the stream </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void ReadBytes(void* data, uint32 bytes) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">void</span></span>
+        <span class="parametername">data</span>
+        <p><p>Data to read</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">bytes</span>
+        <p><p>Amount of bytes to read</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ReadStream.html#ReadStream_ReadBytes_void___uint32_">ReadStream::ReadBytes(void* data, uint32 bytes)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_SetPosition_uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.SetPosition(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L116" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_SetPosition_" data-uid="MemoryReadStream.SetPosition*"></a>
+  
+  <h4 id="MemoryReadStream_SetPosition_uint32_" data-uid="MemoryReadStream.SetPosition(uint32)"><a href="#collapsible-MemoryReadStream_SetPosition_uint32_" class="expander" data-toggle="collapse">SetPosition(uint32 seek)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_SetPosition_uint32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Set new position in the stream </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void SetPosition(uint32 seek) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">seek</span>
+        <p><p>New position in the stream</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Stream.html#Stream_SetPosition_uint32_">Stream::SetPosition(uint32 seek)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream.md&amp;value=---%0Auid%3A%20MemoryReadStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

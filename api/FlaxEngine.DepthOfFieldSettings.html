@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct DepthOfFieldSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_DepthOfFieldSettings_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Contains settings for Depth Of Field effect rendering.&quot;)]
 public struct DepthOfFieldSettings</code></pre>
   </div>
 
@@ -151,7 +150,6 @@ public struct DepthOfFieldSettings</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.01F)]
 [EditorOrder(1)]
-[Tooltip(&quot;The blur intensity in the out-of-focus areas. Allows reducing blur amount by scaling down the Gaussian Blur radius. Normalized to range 0-1.&quot;)]
 public float BlurStrength</code></pre>
   </div>
 
@@ -190,7 +188,6 @@ public float BlurStrength</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.001F)]
 [EditorOrder(13)]
-[Tooltip(&quot;Depth of Field bokeh shapes blur threshold.&quot;)]
 public float BokehBlurThreshold</code></pre>
   </div>
 
@@ -229,7 +226,6 @@ public float BokehBlurThreshold</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 10F, 0.01F)]
 [EditorOrder(9)]
-[Tooltip(&quot;Controls brightness of the bokeh shapes. Can be used to fade them or make more intense.&quot;)]
 public float BokehBrightness</code></pre>
   </div>
 
@@ -268,7 +264,6 @@ public float BokehBrightness</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 10000F, 0.01F)]
 [EditorOrder(12)]
-[Tooltip(&quot;The minimum pixel brightness to create bokeh. Pixels with lower brightness will be skipped.&quot;)]
 public float BokehBrightnessThreshold</code></pre>
   </div>
 
@@ -307,7 +302,6 @@ public float BokehBrightnessThreshold</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 5F, 0.001F)]
 [EditorOrder(15)]
-[Tooltip(&quot;Controls bokeh shape generation for depth discontinuities.&quot;)]
 public float BokehDepthCutoff</code></pre>
   </div>
 
@@ -345,7 +339,6 @@ public float BokehDepthCutoff</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(7)]
-[Tooltip(&quot;If checked, bokeh shapes will be rendered.&quot;)]
 public bool BokehEnabled</code></pre>
   </div>
 
@@ -384,7 +377,6 @@ public bool BokehEnabled</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 2F, 0.001F)]
 [EditorOrder(14)]
-[Tooltip(&quot;Controls bokeh shapes brightness falloff. Higher values reduce bokeh visibility.&quot;)]
 public float BokehFalloff</code></pre>
   </div>
 
@@ -422,7 +414,6 @@ public float BokehFalloff</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
-[Tooltip(&quot;Defines bokeh shapes type.&quot;)]
 public BokehShapeType BokehShape</code></pre>
   </div>
 
@@ -460,7 +451,6 @@ public BokehShapeType BokehShape</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(11)]
-[Tooltip(&quot;If BokehShape is set to Custom, then this texture will be used for the bokeh shapes. For best performance, use small, compressed, grayscale textures (for instance 32px).&quot;)]
 public Texture BokehShapeCustom</code></pre>
   </div>
 
@@ -499,7 +489,6 @@ public Texture BokehShapeCustom</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 200F, 0.1F)]
 [EditorOrder(8)]
-[Tooltip(&quot;Controls size of the bokeh shapes.&quot;)]
 public float BokehSize</code></pre>
   </div>
 
@@ -538,7 +527,6 @@ public float BokehSize</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 2F)]
 [EditorOrder(6)]
-[Tooltip(&quot;The distance in World Units which describes border after that there is no blur (useful to disable DoF on sky). Use 0 to disable that feature.&quot;)]
 public float DepthLimit</code></pre>
   </div>
 
@@ -576,7 +564,6 @@ public float DepthLimit</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[Tooltip(&quot;If checked, depth of field effect will be visible.&quot;)]
 public bool Enabled</code></pre>
   </div>
 
@@ -615,7 +602,6 @@ public bool Enabled</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(5)]
-[Tooltip(&quot;The distance in World Units from the focal region on the side farther from the camera over which the scene transitions from focused to blurred.&quot;)]
 public float FarTransitionRange</code></pre>
   </div>
 
@@ -654,7 +640,6 @@ public float FarTransitionRange</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(2)]
-[Tooltip(&quot;The distance in World Units from the camera that acts as the center of the region where the scene is perfectly in focus and no blurring occurs.&quot;)]
 public float FocalDistance</code></pre>
   </div>
 
@@ -693,7 +678,6 @@ public float FocalDistance</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(3)]
-[Tooltip(&quot;The distance in World Units beyond the focal distance where the scene is perfectly in focus and no blurring occurs.&quot;)]
 public float FocalRegion</code></pre>
   </div>
 
@@ -732,7 +716,6 @@ public float FocalRegion</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(4)]
-[Tooltip(&quot;The distance in World Units from the focal region on the side nearer to the camera over which the scene transitions from focused to blurred.&quot;)]
 public float NearTransitionRange</code></pre>
   </div>
 
@@ -816,7 +799,8 @@ public DepthOfFieldSettingsOverride OverrideFlags</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

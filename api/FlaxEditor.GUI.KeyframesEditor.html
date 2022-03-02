@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class KeyframesEditor
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -110,6 +110,7 @@
   <div id="collapsible-implements-FlaxEditor_GUI_KeyframesEditor" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></div>
   </div>
   </div>
   
@@ -121,6 +122,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl__containsFocus">ContainerControl._containsFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl__isLayoutLocked">ContainerControl._isLayoutLocked</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_LockChildrenRecursive">ContainerControl.LockChildrenRecursive()</a>
@@ -184,6 +188,15 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IntersectsChildContent_FlaxEngine_GUI_Control_FlaxEngine_Vector2_FlaxEngine_Vector2__">ContainerControl.IntersectsChildContent(Control, Vector2, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Vector2, List&lt;Control&gt;)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -288,13 +301,22 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CullChildren">ContainerControl.CullChildren</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsMouseOver">ContainerControl.IsMouseOver</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsTouchOver">ContainerControl.IsTouchOver</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
@@ -337,6 +359,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
@@ -567,6 +601,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsDragOver">Control.IsDragOver</a>
     </div>
     <div>
@@ -623,7 +663,7 @@
   <h5 id="FlaxEditor_GUI_KeyframesEditor_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
-public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></pre>
+public class KeyframesEditor : ContainerControl, IComparable, IDrawable, IKeyframesEditor</code></pre>
   </div>
 
   
@@ -701,6 +741,42 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
   
   
   
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_CustomViewPanning" data-uid="FlaxEditor.GUI.KeyframesEditor.CustomViewPanning"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_CustomViewPanning" class="expander" data-toggle="collapse">CustomViewPanning</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_CustomViewPanning" class="collapse in">
+  <div class="markdown level1 summary"><p>The function for custom view panning. Gets input movement delta (in keyframes editor control space) and returns the renaming input delta to process by keyframes editor itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;Vector2, Vector2&gt; CustomViewPanning</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Func</span>&lt;<a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>, <a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_GUI_KeyframesEditor_DefaultValue" data-uid="FlaxEditor.GUI.KeyframesEditor.DefaultValue"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_DefaultValue" class="expander" data-toggle="collapse">DefaultValue</a></h4>
   
   <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_DefaultValue" class="collapse in">
@@ -721,6 +797,78 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
     <tr>
       <td>
         <span class="xref">System.Object</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_Enable" data-uid="FlaxEditor.GUI.KeyframesEditor.Enable"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_Enable" class="expander" data-toggle="collapse">Enable</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_Enable" class="collapse in">
+  <div class="markdown level1 summary"><p>True if enable view panning. Otherwise user won&apos;t be able to move the view area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Enable</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_EnableKeyframesValueEdit" data-uid="FlaxEditor.GUI.KeyframesEditor.EnableKeyframesValueEdit"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_EnableKeyframesValueEdit" class="expander" data-toggle="collapse">EnableKeyframesValueEdit</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_EnableKeyframesValueEdit" class="collapse in">
+  <div class="markdown level1 summary"><p>True if enable keyframes values editing (via popup).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EnableKeyframesValueEdit</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
@@ -993,6 +1141,45 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
   </div>
   
   
+  <a id="FlaxEditor_GUI_KeyframesEditor_KeyframesEditorContext_" data-uid="FlaxEditor.GUI.KeyframesEditor.KeyframesEditorContext*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_KeyframesEditorContext" data-uid="FlaxEditor.GUI.KeyframesEditor.KeyframesEditorContext"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_KeyframesEditorContext" class="expander" data-toggle="collapse">KeyframesEditorContext</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_KeyframesEditorContext" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the keyframes editor collection used by this editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKeyframesEditorContext KeyframesEditorContext { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.GUI.IKeyframesEditorContext.html">IKeyframesEditorContext</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_KeyframesEditorContext">IKeyframesEditor.KeyframesEditorContext</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_GUI_KeyframesEditor_ScrollBars_" data-uid="FlaxEditor.GUI.KeyframesEditor.ScrollBars*"></a>
   
   <h4 id="FlaxEditor_GUI_KeyframesEditor_ScrollBars" data-uid="FlaxEditor.GUI.KeyframesEditor.ScrollBars"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_ScrollBars" class="expander" data-toggle="collapse">ScrollBars</a></h4>
@@ -1131,6 +1318,34 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_ClearSelection_" data-uid="FlaxEditor.GUI.KeyframesEditor.ClearSelection*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_ClearSelection" data-uid="FlaxEditor.GUI.KeyframesEditor.ClearSelection"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_ClearSelection" class="expander" data-toggle="collapse">ClearSelection()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_ClearSelection" class="collapse in">
+  <div class="markdown level1 summary"><p>Clears the selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearSelection()</code></pre>
+  </div>
+
   
   
   
@@ -1333,6 +1548,470 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
   </div>
   
   
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesCopy_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesCopy*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesCopy_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_Text_StringBuilder_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesCopy(FlaxEditor.GUI.IKeyframesEditor,System.Nullable{System.Single},System.Text.StringBuilder)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesCopy_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_Text_StringBuilder_" class="expander" data-toggle="collapse">OnKeyframesCopy(IKeyframesEditor, Nullable&lt;Single&gt;, StringBuilder)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesCopy_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_Text_StringBuilder_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes selection should be copied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesCopy(IKeyframesEditor editor, float? timeOffset, StringBuilder data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</span>
+        <span class="parametername">timeOffset</span>
+        <p><p>The additional time offset to apply to the copied keyframes (optional).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Text.StringBuilder</span></span>
+        <span class="parametername">data</span>
+        <p><p>The result copy data text stream.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesCopy_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_Text_StringBuilder_">IKeyframesEditor.OnKeyframesCopy(IKeyframesEditor, Nullable&lt;Single&gt;, StringBuilder)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesDelete_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesDelete*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesDelete_FlaxEditor_GUI_IKeyframesEditor_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesDelete(FlaxEditor.GUI.IKeyframesEditor)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesDelete_FlaxEditor_GUI_IKeyframesEditor_" class="expander" data-toggle="collapse">OnKeyframesDelete(IKeyframesEditor)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesDelete_FlaxEditor_GUI_IKeyframesEditor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes selection should be deleted for all editors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesDelete(IKeyframesEditor editor)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesDelete_FlaxEditor_GUI_IKeyframesEditor_">IKeyframesEditor.OnKeyframesDelete(IKeyframesEditor)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesDeselect_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesDeselect*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesDeselect_FlaxEditor_GUI_IKeyframesEditor_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesDeselect(FlaxEditor.GUI.IKeyframesEditor)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesDeselect_FlaxEditor_GUI_IKeyframesEditor_" class="expander" data-toggle="collapse">OnKeyframesDeselect(IKeyframesEditor)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesDeselect_FlaxEditor_GUI_IKeyframesEditor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes selection should be cleared for editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesDeselect(IKeyframesEditor editor)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesDeselect_FlaxEditor_GUI_IKeyframesEditor_">IKeyframesEditor.OnKeyframesDeselect(IKeyframesEditor)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesGet_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesGet*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesGet_System_String_System_Action_System_String_System_Single_System_Object__" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesGet(System.String,System.Action{System.String,System.Single,System.Object})"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesGet_System_String_System_Action_System_String_System_Single_System_Object__" class="expander" data-toggle="collapse">OnKeyframesGet(String, Action&lt;String, Single, Object&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesGet_System_String_System_Action_System_String_System_Single_System_Object__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when collecting keyframes from the context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesGet(string trackName, Action&lt;string, float, object&gt; get)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">trackName</span>
+        <p><p>The name of the track.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Single</span>, <span class="xref">System.Object</span>&gt;</span>
+        <span class="parametername">get</span>
+        <p><p>The getter function to call for all keyframes. Args are: track name, keyframe time, keyframe object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesGet_System_String_System_Action_System_String_System_Single_System_Object__">IKeyframesEditor.OnKeyframesGet(String, Action&lt;String, Single, Object&gt;)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesMove_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesMove*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesMove_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Vector2_System_Boolean_System_Boolean_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesMove(FlaxEditor.GUI.IKeyframesEditor,FlaxEngine.GUI.ContainerControl,FlaxEngine.Vector2,System.Boolean,System.Boolean)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesMove_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Vector2_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">OnKeyframesMove(IKeyframesEditor, ContainerControl, Vector2, Boolean, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesMove_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Vector2_System_Boolean_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes selection should be moved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesMove(IKeyframesEditor editor, ContainerControl control, Vector2 location, bool start, bool end)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.ContainerControl.html">ContainerControl</a></span>
+        <span class="parametername">control</span>
+        <p><p>The source movement control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">location</span>
+        <p><p>The source movement location (in source control local space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">start</span>
+        <p><p>The movement start flag.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">end</span>
+        <p><p>The movement end flag.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesMove_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Vector2_System_Boolean_System_Boolean_">IKeyframesEditor.OnKeyframesMove(IKeyframesEditor, ContainerControl, Vector2, Boolean, Boolean)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesPaste_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesPaste*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesPaste_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_String___System_Int32__" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesPaste(FlaxEditor.GUI.IKeyframesEditor,System.Nullable{System.Single},System.String[],System.Int32@)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesPaste_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_String___System_Int32__" class="expander" data-toggle="collapse">OnKeyframesPaste(IKeyframesEditor, Nullable&lt;Single&gt;, String[], ref Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesPaste_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_String___System_Int32__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes should be pasted (from clipboard).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesPaste(IKeyframesEditor editor, float? timeOffset, string[] datas, ref int index)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</span>
+        <span class="parametername">timeOffset</span>
+        <p><p>The additional time offset to apply to the pasted keyframes (optional).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span>[]</span>
+        <span class="parametername">datas</span>
+        <p><p>The pasted data text.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>The counter for the current data index. Set to -1 until the calling editor starts paste operation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesPaste_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_String___System_Int32__">IKeyframesEditor.OnKeyframesPaste(IKeyframesEditor, Nullable&lt;Single&gt;, String[], ref Int32)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelection_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSelection*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelection_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Rectangle_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSelection(FlaxEditor.GUI.IKeyframesEditor,FlaxEngine.GUI.ContainerControl,FlaxEngine.Rectangle)"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelection_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Rectangle_" class="expander" data-toggle="collapse">OnKeyframesSelection(IKeyframesEditor, ContainerControl, Rectangle)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelection_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Rectangle_" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when keyframes selection rectangle gets updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesSelection(IKeyframesEditor editor, ContainerControl control, Rectangle selection)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html">IKeyframesEditor</a></span>
+        <span class="parametername">editor</span>
+        <p><p>The source editor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.ContainerControl.html">ContainerControl</a></span>
+        <span class="parametername">control</span>
+        <p><p>The source selection control.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a></span>
+        <span class="parametername">selection</span>
+        <p><p>The source selection rectangle (in source control local space).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesSelection_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Rectangle_">IKeyframesEditor.OnKeyframesSelection(IKeyframesEditor, ContainerControl, Rectangle)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelectionCount_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSelectionCount*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelectionCount" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSelectionCount"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelectionCount" class="expander" data-toggle="collapse">OnKeyframesSelectionCount()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSelectionCount" class="collapse in">
+  <div class="markdown level1 summary"><p>Called to calculate the total amount of selected keyframes in the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OnKeyframesSelectionCount()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p><p>The selected keyframes amount.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesSelectionCount">IKeyframesEditor.OnKeyframesSelectionCount()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSet_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSet*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_OnKeyframesSet_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_System_Single_System_Object___" data-uid="FlaxEditor.GUI.KeyframesEditor.OnKeyframesSet(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.Single,System.Object}})"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSet_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_System_Single_System_Object___" class="expander" data-toggle="collapse">OnKeyframesSet(List&lt;KeyValuePair&lt;Single, Object&gt;&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_OnKeyframesSet_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_System_Single_System_Object___" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when setting keyframes data (opposite to <a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesGet_System_String_System_Action_System_String_System_Single_System_Object__">OnKeyframesGet(String, Action&lt;String, Single, Object&gt;)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnKeyframesSet(List&lt;KeyValuePair&lt;float, object&gt;&gt; keyframes)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.Single</span>, <span class="xref">System.Object</span>&gt;&gt;</span>
+        <span class="parametername">keyframes</span>
+        <p><p>The list of keyframes, null for empty list. Keyframe data is: time and keyframe object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditor.html#FlaxEditor_GUI_IKeyframesEditor_OnKeyframesSet_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_System_Single_System_Object___">IKeyframesEditor.OnKeyframesSet(List&lt;KeyValuePair&lt;Single, Object&gt;&gt;)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_GUI_KeyframesEditor_OnSizeChanged_" data-uid="FlaxEditor.GUI.KeyframesEditor.OnSizeChanged*"></a>
   
   <h4 id="FlaxEditor_GUI_KeyframesEditor_OnSizeChanged" data-uid="FlaxEditor.GUI.KeyframesEditor.OnSizeChanged"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_OnSizeChanged" class="expander" data-toggle="collapse">OnSizeChanged()</a></h4>
@@ -1403,6 +2082,34 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ResetView()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_KeyframesEditor_SelectAll_" data-uid="FlaxEditor.GUI.KeyframesEditor.SelectAll*"></a>
+  
+  <h4 id="FlaxEditor_GUI_KeyframesEditor_SelectAll" data-uid="FlaxEditor.GUI.KeyframesEditor.SelectAll"><a href="#collapsible-FlaxEditor_GUI_KeyframesEditor_SelectAll" class="expander" data-toggle="collapse">SelectAll()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_KeyframesEditor_SelectAll" class="collapse in">
+  <div class="markdown level1 summary"><p>Selects all keyframes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectAll()</code></pre>
   </div>
 
   
@@ -1731,7 +2438,8 @@ public class KeyframesEditor : ContainerControl, IComparable, IDrawable</code></
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

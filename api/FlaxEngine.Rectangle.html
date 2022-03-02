@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Rectangle
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -124,7 +124,6 @@
   <h5 id="FlaxEngine_Rectangle_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Describes rectangle in 2D space defines by location of its upper-left corner and the size.&quot;)]
 public struct Rectangle : IEquatable&lt;Rectangle&gt;</code></pre>
   </div>
 
@@ -404,8 +403,7 @@ public struct Rectangle : IEquatable&lt;Rectangle&gt;</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Rectangle location (coordinates of the upper-left corner)&quot;)]
-public Vector2 Location</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 Location</code></pre>
   </div>
 
   
@@ -441,8 +439,7 @@ public Vector2 Location</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Rectangle size&quot;)]
-public Vector2 Size</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 Size</code></pre>
   </div>
 
   
@@ -481,7 +478,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Bottom { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Bottom { get; }</code></pre>
   </div>
 
   
@@ -518,7 +515,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 BottomLeft { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 BottomLeft { get; }</code></pre>
   </div>
 
   
@@ -555,7 +552,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 BottomRight { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 BottomRight { get; }</code></pre>
   </div>
 
   
@@ -592,7 +589,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 Center { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 Center { get; }</code></pre>
   </div>
 
   
@@ -666,7 +663,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Left { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Left { get; }</code></pre>
   </div>
 
   
@@ -703,7 +700,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Right { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Right { get; }</code></pre>
   </div>
 
   
@@ -740,7 +737,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Top { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Top { get; }</code></pre>
   </div>
 
   
@@ -777,7 +774,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 UpperLeft { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 UpperLeft { get; }</code></pre>
   </div>
 
   
@@ -814,7 +811,7 @@ public Vector2 Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 UpperRight { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 UpperRight { get; }</code></pre>
   </div>
 
   
@@ -1169,7 +1166,7 @@ public Vector2 Size</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a></span>
         <span class="parametername">a</span>
-        <p><p>Firat rectangle</p>
+        <p><p>First rectangle</p>
 </p>
       </td>
     </tr>
@@ -1189,6 +1186,63 @@ public Vector2 Size</code></pre>
       <td>
         <span class="xref">System.Single</span>
         <p><p>Resulting distance, 0 if overlapping</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Rectangle_Distance_" data-uid="FlaxEngine.Rectangle.Distance*"></a>
+  
+  <h4 id="FlaxEngine_Rectangle_Distance_FlaxEngine_Rectangle_FlaxEngine_Vector2_" data-uid="FlaxEngine.Rectangle.Distance(FlaxEngine.Rectangle,FlaxEngine.Vector2)"><a href="#collapsible-FlaxEngine_Rectangle_Distance_FlaxEngine_Rectangle_FlaxEngine_Vector2_" class="expander" data-toggle="collapse">Distance(Rectangle, Vector2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Rectangle_Distance_FlaxEngine_Rectangle_FlaxEngine_Vector2_" class="collapse in">
+  <div class="markdown level1 summary"><p>Computed distance between rectangle and the point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Distance(Rectangle rect, Vector2 p)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Rectangle.html">Rectangle</a></span>
+        <span class="parametername">rect</span>
+        <p><p>The rectangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">p</span>
+        <p><p>The point.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The resulting distance, 0 if point is inside the rectangle.</p>
 </p>
       </td>
     </tr>
@@ -2595,7 +2649,8 @@ public Vector2 Size</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

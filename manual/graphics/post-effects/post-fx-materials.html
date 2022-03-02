@@ -7,7 +7,7 @@
     <title>Post Process Materials | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Post Process Materials | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -123,7 +123,19 @@ Use the following tutorial steps to create simple distortion with coloring effec
 <p><img src="media/post-fx-material-tutorial-6.jpg" alt="PostFx Material Tutorial"></p>
 <div class="NOTE"><h5>Note</h5><p>Single <em>PostFx Volume</em> can use up to <code>8</code> post-process materials. But you can stack them and use unlimited amount of post process materials. Hovewer keep in mind to maintain a solid performance because fullscreen effects rendering may slow down a game.</p>
 </div>
-<p>When extending the rendering pipeline with C# scripts and using <a href="http://docs.flaxengine.com/api/FlaxEngine.RenderTask.html">render tasks</a> you can use <a href="http://docs.flaxengine.com/api/FlaxEngine.GPUContext.html#FlaxEngine_Rendering_GPUContext_DrawPostFxMaterial_FlaxEngine_MaterialBase_FlaxEngine_Rendering_GPUTexture_FlaxEngine_Rendering_GPUTexture_">GPUContext.DrawPostFxMaterial</a> method. This allows to extend rendering and use custom drawing with <a href="http://docs.flaxengine.com/api/FlaxEngine.GPUTexture.html">GPUTextures</a>.</p>
+<p>When extending the rendering pipeline with C# scripts and using <a href="http://docs.flaxengine.com/api/FlaxEngine.RenderTask.html">render tasks</a> you can use <a href="https://docs.flaxengine.com/api/FlaxEngine.Renderer.html#collapsible-FlaxEngine_Renderer_DrawPostFxMaterial_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_MaterialBase_FlaxEngine_GPUTexture_FlaxEngine_GPUTextureView_">Renderer.DrawPostFxMaterial</a> method. This allows to extend rendering and use custom drawing with <a href="http://docs.flaxengine.com/api/FlaxEngine.GPUTexture.html">GPUTextures</a>.</p>
+<h2 id="post-process-inputs">Post process inputs</h2>
+<p><img src="media/postfx-material-nodes.png" alt="PostFx Material Input Textures"></p>
+<p>As a main input post process materials receive <strong>Scene Color</strong> which contains the pixels with the currently passed input buffer to the postprocessing. By defualt it&#39;s final rendered frame but if you change material location it can contains rendered scene before applying any AA or transparency and be in HDR format.</p>
+<p>Usefull nodes:</p>
+<ul>
+<li><strong>Scene Color</strong> - the input texture passed to the postfx material by the renderer (see material location options).</li>
+<li><strong>Scene Texture</strong> - the general purpose access to common scene rendering buffers such as: Diffuse Color, Roughness, World Normal, Base Color, Metalness, etc. It can be used to implement custom effects such as normal-vector- based edge detection filter.</li>
+<li><strong>Scene Depth</strong> - the depth buffer. Can be used to implement depth-based effects such as outlines rendering. <em>Depth</em> output of this node returns the linear depth value (in <code>0-1</code> range). To access hardware depth sample texture manually (eg. with Sample Texture node with Point Clamp filter).</li>
+<li><strong>Linearize Depth</strong> - converts the hardwere depth buffer value (from current camera view) into the linear depth value (in <code>0-1</code> range). You can multiply output by <em>Far Plane</em> from <em>View</em> node to get depth in world units.</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>If you are experienced with Unreal then <strong>PostProcessInput0</strong> is <strong>Scene Color</strong> node in Flax for postprocess materials input.</p>
+</div>
 <h2 id="post-process-material-location">Post process material location</h2>
 <p><img src="../materials/media/properties-misc.png" alt="PostFx Material Location"></p>
 <p><em>Flax Engine</em> rendering pipeline is very complex. There are many effects that contribute into the final frame.
@@ -162,12 +174,13 @@ The same applies to the post process materials. Every material contains a proper
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/graphics/post-effects/post-fx-materials.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/graphics/post-effects/post-fx-materials.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

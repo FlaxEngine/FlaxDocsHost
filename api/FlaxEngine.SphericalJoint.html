@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SphericalJoint
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -109,10 +109,22 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     <div class="level5"><span class="xref">SphericalJoint</span></div>
     </div>
   </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SphericalJoint" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SphericalJoint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SphericalJoint" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
+  </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_SphericalJoint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_SphericalJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_SphericalJoint" data-uid="FlaxEngine.Joint.SetJointLocation(FlaxEngine.Vector3)"><a href="#collapsible-inheritedMembers-FlaxEngine_SphericalJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_SphericalJoint" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_">Joint.SetJointLocation(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_">Joint.SetJointOrientation(Quaternion)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_GetCurrentForce_FlaxEngine_Vector3__FlaxEngine_Vector3__">Joint.GetCurrentForce(Vector3, Vector3)</a>
     </div>
@@ -127,6 +139,9 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableCollision">Joint.EnableCollision</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableAutoAnchor">Joint.EnableAutoAnchor</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_TargetAnchor">Joint.TargetAnchor</a>
@@ -205,6 +220,12 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -387,6 +408,9 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -477,6 +501,9 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -509,8 +536,7 @@ rotate around the anchor points, and their rotation can be limited by an ellipti
   <h5 id="FlaxEngine_SphericalJoint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Physics joint that removes all translational degrees of freedom but allows all rotational degrees of freedom. Essentially this ensures that the anchor points of the two bodies are always coincident. Bodies are allowed to rotate around the anchor points, and their rotation can be limited by an elliptical cone.&quot;)]
-public class SphericalJoint : Joint</code></pre>
+public class SphericalJoint : Joint, ISerializable</code></pre>
   </div>
 
   
@@ -565,7 +591,6 @@ public class SphericalJoint : Joint</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the joint mode flags. Controls joint behaviour.&quot;)]
 public SphericalJointFlag Flags { get; set; }</code></pre>
   </div>
 
@@ -606,7 +631,6 @@ public SphericalJointFlag Flags { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(110)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the joint limit properties.&quot;)]
 public LimitConeRange Limit { get; set; }</code></pre>
   </div>
 
@@ -660,7 +684,8 @@ public LimitConeRange Limit { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

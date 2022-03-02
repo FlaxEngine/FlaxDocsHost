@@ -7,7 +7,7 @@
     <title>Script properties and fields | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Script properties and fields | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -91,7 +91,16 @@
 
 <p>Every script can contain various fields and properties. By default Flax shows all <strong>public fields and properties</strong> in the <em>Properties</em> window so user may edit them (undo/redo is supported).</p>
 <h1 id="script">Script</h1>
-<h2 id="c">C#</h2>
+<div class="tabGroup" id="tabgroup_R3yT1-4y9k">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k_code-csharp" role="tab" aria-controls="tabpanel_R3yT1-4y9k_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k_code-cpp" role="tab" aria-controls="tabpanel_R3yT1-4y9k_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_R3yT1-4y9k_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 public class MyScript : Script
@@ -100,7 +109,8 @@ public class MyScript : Script
 	public Color Field2 = Color.Yellow;
 	public DirectionalLight Field3 { get; set; }
 }
-</code></pre><h2 id="c-1">C++</h2>
+</code></pre></section>
+<section id="tabpanel_R3yT1-4y9k_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -122,23 +132,49 @@ API_CLASS() class GAME_API MyScript : public Script
     void OnDisable() override;
     void OnUpdate() override;
 };
-</code></pre><h2 id="editor">Editor</h2>
+</code></pre></section>
+</div>
 <p><img src="media/script-ui.png" alt="Script Properties"></p>
 <h1 id="attributes">Attributes</h1>
-<h2 id="c-2">C#</h2>
 <p>If you want to <strong>hide</strong> a public property or a field simply use <a href="https://docs.flaxengine.com/api/FlaxEngine.HideInEditorAttribute.html">HideInEditor</a> attribute.</p>
+<div class="tabGroup" id="tabgroup_R3yT1-4y9k-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k-1_code-csharp" role="tab" aria-controls="tabpanel_R3yT1-4y9k-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k-1_code-cpp" role="tab" aria-controls="tabpanel_R3yT1-4y9k-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_R3yT1-4y9k-1_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">[HideInEditor]
 public float Field1 = 11;
-</code></pre><p>If you want to <strong>don&#39;t serialize</strong> a public property or a field use <a href="https://docs.flaxengine.com/api/FlaxEngine.NoSerializeAttribute.html">NoSerialize</a> attribute.</p>
-<pre><code class="lang-cs">[NoSerialize]
-public float Field1 = 11;
-</code></pre><h2 id="c-3">C++</h2>
-<p>The C++ API supports the exact same attributes which can be used as shown.</p>
+</code></pre></section>
+<section id="tabpanel_R3yT1-4y9k-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">API_FIELD(Attributes=&quot;HideInEditor&quot;)
 float Field1 = 11;
-</code></pre><pre><code class="lang-cpp">API_FIELD(Attributes=&quot;NoSerialize&quot;)
+</code></pre></section>
+</div>
+<p>If you want to <strong>don&#39;t serialize</strong> a public property or a field use <a href="https://docs.flaxengine.com/api/FlaxEngine.NoSerializeAttribute.html">NoSerialize</a> attribute.</p>
+<div class="tabGroup" id="tabgroup_R3yT1-4y9k-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k-2_code-csharp" role="tab" aria-controls="tabpanel_R3yT1-4y9k-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_R3yT1-4y9k-2_code-cpp" role="tab" aria-controls="tabpanel_R3yT1-4y9k-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_R3yT1-4y9k-2_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">[NoSerialize]
+public float Field1 = 11;
+</code></pre></section>
+<section id="tabpanel_R3yT1-4y9k-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">API_FIELD(Attributes=&quot;NoSerialize&quot;)
 float Field1 = 11;
-</code></pre><p>To learn more about using attributes see this <a href="attributes.html">page</a>.</p>
+</code></pre></section>
+</div>
+<p>To learn more about using attributes see this <a href="attributes.html">page</a>.</p>
 <p>To learn more about scripts serialization see this <a href="serialization/index.html">page</a>.</p>
 </article>
           </div>
@@ -148,12 +184,13 @@ float Field1 = 11;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/properties.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/properties.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

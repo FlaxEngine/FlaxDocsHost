@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Terrain
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.PhysicsColliderActor.html">PhysicsColliderActor</a></div>
     <div class="level5"><span class="xref">Terrain</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Terrain" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Terrain" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Terrain" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -206,6 +212,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -388,6 +400,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -478,6 +493,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -510,8 +528,7 @@
   <h5 id="FlaxEngine_Terrain_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a single terrain object.&quot;)]
-public sealed class Terrain : PhysicsColliderActor</code></pre>
+public sealed class Terrain : PhysicsColliderActor, ISerializable</code></pre>
   </div>
 
   
@@ -748,7 +765,6 @@ public sealed class Terrain : PhysicsColliderActor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(120)]
 [EditorDisplay(&quot;Terrain&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain chunks bounds extent. Values used to expand terrain chunks bounding boxes. Use it when your terrain material is performing vertex offset operations on a GPU.&quot;)]
 public Vector3 BoundsExtent { get; set; }</code></pre>
   </div>
 
@@ -787,7 +803,6 @@ public Vector3 BoundsExtent { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain chunk vertices amount per edge (square).&quot;)]
 public int ChunkSize { get; }</code></pre>
   </div>
 
@@ -829,7 +844,6 @@ public int ChunkSize { get; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Collision&quot;, &quot;Collision LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain geometry LOD index used for collision.&quot;)]
 public int CollisionLOD { get; set; }</code></pre>
   </div>
 
@@ -870,7 +884,6 @@ public int CollisionLOD { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(115)]
 [EditorDisplay(&quot;Terrain&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -912,7 +925,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain forced Level Of Detail index. Allows to bind the given chunks LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -954,7 +966,6 @@ public int ForcedLOD { get; set; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain Level Of Detail bias value. Allows to increase or decrease rendered terrain quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -993,7 +1004,6 @@ public int LODBias { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain Level Of Detail count.&quot;)]
 public int LODCount { get; }</code></pre>
   </div>
 
@@ -1035,7 +1045,6 @@ public int LODCount { get; }</code></pre>
 [Limit(0F, 5F, 0.01F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;LOD Distribution&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain LODs distribution parameter. Adjusts terrain chunks transitions distances. Use lower value to increase terrain quality or higher value to increase performance. Default value is 0.75.&quot;)]
 public float LODDistribution { get; set; }</code></pre>
   </div>
 
@@ -1076,7 +1085,6 @@ public float LODDistribution { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Terrain&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The default material used for terrain rendering (chunks can override this).&quot;)]
 public MaterialBase Material { get; set; }</code></pre>
   </div>
 
@@ -1115,7 +1123,6 @@ public MaterialBase Material { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain patches count. Each patch contains 16 chunks arranged into a 4x4 square.&quot;)]
 public int PatchesCount { get; }</code></pre>
   </div>
 
@@ -1158,7 +1165,6 @@ public int PatchesCount { get; }</code></pre>
 [EditorDisplay(&quot;Collision&quot;, null)]
 [AssetReference(typeof(PhysicalMaterial), true)]
 [Unmanaged]
-[Tooltip(&quot;The physical material used to define the terrain collider physical properties.&quot;)]
 public JsonAsset PhysicalMaterial { get; set; }</code></pre>
   </div>
 
@@ -1200,7 +1206,6 @@ public JsonAsset PhysicalMaterial { get; set; }</code></pre>
 [Limit(0F, 10000F, 0.1F)]
 [EditorDisplay(&quot;Terrain&quot;, &quot;Scale In Lightmap&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the terrain scale in lightmap (applied to all the chunks). Use value higher than 1 to increase baked lighting resolution.&quot;)]
 public float ScaleInLightmap { get; set; }</code></pre>
   </div>
 
@@ -1241,7 +1246,6 @@ public float ScaleInLightmap { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the patch.&quot;)]
 public void AddPatch(ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -1282,7 +1286,6 @@ public void AddPatch(ref Int2 patchCoord)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the patches to the terrain (clears existing ones).&quot;)]
 public void AddPatches(ref Int2 numberOfPatches)</code></pre>
   </div>
 
@@ -1323,7 +1326,6 @@ public void AddPatches(ref Int2 numberOfPatches)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a point on the terrain collider that is closest to a given location. Can be used to find a hit location or position to apply explosion force or any other special effects.&quot;)]
 public void ClosestPoint(Vector3 position, out Vector3 result)</code></pre>
   </div>
 
@@ -1372,7 +1374,6 @@ public void ClosestPoint(Vector3 position, out Vector3 result)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the terrain chunk.&quot;)]
 public void DrawChunk(ref RenderContext renderContext, ref Int2 patchCoord, ref Int2 chunkCoord, MaterialBase material, int lodIndex = 0)</code></pre>
   </div>
 
@@ -1445,7 +1446,6 @@ public void DrawChunk(ref RenderContext renderContext, ref Int2 patchCoord, ref 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the terrain patch.&quot;)]
 public void DrawPatch(ref RenderContext renderContext, ref Int2 patchCoord, MaterialBase material, int lodIndex = 0)</code></pre>
   </div>
 
@@ -1510,7 +1510,6 @@ public void DrawPatch(ref RenderContext renderContext, ref Int2 patchCoord, Mate
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain chunk world bounds at the given index.&quot;)]
 public void GetChunkBounds(int patchIndex, int chunkIndex, out BoundingBox bounds)</code></pre>
   </div>
 
@@ -1567,7 +1566,6 @@ public void GetChunkBounds(int patchIndex, int chunkIndex, out BoundingBox bound
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The chunk material that overrides the terrain default one.&quot;)]
 public MaterialBase GetChunkOverrideMaterial(ref Int2 patchCoord, ref Int2 chunkCoord)</code></pre>
   </div>
 
@@ -1626,7 +1624,6 @@ public MaterialBase GetChunkOverrideMaterial(ref Int2 patchCoord, ref Int2 chunk
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain patch world bounds at the given index.&quot;)]
 public void GetPatchBounds(int patchIndex, out BoundingBox bounds)</code></pre>
   </div>
 
@@ -1675,7 +1672,6 @@ public void GetPatchBounds(int patchIndex, out BoundingBox bounds)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The terrain patch coordinates (x and z) at the given index.&quot;)]
 public void GetPatchCoord(int patchIndex, out Int2 patchCoord)</code></pre>
   </div>
 
@@ -1724,7 +1720,6 @@ public void GetPatchCoord(int patchIndex, out Int2 patchCoord)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The zero-based index of the terrain patch in the terrain patches collection.&quot;)]
 public int GetPatchIndex(ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -1775,7 +1770,6 @@ public int GetPatchIndex(ref Int2 patchCoord)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if terrain has the patch at the given coordinates.&quot;)]
 public bool HasPatch(ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -1826,7 +1820,6 @@ public bool HasPatch(ref Int2 patchCoord)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against this terrain collision shape. Returns the hit chunk.&quot;)]
 public bool RayCast(Ray ray, out float resultHitDistance, out Int2 resultPatchCoord, out Int2 resultChunkCoord, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -1909,7 +1902,6 @@ public bool RayCast(Ray ray, out float resultHitDistance, out Int2 resultPatchCo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against terrain collision, returns results in a RayCastHit structure.&quot;)]
 public bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hitInfo, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -1984,7 +1976,6 @@ public bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hitInfo, f
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against this terrain collision shape.&quot;)]
 public bool RayCast(Vector3 origin, Vector3 direction, float resultHitDistance, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -2059,7 +2050,6 @@ public bool RayCast(Vector3 origin, Vector3 direction, float resultHitDistance, 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the patch.&quot;)]
 public void RemovePatch(ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -2100,7 +2090,6 @@ public void RemovePatch(ref Int2 patchCoord)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the chunk material to override the terrain default one.&quot;)]
 public void SetChunkOverrideMaterial(ref Int2 patchCoord, ref Int2 chunkCoord, MaterialBase value)</code></pre>
   </div>
 
@@ -2157,7 +2146,6 @@ public void SetChunkOverrideMaterial(ref Int2 patchCoord, ref Int2 chunkCoord, M
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the terrain. Clears the existing data.&quot;)]
 public void Setup(int lodCount = 6, int chunkSize = 127)</code></pre>
   </div>
 
@@ -2206,7 +2194,6 @@ public void Setup(int lodCount = 6, int chunkSize = 127)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the terrain patch using the specified heightmap data.&quot;)]
 public bool SetupPatchHeightMap(ref Int2 patchCoord, int heightMapLength, float *heightMap, byte *holesMask = default(byte *), bool forceUseVirtualStorage = false)</code></pre>
   </div>
 
@@ -2435,7 +2422,6 @@ public bool SetupPatchHeightMap(ref Int2 patchCoord, int heightMapLength, float 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the terrain patch layer weights using the specified splatmaps data.&quot;)]
 public bool SetupPatchSplatMap(ref Int2 patchCoord, int index, int splatMapLength, Color32*splatMap, bool forceUseVirtualStorage = false)</code></pre>
   </div>
 
@@ -2531,7 +2517,8 @@ public bool SetupPatchSplatMap(ref Int2 patchCoord, int index, int splatMapLengt
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

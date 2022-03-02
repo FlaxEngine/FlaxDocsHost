@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BoolValue
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -130,6 +130,18 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -176,6 +188,21 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">Control.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseEnter_FlaxEngine_Vector2_">Control.OnMouseEnter(Vector2)</a>
@@ -466,6 +493,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
     </div>
     <div>
@@ -656,16 +686,16 @@ public sealed class BoolValue : SurfaceNodeElementControl, IComparable, IDrawabl
   
   <a id="FlaxEditor_Surface_Elements_BoolValue_Get_" data-uid="FlaxEditor.Surface.Elements.BoolValue.Get*"></a>
   
-  <h4 id="FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_" data-uid="FlaxEditor.Surface.Elements.BoolValue.Get(FlaxEditor.Surface.SurfaceNode,FlaxEditor.Surface.NodeElementArchetype)"><a href="#collapsible-FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_" class="expander" data-toggle="collapse">Get(SurfaceNode, NodeElementArchetype)</a></h4>
+  <h4 id="FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_System_Object_" data-uid="FlaxEditor.Surface.Elements.BoolValue.Get(FlaxEditor.Surface.SurfaceNode,FlaxEditor.Surface.NodeElementArchetype,System.Object)"><a href="#collapsible-FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_System_Object_" class="expander" data-toggle="collapse">Get(SurfaceNode, NodeElementArchetype, Object)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_" class="collapse in">
+  <div id="collapsible-FlaxEditor_Surface_Elements_BoolValue_Get_FlaxEditor_Surface_SurfaceNode_FlaxEditor_Surface_NodeElementArchetype_System_Object_" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the boolean value from the specified parent node. Handles type casting and components gather.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool Get(SurfaceNode parentNode, NodeElementArchetype arch)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool Get(SurfaceNode parentNode, NodeElementArchetype arch, object customValue = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -683,6 +713,14 @@ public sealed class BoolValue : SurfaceNodeElementControl, IComparable, IDrawabl
         <span class="pull-right"><a class="xref" href="FlaxEditor.Surface.NodeElementArchetype.html">NodeElementArchetype</a></span>
         <span class="parametername">arch</span>
         <p><p>The node element archetype.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">customValue</span>
+        <p><p>The custom value override (optional).</p>
 </p>
       </td>
     </tr>
@@ -1004,7 +1042,8 @@ public sealed class BoolValue : SurfaceNodeElementControl, IComparable, IDrawabl
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

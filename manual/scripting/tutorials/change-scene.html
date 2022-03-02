@@ -7,7 +7,7 @@
     <title>HOWTO: Change scene from script | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="HOWTO: Change scene from script | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -94,7 +94,16 @@
 <p>Navigate to <code>Source</code> directory, <strong>right-click</strong>, and select the option <strong>New -&gt; Script</strong>. Then specify its name (eg. <code>SceneChanger</code>) and hit Enter.</p>
 <h2 id="2-implement-scene-change-logic">2. Implement scene change logic</h2>
 <p>Here is a sample code that exposes a public variable with a reference to a scene asset that it should load. It checks in the Update function if the <code>G</code> key was pressed, it then changes the current scene into the selected one.</p>
-<h3 id="c">C#</h3>
+<div class="tabGroup" id="tabgroup_2MP7h+GcHN">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2MP7h+GcHN_code-csharp" role="tab" aria-controls="tabpanel_2MP7h+GcHN_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2MP7h+GcHN_code-cpp" role="tab" aria-controls="tabpanel_2MP7h+GcHN_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_2MP7h+GcHN_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 public class SceneChanger : Script
@@ -107,7 +116,8 @@ public class SceneChanger : Script
             Level.ChangeSceneAsync(AnotherScene);
     }
 }
-</code></pre><h3 id="c-1">C++</h3>
+</code></pre></section>
+<section id="tabpanel_2MP7h+GcHN_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -123,8 +133,6 @@ API_CLASS() class GAME_API SceneChanger : public Script
     Guid AnotherScene;
 
     // [Script]
-    void OnEnable() override;
-    void OnDisable() override;
     void OnUpdate() override
     {
         if (Input::GetKeyDown(KeyboardKeys::G) &amp;&amp; AnotherScene.IsValid())
@@ -135,7 +143,9 @@ API_CLASS() class GAME_API SceneChanger : public Script
         }
     }
 };
-</code></pre><h2 id="3-add-script">3. Add script</h2>
+</code></pre></section>
+</div>
+<h2 id="3-add-script">3. Add script</h2>
 <p>Now, add the script to an actor in your scene (select the actor and use <code>Add script</code> button).</p>
 <p><img src="media/change-scene-1.png" alt="Change Scene From Code"></p>
 <h2 id="4-assign-scene">4. Assign scene</h2>
@@ -151,12 +161,13 @@ API_CLASS() class GAME_API SceneChanger : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

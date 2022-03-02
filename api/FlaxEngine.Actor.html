@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Actor
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -122,6 +122,7 @@
       <div class="level4"><a class="xref" href="FlaxEngine.ParticleEffect.html">ParticleEffect</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PhysicsActor.html">PhysicsActor</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PhysicsColliderActor.html">PhysicsColliderActor</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.Ragdoll.html">Ragdoll</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Scene.html">Scene</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.SceneAnimationPlayer.html">SceneAnimationPlayer</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Sky.html">Sky</a></div>
@@ -133,6 +134,12 @@
       <div class="level4"><a class="xref" href="FlaxEngine.UICanvas.html">UICanvas</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.UIControl.html">UIControl</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Actor" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Actor" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Actor" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -208,6 +215,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -240,8 +250,7 @@
   <h5 id="FlaxEngine_Actor_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for all actor objects on the scene.&quot;)]
-public abstract class Actor : SceneObject</code></pre>
+public abstract class Actor : SceneObject, ISerializable</code></pre>
   </div>
 
   
@@ -294,7 +303,6 @@ public abstract class Actor : SceneObject</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets actor bounding box that defines 3D space intersecting with the actor (for determination of the visibility for actor).&quot;)]
 public BoundingBox Box { get; }</code></pre>
   </div>
 
@@ -333,7 +341,6 @@ public BoundingBox Box { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets actor bounding box of the actor including all child actors (children included in recursive way)&quot;)]
 public BoundingBox BoxWithChildren { get; }</code></pre>
   </div>
 
@@ -372,7 +379,6 @@ public BoundingBox BoxWithChildren { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;List with all child actors attached to the actor (readonly). All items are valid (not null).&quot;)]
 public Actor[] Children { get; }</code></pre>
   </div>
 
@@ -491,7 +497,6 @@ public Vector3 Direction { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets actor bounding box (single actor, no children included) for editor tools.&quot;)]
 public BoundingBox EditorBox { get; }</code></pre>
   </div>
 
@@ -530,7 +535,6 @@ public BoundingBox EditorBox { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets actor bounding box of the actor including all child actors for editor tools.&quot;)]
 public BoundingBox EditorBoxChildren { get; }</code></pre>
   </div>
 
@@ -652,7 +656,6 @@ public bool HasChildren { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if actor has loaded content.&quot;)]
 public bool HasContentLoaded { get; }</code></pre>
   </div>
 
@@ -733,7 +736,6 @@ public HideFlags HideFlags { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-70)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets value indicating if actor is active in the scene.&quot;)]
 public bool IsActive { get; set; }</code></pre>
   </div>
 
@@ -812,7 +814,6 @@ public bool IsActiveInHierarchy { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value indicating whether this actor is a prefab instance root object.&quot;)]
 public bool IsPrefabRoot { get; }</code></pre>
   </div>
 
@@ -933,7 +934,6 @@ public bool IsTransformStatic { get; }</code></pre>
 [EditorOrder(-69)]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorLayerEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the object layer (index). Can be used for selective rendering or ignoring raycasts.&quot;)]
 public int Layer { get; set; }</code></pre>
   </div>
 
@@ -972,7 +972,6 @@ public int Layer { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The name of the layer.&quot;)]
 public string LayerName { get; }</code></pre>
   </div>
 
@@ -1059,7 +1058,6 @@ Angles order (xyz): pitch, yaw and roll.</p>
 [NoSerialize]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+OrientationEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets local rotation of the actor in parent actor space.&quot;)]
 public Quaternion LocalOrientation { get; set; }</code></pre>
   </div>
 
@@ -1102,7 +1100,6 @@ public Quaternion LocalOrientation { get; set; }</code></pre>
 [NoSerialize]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets local position of the actor in parent actor space.&quot;)]
 public Vector3 LocalPosition { get; set; }</code></pre>
   </div>
 
@@ -1146,7 +1143,6 @@ public Vector3 LocalPosition { get; set; }</code></pre>
 [NoSerialize]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets local scale vector of the actor in parent actor space.&quot;)]
 public Vector3 LocalScale { get; set; }</code></pre>
   </div>
 
@@ -1265,7 +1261,6 @@ public Transform LocalTransform { get; set; }</code></pre>
 [EditorDisplay(&quot;General&quot;, null)]
 [EditorOrder(-100)]
 [Unmanaged]
-[Tooltip(&quot;The actor name.&quot;)]
 public string Name { get; set; }</code></pre>
   </div>
 
@@ -1344,7 +1339,6 @@ public Quaternion Orientation { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The random per-instance value (normalized to range 0-1).&quot;)]
 public float PerInstanceRandom { get; }</code></pre>
   </div>
 
@@ -1357,6 +1351,45 @@ public float PerInstanceRandom { get; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_PhysicsScene_" data-uid="FlaxEngine.Actor.PhysicsScene*"></a>
+  
+  <h4 id="FlaxEngine_Actor_PhysicsScene" data-uid="FlaxEngine.Actor.PhysicsScene"><a href="#collapsible-FlaxEngine_Actor_PhysicsScene" class="expander" data-toggle="collapse">PhysicsScene</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_PhysicsScene" class="collapse in">
+  <div class="markdown level1 summary"><p>Set the physics world the controller is part of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+[Unmanaged]
+public PhysicsScene PhysicsScene { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a>
         <p>
       </td>
     </tr>
@@ -1626,7 +1659,6 @@ public int ScriptsCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets actor bounding sphere that defines 3D space intersecting with the actor (for determination of the visibility for actor).&quot;)]
 public BoundingSphere Sphere { get; }</code></pre>
   </div>
 
@@ -1669,7 +1701,6 @@ public BoundingSphere Sphere { get; }</code></pre>
 [EditorOrder(-80)]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorStaticFlagsEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the actor static fags.&quot;)]
 public StaticFlags StaticFlags { get; set; }</code></pre>
   </div>
 
@@ -1712,7 +1743,6 @@ public StaticFlags StaticFlags { get; set; }</code></pre>
 [EditorOrder(-68)]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTagEditor&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The name of the tag.&quot;)]
 public string Tag { get; set; }</code></pre>
   </div>
 
@@ -1928,7 +1958,6 @@ public Transform Transform { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Moves the actor (also can rotate it) in world space.&quot;)]
 public void AddMovement(Vector3 translation)</code></pre>
   </div>
 
@@ -1969,7 +1998,6 @@ public void AddMovement(Vector3 translation)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Moves the actor (also can rotate it) in world space.&quot;)]
 public virtual void AddMovement(Vector3 translation, Quaternion rotation)</code></pre>
   </div>
 
@@ -2197,7 +2225,6 @@ public void DestroyChildren(float timeLeft = 0F)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the actor with the given name in this actor hierarchy (checks this actor and all children hierarchy).&quot;)]
 public Actor FindActor(string name)</code></pre>
   </div>
 
@@ -2248,7 +2275,6 @@ public Actor FindActor(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the actor of the given type in this actor hierarchy (checks this actor and all children hierarchy).&quot;)]
 public Actor FindActor(Type type)</code></pre>
   </div>
 
@@ -2348,7 +2374,6 @@ public Actor FindActor(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the script of the given type in this actor hierarchy (checks this actor and all children hierarchy).&quot;)]
 public Script FindScript(Type type)</code></pre>
   </div>
 
@@ -2448,7 +2473,6 @@ public Script FindScript(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs actors deserialization from the raw bytes.&quot;)]
 public static Actor[] FromBytes(byte[] data)</code></pre>
   </div>
 
@@ -2499,7 +2523,6 @@ public static Actor[] FromBytes(byte[] data)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs actors deserialization from the raw bytes.&quot;)]
 public static Actor[] FromBytes(byte[] data, Dictionary&lt;Guid, Guid&gt; idsMapping)</code></pre>
   </div>
 
@@ -2558,7 +2581,6 @@ public static Actor[] FromBytes(byte[] data, Dictionary&lt;Guid, Guid&gt; idsMap
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Deserializes the actor object to the Json string. Deserialized are only this actor properties but no child actors nor scripts.&quot;)]
 public void FromJson(string json)</code></pre>
   </div>
 
@@ -2599,7 +2621,6 @@ public void FromJson(string json)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The child actor at the given index.&quot;)]
 public Actor GetChild(int index)</code></pre>
   </div>
 
@@ -2650,7 +2671,6 @@ public Actor GetChild(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The child actor with the given name.&quot;)]
 public Actor GetChild(string name)</code></pre>
   </div>
 
@@ -2701,7 +2721,6 @@ public Actor GetChild(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The child actor of the given type.&quot;)]
 public Actor GetChild(Type type)</code></pre>
   </div>
 
@@ -2801,7 +2820,6 @@ public Actor GetChild(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The child actors of the given type.&quot;)]
 public Actor[] GetChildren(Type type)</code></pre>
   </div>
 
@@ -2901,7 +2919,6 @@ public Actor[] GetChildren(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The matrix that transforms a point from the local space of the actor to world space.&quot;)]
 public void GetLocalToWorldMatrix(out Matrix localToWorld)</code></pre>
   </div>
 
@@ -2991,7 +3008,6 @@ public void GetLocalToWorldMatrix(out Matrix localToWorld)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The script at the given index.&quot;)]
 public Script GetScript(int index)</code></pre>
   </div>
 
@@ -3042,7 +3058,6 @@ public Script GetScript(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The script of the given type from this actor.&quot;)]
 public Script GetScript(Type type)</code></pre>
   </div>
 
@@ -3142,7 +3157,6 @@ public Script GetScript(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scripts of the given type from this actor.&quot;)]
 public Script[] GetScripts(Type type)</code></pre>
   </div>
 
@@ -3242,7 +3256,6 @@ public Script[] GetScripts(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The matrix that transforms a point from the world space to local space of the actor.&quot;)]
 public void GetWorldToLocalMatrix(out Matrix worldToLocal)</code></pre>
   </div>
 
@@ -3283,7 +3296,6 @@ public void GetWorldToLocalMatrix(out Matrix worldToLocal)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Try to find actor in child actors structure.&quot;)]
 public bool HasActorInChildren(Actor a)</code></pre>
   </div>
 
@@ -3334,7 +3346,6 @@ public bool HasActorInChildren(Actor a)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Try to find actor in hierarchy structure.&quot;)]
 public bool HasActorInHierarchy(Actor a)</code></pre>
   </div>
 
@@ -3436,7 +3447,6 @@ public bool HasStaticFlag(StaticFlags flag)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this actor has tag assigned.&quot;)]
 public bool HasTag()</code></pre>
   </div>
 
@@ -3475,7 +3485,6 @@ public bool HasTag()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this actor has given tag assigned.&quot;)]
 public bool HasTag(string tag)</code></pre>
   </div>
 
@@ -3525,7 +3534,6 @@ public bool HasTag(string tag)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines if there is an intersection between the current object or any it's child and a ray.&quot;)]
 public Actor Intersects(Ray ray, out float distance, out Vector3 normal)</code></pre>
   </div>
 
@@ -3592,7 +3600,6 @@ public Actor Intersects(Ray ray, out float distance, out Vector3 normal)</code><
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines if there is an intersection between the current object and a Ray.&quot;)]
 public virtual bool IntersectsItself(Ray ray, out float distance, out Vector3 normal)</code></pre>
   </div>
 
@@ -3659,7 +3666,6 @@ public virtual bool IntersectsItself(Ray ray, out float distance, out Vector3 no
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Rotates actor to orient it towards the specified world position.&quot;)]
 public void LookAt(Vector3 worldPos)</code></pre>
   </div>
 
@@ -3700,7 +3706,6 @@ public void LookAt(Vector3 worldPos)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Rotates actor to orient it towards the specified world position with upwards direction.&quot;)]
 public void LookAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
   </div>
 
@@ -3737,6 +3742,112 @@ public void LookAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Actor_LookingAt_" data-uid="FlaxEngine.Actor.LookingAt*"></a>
+  
+  <h4 id="FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_" data-uid="FlaxEngine.Actor.LookingAt(FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">LookingAt(Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets rotation of the actor oriented towards the specified world position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Quaternion LookingAt(Vector3 worldPos)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">worldPos</span>
+        <p><p>The world position to orient towards.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_LookingAt_" data-uid="FlaxEngine.Actor.LookingAt*"></a>
+  
+  <h4 id="FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Actor.LookingAt(FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">LookingAt(Vector3, Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets rotation of the actor oriented towards the specified world position with upwards direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Quaternion LookingAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">worldPos</span>
+        <p><p>The world position to orient towards.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">worldUp</span>
+        <p><p>The up direction that Constrains y axis orientation to a plane this vector lies on. This rule might be broken if forward and up direction are nearly parallel.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Actor_OnBeginPlay_" data-uid="FlaxEngine.Actor.OnBeginPlay*"></a>
   
   <h4 id="FlaxEngine_Actor_OnBeginPlay" data-uid="FlaxEngine.Actor.OnBeginPlay"><a href="#collapsible-FlaxEngine_Actor_OnBeginPlay" class="expander" data-toggle="collapse">OnBeginPlay()</a></h4>
@@ -3750,7 +3861,6 @@ public void LookAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called when adding object to the game.&quot;)]
 public virtual void OnBeginPlay()</code></pre>
   </div>
 
@@ -3781,7 +3891,6 @@ public virtual void OnBeginPlay()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called when removing object from the game.&quot;)]
 public virtual void OnEndPlay()</code></pre>
   </div>
 
@@ -3938,7 +4047,6 @@ public void RemoveStaticFlags(StaticFlags flags)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets a actor parent.&quot;)]
 public void SetParent(Actor value, bool worldPositionsStays, bool canBreakPrefabLink)</code></pre>
   </div>
 
@@ -4044,7 +4152,6 @@ public void SetStaticFlag(StaticFlags flag, bool value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs actors serialization to the raw bytes.&quot;)]
 public static byte[] ToBytes(Actor[] actors)</code></pre>
   </div>
 
@@ -4095,7 +4202,6 @@ public static byte[] ToBytes(Actor[] actors)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Serializes the actor object to the Json string. Serialized are only this actor properties but no child actors nor scripts. Serializes references to the other objects in a proper way using IDs.&quot;)]
 public string ToJson()</code></pre>
   </div>
 
@@ -4293,7 +4399,6 @@ public string ToJson()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries the get serialized objects ids from the raw bytes.&quot;)]
 public static Guid[] TryGetSerializedObjectsIds(byte[] data)</code></pre>
   </div>
 
@@ -4349,7 +4454,8 @@ public static Guid[] TryGetSerializedObjectsIds(byte[] data)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

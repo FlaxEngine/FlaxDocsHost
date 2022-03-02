@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PhysicsColliderActor
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -107,6 +107,12 @@
       <div class="level5"><a class="xref" href="FlaxEngine.Collider.html">Collider</a></div>
       <div class="level5"><a class="xref" href="FlaxEngine.Terrain.html">Terrain</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_PhysicsColliderActor" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_PhysicsColliderActor" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_PhysicsColliderActor" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -180,6 +186,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -362,6 +374,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -452,6 +467,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -484,8 +502,7 @@
   <h5 id="FlaxEngine_PhysicsColliderActor_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;A base class for all physical collider actors.&quot;)]
-public abstract class PhysicsColliderActor : Actor</code></pre>
+public abstract class PhysicsColliderActor : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public abstract class PhysicsColliderActor : Actor</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The attached rigid body.&quot;)]
 public RigidBody AttachedRigidBody { get; }</code></pre>
   </div>
 
@@ -579,7 +595,6 @@ public RigidBody AttachedRigidBody { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called when a collision start gets registered for this collider (it collides with something).&quot;)]
 public virtual void OnCollisionEnter(Collision c)</code></pre>
   </div>
 
@@ -620,7 +635,6 @@ public virtual void OnCollisionEnter(Collision c)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called when a collision end gets registered for this collider (it ends colliding with something).&quot;)]
 public virtual void OnCollisionExit(Collision c)</code></pre>
   </div>
 
@@ -661,7 +675,6 @@ public virtual void OnCollisionExit(Collision c)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called when a trigger touching start gets registered for this collider (the other collider enters it and triggers the event).&quot;)]
 public virtual void OnTriggerEnter(PhysicsColliderActor c)</code></pre>
   </div>
 
@@ -702,7 +715,6 @@ public virtual void OnTriggerEnter(PhysicsColliderActor c)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called when a trigger touching end gets registered for this collider (the other collider enters it and triggers the event).&quot;)]
 public virtual void OnTriggerExit(PhysicsColliderActor c)</code></pre>
   </div>
 
@@ -744,7 +756,6 @@ public virtual void OnTriggerExit(PhysicsColliderActor c)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when a collision start gets registered for this collider (it collides with something).&quot;)]
 public event Action&lt;Collision&gt; CollisionEnter</code></pre>
   </div>
 
@@ -782,7 +793,6 @@ public event Action&lt;Collision&gt; CollisionEnter</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when a collision end gets registered for this collider (it ends colliding with something).&quot;)]
 public event Action&lt;Collision&gt; CollisionExit</code></pre>
   </div>
 
@@ -820,7 +830,6 @@ public event Action&lt;Collision&gt; CollisionExit</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when a trigger touching start gets registered for this collider (the other collider enters it and triggers the event).&quot;)]
 public event Action&lt;PhysicsColliderActor&gt; TriggerEnter</code></pre>
   </div>
 
@@ -858,7 +867,6 @@ public event Action&lt;PhysicsColliderActor&gt; TriggerEnter</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when a trigger touching end gets registered for this collider (the other collider enters it and triggers the event).&quot;)]
 public event Action&lt;PhysicsColliderActor&gt; TriggerExit</code></pre>
   </div>
 
@@ -906,7 +914,8 @@ public event Action&lt;PhysicsColliderActor&gt; TriggerExit</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

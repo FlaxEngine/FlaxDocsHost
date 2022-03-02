@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BuildSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,8 +137,7 @@
   
   <h5 id="FlaxEditor_Content_Settings_BuildSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The game building rendering settings.&quot;)]
-public sealed class BuildSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class BuildSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -191,7 +190,6 @@ public sealed class BuildSettings : SettingsBase</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
 [EditorDisplay(&quot;Additional Data&quot;, null)]
-[Tooltip(&quot;The list of additional folders with assets to include into build (into root assets set). Paths relative to the project directory (or absolute).&quot;)]
 public string[] AdditionalAssetFolders</code></pre>
   </div>
 
@@ -230,7 +228,6 @@ public string[] AdditionalAssetFolders</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
 [EditorDisplay(&quot;Additional Data&quot;, null)]
-[Tooltip(&quot;The list of additional assets to include into build (into root assets set).&quot;)]
 public Asset[] AdditionalAssets</code></pre>
   </div>
 
@@ -269,7 +266,6 @@ public Asset[] AdditionalAssets</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;The game content cooking keycode. Use the same value for a game and DLC packages to support loading them by the build game. Use 0 to randomize it during building.&quot;)]
 public int ContentKey</code></pre>
   </div>
 
@@ -308,7 +304,6 @@ public int ContentKey</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;If checked, the builds produced by the Game Cooker will be treated as for final game distribution (eg. for game store upload). Builds done this way cannot be tested on console devkits (eg. Xbox One, Xbox Scarlett).&quot;)]
 public bool ForDistribution</code></pre>
   </div>
 
@@ -348,7 +343,6 @@ public bool ForDistribution</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [Limit(1F, 65535F, 1F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max assets per package&quot;)]
-[Tooltip(&quot;The maximum amount of assets to include into a single assets package. Asset packages will split into several packages if need to.&quot;)]
 public int MaxAssetsPerPackage</code></pre>
   </div>
 
@@ -388,7 +382,6 @@ public int MaxAssetsPerPackage</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [Limit(1F, 65535F, 1F)]
 [EditorDisplay(&quot;General&quot;, &quot;Max package size (in MB)&quot;)]
-[Tooltip(&quot;The maximum size of the single assets package (in megabytes). Asset packages will split into several packages if need to.&quot;)]
 public int MaxPackageSizeMB</code></pre>
   </div>
 
@@ -466,7 +459,6 @@ public BuildPreset[] Presets</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2010)]
 [EditorDisplay(&quot;Content&quot;, null)]
-[Tooltip(&quot;Enables shader debug data generation for shaders in cooked game (depends on the target platform rendering backend).&quot;)]
 public bool ShadersGenerateDebugData</code></pre>
   </div>
 
@@ -505,7 +497,6 @@ public bool ShadersGenerateDebugData</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
 [EditorDisplay(&quot;Content&quot;, &quot;Shaders No Optimize&quot;)]
-[Tooltip(&quot;Disables shaders compiler optimizations in cooked game. Can be used to debug shaders on a target platform or to speed up the shaders compilation time.&quot;)]
 public bool ShadersNoOptimize</code></pre>
   </div>
 
@@ -544,7 +535,6 @@ public bool ShadersNoOptimize</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;If checked, the output build files won't be packaged for the destination platform. Useful when debugging build from local PC.&quot;)]
 public bool SkipPackaging</code></pre>
   </div>
 
@@ -642,7 +632,8 @@ public bool SkipPackaging</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

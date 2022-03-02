@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SceneObject
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
       <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.Script.html">Script</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SceneObject" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SceneObject" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SceneObject" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -150,6 +156,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -185,8 +194,7 @@
   <h5 id="FlaxEngine_SceneObject_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for objects that are parts of the scene (actors and scripts).&quot;)]
-public abstract class SceneObject : Object</code></pre>
+public abstract class SceneObject : Object, ISerializable</code></pre>
   </div>
 
   
@@ -239,7 +247,6 @@ public abstract class SceneObject : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if object has a parent assigned.&quot;)]
 public bool HasParent { get; }</code></pre>
   </div>
 
@@ -278,7 +285,6 @@ public bool HasParent { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value indicating whether this object has a valid linkage to the prefab asset.&quot;)]
 public bool HasPrefabLink { get; }</code></pre>
   </div>
 
@@ -395,7 +401,6 @@ public Actor Parent { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The prefab asset ID. Empty if no prefab link exists.&quot;)]
 public Guid PrefabID { get; }</code></pre>
   </div>
 
@@ -434,7 +439,6 @@ public Guid PrefabID { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The ID of the object within a prefab that is used for synchronization with this object. Empty if no prefab link exists.&quot;)]
 public Guid PrefabObjectID { get; }</code></pre>
   </div>
 
@@ -476,7 +480,6 @@ public Guid PrefabObjectID { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Breaks the prefab linkage for this object, all its scripts, and all child actors.&quot;)]
 public virtual void BreakPrefabLink()</code></pre>
   </div>
 
@@ -506,7 +509,6 @@ public virtual void BreakPrefabLink()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The path containing name of this object and all parent objects in tree hierarchy separated with custom separator character (/ by default). Can be used to identify this object in logs.&quot;)]
 public string GetNamePath(char separatorChar = '/')</code></pre>
   </div>
 
@@ -556,8 +558,8 @@ public string GetNamePath(char separatorChar = '/')</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Links scene object instance to the prefab asset and prefab object. Warning! This applies to the only this object (not scripts or child actors).&quot;)]
+    <pre><code class="lang-csharp hljs">[NoAnimate]
+[Unmanaged]
 public virtual void LinkPrefab(Guid prefabId, Guid prefabObjectId)</code></pre>
   </div>
 
@@ -606,7 +608,6 @@ public virtual void LinkPrefab(Guid prefabId, Guid prefabObjectId)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the parent actor.&quot;)]
 public virtual void SetParent(Actor value, bool canBreakPrefabLink)</code></pre>
   </div>
 
@@ -660,7 +661,8 @@ public virtual void SetParent(Actor value, bool canBreakPrefabLink)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

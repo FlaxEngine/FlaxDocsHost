@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RenderTask
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -149,6 +149,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -184,7 +187,6 @@
   <h5 id="FlaxEngine_RenderTask_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Allows to perform custom rendering using graphics pipeline.&quot;)]
 public class RenderTask : Object</code></pre>
   </div>
 
@@ -276,7 +278,6 @@ public class RenderTask : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this task can be rendered.&quot;)]
 public bool CanDraw { get; }</code></pre>
   </div>
 
@@ -315,7 +316,6 @@ public bool CanDraw { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets a value indicating whether task is enabled.&quot;)]
 public bool Enabled { get; set; }</code></pre>
   </div>
 
@@ -354,7 +354,6 @@ public bool Enabled { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The amount of frames rendered by this task. It is auto incremented on task drawing.&quot;)]
 public int FrameCount { get; }</code></pre>
   </div>
 
@@ -393,7 +392,6 @@ public int FrameCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The index of the frame when this task was last time rendered.&quot;)]
 public ulong LastUsedFrame { get; }</code></pre>
   </div>
 
@@ -432,7 +430,6 @@ public ulong LastUsedFrame { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The order of the task. Used for tasks rendering order. Lower first, higher later.&quot;)]
 public int Order { get; set; }</code></pre>
   </div>
 
@@ -473,7 +470,6 @@ public int Order { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called by graphics device to draw this task. Can be used to invoke task rendering nested inside another task - use on own risk!&quot;)]
 public virtual void OnDraw()</code></pre>
   </div>
 
@@ -503,7 +499,6 @@ public virtual void OnDraw()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Changes the buffers and output size. Does nothing if size won't change. Called by window or user to resize rendering buffers.&quot;)]
 public virtual bool Resize(int width, int height)</code></pre>
   </div>
 
@@ -563,7 +558,6 @@ public virtual bool Resize(int width, int height)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Action fired on task rendering begin.&quot;)]
 public event Action&lt;RenderTask, GPUContext&gt; Begin</code></pre>
   </div>
 
@@ -601,7 +595,6 @@ public event Action&lt;RenderTask, GPUContext&gt; Begin</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Action fired on task rendering end.&quot;)]
 public event Action&lt;RenderTask, GPUContext&gt; End</code></pre>
   </div>
 
@@ -639,7 +632,6 @@ public event Action&lt;RenderTask, GPUContext&gt; End</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Action fired just after frame present.&quot;)]
 public event Action&lt;RenderTask&gt; Present</code></pre>
   </div>
 
@@ -677,7 +669,6 @@ public event Action&lt;RenderTask&gt; Present</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Action fired on task rendering.&quot;)]
 public event Action&lt;RenderTask, GPUContext&gt; Render</code></pre>
   </div>
 
@@ -724,7 +715,8 @@ public event Action&lt;RenderTask, GPUContext&gt; Render</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

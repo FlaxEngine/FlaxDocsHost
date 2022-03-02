@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SkyLight
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.Light.html">Light</a></div>
     <div class="level5"><span class="xref">SkyLight</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SkyLight" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SkyLight" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SkyLight" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -197,6 +203,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -379,6 +391,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -469,6 +484,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -501,8 +519,7 @@
   <h5 id="FlaxEngine_SkyLight_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sky light captures the distant parts of the scene and applies it as a light. Allows to add ambient light.&quot;)]
-public class SkyLight : Light</code></pre>
+public class SkyLight : Light, ISerializable</code></pre>
   </div>
 
   
@@ -557,7 +574,6 @@ public class SkyLight : Light</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(21)]
 [EditorDisplay(&quot;Light&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Additional color to add. Source texture colors are summed with it. Can be used to apply custom ambient color.&quot;)]
 public Color AdditiveColor { get; set; }</code></pre>
   </div>
 
@@ -598,7 +614,6 @@ public Color AdditiveColor { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The custom texture.&quot;)]
 public CubeTexture CustomTexture { get; set; }</code></pre>
   </div>
 
@@ -639,7 +654,6 @@ public CubeTexture CustomTexture { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The current light source mode.&quot;)]
 public SkyLight.Modes Mode { get; set; }</code></pre>
   </div>
 
@@ -681,7 +695,6 @@ public SkyLight.Modes Mode { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Light&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The radius.&quot;)]
 public float Radius { get; }</code></pre>
   </div>
 
@@ -723,7 +736,6 @@ public float Radius { get; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Distance from the light at which any geometry should be treated as part of the sky.&quot;)]
 public float SkyDistanceThreshold { get; set; }</code></pre>
   </div>
 
@@ -764,7 +776,6 @@ public float SkyDistanceThreshold { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Bakes that probe.&quot;)]
 public void Bake(float timeout = 0F)</code></pre>
   </div>
 
@@ -813,7 +824,8 @@ public void Bake(float timeout = 0F)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

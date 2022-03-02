@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SpriteRender
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">SpriteRender</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SpriteRender" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SpriteRender" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SpriteRender" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_SpriteRender_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sprite rendering object.&quot;)]
-public class SpriteRender : Actor</code></pre>
+public class SpriteRender : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class SpriteRender : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the color of the sprite. Passed to the sprite material in parameter named `Color`.&quot;)]
 public Color Color { get; set; }</code></pre>
   </div>
 
@@ -579,7 +595,6 @@ public Color Color { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object. Uncheck `Depth` to disable sprite casting shadows.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -620,7 +635,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;If checked, the sprite will automatically face the view camera, otherwise it will be oriented as an actor.&quot;)]
 public bool FaceCamera { get; set; }</code></pre>
   </div>
 
@@ -661,7 +675,6 @@ public bool FaceCamera { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The sprite texture to draw.&quot;)]
 public Texture Image { get; set; }</code></pre>
   </div>
 
@@ -702,7 +715,6 @@ public Texture Image { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The material used for the sprite rendering. It should contain texture parameter named Image and color parameter named Color. For showing sprites from sprite atlas ensure to add Vector4 param ImageMAD for UVs transformation.&quot;)]
 public MaterialBase Material { get; set; }</code></pre>
   </div>
 
@@ -743,7 +755,6 @@ public MaterialBase Material { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the size of the sprite.&quot;)]
 public Vector2 Size { get; set; }</code></pre>
   </div>
 
@@ -784,7 +795,6 @@ public Vector2 Size { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(25)]
 [EditorDisplay(&quot;Sprite&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the sprite to draw. Used only if Image is unset.&quot;)]
 public SpriteHandle Sprite { get; set; }</code></pre>
   </div>
 
@@ -831,7 +841,8 @@ public SpriteHandle Sprite { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

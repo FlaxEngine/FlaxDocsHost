@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Input
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Input_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The user input handling service.&quot;)]
 public static class Input</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Input</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Maps a discrete button or key press events to a \&quot;friendly name\&quot; that will later be bound to event-driven behavior. The end effect is that pressing (and/or releasing) a key, mouse button, or keypad button.&quot;)]
 public static ActionConfig[] ActionMappings { get; set; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static ActionConfig[] ActionMappings { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Maps keyboard, controller, or mouse inputs to a \&quot;friendly name\&quot; that will later be bound to continuous game behavior, such as movement. The inputs mapped in AxisMappings are continuously polled, even if they are just reporting that their input value.&quot;)]
 public static AxisConfig[] AxisMappings { get; set; }</code></pre>
   </div>
 
@@ -239,7 +236,6 @@ public static AxisConfig[] AxisMappings { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepads.&quot;)]
 public static Gamepad[] Gamepads { get; }</code></pre>
   </div>
 
@@ -278,7 +274,6 @@ public static Gamepad[] Gamepads { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepads count.&quot;)]
 public static int GamepadsCount { get; }</code></pre>
   </div>
 
@@ -317,7 +312,6 @@ public static int GamepadsCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The text entered during the current frame (Unicode).&quot;)]
 public static string InputText { get; }</code></pre>
   </div>
 
@@ -356,7 +350,6 @@ public static string InputText { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The keyboard (null if platform does not support keyboard or it is not connected).&quot;)]
 public static Keyboard Keyboard { get; }</code></pre>
   </div>
 
@@ -395,7 +388,6 @@ public static Keyboard Keyboard { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse (null if platform does not support mouse or it is not connected).&quot;)]
 public static Mouse Mouse { get; }</code></pre>
   </div>
 
@@ -434,7 +426,6 @@ public static Mouse Mouse { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the mouse position in game window coordinates.&quot;)]
 public static Vector2 MousePosition { get; set; }</code></pre>
   </div>
 
@@ -473,7 +464,6 @@ public static Vector2 MousePosition { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse position change during the last frame.&quot;)]
 public static Vector2 MousePositionDelta { get; }</code></pre>
   </div>
 
@@ -512,7 +502,6 @@ public static Vector2 MousePositionDelta { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the mouse position in screen-space coordinates.&quot;)]
 public static Vector2 MouseScreenPosition { get; set; }</code></pre>
   </div>
 
@@ -551,7 +540,6 @@ public static Vector2 MouseScreenPosition { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse wheel change during the last frame.&quot;)]
 public static float MouseScrollDelta { get; }</code></pre>
   </div>
 
@@ -592,7 +580,6 @@ public static float MouseScrollDelta { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The value of the virtual action identified by name. Use &lt;see cref=\&quot;ActionMappings\&quot;/&gt; to get the current config.&quot;)]
 public static bool GetAction(string name)</code></pre>
   </div>
 
@@ -647,7 +634,6 @@ public static bool GetAction(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The value of the virtual axis identified by name. Use &lt;see cref=\&quot;AxisMappings\&quot;/&gt; to get the current config.&quot;)]
 public static float GetAxis(string name)</code></pre>
   </div>
 
@@ -702,7 +688,6 @@ public static float GetAxis(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The raw value of the virtual axis identified by name with no smoothing filtering applied. Use &lt;see cref=\&quot;AxisMappings\&quot;/&gt; to get the current config.&quot;)]
 public static float GetAxisRaw(string name)</code></pre>
   </div>
 
@@ -757,7 +742,6 @@ public static float GetAxisRaw(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepads count.&quot;)]
 public static Gamepad GetGamepad(int index)</code></pre>
   </div>
 
@@ -808,7 +792,6 @@ public static Gamepad GetGamepad(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad axis value.&quot;)]
 public static float GetGamepadAxis(InputGamepadIndex gamepad, GamepadAxis axis)</code></pre>
   </div>
 
@@ -867,7 +850,6 @@ public static float GetGamepadAxis(InputGamepadIndex gamepad, GamepadAxis axis)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad axis value.&quot;)]
 public static float GetGamepadAxis(int gamepadIndex, GamepadAxis axis)</code></pre>
   </div>
 
@@ -926,7 +908,6 @@ public static float GetGamepadAxis(int gamepadIndex, GamepadAxis axis)</code></p
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button state (true if being pressed during the current frame).&quot;)]
 public static bool GetGamepadButton(InputGamepadIndex gamepad, GamepadButton button)</code></pre>
   </div>
 
@@ -985,7 +966,6 @@ public static bool GetGamepadButton(InputGamepadIndex gamepad, GamepadButton but
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button state (true if being pressed during the current frame).&quot;)]
 public static bool GetGamepadButton(int gamepadIndex, GamepadButton button)</code></pre>
   </div>
 
@@ -1044,7 +1024,6 @@ public static bool GetGamepadButton(int gamepadIndex, GamepadButton button)</cod
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button down state (true if was pressed during the current frame).&quot;)]
 public static bool GetGamepadButtonDown(InputGamepadIndex gamepad, GamepadButton button)</code></pre>
   </div>
 
@@ -1103,7 +1082,6 @@ public static bool GetGamepadButtonDown(InputGamepadIndex gamepad, GamepadButton
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button down state (true if was pressed during the current frame).&quot;)]
 public static bool GetGamepadButtonDown(int gamepadIndex, GamepadButton button)</code></pre>
   </div>
 
@@ -1162,7 +1140,6 @@ public static bool GetGamepadButtonDown(int gamepadIndex, GamepadButton button)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button up state (true if was released during the current frame).&quot;)]
 public static bool GetGamepadButtonUp(InputGamepadIndex gamepad, GamepadButton button)</code></pre>
   </div>
 
@@ -1221,7 +1198,6 @@ public static bool GetGamepadButtonUp(InputGamepadIndex gamepad, GamepadButton b
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The gamepad button up state (true if was released during the current frame).&quot;)]
 public static bool GetGamepadButtonUp(int gamepadIndex, GamepadButton button)</code></pre>
   </div>
 
@@ -1280,7 +1256,6 @@ public static bool GetGamepadButtonUp(int gamepadIndex, GamepadButton button)</c
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key state (true if key is being pressed during this frame).&quot;)]
 public static bool GetKey(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1331,7 +1306,6 @@ public static bool GetKey(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key 'down' state (true if key was pressed in this frame).&quot;)]
 public static bool GetKeyDown(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1382,7 +1356,6 @@ public static bool GetKeyDown(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key 'up' state (true if key was released in this frame).&quot;)]
 public static bool GetKeyUp(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1433,7 +1406,6 @@ public static bool GetKeyUp(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button state.&quot;)]
 public static bool GetMouseButton(MouseButton button)</code></pre>
   </div>
 
@@ -1484,7 +1456,6 @@ public static bool GetMouseButton(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button down state.&quot;)]
 public static bool GetMouseButtonDown(MouseButton button)</code></pre>
   </div>
 
@@ -1535,7 +1506,6 @@ public static bool GetMouseButtonDown(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button up state.&quot;)]
 public static bool GetMouseButtonUp(MouseButton button)</code></pre>
   </div>
 
@@ -1587,7 +1557,6 @@ public static bool GetMouseButtonUp(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Event fired when virtual input action is triggered. Called before scripts update. See &lt;see cref=\&quot;ActionMappings\&quot;/&gt; to edit configuration.&quot;)]
 public static event Action&lt;string&gt; ActionTriggered</code></pre>
   </div>
 
@@ -1629,7 +1598,6 @@ public static event Action&lt;string&gt; ActionTriggered</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Action called when gamepads collection gets changed (during input update).&quot;)]
 public static event Action GamepadsChanged</code></pre>
   </div>
 
@@ -1666,7 +1634,8 @@ public static event Action GamepadsChanged</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

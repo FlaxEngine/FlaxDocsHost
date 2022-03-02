@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Online | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Online | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Online | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="online">Online</h1>
+
+<p><strong>Online</strong> system provides the access to player user profile, friends list, achievements, online presence, cloud saves and more which are exposed to desktop, mobile and console games on various online platforms such as Steam, Xbox Live or PlayStation Network.</p>
+<h2 id="online-platform-interface">Online Platform Interface</h2>
+<p>Flax contains <code>IOnlinePlatform</code> interface designed for online platform providers for communicating with various multiplayer services such as player info, achievements, game lobby or in-game store. Each Online Platform implements this interface and is provided via plugin which can be used by your game project:</p>
+<ul>
+<li><a href="https://github.com/FlaxEngine/OnlinePlatformSteam">Steam</a></li>
+<li><a href="https://github.com/FlaxEngine/OnlinePlatformXboxLive">Xbox Live</a></li>
+<li>Platform-specific (PlayStation, Switch) for registered developers</li>
+</ul>
+<h2 id="online-platform-setup">Online Platform Setup</h2>
+<p>In your game code setup the Online system with Online Platform (eg. when game opens the main menu). Depening on the runtime platform you can pick the online service to use (eg. Xbox Live on Xbox, Google Play on Android and Steam on Windows/Mac/Linux):</p>
+<div class="tabGroup" id="tabgroup_BK44BptpvS">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_BK44BptpvS_code-csharp" role="tab" aria-controls="tabpanel_BK44BptpvS_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_BK44BptpvS_code-cpp" role="tab" aria-controls="tabpanel_BK44BptpvS_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_BK44BptpvS_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine.Online;
+using FlaxEngine.Online.Steam;
+
+var platform = platform = new OnlinePlatformSteam();
+Online.Initialize(platform);
+</code></pre></section>
+<section id="tabpanel_BK44BptpvS_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Online/Online.h&quot;
+#include &quot;OnlinePlatformSteam/OnlinePlatformSteam.h&quot;
+
+auto platform = New&lt;OnlinePlatformSteam&gt;();
+Online::Initialize(platform);
+</code></pre></section>
+</div>
+<h2 id="online-platform-usage">Online Platform Usage</h2>
+<p>Once <code>Online</code> system is setup it exposes the current online platform to be used across whole game project. Here is an example script that gets some basic information from online platform:</p>
+<div class="tabGroup" id="tabgroup_BK44BptpvS-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_BK44BptpvS-1_code-csharp" role="tab" aria-controls="tabpanel_BK44BptpvS-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_BK44BptpvS-1_code-cpp" role="tab" aria-controls="tabpanel_BK44BptpvS-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_BK44BptpvS-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine.Online;
+
+// Setup
+var platform = Online.Platform;
+if (platform == null)
+{
+    Debug.LogError(&quot;Missing Online Platform&quot;);
+    return;
+}
+if (platform.UserLogin())
+{
+    Debug.LogError(&quot;Failed to login to Online&quot;);
+    return;
+}
+
+// User profile
+platform.GetUser(out var user);
+Debug.Log(&quot;User: &quot; + user.Name + &quot;, state: &quot; + user.PresenceState);
+
+// User friends info
+platform.GetFriends(out var friends);
+Debug.Log(&quot;Friends: &quot; + friends.Length);
+foreach (var f in friends)
+    Debug.Log(&quot;    Friend: &quot; + f.Name + &quot;, state: &quot; + f.PresenceState);
+
+// Achievements
+platform.ResetAchievements();
+platform.UnlockAchievementProgress(&quot;ACH_WIN_100_GAMES&quot;, 40);
+platform.GetAchievements(out var achievements);
+Debug.Log(&quot;Achievements: &quot; + achievements.Length);
+foreach (var a in achievements)
+    Debug.Log($&quot;    Achievement: {a.Name}, Progress={a.Progress}, IsHidden={a.IsHidden}, desc: {a.Description}&quot;);
+
+// Savegames
+platform.GetSaveGame(&quot;savegame_0&quot;, out var saveGame);
+if (saveGame != null &amp;&amp; saveGame.Length != 0)
+    Debug.Log(&quot;Has savegame of size: &quot; + saveGame.Length);
+else
+    Debug.Log(&quot;No savegame&quot;);
+platform.SetSaveGame(&quot;savegame_0&quot;, new byte[] { 1, 2, 3, 4 });
+</code></pre></section>
+<section id="tabpanel_BK44BptpvS-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Online/Online.h&quot;
+#include &quot;Engine/Online/IOnlinePlatform.h&quot;
+#include &quot;Engine/Scripting/Enums.h&quot;
+
+// Setup
+auto platform = Online::Platform;
+if (platform == nullptr)
+{
+    LOG(Error, &quot;Missing Online Platform&quot;);
+    return;
+}
+if (platform-&gt;UserLogin())
+{
+    LOG(Error, &quot;Failed to login to Online&quot;);
+    return;
+}
+
+// User profile
+OnlineUser user;
+platform-&gt;GetUser(user);
+LOG(Info, &quot;User: {0}, state: {1}&quot;, user.Name, ScriptingEnum::ToString(user.PresenceState));
+
+// User friends info
+Array&lt;OnlineUser&gt; friends;
+platform-&gt;GetFriends(friends);
+LOG(Info, &quot;Friends: {0}&quot;, friends.Count());
+for (auto&amp; f : friends)
+    LOG(Info, &quot;    Friend: {0}, state: {1}&quot;, f.Name, ScriptingEnum::ToString(f.PresenceState));
+
+// Achievements
+platform-&gt;ResetAchievements();
+platform-&gt;UnlockAchievementProgress(TEXT(&quot;ACH_WIN_100_GAMES&quot;), 40);
+Array&lt;OnlineAchievement&gt; achievements;
+platform-&gt;GetAchievements(achievements);
+LOG(Info, &quot;Achievements: {0}&quot;, achievements.Count());
+for (auto&amp; a : achievements)
+    LOG(Info, &quot;    Achievement: {0}, Progress={1}, IsHidden={2}, desc: {3}&quot;, a.Name, a.Progress, a.IsHidden, a.Description);
+
+// Savegames
+Array&lt;byte&gt; saveGame;
+platform-&gt;GetSaveGame(TEXT(&quot;savegame_0&quot;), saveGame);
+if (saveGame.HasItems())
+    LOG(Info, &quot;Has savegame of size: {0}&quot;, saveGame.Count());
+else
+    LOG(Info, &quot;No savegame&quot;);
+saveGame = Array&lt;byte&gt;({ 1, 2, 3, 4 });
+platform-&gt;SetSaveGame(TEXT(&quot;savegame_0&quot;), Span&lt;byte&gt;(saveGame.Get(), saveGame.Count()));
+</code></pre></section>
+</div>
+<p>Note that Online API is sync and always returns <code>true</code> on failure. In some cases, such as player freiends list reading, it might take a bit to download this information from online service provider thus you might consider using it asynchroniusly (eg. from async task or a custom thread). To learn about multithreading see <a href="../../scripting/advanced/multithreading.html">this page</a>.</p>
+<p>Finally, many of the Online API methods contain the last argument as <code>User localUser</code> which is <code>null</code> by default. It can be used to redirect Online Platform for a specific local player which is usefull in case of local-multiplayer games. The default value <code>null</code> can be used to access the first player info.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/networking/online/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

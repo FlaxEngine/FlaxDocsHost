@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ParticleSystem
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -186,6 +186,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -218,7 +221,6 @@
   <h5 id="FlaxEngine_ParticleSystem_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Particle system contains a composition of particle emitters and playback information.&quot;)]
 public class ParticleSystem : BinaryAsset</code></pre>
   </div>
 
@@ -272,7 +274,6 @@ public class ParticleSystem : BinaryAsset</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The animation duration (in seconds).&quot;)]
 public float Duration { get; }</code></pre>
   </div>
 
@@ -311,7 +312,6 @@ public float Duration { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The animation duration (in frames).&quot;)]
 public int DurationFrames { get; }</code></pre>
   </div>
 
@@ -350,7 +350,6 @@ public int DurationFrames { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The frames amount per second of the timeline animation.&quot;)]
 public float FramesPerSecond { get; }</code></pre>
   </div>
 
@@ -391,7 +390,6 @@ public float FramesPerSecond { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Initializes the particle system that plays a single particles emitter. This can be used only for virtual assets.&quot;)]
 public void Init(ParticleEmitter emitter, float duration, float fps = 60F)</code></pre>
   </div>
 
@@ -448,7 +446,6 @@ public void Init(ParticleEmitter emitter, float duration, float fps = 60F)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads the serialized timeline data.&quot;)]
 public byte[] LoadTimeline()</code></pre>
   </div>
 
@@ -488,7 +485,6 @@ public byte[] LoadTimeline()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves the serialized timeline data to the asset.&quot;)]
 public bool SaveTimeline(byte[] data)</code></pre>
   </div>
 
@@ -539,7 +535,6 @@ public bool SaveTimeline(byte[] data)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Actor parent, Transform transform, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -606,7 +601,6 @@ public ParticleEffect Spawn(Actor parent, Transform transform, bool autoDestroy 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Actor parent, Vector3 position, Quaternion rotation, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -681,7 +675,6 @@ public ParticleEffect Spawn(Actor parent, Vector3 position, Quaternion rotation,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Actor parent, Vector3 position, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -748,7 +741,6 @@ public ParticleEffect Spawn(Actor parent, Vector3 position, bool autoDestroy = f
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Transform transform, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -807,7 +799,6 @@ public ParticleEffect Spawn(Transform transform, bool autoDestroy = false)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Vector3 position, Quaternion rotation, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -874,7 +865,6 @@ public ParticleEffect Spawn(Vector3 position, Quaternion rotation, bool autoDest
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns the particles at the given location.&quot;)]
 public ParticleEffect Spawn(Vector3 position, bool autoDestroy = false)</code></pre>
   </div>
 
@@ -941,7 +931,8 @@ public ParticleEffect Spawn(Vector3 position, bool autoDestroy = false)</code></
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AudioSource
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">AudioSource</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_AudioSource" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_AudioSource" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_AudioSource" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_AudioSource_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a source for emitting audio. Audio can be played spatially (gun shot), or normally (music). Each audio source must have an AudioClip to play - back, and it can also have a position in the case of spatial(3D) audio.&quot;)]
-public class AudioSource : Actor</code></pre>
+public class AudioSource : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -542,7 +559,6 @@ public class AudioSource : Actor</code></pre>
 [Limit(0F, 3.40282347E+38F, 0.1F)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the attenuation that controls how quickly does audio volume drop off as the listener moves further from the source.&quot;)]
 public float Attenuation { get; set; }</code></pre>
   </div>
 
@@ -583,7 +599,6 @@ public float Attenuation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The audio clip asset used as a source of the sound.&quot;)]
 public AudioClip Clip { get; set; }</code></pre>
   </div>
 
@@ -622,7 +637,6 @@ public AudioClip Clip { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if the sound source is three dimensional (volume and pitch varies based on listener distance and velocity).&quot;)]
 public bool Is3D { get; }</code></pre>
   </div>
 
@@ -661,7 +675,6 @@ public bool Is3D { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this audio source started playing audio via audio backend. After audio play it may wait for audio clip data to be loaded or streamed.&quot;)]
 public bool IsActuallyPlayingSth { get; }</code></pre>
   </div>
 
@@ -702,7 +715,6 @@ public bool IsActuallyPlayingSth { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the audio clip should loop when it finishes playing.&quot;)]
 public bool IsLooping { get; set; }</code></pre>
   </div>
 
@@ -744,7 +756,6 @@ public bool IsLooping { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 0.1F)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the minimum distance at which audio attenuation starts. When the listener is closer to the source than this value, audio is heard at full volume. Once farther away the audio starts attenuating.&quot;)]
 public float MinDistance { get; set; }</code></pre>
   </div>
 
@@ -786,7 +797,6 @@ public float MinDistance { get; set; }</code></pre>
 [Limit(0.5F, 2F, 0.01F)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the pitch of the played audio. The default is 1.&quot;)]
 public float Pitch { get; set; }</code></pre>
   </div>
 
@@ -827,7 +837,6 @@ public float Pitch { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;Audio Source&quot;, &quot;Play On Start&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the audio clip should auto play on level start.&quot;)]
 public bool PlayOnStart { get; set; }</code></pre>
   </div>
 
@@ -866,7 +875,6 @@ public bool PlayOnStart { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current state of the audio playback (playing/paused/stopped).&quot;)]
 public AudioSource.States State { get; }</code></pre>
   </div>
 
@@ -944,7 +952,6 @@ public float Time { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if audio clip is valid, loaded and uses dynamic data streaming.&quot;)]
 public bool UseStreaming { get; }</code></pre>
   </div>
 
@@ -983,7 +990,6 @@ public bool UseStreaming { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The velocity of the source. Determines pitch in relation to AudioListener's position. Only relevant for spatial (3D) sources.&quot;)]
 public Vector3 Velocity { get; }</code></pre>
   </div>
 
@@ -1025,7 +1031,6 @@ public Vector3 Velocity { get; }</code></pre>
 [Limit(0F, 1F, 0.01F)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the volume of the audio played from this source, in [0, 1] range.&quot;)]
 public float Volume { get; set; }</code></pre>
   </div>
 
@@ -1066,7 +1071,6 @@ public float Volume { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Pauses the audio playback.&quot;)]
 public void Pause()</code></pre>
   </div>
 
@@ -1096,7 +1100,6 @@ public void Pause()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts playing the currently assigned audio clip.&quot;)]
 public void Play()</code></pre>
   </div>
 
@@ -1126,7 +1129,6 @@ public void Play()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Stops audio playback, rewinding it to the start.&quot;)]
 public void Stop()</code></pre>
   </div>
 
@@ -1164,7 +1166,8 @@ public void Stop()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

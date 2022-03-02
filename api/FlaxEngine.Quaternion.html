@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Quaternion
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -125,7 +125,6 @@
   <h5 id="FlaxEngine_Quaternion_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a four dimensional mathematical quaternion. Euler angles are stored in: pitch, yaw, roll order (x, y, z).&quot;)]
 public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pre>
   </div>
 
@@ -400,8 +399,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
       <td>
         <span class="pull-right"><span class="xref">System.Single</span>[]</span>
         <span class="parametername">values</span>
-        <p><p>The values to assign to the X, Y, Z, and W components of the quaternion. This must be an array
-with four elements.</p>
+        <p><p>The values to assign to the X, Y, Z, and W components of the quaternion. This must be an array with four elements.</p>
 </p>
       </td>
     </tr>
@@ -428,8 +426,7 @@ with four elements.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than four
-elements.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than four elements.</p>
 </p>
       </td>
     </tr>
@@ -558,8 +555,7 @@ elements.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The W component of the quaternion.&quot;)]
-public float W</code></pre>
+    <pre><code class="lang-csharp hljs">public float W</code></pre>
   </div>
 
   
@@ -595,8 +591,7 @@ public float W</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The X component of the quaternion.&quot;)]
-public float X</code></pre>
+    <pre><code class="lang-csharp hljs">public float X</code></pre>
   </div>
 
   
@@ -632,8 +627,7 @@ public float X</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Y component of the quaternion.&quot;)]
-public float Y</code></pre>
+    <pre><code class="lang-csharp hljs">public float Y</code></pre>
   </div>
 
   
@@ -669,8 +663,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Z component of the quaternion.&quot;)]
-public float Z</code></pre>
+    <pre><code class="lang-csharp hljs">public float Z</code></pre>
   </div>
 
   
@@ -745,7 +738,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Angle { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Angle { get; }</code></pre>
   </div>
 
   
@@ -757,8 +750,7 @@ public float Z</code></pre>
     <tr>
       <td>
         <span class="xref">System.Single</span>
-        <p><p>The angle.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -783,7 +775,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 Axis { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector3 Axis { get; }</code></pre>
   </div>
 
   
@@ -795,8 +787,7 @@ public float Z</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
-        <p><p>The axis components of the quaternion.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -821,7 +812,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 EulerAngles { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector3 EulerAngles { get; }</code></pre>
   </div>
 
   
@@ -858,7 +849,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsIdentity { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsIdentity { get; }</code></pre>
   </div>
 
   
@@ -870,8 +861,7 @@ public float Z</code></pre>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if this instance is an identity quaternion; otherwise, <code>false</code>.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -896,7 +886,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsNormalized { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
   </div>
 
   
@@ -942,8 +932,7 @@ public float Z</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">index</span>
-        <p><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z
-component, and 3 for the W component.</p>
+        <p><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z component, and 3 for the W component.</p>
 </p>
       </td>
     </tr>
@@ -993,7 +982,7 @@ component, and 3 for the W component.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Length { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Length { get; }</code></pre>
   </div>
 
   
@@ -1015,8 +1004,7 @@ component, and 3 for the W component.</p>
   
   
   <h5 id="FlaxEngine_Quaternion_Length_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -1035,7 +1023,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float LengthSquared { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float LengthSquared { get; }</code></pre>
   </div>
 
   
@@ -1057,8 +1045,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Quaternion_LengthSquared_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_Length">Length</a> when only a relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_Length">Length</a> when only a relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -1979,8 +1966,7 @@ coordinates of the specified point.</p>
   <h4 id="FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3_" data-uid="FlaxEngine.Quaternion.Euler(FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">Euler(Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values.
-Angles are in degrees.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values. Angles are in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2029,8 +2015,7 @@ Angles are in degrees.</p>
   <h4 id="FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3__FlaxEngine_Quaternion__" data-uid="FlaxEngine.Quaternion.Euler(FlaxEngine.Vector3@,FlaxEngine.Quaternion@)"><a href="#collapsible-FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3__FlaxEngine_Quaternion__" class="expander" data-toggle="collapse">Euler(ref Vector3, out Quaternion)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_Euler_FlaxEngine_Vector3__FlaxEngine_Quaternion__" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values.
-Angles are in degrees.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values. Angles are in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2077,8 +2062,7 @@ Angles are in degrees.</p>
   <h4 id="FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_" data-uid="FlaxEngine.Quaternion.Euler(System.Single,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_" class="expander" data-toggle="collapse">Euler(Single, Single, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values.
-Angles are in degrees.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values. Angles are in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2143,8 +2127,7 @@ Angles are in degrees.</p>
   <h4 id="FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" data-uid="FlaxEngine.Quaternion.Euler(System.Single,System.Single,System.Single,FlaxEngine.Quaternion@)"><a href="#collapsible-FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" class="expander" data-toggle="collapse">Euler(Single, Single, Single, out Quaternion)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_Euler_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values.
-Angles are in degrees.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a pitch, yaw and roll values. Angles are in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -4280,8 +4263,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   <h4 id="FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_" data-uid="FlaxEngine.Quaternion.RotationYawPitchRoll(System.Single,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_" class="expander" data-toggle="collapse">RotationYawPitchRoll(Single, Single, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value.
-Angles are in radians.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value. Angles are in radians.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -4346,8 +4328,7 @@ Angles are in radians.</p>
   <h4 id="FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" data-uid="FlaxEngine.Quaternion.RotationYawPitchRoll(System.Single,System.Single,System.Single,FlaxEngine.Quaternion@)"><a href="#collapsible-FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" class="expander" data-toggle="collapse">RotationYawPitchRoll(Single, Single, Single, out Quaternion)</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_FlaxEngine_Quaternion__" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value.
-Angles are in radians. Use <a class="xref" href="FlaxEngine.Mathf.html#FlaxEngine_Mathf_RadiansToDegrees">RadiansToDegrees</a> to convert degrees to radians.</p>
+  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value. Angles are in radians. Use <a class="xref" href="FlaxEngine.Mathf.html#FlaxEngine_Mathf_RadiansToDegrees">RadiansToDegrees</a> to convert degrees to radians.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -5307,8 +5288,7 @@ Angles are in radians. Use <a class="xref" href="FlaxEngine.Mathf.html#FlaxEngin
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -5365,8 +5345,7 @@ Angles are in radians. Use <a class="xref" href="FlaxEngine.Mathf.html#FlaxEngin
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -5681,7 +5660,8 @@ Angles are in radians. Use <a class="xref" href="FlaxEngine.Mathf.html#FlaxEngin
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

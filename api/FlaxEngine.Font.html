@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Font
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_Font_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents font object that can be using during text rendering (it uses Font Asset but with pre-cached data for chosen font properties).&quot;)]
 public sealed class Font : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class Font : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets parent font asset that contains font family used by this font.&quot;)]
 public FontAsset Asset { get; }</code></pre>
   </div>
 
@@ -276,7 +277,6 @@ public FontAsset Asset { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The largest vertical distance below the baseline for any character in the font.&quot;)]
 public int Descender { get; }</code></pre>
   </div>
 
@@ -315,7 +315,6 @@ public int Descender { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets characters height.&quot;)]
 public int Height { get; }</code></pre>
   </div>
 
@@ -354,7 +353,6 @@ public int Height { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The line gap property.&quot;)]
 public int LineGap { get; }</code></pre>
   </div>
 
@@ -393,7 +391,6 @@ public int LineGap { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets font size.&quot;)]
 public int Size { get; }</code></pre>
   </div>
 
@@ -434,7 +431,6 @@ public int Size { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Caches the given text to prepared for the rendering.&quot;)]
 public void CacheText(string text)</code></pre>
   </div>
 
@@ -475,7 +471,6 @@ public void CacheText(string text)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates character position for given text and character index&quot;)]
 public Vector2 GetCharPosition(string text, ref TextRange textRange, int index)</code></pre>
   </div>
 
@@ -542,7 +537,6 @@ public Vector2 GetCharPosition(string text, ref TextRange textRange, int index)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates character position for given text and character index.&quot;)]
 public Vector2 GetCharPosition(string text, ref TextRange textRange, int index, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -617,7 +611,6 @@ public Vector2 GetCharPosition(string text, ref TextRange textRange, int index, 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates character position for given text and character index&quot;)]
 public Vector2 GetCharPosition(string text, int index)</code></pre>
   </div>
 
@@ -676,7 +669,6 @@ public Vector2 GetCharPosition(string text, int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates character position for given text and character index.&quot;)]
 public Vector2 GetCharPosition(string text, int index, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -743,7 +735,6 @@ public Vector2 GetCharPosition(string text, int index, ref TextLayoutOptions lay
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The kerning amount for a pair of characters.&quot;)]
 public int GetKerning(char first, char second)</code></pre>
   </div>
 
@@ -802,7 +793,6 @@ public int GetKerning(char first, char second)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates hit character index at given location.&quot;)]
 public int HitTestText(string text, ref TextRange textRange, Vector2 location)</code></pre>
   </div>
 
@@ -869,7 +859,6 @@ public int HitTestText(string text, ref TextRange textRange, Vector2 location)</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates hit character index at given location.&quot;)]
 public int HitTestText(string text, ref TextRange textRange, Vector2 location, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -944,7 +933,6 @@ public int HitTestText(string text, ref TextRange textRange, Vector2 location, r
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates hit character index at given location.&quot;)]
 public int HitTestText(string text, Vector2 location)</code></pre>
   </div>
 
@@ -1003,7 +991,6 @@ public int HitTestText(string text, Vector2 location)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates hit character index at given location.&quot;)]
 public int HitTestText(string text, Vector2 location, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -1070,7 +1057,6 @@ public int HitTestText(string text, Vector2 location, ref TextLayoutOptions layo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Invalidates all cached dynamic font atlases using this font. Can be used to reload font characters after changing font asset options.&quot;)]
 public void Invalidate()</code></pre>
   </div>
 
@@ -1100,7 +1086,6 @@ public void Invalidate()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Measures minimum size of the rectangle that will be needed to draw given text &lt;/summary&gt;. &lt;param name=\&quot;text\&quot;&gt;The input text to test.&lt;/param&gt; &lt;returns&gt;The minimum size for that text and fot to render properly.&lt;/returns&gt;&quot;)]
 public Vector2 MeasureText(string text)</code></pre>
   </div>
 
@@ -1151,7 +1136,6 @@ public Vector2 MeasureText(string text)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Measures minimum size of the rectangle that will be needed to draw given text.&quot;)]
 public Vector2 MeasureText(string text, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -1210,7 +1194,6 @@ public Vector2 MeasureText(string text, ref TextLayoutOptions layout)</code></pr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Processes text to get cached lines for rendering.&quot;)]
 public FontLineCache[] ProcessText(string text)</code></pre>
   </div>
 
@@ -1261,7 +1244,6 @@ public FontLineCache[] ProcessText(string text)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Processes text to get cached lines for rendering.&quot;)]
 public FontLineCache[] ProcessText(string text, ref TextLayoutOptions layout)</code></pre>
   </div>
 
@@ -1328,7 +1310,8 @@ public FontLineCache[] ProcessText(string text, ref TextLayoutOptions layout)</c
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

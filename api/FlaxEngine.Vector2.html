@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Vector2
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -125,7 +125,6 @@
   <h5 id="FlaxEngine_Vector2_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a two dimensional mathematical vector.&quot;)]
 public struct Vector2 : IEquatable&lt;Vector2&gt;, IFormattable</code></pre>
   </div>
 
@@ -321,8 +320,7 @@ public struct Vector2 : IEquatable&lt;Vector2&gt;, IFormattable</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span>[]</span>
         <span class="parametername">values</span>
-        <p><p>The values to assign to the X and Y components of the vector. This must be an array with two
-elements.</p>
+        <p><p>The values to assign to the X and Y components of the vector. This must be an array with two elements.</p>
 </p>
       </td>
     </tr>
@@ -349,8 +347,7 @@ elements.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than two
-elements.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than two elements.</p>
 </p>
       </td>
     </tr>
@@ -623,8 +620,7 @@ elements.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The X component of the vector.&quot;)]
-public float X</code></pre>
+    <pre><code class="lang-csharp hljs">public float X</code></pre>
   </div>
 
   
@@ -660,8 +656,7 @@ public float X</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Y component of the vector.&quot;)]
-public float Y</code></pre>
+    <pre><code class="lang-csharp hljs">public float Y</code></pre>
   </div>
 
   
@@ -736,7 +731,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 Absolute { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 Absolute { get; }</code></pre>
   </div>
 
   
@@ -773,7 +768,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float AvgValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float AvgValue { get; }</code></pre>
   </div>
 
   
@@ -810,7 +805,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsNormalized { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
   </div>
 
   
@@ -847,7 +842,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsZero { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsZero { get; }</code></pre>
   </div>
 
   
@@ -923,8 +918,7 @@ public float Y</code></pre>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when the <code data-dev-comment-type="paramref" class="paramref">index</code> is out of the range [0,
-1].</p>
+        <p><p>Thrown when the <code data-dev-comment-type="paramref" class="paramref">index</code> is out of the range [0,1].</p>
 </p>
       </td>
     </tr>
@@ -944,7 +938,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Length { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Length { get; }</code></pre>
   </div>
 
   
@@ -966,8 +960,7 @@ public float Y</code></pre>
   
   
   <h5 id="FlaxEngine_Vector2_Length_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -986,7 +979,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float LengthSquared { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float LengthSquared { get; }</code></pre>
   </div>
 
   
@@ -1008,8 +1001,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Vector2_LengthSquared_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_Length">Length</a> when only a relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_Length">Length</a> when only a relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -1028,7 +1020,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MaxValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float MaxValue { get; }</code></pre>
   </div>
 
   
@@ -1065,7 +1057,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MinValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float MinValue { get; }</code></pre>
   </div>
 
   
@@ -1102,7 +1094,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 Negative { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector2 Negative { get; }</code></pre>
   </div>
 
   
@@ -1139,7 +1131,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float ValuesSum { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float ValuesSum { get; }</code></pre>
   </div>
 
   
@@ -1485,8 +1477,7 @@ coordinates relative to a 2D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount1</span>
-        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
 </p>
       </td>
     </tr>
@@ -1494,8 +1485,7 @@ coordinates relative to a 2D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount2</span>
-        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
 </p>
       </td>
     </tr>
@@ -1569,8 +1559,7 @@ coordinates relative to a 2D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount1</span>
-        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
 </p>
       </td>
     </tr>
@@ -1578,8 +1567,7 @@ coordinates relative to a 2D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount2</span>
-        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
 </p>
       </td>
     </tr>
@@ -2347,8 +2335,7 @@ coordinates relative to a 2D triangle.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Distance_FlaxEngine_Vector2_FlaxEngine_Vector2__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2_FlaxEngine_Vector2_">DistanceSquared(Vector2, Vector2)</a> may be preferred when only the relative distance is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2_FlaxEngine_Vector2_">DistanceSquared(Vector2, Vector2)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
 </div>
   
   
@@ -2408,9 +2395,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Distance_FlaxEngine_Vector2__FlaxEngine_Vector2___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single__">DistanceSquared(ref Vector2, ref Vector2, out Single)</a> may be preferred when only the relative
-distance is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single__">DistanceSquared(ref Vector2, ref Vector2, out Single)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
 </div>
   
   
@@ -2468,9 +2453,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Distance_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single__">DistanceSquared(ref Vector2, ref Vector2, out Single)</a> may be preferred when only the relative
-distance is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_DistanceSquared_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single__">DistanceSquared(ref Vector2, ref Vector2, out Single)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
 </div>
   
   
@@ -3289,8 +3272,7 @@ provides the same information and avoids calculating two square roots.</p>
     <tr>
       <td>
         <span class="xref">System.Int32</span>
-        <p><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -3529,8 +3511,7 @@ provides the same information and avoids calculating two square roots.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Lerp_FlaxEngine_Vector2_FlaxEngine_Vector2_FlaxEngine_Vector2__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3598,8 +3579,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   <h5 id="FlaxEngine_Vector2_Lerp_FlaxEngine_Vector2_FlaxEngine_Vector2_System_Single__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3665,8 +3645,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   <h5 id="FlaxEngine_Vector2_Lerp_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3732,8 +3711,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   <h5 id="FlaxEngine_Vector2_Lerp_FlaxEngine_Vector2__FlaxEngine_Vector2__System_Single_FlaxEngine_Vector2___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3834,8 +3812,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
         <span class="parametername">result</span>
-        <p><p>When the method completes, contains an new vector composed of the largest components of the source
-vectors.</p>
+        <p><p>When the method completes, contains an new vector composed of the largest components of the source vectors.</p>
 </p>
       </td>
     </tr>
@@ -3947,8 +3924,7 @@ vectors.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
         <span class="parametername">result</span>
-        <p><p>When the method completes, contains an new vector composed of the smallest components of the
-source vectors.</p>
+        <p><p>When the method completes, contains an new vector composed of the smallest components of the source vectors.</p>
 </p>
       </td>
     </tr>
@@ -4651,16 +4627,14 @@ source vectors.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -4730,16 +4704,14 @@ source vectors.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -4896,8 +4868,7 @@ source vectors.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Reflect_FlaxEngine_Vector2_FlaxEngine_Vector2__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Reflect only gives the direction of a reflection off a surface, it does not determine
-whether the original vector was close enough to the surface to hit it.</p>
+  <div class="markdown level1 remarks"><p>Reflect only gives the direction of a reflection off a surface, it does not determine whether the original vector was close enough to the surface to hit it.</p>
 </div>
   
   
@@ -4955,8 +4926,7 @@ whether the original vector was close enough to the surface to hit it.</p>
   
   
   <h5 id="FlaxEngine_Vector2_Reflect_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Reflect only gives the direction of a reflection off a surface, it does not determine
-whether the original vector was close enough to the surface to hit it.</p>
+  <div class="markdown level1 remarks"><p>Reflect only gives the direction of a reflection off a surface, it does not determine whether the original vector was close enough to the surface to hit it.</p>
 </div>
   
   
@@ -5018,7 +4988,7 @@ whether the original vector was close enough to the surface to hit it.</p>
   <h4 id="FlaxEngine_Vector2_Saturate" data-uid="FlaxEngine.Vector2.Saturate"><a href="#collapsible-FlaxEngine_Vector2_Saturate" class="expander" data-toggle="collapse">Saturate()</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector2_Saturate" class="collapse in">
-  <div class="markdown level1 summary"><p>Saturates this instance in the range [0,1]</p>
+  <div class="markdown level1 summary"><p>Saturates this instance in the range [0,1].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -5525,8 +5495,7 @@ whether the original vector was close enough to the surface to hit it.</p>
     <tr>
       <td>
         <span class="xref">System.Single</span>[]
-        <p><p>A two-element array containing the components of the vector.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -6020,16 +5989,14 @@ whether the original vector was close enough to the surface to hit it.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6074,8 +6041,7 @@ whether the original vector was close enough to the surface to hit it.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>[]</span>
         <span class="parametername">destination</span>
-        <p><p>The array for which the transformed vectors are stored.
-This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>The array for which the transformed vectors are stored. This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6095,16 +6061,14 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6275,8 +6239,7 @@ with coordinates as the w component can safely be ignored.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>[]</span>
         <span class="parametername">destination</span>
-        <p><p>The array for which the transformed vectors are stored.
-This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>The array for which the transformed vectors are stored. This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6303,16 +6266,14 @@ with coordinates as the w component can safely be ignored.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6483,8 +6444,7 @@ rather than location because normal vectors should not be translated.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>[]</span>
         <span class="parametername">destination</span>
-        <p><p>The array for which the transformed vectors are stored.
-This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>The array for which the transformed vectors are stored. This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6511,16 +6471,14 @@ rather than location because normal vectors should not be translated.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -6977,8 +6935,7 @@ rather than location because normal vectors should not be translated.</p>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,<code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -7133,8 +7090,7 @@ rather than location because normal vectors should not be translated.</p>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,<code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -7328,8 +7284,7 @@ rather than location because normal vectors should not be translated.</p>
   <h4 id="FlaxEngine_Vector2_op_Multiply_FlaxEngine_Vector2_FlaxEngine_Vector2_" data-uid="FlaxEngine.Vector2.op_Multiply(FlaxEngine.Vector2,FlaxEngine.Vector2)"><a href="#collapsible-FlaxEngine_Vector2_op_Multiply_FlaxEngine_Vector2_FlaxEngine_Vector2_" class="expander" data-toggle="collapse">Multiply(Vector2, Vector2)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector2_op_Multiply_FlaxEngine_Vector2_FlaxEngine_Vector2_" class="collapse in">
-  <div class="markdown level1 summary"><p>Multiplies a vector with another by performing component-wise multiplication equivalent to
-<a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_Multiply_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__">Multiply(ref Vector2, ref Vector2, out Vector2)</a>.</p>
+  <div class="markdown level1 summary"><p>Multiplies a vector with another by performing component-wise multiplication equivalent to <a class="xref" href="FlaxEngine.Vector2.html#FlaxEngine_Vector2_Multiply_FlaxEngine_Vector2__FlaxEngine_Vector2__FlaxEngine_Vector2__">Multiply(ref Vector2, ref Vector2, out Vector2)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -7784,7 +7739,8 @@ rather than location because normal vectors should not be translated.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

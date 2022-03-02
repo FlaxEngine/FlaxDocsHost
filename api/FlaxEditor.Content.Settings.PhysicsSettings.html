@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PhysicsSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,8 +137,7 @@
   
   <h5 id="FlaxEditor_Content_Settings_PhysicsSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Physics simulation settings container.&quot;)]
-public sealed class PhysicsSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PhysicsSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -191,7 +190,6 @@ public sealed class PhysicsSettings : SettingsBase</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;Minimum relative velocity required for an object to bounce. A typical value for simulation stability is about 0.2 * gravity&quot;)]
 public float BounceThresholdVelocity</code></pre>
   </div>
 
@@ -230,7 +228,6 @@ public float BounceThresholdVelocity</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;The default gravity force value (in cm^2/s).&quot;)]
 public Vector3 DefaultGravity</code></pre>
   </div>
 
@@ -269,7 +266,6 @@ public Vector3 DefaultGravity</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(70)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;If true CCD will be ignored. This is an optimization when CCD is never used which removes the need for physx to check it internally.&quot;)]
 public bool DisableCCD</code></pre>
   </div>
 
@@ -308,7 +304,6 @@ public bool DisableCCD</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(80)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;Enables adaptive forces to accelerate convergence of the solver. Can improve physics simulation performance but lead to artifacts.&quot;)]
 public bool EnableAdaptiveForce</code></pre>
   </div>
 
@@ -347,7 +342,6 @@ public bool EnableAdaptiveForce</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1005)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Tooltip(&quot;Whether to substep the physics simulation.&quot;)]
 public bool EnableSubstepping</code></pre>
   </div>
 
@@ -386,7 +380,6 @@ public bool EnableSubstepping</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;Default friction combine mode, controls how friction is computed for multiple materials.&quot;)]
 public PhysicsCombineMode FrictionCombineMode</code></pre>
   </div>
 
@@ -464,7 +457,6 @@ public uint[] LayerMasks</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Tooltip(&quot;The maximum allowed delta time (in seconds) for the physics simulation step.&quot;)]
 public float MaxDeltaTime</code></pre>
   </div>
 
@@ -503,7 +495,6 @@ public float MaxDeltaTime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1020)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Tooltip(&quot;The maximum number of substeps for physics simulation.&quot;)]
 public int MaxSubsteps</code></pre>
   </div>
 
@@ -542,7 +533,6 @@ public int MaxSubsteps</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Tooltip(&quot;If enabled, any Raycast or other scene query that intersects with a Collider marked as a Trigger will returns with a hit. Individual raycasts can override this behavior.&quot;)]
 public bool QueriesHitTriggers</code></pre>
   </div>
 
@@ -581,7 +571,6 @@ public bool QueriesHitTriggers</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;Default restitution combine mode, controls how restitution is computed for multiple materials.&quot;)]
 public PhysicsCombineMode RestitutionCombineMode</code></pre>
   </div>
 
@@ -620,7 +609,6 @@ public PhysicsCombineMode RestitutionCombineMode</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
 [EditorDisplay(&quot;Framerate&quot;, null)]
-[Tooltip(&quot;Delta time (in seconds) for an individual simulation substep.&quot;)]
 public float SubstepDeltaTime</code></pre>
   </div>
 
@@ -659,7 +647,6 @@ public float SubstepDeltaTime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1100)]
 [EditorDisplay(&quot;Other&quot;, null)]
-[Tooltip(&quot;Enables support for cooking physical collision shapes geometry at runtime. Use it to enable generating runtime terrain collision or convex mesh colliders.&quot;)]
 public bool SupportCookingAtRuntime</code></pre>
   </div>
 
@@ -698,7 +685,6 @@ public bool SupportCookingAtRuntime</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Simulation&quot;, null)]
-[Tooltip(&quot;Triangles from triangle meshes (CSG) with an area less than or equal to this value will be removed from physics collision data. Set to less than or equal 0 to disable.&quot;)]
 public float TriangleMeshTriangleMinAreaThreshold</code></pre>
   </div>
 
@@ -745,7 +731,8 @@ public float TriangleMeshTriangleMinAreaThreshold</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

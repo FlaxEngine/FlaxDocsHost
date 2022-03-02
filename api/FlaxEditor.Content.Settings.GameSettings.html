@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GameSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,8 +137,7 @@
   
   <h5 id="FlaxEditor_Content_Settings_GameSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The main game engine configuration service. Loads and applies game configuration.&quot;)]
-public sealed class GameSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class GameSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -271,7 +270,6 @@ public JsonAsset Audio</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;The company full name.&quot;)]
 public string CompanyName</code></pre>
   </div>
 
@@ -310,7 +308,6 @@ public string CompanyName</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(15)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;The copyright note used for content signing (eg. source code header).&quot;)]
 public string CopyrightNotice</code></pre>
   </div>
 
@@ -695,6 +692,46 @@ public JsonAsset Localization</code></pre>
   
   
   
+  <h4 id="FlaxEditor_Content_Settings_GameSettings_MacPlatform" data-uid="FlaxEditor.Content.Settings.GameSettings.MacPlatform"><a href="#collapsible-FlaxEditor_Content_Settings_GameSettings_MacPlatform" class="expander" data-toggle="collapse">MacPlatform</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_GameSettings_MacPlatform" class="collapse in">
+  <div class="markdown level1 summary"><p>Reference to <a class="xref" href="FlaxEditor.Content.Settings.MacPlatformSettings.html">MacPlatformSettings</a> asset. Used to apply configuration on Mac platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2090)]
+[EditorDisplay(&quot;Platform Settings&quot;, &quot;Mac&quot;)]
+[AssetReference(typeof(MacPlatformSettings), true)]
+[Tooltip(&quot;Reference to Mac Platform Settings asset&quot;)]
+public JsonAsset MacPlatform</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.JsonAsset.html">JsonAsset</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_Content_Settings_GameSettings_Navigation" data-uid="FlaxEditor.Content.Settings.GameSettings.Navigation"><a href="#collapsible-FlaxEditor_Content_Settings_GameSettings_Navigation" class="expander" data-toggle="collapse">Navigation</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_GameSettings_Navigation" class="collapse in">
@@ -825,7 +862,6 @@ public JsonAsset Physics</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;General&quot;, null)]
-[Tooltip(&quot;The product full name.&quot;)]
 public string ProductName</code></pre>
   </div>
 
@@ -867,6 +903,46 @@ public string ProductName</code></pre>
 [AssetReference(&quot;FlaxEditor.Content.Settings.PS4PlatformSettings&quot;, true)]
 [Tooltip(&quot;Reference to PS4 Platform Settings asset&quot;)]
 public JsonAsset PS4Platform</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.JsonAsset.html">JsonAsset</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Content_Settings_GameSettings_PS5Platform" data-uid="FlaxEditor.Content.Settings.GameSettings.PS5Platform"><a href="#collapsible-FlaxEditor_Content_Settings_GameSettings_PS5Platform" class="expander" data-toggle="collapse">PS5Platform</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_GameSettings_PS5Platform" class="collapse in">
+  <div class="markdown level1 summary"><p>Reference to PS5 Platform Settings asset. Used to apply configuration on PS5 platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2080)]
+[EditorDisplay(&quot;Platform Settings&quot;, &quot;PlayStation 5&quot;)]
+[AssetReference(&quot;FlaxEditor.Content.Settings.PS5PlatformSettings&quot;, true)]
+[Tooltip(&quot;Reference to PS5 Platform Settings asset&quot;)]
+public JsonAsset PS5Platform</code></pre>
   </div>
 
   
@@ -1106,6 +1182,46 @@ public JsonAsset UWPPlatform</code></pre>
 [AssetReference(typeof(WindowsPlatformSettings), true)]
 [Tooltip(&quot;Reference to Windows Platform Settings asset&quot;)]
 public JsonAsset WindowsPlatform</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.JsonAsset.html">JsonAsset</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Content_Settings_GameSettings_XboxOnePlatform" data-uid="FlaxEditor.Content.Settings.GameSettings.XboxOnePlatform"><a href="#collapsible-FlaxEditor_Content_Settings_GameSettings_XboxOnePlatform" class="expander" data-toggle="collapse">XboxOnePlatform</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Settings_GameSettings_XboxOnePlatform" class="collapse in">
+  <div class="markdown level1 summary"><p>Reference to Xbox One Platform Settings asset. Used to apply configuration on Xbox One platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2050)]
+[EditorDisplay(&quot;Platform Settings&quot;, &quot;Xbox One&quot;)]
+[AssetReference(&quot;FlaxEditor.Content.Settings.XboxOnePlatformSettings&quot;, true)]
+[Tooltip(&quot;Reference to Xbox One Platform Settings asset&quot;)]
+public JsonAsset XboxOnePlatform</code></pre>
   </div>
 
   
@@ -1469,7 +1585,8 @@ public JsonAsset XboxScarlettPlatform</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

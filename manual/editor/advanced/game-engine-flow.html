@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Game and Engine Flow | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Game and Engine Flow | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Game and Engine Flow | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="game-and-engine-flow">Game and Engine Flow</h1>
+
+<p>Flax Engine contains multiple advanced systems and can be extended in many areas. This documentation page explains the engine initialization process and general game flow.</p>
+<h2 id="scripting-flow">Scripting Flow</h2>
+<p>Game scripts or plugins code is executed when all engine services are ready and initialized.</p>
+<ul>
+<li><strong>Scripts</strong> - initialized during scene initialization, during loading. See <a href="../../scripting/events.html">script events execution order</a>.</li>
+<li><strong>Game Plugins</strong> - initialized when game starts but always before any scene is loaded.</li>
+<li><strong>Editor Plugins</strong> - initialized when editer is opened.</li>
+</ul>
+<h2 id="engine-flow">Engine Flow</h2>
+<p>The list below shows the flow of the engine with all services initialization order. When working with <a href="custom-engine.html">custom engine</a> the most important parts of the engine core logic are inside file <code>Source\Engine\Engine\Engine.cpp</code>. To learn more look into the engine log as well.</p>
+<ol>
+<li>Platform initialization</li>
+<li>Project info loading</li>
+<li>Logging initialization</li>
+<li><strong>Engine services initialization</strong>
+4.1. Objects Removal Service
+4.2. Thread Pool
+4.3. Time
+4.4. Content Storage
+4.5. Job System
+4.6. Font Manager
+4.7. Content
+4.8. Content Loading Manager
+4.9. Localization
+4.10. Assets Importing Manager <em>(editor-only)</em>
+4.11. Assets Exporting Manager <em>(editor-only)</em>
+4.12. Shader Cache Manager <em>(editor-only)</em>
+4.13. Shaders Compilation Service <em>(editor-only)</em>
+4.14. Debug Draw <em>(editor-only)</em>
+4.15. Game Settings
+4.16. Input
+4.17. Audio
+4.18. Graphics
+4.19. Windows Manager
+4.20. Scripting
+4.21. Animations
+4.22. Viewport Icons Renderer <em>(editor-only)</em>
+4.23. Scripts Builder <em>(editor-only)</em>
+4.24. Profiling Tools <em>(editor-only)</em>
+4.25. Physics
+4.26. Editor Analytics <em>(editor-only)</em>
+4.27. Game Cooker <em>(editor-only)</em>
+4.28. Custom Editors Util <em>(editor-only)</em>
+4.29. Render2D
+4.30. Renderer
+4.31. Scene Manager
+4.32. Terrain Manager
+4.33. Atmosphere Pre Compute
+4.34. Navigation
+4.35. Particle Manager
+4.36. Probes Renderer <em>(editor-only)</em>
+4.37. ShadowsOfMordor Builder <em>(editor-only)</em>
+4.38. CSG Builder <em>(editor-only)</em>
+4.39. Streaming
+4.40. Prefab Manager
+4.41. Screen
+4.42. Plugin Manager</li>
+<li>Application initialization <em>(editor or game)</em></li>
+<li>Main window creation</li>
+<li><strong>Main loop</strong>
+7.1. Idle if unatended
+7.2. Sleep if app paused <em>(platform specific)</em>
+7.3. Update
+7.4. Fixed Update
+7.5. Draw</li>
+<li><strong>Exit</strong>
+8.1. Before Exit event
+8.2. Engine services disposing <em>(reversed order)</em>
+8.3. Exit.</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/editor/advanced/game-engine-flow.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

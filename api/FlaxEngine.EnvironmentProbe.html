@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class EnvironmentProbe
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">EnvironmentProbe</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_EnvironmentProbe" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_EnvironmentProbe" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_EnvironmentProbe" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_EnvironmentProbe_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Environment Probe can capture space around the objects to provide reflections.&quot;)]
-public class EnvironmentProbe : Actor</code></pre>
+public class EnvironmentProbe : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class EnvironmentProbe : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Value indicating if probe should be updated automatically on change.&quot;)]
 public bool AutoUpdate { get; set; }</code></pre>
   </div>
 
@@ -580,7 +596,6 @@ public bool AutoUpdate { get; set; }</code></pre>
 [Limit(0F, 1000F, 0.01F)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The reflections brightness.&quot;)]
 public float Brightness { get; set; }</code></pre>
   </div>
 
@@ -622,7 +637,6 @@ public float Brightness { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 0.01F)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The probe capture camera near plane distance.&quot;)]
 public float CaptureNearPlane { get; set; }</code></pre>
   </div>
 
@@ -663,7 +677,6 @@ public float CaptureNearPlane { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the custom probe (null if using baked one or none).&quot;)]
 public CubeTexture CustomProbe { get; set; }</code></pre>
   </div>
 
@@ -702,7 +715,6 @@ public CubeTexture CustomProbe { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if env probe has cube texture assigned.&quot;)]
 public bool HasProbe { get; }</code></pre>
   </div>
 
@@ -741,7 +753,6 @@ public bool HasProbe { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if env probe has cube texture assigned.&quot;)]
 public bool HasProbeLoaded { get; }</code></pre>
   </div>
 
@@ -780,7 +791,6 @@ public bool HasProbeLoaded { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;True if probe is using custom cube texture (not baked).&quot;)]
 public bool IsUsingCustomProbe { get; }</code></pre>
   </div>
 
@@ -819,7 +829,6 @@ public bool IsUsingCustomProbe { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The probe texture used during rendering (baked or custom one).&quot;)]
 public CubeTexture Probe { get; }</code></pre>
   </div>
 
@@ -861,7 +870,6 @@ public CubeTexture Probe { get; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the probe radius.&quot;)]
 public float Radius { get; set; }</code></pre>
   </div>
 
@@ -900,7 +908,6 @@ public float Radius { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets probe scaled radius.&quot;)]
 public float ScaledRadius { get; }</code></pre>
   </div>
 
@@ -941,7 +948,6 @@ public float ScaledRadius { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Bakes that probe. It won't be performed now but on async graphics rendering task.&quot;)]
 public void Bake(float timeout = 0F)</code></pre>
   </div>
 
@@ -990,7 +996,8 @@ public void Bake(float timeout = 0F)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

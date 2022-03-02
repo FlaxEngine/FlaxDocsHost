@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct RenderView
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_RenderView_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Rendering view description that defines how to render the objects (camera placement, rendering properties, etc.).&quot;)]
 public struct RenderView</code></pre>
   </div>
 
@@ -149,8 +148,7 @@ public struct RenderView</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view frustum used for culling (can be different than Frustum in some cases e.g. cascaded shadow map rendering).&quot;)]
-public BoundingFrustum CullingFrustum</code></pre>
+    <pre><code class="lang-csharp hljs">public BoundingFrustum CullingFrustum</code></pre>
   </div>
 
   
@@ -186,8 +184,7 @@ public BoundingFrustum CullingFrustum</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The direction of the view.&quot;)]
-public Vector3 Direction</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Direction</code></pre>
   </div>
 
   
@@ -223,8 +220,7 @@ public Vector3 Direction</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The far plane.&quot;)]
-public float Far</code></pre>
+    <pre><code class="lang-csharp hljs">public float Far</code></pre>
   </div>
 
   
@@ -260,8 +256,7 @@ public float Far</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view flags.&quot;)]
-public ViewFlags Flags</code></pre>
+    <pre><code class="lang-csharp hljs">public ViewFlags Flags</code></pre>
   </div>
 
   
@@ -297,8 +292,7 @@ public ViewFlags Flags</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view frustum.&quot;)]
-public BoundingFrustum Frustum</code></pre>
+    <pre><code class="lang-csharp hljs">public BoundingFrustum Frustum</code></pre>
   </div>
 
   
@@ -334,8 +328,7 @@ public BoundingFrustum Frustum</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The inverted projection matrix.&quot;)]
-public Matrix IP</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix IP</code></pre>
   </div>
 
   
@@ -371,8 +364,7 @@ public Matrix IP</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Flag used by static, offline rendering passes (eg. reflections rendering, lightmap rendering etc.)&quot;)]
-public bool IsOfflinePass</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsOfflinePass</code></pre>
   </div>
 
   
@@ -408,8 +400,7 @@ public bool IsOfflinePass</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The inverted view matrix.&quot;)]
-public Matrix IV</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix IV</code></pre>
   </div>
 
   
@@ -445,8 +436,7 @@ public Matrix IV</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The inverted projection view matrix.&quot;)]
-public Matrix IVP</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix IVP</code></pre>
   </div>
 
   
@@ -482,8 +472,7 @@ public Matrix IVP</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Maximum allowed shadows quality for this view&quot;)]
-public Quality MaxShadowsQuality</code></pre>
+    <pre><code class="lang-csharp hljs">public Quality MaxShadowsQuality</code></pre>
   </div>
 
   
@@ -519,8 +508,7 @@ public Quality MaxShadowsQuality</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view mode.&quot;)]
-public ViewMode Mode</code></pre>
+    <pre><code class="lang-csharp hljs">public ViewMode Mode</code></pre>
   </div>
 
   
@@ -556,8 +544,7 @@ public ViewMode Mode</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The model LOD bias. Default is 0. Applied to all the objects in the render view.&quot;)]
-public int ModelLODBias</code></pre>
+    <pre><code class="lang-csharp hljs">public int ModelLODBias</code></pre>
   </div>
 
   
@@ -593,8 +580,7 @@ public int ModelLODBias</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The model LOD distance scale factor. Default is 1. Applied to all the objects in the render view. Higher values increase LODs quality.&quot;)]
-public float ModelLODDistanceFactor</code></pre>
+    <pre><code class="lang-csharp hljs">public float ModelLODDistanceFactor</code></pre>
   </div>
 
   
@@ -630,8 +616,7 @@ public float ModelLODDistanceFactor</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Square of &lt;see cref=\&quot;ModelLODDistanceFactor\&quot;/&gt;. Cached by rendering backend.&quot;)]
-public float ModelLODDistanceFactorSqrt</code></pre>
+    <pre><code class="lang-csharp hljs">public float ModelLODDistanceFactorSqrt</code></pre>
   </div>
 
   
@@ -667,8 +652,7 @@ public float ModelLODDistanceFactorSqrt</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The near plane.&quot;)]
-public float Near</code></pre>
+    <pre><code class="lang-csharp hljs">public float Near</code></pre>
   </div>
 
   
@@ -706,8 +690,7 @@ If you use motion vectors and camera jittering together, use this property to ke
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The projection matrix with no camera offset (no jittering). For many temporal image effects, the camera that is currently rendering needs to be slightly offset from the default projection (that is, the camera is &#8216;jittered&#8217;). If you use motion vectors and camera jittering together, use this property to keep the motion vectors stable between frames.&quot;)]
-public Matrix NonJitteredProjection</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix NonJitteredProjection</code></pre>
   </div>
 
   
@@ -743,8 +726,7 @@ public Matrix NonJitteredProjection</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The draw passes mask for the current view rendering.&quot;)]
-public DrawPass Pass</code></pre>
+    <pre><code class="lang-csharp hljs">public DrawPass Pass</code></pre>
   </div>
 
   
@@ -780,8 +762,7 @@ public DrawPass Pass</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The position of the view.&quot;)]
-public Vector3 Position</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Position</code></pre>
   </div>
 
   
@@ -817,8 +798,7 @@ public Vector3 Position</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The previous frame projection matrix.&quot;)]
-public Matrix PrevProjection</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix PrevProjection</code></pre>
   </div>
 
   
@@ -854,8 +834,7 @@ public Matrix PrevProjection</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The previous frame view matrix.&quot;)]
-public Matrix PrevView</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix PrevView</code></pre>
   </div>
 
   
@@ -891,8 +870,7 @@ public Matrix PrevView</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The previous frame view * projection matrix.&quot;)]
-public Matrix PrevViewProjection</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix PrevViewProjection</code></pre>
   </div>
 
   
@@ -928,8 +906,7 @@ public Matrix PrevViewProjection</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The projection matrix.&quot;)]
-public Matrix Projection</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix Projection</code></pre>
   </div>
 
   
@@ -965,8 +942,7 @@ public Matrix Projection</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The rendering mask for layers. Used to exclude objects from rendering.&quot;)]
-public LayersMask RenderLayersMask</code></pre>
+    <pre><code class="lang-csharp hljs">public LayersMask RenderLayersMask</code></pre>
   </div>
 
   
@@ -1002,8 +978,7 @@ public LayersMask RenderLayersMask</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The screen size packed (x - width, y - height, zw - inv width, w - inv height). Cached before rendering.&quot;)]
-public Vector4 ScreenSize</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector4 ScreenSize</code></pre>
   </div>
 
   
@@ -1039,8 +1014,7 @@ public Vector4 ScreenSize</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The model LOD bias. Default is 0. Applied to all the objects in the shadow maps render views. Can be used to improve shadows rendering performance or increase quality.&quot;)]
-public int ShadowModelLODBias</code></pre>
+    <pre><code class="lang-csharp hljs">public int ShadowModelLODBias</code></pre>
   </div>
 
   
@@ -1076,8 +1050,7 @@ public int ShadowModelLODBias</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The model LOD distance scale factor. Default is 1. Applied to all the objects in the shadow maps render views. Higher values increase LODs quality. Can be used to improve shadows rendering performance or increase quality.&quot;)]
-public float ShadowModelLODDistanceFactor</code></pre>
+    <pre><code class="lang-csharp hljs">public float ShadowModelLODDistanceFactor</code></pre>
   </div>
 
   
@@ -1113,8 +1086,7 @@ public float ShadowModelLODDistanceFactor</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The static flags mask used to hide objects that don't have a given static flags. Eg. use StaticFlags::Lightmap to render only objects that can use lightmap.&quot;)]
-public StaticFlags StaticFlagsMask</code></pre>
+    <pre><code class="lang-csharp hljs">public StaticFlags StaticFlagsMask</code></pre>
   </div>
 
   
@@ -1150,8 +1122,7 @@ public StaticFlags StaticFlagsMask</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Temporal Anti-Aliasing jitter frame index.&quot;)]
-public int TaaFrameIndex</code></pre>
+    <pre><code class="lang-csharp hljs">public int TaaFrameIndex</code></pre>
   </div>
 
   
@@ -1187,8 +1158,7 @@ public int TaaFrameIndex</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The temporal AA jitter packed (xy - this frame jitter, zw - previous frame jitter). Cached before rendering. Zero if TAA is disabled. The value added to projection matrix (in clip space).&quot;)]
-public Vector4 TemporalAAJitter</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector4 TemporalAAJitter</code></pre>
   </div>
 
   
@@ -1224,8 +1194,7 @@ public Vector4 TemporalAAJitter</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view matrix.&quot;)]
-public Matrix View</code></pre>
+    <pre><code class="lang-csharp hljs">public Matrix View</code></pre>
   </div>
 
   
@@ -1261,8 +1230,7 @@ public Matrix View</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The view information vector with packed components to reconstruct linear depth and view position from the hardware depth buffer. Cached before rendering.&quot;)]
-public Vector4 ViewInfo</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector4 ViewInfo</code></pre>
   </div>
 
   
@@ -1578,7 +1546,8 @@ public Vector4 ViewInfo</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

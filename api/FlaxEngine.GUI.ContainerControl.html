@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContainerControl
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
       <div class="level3"><a class="xref" href="FlaxEditor.GUI.Tree.Tree.html">Tree</a></div>
       <div class="level3"><a class="xref" href="FlaxEditor.GUI.Tree.TreeNode.html">TreeNode</a></div>
       <div class="level3"><a class="xref" href="FlaxEditor.Surface.Archetypes.BlendPointsEditor.html">BlendPointsEditor</a></div>
-      <div class="level3"><a class="xref" href="FlaxEditor.Surface.Archetypes.Particles.ParticleEmitterNode.ModulesHeader.html">Particles.ParticleEmitterNode.ModulesHeader</a></div>
       <div class="level3"><a class="xref" href="FlaxEditor.Surface.ContextMenu.SearchItem.html">SearchItem</a></div>
       <div class="level3"><a class="xref" href="FlaxEditor.Surface.Elements.BoxValue.html">BoxValue</a></div>
       <div class="level3"><a class="xref" href="FlaxEditor.Surface.SurfaceControl.html">SurfaceControl</a></div>
@@ -177,6 +176,18 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -217,6 +228,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
@@ -445,6 +468,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsDragOver">Control.IsDragOver</a>
@@ -758,6 +787,43 @@ protected bool _containsFocus</code></pre>
   
   
   </div>
+  
+  
+  
+  <h4 id="FlaxEngine_GUI_ContainerControl__isLayoutLocked" data-uid="FlaxEngine.GUI.ContainerControl._isLayoutLocked"><a href="#collapsible-FlaxEngine_GUI_ContainerControl__isLayoutLocked" class="expander" data-toggle="collapse">_isLayoutLocked</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_ContainerControl__isLayoutLocked" class="collapse in">
+  <div class="markdown level1 summary"><p>The layout locking flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NoSerialize]
+protected bool _isLayoutLocked</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
   
@@ -1003,6 +1069,7 @@ public bool CullChildren { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
+[NoAnimate]
 public bool IsLayoutLocked { get; set; }</code></pre>
   </div>
 
@@ -1021,45 +1088,6 @@ public bool IsLayoutLocked { get; set; }</code></pre>
   </table>
   
   
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_GUI_ContainerControl_IsMouseOver_" data-uid="FlaxEngine.GUI.ContainerControl.IsMouseOver*"></a>
-  
-  <h4 id="FlaxEngine_GUI_ContainerControl_IsMouseOver" data-uid="FlaxEngine.GUI.ContainerControl.IsMouseOver"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_IsMouseOver" class="expander" data-toggle="collapse">IsMouseOver</a></h4>
-  
-  <div id="collapsible-FlaxEngine_GUI_ContainerControl_IsMouseOver" class="collapse in">
-  <div class="markdown level1 summary"><p>Check if mouse is over that item or its child items</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsMouseOver { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a></div>
   
   
   
@@ -1204,6 +1232,55 @@ public bool IsLayoutLocked { get; set; }</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_ContainerControl_CanNavigateChild_" data-uid="FlaxEngine.GUI.ContainerControl.CanNavigateChild*"></a>
+  
+  <h4 id="FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_" data-uid="FlaxEngine.GUI.ContainerControl.CanNavigateChild(FlaxEngine.GUI.Control)"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_" class="expander" data-toggle="collapse">CanNavigateChild(Control)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if this container control can more with focus navigation into the given child control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool CanNavigateChild(Control child)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.Control.html">Control</a></span>
+        <span class="parametername">child</span>
+        <p><p>The child.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if can navigate to it, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   
@@ -1887,10 +1964,75 @@ Also calculates result location in child control space which can be used to feed
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
-public virtual void LockChildrenRecursive()</code></pre>
+public void LockChildrenRecursive()</code></pre>
   </div>
 
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_ContainerControl_NavigationWrap_" data-uid="FlaxEngine.GUI.ContainerControl.NavigationWrap*"></a>
+  
+  <h4 id="FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" data-uid="FlaxEngine.GUI.ContainerControl.NavigationWrap(FlaxEngine.GUI.NavDirection,FlaxEngine.Vector2,System.Collections.Generic.List{FlaxEngine.GUI.Control})"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="expander" data-toggle="collapse">NavigationWrap(NavDirection, Vector2, List&lt;Control&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="collapse in">
+  <div class="markdown level1 summary"><p>Wraps the navigation over the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Control NavigationWrap(NavDirection direction, Vector2 location, List&lt;Control&gt; visited)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.NavDirection.html">NavDirection</a></span>
+        <span class="parametername">direction</span>
+        <p><p>The navigation direction.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">location</span>
+        <p><p>The navigation start location (in the control-space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FlaxEngine.GUI.Control.html">Control</a>&gt;</span>
+        <span class="parametername">visited</span>
+        <p><p>The list with visited controls. Used to skip recursive navigation calls when doing traversal across the UI hierarchy.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GUI.Control.html">Control</a>
+        <p><p>The target navigation control or null if didn&apos;t performed any navigation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -2700,6 +2842,81 @@ public virtual void OnChildrenChanged()</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_GUI_ContainerControl_OnNavigate_" data-uid="FlaxEngine.GUI.ContainerControl.OnNavigate*"></a>
+  
+  <h4 id="FlaxEngine_GUI_ContainerControl_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__" data-uid="FlaxEngine.GUI.ContainerControl.OnNavigate(FlaxEngine.GUI.NavDirection,FlaxEngine.Vector2,FlaxEngine.GUI.Control,System.Collections.Generic.List{FlaxEngine.GUI.Control})"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="expander" data-toggle="collapse">OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_ContainerControl_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs the UI navigation for this control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Control OnNavigate(NavDirection direction, Vector2 location, Control caller, List&lt;Control&gt; visited)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.NavDirection.html">NavDirection</a></span>
+        <span class="parametername">direction</span>
+        <p><p>The navigation direction.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">location</span>
+        <p><p>The navigation start location (in the control-space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.Control.html">Control</a></span>
+        <span class="parametername">caller</span>
+        <p><p>The control that calls the event.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FlaxEngine.GUI.Control.html">Control</a>&gt;</span>
+        <span class="parametername">visited</span>
+        <p><p>The list with visited controls. Used to skip recursive navigation calls when doing traversal across the UI hierarchy.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GUI.Control.html">Control</a>
+        <p><p>The target navigation control or null if didn&apos;t performed any navigation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">Control.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GUI_ContainerControl_OnSizeChanged_" data-uid="FlaxEngine.GUI.ContainerControl.OnSizeChanged*"></a>
   
   <h4 id="FlaxEngine_GUI_ContainerControl_OnSizeChanged" data-uid="FlaxEngine.GUI.ContainerControl.OnSizeChanged"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_OnSizeChanged" class="expander" data-toggle="collapse">OnSizeChanged()</a></h4>
@@ -3222,7 +3439,7 @@ public void SortChildrenRecursive()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
-public virtual void UnlockChildrenRecursive()</code></pre>
+public void UnlockChildrenRecursive()</code></pre>
   </div>
 
   
@@ -3356,7 +3573,8 @@ public virtual void UnlockChildrenRecursive()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ScriptsBuilder
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEditor_ScriptsBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Game scrips building service. Compiles user C# scripts into binary assemblies. Exposes many events used to track scripts compilation and reloading.&quot;)]
 public static class ScriptsBuilder</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class ScriptsBuilder</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets amount of source code compile actions since Editor startup.&quot;)]
 public static int CompilationsCount { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static int CompilationsCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if scripts are being now compiled/reloaded.&quot;)]
 public static bool IsCompiling { get; }</code></pre>
   </div>
 
@@ -239,7 +236,6 @@ public static bool IsCompiling { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if source code has been compiled and assemblies are ready to load.&quot;)]
 public static bool IsReady { get; }</code></pre>
   </div>
 
@@ -278,7 +274,6 @@ public static bool IsReady { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if source code has been edited.&quot;)]
 public static bool IsSourceDirty { get; }</code></pre>
   </div>
 
@@ -317,7 +312,6 @@ public static bool IsSourceDirty { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if source code workspace has been edited (source file moved or deleted).&quot;)]
 public static bool IsSourceWorkspaceDirty { get; }</code></pre>
   </div>
 
@@ -356,7 +350,6 @@ public static bool IsSourceWorkspaceDirty { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if last scripting building failed due to errors.&quot;)]
 public static bool LastCompilationFailed { get; }</code></pre>
   </div>
 
@@ -397,7 +390,6 @@ public static bool LastCompilationFailed { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if need to compile source code. If so calls compilation.&quot;)]
 public static void CheckForCompile()</code></pre>
   </div>
 
@@ -427,7 +419,6 @@ public static void CheckForCompile()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Requests project source code compilation.&quot;)]
 public static void Compile()</code></pre>
   </div>
 
@@ -457,7 +448,6 @@ public static void Compile()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find a script type with the given name.&quot;)]
 public static Type FindScript(string scriptName)</code></pre>
   </div>
 
@@ -508,7 +498,6 @@ public static Type FindScript(string scriptName)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Generates the project files.&quot;)]
 public static bool GenerateProject(string customArgs = null)</code></pre>
   </div>
 
@@ -559,7 +548,6 @@ public static bool GenerateProject(string customArgs = null)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The options for the game scripts to use for the Editor.&quot;)]
 public static void GetBinariesConfiguration(out string target, out string platform, out string architecture, out string configuration)</code></pre>
   </div>
 
@@ -620,7 +608,6 @@ public static void GetBinariesConfiguration(out string target, out string platfo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The list of existing in-build code editors.&quot;)]
 public static void GetExistingEditors(int *result, int count)</code></pre>
   </div>
 
@@ -667,7 +654,6 @@ public static void GetExistingEditors(int *result, int count)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Indicates that scripting directory has been modified so scripts need to be rebuild.&quot;)]
 public static void MarkWorkspaceDirty()</code></pre>
   </div>
 
@@ -687,9 +673,9 @@ public static void MarkWorkspaceDirty()</code></pre>
   
   <a id="FlaxEditor_ScriptsBuilder_RunBuildTool_" data-uid="FlaxEditor.ScriptsBuilder.RunBuildTool*"></a>
   
-  <h4 id="FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_" data-uid="FlaxEditor.ScriptsBuilder.RunBuildTool(System.String)"><a href="#collapsible-FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_" class="expander" data-toggle="collapse">RunBuildTool(String)</a></h4>
+  <h4 id="FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_System_String_" data-uid="FlaxEditor.ScriptsBuilder.RunBuildTool(System.String,System.String)"><a href="#collapsible-FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_System_String_" class="expander" data-toggle="collapse">RunBuildTool(String, String)</a></h4>
   
-  <div id="collapsible-FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_" class="collapse in">
+  <div id="collapsible-FlaxEditor_ScriptsBuilder_RunBuildTool_System_String_System_String_" class="collapse in">
   <div class="markdown level1 summary"><p>Invokes the Flax.Build tool in the current project workspace and waits for the process end (blocking). Prints the build tool output to the log. Can be invoked from any thread.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -697,8 +683,7 @@ public static void MarkWorkspaceDirty()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Invokes the Flax.Build tool in the current project workspace and waits for the process end (blocking). Prints the build tool output to the log. Can be invoked from any thread.&quot;)]
-public static bool RunBuildTool(string args)</code></pre>
+public static bool RunBuildTool(string args, string workingDir = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -708,6 +693,14 @@ public static bool RunBuildTool(string args)</code></pre>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">args</span>
         <p><p>The Flax.Build tool invocation arguments.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">workingDir</span>
+        <p><p>The custom working directory. Use empty or null to execute build tool in the project folder.</p>
 </p>
       </td>
     </tr>
@@ -1145,7 +1138,8 @@ User objects should be removed at this point to reduce leaks and issues. Game sc
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

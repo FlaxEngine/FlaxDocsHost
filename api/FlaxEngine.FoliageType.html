@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class FoliageType
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -103,6 +103,12 @@
     <div class="level1"><a class="xref" href="FlaxEngine.Object.html">Object</a></div>
     <div class="level2"><span class="xref">FoliageType</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_FoliageType" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_FoliageType" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_FoliageType" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -148,6 +154,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,8 +192,7 @@
   <h5 id="FlaxEngine_FoliageType_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Foliage mesh instances type descriptor. Defines the shared properties of the spawned mesh instances.&quot;)]
-public sealed class FoliageType : Object</code></pre>
+public sealed class FoliageType : Object, ISerializable</code></pre>
   </div>
 
   
@@ -237,7 +245,6 @@ public sealed class FoliageType : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The per-instance cull distance.&quot;)]
 public float CullDistance { get; set; }</code></pre>
   </div>
 
@@ -276,7 +283,6 @@ public float CullDistance { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The per-instance cull distance randomization range (randomized per instance and added to master CullDistance value).&quot;)]
 public float CullDistanceRandomRange { get; set; }</code></pre>
   </div>
 
@@ -315,7 +321,6 @@ public float CullDistanceRandomRange { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The density scaling scale applied to the global scale for the foliage instances of this type. Can be used to boost or reduce density scaling effect on this foliage type. Default is 1.&quot;)]
 public float DensityScalingScale { get; set; }</code></pre>
   </div>
 
@@ -354,7 +359,6 @@ public float DensityScalingScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this foliage type.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -393,7 +397,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The parent foliage actor.&quot;)]
 public Foliage Foliage { get; }</code></pre>
   </div>
 
@@ -432,7 +435,6 @@ public Foliage Foliage { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The foliage type index.&quot;)]
 public int Index { get; }</code></pre>
   </div>
 
@@ -471,7 +473,6 @@ public int Index { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the foliage instance type materials buffer (overrides).&quot;)]
 public MaterialBase[] Materials { get; set; }</code></pre>
   </div>
 
@@ -510,7 +511,6 @@ public MaterialBase[] Materials { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The model to draw by the instances.&quot;)]
 public Model Model { get; set; }</code></pre>
   </div>
 
@@ -549,7 +549,6 @@ public Model Model { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The foliage instances density defined in instances count per 1000x1000 units area.&quot;)]
 public float PaintDensity { get; set; }</code></pre>
   </div>
 
@@ -588,7 +587,6 @@ public float PaintDensity { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The maximum ground slope angle to paint foliage on it (in degrees).&quot;)]
 public float PaintGroundSlopeAngleMax { get; set; }</code></pre>
   </div>
 
@@ -627,7 +625,6 @@ public float PaintGroundSlopeAngleMax { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The minimum ground slope angle to paint foliage on it (in degrees).&quot;)]
 public float PaintGroundSlopeAngleMin { get; set; }</code></pre>
   </div>
 
@@ -666,7 +663,6 @@ public float PaintGroundSlopeAngleMin { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The minimum radius between foliage instances.&quot;)]
 public float PaintRadius { get; set; }</code></pre>
   </div>
 
@@ -705,7 +701,6 @@ public float PaintRadius { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scale maximum values per axis.&quot;)]
 public Vector3 PaintScaleMax { get; set; }</code></pre>
   </div>
 
@@ -744,7 +739,6 @@ public Vector3 PaintScaleMax { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scale minimum values per axis.&quot;)]
 public Vector3 PaintScaleMin { get; set; }</code></pre>
   </div>
 
@@ -783,7 +777,6 @@ public Vector3 PaintScaleMin { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scaling mode.&quot;)]
 public FoliageScalingModes PaintScaling { get; set; }</code></pre>
   </div>
 
@@ -822,7 +815,6 @@ public FoliageScalingModes PaintScaling { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;If checked, instances will be aligned to normal of the placed surface.&quot;)]
 public bool PlacementAlignToNormal { get; set; }</code></pre>
   </div>
 
@@ -861,7 +853,6 @@ public bool PlacementAlignToNormal { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The per-instance random offset range on axis Y.&quot;)]
 public Vector2 PlacementOffsetY { get; set; }</code></pre>
   </div>
 
@@ -900,7 +891,6 @@ public Vector2 PlacementOffsetY { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The random pitch angle range (uniform in both ways around normal vector).&quot;)]
 public float PlacementRandomPitchAngle { get; set; }</code></pre>
   </div>
 
@@ -939,7 +929,6 @@ public float PlacementRandomPitchAngle { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The random roll angle range (uniform in both ways around normal vector).&quot;)]
 public float PlacementRandomRollAngle { get; set; }</code></pre>
   </div>
 
@@ -978,7 +967,6 @@ public float PlacementRandomRollAngle { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;If checked, instances will use randomized yaw when placed. Random yaw uses will rotation range over the Y axis.&quot;)]
 public bool PlacementRandomYaw { get; set; }</code></pre>
   </div>
 
@@ -1017,7 +1005,6 @@ public bool PlacementRandomYaw { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whenever this meshes can receive decals.&quot;)]
 public bool ReceiveDecals { get; set; }</code></pre>
   </div>
 
@@ -1056,7 +1043,6 @@ public bool ReceiveDecals { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scale in lightmap (for instances of this foliage type). Can be used to adjust static lighting quality for the foliage instances.&quot;)]
 public float ScaleInLightmap { get; set; }</code></pre>
   </div>
 
@@ -1095,7 +1081,6 @@ public float ScaleInLightmap { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The shadows casting mode.&quot;)]
 public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
   </div>
 
@@ -1134,7 +1119,6 @@ public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Flag used to determinate whenever use global foliage density scaling for instances of this foliage type.&quot;)]
 public bool UseDensityScaling { get; set; }</code></pre>
   </div>
 
@@ -1181,7 +1165,8 @@ public bool UseDensityScaling { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct WheeledVehicle.Wheel
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_WheeledVehicle_Wheel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Vehicle wheel settings.&quot;)]
 public struct Wheel</code></pre>
   </div>
 
@@ -150,7 +149,6 @@ public struct Wheel</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(4)]
-[Tooltip(&quot;Collider that represents the wheel shape and it's placement. Has to be attached as a child to the vehicle. Triangle mesh collider is not supported (use convex mesh or basic shapes).&quot;)]
 public Collider Collider</code></pre>
   </div>
 
@@ -190,7 +188,6 @@ public Collider Collider</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Steering&quot;, null)]
 [EditorOrder(11)]
-[Tooltip(&quot;Damping rate applied to wheel. Specified in kilograms metres-squared per second (kg m^2 s^-1).&quot;)]
 public float DampingRate</code></pre>
   </div>
 
@@ -228,7 +225,6 @@ public float DampingRate</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1)]
-[Tooltip(&quot;Combined mass of the wheel and the tire in kg. Typically, a wheel has mass between 20Kg and 80Kg but can be lower and higher depending on the vehicle.&quot;)]
 public float Mass</code></pre>
   </div>
 
@@ -268,7 +264,6 @@ public float Mass</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Steering&quot;, null)]
 [EditorOrder(12)]
-[Tooltip(&quot;Max brake torque that can be applied to wheel. Specified in kilograms metres-squared per second-squared (kg m^2 s^-2)&quot;)]
 public float MaxBrakeTorque</code></pre>
   </div>
 
@@ -308,7 +303,6 @@ public float MaxBrakeTorque</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Steering&quot;, null)]
 [EditorOrder(13)]
-[Tooltip(&quot;Max handbrake torque that can be applied to wheel. Specified in kilograms metres-squared per second-squared (kg m^2 s^-2)&quot;)]
 public float MaxHandBrakeTorque</code></pre>
   </div>
 
@@ -348,7 +342,6 @@ public float MaxHandBrakeTorque</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Steering&quot;, null)]
 [EditorOrder(10)]
-[Tooltip(&quot;Max steer angle that can be achieved by the wheel (in degrees).&quot;)]
 public float MaxSteerAngle</code></pre>
   </div>
 
@@ -386,7 +379,6 @@ public float MaxSteerAngle</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2)]
-[Tooltip(&quot;Distance in metres between the center of the wheel and the outside rim of the tire. It is important that the value of the radius closely matches the radius of the render mesh of the wheel. Any mismatch will result in the wheels either hovering above the ground or intersecting the ground.&quot;)]
 public float Radius</code></pre>
   </div>
 
@@ -426,7 +418,6 @@ public float Radius</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Suspension&quot;, null)]
 [EditorOrder(20)]
-[Tooltip(&quot;Spring damper rate of suspension unit.&quot;)]
 public float SuspensionDampingRate</code></pre>
   </div>
 
@@ -465,7 +456,6 @@ public float SuspensionDampingRate</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Suspension&quot;, null)]
 [EditorOrder(23)]
-[Tooltip(&quot;The vertical offset from where suspension forces are applied (relative to the vehicle center of mass). The suspension force is applies on the vertical axis going though the wheel center.&quot;)]
 public float SuspensionForceOffset</code></pre>
   </div>
 
@@ -505,7 +495,6 @@ public float SuspensionForceOffset</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Suspension&quot;, null)]
 [EditorOrder(22)]
-[Tooltip(&quot;The maximum offset for the suspension that wheel can go below resting location.&quot;)]
 public float SuspensionMaxDrop</code></pre>
   </div>
 
@@ -545,8 +534,45 @@ public float SuspensionMaxDrop</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Suspension&quot;, null)]
 [EditorOrder(21)]
-[Tooltip(&quot;The maximum offset for the suspension that wheel can go above resting location.&quot;)]
 public float SuspensionMaxRaise</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_TireFrictionScale" data-uid="FlaxEngine.WheeledVehicle.Wheel.TireFrictionScale"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_TireFrictionScale" class="expander" data-toggle="collapse">TireFrictionScale</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_TireFrictionScale" class="collapse in">
+  <div class="markdown level1 summary"><p>The tire friction scale (scales the drivable surface friction under the tire).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
+[EditorOrder(33)]
+public float TireFrictionScale</code></pre>
   </div>
 
   
@@ -584,7 +610,6 @@ public float SuspensionMaxRaise</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
 [EditorOrder(31)]
-[Tooltip(&quot;The maximum tire load (normalized) at which tire cannot provide more lateral stiffness (no matter how much extra load is applied to it).&quot;)]
 public float TireLateralMax</code></pre>
   </div>
 
@@ -623,7 +648,6 @@ public float TireLateralMax</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
 [EditorOrder(30)]
-[Tooltip(&quot;The tire lateral stiffness to have given lateral slip.&quot;)]
 public float TireLateralStiffness</code></pre>
   </div>
 
@@ -662,7 +686,6 @@ public float TireLateralStiffness</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tire&quot;, null)]
 [EditorOrder(32)]
-[Tooltip(&quot;The tire longitudinal stiffness to have given longitudinal slip.&quot;)]
 public float TireLongitudinalStiffness</code></pre>
   </div>
 
@@ -700,7 +723,6 @@ public float TireLongitudinalStiffness</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[Tooltip(&quot;Wheel placement type.&quot;)]
 public WheeledVehicle.WheelTypes Type</code></pre>
   </div>
 
@@ -738,7 +760,6 @@ public WheeledVehicle.WheelTypes Type</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(3)]
-[Tooltip(&quot;Full width of the wheel in metres. This parameter has no bearing on the handling but is a very useful parameter to have when trying to render debug data relating to the wheel/tire/suspension.&quot;)]
 public float Width</code></pre>
   </div>
 
@@ -785,7 +806,8 @@ public float Width</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -7,7 +7,7 @@
     <title>D6 Joint | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="D6 Joint | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -89,7 +89,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="d6-joint">D6 Joint</h1>
 
+<p><img src="media/d6-joint.png" alt="D6 Joint"></p>
 <p><strong>D6 Joint</strong> is the most customizable type of joint. This joint type can be used to create all other built-in joint types, and to design your own custom ones, but is less intuitive to use. Allows a specification of a linear constraint (for example for a slider), twist constraint (rotating around X) and swing constraint (rotating around Y and Z). It also allows you to constrain limits to only specific axes or completely lock specific axes.</p>
+<p>D6 Joints are used by default by Ragdoll creator as they can be used to simulate various types of human body joint behavior. In debug view when selected joint shows the location and target location points as wire spheres. The twist limit is shown with a yellow arc or yellow disk. The swing cone is shown in green color where the arrow points to the middle of it.</p>
+<h2 id="joint-axis">Joint Axis</h2>
+<p>D6 Joint uses (as a name says) 6 different axes of possible motion:</p>
+<ul>
+<li><strong>X</strong> - linear movement on X axis.</li>
+<li><strong>Y</strong> - linear movement on Y axis.</li>
+<li><strong>Z</strong> - linear movement on Z axis.</li>
+<li><strong>Twist</strong> - rotation around X axis.</li>
+<li><strong>SwingY</strong> - rotation around Y axis.</li>
+<li><strong>SwingZ</strong> - rotation around Z axis.</li>
+</ul>
+<p>Each axis can use one of 3 types of motion:</p>
+<ul>
+<li><strong>Locked</strong> - axis is immovable.</li>
+<li><strong>Limited</strong> - axis will be constrained by the specified limits (eg. see Linear/Twist/Swing limits).</li>
+<li><strong>Free</strong> - axis will not be constrained.</li>
+</ul>
+<p>Each axis can be independently adjusted.</p>
 <h2 id="properties">Properties</h2>
 <p><img src="media/d6-joint-properties.jpg" alt="Properties"></p>
 <table>
@@ -115,6 +134,10 @@
 <tr>
 <td><strong>Enable Collision</strong></td>
 <td>Determines whether a collision between the two bodies managed by the joint is enabled.</td>
+</tr>
+<tr>
+<td><strong>Enable Auto Anchor</strong></td>
+<td>Determines whether use automatic target anchor position and rotation based on the joint world-space frame (computed when creating joint).</td>
 </tr>
 <tr>
 <td><strong>Target Anchor</strong></td>
@@ -146,12 +169,13 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/physics/joints/d6-joint.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/physics/joints/d6-joint.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Physics
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Physics_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Physics simulation system.&quot;)]
 public static class Physics</code></pre>
   </div>
 
@@ -161,8 +160,7 @@ public static class Physics</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The automatic simulation feature. True if perform physics simulation after on fixed update by auto, otherwise user should do it.&quot;)]
-public static bool AutoSimulation { get; set; }</code></pre>
+public static bool AutoSimulation { get; }</code></pre>
   </div>
 
   
@@ -200,7 +198,6 @@ public static bool AutoSimulation { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the minimum relative velocity required for an object to bounce.&quot;)]
 public static float BounceThresholdVelocity { get; set; }</code></pre>
   </div>
 
@@ -227,6 +224,44 @@ public static float BounceThresholdVelocity { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Physics_DefaultScene_" data-uid="FlaxEngine.Physics.DefaultScene*"></a>
+  
+  <h4 id="FlaxEngine_Physics_DefaultScene" data-uid="FlaxEngine.Physics.DefaultScene"><a href="#collapsible-FlaxEngine_Physics_DefaultScene" class="expander" data-toggle="collapse">DefaultScene</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Physics_DefaultScene" class="collapse in">
+  <div class="markdown level1 summary"><p>The default physics scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static PhysicsScene DefaultScene { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Physics_EnableCCD_" data-uid="FlaxEngine.Physics.EnableCCD*"></a>
   
   <h4 id="FlaxEngine_Physics_EnableCCD" data-uid="FlaxEngine.Physics.EnableCCD"><a href="#collapsible-FlaxEngine_Physics_EnableCCD" class="expander" data-toggle="collapse">EnableCCD</a></h4>
@@ -239,7 +274,6 @@ public static float BounceThresholdVelocity { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the CCD feature enable flag.&quot;)]
 public static bool EnableCCD { get; set; }</code></pre>
   </div>
 
@@ -278,7 +312,6 @@ public static bool EnableCCD { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the current gravity force.&quot;)]
 public static Vector3 Gravity { get; set; }</code></pre>
   </div>
 
@@ -310,14 +343,13 @@ public static Vector3 Gravity { get; set; }</code></pre>
   <h4 id="FlaxEngine_Physics_IsDuringSimulation" data-uid="FlaxEngine.Physics.IsDuringSimulation"><a href="#collapsible-FlaxEngine_Physics_IsDuringSimulation" class="expander" data-toggle="collapse">IsDuringSimulation</a></h4>
   
   <div id="collapsible-FlaxEngine_Physics_IsDuringSimulation" class="collapse in">
-  <div class="markdown level1 summary"><p>Checks if physical simulation is running</p>
+  <div class="markdown level1 summary"><p>Checks if physical simulation is running.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if physical simulation is running&quot;)]
 public static bool IsDuringSimulation { get; }</code></pre>
   </div>
 
@@ -330,6 +362,44 @@ public static bool IsDuringSimulation { get; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Physics_Scenes_" data-uid="FlaxEngine.Physics.Scenes*"></a>
+  
+  <h4 id="FlaxEngine_Physics_Scenes" data-uid="FlaxEngine.Physics.Scenes"><a href="#collapsible-FlaxEngine_Physics_Scenes" class="expander" data-toggle="collapse">Scenes</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Physics_Scenes" class="collapse in">
+  <div class="markdown level1 summary"><p>List with all physics scenes (readonly).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static PhysicsScene[] Scenes { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a>[]
         <p>
       </td>
     </tr>
@@ -358,7 +428,6 @@ public static bool IsDuringSimulation { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a box geometry.&quot;)]
 public static bool BoxCast(Vector3 center, Vector3 halfExtents, Vector3 direction, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -457,7 +526,6 @@ public static bool BoxCast(Vector3 center, Vector3 halfExtents, Vector3 directio
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a box geometry.&quot;)]
 public static bool BoxCast(Vector3 center, Vector3 halfExtents, Vector3 direction, out RayCastHit hitInfo, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -564,7 +632,6 @@ public static bool BoxCast(Vector3 center, Vector3 halfExtents, Vector3 directio
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a box geometry.&quot;)]
 public static bool BoxCastAll(Vector3 center, Vector3 halfExtents, Vector3 direction, out RayCastHit[] results, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -671,7 +738,6 @@ public static bool BoxCastAll(Vector3 center, Vector3 halfExtents, Vector3 direc
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a capsule geometry.&quot;)]
 public static bool CapsuleCast(Vector3 center, float radius, float height, Vector3 direction, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -778,7 +844,6 @@ public static bool CapsuleCast(Vector3 center, float radius, float height, Vecto
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a capsule geometry.&quot;)]
 public static bool CapsuleCast(Vector3 center, float radius, float height, Vector3 direction, out RayCastHit hitInfo, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -893,7 +958,6 @@ public static bool CapsuleCast(Vector3 center, float radius, float height, Vecto
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a capsule geometry.&quot;)]
 public static bool CapsuleCastAll(Vector3 center, float radius, float height, Vector3 direction, out RayCastHit[] results, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1008,7 +1072,6 @@ public static bool CapsuleCastAll(Vector3 center, float radius, float height, Ve
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks whether the given box overlaps with other colliders or not.&quot;)]
 public static bool CheckBox(Vector3 center, Vector3 halfExtents, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1091,7 +1154,6 @@ public static bool CheckBox(Vector3 center, Vector3 halfExtents, Quaternion rota
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks whether the given capsule overlaps with other colliders or not.&quot;)]
 public static bool CheckCapsule(Vector3 center, float radius, float height, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1182,7 +1244,6 @@ public static bool CheckCapsule(Vector3 center, float radius, float height, Quat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks whether the given convex mesh overlaps with other colliders or not.&quot;)]
 public static bool CheckConvex(Vector3 center, CollisionData convexMesh, Vector3 scale, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1273,7 +1334,6 @@ public static bool CheckConvex(Vector3 center, CollisionData convexMesh, Vector3
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks whether the given sphere overlaps with other colliders or not.&quot;)]
 public static bool CheckSphere(Vector3 center, float radius, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1348,7 +1408,6 @@ public static bool CheckSphere(Vector3 center, float radius, uint layerMask = 42
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called during main engine loop to collect physic simulation results and apply them as well as fire collision events.&quot;)]
 public static void CollectResults()</code></pre>
   </div>
 
@@ -1378,7 +1437,6 @@ public static void CollectResults()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a convex mesh.&quot;)]
 public static bool ConvexCast(Vector3 center, CollisionData convexMesh, Vector3 scale, Vector3 direction, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1485,7 +1543,6 @@ public static bool ConvexCast(Vector3 center, CollisionData convexMesh, Vector3 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a convex mesh.&quot;)]
 public static bool ConvexCast(Vector3 center, CollisionData convexMesh, Vector3 scale, Vector3 direction, out RayCastHit hitInfo, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1600,7 +1657,6 @@ public static bool ConvexCast(Vector3 center, CollisionData convexMesh, Vector3 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a convex mesh.&quot;)]
 public static bool ConvexCastAll(Vector3 center, CollisionData convexMesh, Vector3 scale, Vector3 direction, out RayCastHit[] results, Quaternion rotation, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1703,6 +1759,131 @@ public static bool ConvexCastAll(Vector3 center, CollisionData convexMesh, Vecto
   </div>
   
   
+  <a id="FlaxEngine_Physics_FindOrCreateScene_" data-uid="FlaxEngine.Physics.FindOrCreateScene*"></a>
+  
+  <h4 id="FlaxEngine_Physics_FindOrCreateScene_System_String_" data-uid="FlaxEngine.Physics.FindOrCreateScene(System.String)"><a href="#collapsible-FlaxEngine_Physics_FindOrCreateScene_System_String_" class="expander" data-toggle="collapse">FindOrCreateScene(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Physics_FindOrCreateScene_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds an existing <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a> or creates it if it does not exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static PhysicsScene FindOrCreateScene(string name)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Physics_FindScene_" data-uid="FlaxEngine.Physics.FindScene*"></a>
+  
+  <h4 id="FlaxEngine_Physics_FindScene_System_String_" data-uid="FlaxEngine.Physics.FindScene(System.String)"><a href="#collapsible-FlaxEngine_Physics_FindScene_System_String_" class="expander" data-toggle="collapse">FindScene(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Physics_FindScene_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds an existing scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static PhysicsScene FindScene(string name)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Physics_FlushRequests_" data-uid="FlaxEngine.Physics.FlushRequests*"></a>
+  
+  <h4 id="FlaxEngine_Physics_FlushRequests" data-uid="FlaxEngine.Physics.FlushRequests"><a href="#collapsible-FlaxEngine_Physics_FlushRequests" class="expander" data-toggle="collapse">FlushRequests()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Physics_FlushRequests" class="collapse in">
+  <div class="markdown level1 summary"><p>Flushes any latent physics actions (eg. object destroy, actor add/remove to the scene, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void FlushRequests()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Physics_OverlapBox_" data-uid="FlaxEngine.Physics.OverlapBox*"></a>
   
   <h4 id="FlaxEngine_Physics_OverlapBox_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Collider____FlaxEngine_Quaternion_System_UInt32_System_Boolean_" data-uid="FlaxEngine.Physics.OverlapBox(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Collider[]@,FlaxEngine.Quaternion,System.UInt32,System.Boolean)"><a href="#collapsible-FlaxEngine_Physics_OverlapBox_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Collider____FlaxEngine_Quaternion_System_UInt32_System_Boolean_" class="expander" data-toggle="collapse">OverlapBox(Vector3, Vector3, out Collider[], Quaternion, UInt32, Boolean)</a></h4>
@@ -1715,7 +1896,6 @@ public static bool ConvexCastAll(Vector3 center, CollisionData convexMesh, Vecto
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given box.&quot;)]
 public static bool OverlapBox(Vector3 center, Vector3 halfExtents, out Collider[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1806,7 +1986,6 @@ public static bool OverlapBox(Vector3 center, Vector3 halfExtents, out Collider[
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given box.&quot;)]
 public static bool OverlapBox(Vector3 center, Vector3 halfExtents, out PhysicsColliderActor[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1897,7 +2076,6 @@ public static bool OverlapBox(Vector3 center, Vector3 halfExtents, out PhysicsCo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given capsule.&quot;)]
 public static bool OverlapCapsule(Vector3 center, float radius, float height, out Collider[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -1996,7 +2174,6 @@ public static bool OverlapCapsule(Vector3 center, float radius, float height, ou
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given capsule.&quot;)]
 public static bool OverlapCapsule(Vector3 center, float radius, float height, out PhysicsColliderActor[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2095,7 +2272,6 @@ public static bool OverlapCapsule(Vector3 center, float radius, float height, ou
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given convex mesh.&quot;)]
 public static bool OverlapConvex(Vector3 center, CollisionData convexMesh, Vector3 scale, out Collider[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2194,7 +2370,6 @@ public static bool OverlapConvex(Vector3 center, CollisionData convexMesh, Vecto
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given convex mesh.&quot;)]
 public static bool OverlapConvex(Vector3 center, CollisionData convexMesh, Vector3 scale, out PhysicsColliderActor[] results, Quaternion rotation, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2293,7 +2468,6 @@ public static bool OverlapConvex(Vector3 center, CollisionData convexMesh, Vecto
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given sphere.&quot;)]
 public static bool OverlapSphere(Vector3 center, float radius, out Collider[] results, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2376,7 +2550,6 @@ public static bool OverlapSphere(Vector3 center, float radius, out Collider[] re
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all colliders touching or inside of the given sphere.&quot;)]
 public static bool OverlapSphere(Vector3 center, float radius, out PhysicsColliderActor[] results, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2459,7 +2632,6 @@ public static bool OverlapSphere(Vector3 center, float radius, out PhysicsCollid
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against objects in the scene, returns results in a RayCastHit structure.&quot;)]
 public static bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hitInfo, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2550,7 +2722,6 @@ public static bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hit
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against objects in the scene.&quot;)]
 public static bool RayCast(Vector3 origin, Vector3 direction, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2633,7 +2804,6 @@ public static bool RayCast(Vector3 origin, Vector3 direction, float maxDistance 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against objects in the scene, returns results in a RayCastHit structure.&quot;)]
 public static bool RayCastAll(Vector3 origin, Vector3 direction, out RayCastHit[] results, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2724,7 +2894,6 @@ public static bool RayCastAll(Vector3 origin, Vector3 direction, out RayCastHit[
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called during main engine loop to start physic simulation. Use CollectResults after.&quot;)]
 public static void Simulate(float dt)</code></pre>
   </div>
 
@@ -2765,7 +2934,6 @@ public static void Simulate(float dt)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a sphere geometry.&quot;)]
 public static bool SphereCast(Vector3 center, float radius, Vector3 direction, out RayCastHit hitInfo, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2864,7 +3032,6 @@ public static bool SphereCast(Vector3 center, float radius, Vector3 direction, o
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a sphere geometry.&quot;)]
 public static bool SphereCast(Vector3 center, float radius, Vector3 direction, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -2955,7 +3122,6 @@ public static bool SphereCast(Vector3 center, float radius, Vector3 direction, f
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a sweep test against objects in the scene using a sphere geometry.&quot;)]
 public static bool SphereCastAll(Vector3 center, float radius, Vector3 direction, out RayCastHit[] results, float maxDistance = 3.40282347E+38F, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
   </div>
 
@@ -3052,7 +3218,8 @@ public static bool SphereCastAll(Vector3 center, float radius, Vector3 direction
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GPUDevice
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_GPUDevice_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Graphics device object for rendering on GPU.&quot;)]
 public sealed class GPUDevice : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class GPUDevice : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The adapter device.&quot;)]
 public GPUAdapter Adapter { get; }</code></pre>
   </div>
 
@@ -276,7 +277,6 @@ public GPUAdapter Adapter { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The default solid black texture.&quot;)]
 public GPUTexture DefaultBlackTexture { get; }</code></pre>
   </div>
 
@@ -315,7 +315,6 @@ public GPUTexture DefaultBlackTexture { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The default solid white texture.&quot;)]
 public GPUTexture DefaultWhiteTexture { get; }</code></pre>
   </div>
 
@@ -354,7 +353,6 @@ public GPUTexture DefaultWhiteTexture { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets device feature level type.&quot;)]
 public FeatureLevel FeatureLevel { get; }</code></pre>
   </div>
 
@@ -393,7 +391,6 @@ public FeatureLevel FeatureLevel { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The singleton instance of the graphics device.&quot;)]
 public static GPUDevice Instance { get; }</code></pre>
   </div>
 
@@ -432,7 +429,6 @@ public static GPUDevice Instance { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if device is during rendering state, otherwise false.&quot;)]
 public bool IsRendering { get; }</code></pre>
   </div>
 
@@ -471,7 +467,6 @@ public bool IsRendering { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The GPU limits.&quot;)]
 public GPULimits Limits { get; }</code></pre>
   </div>
 
@@ -510,7 +505,6 @@ public GPULimits Limits { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The main GPU context.&quot;)]
 public GPUContext MainContext { get; }</code></pre>
   </div>
 
@@ -549,7 +543,6 @@ public GPUContext MainContext { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The amount of memory usage by all the GPU resources (in bytes).&quot;)]
 public ulong MemoryUsage { get; }</code></pre>
   </div>
 
@@ -588,7 +581,6 @@ public ulong MemoryUsage { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The native pointer to the underlying graphics device. It's a low-level platform-specific handle.&quot;)]
 public IntPtr NativePtr { get; }</code></pre>
   </div>
 
@@ -627,7 +619,6 @@ public IntPtr NativePtr { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The device renderer type.&quot;)]
 public RendererType RendererType { get; }</code></pre>
   </div>
 
@@ -666,7 +657,6 @@ public RendererType RendererType { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets device shader profile type.&quot;)]
 public ShaderProfile ShaderProfile { get; }</code></pre>
   </div>
 
@@ -705,7 +695,6 @@ public ShaderProfile ShaderProfile { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total amount of graphics memory in bytes.&quot;)]
 public ulong TotalGraphicsMemory { get; }</code></pre>
   </div>
 
@@ -744,7 +733,6 @@ public ulong TotalGraphicsMemory { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The available video output modes.&quot;)]
 public GPUDevice.VideoOutputMode[] VideoOutputModes { get; }</code></pre>
   </div>
 
@@ -785,7 +773,6 @@ public GPUDevice.VideoOutputMode[] VideoOutputModes { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates the buffer.&quot;)]
 public GPUBuffer CreateBuffer(string name = null)</code></pre>
   </div>
 
@@ -836,7 +823,6 @@ public GPUBuffer CreateBuffer(string name = null)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates the texture sampler.&quot;)]
 public GPUSampler CreateSampler()</code></pre>
   </div>
 
@@ -876,7 +862,6 @@ public GPUSampler CreateSampler()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates the texture.&quot;)]
 public GPUTexture CreateTexture(string name = null)</code></pre>
   </div>
 
@@ -927,7 +912,6 @@ public GPUTexture CreateTexture(string name = null)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The supported features for the specified format (index is the pixel format value).&quot;)]
 public FormatFeatures GetFormatFeatures(PixelFormat format)</code></pre>
   </div>
 
@@ -986,7 +970,8 @@ public FormatFeatures GetFormatFeatures(PixelFormat format)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

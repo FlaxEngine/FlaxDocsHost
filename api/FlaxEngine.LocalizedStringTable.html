@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LocalizedStringTable
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -108,8 +108,11 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_LocalizedStringTable" data-uid="FlaxEngine.JsonAssetBase.DataTypeName"><a href="#collapsible-inheritedMembers-FlaxEngine_LocalizedStringTable" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_LocalizedStringTable" data-uid="FlaxEngine.JsonAssetBase.GetReferences(System.String,System.Guid[]@)"><a href="#collapsible-inheritedMembers-FlaxEngine_LocalizedStringTable" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_LocalizedStringTable" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.JsonAssetBase.html#FlaxEngine_JsonAssetBase_GetReferences_System_String_System_Guid____">JsonAssetBase.GetReferences(String, Guid[])</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.JsonAssetBase.html#FlaxEngine_JsonAssetBase_DataTypeName">JsonAssetBase.DataTypeName</a>
     </div>
@@ -189,6 +192,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -221,7 +227,6 @@
   <h5 id="FlaxEngine_LocalizedStringTable_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Contains localized strings table for a given culture.&quot;)]
 public class LocalizedStringTable : JsonAssetBase</code></pre>
   </div>
 
@@ -275,7 +280,6 @@ public class LocalizedStringTable : JsonAssetBase</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The string table. Maps the message id into the localized text. For plural messages the list contains separate items for value numbers.&quot;)]
 public Dictionary&lt;string, string[]&gt; Entries { get; set; }</code></pre>
   </div>
 
@@ -302,6 +306,44 @@ public Dictionary&lt;string, string[]&gt; Entries { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_LocalizedStringTable_FallbackTable_" data-uid="FlaxEngine.LocalizedStringTable.FallbackTable*"></a>
+  
+  <h4 id="FlaxEngine_LocalizedStringTable_FallbackTable" data-uid="FlaxEngine.LocalizedStringTable.FallbackTable"><a href="#collapsible-FlaxEngine_LocalizedStringTable_FallbackTable" class="expander" data-toggle="collapse">FallbackTable</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LocalizedStringTable_FallbackTable" class="collapse in">
+  <div class="markdown level1 summary"><p>The fallback language table to use for missing keys. Eg. table for &apos;en-GB&apos; can point to &apos;en&apos; as a fallback to prevent problem of missing localized strings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public LocalizedStringTable FallbackTable { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.LocalizedStringTable.html">LocalizedStringTable</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_LocalizedStringTable_Locale_" data-uid="FlaxEngine.LocalizedStringTable.Locale*"></a>
   
   <h4 id="FlaxEngine_LocalizedStringTable_Locale" data-uid="FlaxEngine.LocalizedStringTable.Locale"><a href="#collapsible-FlaxEngine_LocalizedStringTable_Locale" class="expander" data-toggle="collapse">Locale</a></h4>
@@ -314,7 +356,6 @@ public Dictionary&lt;string, string[]&gt; Entries { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The locale of the localized string table (eg. pl-PL).&quot;)]
 public string Locale { get; set; }</code></pre>
   </div>
 
@@ -355,7 +396,6 @@ public string Locale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the localized plural string to the table.&quot;)]
 public void AddPluralString(string id, string value, int n)</code></pre>
   </div>
 
@@ -412,7 +452,6 @@ public void AddPluralString(string id, string value, int n)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the localized string to the table.&quot;)]
 public void AddString(string id, string value)</code></pre>
   </div>
 
@@ -449,6 +488,114 @@ public void AddString(string id, string value)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_LocalizedStringTable_GetPluralString_" data-uid="FlaxEngine.LocalizedStringTable.GetPluralString*"></a>
+  
+  <h4 id="FlaxEngine_LocalizedStringTable_GetPluralString_System_String_System_Int32_" data-uid="FlaxEngine.LocalizedStringTable.GetPluralString(System.String,System.Int32)"><a href="#collapsible-FlaxEngine_LocalizedStringTable_GetPluralString_System_String_System_Int32_" class="expander" data-toggle="collapse">GetPluralString(String, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LocalizedStringTable_GetPluralString_System_String_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the localized plural string by using string id lookup. Uses fallback table if text is not included in this table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public string GetPluralString(string id, int n)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The message identifier.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">n</span>
+        <p><p>The value count for plural message selection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>The localized text.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_LocalizedStringTable_GetString_" data-uid="FlaxEngine.LocalizedStringTable.GetString*"></a>
+  
+  <h4 id="FlaxEngine_LocalizedStringTable_GetString_System_String_" data-uid="FlaxEngine.LocalizedStringTable.GetString(System.String)"><a href="#collapsible-FlaxEngine_LocalizedStringTable_GetString_System_String_" class="expander" data-toggle="collapse">GetString(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LocalizedStringTable_GetString_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the localized string by using string id lookup. Uses fallback table if text is not included in this table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public string GetString(string id)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The message identifier.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>The localized text.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_LocalizedStringTable_Save_" data-uid="FlaxEngine.LocalizedStringTable.Save*"></a>
   
   <h4 id="FlaxEngine_LocalizedStringTable_Save_System_String_" data-uid="FlaxEngine.LocalizedStringTable.Save(System.String)"><a href="#collapsible-FlaxEngine_LocalizedStringTable_Save_System_String_" class="expander" data-toggle="collapse">Save(String)</a></h4>
@@ -461,7 +608,6 @@ public void AddString(string id, string value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves this asset to the file. Supported only in Editor.&quot;)]
 public bool Save(string path = null)</code></pre>
   </div>
 
@@ -524,7 +670,8 @@ public bool Save(string path = null)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

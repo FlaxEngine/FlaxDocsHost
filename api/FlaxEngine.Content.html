@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Content
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Content_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads and manages assets.&quot;)]
 public static class Content</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Content</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The assets (loaded or during load).&quot;)]
 public static Asset[] Assets { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static Asset[] Assets { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets content statistics.&quot;)]
 public static ContentStats Stats { get; }</code></pre>
   </div>
 
@@ -241,7 +238,6 @@ public static ContentStats Stats { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Generates temporary asset path.&quot;)]
 public static string CreateTemporaryAssetPath()</code></pre>
   </div>
 
@@ -274,14 +270,13 @@ public static string CreateTemporaryAssetPath()</code></pre>
   <h4 id="FlaxEngine_Content_CreateVirtualAsset_System_Type_" data-uid="FlaxEngine.Content.CreateVirtualAsset(System.Type)"><a href="#collapsible-FlaxEngine_Content_CreateVirtualAsset_System_Type_" class="expander" data-toggle="collapse">CreateVirtualAsset(Type)</a></h4>
   
   <div id="collapsible-FlaxEngine_Content_CreateVirtualAsset_System_Type_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates temporary and virtual asset of thr given type.</p>
+  <div class="markdown level1 summary"><p>Creates temporary and virtual asset of the given type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates temporary and virtual asset of thr given type.&quot;)]
 public static Asset CreateVirtualAsset([TypeReference(typeof(Asset), null)] Type type)</code></pre>
   </div>
 
@@ -383,7 +378,6 @@ Virtual assets are temporary and exist until application exit.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Deletes the specified asset.&quot;)]
 public static void DeleteAsset(Asset asset)</code></pre>
   </div>
 
@@ -453,6 +447,45 @@ public static void DeleteAsset(string path)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Content_GetAllAssets_" data-uid="FlaxEngine.Content.GetAllAssets*"></a>
+  
+  <h4 id="FlaxEngine_Content_GetAllAssets" data-uid="FlaxEngine.Content.GetAllAssets"><a href="#collapsible-FlaxEngine_Content_GetAllAssets" class="expander" data-toggle="collapse">GetAllAssets()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Content_GetAllAssets" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds all the asset IDs. Uses asset registry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Guid[] GetAllAssets()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Guid</span>[]
+        <p><p>The list of all asset IDs.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Content_GetAllAssetsByType_" data-uid="FlaxEngine.Content.GetAllAssetsByType*"></a>
   
   <h4 id="FlaxEngine_Content_GetAllAssetsByType_System_Type_" data-uid="FlaxEngine.Content.GetAllAssetsByType(System.Type)"><a href="#collapsible-FlaxEngine_Content_GetAllAssetsByType_System_Type_" class="expander" data-toggle="collapse">GetAllAssetsByType(Type)</a></h4>
@@ -465,7 +498,6 @@ public static void DeleteAsset(string path)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all the asset IDs by type (exact type, without inheritance checks). Uses asset registry.&quot;)]
 public static Guid[] GetAllAssetsByType(Type type)</code></pre>
   </div>
 
@@ -516,7 +548,6 @@ public static Guid[] GetAllAssetsByType(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the asset with given ID. Checks all loaded assets.&quot;)]
 public static Asset GetAsset(Guid id)</code></pre>
   </div>
 
@@ -567,7 +598,6 @@ public static Asset GetAsset(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the asset with at given path. Checks all loaded assets.&quot;)]
 public static Asset GetAsset(string path)</code></pre>
   </div>
 
@@ -618,7 +648,6 @@ public static Asset GetAsset(string path)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the asset info by id.&quot;)]
 public static bool GetAssetInfo(Guid id, out AssetInfo info)</code></pre>
   </div>
 
@@ -677,7 +706,6 @@ public static bool GetAssetInfo(Guid id, out AssetInfo info)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the asset info by path.&quot;)]
 public static bool GetAssetInfo(string path, out AssetInfo info)</code></pre>
   </div>
 
@@ -1039,7 +1067,6 @@ Waits until asset will be loaded. It&apos;s equivalent to LoadAsync + WaitForLoa
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads asset and holds it until it won't be referenced by any object. Returns null if asset is missing. Actual asset data loading is performed on a other thread in async.&quot;)]
 public static Asset LoadAsync(Guid id, [TypeReference(typeof(Asset), null)] Type type)</code></pre>
   </div>
 
@@ -1625,7 +1652,6 @@ public static T LoadInternal&lt;T&gt;(string internalPath, double timeoutInMilli
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Renames the asset.&quot;)]
 public static bool RenameAsset(string oldPath, string newPath)</code></pre>
   </div>
 
@@ -1684,7 +1710,6 @@ public static bool RenameAsset(string oldPath, string newPath)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unloads the specified asset.&quot;)]
 public static void UnloadAsset(Asset asset)</code></pre>
   </div>
 
@@ -1726,7 +1751,6 @@ public static void UnloadAsset(Asset asset)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when asset is being disposed and will be unloaded (by force). All references to it should be released.&quot;)]
 public static event Action&lt;Asset&gt; AssetDisposing</code></pre>
   </div>
 
@@ -1764,7 +1788,6 @@ public static event Action&lt;Asset&gt; AssetDisposing</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when asset is being reloaded and will be unloaded (by force) to be loaded again (e.g. after reimport). Always called from the main thread.&quot;)]
 public static event Action&lt;Asset&gt; AssetReloading</code></pre>
   </div>
 
@@ -1801,7 +1824,8 @@ public static event Action&lt;Asset&gt; AssetReloading</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

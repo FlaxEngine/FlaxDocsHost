@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Navigation
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Navigation_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The navigation service used for path finding and agents navigation system.&quot;)]
 public static class Navigation</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Navigation</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if navigation system is during navmesh building (any request is valid or async task active).&quot;)]
 public static bool IsBuildingNavMesh { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static bool IsBuildingNavMesh { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The navmesh building progress (normalized to range 0-1).&quot;)]
 public static float NavMeshBuildingProgress { get; }</code></pre>
   </div>
 
@@ -241,7 +238,6 @@ public static float NavMeshBuildingProgress { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Builds the Nav Mesh for the given scene (builds only the tiles overlapping the given bounding box).&quot;)]
 public static void BuildNavMesh(Scene scene, BoundingBox dirtyBounds, float timeoutMs = 50F)</code></pre>
   </div>
 
@@ -301,7 +297,6 @@ public static void BuildNavMesh(Scene scene, BoundingBox dirtyBounds, float time
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Builds the Nav Mesh for the given scene (discards all its tiles).&quot;)]
 public static void BuildNavMesh(Scene scene, float timeoutMs = 50F)</code></pre>
   </div>
 
@@ -353,7 +348,6 @@ public static void BuildNavMesh(Scene scene, float timeoutMs = 50F)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the distance from the specified start position to the nearest polygon wall.&quot;)]
 public static bool FindDistanceToWall(Vector3 startPosition, out NavMeshHit hitInfo, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -420,7 +414,6 @@ public static bool FindDistanceToWall(Vector3 startPosition, out NavMeshHit hitI
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the path between the two positions presented as a list of waypoints stored in the corners array.&quot;)]
 public static bool FindPath(Vector3 startPosition, Vector3 endPosition, out Vector3[] resultPath)</code></pre>
   </div>
 
@@ -487,7 +480,6 @@ public static bool FindPath(Vector3 startPosition, Vector3 endPosition, out Vect
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds random location on nav mesh.&quot;)]
 public static bool FindRandomPoint(out Vector3 result)</code></pre>
   </div>
 
@@ -538,7 +530,6 @@ public static bool FindRandomPoint(out Vector3 result)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds random location on nav mesh within the reach of specified location.&quot;)]
 public static bool FindRandomPointAroundCircle(Vector3 center, float radius, out Vector3 result)</code></pre>
   </div>
 
@@ -605,7 +596,6 @@ public static bool FindRandomPointAroundCircle(Vector3 center, float radius, out
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Projects the point to nav mesh surface (finds the nearest polygon).&quot;)]
 public static bool ProjectPoint(Vector3 point, out Vector3 result)</code></pre>
   </div>
 
@@ -664,7 +654,6 @@ public static bool ProjectPoint(Vector3 point, out Vector3 result)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Casts a 'walkability' ray along the surface of the navigation mesh from the start position toward the end position.&quot;)]
 public static bool RayCast(Vector3 startPosition, Vector3 endPosition, out NavMeshHit hitInfo)</code></pre>
   </div>
 
@@ -731,7 +720,6 @@ public static bool RayCast(Vector3 startPosition, Vector3 endPosition, out NavMe
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tests the path between the two positions (non-partial).&quot;)]
 public static bool TestPath(Vector3 startPosition, Vector3 endPosition)</code></pre>
   </div>
 
@@ -788,7 +776,8 @@ public static bool TestPath(Vector3 startPosition, Vector3 endPosition)</code></
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

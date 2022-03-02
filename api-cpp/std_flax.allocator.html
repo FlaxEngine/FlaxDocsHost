@@ -1,0 +1,803 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class allocator
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class allocator
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class allocator
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="std_flax.allocator">
+  <h1 id="std_flax_allocator" data-uid="std_flax.allocator">Class allocator
+  </h1>
+  <div class="markdown level0 summary"><p>Implementation of STL memory allocator that uses Flax default Allocator. </p></div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-std_flax_allocator" data-uid="std_flax.allocator"><a href="#collapsible-inheritance-std_flax_allocator" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-std_flax_allocator" class="collapse">
+    <div class="level0"><span class="xref">allocator</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-std_flax_allocator" data-uid="std_flax.allocator.const_pointer"><a href="#collapsible-inheritedMembers-std_flax_allocator" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-std_flax_allocator" class="collapse">
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+    <div>
+      <span class="xref">std_flax::allocator</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: <a class="xref" href="std_flax.html">std_flax</a></h6>
+  <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
+  <h6><strong>File</strong>: Engine/Core/Memory/StlWrapper.h</h6>
+  
+  <h5 id="std_flax_allocator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public class allocator&lt;T&gt;</code></pre>
+  </div>
+
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_allocator__.md&amp;value=---%0Auid%3A%20std_flax.allocator.allocator()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_allocator_" data-uid="std_flax.allocator.allocator*"></a>
+  
+  <h4 id="std_flax_allocator_allocator__" data-uid="std_flax.allocator.allocator()"><a href="#collapsible-std_flax_allocator_allocator__" class="expander" data-toggle="collapse">allocator()</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_allocator__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public allocator()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_allocator_const_allocator___.md&amp;value=---%0Auid%3A%20std_flax.allocator.allocator(const%20allocator%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L34" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_allocator_" data-uid="std_flax.allocator.allocator*"></a>
+  
+  <h4 id="std_flax_allocator_allocator_const_allocator___" data-uid="std_flax.allocator.allocator(const allocator &amp;)"><a href="#collapsible-std_flax_allocator_allocator_const_allocator___" class="expander" data-toggle="collapse">allocator(const allocator&amp; )</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_allocator_const_allocator___" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public allocator(const allocator&amp; )</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">allocator</span></span>
+        <span class="parametername">std_flax_allocator_allocator_const_allocator___</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_allocator_const_allocator_U____.md&amp;value=---%0Auid%3A%20std_flax.allocator.allocator(const%20allocator%3CU%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_allocator_" data-uid="std_flax.allocator.allocator*"></a>
+  
+  <h4 id="std_flax_allocator_allocator_const_allocator_U____" data-uid="std_flax.allocator.allocator(const allocator&lt;U&gt; &amp;)"><a href="#collapsible-std_flax_allocator_allocator_const_allocator_U____" class="expander" data-toggle="collapse">allocator(const allocator&lt;U&gt;&amp; )</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_allocator_const_allocator_U____" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public allocator(const allocator&lt;U&gt;&amp; )</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">allocator&lt;U&gt;</span></span>
+        <span class="parametername">std_flax_allocator_allocator_const_allocator_U____</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">class U</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_address_const_reference_.md&amp;value=---%0Auid%3A%20std_flax.allocator.address(const_reference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_address_" data-uid="std_flax.allocator.address*"></a>
+  
+  <h4 id="std_flax_allocator_address_const_reference_" data-uid="std_flax.allocator.address(const_reference)"><a href="#collapsible-std_flax_allocator_address_const_reference_" class="expander" data-toggle="collapse">address(const_reference x)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_address_const_reference_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public const_pointer address(const_reference x) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">const_reference</span></span>
+        <span class="parametername">x</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">const_pointer</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_address_reference_.md&amp;value=---%0Auid%3A%20std_flax.allocator.address(reference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_address_" data-uid="std_flax.allocator.address*"></a>
+  
+  <h4 id="std_flax_allocator_address_reference_" data-uid="std_flax.allocator.address(reference)"><a href="#collapsible-std_flax_allocator_address_reference_" class="expander" data-toggle="collapse">address(reference x)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_address_reference_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public pointer address(reference x) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">reference</span></span>
+        <span class="parametername">x</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">pointer</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_allocate_size_type_const_void___.md&amp;value=---%0Auid%3A%20std_flax.allocator.allocate(size_type%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_allocate_" data-uid="std_flax.allocator.allocate*"></a>
+  
+  <h4 id="std_flax_allocator_allocate_size_type_const_void___" data-uid="std_flax.allocator.allocate(size_type,const void *)"><a href="#collapsible-std_flax_allocator_allocate_size_type_const_void___" class="expander" data-toggle="collapse">allocate(size_type n, const void* = 0)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_allocate_size_type_const_void___" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public pointer allocate(size_type n, const void* = 0)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">size_type</span></span>
+        <span class="parametername">n</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">void</span></span>
+        <span class="parametername">std_flax_allocator_allocate_size_type_const_void___</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">pointer</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_construct_pointer_const_T___.md&amp;value=---%0Auid%3A%20std_flax.allocator.construct(pointer%2Cconst%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L63" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_construct_" data-uid="std_flax.allocator.construct*"></a>
+  
+  <h4 id="std_flax_allocator_construct_pointer_const_T___" data-uid="std_flax.allocator.construct(pointer,const T &amp;)"><a href="#collapsible-std_flax_allocator_construct_pointer_const_T___" class="expander" data-toggle="collapse">construct(pointer p, const T&amp; val)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_construct_pointer_const_T___" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void construct(pointer p, const T&amp; val)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">pointer</span></span>
+        <span class="parametername">p</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">val</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_deallocate_void___size_type_.md&amp;value=---%0Auid%3A%20std_flax.allocator.deallocate(void%20*%2Csize_type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_deallocate_" data-uid="std_flax.allocator.deallocate*"></a>
+  
+  <h4 id="std_flax_allocator_deallocate_void___size_type_" data-uid="std_flax.allocator.deallocate(void *,size_type)"><a href="#collapsible-std_flax_allocator_deallocate_void___size_type_" class="expander" data-toggle="collapse">deallocate(void* p, size_type)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_deallocate_void___size_type_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void deallocate(void* p, size_type)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">void</span></span>
+        <span class="parametername">p</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">size_type</span></span>
+        <span class="parametername">std_flax_allocator_deallocate_void___size_type_</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_destroy_pointer_.md&amp;value=---%0Auid%3A%20std_flax.allocator.destroy(pointer)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_destroy_" data-uid="std_flax.allocator.destroy*"></a>
+  
+  <h4 id="std_flax_allocator_destroy_pointer_" data-uid="std_flax.allocator.destroy(pointer)"><a href="#collapsible-std_flax_allocator_destroy_pointer_" class="expander" data-toggle="collapse">destroy(pointer p)</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_destroy_pointer_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void destroy(pointer p)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">pointer</span></span>
+        <span class="parametername">p</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_max_size__.md&amp;value=---%0Auid%3A%20std_flax.allocator.max_size()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L73" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_max_size_" data-uid="std_flax.allocator.max_size*"></a>
+  
+  <h4 id="std_flax_allocator_max_size__" data-uid="std_flax.allocator.max_size()"><a href="#collapsible-std_flax_allocator_max_size__" class="expander" data-toggle="collapse">max_size()</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_max_size__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public size_type max_size() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">size_type</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_operator__const_allocator___.md&amp;value=---%0Auid%3A%20std_flax.allocator.operator%3D(const%20allocator%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_operator__" data-uid="std_flax.allocator.operator=*"></a>
+  
+  <h4 id="std_flax_allocator_operator__const_allocator___" data-uid="std_flax.allocator.operator=(const allocator &amp;)"><a href="#collapsible-std_flax_allocator_operator__const_allocator___" class="expander" data-toggle="collapse">operator=(const allocator&amp; )</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_operator__const_allocator___" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public allocator&lt;T&gt; operator=(const allocator&amp; )</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">allocator</span></span>
+        <span class="parametername">std_flax_allocator_operator__const_allocator___</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">allocator&lt;T&gt;</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator_operator__const_allocator_U____.md&amp;value=---%0Auid%3A%20std_flax.allocator.operator%3D(const%20allocator%3CU%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="std_flax_allocator_operator__" data-uid="std_flax.allocator.operator=*"></a>
+  
+  <h4 id="std_flax_allocator_operator__const_allocator_U____" data-uid="std_flax.allocator.operator=(const allocator&lt;U&gt; &amp;)"><a href="#collapsible-std_flax_allocator_operator__const_allocator_U____" class="expander" data-toggle="collapse">operator=(const allocator&lt;U&gt;&amp; )</a></h4>
+  
+  <div id="collapsible-std_flax_allocator_operator__const_allocator_U____" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public allocator operator=(const allocator&lt;U&gt;&amp; )</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">allocator&lt;U&gt;</span></span>
+        <span class="parametername">std_flax_allocator_operator__const_allocator_U____</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">allocator</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">class U</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=std_flax_allocator.md&amp;value=---%0Auid%3A%20std_flax.allocator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Memory/StlWrapper.h/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

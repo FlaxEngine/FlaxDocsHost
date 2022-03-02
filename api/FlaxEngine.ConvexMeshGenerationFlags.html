@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum ConvexMeshGenerationFlags
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,7 +106,6 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Flags]
 [Unmanaged]
-[Tooltip(&quot;Set of flags used to generate model convex mesh. Allows to customize process.&quot;)]
 public enum ConvexMeshGenerationFlags</code></pre>
   </div>
 
@@ -125,6 +124,11 @@ public enum ConvexMeshGenerationFlags</code></pre>
     <thead>
     <tbody>
       <tr>
+        <td id="FlaxEngine_ConvexMeshGenerationFlags_FastCook">FastCook</td>
+        <td><p>The combination of flags that improve the collision data cooking performance at the cost of quality and features. Recommend for runtime dynamic or deformable objects that need quick collision updates.</p>
+</td>
+      </tr>
+      <tr>
         <td id="FlaxEngine_ConvexMeshGenerationFlags_None">None</td>
         <td><p>Nothing.</p>
 </td>
@@ -132,21 +136,22 @@ public enum ConvexMeshGenerationFlags</code></pre>
       <tr>
         <td id="FlaxEngine_ConvexMeshGenerationFlags_ShiftVertices">ShiftVertices</td>
         <td><p>Convex hull input vertices are shifted to be around origin to provide better computation stability.
-It is recommended to provide input vertices around the origin, otherwise use this flag to improve
-numerical stability.</p>
+It is recommended to provide input vertices around the origin, otherwise use this flag to improve numerical stability.</p>
 </td>
       </tr>
       <tr>
         <td id="FlaxEngine_ConvexMeshGenerationFlags_SkipValidation">SkipValidation</td>
-        <td><p>Disables the convex mesh validation to speed-up hull creation.
-Creating a convex mesh with invalid input data without prior validation
-may result in undefined behavior.</p>
+        <td><p>Disables the convex mesh validation to speed-up hull creation. Creating a convex mesh with invalid input data without prior validation may result in undefined behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="FlaxEngine_ConvexMeshGenerationFlags_SuppressFaceRemapTable">SuppressFaceRemapTable</td>
+        <td><p>If checked, the face remap table is not created. This saves a significant amount of memory, but disabled ability to remap the cooked collision geometry into original mesh using raycast hit info.</p>
 </td>
       </tr>
       <tr>
         <td id="FlaxEngine_ConvexMeshGenerationFlags_UseFastInteriaComputation">UseFastInteriaComputation</td>
-        <td><p>Inertia tensor computation is faster using SIMD code, but the precision is lower, which may result
-in incorrect inertia for very thin hulls.</p>
+        <td><p>Inertia tensor computation is faster using SIMD code, but the precision is lower, which may result in incorrect inertia for very thin hulls.</p>
 </td>
       </tr>
       <tr>
@@ -187,7 +192,8 @@ hull. However, it can be used with a vertex limit as low as 4.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

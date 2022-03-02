@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AudioClip
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -186,6 +186,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -218,7 +221,6 @@
   <h5 id="FlaxEngine_AudioClip_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Audio clip stores audio data in a compressed or uncompressed format using a binary asset. Clips can be provided to audio sources or other audio methods to be played.&quot;)]
 public class AudioClip : BinaryAsset</code></pre>
   </div>
 
@@ -272,7 +274,6 @@ public class AudioClip : BinaryAsset</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The audio data format.&quot;)]
 public AudioFormat Format { get; }</code></pre>
   </div>
 
@@ -311,7 +312,6 @@ public AudioFormat Format { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The audio data info metadata.&quot;)]
 public AudioDataInfo Info { get; }</code></pre>
   </div>
 
@@ -350,7 +350,6 @@ public AudioDataInfo Info { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if the sound source is three dimensional (volume and pitch varies based on listener distance and velocity).&quot;)]
 public bool Is3D { get; }</code></pre>
   </div>
 
@@ -389,7 +388,6 @@ public bool Is3D { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if the sound is using data streaming.&quot;)]
 public bool IsStreamable { get; }</code></pre>
   </div>
 
@@ -428,7 +426,6 @@ public bool IsStreamable { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if the sound data is during streaming by an async task.&quot;)]
 public bool IsStreamingTaskActive { get; }</code></pre>
   </div>
 
@@ -467,7 +464,6 @@ public bool IsStreamingTaskActive { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The length of the audio clip (in seconds).&quot;)]
 public float Length { get; }</code></pre>
   </div>
 
@@ -508,7 +504,6 @@ public float Length { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Extracts the source audio data from the asset storage. Loads the whole asset. The result data is in an asset format.&quot;)]
 public bool ExtractData(out byte[] resultData, out AudioDataInfo resultDataInfo)</code></pre>
   </div>
 
@@ -567,7 +562,6 @@ public bool ExtractData(out byte[] resultData, out AudioDataInfo resultDataInfo)
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Extracts the raw audio data (PCM format) from the asset storage and converts it to the normalized float format (in range [-1;1]). Loads the whole asset.&quot;)]
 public bool ExtractDataFloat(out float[] resultData, out AudioDataInfo resultDataInfo)</code></pre>
   </div>
 
@@ -626,7 +620,6 @@ public bool ExtractDataFloat(out float[] resultData, out AudioDataInfo resultDat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Extracts the raw audio data (PCM format) from the asset storage. Loads the whole asset.&quot;)]
 public bool ExtractDataRaw(out byte[] resultData, out AudioDataInfo resultDataInfo)</code></pre>
   </div>
 
@@ -697,7 +690,8 @@ public bool ExtractDataRaw(out byte[] resultData, out AudioDataInfo resultDataIn
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

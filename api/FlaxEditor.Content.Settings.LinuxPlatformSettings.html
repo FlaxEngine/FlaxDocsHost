@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LinuxPlatformSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,8 +137,7 @@
   
   <h5 id="FlaxEditor_Content_Settings_LinuxPlatformSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Linux platform settings.&quot;)]
-public sealed class LinuxPlatformSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class LinuxPlatformSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -191,7 +190,6 @@ public sealed class LinuxPlatformSettings : SettingsBase</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1020)]
 [EditorDisplay(&quot;Other&quot;, null)]
-[Tooltip(&quot;Limits maximum amount of concurrent game instances running to one, otherwise user may launch application more than once.&quot;)]
 public bool ForceSingleInstance</code></pre>
   </div>
 
@@ -222,18 +220,15 @@ public bool ForceSingleInstance</code></pre>
   <h4 id="FlaxEditor_Content_Settings_LinuxPlatformSettings_OverrideIcon" data-uid="FlaxEditor.Content.Settings.LinuxPlatformSettings.OverrideIcon"><a href="#collapsible-FlaxEditor_Content_Settings_LinuxPlatformSettings_OverrideIcon" class="expander" data-toggle="collapse">OverrideIcon</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Settings_LinuxPlatformSettings_OverrideIcon" class="collapse in">
-  <div class="markdown level1 summary"><p>Custom icon texture (asset id) to use for the application (overrides the default one).</p>
+  <div class="markdown level1 summary"><p>Custom icon texture to use for the application (overrides the default one).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1030)]
-[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.AssetRefEditor&quot;)]
-[AssetReference(typeof(Texture), false)]
 [EditorDisplay(&quot;Other&quot;, null)]
-[Tooltip(&quot;Custom icon texture (asset id) to use for the application (overrides the default one).&quot;)]
-public Guid OverrideIcon</code></pre>
+public Texture OverrideIcon</code></pre>
   </div>
 
   
@@ -243,7 +238,7 @@ public Guid OverrideIcon</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Guid</span>
+        <a class="xref" href="FlaxEngine.Texture.html">Texture</a>
         <p>
       </td>
     </tr>
@@ -271,7 +266,6 @@ public Guid OverrideIcon</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Window&quot;, null)]
-[Tooltip(&quot;Enables resizing the game window by the user.&quot;)]
 public bool ResizableWindow</code></pre>
   </div>
 
@@ -310,7 +304,6 @@ public bool ResizableWindow</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
 [EditorDisplay(&quot;Other&quot;, &quot;Run In Background&quot;)]
-[Tooltip(&quot;Enables game running when application window loses focus.&quot;)]
 public bool RunInBackground</code></pre>
   </div>
 
@@ -349,7 +342,6 @@ public bool RunInBackground</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Window&quot;, null)]
-[Tooltip(&quot;The default game window height (in pixels).&quot;)]
 public int ScreenHeight</code></pre>
   </div>
 
@@ -388,7 +380,6 @@ public int ScreenHeight</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Window&quot;, null)]
-[Tooltip(&quot;The default game window width (in pixels).&quot;)]
 public int ScreenWidth</code></pre>
   </div>
 
@@ -427,7 +418,6 @@ public int ScreenWidth</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
 [EditorDisplay(&quot;Graphics&quot;, null)]
-[Tooltip(&quot;Enables support for Vulkan. Disabling it reduces compiled shaders count.&quot;)]
 public bool SupportVulkan</code></pre>
   </div>
 
@@ -466,7 +456,6 @@ public bool SupportVulkan</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Window&quot;, null)]
-[Tooltip(&quot;The default game window mode.&quot;)]
 public GameWindowMode WindowMode</code></pre>
   </div>
 
@@ -513,7 +502,8 @@ public GameWindowMode WindowMode</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

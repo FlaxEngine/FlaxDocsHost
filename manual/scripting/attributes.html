@@ -7,7 +7,7 @@
     <title>Attributes | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Attributes | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -92,19 +92,31 @@
 <p>Flax provides various attributes that are used to extend the default logic or provide metadata about the code (serialization and editing options). These attributes can be used in both C# as well as C++.</p>
 <h2 id="using-attributes">Using Attributes</h2>
 <p>Most of the attributes can be used for both: fields and properties:</p>
-<h3 id="c">C#</h3>
+<div class="tabGroup" id="tabgroup_Bi51EgM2CF">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF_code-csharp" role="tab" aria-controls="tabpanel_Bi51EgM2CF_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF_code-cpp" role="tab" aria-controls="tabpanel_Bi51EgM2CF_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_Bi51EgM2CF_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">[Limit(0, 10)]
 public float Field1 = 11f;
 
 [Tooltip(&quot;Light color&quot;)]
 public Color Field2 { get; set; }
-</code></pre><h3 id="c-1">C++</h3>
+</code></pre></section>
+<section id="tabpanel_Bi51EgM2CF_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">API_FIELD(Attributes = &quot;Limit(0, 10)&quot;)
 float Field1 = 11f;
 
 API_FIELD(Attributes = &quot;Tooltip(\&quot;Light color\&quot;)&quot;)
 Color ColorVal;
-</code></pre><h2 id="common-attributes">Common attributes</h2>
+</code></pre></section>
+</div>
+<h2 id="common-attributes">Common attributes</h2>
 <p>The following table lists the most common attributes with usage description.</p>
 <table>
 <thead>
@@ -206,7 +218,16 @@ Color ColorVal;
 </table>
 <h2 id="script-execution-in-editor">Script execution in editor</h2>
 <p>By using <strong>ExecuteInEditMode</strong> you can enable your scripts to run in Editor. This is useful to generate procedural content for your game from code. Here is an example script that generates a grid of lights in Editor:</p>
-<h3 id="c-2">C#</h3>
+<div class="tabGroup" id="tabgroup_Bi51EgM2CF-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF-1_code-csharp" role="tab" aria-controls="tabpanel_Bi51EgM2CF-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF-1_code-cpp" role="tab" aria-controls="tabpanel_Bi51EgM2CF-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_Bi51EgM2CF-1_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 [ExecuteInEditMode]
@@ -230,7 +251,8 @@ public class MyGenerator : Script
         }
     }
 }
-</code></pre><h3 id="c-3">C++</h3>
+</code></pre></section>
+<section id="tabpanel_Bi51EgM2CF-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -242,9 +264,6 @@ API_CLASS(Attributes = &quot;ExecuteInEditMode&quot;) class GAME_API MyGenerator
     DECLARE_SCRIPTING_TYPE(MyGenerator);
 
     // [Script]
-    void OnEnable() override;
-    void OnDisable() override;
-    void OnUpdate() override;
     void OnStart() override
     {
         for (int x = 0; x &lt; 5; x++)
@@ -261,7 +280,9 @@ API_CLASS(Attributes = &quot;ExecuteInEditMode&quot;) class GAME_API MyGenerator
         }
     }
 };
-</code></pre></article>
+</code></pre></section>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -269,12 +290,13 @@ API_CLASS(Attributes = &quot;ExecuteInEditMode&quot;) class GAME_API MyGenerator
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

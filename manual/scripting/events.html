@@ -7,7 +7,7 @@
     <title>Script events | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Script events | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -93,7 +93,16 @@
 Instead, Flax calls declared in script functions to handle specific game events like update or physics collision.
 These functions are called <strong>event functions</strong> because they are executed by Flax in response to events that occur during gameplay. Using these function allows you to implement gameplay logic and handle different situations inside your game.</p>
 <h2 id="examples">Examples</h2>
-<h3 id="c">C#</h3>
+<div class="tabGroup" id="tabgroup_G6e3pS6Qxr">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_G6e3pS6Qxr_code-csharp" role="tab" aria-controls="tabpanel_G6e3pS6Qxr_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_G6e3pS6Qxr_code-cpp" role="tab" aria-controls="tabpanel_G6e3pS6Qxr_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_G6e3pS6Qxr_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 public class MyScript : Script
@@ -118,7 +127,8 @@ public class MyScript : Script
         // Here you can add code that needs to be called every frame
     }
 }
-</code></pre><h3 id="c-1">C++</h3>
+</code></pre></section>
+<section id="tabpanel_G6e3pS6Qxr_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -134,7 +144,9 @@ API_CLASS() class GAME_API MyScript : public Script
     void OnUpdate() override;
     void OnStart() override;
 };
-</code></pre><h2 id="event-functions">Event functions</h2>
+</code></pre></section>
+</div>
+<h2 id="event-functions">Event functions</h2>
 <p>The following table lists all the available event functions to override from the base <strong>Script</strong> class.</p>
 <div class="TIP"><h5>Tip</h5><p>You don&#39;t have to call the base class methods if you script inherits directly from Script type. The default implementations are empty.</p>
 </div>
@@ -213,12 +225,13 @@ API_CLASS() class GAME_API MyScript : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

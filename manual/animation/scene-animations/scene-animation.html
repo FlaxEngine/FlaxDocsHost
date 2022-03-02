@@ -7,7 +7,7 @@
     <title>Scene Animation | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Scene Animation | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -107,6 +107,15 @@
 <p><img src="media/timeline-interface.png" alt="Interface"></p>
 <p>Editor window provides various functionalities to view and edit animation. The left panel contains a hierarhical list of tracks. You can use it to organize them, rename, edit, mute or remove. The right side of window contains a timeline that matches the vertical hierarchy of the tracks and contains their media events. You can select and drag media with left mouse button or use right click to open context menu.</p>
 <p>Timeline uses the concept of <strong>frame</strong> to represent the time. Whole timeline animation uses a given frames per second factor (FPS) to define the playback speed (the speed of animation frames to play per second). You can edit timeline time axis labels by using <strong>View -&gt; Show time as</strong>. The timeline FPS can be changed using the dedicated toolstrip button (default is <em>60 fps</em>). You can use one of the common, predefined values or set the custom fps.</p>
+<p>Mouse controls:</p>
+<ul>
+<li><strong>Left-click + move</strong> - select keyframes or move selection</li>
+<li><strong>Right-click + move</strong> - navigate</li>
+<li><strong>Right-click</strong> - open context menu</li>
+<li><strong>Scroll wheel</strong> - scroll</li>
+<li><strong>Scroll wheel + Shift</strong> - scroll time</li>
+<li><strong>Scroll wheel + Ctrl</strong> - zoom in/out</li>
+</ul>
 <p>Keyboard shortcuts:</p>
 <ul>
 <li><strong>Arrow Left</strong> - sets time to the previous frame</li>
@@ -115,7 +124,9 @@
 <li><strong>End</strong> - sets time to last frame</li>
 <li><strong>Page Up</strong> - sets time to frame of the next keyframe</li>
 <li><strong>Page Down</strong> - sets time to frame of the previous keyframe</li>
-<li><strong>Ctrl + S</strong> - saves the asset</li>
+<li><strong>Ctrl + S</strong> - saves the assett</li>
+<li><strong>Spacebar</strong> - pauses or plays the playback</li>
+<li><strong>S</strong> - splits the media events at the current frame (if possible)</li>
 </ul>
 <h2 id="editing-scene-animation">Editing scene animation</h2>
 <p>To add a new track to the timeline use <strong>Add</strong> button. This will show the selection of track types that can be added. You can also <strong>drag and drop actors or scripts</strong> to the tracks panel to add animation track for those objects.</p>
@@ -135,9 +146,13 @@
 <h4 id="audio">Audio</h4>
 <p><strong>Audio</strong> track plays the given audio clip. Right-click on the timeline media to edit the playback properties such as looping mode. You can also add a volume subtrack using the <strong>+</strong> button to animate the audio volume over time.</p>
 <h4 id="actor">Actor</h4>
-<p><strong>Actor</strong> track contains a reference to the actor object. You can use it to animate its properties and child scripts. Use <strong>+</strong> button to add subtracks.</p>
+<p><strong>Actor</strong> track contains a reference to the actor object. You can use it to animate its properties and child scripts. Use <strong>+</strong> button to add subtracks. Right-click on track header to change the animated actor.</p>
 <h4 id="camera-cut">Camera Cut</h4>
-<p><strong>Camera Cut</strong> it a special type of Actor track that is used for Camera shots animations. It contains a media event that defines the camera shot with the preview thumbnails. Use <strong>+</strong> button to animate camera properties during the cut. For camera shots editing use <strong>camera icon</strong> that starts the camera actor pilot mode which enables you to move and orient camera to the editor viewport. Then use the viewport widget to stop acotr piloting and add keyframes for the camera shot location.</p>
+<p><strong>Camera Cut</strong> it a special type of Actor track that is used for Camera shots animations. It contains a media event that defines the camera shot with the preview thumbnails. Use <strong>+</strong> button to animate camera properties during the cut. For camera shots editing use <strong>camera icon</strong> that starts the camera actor pilot mode which enables you to move and orient camera to the editor viewport. Then use the viewport widget to stop acotr piloting and add keyframes for the camera shot location. Right-click on track header to change the animated camera.</p>
+<h2 id="live-preview">Live-preview</h2>
+<p>Scene Animation Editor allows to playback and preview the asset while editing. To enable this feature simply check the live-preview icon on the toolbar.</p>
+<p><img src="media/scene-animation-live-preview-button.png" alt="Scene Animation Live-Preview Button"></p>
+<p>Then you will be able to seek the timeline and see the animation preview on a scene. You can also play the animation. This improves the editing process and can help when working with more complex cut-scenes.</p>
 <h2 id="playback-preview">Playback preview</h2>
 <p>Scene animation editor windows supports previewing the animation playback during the game. The game must be running in Flax Editor for animation playback to work. Simply use the animation player actor picker, start the game in Flax Editor and you will be able to preview its state as well as control playback (via play/pause buttons) and use the seeking.</p>
 <p><img src="media/anim-player-pickup.png" alt="Playback Preview Picker"></p>
@@ -153,12 +168,13 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/animation/scene-animations/scene-animation.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/animation/scene-animations/scene-animation.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

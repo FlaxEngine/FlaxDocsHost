@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Skybox
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">Skybox</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Skybox" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Skybox" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Skybox" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_Skybox_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Skybox actor renders sky using custom cube texture or material.&quot;)]
-public class Skybox : Actor</code></pre>
+public class Skybox : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class Skybox : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Skybox&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The skybox texture tint color.&quot;)]
 public Color Color { get; set; }</code></pre>
   </div>
 
@@ -579,7 +595,6 @@ public Color Color { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Skybox&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The cube texture to draw.&quot;)]
 public CubeTexture CubeTexture { get; set; }</code></pre>
   </div>
 
@@ -620,7 +635,6 @@ public CubeTexture CubeTexture { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Skybox&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The skybox custom material used to override default (domain set to surface).&quot;)]
 public MaterialBase CustomMaterial { get; set; }</code></pre>
   </div>
 
@@ -662,7 +676,6 @@ public MaterialBase CustomMaterial { get; set; }</code></pre>
 [Limit(-100F, 100F, 0.01F)]
 [EditorDisplay(&quot;Skybox&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The skybox texture exposure value. Can be used to make skybox brighter or dimmer.&quot;)]
 public float Exposure { get; set; }</code></pre>
   </div>
 
@@ -703,7 +716,6 @@ public float Exposure { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Skybox&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The panoramic texture to draw. It should have a resolution ratio close to 2:1.&quot;)]
 public Texture PanoramicTexture { get; set; }</code></pre>
   </div>
 
@@ -750,7 +762,8 @@ public Texture PanoramicTexture { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

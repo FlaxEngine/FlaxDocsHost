@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CustomEditorPresenter
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -305,16 +305,16 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
   
   <a id="FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.#ctor*"></a>
   
-  <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.#ctor(FlaxEditor.Undo,System.String)"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_" class="expander" data-toggle="collapse">CustomEditorPresenter(Undo, String)</a></h4>
+  <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_System_Object_" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.#ctor(FlaxEditor.Undo,System.String,System.Object)"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_System_Object_" class="expander" data-toggle="collapse">CustomEditorPresenter(Undo, String, Object)</a></h4>
   
-  <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_" class="collapse in">
+  <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter__ctor_FlaxEditor_Undo_System_String_System_Object_" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.CustomEditors.CustomEditorPresenter.html">CustomEditorPresenter</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CustomEditorPresenter(Undo undo, string noSelectionText = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public CustomEditorPresenter(Undo undo, string noSelectionText = null, object owner = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -335,6 +335,14 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
 </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">owner</span>
+        <p><p>The owner of the presenter.</p>
+</p>
+      </td>
+    </tr>
   </table>
   
   
@@ -350,42 +358,6 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
-  
-  
-  
-  <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter_CacheExpandedGroups" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.CacheExpandedGroups"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_CacheExpandedGroups" class="expander" data-toggle="collapse">CacheExpandedGroups</a></h4>
-  
-  <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_CacheExpandedGroups" class="collapse in">
-  <div class="markdown level1 summary"><p>True if cache the expanded groups in this presenter, otherwise will disable this feature. Used to preserve the expanded groups using project cache.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool CacheExpandedGroups</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   
   
   
@@ -425,6 +397,42 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
   
   
   
+  <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter_Features" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.Features"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_Features" class="expander" data-toggle="collapse">Features</a></h4>
+  
+  <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_Features" class="collapse in">
+  <div class="markdown level1 summary"><p>The features to use for properties editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeatureFlags Features</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.CustomEditors.FeatureFlags.html">FeatureFlags</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter_GetUndoObjects" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.GetUndoObjects"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_GetUndoObjects" class="expander" data-toggle="collapse">GetUndoObjects</a></h4>
   
   <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_GetUndoObjects" class="collapse in">
@@ -445,6 +453,42 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
     <tr>
       <td>
         <span class="xref">System.Func</span>&lt;<a class="xref" href="FlaxEditor.CustomEditors.CustomEditorPresenter.html">CustomEditorPresenter</a>, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_CustomEditors_CustomEditorPresenter_Owner" data-uid="FlaxEditor.CustomEditors.CustomEditorPresenter.Owner"><a href="#collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_Owner" class="expander" data-toggle="collapse">Owner</a></h4>
+  
+  <div id="collapsible-FlaxEditor_CustomEditors_CustomEditorPresenter_Owner" class="collapse in">
+  <div class="markdown level1 summary"><p>The Editor context that owns this presenter. Can be <a class="xref" href="FlaxEditor.Windows.PropertiesWindow.html">PropertiesWindow</a> or <a class="xref" href="FlaxEditor.Windows.Assets.PrefabWindow.html">PrefabWindow</a> or other window/panel - custom editor scan use it for more specific features.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Owner</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
         <p>
       </td>
     </tr>
@@ -1200,7 +1244,8 @@ public class CustomEditorPresenter : LayoutElementsContainer</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

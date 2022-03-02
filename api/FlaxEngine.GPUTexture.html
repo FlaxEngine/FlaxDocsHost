@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GPUTexture
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -155,6 +155,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -190,7 +193,6 @@
   <h5 id="FlaxEngine_GPUTexture_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The GPU texture resource object. This class is able to create 2D/3D textures, volume textures and render targets.&quot;)]
 public sealed class GPUTexture : GPUResource</code></pre>
   </div>
 
@@ -244,7 +246,6 @@ public sealed class GPUTexture : GPUResource</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets number of textures in the array.&quot;)]
 public int ArraySize { get; }</code></pre>
   </div>
 
@@ -283,7 +284,6 @@ public int ArraySize { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture depth (in texels).&quot;)]
 public int Depth { get; }</code></pre>
   </div>
 
@@ -322,7 +322,6 @@ public int Depth { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture description structure.&quot;)]
 public GPUTextureDescription Description { get; }</code></pre>
   </div>
 
@@ -361,7 +360,6 @@ public GPUTextureDescription Description { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture dimensions.&quot;)]
 public TextureDimensions Dimensions { get; }</code></pre>
   </div>
 
@@ -400,7 +398,6 @@ public TextureDimensions Dimensions { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets flags of the texture.&quot;)]
 public GPUTextureFlags Flags { get; }</code></pre>
   </div>
 
@@ -439,7 +436,6 @@ public GPUTextureFlags Flags { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture data format.&quot;)]
 public PixelFormat Format { get; }</code></pre>
   </div>
 
@@ -478,7 +474,6 @@ public PixelFormat Format { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value indicating whether this texture has any resided mip (data already uploaded to the GPU).&quot;)]
 public bool HasResidentMip { get; }</code></pre>
   </div>
 
@@ -517,7 +512,6 @@ public bool HasResidentMip { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture height (in texels).&quot;)]
 public int Height { get; }</code></pre>
   </div>
 
@@ -556,7 +550,6 @@ public int Height { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The index of the highest resident mip map (may be equal to MipLevels if no mip has been uploaded). Note: mip=0 is the highest (top quality).&quot;)]
 public int HighestResidentMipIndex { get; }</code></pre>
   </div>
 
@@ -595,7 +588,6 @@ public int HighestResidentMipIndex { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value indicating whether this texture has been allocated.&quot;)]
 public bool IsAllocated { get; }</code></pre>
   </div>
 
@@ -634,7 +626,6 @@ public bool IsAllocated { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if texture has size that is power of two.&quot;)]
 public bool IsPowerOfTwo { get; }</code></pre>
   </div>
 
@@ -673,7 +664,6 @@ public bool IsPowerOfTwo { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets number of mipmap levels in the texture.&quot;)]
 public int MipLevels { get; }</code></pre>
   </div>
 
@@ -712,7 +702,6 @@ public int MipLevels { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets multi-sampling parameters for the texture.&quot;)]
 public MSAALevel MultiSampleLevel { get; }</code></pre>
   </div>
 
@@ -751,7 +740,6 @@ public MSAALevel MultiSampleLevel { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The native pointer to the underlying resource. It's a low-level platform-specific handle.&quot;)]
 public IntPtr NativePtr { get; }</code></pre>
   </div>
 
@@ -783,15 +771,14 @@ public IntPtr NativePtr { get; }</code></pre>
   <h4 id="FlaxEngine_GPUTexture_ResidentMipLevels" data-uid="FlaxEngine.GPUTexture.ResidentMipLevels"><a href="#collapsible-FlaxEngine_GPUTexture_ResidentMipLevels" class="expander" data-toggle="collapse">ResidentMipLevels</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUTexture_ResidentMipLevels" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the number of resident mipmap levels in the texture. (already uploaded to the GPU).</p>
+  <div class="markdown level1 summary"><p>Gets or sets the number of resident mipmap levels in the texture (already uploaded to the GPU).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The number of resident mipmap levels in the texture. (already uploaded to the GPU).&quot;)]
-public int ResidentMipLevels { get; }</code></pre>
+public int ResidentMipLevels { get; set; }</code></pre>
   </div>
 
   
@@ -829,7 +816,6 @@ public int ResidentMipLevels { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The texture total size in pixels.&quot;)]
 public Vector2 Size { get; }</code></pre>
   </div>
 
@@ -868,7 +854,6 @@ public Vector2 Size { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The texture total size in pixels (with depth).&quot;)]
 public Vector3 Size3 { get; }</code></pre>
   </div>
 
@@ -907,7 +892,6 @@ public Vector3 Size3 { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets texture width (in texels).&quot;)]
 public int Width { get; }</code></pre>
   </div>
 
@@ -948,7 +932,6 @@ public int Width { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The texture mip map dimensions.&quot;)]
 public void GetMipSize(int mipLevelIndex, out int mipWidth, out int mipHeight)</code></pre>
   </div>
 
@@ -1005,7 +988,6 @@ public void GetMipSize(int mipLevelIndex, out int mipWidth, out int mipHeight)</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The texture mip map dimensions.&quot;)]
 public void GetMipSize(int mipLevelIndex, out int mipWidth, out int mipHeight, out int mipDepth)</code></pre>
   </div>
 
@@ -1070,7 +1052,6 @@ public void GetMipSize(int mipLevelIndex, out int mipWidth, out int mipHeight, o
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Initializes a texture resource (allocates the GPU memory and performs the resource setup).&quot;)]
 public bool Init(ref GPUTextureDescription desc)</code></pre>
   </div>
 
@@ -1121,7 +1102,6 @@ public bool Init(ref GPUTextureDescription desc)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resizes the texture. It must be created first.&quot;)]
 public bool Resize(int width, int height)</code></pre>
   </div>
 
@@ -1180,7 +1160,6 @@ public bool Resize(int width, int height)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resizes the texture. It must be created first.&quot;)]
 public bool Resize(int width, int height, int depth)</code></pre>
   </div>
 
@@ -1247,7 +1226,6 @@ public bool Resize(int width, int height, int depth)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the first surface (only for 2D textures).&quot;)]
 public GPUTextureView View()</code></pre>
   </div>
 
@@ -1287,7 +1265,6 @@ public GPUTextureView View()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the surface at index in an array.&quot;)]
 public GPUTextureView View(int arrayOrDepthIndex)</code></pre>
   </div>
 
@@ -1341,7 +1318,6 @@ public GPUTextureView View(int arrayOrDepthIndex)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the mip map surface at index in an array.&quot;)]
 public GPUTextureView View(int arrayOrDepthIndex, int mipMapIndex)</code></pre>
   </div>
 
@@ -1403,7 +1379,6 @@ public GPUTextureView View(int arrayOrDepthIndex, int mipMapIndex)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the array of surfaces&quot;)]
 public GPUTextureView ViewArray()</code></pre>
   </div>
 
@@ -1446,7 +1421,6 @@ public GPUTextureView ViewArray()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the texture as read-only depth/stencil buffer. Valid only if graphics device supports it and the texture uses depth/stencil.&quot;)]
 public GPUTextureView ViewReadOnlyDepth()</code></pre>
   </div>
 
@@ -1486,7 +1460,6 @@ public GPUTextureView ViewReadOnlyDepth()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The view to the volume texture (3D).&quot;)]
 public GPUTextureView ViewVolume()</code></pre>
   </div>
 
@@ -1537,7 +1510,8 @@ public GPUTextureView ViewVolume()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

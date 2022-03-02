@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NetworkPeer
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_Networking_NetworkPeer_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Low-level network peer class. Provides server-client communication functions, message processing and sending.&quot;)]
 public sealed class NetworkPeer : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class NetworkPeer : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Aborts given message send. This effectively deinitializes the message and returns it to the pool.&quot;)]
 public void AbortSendMessage(NetworkMessage message)</code></pre>
   </div>
 
@@ -278,7 +279,6 @@ public void AbortSendMessage(NetworkMessage message)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Acquires new message from the pool and setups it for sending.&quot;)]
 public NetworkMessage BeginSendMessage()</code></pre>
   </div>
 
@@ -319,7 +319,6 @@ Once this is called, this peer becomes a client.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts connection handshake with the end point specified in the &lt;seealso cref=\&quot;NetworkConfig\&quot;/&gt; structure. Once this is called, this peer becomes a client.&quot;)]
 public bool Connect()</code></pre>
   </div>
 
@@ -360,7 +359,6 @@ Cannot acquire more messages than the limit specified in the <a class="xref" hre
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Acquires new message from the pool. Cannot acquire more messages than the limit specified in the &lt;seealso cref=\&quot;NetworkConfig\&quot;/&gt; structure.&quot;)]
 public NetworkMessage CreateMessage()</code></pre>
   </div>
 
@@ -403,7 +401,6 @@ public NetworkMessage CreateMessage()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates new peer using given configuration.&quot;)]
 public static NetworkPeer CreatePeer(NetworkConfig config)</code></pre>
   </div>
 
@@ -437,7 +434,7 @@ public static NetworkPeer CreatePeer(NetworkConfig config)</code></pre>
   
   
   <h5 id="FlaxEngine_Networking_NetworkPeer_CreatePeer_FlaxEngine_Networking_NetworkConfig__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Peer should be destroyed using <a class="xref" href="FlaxEngine.Networking.NetworkPeer.html#FlaxEngine_Networking_NetworkPeer_ShutdownPeer_FlaxEngine_Networking_NetworkPeer_">ShutdownPeer(NetworkPeer)</a> once it is no longer in use.</p>
+  <div class="markdown level1 remarks"><p>Peer should be destroyed using <a class="xref" href="FlaxEngine.Networking.NetworkPeer.html#FlaxEngine_Networking_NetworkPeer_ShutdownPeer_FlaxEngine_Networking_NetworkPeer_">ShutdownPeer(NetworkPeer)</a> once it is no longer in use. Returns null if failed to create a peer (eg. config is invalid).</p>
 </div>
   
   
@@ -457,7 +454,6 @@ public static NetworkPeer CreatePeer(NetworkConfig config)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Disconnects from the server.&quot;)]
 public void Disconnect()</code></pre>
   </div>
 
@@ -490,7 +486,6 @@ public void Disconnect()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Disconnects given connection from the server.&quot;)]
 public void Disconnect(NetworkConnection connection)</code></pre>
   </div>
 
@@ -533,7 +528,6 @@ public void Disconnect(NetworkConnection connection)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sends given message over specified channel to the server.&quot;)]
 public bool EndSendMessage(NetworkChannelType channelType, NetworkMessage message)</code></pre>
   </div>
 
@@ -594,7 +588,6 @@ public bool EndSendMessage(NetworkChannelType channelType, NetworkMessage messag
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sends given message over specified channel to the given client connection (target).&quot;)]
 public bool EndSendMessage(NetworkChannelType channelType, NetworkMessage message, NetworkConnection target)</code></pre>
   </div>
 
@@ -663,7 +656,6 @@ public bool EndSendMessage(NetworkChannelType channelType, NetworkMessage messag
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sends given message over specified channel to the given client connection (target).&quot;)]
 public bool EndSendMessage(NetworkChannelType channelType, NetworkMessage message, NetworkConnection[] targets)</code></pre>
   </div>
 
@@ -733,7 +725,6 @@ Once this is called, this peer becomes a server.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts listening for incoming connections. Once this is called, this peer becomes a server.&quot;)]
 public bool Listen()</code></pre>
   </div>
 
@@ -773,7 +764,6 @@ public bool Listen()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to pop an network event from the queue.&quot;)]
 public bool PopEvent(out NetworkEvent eventRef)</code></pre>
   </div>
 
@@ -827,7 +817,6 @@ public bool PopEvent(out NetworkEvent eventRef)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns given message to the pool.&quot;)]
 public void RecycleMessage(NetworkMessage message)</code></pre>
   </div>
 
@@ -870,7 +859,6 @@ public void RecycleMessage(NetworkMessage message)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Shutdowns and destroys given peer.&quot;)]
 public static void ShutdownPeer(NetworkPeer peer)</code></pre>
   </div>
 
@@ -919,7 +907,8 @@ public static void ShutdownPeer(NetworkPeer peer)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

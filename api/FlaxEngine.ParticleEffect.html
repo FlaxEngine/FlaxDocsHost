@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ParticleEffect
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">ParticleEffect</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_ParticleEffect" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_ParticleEffect" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_ParticleEffect" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_ParticleEffect_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The particle system instance that plays the particles simulation in the game.&quot;)]
-public class ParticleEffect : Actor</code></pre>
+public class ParticleEffect : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -578,7 +595,6 @@ public SceneRenderTask CustomViewRenderTask { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(75)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -620,7 +636,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [EditorOrder(20)]
 [VisibleIf(&quot;IsFixedTimestep&quot;, false)]
 [Unmanaged]
-[Tooltip(&quot;The fixed timestep for simulation updates. Used only if UpdateMode is set to FixedTimestep.&quot;)]
 public float FixedTimestep { get; set; }</code></pre>
   </div>
 
@@ -661,7 +676,6 @@ public float FixedTimestep { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(50)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the particle effect should loop when it finishes playing.&quot;)]
 public bool IsLooping { get; set; }</code></pre>
   </div>
 
@@ -740,7 +754,6 @@ public float LastUpdateTime { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The effect parameters collection. Those parameters are instanced from the &lt;see cref=\&quot;ParticleSystem\&quot;/&gt; that contains a linear list of emitters and every emitter has a list of own parameters.&quot;)]
 public ParticleEffectParameter[] Parameters { get; }</code></pre>
   </div>
 
@@ -819,7 +832,6 @@ protected ParticleEffect.ParameterOverride[] ParametersOverrides { get; set; }</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The effect parameters collection version number. It can be used to track parameters changes that occur when particle system or one of the emitters gets reloaded/edited.&quot;)]
 public uint ParametersVersion { get; }</code></pre>
   </div>
 
@@ -858,7 +870,6 @@ public uint ParametersVersion { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The particles count (total). GPU particles count is read with one frame delay (due to GPU execution).&quot;)]
 public int ParticlesCount { get; }</code></pre>
   </div>
 
@@ -899,7 +910,6 @@ public int ParticlesCount { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(0)]
 [Unmanaged]
-[Tooltip(&quot;The particle system to play.&quot;)]
 public ParticleSystem ParticleSystem { get; set; }</code></pre>
   </div>
 
@@ -940,7 +950,6 @@ public ParticleSystem ParticleSystem { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(30)]
 [Unmanaged]
-[Tooltip(&quot;The particles simulation speed factor. Scales the particle system update delta time. Can be used to speed up or slow down the particles.&quot;)]
 public float SimulationSpeed { get; set; }</code></pre>
   </div>
 
@@ -1021,7 +1030,6 @@ public float Time { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(10)]
 [Unmanaged]
-[Tooltip(&quot;The particles simulation update mode. Defines how to update particles emitter.&quot;)]
 public ParticleEffect.SimulationUpdateMode UpdateMode { get; set; }</code></pre>
   </div>
 
@@ -1062,7 +1070,6 @@ public ParticleEffect.SimulationUpdateMode UpdateMode { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(60)]
 [Unmanaged]
-[Tooltip(&quot;If true, the particle simulation will be updated even when an actor cannot be seen by any camera. Otherwise, the simulation will stop running when the actor is off-screen.&quot;)]
 public bool UpdateWhenOffscreen { get; set; }</code></pre>
   </div>
 
@@ -1103,7 +1110,6 @@ public bool UpdateWhenOffscreen { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(40)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the particle effect should take into account the global game time scale for simulation updates.&quot;)]
 public bool UseTimeScale { get; set; }</code></pre>
   </div>
 
@@ -1144,7 +1150,6 @@ public bool UseTimeScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The particle parameter.&quot;)]
 public ParticleEffectParameter GetParameter(string emitterTrackName, Guid paramId)</code></pre>
   </div>
 
@@ -1203,7 +1208,6 @@ public ParticleEffectParameter GetParameter(string emitterTrackName, Guid paramI
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The particle parameter.&quot;)]
 public ParticleEffectParameter GetParameter(string emitterTrackName, string paramName)</code></pre>
   </div>
 
@@ -1262,7 +1266,6 @@ public ParticleEffectParameter GetParameter(string emitterTrackName, string para
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The particle parameter value.&quot;)]
 public object GetParameterValue(string emitterTrackName, string paramName)</code></pre>
   </div>
 
@@ -1321,7 +1324,6 @@ public object GetParameterValue(string emitterTrackName, string paramName)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resets the particle system parameters to the default values from asset.&quot;)]
 public void ResetParameters()</code></pre>
   </div>
 
@@ -1351,7 +1353,6 @@ public void ResetParameters()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resets the particles simulation state (clears the instance state data but preserves the instance parameters values).&quot;)]
 public void ResetSimulation()</code></pre>
   </div>
 
@@ -1381,7 +1382,6 @@ public void ResetSimulation()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Set the particle parameter value.&quot;)]
 public void SetParameterValue(string emitterTrackName, string paramName, object value)</code></pre>
   </div>
 
@@ -1438,7 +1438,6 @@ public void SetParameterValue(string emitterTrackName, string paramName, object 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs the full particles simulation update (postponed for the next particle manager update).&quot;)]
 public void UpdateSimulation()</code></pre>
   </div>
 
@@ -1476,7 +1475,8 @@ public void UpdateSimulation()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

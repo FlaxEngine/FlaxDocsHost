@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NavigationSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,8 +137,7 @@
   
   <h5 id="FlaxEditor_Content_Settings_NavigationSettings_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The navigation system settings container.&quot;)]
-public sealed class NavigationSettings : SettingsBase</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class NavigationSettings : SettingsBase</code></pre>
   </div>
 
   
@@ -191,7 +190,6 @@ public sealed class NavigationSettings : SettingsBase</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Navigation&quot;, null)]
-[Tooltip(&quot;If checked, enables automatic navmesh actors spawning on a scenes that are using it during navigation building.&quot;)]
 public bool AutoAddMissingNavMeshes</code></pre>
   </div>
 
@@ -230,7 +228,6 @@ public bool AutoAddMissingNavMeshes</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(110)]
 [EditorDisplay(&quot;Navigation&quot;, null)]
-[Tooltip(&quot;If checked, enables automatic navmesh actors removing from a scenes that are not using it during navigation building.&quot;)]
 public bool AutoRemoveMissingNavMeshes</code></pre>
   </div>
 
@@ -270,7 +267,6 @@ public bool AutoRemoveMissingNavMeshes</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(1F, 400F, 1F)]
 [EditorOrder(210)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the vertical axis but longer build times.&quot;)]
 public float CellHeight</code></pre>
   </div>
 
@@ -310,7 +306,6 @@ public float CellHeight</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(1F, 400F, 1F)]
 [EditorOrder(220)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The width/height of a grid cell in the navigation mesh building steps using heightfields. A lower number means higher precision on the horizontal axes but longer build times.&quot;)]
 public float CellSize</code></pre>
   </div>
 
@@ -350,7 +345,6 @@ public float CellSize</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(1F, 3.40282347E+38F, 1F)]
 [EditorOrder(280)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, &quot;Detail Sampling Distance&quot;)]
-[Tooltip(&quot;The sampling distance to use when generating the detail mesh.&quot;)]
 public float DetailSamplingDist</code></pre>
   </div>
 
@@ -390,7 +384,6 @@ public float DetailSamplingDist</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 3F, 1F)]
 [EditorOrder(290)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The maximum distance the detail mesh surface should deviate from heightfield data.&quot;)]
 public float MaxDetailSamplingError</code></pre>
   </div>
 
@@ -430,7 +423,6 @@ public float MaxDetailSamplingError</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0.1F, 4F, 1F)]
 [EditorOrder(270)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The maximum distance a simplified contour's border edges should deviate from the original raw contour.&quot;)]
 public float MaxEdgeError</code></pre>
   </div>
 
@@ -470,7 +462,6 @@ public float MaxEdgeError</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(100F, 3.40282347E+38F, 1F)]
 [EditorOrder(260)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, &quot;Max Edge Length&quot;)]
-[Tooltip(&quot;The maximum allowed length for contour edges along the border of the mesh.&quot;)]
 public float MaxEdgeLen</code></pre>
   </div>
 
@@ -510,7 +501,6 @@ public float MaxEdgeLen</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 1F)]
 [EditorOrder(250)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;Any regions with a span count smaller than this value will, if possible, be merged with larger regions.&quot;)]
 public int MergeRegionArea</code></pre>
   </div>
 
@@ -550,7 +540,6 @@ public int MergeRegionArea</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 1F)]
 [EditorOrder(240)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;The minimum number of cells allowed to form isolated island areas.&quot;)]
 public int MinRegionArea</code></pre>
   </div>
 
@@ -589,7 +578,6 @@ public int MinRegionArea</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
 [EditorDisplay(&quot;Areas&quot;, &quot;__inline__&quot;)]
-[Tooltip(&quot;The configuration for nav areas.&quot;)]
 public NavAreaProperties[] NavAreas</code></pre>
   </div>
 
@@ -628,7 +616,6 @@ public NavAreaProperties[] NavAreas</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
 [EditorDisplay(&quot;Agents&quot;, &quot;__inline__&quot;)]
-[Tooltip(&quot;The configuration for navmeshes.&quot;)]
 public NavMeshProperties[] NavMeshes</code></pre>
   </div>
 
@@ -668,7 +655,6 @@ public NavMeshProperties[] NavMeshes</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(8F, 4096F, 1F)]
 [EditorOrder(230)]
 [EditorDisplay(&quot;Nav Mesh Options&quot;, null)]
-[Tooltip(&quot;Tile size used for Navigation mesh tiles, the final size of a tile is CellSize*TileSize.&quot;)]
 public int TileSize</code></pre>
   </div>
 
@@ -715,7 +701,8 @@ public int TileSize</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

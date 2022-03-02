@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SceneAnimationPlayer
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">SceneAnimationPlayer</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SceneAnimationPlayer" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SceneAnimationPlayer" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SceneAnimationPlayer" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_SceneAnimationPlayer_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene animation playback actor.&quot;)]
-public class SceneAnimationPlayer : Actor</code></pre>
+public class SceneAnimationPlayer : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class SceneAnimationPlayer : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(0)]
 [Unmanaged]
-[Tooltip(&quot;The scene animation to play.&quot;)]
 public SceneAnimation Animation { get; set; }</code></pre>
   </div>
 
@@ -577,7 +593,6 @@ public SceneAnimation Animation { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The value that determines whether the scene animation is paused.&quot;)]
 public bool IsPaused { get; }</code></pre>
   </div>
 
@@ -616,7 +631,6 @@ public bool IsPaused { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The value that determines whether the scene animation is playing.&quot;)]
 public bool IsPlaying { get; }</code></pre>
   </div>
 
@@ -655,7 +669,6 @@ public bool IsPlaying { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The value that determines whether the scene animation is stopped.&quot;)]
 public bool IsStopped { get; }</code></pre>
   </div>
 
@@ -696,7 +709,6 @@ public bool IsStopped { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(40)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the scene animation should loop when it finishes playing.&quot;)]
 public bool Loop { get; set; }</code></pre>
   </div>
 
@@ -737,7 +749,6 @@ public bool Loop { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, &quot;Play On Start&quot;)]
 [EditorOrder(50)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the scene animation should auto play on game start.&quot;)]
 public bool PlayOnStart { get; set; }</code></pre>
   </div>
 
@@ -778,7 +789,6 @@ public bool PlayOnStart { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(60)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the scene animation should randomize the start time on play begin.&quot;)]
 public bool RandomStartTime { get; set; }</code></pre>
   </div>
 
@@ -819,7 +829,6 @@ public bool RandomStartTime { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, &quot;Restore State On Stop&quot;)]
 [EditorOrder(70)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the scene animation should restore initial state on playback stop. State is cached when animation track starts play after being stopped (not paused).&quot;)]
 public bool RestoreStateOnStop { get; set; }</code></pre>
   </div>
 
@@ -860,7 +869,6 @@ public bool RestoreStateOnStop { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(10)]
 [Unmanaged]
-[Tooltip(&quot;The animation playback speed factor. Scales the timeline update delta time. Can be used to speed up or slow down the sequence.&quot;)]
 public float Speed { get; set; }</code></pre>
   </div>
 
@@ -901,7 +909,6 @@ public float Speed { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(20)]
 [Unmanaged]
-[Tooltip(&quot;The animation start time. Can be used to skip part of the sequence on begin.&quot;)]
 public float StartTime { get; set; }</code></pre>
   </div>
 
@@ -982,7 +989,6 @@ public float Time { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(80)]
 [Unmanaged]
-[Tooltip(&quot;The animation update mode.&quot;)]
 public SceneAnimationPlayer.UpdateModes UpdateMode { get; set; }</code></pre>
   </div>
 
@@ -995,6 +1001,46 @@ public SceneAnimationPlayer.UpdateModes UpdateMode { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.SceneAnimationPlayer.UpdateModes.html">SceneAnimationPlayer.UpdateModes</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SceneAnimationPlayer_UsePrefabObjects_" data-uid="FlaxEngine.SceneAnimationPlayer.UsePrefabObjects*"></a>
+  
+  <h4 id="FlaxEngine_SceneAnimationPlayer_UsePrefabObjects" data-uid="FlaxEngine.SceneAnimationPlayer.UsePrefabObjects"><a href="#collapsible-FlaxEngine_SceneAnimationPlayer_UsePrefabObjects" class="expander" data-toggle="collapse">UsePrefabObjects</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SceneAnimationPlayer_UsePrefabObjects" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the scene animation should automatically map prefab objects from scene animation into prefab instances. Useful for reusable animations to automatically link prefab objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
+[EditorOrder(100)]
+[Unmanaged]
+public bool UsePrefabObjects { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
@@ -1023,7 +1069,6 @@ public SceneAnimationPlayer.UpdateModes UpdateMode { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Scene Animation&quot;, null)]
 [EditorOrder(30)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether the scene animation should take into account the global game time scale for simulation updates.&quot;)]
 public bool UseTimeScale { get; set; }</code></pre>
   </div>
 
@@ -1064,7 +1109,6 @@ public bool UseTimeScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds an object mapping. The object `from` represented by it's unique ID will be redirected to the specified `to`. Can be used to reuse the same animation for different objects.&quot;)]
 public void MapObject(Guid from, Guid to)</code></pre>
   </div>
 
@@ -1113,7 +1157,6 @@ public void MapObject(Guid from, Guid to)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds an object mapping for the object track. The track name `from` will be redirected to the specified object `to`. Can be used to reuse the same animation for different objects.&quot;)]
 public void MapTrack(string from, Guid to)</code></pre>
   </div>
 
@@ -1162,7 +1205,6 @@ public void MapTrack(string from, Guid to)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Pauses the animation. Has no effect if animation is not playing.&quot;)]
 public void Pause()</code></pre>
   </div>
 
@@ -1192,7 +1234,6 @@ public void Pause()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts playing the animation. Has no effect if animation is already playing.&quot;)]
 public void Play()</code></pre>
   </div>
 
@@ -1222,7 +1263,6 @@ public void Play()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Stops playing the animation. Has no effect if animation is already stopped.&quot;)]
 public void Stop()</code></pre>
   </div>
 
@@ -1252,7 +1292,6 @@ public void Stop()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Manually ticks the animation by performing the playback update with a given time delta.&quot;)]
 public void Tick(float dt)</code></pre>
   </div>
 
@@ -1301,7 +1340,8 @@ public void Tick(float dt)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

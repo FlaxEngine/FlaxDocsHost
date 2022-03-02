@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AnimationTimeline
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -111,6 +111,7 @@
   <div id="collapsible-implements-FlaxEditor_GUI_Timeline_AnimationTimeline" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.GUI.IKeyframesEditorContext.html">IKeyframesEditorContext</a></div>
   </div>
   </div>
   
@@ -166,24 +167,6 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_NewTrack_FlaxEditor_GUI_Timeline_TrackArchetype_">Timeline.NewTrack(TrackArchetype)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_LoadTimelineData_System_Int32_System_IO_BinaryReader_">Timeline.LoadTimelineData(Int32, BinaryReader)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SaveTimelineData_System_IO_BinaryWriter_">Timeline.SaveTimelineData(BinaryWriter)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_LoadTimelineCustomData_System_Int32_System_IO_BinaryReader_">Timeline.LoadTimelineCustomData(Int32, BinaryReader)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SaveTimelineCustomData_System_IO_BinaryWriter_">Timeline.SaveTimelineCustomData(BinaryWriter)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Load_System_Byte___">Timeline.Load(Byte[])</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Save">Timeline.Save()</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_FindTrack_System_String_">Timeline.FindTrack(String)</a>
     </div>
     <div>
@@ -220,7 +203,7 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnSelectionChanged">Timeline.OnSelectionChanged()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_DeleteSelection_System_Boolean_">Timeline.DeleteSelection(Boolean)</a>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_DeleteSelectedTracks_System_Boolean_">Timeline.DeleteSelectedTracks(Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Delete_FlaxEditor_GUI_Timeline_Track_System_Boolean_">Timeline.Delete(Track, Boolean)</a>
@@ -229,7 +212,25 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnDeleteTrack_FlaxEditor_GUI_Timeline_Track_">Timeline.OnDeleteTrack(Track)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Delete_FlaxEditor_GUI_Timeline_Media_System_Boolean_">Timeline.Delete(Media, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_AddMedia_FlaxEditor_GUI_Timeline_Track_FlaxEditor_GUI_Timeline_Media_System_Boolean_">Timeline.AddMedia(Track, Media, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnDeleteMedia_FlaxEditor_GUI_Timeline_Media_">Timeline.OnDeleteMedia(Media)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_DuplicateSelectedTracks_System_Boolean_">Timeline.DuplicateSelectedTracks(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Split_System_Int32_">Timeline.Split(Int32)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SetupDragDrop">Timeline.SetupDragDrop()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesViewPanning_FlaxEngine_Vector2_">Timeline.OnKeyframesViewPanning(Vector2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_MarkAsEdited">Timeline.MarkAsEdited()</a>
@@ -247,10 +248,16 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_IsTrackNameValid_System_String_">Timeline.IsTrackNameValid(String)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_GetValidTrackName_System_String_">Timeline.GetValidTrackName(String)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_ArrangeTracks">Timeline.ArrangeTracks()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SetNoTracksText_System_String_">Timeline.SetNoTracksText(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_AddBatchedUndoAction_FlaxEditor_IUndoAction_">Timeline.AddBatchedUndoAction(IUndoAction)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_PerformLayoutBeforeChildren">Timeline.PerformLayoutBeforeChildren()</a>
@@ -268,13 +275,58 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_ShowWholeTimeline">Timeline.ShowWholeTimeline()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_ShowEditPopup_System_Object_FlaxEngine_Vector2__System_Object_">Timeline.ShowEditPopup(Object, Vector2, Object)</a>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_ShowEditPopup_System_Object_FlaxEngine_Vector2_System_Object_">Timeline.ShowEditPopup(Object, Vector2, Object)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnShowContextMenu_FlaxEditor_GUI_ContextMenu_ContextMenu_">Timeline.OnShowContextMenu(ContextMenu)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnDestroy">Timeline.OnDestroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesDeselect_FlaxEditor_GUI_IKeyframesEditor_">Timeline.OnKeyframesDeselect(IKeyframesEditor)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesSelection_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Rectangle_">Timeline.OnKeyframesSelection(IKeyframesEditor, ContainerControl, Rectangle)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesSelectionCount">Timeline.OnKeyframesSelectionCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesDelete_FlaxEditor_GUI_IKeyframesEditor_">Timeline.OnKeyframesDelete(IKeyframesEditor)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesMove_FlaxEditor_GUI_IKeyframesEditor_FlaxEngine_GUI_ContainerControl_FlaxEngine_Vector2_System_Boolean_System_Boolean_">Timeline.OnKeyframesMove(IKeyframesEditor, ContainerControl, Vector2, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesCopy_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_Text_StringBuilder_">Timeline.OnKeyframesCopy(IKeyframesEditor, Nullable&lt;Single&gt;, StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesPaste_FlaxEditor_GUI_IKeyframesEditor_System_Nullable_System_Single__System_String___System_Int32__">Timeline.OnKeyframesPaste(IKeyframesEditor, Nullable&lt;Single&gt;, String[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesGet_System_Action_System_String_System_Single_System_Object__">Timeline.OnKeyframesGet(Action&lt;String, Single, Object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_OnKeyframesSet_System_Collections_Generic_List_System_Collections_Generic_KeyValuePair_System_Single_System_Object___">Timeline.OnKeyframesSet(List&lt;KeyValuePair&lt;Single, Object&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_LoadTimelineData_System_Int32_System_IO_BinaryReader_">Timeline.LoadTimelineData(Int32, BinaryReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SaveTimelineData_System_IO_BinaryWriter_">Timeline.SaveTimelineData(BinaryWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_LoadTimelineCustomData_System_Int32_System_IO_BinaryReader_">Timeline.LoadTimelineCustomData(Int32, BinaryReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_SaveTimelineCustomData_System_IO_BinaryWriter_">Timeline.SaveTimelineCustomData(BinaryWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Load_System_Byte___">Timeline.Load(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Save">Timeline.Save()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_TimeShowMode">Timeline.TimeShowMode</a>
@@ -322,7 +374,10 @@
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_Zoom">Timeline.Zoom</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_CanPlayPauseStop">Timeline.CanPlayPauseStop</a>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_CanPlayPause">Timeline.CanPlayPause</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_CanPlayStop">Timeline.CanPlayStop</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.GUI.Timeline.Timeline.html#FlaxEditor_GUI_Timeline_Timeline_ShowPlaybackButtonsArea">Timeline.ShowPlaybackButtonsArea</a>
@@ -371,6 +426,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl__containsFocus">ContainerControl._containsFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl__isLayoutLocked">ContainerControl._isLayoutLocked</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_LockChildrenRecursive">ContainerControl.LockChildrenRecursive()</a>
@@ -434,6 +492,15 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IntersectsChildContent_FlaxEngine_GUI_Control_FlaxEngine_Vector2_FlaxEngine_Vector2__">ContainerControl.IntersectsChildContent(Control, Vector2, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Vector2, List&lt;Control&gt;)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -532,13 +599,22 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CullChildren">ContainerControl.CullChildren</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsMouseOver">ContainerControl.IsMouseOver</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsTouchOver">ContainerControl.IsTouchOver</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
@@ -581,6 +657,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
@@ -811,6 +899,12 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsDragOver">Control.IsDragOver</a>
     </div>
     <div>
@@ -866,7 +960,7 @@
   
   <h5 id="FlaxEditor_GUI_Timeline_AnimationTimeline_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AnimationTimeline : Timeline, IComparable, IDrawable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AnimationTimeline : Timeline, IComparable, IDrawable, IKeyframesEditorContext</code></pre>
   </div>
 
   
@@ -1266,7 +1360,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

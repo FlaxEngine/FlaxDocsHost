@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct NetworkConfig
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_Networking_NetworkConfig_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Low-level network configuration structure. Provides settings for the network driver and all internal components.&quot;)]
 public struct NetworkConfig</code></pre>
   </div>
 
@@ -149,8 +148,7 @@ public struct NetworkConfig</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Address used to connect to or listen at.&quot;)]
-public string Address</code></pre>
+    <pre><code class="lang-csharp hljs">public string Address</code></pre>
   </div>
 
   
@@ -189,8 +187,7 @@ public string Address</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The upper limit on how many peers can join when we're listening.&quot;)]
-public ushort ConnectionsLimit</code></pre>
+    <pre><code class="lang-csharp hljs">public ushort ConnectionsLimit</code></pre>
   </div>
 
   
@@ -226,8 +223,7 @@ public ushort ConnectionsLimit</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The amount of pooled messages that can be used at once (receiving and sending!).&quot;)]
-public ushort MessagePoolSize</code></pre>
+    <pre><code class="lang-csharp hljs">public ushort MessagePoolSize</code></pre>
   </div>
 
   
@@ -268,8 +264,7 @@ Should be lower than the MTU (maximal transmission unit) - typically 1500 bytes.
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The size of a message buffer in bytes. Should be lower than the MTU (maximal transmission unit) - typically 1500 bytes.&quot;)]
-public ushort MessageSize</code></pre>
+    <pre><code class="lang-csharp hljs">public ushort MessageSize</code></pre>
   </div>
 
   
@@ -296,17 +291,57 @@ public ushort MessageSize</code></pre>
   
   
   
-  <h4 id="FlaxEngine_Networking_NetworkConfig_NetworkDriverType" data-uid="FlaxEngine.Networking.NetworkConfig.NetworkDriverType"><a href="#collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriverType" class="expander" data-toggle="collapse">NetworkDriverType</a></h4>
+  <h4 id="FlaxEngine_Networking_NetworkConfig_NetworkDriver" data-uid="FlaxEngine.Networking.NetworkConfig.NetworkDriver"><a href="#collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriver" class="expander" data-toggle="collapse">NetworkDriver</a></h4>
   
-  <div id="collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriverType" class="collapse in">
-  <div class="markdown level1 summary"><p>The network driver that will be used to create the peer.
-To allow two peers to connect, they must use the same host.</p>
+  <div id="collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriver" class="collapse in">
+  <div class="markdown level1 summary"><p>The network driver instance (implements INetworkDriver) that will be used to create and manage the peer, send and receive messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The network driver that will be used to create the peer. To allow two peers to connect, they must use the same host.&quot;)]
+    <pre><code class="lang-csharp hljs">public Object NetworkDriver</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Object.html">Object</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Networking_NetworkConfig_NetworkDriver_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Object is managed by the created network peer (will be deleted on peer shutdown).</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Networking_NetworkConfig_NetworkDriverType" data-uid="FlaxEngine.Networking.NetworkConfig.NetworkDriverType"><a href="#collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriverType" class="expander" data-toggle="collapse">NetworkDriverType</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkConfig_NetworkDriverType" class="collapse in">
+  <div class="markdown level1 summary"><p>The network driver that will be used to create the peer.
+To allow two peers to connect, they must use the same host.
+[Deprecated in v1.3]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete]
 public NetworkDriverType NetworkDriverType</code></pre>
   </div>
 
@@ -343,8 +378,7 @@ public NetworkDriverType NetworkDriverType</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The port to connect to or listen at.&quot;)]
-public ushort Port</code></pre>
+    <pre><code class="lang-csharp hljs">public ushort Port</code></pre>
   </div>
 
   
@@ -390,7 +424,8 @@ public ushort Port</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Foliage
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">Foliage</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Foliage" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Foliage" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Foliage" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_Foliage_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a foliage actor that contains a set of instanced meshes.&quot;)]
-public sealed class Foliage : Actor</code></pre>
+public sealed class Foliage : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -576,7 +593,6 @@ public FoliageType[] FoliageTypes { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total amount of the types of foliage.&quot;)]
 public int FoliageTypesCount { get; }</code></pre>
   </div>
 
@@ -615,7 +631,6 @@ public int FoliageTypesCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the global density scale for all foliage instances. The default value is 1. Use values from range 0-1. Lower values decrease amount of foliage instances in-game. Use it to tweak game performance for slower devices.&quot;)]
 public static float GlobalDensityScale { get; set; }</code></pre>
   </div>
 
@@ -654,7 +669,6 @@ public static float GlobalDensityScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total amount of the instanced of foliage.&quot;)]
 public int InstancesCount { get; }</code></pre>
   </div>
 
@@ -695,7 +709,6 @@ public int InstancesCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the type of the foliage.&quot;)]
 public void AddFoliageType(Model model)</code></pre>
   </div>
 
@@ -736,7 +749,6 @@ public void AddFoliageType(Model model)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the new foliage instance. Ensure to always call &lt;see cref=\&quot;RebuildClusters\&quot;/&gt; after editing foliage to sync cached data (call it once after editing one or more instances).&quot;)]
 public void AddInstance(ref FoliageInstance instance)</code></pre>
   </div>
 
@@ -780,7 +792,6 @@ public void AddInstance(ref FoliageInstance instance)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The foliage type.&quot;)]
 public FoliageType GetFoliageType(int index)</code></pre>
   </div>
 
@@ -831,7 +842,6 @@ public FoliageType GetFoliageType(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total amount of the instanced that use the given foliage type.&quot;)]
 public int GetFoliageTypeInstancesCount(int index)</code></pre>
   </div>
 
@@ -882,7 +892,6 @@ public int GetFoliageTypeInstancesCount(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The foliage instance by index.&quot;)]
 public FoliageInstance GetInstance(int index)</code></pre>
   </div>
 
@@ -933,7 +942,6 @@ public FoliageInstance GetInstance(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines if there is an intersection between the current object or any it's child and a ray.&quot;)]
 public bool Intersects(ref Ray ray, out float distance, out Vector3 normal, out int instanceIndex)</code></pre>
   </div>
 
@@ -1008,7 +1016,6 @@ public bool Intersects(ref Ray ray, out float distance, out Vector3 normal, out 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Rebuilds the foliage clusters used as internal acceleration structures (quad tree).&quot;)]
 public void RebuildClusters()</code></pre>
   </div>
 
@@ -1038,7 +1045,6 @@ public void RebuildClusters()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the foliage instance type and all foliage instances using this type.&quot;)]
 public void RemoveFoliageType(int index)</code></pre>
   </div>
 
@@ -1079,7 +1085,6 @@ public void RemoveFoliageType(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the foliage instance. Ensure to always call &lt;see cref=\&quot;RebuildClusters\&quot;/&gt; after editing foliage to sync cached data (call it once after editing one or more instances).&quot;)]
 public void RemoveInstance(int index)</code></pre>
   </div>
 
@@ -1120,7 +1125,6 @@ public void RemoveInstance(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the foliage instance transformation. Ensure to always call &lt;see cref=\&quot;RebuildClusters\&quot;/&gt; after editing foliage to sync cached data (call it once after editing one or more instances).&quot;)]
 public void SetInstanceTransform(int index, ref Transform value)</code></pre>
   </div>
 
@@ -1169,7 +1173,6 @@ public void SetInstanceTransform(int index, ref Transform value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the cull distance for all foliage instances and for created clusters.&quot;)]
 public void UpdateCullDistance()</code></pre>
   </div>
 
@@ -1211,7 +1214,8 @@ public void UpdateCullDistance()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

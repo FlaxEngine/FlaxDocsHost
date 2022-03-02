@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Network
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Network_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Low-level networking implementation interface with Berkeley sockets.&quot;)]
 public static class Network</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Network</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Accepts a pending connection.&quot;)]
 public static bool Accept(ref NetworkSocket serverSocket, ref NetworkSocket newSocket, out NetworkEndPoint newEndPoint)</code></pre>
   </div>
 
@@ -228,7 +226,6 @@ public static bool Accept(ref NetworkSocket serverSocket, ref NetworkSocket newS
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds a socket to a group.&quot;)]
 public static int AddSocketToGroup(ref NetworkSocketGroup group, ref NetworkSocket socket)</code></pre>
   </div>
 
@@ -287,7 +284,6 @@ public static int AddSocketToGroup(ref NetworkSocketGroup group, ref NetworkSock
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds a socket to the specified end point.&quot;)]
 public static bool BindSocket(ref NetworkSocket socket, ref NetworkEndPoint endPoint)</code></pre>
   </div>
 
@@ -346,7 +342,6 @@ public static bool BindSocket(ref NetworkSocket socket, ref NetworkEndPoint endP
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears the socket group.&quot;)]
 public static void ClearGroup(ref NetworkSocketGroup group)</code></pre>
   </div>
 
@@ -387,7 +382,6 @@ public static void ClearGroup(ref NetworkSocketGroup group)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Connects a socket to the specified end point.&quot;)]
 public static bool ConnectSocket(ref NetworkSocket socket, ref NetworkEndPoint endPoint)</code></pre>
   </div>
 
@@ -446,7 +440,6 @@ public static bool ConnectSocket(ref NetworkSocket socket, ref NetworkEndPoint e
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates an end point.&quot;)]
 public static bool CreateEndPoint(string address, string port, NetworkIPVersion ipv, out NetworkEndPoint endPoint, bool bindable = true)</code></pre>
   </div>
 
@@ -529,7 +522,6 @@ public static bool CreateEndPoint(string address, string port, NetworkIPVersion 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates a new native socket.&quot;)]
 public static bool CreateSocket(ref NetworkSocket socket, NetworkProtocol proto, NetworkIPVersion ipv)</code></pre>
   </div>
 
@@ -596,7 +588,6 @@ public static bool CreateSocket(ref NetworkSocket socket, NetworkProtocol proto,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates a socket group. It allocate memory based on the desired capacity.&quot;)]
 public static bool CreateSocketGroup(uint capacity, out NetworkSocketGroup group)</code></pre>
   </div>
 
@@ -655,7 +646,6 @@ public static bool CreateSocketGroup(uint capacity, out NetworkSocketGroup group
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Closes native socket.&quot;)]
 public static bool DestroySocket(ref NetworkSocket socket)</code></pre>
   </div>
 
@@ -706,7 +696,6 @@ public static bool DestroySocket(ref NetworkSocket socket)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Destroy the socket group, and free the allocated memory.&quot;)]
 public static bool DestroySocketGroup(ref NetworkSocketGroup group)</code></pre>
   </div>
 
@@ -757,7 +746,6 @@ public static bool DestroySocketGroup(ref NetworkSocketGroup group)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a socket by index. Some data like socket IPVersion might be undefined.&quot;)]
 public static bool GetSocketFromGroup(ref NetworkSocketGroup group, uint index, out NetworkSocket socket)</code></pre>
   </div>
 
@@ -824,7 +812,6 @@ public static bool GetSocketFromGroup(ref NetworkSocketGroup group, uint index, 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The specified socket option.&quot;)]
 public static bool GetSocketOption(ref NetworkSocket socket, NetworkSocketOption option, out int value)</code></pre>
   </div>
 
@@ -891,7 +878,6 @@ public static bool GetSocketOption(ref NetworkSocket socket, NetworkSocketOption
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Retrieves socket state.&quot;)]
 public static bool GetSocketState(ref NetworkSocketGroup group, uint index, out NetworkSocketState state)</code></pre>
   </div>
 
@@ -958,7 +944,6 @@ public static bool GetSocketState(ref NetworkSocketGroup group, uint index, out 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks for socket readability.&quot;)]
 public static bool IsReadable(ref NetworkSocket socket)</code></pre>
   </div>
 
@@ -1009,7 +994,6 @@ public static bool IsReadable(ref NetworkSocket socket)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks for socket writeability.&quot;)]
 public static bool IsWritable(ref NetworkSocket socket)</code></pre>
   </div>
 
@@ -1060,7 +1044,6 @@ public static bool IsWritable(ref NetworkSocket socket)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Listens for incoming connection.&quot;)]
 public static bool Listen(ref NetworkSocket socket, ushort queueSize)</code></pre>
   </div>
 
@@ -1119,7 +1102,6 @@ public static bool Listen(ref NetworkSocket socket, ushort queueSize)</code></pr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates sockets states.&quot;)]
 public static int Poll(ref NetworkSocketGroup group)</code></pre>
   </div>
 
@@ -1170,7 +1152,6 @@ public static int Poll(ref NetworkSocketGroup group)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Reads data on the socket.&quot;)]
 public static int ReadSocket(NetworkSocket socket, byte *buffer, uint bufferSize, NetworkEndPoint*endPoint = default(NetworkEndPoint*))</code></pre>
   </div>
 
@@ -1369,7 +1350,6 @@ public static int ReadSocket(NetworkSocket socket, byte[] buffer, NetworkEndPoin
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Remaps an ipv4 end point to an ipv6 one.&quot;)]
 public static NetworkEndPoint RemapEndPointToIPv6(ref NetworkEndPoint endPoint)</code></pre>
   </div>
 
@@ -1420,7 +1400,6 @@ public static NetworkEndPoint RemapEndPointToIPv6(ref NetworkEndPoint endPoint)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the socket if present.&quot;)]
 public static bool RemoveSocketFromGroup(ref NetworkSocketGroup group, ref NetworkSocket socket)</code></pre>
   </div>
 
@@ -1479,7 +1458,6 @@ public static bool RemoveSocketFromGroup(ref NetworkSocketGroup group, ref Netwo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the socket at the specified index.&quot;)]
 public static void RemoveSocketFromGroup(ref NetworkSocketGroup group, uint index)</code></pre>
   </div>
 
@@ -1528,7 +1506,6 @@ public static void RemoveSocketFromGroup(ref NetworkSocketGroup group, uint inde
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the specified socket option.&quot;)]
 public static bool SetSocketOption(ref NetworkSocket socket, NetworkSocketOption option, int value)</code></pre>
   </div>
 
@@ -1595,7 +1572,6 @@ public static bool SetSocketOption(ref NetworkSocket socket, NetworkSocketOption
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Writes data to the socket.&quot;)]
 public static int WriteSocket(NetworkSocket socket, byte *data, uint length, NetworkEndPoint*endPoint = default(NetworkEndPoint*))</code></pre>
   </div>
 
@@ -1792,7 +1768,8 @@ public static int WriteSocket(NetworkSocket socket, byte[] data, NetworkEndPoint
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

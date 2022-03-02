@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Use dynamic texture | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Use dynamic texture | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Use dynamic texture | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-use-dynamic-texture">HOWTO: Use dynamic texture</h1>
+
+<p><img src="media/dynamic-texture-result.gif" alt="Texture"></p>
+<p>In this tutorial, you will learn how to create a GPU texture from C# script that will be updated every frame with a custom data send from CPU to GPU.</p>
+<h2 id="tutorial">Tutorial</h2>
+<h3 id="1-create-new-c-script-dynamictexturefromcode">1. Create new C# script <code>DynamicTextureFromCode</code></h3>
+<h3 id="2-write-texture-data-generating-code">2. Write texture data generating code</h3>
+<pre><code class="lang-cs">public class DynamicTextureFromCode : Script
+{
+    private GPUTexture _tempTexture;
+    private MaterialInstance _tempMaterialInstance;
+    private byte[] _data;
+
+    public Material Material;
+    public Model Model;
+
+    public override void OnStart()
+    {
+        // Ensure that model asset is loaded
+        Model.WaitForLoaded();
+
+        // Create new GPU texture
+        var texture = new GPUTexture();
+        _tempTexture = texture;
+        var desc = GPUTextureDescription.New2D(64, 64, PixelFormat.R8G8B8A8_UNorm, GPUTextureFlags.ShaderResource);
+        if (texture.Init(ref desc))
+            return;
+
+        // Use a dynamic material instance with a texture to sample
+        var material = Material.CreateVirtualInstance();
+        _tempMaterialInstance = material;
+        material.SetParameterValue(&quot;tex&quot;, texture);
+
+        // Add a model actor and use the dynamic material for rendering
+        var staticModel = Actor.GetOrAddChild&lt;StaticModel&gt;();
+        staticModel.Model = Model;
+        staticModel.SetMaterial(0, material);
+
+        // Plug into rendering to update texture at runtime
+        MainRenderTask.Instance.PreRender += OnPreRender;
+    }
+
+    public override void OnDestroy()
+    {
+        MainRenderTask.Instance.PreRender -= OnPreRender;
+
+        // Ensure to cleanup resources
+        _tempTexture?.ReleaseGPU();
+        FlaxEngine.Object.Destroy(ref _tempTexture);
+        FlaxEngine.Object.Destroy(ref _tempMaterialInstance);
+    }
+
+    private unsafe void OnPreRender(GPUContext context, RenderContext renderContext)
+    {
+        if (!Enabled || !Actor.IsActiveInHierarchy)
+            return;
+
+        var desc = _tempTexture.Description;
+        var size = desc.Width * desc.Height * PixelFormatExtensions.SizeInBytes(desc.Format);
+        if (_data == null || _data.Length != size)
+            _data = new byte[size];
+        fixed (byte* dataPtr = _data)
+        {
+            // Generate pixels data (linear gradient)
+            var colorsPtr = (Color32*)dataPtr;
+            var offset = Mathf.Cos(Time.GameTime * 3.0f) * 0.5f + 0.5f;
+            for (int y = 0; y &lt; desc.Height; y++)
+            {
+                float t1 = (float)y / desc.Height;
+                var c1 = Color32.Lerp(new Color32((byte)(offset * 255), 0, 0, 1), Color.Blue, t1);
+                var c2 = Color32.Lerp(Color.Yellow, new Color32(0, (byte)(144 - offset * 80), 0, 1), t1);
+                for (int x = 0; x &lt; desc.Width; x++)
+                {
+                    float t2 = (float)x / desc.Width;
+                    colorsPtr[y * desc.Width + x] = Color32.Lerp(c1, c2, t2);
+                }
+            }
+
+            // Update texture data on a GPU (send data)
+            uint rowPitch = (uint)size / (uint)desc.Height;
+            uint slicePitch = (uint)size;
+            context.UpdateTexture(_tempTexture, 0, 0, new IntPtr(dataPtr), rowPitch, slicePitch);
+            _tempTexture.ResidentMipLevels = 1; // Mark mip-map as available (required for normal textures only)
+        }
+    }
+}
+</code></pre><h3 id="3-create-material">3. Create material</h3>
+<p>Create a sample material that contains a public <strong>GPUTexture</strong> parameter named <code>tex</code>. It&#39;s used by the script to assign a texture to draw.</p>
+<p><img src="media/dynamic-text-material.png" alt="Material"></p>
+<h3 id="4-link-material-and-model">4. Link material and model</h3>
+<p>Add created script <code>DynamicTextureFromCode</code> to an actor in your scene (or create a new one for it). Then select it and assign the model and created material (as shown in a picture below).</p>
+<h3 id="5-test-it-out">5. Test it out!</h3>
+<p>Press <strong>Play</strong> (or <em>F5</em>) and see the results! It will be updated only if Game Viewport is active (opened) because this example uses <code>MainRenderTask.Instance</code> to handle custom GPUContext logic before frame rendering. To overcome this you can create and use your own <code>RenderTask</code> object to use the rendering pipeline independently of the game view.</p>
+<p><img src="media/dynamic-texture-result.gif" alt="Results"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/graphics/tutorials/use-dynamic-texture.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

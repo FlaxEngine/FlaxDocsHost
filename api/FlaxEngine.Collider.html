@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Collider
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -112,6 +112,12 @@
       <div class="level6"><a class="xref" href="FlaxEngine.SphereCollider.html">SphereCollider</a></div>
       <div class="level6"><a class="xref" href="FlaxEngine.SplineCollider.html">SplineCollider</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Collider" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Collider" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Collider" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -212,6 +218,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -394,6 +406,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -484,6 +499,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -516,8 +534,7 @@
   <h5 id="FlaxEngine_Collider_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;A base class for all colliders.&quot;)]
-public abstract class Collider : PhysicsColliderActor</code></pre>
+public abstract class Collider : PhysicsColliderActor, ISerializable</code></pre>
   </div>
 
   
@@ -572,7 +589,6 @@ public abstract class Collider : PhysicsColliderActor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the center of the collider, measured in the object's local space.&quot;)]
 public Vector3 Center { get; set; }</code></pre>
   </div>
 
@@ -614,7 +630,6 @@ public Vector3 Center { get; set; }</code></pre>
 [Limit(0F, 100F, 1F)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the contact offset.&quot;)]
 public float ContactOffset { get; set; }</code></pre>
   </div>
 
@@ -658,7 +673,6 @@ public float ContactOffset { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the 'IsTrigger' flag.&quot;)]
 public bool IsTrigger { get; set; }</code></pre>
   </div>
 
@@ -703,7 +717,6 @@ public bool IsTrigger { get; set; }</code></pre>
 [AssetReference(typeof(PhysicalMaterial), true)]
 [EditorDisplay(&quot;Collider&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The physical material used to define the collider physical properties.&quot;)]
 public JsonAsset Material { get; set; }</code></pre>
   </div>
 
@@ -744,8 +757,7 @@ public JsonAsset Material { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a point on the collider that is closest to a given location. Can be used to find a hit location or position to apply explosion force or any other special effects.&quot;)]
-public void ClosestPoint(Vector3 position, out Vector3 result)</code></pre>
+public void ClosestPoint(Vector3 point, out Vector3 result)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -753,7 +765,7 @@ public void ClosestPoint(Vector3 position, out Vector3 result)</code></pre>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
-        <span class="parametername">position</span>
+        <span class="parametername">point</span>
         <p><p>The position to find the closest point to it.</p>
 </p>
       </td>
@@ -796,7 +808,6 @@ If objects do not overlap, the function can not compute the distance and returns
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Computes minimum translational distance between two geometry objects. Translating the first collider by direction * distance will separate the colliders apart if the function returned true. Otherwise, direction and distance are not defined. The one of the colliders has to be BoxCollider, SphereCollider CapsuleCollider or a convex MeshCollider. The other one can be any type. If objects do not overlap, the function can not compute the distance and returns false.&quot;)]
 public static bool ComputePenetration(Collider colliderA, Collider colliderB, out Vector3 direction, out float distance)</code></pre>
   </div>
 
@@ -871,7 +882,6 @@ public static bool ComputePenetration(Collider colliderA, Collider colliderB, ou
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if a point is inside the collider.&quot;)]
 public bool ContainsPoint(Vector3 point)</code></pre>
   </div>
 
@@ -922,7 +932,6 @@ public bool ContainsPoint(Vector3 point)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against this collider, returns results in a RaycastHit structure.&quot;)]
 public bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hitInfo, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -997,7 +1006,6 @@ public bool RayCast(Vector3 origin, Vector3 direction, out RayCastHit hitInfo, f
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs a raycast against this collider shape.&quot;)]
 public bool RayCast(Vector3 origin, Vector3 direction, out float resultHitDistance, float maxDistance = 3.40282347E+38F)</code></pre>
   </div>
 
@@ -1082,7 +1090,8 @@ public bool RayCast(Vector3 origin, Vector3 direction, out float resultHitDistan
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

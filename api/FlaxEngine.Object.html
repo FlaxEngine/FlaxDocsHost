@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Object
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -102,6 +102,7 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Object</span></div>
       <div class="level2"><a class="xref" href="FlaxEditor.CookingData.html">CookingData</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.AnimEvent.html">AnimEvent</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Asset.html">Asset</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.AudioDevice.html">AudioDevice</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.FoliageType.html">FoliageType</a></div>
@@ -117,8 +118,10 @@
       <div class="level2"><a class="xref" href="FlaxEngine.MaterialSlot.html">MaterialSlot</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.MeshBase.html">MeshBase</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.ModelLOD.html">ModelLOD</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.ENetDriver.html">ENetDriver</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkPeer.html">NetworkPeer</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.ParticleEffectParameter.html">ParticleEffectParameter</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.RenderBuffers.html">RenderBuffers</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.RenderList.html">RenderList</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.RenderTask.html">RenderTask</a></div>
@@ -126,6 +129,7 @@
       <div class="level2"><a class="xref" href="FlaxEngine.SkinnedModelLOD.html">SkinnedModelLOD</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.TaskGraph.html">TaskGraph</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.TaskGraphSystem.html">TaskGraphSystem</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.User.html">User</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Window.html">Window</a></div>
     </div>
   </div>
@@ -694,6 +698,63 @@ Actual object destruction is always delayed until after the current Update loop,
   </div>
   
   
+  <a id="FlaxEngine_Object_GetUnmanagedInterface_" data-uid="FlaxEngine.Object.GetUnmanagedInterface*"></a>
+  
+  <h4 id="FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_" data-uid="FlaxEngine.Object.GetUnmanagedInterface(System.Object,System.Type)"><a href="#collapsible-FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_" class="expander" data-toggle="collapse">GetUnmanagedInterface(Object, Type)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the pointer to the native interface implementation. Handles null object reference or invalid cast (returns zero).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetUnmanagedInterface(object obj, Type type)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">obj</span>
+        <p><p>The object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">type</span>
+        <p><p>The interface type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.IntPtr</span>
+        <p><p>The native interface pointer.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Object_GetUnmanagedPtr_" data-uid="FlaxEngine.Object.GetUnmanagedPtr*"></a>
   
   <h4 id="FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_" data-uid="FlaxEngine.Object.GetUnmanagedPtr(FlaxEngine.Object)"><a href="#collapsible-FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_" class="expander" data-toggle="collapse">GetUnmanagedPtr(Object)</a></h4>
@@ -1072,7 +1133,8 @@ public static T New&lt;T&gt;()
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CheckBox
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -119,6 +119,18 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -146,9 +158,6 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnGotFocus">Control.OnGotFocus()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnLostFocus">Control.OnLostFocus()</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnStartContainsFocus">Control.OnStartContainsFocus()</a>
     </div>
     <div>
@@ -165,6 +174,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">Control.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseEnter_FlaxEngine_Vector2_">Control.OnMouseEnter(Vector2)</a>
@@ -191,19 +212,10 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchEnter_FlaxEngine_Vector2_System_Int32_">Control.OnTouchEnter(Vector2, Int32)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchDown_FlaxEngine_Vector2_System_Int32_">Control.OnTouchDown(Vector2, Int32)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchMove_FlaxEngine_Vector2_System_Int32_">Control.OnTouchMove(Vector2, Int32)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchUp_FlaxEngine_Vector2_System_Int32_">Control.OnTouchUp(Vector2, Int32)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave_System_Int32_">Control.OnTouchLeave(Int32)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnDragEnter_FlaxEngine_Vector2__FlaxEngine_GUI_DragData_">Control.OnDragEnter(Vector2, DragData)</a>
@@ -449,6 +461,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
     </div>
     <div>
@@ -687,16 +702,16 @@
   
   
   
-  <h4 id="FlaxEngine_GUI_CheckBox__mouseDown" data-uid="FlaxEngine.GUI.CheckBox._mouseDown"><a href="#collapsible-FlaxEngine_GUI_CheckBox__mouseDown" class="expander" data-toggle="collapse">_mouseDown</a></h4>
+  <h4 id="FlaxEngine_GUI_CheckBox__isPressed" data-uid="FlaxEngine.GUI.CheckBox._isPressed"><a href="#collapsible-FlaxEngine_GUI_CheckBox__isPressed" class="expander" data-toggle="collapse">_isPressed</a></h4>
   
-  <div id="collapsible-FlaxEngine_GUI_CheckBox__mouseDown" class="collapse in">
-  <div class="markdown level1 summary"><p>The mouse is down.</p>
+  <div id="collapsible-FlaxEngine_GUI_CheckBox__isPressed" class="collapse in">
+  <div class="markdown level1 summary"><p>True if checked is being pressed (by mouse or touch).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected bool _mouseDown</code></pre>
+    <pre><code class="lang-csharp hljs">protected bool _isPressed</code></pre>
   </div>
 
   
@@ -1178,6 +1193,64 @@ public CheckBoxState State { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_GUI_CheckBox_OnClick_" data-uid="FlaxEngine.GUI.CheckBox.OnClick*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnClick" data-uid="FlaxEngine.GUI.CheckBox.OnClick"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnClick" class="expander" data-toggle="collapse">OnClick()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnClick" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when mouse or touch clicks the checkbox.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnClick()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnLostFocus_" data-uid="FlaxEngine.GUI.CheckBox.OnLostFocus*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnLostFocus" data-uid="FlaxEngine.GUI.CheckBox.OnLostFocus"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnLostFocus" class="expander" data-toggle="collapse">OnLostFocus()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnLostFocus" class="collapse in">
+  <div class="markdown level1 summary"><p>When control losts input focus</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnLostFocus()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnLostFocus">Control.OnLostFocus()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GUI_CheckBox_OnMouseDown_" data-uid="FlaxEngine.GUI.CheckBox.OnMouseDown*"></a>
   
   <h4 id="FlaxEngine_GUI_CheckBox_OnMouseDown_FlaxEngine_Vector2_FlaxEngine_MouseButton_" data-uid="FlaxEngine.GUI.CheckBox.OnMouseDown(FlaxEngine.Vector2,FlaxEngine.MouseButton)"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnMouseDown_FlaxEngine_Vector2_FlaxEngine_MouseButton_" class="expander" data-toggle="collapse">OnMouseDown(Vector2, MouseButton)</a></h4>
@@ -1367,6 +1440,62 @@ public CheckBoxState State { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_GUI_CheckBox_OnPressBegin_" data-uid="FlaxEngine.GUI.CheckBox.OnPressBegin*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnPressBegin" data-uid="FlaxEngine.GUI.CheckBox.OnPressBegin"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnPressBegin" class="expander" data-toggle="collapse">OnPressBegin()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnPressBegin" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when checkbox starts to be pressed by the used (via mouse or touch).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPressBegin()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnPressEnd_" data-uid="FlaxEngine.GUI.CheckBox.OnPressEnd*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnPressEnd" data-uid="FlaxEngine.GUI.CheckBox.OnPressEnd"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnPressEnd" class="expander" data-toggle="collapse">OnPressEnd()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnPressEnd" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when checkbox ends to be pressed by the used (via mouse or touch).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPressEnd()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GUI_CheckBox_OnSizeChanged_" data-uid="FlaxEngine.GUI.CheckBox.OnSizeChanged*"></a>
   
   <h4 id="FlaxEngine_GUI_CheckBox_OnSizeChanged" data-uid="FlaxEngine.GUI.CheckBox.OnSizeChanged"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnSizeChanged" class="expander" data-toggle="collapse">OnSizeChanged()</a></h4>
@@ -1389,6 +1518,184 @@ public CheckBoxState State { get; set; }</code></pre>
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSizeChanged">Control.OnSizeChanged()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnSubmit_" data-uid="FlaxEngine.GUI.CheckBox.OnSubmit*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnSubmit" data-uid="FlaxEngine.GUI.CheckBox.OnSubmit"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnSubmit" class="expander" data-toggle="collapse">OnSubmit()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnSubmit" class="collapse in">
+  <div class="markdown level1 summary"><p>Generic user interaction event for a control used by UI navigation (eg. user submits on the currently focused control).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnSubmit()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnTouchDown_" data-uid="FlaxEngine.GUI.CheckBox.OnTouchDown*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnTouchDown_FlaxEngine_Vector2_System_Int32_" data-uid="FlaxEngine.GUI.CheckBox.OnTouchDown(FlaxEngine.Vector2,System.Int32)"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnTouchDown_FlaxEngine_Vector2_System_Int32_" class="expander" data-toggle="collapse">OnTouchDown(Vector2, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnTouchDown_FlaxEngine_Vector2_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>When touch enters control&apos;s area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool OnTouchDown(Vector2 location, int pointerId)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">location</span>
+        <p><p>Touch location in Control Space.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">pointerId</span>
+        <p><p>The touch pointer identifier. Stable for the whole touch gesture/interaction.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if event has been handled, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchDown_FlaxEngine_Vector2_System_Int32_">Control.OnTouchDown(Vector2, Int32)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnTouchLeave_" data-uid="FlaxEngine.GUI.CheckBox.OnTouchLeave*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnTouchLeave" data-uid="FlaxEngine.GUI.CheckBox.OnTouchLeave"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnTouchLeave" class="expander" data-toggle="collapse">OnTouchLeave()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnTouchLeave" class="collapse in">
+  <div class="markdown level1 summary"><p>When all touch leaves control&apos;s area</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnTouchLeave()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CheckBox_OnTouchUp_" data-uid="FlaxEngine.GUI.CheckBox.OnTouchUp*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CheckBox_OnTouchUp_FlaxEngine_Vector2_System_Int32_" data-uid="FlaxEngine.GUI.CheckBox.OnTouchUp(FlaxEngine.Vector2,System.Int32)"><a href="#collapsible-FlaxEngine_GUI_CheckBox_OnTouchUp_FlaxEngine_Vector2_System_Int32_" class="expander" data-toggle="collapse">OnTouchUp(Vector2, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CheckBox_OnTouchUp_FlaxEngine_Vector2_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>When touch goes up over control&apos;s area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool OnTouchUp(Vector2 location, int pointerId)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
+        <span class="parametername">location</span>
+        <p><p>Touch location in Control Space</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">pointerId</span>
+        <p><p>The touch pointer identifier. Stable for the whole touch gesture/interaction.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if event has been handled, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchUp_FlaxEngine_Vector2_System_Int32_">Control.OnTouchUp(Vector2, Int32)</a></div>
   
   
   
@@ -1487,7 +1794,8 @@ public CheckBoxState State { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

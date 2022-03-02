@@ -7,7 +7,7 @@
     <title>Importing models | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Importing models | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -117,6 +117,11 @@
 <p>Flax supports up to 6 model level of details. To import them use <code>LODx</code> (where <code>x</code> is a LOD index, zero-based) postfix for object nodes in model file. Also when importing model ensure to check the <strong>Import LODs</strong> option.</p>
 <p>Example usage (from Blender):</p>
 <p><img src="media/model-lods-example.jpg" alt="Model LODs import example"></p>
+<h2 id="importing-collision-mesh">Importing collision mesh</h2>
+<p>Flax supports automatic collision mesh importing from a source model. To import it use a custom name prefix for collision meshes in the model file (eg. <code>COLL_</code> or <code>UCX_</code> prefix) and specify that prefix in the import option <strong>Collision Meshes Prefix</strong>. The engine will extract those collision meshes and create a separate collision data asset</p>
+<p>Example usage:</p>
+<p><img src="media/collision-mesh.png" alt="Model Collsion import engine"></p>
+<p>For ease of use after you add a model on a scene you can use <em>Right-click</em> and select option <strong>Add mesh collider</strong>. Then the editor will automatically pick up the imported collision mesh (or generate a new one) and add it to the model on a scene so it has a collision for physics.</p>
 <h2 id="model-import-settings">Model import settings</h2>
 <p><img src="media/imort-model-settigns.jpg" alt="Models"></p>
 <p>Flax uses the same import settings data scheme for <strong>models</strong>, <strong>skinned models</strong> and <strong>animations</strong> as they all can be imported from the same source files (eg. <code>.fbx</code> or <code>.dae</code>).</p>
@@ -179,6 +184,10 @@
 <tr>
 <td><strong>Lightmap UVs Source</strong></td>
 <td>Specifies model lightmap texture coordinates source. Can import them from the source model or generate them with in-build tool. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Disable</strong></td><td>Don&#39;t use lightmap UVs.</td></tr><tr><td><strong>Generate</strong></td><td>Generate lightmap UVs from model geometry. Requires proper normal/tangent vectors. Highly increases the importing time.</td></tr><tr><td><strong>Channel 0</strong></td><td>Use input mesh texture coordinates channel 0.</td></tr><tr><td><strong>Channel 1</strong></td><td>Use input mesh texture coordinates channel 1.</td></tr><tr><td><strong>Channel 2</strong></td><td>Use input mesh texture coordinates channel 2.</td></tr><tr><td><strong>Channel 3</strong></td><td>Use input mesh texture coordinates channel 3.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Collision Meshes Prefix</strong></td>
+<td>If specified, all meshes which name starts with this prefix will be imported as a separate collision data (excluded used for rendering).</td>
 </tr>
 <tr>
 <td></td>
@@ -249,10 +258,6 @@
 <td>The custom node name to be used as a root motion source. If not specified the actual root node will be used.</td>
 </tr>
 <tr>
-<td><strong>Animation Index</strong></td>
-<td>The zero-based index for the animation clip to import. If the source file has more than one animation it can be used to pick a desired clip.</td>
-</tr>
-<tr>
 <td></td>
 <td></td>
 </tr>
@@ -266,7 +271,7 @@
 </tr>
 <tr>
 <td><strong>LOD Count</strong></td>
-<td>The amount of LODs to include in the model (all reaming ones starting from Base LOD will be generated).</td>
+<td>The amount of LODs to include in the model (all remaining ones starting from Base LOD will be generated).</td>
 </tr>
 <tr>
 <td><strong>Triangle Reduction</strong></td>
@@ -288,8 +293,23 @@
 <td><strong>Restore Materials On Reimport</strong></td>
 <td>If checked, the importer will try to restore the assigned materials to the model slots.</td>
 </tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Split Objects</strong></td>
+<td>If checked, the imported mesh/animations are splitted into separate assets. Used if <em>Object Index</em> is set to -1.</td>
+</tr>
+<tr>
+<td><strong>Object Index</strong></td>
+<td>The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. The default <code>-1</code> imports all objects.</td>
+</tr>
 
 </tbody></table>
+<h2 id="tips">Tips</h2>
+<p>If the model appears to be missing something or there is more than you expected make sure the model you imported is in fact what you believe it is. For example Blender defaults to export everything unless you tick the &quot;selection only&quot; box. An easy way to check that is to import the file back in your modeller.</p>
+<p>If you want to import all animation clips from the source file or import all model meshes as separate assets use <strong>Split Objects</strong> option. It will split the source objects from the model file and import them as separate assets. It will support reimporting them easily with as each splited object gets own <strong>Object Index</strong> auto-assigned.</p>
 </article>
           </div>
           
@@ -298,12 +318,13 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

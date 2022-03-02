@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SkinnedModel
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -202,6 +202,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -234,7 +237,6 @@
   <h5 id="FlaxEngine_SkinnedModel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Skinned model asset that contains model object made of meshes that can be rendered on the GPU using skeleton bones skinning.&quot;)]
 public class SkinnedModel : ModelBase</code></pre>
   </div>
 
@@ -326,7 +328,6 @@ public class SkinnedModel : ModelBase</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The blend shapes names used by the skinned model meshes (from LOD 0 only).&quot;)]
 public string[] BlendShapes { get; }</code></pre>
   </div>
 
@@ -365,7 +366,6 @@ public string[] BlendShapes { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The skeleton bones hierarchy.&quot;)]
 public SkeletonBone[] Bones { get; }</code></pre>
   </div>
 
@@ -404,7 +404,6 @@ public SkeletonBone[] Bones { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The amount of loaded model LODs.&quot;)]
 public int LoadedLODs { get; }</code></pre>
   </div>
 
@@ -443,7 +442,6 @@ public int LoadedLODs { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Model level of details. The first entry is the highest quality LOD0 followed by more optimized versions.&quot;)]
 public SkinnedModelLOD[] LODs { get; }</code></pre>
   </div>
 
@@ -482,7 +480,6 @@ public SkinnedModelLOD[] LODs { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The skeleton nodes hierarchy.&quot;)]
 public SkeletonNode[] Nodes { get; }</code></pre>
   </div>
 
@@ -523,7 +520,6 @@ public SkeletonNode[] Nodes { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the bone that is using a given node index.&quot;)]
 public int FindBone(int nodeIndex)</code></pre>
   </div>
 
@@ -574,7 +570,6 @@ public int FindBone(int nodeIndex)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the bone with the given name.&quot;)]
 public int FindBone(string name)</code></pre>
   </div>
 
@@ -584,7 +579,7 @@ public int FindBone(string name)</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">name</span>
-        <p><p>Thr name of the node used by the bone.</p>
+        <p><p>The name of the node used by the bone.</p>
 </p>
       </td>
     </tr>
@@ -625,7 +620,6 @@ public int FindBone(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the node with the given name.&quot;)]
 public int FindNode(string name)</code></pre>
   </div>
 
@@ -635,7 +629,7 @@ public int FindNode(string name)</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">name</span>
-        <p><p>Thr name of the node.</p>
+        <p><p>The name of the node.</p>
 </p>
       </td>
     </tr>
@@ -676,7 +670,6 @@ public int FindNode(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The model bounding box in custom matrix world space (rig pose transformed by matrix, not animated).&quot;)]
 public BoundingBox GetBox(Matrix world, int lodIndex = 0)</code></pre>
   </div>
 
@@ -735,7 +728,6 @@ public BoundingBox GetBox(Matrix world, int lodIndex = 0)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The model bounding box in local space (rig pose, not animated).&quot;)]
 public BoundingBox GetBox(int lodIndex = 0)</code></pre>
   </div>
 
@@ -786,7 +778,6 @@ public BoundingBox GetBox(int lodIndex = 0)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves this asset to the file. Supported only in Editor.&quot;)]
 public bool Save(bool withMeshDataFromGpu = false, string path = null)</code></pre>
   </div>
 
@@ -848,7 +839,6 @@ public bool Save(bool withMeshDataFromGpu = false, string path = null)</code></p
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the model LODs collection including meshes creation.&quot;)]
 public bool SetupLODs(int[] meshesCountPerLod)</code></pre>
   </div>
 
@@ -899,7 +889,6 @@ public bool SetupLODs(int[] meshesCountPerLod)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the skinned model skeleton. Uses the same nodes layout for skeleton bones and calculates the offset matrix by auto.&quot;)]
 public bool SetupSkeleton(SkeletonNode[] nodes)</code></pre>
   </div>
 
@@ -950,7 +939,6 @@ public bool SetupSkeleton(SkeletonNode[] nodes)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Setups the skinned model skeleton.&quot;)]
 public bool SetupSkeleton(SkeletonNode[] nodes, SkeletonBone[] bones, bool autoCalculateOffsetMatrix)</code></pre>
   </div>
 
@@ -1025,7 +1013,8 @@ public bool SetupSkeleton(SkeletonNode[] nodes, SkeletonBone[] bones, bool autoC
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TextRender
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">TextRender</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_TextRender" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_TextRender" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_TextRender" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_TextRender_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Text rendering object.&quot;)]
-public class TextRender : Actor</code></pre>
+public class TextRender : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class TextRender : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the color of the text.&quot;)]
 public Color Color { get; set; }</code></pre>
   </div>
 
@@ -579,7 +595,6 @@ public Color Color { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(75)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -621,7 +636,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [AssetReference(true)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The font asset used as a text characters source.&quot;)]
 public FontAsset Font { get; set; }</code></pre>
   </div>
 
@@ -663,7 +677,6 @@ public FontAsset Font { get; set; }</code></pre>
 [Limit(1F, 1000F, 1F)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the font characters size.&quot;)]
 public int FontSize { get; set; }</code></pre>
   </div>
 
@@ -704,7 +717,6 @@ public int FontSize { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the layout options. Layout is defined in local space of the object (on XY plane).&quot;)]
 public TextLayoutOptions LayoutOptions { get; set; }</code></pre>
   </div>
 
@@ -743,7 +755,6 @@ public TextLayoutOptions LayoutOptions { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The axis=aligned bounding box of the text vertices in the local-space of the actor.&quot;)]
 public BoundingBox LocalBox { get; }</code></pre>
   </div>
 
@@ -785,7 +796,6 @@ public BoundingBox LocalBox { get; }</code></pre>
 [AssetReference(true)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The material used for the text rendering. It must contain texture parameter named Font used to sample font texture.&quot;)]
 public MaterialBase Material { get; set; }</code></pre>
   </div>
 
@@ -826,7 +836,6 @@ public MaterialBase Material { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(80)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The shadows casting mode by this visual element.&quot;)]
 public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
   </div>
 
@@ -867,7 +876,6 @@ public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Text&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the text.&quot;)]
 public LocalizedString Text { get; set; }</code></pre>
   </div>
 
@@ -908,7 +916,6 @@ public LocalizedString Text { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the text vertex buffer layout and cached data if its dirty.&quot;)]
 public void UpdateLayout()</code></pre>
   </div>
 
@@ -946,7 +953,8 @@ public void UpdateLayout()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

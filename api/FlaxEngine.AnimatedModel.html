@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AnimatedModel
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.ModelInstanceActor.html">ModelInstanceActor</a></div>
     <div class="level5"><span class="xref">AnimatedModel</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_AnimatedModel" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_AnimatedModel" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_AnimatedModel" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -194,6 +200,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -376,6 +388,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -466,6 +481,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -498,8 +516,7 @@
   <h5 id="FlaxEngine_AnimatedModel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs an animation and renders a skinned model.&quot;)]
-public class AnimatedModel : ModelInstanceActor</code></pre>
+public class AnimatedModel : ModelInstanceActor, ISerializable</code></pre>
   </div>
 
   
@@ -554,7 +571,6 @@ public class AnimatedModel : ModelInstanceActor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(15)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The animation graph asset used for the skinned mesh skeleton bones evaluation (controls the animation).&quot;)]
 public AnimationGraph AnimationGraph { get; set; }</code></pre>
   </div>
 
@@ -596,7 +612,6 @@ public AnimationGraph AnimationGraph { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The master scale parameter for the actor bounding box. Helps reducing mesh flickering effect on screen edges.&quot;)]
 public float BoundsScale { get; set; }</code></pre>
   </div>
 
@@ -637,7 +652,6 @@ public float BoundsScale { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(70)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The custom bounds(in actor local space). If set to empty bounds then source skinned model bind pose bounds will be used.&quot;)]
 public BoundingBox CustomBounds { get; set; }</code></pre>
   </div>
 
@@ -678,7 +692,6 @@ public BoundingBox CustomBounds { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -720,7 +733,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Skinned Model&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The model forced Level Of Detail index. Allows to bind the given model LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -762,7 +774,6 @@ public int ForcedLOD { get; set; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Skinned Model&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The model Level Of Detail bias value. Allows to increase or decrease rendered model quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -801,7 +812,6 @@ public int LODBias { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The anim graph instance parameters collection.&quot;)]
 public AnimGraphParameter[] Parameters { get; }</code></pre>
   </div>
 
@@ -842,7 +852,6 @@ public AnimGraphParameter[] Parameters { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;If true, use per-bone motion blur on this skeletal model. It requires additional rendering, can be disabled to save performance.&quot;)]
 public bool PerBoneMotionBlur { get; set; }</code></pre>
   </div>
 
@@ -883,7 +892,6 @@ public bool PerBoneMotionBlur { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(120)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The animation root motion apply target. If not specified the animated model will apply it itself.&quot;)]
 public Actor RootMotionTarget { get; set; }</code></pre>
   </div>
 
@@ -924,7 +932,6 @@ public Actor RootMotionTarget { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(110)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The shadows casting mode.&quot;)]
 public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
   </div>
 
@@ -965,7 +972,6 @@ public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The skinned model asset used for rendering.&quot;)]
 public SkinnedModel SkinnedModel { get; set; }</code></pre>
   </div>
 
@@ -1006,7 +1012,6 @@ public SkinnedModel SkinnedModel { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The animation update mode. Can be used to optimize the performance.&quot;)]
 public AnimatedModel.AnimationUpdateMode UpdateMode { get; set; }</code></pre>
   </div>
 
@@ -1047,7 +1052,6 @@ public AnimatedModel.AnimationUpdateMode UpdateMode { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(45)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The animation update delta time scale. Can be used to speed up animation playback or create slow motion effect.&quot;)]
 public float UpdateSpeed { get; set; }</code></pre>
   </div>
 
@@ -1088,7 +1092,6 @@ public float UpdateSpeed { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;If true, the animation will be updated even when an actor cannot be seen by any camera. Otherwise, the animations themselves will also stop running when the actor is off-screen.&quot;)]
 public bool UpdateWhenOffscreen { get; set; }</code></pre>
   </div>
 
@@ -1129,7 +1132,6 @@ public bool UpdateWhenOffscreen { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;If true, animation speed will be affected by the global time scale parameter.&quot;)]
 public bool UseTimeScale { get; set; }</code></pre>
   </div>
 
@@ -1170,7 +1172,6 @@ public bool UseTimeScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears the weights of the blend shapes (disabled any used blend shapes).&quot;)]
 public void ClearBlendShapeWeights()</code></pre>
   </div>
 
@@ -1200,7 +1201,6 @@ public void ClearBlendShapeWeights()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds the closest node to a given location.&quot;)]
 public int FindClosestNode(Vector3 location, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1259,7 +1259,6 @@ public int FindClosestNode(Vector3 location, bool worldSpace = false)</code></pr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The weight of the blend shape.&quot;)]
 public float GetBlendShapeWeight(string name)</code></pre>
   </div>
 
@@ -1310,7 +1309,6 @@ public float GetBlendShapeWeight(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The per-node final transformations (skeleton pose).&quot;)]
 public void GetCurrentPose(out Matrix[] nodesTransformation, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1359,7 +1357,6 @@ public void GetCurrentPose(out Matrix[] nodesTransformation, bool worldSpace = f
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The node final transformation.&quot;)]
 public void GetNodeTransformation(int nodeIndex, out Matrix nodeTransformation, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1416,7 +1413,6 @@ public void GetNodeTransformation(int nodeIndex, out Matrix nodeTransformation, 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The node final transformation.&quot;)]
 public void GetNodeTransformation(string nodeName, out Matrix nodeTransformation, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1473,7 +1469,6 @@ public void GetNodeTransformation(string nodeName, out Matrix nodeTransformation
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The anim graph instance parameter by name.&quot;)]
 public AnimGraphParameter GetParameter(string name)</code></pre>
   </div>
 
@@ -1524,7 +1519,6 @@ public AnimGraphParameter GetParameter(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The anim graph instance parameter value.&quot;)]
 public object GetParameterValue(Guid id)</code></pre>
   </div>
 
@@ -1575,7 +1569,6 @@ public object GetParameterValue(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The anim graph instance parameter value.&quot;)]
 public object GetParameterValue(string name)</code></pre>
   </div>
 
@@ -1614,6 +1607,250 @@ public object GetParameterValue(string name)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_AnimatedModel_IsPlayingSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.IsPlayingSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" data-uid="FlaxEngine.AnimatedModel.IsPlayingSlotAnimation"><a href="#collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" class="expander" data-toggle="collapse">IsPlayingSlotAnimation()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if the any animation playback is active on the any slot in Anim Graph (not paused).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool IsPlayingSlotAnimation()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_IsPlayingSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.IsPlayingSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_IsPlayingSlotAnimation_System_String_FlaxEngine_Animation_" data-uid="FlaxEngine.AnimatedModel.IsPlayingSlotAnimation(System.String,FlaxEngine.Animation)"><a href="#collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation_System_String_FlaxEngine_Animation_" class="expander" data-toggle="collapse">IsPlayingSlotAnimation(String, Animation)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation_System_String_FlaxEngine_Animation_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if the animation playback is active on the slot in Anim Graph (not paused).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool IsPlayingSlotAnimation(string slotName, Animation anim)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">slotName</span>
+        <p><p>The name of the slot.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Animation.html">Animation</a></span>
+        <span class="parametername">anim</span>
+        <p><p>The animation to check.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_PauseSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.PauseSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_PauseSlotAnimation" data-uid="FlaxEngine.AnimatedModel.PauseSlotAnimation"><a href="#collapsible-FlaxEngine_AnimatedModel_PauseSlotAnimation" class="expander" data-toggle="collapse">PauseSlotAnimation()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_PauseSlotAnimation" class="collapse in">
+  <div class="markdown level1 summary"><p>Pauses all the animations playback on the all slots in Anim Graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void PauseSlotAnimation()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_PauseSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.PauseSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_PauseSlotAnimation_System_String_FlaxEngine_Animation_" data-uid="FlaxEngine.AnimatedModel.PauseSlotAnimation(System.String,FlaxEngine.Animation)"><a href="#collapsible-FlaxEngine_AnimatedModel_PauseSlotAnimation_System_String_FlaxEngine_Animation_" class="expander" data-toggle="collapse">PauseSlotAnimation(String, Animation)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_PauseSlotAnimation_System_String_FlaxEngine_Animation_" class="collapse in">
+  <div class="markdown level1 summary"><p>Pauses the animation playback on the slot in Anim Graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void PauseSlotAnimation(string slotName, Animation anim)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">slotName</span>
+        <p><p>The name of the slot.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Animation.html">Animation</a></span>
+        <span class="parametername">anim</span>
+        <p><p>The animation to pause.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_PlaySlotAnimation_" data-uid="FlaxEngine.AnimatedModel.PlaySlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" data-uid="FlaxEngine.AnimatedModel.PlaySlotAnimation(System.String,FlaxEngine.Animation,System.Single,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" class="expander" data-toggle="collapse">PlaySlotAnimation(String, Animation, Single, Single, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Plays the animation on the slot in Anim Graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void PlaySlotAnimation(string slotName, Animation anim, float speed = 1F, float blendInTime = 0.2F, float blendOutTime = 0.2F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">slotName</span>
+        <p><p>The name of the slot.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Animation.html">Animation</a></span>
+        <span class="parametername">anim</span>
+        <p><p>The animation to play.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">speed</span>
+        <p><p>The playback speed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">blendInTime</span>
+        <p><p>The animation blending in time (in seconds). Cam be used to smooth the slot animation playback with the input pose when starting the animation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">blendOutTime</span>
+        <p><p>The animation blending out time (in seconds). Cam be used to smooth the slot animation playback with the input pose when ending animation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_AnimatedModel_PreInitSkinningData_" data-uid="FlaxEngine.AnimatedModel.PreInitSkinningData*"></a>
   
   <h4 id="FlaxEngine_AnimatedModel_PreInitSkinningData" data-uid="FlaxEngine.AnimatedModel.PreInitSkinningData"><a href="#collapsible-FlaxEngine_AnimatedModel_PreInitSkinningData" class="expander" data-toggle="collapse">PreInitSkinningData()</a></h4>
@@ -1626,7 +1863,6 @@ public object GetParameterValue(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates and setups the skinning data (writes the identity bones transformations).&quot;)]
 public void PreInitSkinningData()</code></pre>
   </div>
 
@@ -1656,7 +1892,6 @@ public void PreInitSkinningData()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resets the animation state (clears the instance state data but preserves the instance parameters values).&quot;)]
 public void ResetAnimation()</code></pre>
   </div>
 
@@ -1686,7 +1921,6 @@ public void ResetAnimation()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the weight of the blend shape.&quot;)]
 public void SetBlendShapeWeight(string name, float value)</code></pre>
   </div>
 
@@ -1735,7 +1969,6 @@ public void SetBlendShapeWeight(string name, float value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the per-node final transformations (skeleton pose).&quot;)]
 public void SetCurrentPose(Matrix[] nodesTransformation, bool worldSpace = false)</code></pre>
   </div>
 
@@ -1784,7 +2017,6 @@ public void SetCurrentPose(Matrix[] nodesTransformation, bool worldSpace = false
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the master pose model that will be used to copy the skeleton nodes animation. Useful for modular characters.&quot;)]
 public void SetMasterPoseModel(AnimatedModel masterPose)</code></pre>
   </div>
 
@@ -1825,7 +2057,6 @@ public void SetMasterPoseModel(AnimatedModel masterPose)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the anim graph instance parameter value.&quot;)]
 public void SetParameterValue(Guid id, object value)</code></pre>
   </div>
 
@@ -1874,7 +2105,6 @@ public void SetParameterValue(Guid id, object value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the anim graph instance parameter value.&quot;)]
 public void SetParameterValue(string name, object value)</code></pre>
   </div>
 
@@ -1923,10 +2153,86 @@ public void SetParameterValue(string name, object value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Validates and creates a proper skinning data.&quot;)]
 public void SetupSkinningData()</code></pre>
   </div>
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_StopSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.StopSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_StopSlotAnimation" data-uid="FlaxEngine.AnimatedModel.StopSlotAnimation"><a href="#collapsible-FlaxEngine_AnimatedModel_StopSlotAnimation" class="expander" data-toggle="collapse">StopSlotAnimation()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_StopSlotAnimation" class="collapse in">
+  <div class="markdown level1 summary"><p>Stops all the animations playback on the all slots in Anim Graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void StopSlotAnimation()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_StopSlotAnimation_" data-uid="FlaxEngine.AnimatedModel.StopSlotAnimation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_StopSlotAnimation_System_String_FlaxEngine_Animation_" data-uid="FlaxEngine.AnimatedModel.StopSlotAnimation(System.String,FlaxEngine.Animation)"><a href="#collapsible-FlaxEngine_AnimatedModel_StopSlotAnimation_System_String_FlaxEngine_Animation_" class="expander" data-toggle="collapse">StopSlotAnimation(String, Animation)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_StopSlotAnimation_System_String_FlaxEngine_Animation_" class="collapse in">
+  <div class="markdown level1 summary"><p>Stops the animation playback on the slot in Anim Graph.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void StopSlotAnimation(string slotName, Animation anim)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">slotName</span>
+        <p><p>The name of the slot.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Animation.html">Animation</a></span>
+        <span class="parametername">anim</span>
+        <p><p>The animation to stop.</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -1953,7 +2259,6 @@ public void SetupSkinningData()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Performs the full animation update. The actual update will be performed during gameplay tick.&quot;)]
 public void UpdateAnimation()</code></pre>
   </div>
 
@@ -1984,7 +2289,6 @@ public void UpdateAnimation()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called after animation gets updated (new skeleton pose).&quot;)]
 public event Action AnimationUpdated</code></pre>
   </div>
 
@@ -2031,7 +2335,8 @@ public event Action AnimationUpdated</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

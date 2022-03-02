@@ -7,7 +7,7 @@
     <title>Data Serialization for C++ in Flax | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Data Serialization for C++ in Flax | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -95,8 +95,14 @@
 <li><code>virtual void Serialize(SerializeStream&amp; stream, const void* otherObj)</code> - serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties.</li>
 <li><code>virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</code> - deserializes object from the input stream.</li>
 </ul>
-<p>In C++ scripts yo ucan use <code>API_AUTO_SERIALIZATION()</code> macro to inject automatic data serialization generated based on object <code>API_FIELDS()</code>. Alternatively you can manually implement this interface and use helper macros and tools from <code>Engine/Serialization/Serialization.h</code>.</p>
-<h2 id="json">Json</h2>
+<p>In C++ scripts you can use <code>API_AUTO_SERIALIZATION()</code> macro to inject automatic data serialization generated based on object <code>API_FIELDS()</code>. Alternatively you can manually implement this interface and use helper macros and tools from <code>Engine/Serialization/Serialization.h</code>.</p>
+<p>The automatic serialization matches the <a href="../serialization/index.html">C# serialization rules</a>, where all public properties and fields are serialized. You can exclude or include field or property from serialization by using tags:</p>
+<pre><code class="lang-cpp">public:
+    API_FIELD(Attributes=&quot;NoSerialize&quot;) float PublicVarNotSaved;
+
+private:
+    API_FIELD(Attributes=&quot;Serialize&quot;) float PrivateVarSaved;
+</code></pre><h2 id="json">Json</h2>
 <p>Flax uses <a href="https://rapidjson.org">RapidJSON</a> library to serialize data into <em>json</em> format.</p>
 <p>Example:</p>
 <pre><code class="lang-cpp">#include &quot;Engine/Serialization/JsonWriters.h&quot;
@@ -104,6 +110,38 @@
 rapidjson_flax::StringBuffer buffer;
 CompactJsonWriter writer(buffer);
 writer.SceneObject(this);
+</code></pre><h3 id="custom-types">Custom types</h3>
+<p>To implement data serialization for custom native type or custom data container add 3 methods in <code>Serialization</code> namespace as in an example shown below. It can be used for defining specialization implementation for template types too.</p>
+<pre><code class="lang-cpp">struct MyCustomNativeData
+{
+    Vector3 Direction;
+    float Length;
+};
+
+#include &quot;Engine/Serialization/Serialization.h&quot;
+namespace Serialization
+{
+    inline bool ShouldSerialize(const MyCustomNativeData&amp; v, const void* otherObj)
+    {
+        // This can detect if value is the same as other object (if not null) and skip serialization
+        return true;
+    }
+    inline void Serialize(ISerializable::SerializeStream&amp; stream, const MyCustomNativeData&amp; v, const void* otherObj)
+    {
+        stream.JKEY(&quot;Direction&quot;);
+        Serialize(stream, v.Direction, nullptr);
+        stream.JKEY(&quot;Length&quot;);
+        Serialize(stream, v.Length, nullptr);
+    }
+    inline void Deserialize(ISerializable::DeserializeStream&amp; stream, MyCustomNativeData&amp; v, ISerializeModifier* modifier)
+    {
+        // Populate data with values from stream
+        DESERIALIZE_MEMBER(Direction, v.Direction);
+        DESERIALIZE_MEMBER(Length, v.Length);
+    }
+}
+</code></pre><p>If your code needs to auto-serialize the custom data type field or property but it should be not exposed to scripting (as it can be C++-only) use <code>Hidden</code> attribute.</p>
+<pre><code class="lang-cpp">API_FIELD(Hidden) float NativeOnlyVar;
 </code></pre><h2 id="streams">Streams</h2>
 <p>Flax contains in-built file and memory streams for robust binary data serialization.</p>
 <ul>
@@ -121,12 +159,13 @@ writer.SceneObject(this);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

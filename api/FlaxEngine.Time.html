@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Time
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Time_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Game ticking and timing system.&quot;)]
 public static class Time</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Time</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets time in seconds it took to complete the last frame, &lt;see cref=\&quot;TimeScale\&quot;/&gt; dependent.&quot;)]
 public static float DeltaTime { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static float DeltaTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The target amount of the frames rendered per second (target game FPS).&quot;)]
 public static float DrawFPS { get; set; }</code></pre>
   </div>
 
@@ -242,7 +239,6 @@ public static float DrawFPS { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the value indicating whenever game logic is paused (physics, script updates, etc.).&quot;)]
 public static bool GamePaused { get; set; }</code></pre>
   </div>
 
@@ -281,7 +277,6 @@ public static bool GamePaused { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets time at the beginning of this frame. This is the time in seconds since the start of the game.&quot;)]
 public static float GameTime { get; }</code></pre>
   </div>
 
@@ -320,7 +315,6 @@ public static float GameTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The target amount of the physics simulation updates per second (also fixed updates frequency).&quot;)]
 public static float PhysicsFPS { get; set; }</code></pre>
   </div>
 
@@ -359,7 +353,6 @@ public static float PhysicsFPS { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The time at which the game started (UTC local).&quot;)]
 public static DateTime StartupTime { get; }</code></pre>
   </div>
 
@@ -398,7 +391,6 @@ public static DateTime StartupTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The game time scale factor. Default is 1.&quot;)]
 public static float TimeScale { get; set; }</code></pre>
   </div>
 
@@ -437,7 +429,6 @@ public static float TimeScale { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The time since startup in seconds (unscaled).&quot;)]
 public static float TimeSinceStartup { get; }</code></pre>
   </div>
 
@@ -476,7 +467,6 @@ public static float TimeSinceStartup { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets timeScale-independent time in seconds it took to complete the last frame.&quot;)]
 public static float UnscaledDeltaTime { get; }</code></pre>
   </div>
 
@@ -515,7 +505,6 @@ public static float UnscaledDeltaTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets timeScale-independent time at the beginning of this frame. This is the time in seconds since the start of the game.&quot;)]
 public static float UnscaledGameTime { get; }</code></pre>
   </div>
 
@@ -554,7 +543,6 @@ public static float UnscaledGameTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The target amount of the game logic updates per second (script updates frequency).&quot;)]
 public static float UpdateFPS { get; set; }</code></pre>
   </div>
 
@@ -595,7 +583,6 @@ public static float UpdateFPS { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the fixed FPS for game logic updates (draw and update).&quot;)]
 public static void SetFixedDeltaTime(bool enable, float value)</code></pre>
   </div>
 
@@ -605,8 +592,7 @@ public static void SetFixedDeltaTime(bool enable, float value)</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">enable</span>
-        <p><blockquote><p>True if enable this feature, otherwise false.</p>
-</blockquote>
+        <p><p>True if enable this feature, otherwise false.</p>
 </p>
       </td>
     </tr>
@@ -614,8 +600,7 @@ public static void SetFixedDeltaTime(bool enable, float value)</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">value</span>
-        <p><blockquote><p>The fixed draw/update rate for the time.</p>
-</blockquote>
+        <p><p>The fixed draw/update rate for the time.</p>
 </p>
       </td>
     </tr>
@@ -644,7 +629,8 @@ public static void SetFixedDeltaTime(bool enable, float value)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

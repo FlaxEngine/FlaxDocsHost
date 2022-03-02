@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DebugDraw
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_DebugDraw_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The debug shapes rendering service. Not available in final game. For use only in the editor.&quot;)]
 public static class DebugDraw</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class DebugDraw</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Allocates the context for Debug Drawing. Can be use to redirect debug shapes collecting to a separate container (instead of global state).&quot;)]
 public static IntPtr AllocateContext()</code></pre>
   </div>
 
@@ -201,7 +199,6 @@ public static IntPtr AllocateContext()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the collected debug shapes to the output.&quot;)]
 public static void Draw(ref RenderContext renderContext, GPUTextureView target = null, GPUTextureView depthBuffer = null, bool enableDepthTest = false)</code></pre>
   </div>
 
@@ -266,7 +263,6 @@ public static void Draw(ref RenderContext renderContext, GPUTextureView target =
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the debug shapes for the given collection of selected actors and other scene actors debug shapes.&quot;)]
 public static void DrawActors(IntPtr selectedActors, int selectedActorsCount, bool drawScenes)</code></pre>
   </div>
 
@@ -311,6 +307,94 @@ public static void DrawActors(IntPtr selectedActors, int selectedActorsCount, bo
   </div>
   
   
+  <a id="FlaxEngine_DebugDraw_DrawArc_" data-uid="FlaxEngine.DebugDraw.DrawArc*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawArc(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawArc(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the arc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawArc(Vector3 position, Quaternion orientation, float radius, float angle, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angle</span>
+        <p><p>The angle (in radians) of the arc (arc is facing positive Z axis - forward). Use PI*2 for full disc (360 degrees).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_DrawBezier_" data-uid="FlaxEngine.DebugDraw.DrawBezier*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_DrawBezier_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawBezier(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawBezier_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawBezier(Vector3, Vector3, Vector3, Vector3, Color, Single, Boolean)</a></h4>
@@ -323,7 +407,6 @@ public static void DrawActors(IntPtr selectedActors, int selectedActorsCount, bo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws a Bezier curve.&quot;)]
 public static void DrawBezier(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -412,7 +495,6 @@ public static void DrawBezier(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the box.&quot;)]
 public static void DrawBox(BoundingBox box, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -477,7 +559,6 @@ public static void DrawBox(BoundingBox box, Color color, float duration = 0F, bo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the box.&quot;)]
 public static void DrawBox(OrientedBoundingBox box, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -542,7 +623,6 @@ public static void DrawBox(OrientedBoundingBox box, Color color, float duration 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the circle.&quot;)]
 public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -611,6 +691,102 @@ public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Co
   </div>
   
   
+  <a id="FlaxEngine_DebugDraw_DrawCone_" data-uid="FlaxEngine.DebugDraw.DrawCone*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCone(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCone(Vector3, Quaternion, Single, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the cone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawCone(Vector3 position, Quaternion orientation, float radius, float angleXY, float angleXZ, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angleXY</span>
+        <p><p>The angle (in radians) of the cone over the XY axis (cone forward is over X).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angleXZ</span>
+        <p><p>The angle (in radians) of the cone over the XZ axis (cone forward is over X).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_DrawCylinder_" data-uid="FlaxEngine.DebugDraw.DrawCylinder*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_DrawCylinder_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCylinder(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCylinder_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCylinder(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
@@ -623,7 +799,6 @@ public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the cylinder.&quot;)]
 public static void DrawCylinder(Vector3 position, Quaternion orientation, float radius, float height, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -712,7 +887,6 @@ public static void DrawCylinder(Vector3 position, Quaternion orientation, float 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the line.&quot;)]
 public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -785,7 +959,6 @@ public static void DrawLine(Vector3 start, Vector3 end, Color color, float durat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the lines. Line positions are located one after another (e.g. l0.start, l0.end, l1.start, l1.end,...).&quot;)]
 public static void DrawLines(Vector3[] lines, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -858,7 +1031,6 @@ public static void DrawLines(Vector3[] lines, Matrix transform, Color color, flo
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the sphere.&quot;)]
 public static void DrawSphere(BoundingSphere sphere, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -923,7 +1095,6 @@ public static void DrawSphere(BoundingSphere sphere, Color color, float duration
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the text (3D).&quot;)]
 public static void DrawText(string text, Transform transform, Color color, int size = 32, float duration = 0F)</code></pre>
   </div>
 
@@ -996,7 +1167,6 @@ public static void DrawText(string text, Transform transform, Color color, int s
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the text on a screen (2D).&quot;)]
 public static void DrawText(string text, Vector2 position, Color color, int size = 20, float duration = 0F)</code></pre>
   </div>
 
@@ -1069,7 +1239,6 @@ public static void DrawText(string text, Vector2 position, Color color, int size
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the text (3D) that automatically faces the camera.&quot;)]
 public static void DrawText(string text, Vector3 position, Color color, int size = 32, float duration = 0F)</code></pre>
   </div>
 
@@ -1142,7 +1311,6 @@ public static void DrawText(string text, Vector3 position, Color color, int size
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the triangle.&quot;)]
 public static void DrawTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1223,7 +1391,6 @@ public static void DrawTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color color,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the triangles.&quot;)]
 public static void DrawTriangles(Vector3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1288,7 +1455,6 @@ public static void DrawTriangles(Vector3[] vertices, Color color, float duration
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the triangles.&quot;)]
 public static void DrawTriangles(Vector3[] vertices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1361,7 +1527,6 @@ public static void DrawTriangles(Vector3[] vertices, Matrix transform, Color col
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the triangles using the given index buffer.&quot;)]
 public static void DrawTriangles(Vector3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1434,7 +1599,6 @@ public static void DrawTriangles(Vector3[] vertices, int[] indices, Color color,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the triangles using the given index buffer.&quot;)]
 public static void DrawTriangles(Vector3[] vertices, int[] indices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1515,7 +1679,6 @@ public static void DrawTriangles(Vector3[] vertices, int[] indices, Matrix trans
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the tube.&quot;)]
 public static void DrawTube(Vector3 position, Quaternion orientation, float radius, float length, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1592,6 +1755,94 @@ public static void DrawTube(Vector3 position, Quaternion orientation, float radi
   </div>
   
   
+  <a id="FlaxEngine_DebugDraw_DrawWireArc_" data-uid="FlaxEngine.DebugDraw.DrawWireArc*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireArc(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireArc(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireArc_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe arc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawWireArc(Vector3 position, Quaternion orientation, float radius, float angle, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angle</span>
+        <p><p>The angle (in radians) of the arc (arc is facing positive Z axis - forward). Use PI*2 for full disc (360 degrees).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_DebugDraw_DrawWireArrow_" data-uid="FlaxEngine.DebugDraw.DrawWireArrow*"></a>
   
   <h4 id="FlaxEngine_DebugDraw_DrawWireArrow_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireArrow(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireArrow_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireArrow(Vector3, Quaternion, Single, Color, Single, Boolean)</a></h4>
@@ -1604,7 +1855,6 @@ public static void DrawTube(Vector3 position, Quaternion orientation, float radi
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe arrow.&quot;)]
 public static void DrawWireArrow(Vector3 position, Quaternion orientation, float scale, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1685,7 +1935,6 @@ public static void DrawWireArrow(Vector3 position, Quaternion orientation, float
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe box.&quot;)]
 public static void DrawWireBox(BoundingBox box, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1750,7 +1999,6 @@ public static void DrawWireBox(BoundingBox box, Color color, float duration = 0F
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe box.&quot;)]
 public static void DrawWireBox(OrientedBoundingBox box, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1761,6 +2009,102 @@ public static void DrawWireBox(OrientedBoundingBox box, Color color, float durat
         <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
         <span class="parametername">box</span>
         <p><p>The box.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawWireCone_" data-uid="FlaxEngine.DebugDraw.DrawWireCone*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireCone(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireCone(Vector3, Quaternion, Single, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireCone_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe cone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawWireCone(Vector3 position, Quaternion orientation, float radius, float angleXY, float angleXZ, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angleXY</span>
+        <p><p>The angle (in radians) of the cone over the XY axis (cone forward is over X).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">angleXZ</span>
+        <p><p>The angle (in radians) of the cone over the XZ axis (cone forward is over X).</p>
 </p>
       </td>
     </tr>
@@ -1815,7 +2159,6 @@ public static void DrawWireBox(OrientedBoundingBox box, Color color, float durat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe cylinder.&quot;)]
 public static void DrawWireCylinder(Vector3 position, Quaternion orientation, float radius, float height, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1904,7 +2247,6 @@ public static void DrawWireCylinder(Vector3 position, Quaternion orientation, fl
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe frustum.&quot;)]
 public static void DrawWireFrustum(BoundingFrustum frustum, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -1969,7 +2311,6 @@ public static void DrawWireFrustum(BoundingFrustum frustum, Color color, float d
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe sphere.&quot;)]
 public static void DrawWireSphere(BoundingSphere sphere, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -2034,7 +2375,6 @@ public static void DrawWireSphere(BoundingSphere sphere, Color color, float dura
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe triangle.&quot;)]
 public static void DrawWireTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -2115,7 +2455,6 @@ public static void DrawWireTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe triangles.&quot;)]
 public static void DrawWireTriangles(Vector3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -2180,7 +2519,6 @@ public static void DrawWireTriangles(Vector3[] vertices, Color color, float dura
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe triangles using the given index buffer.&quot;)]
 public static void DrawWireTriangles(Vector3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -2253,7 +2591,6 @@ public static void DrawWireTriangles(Vector3[] vertices, int[] indices, Color co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the wireframe tube.&quot;)]
 public static void DrawWireTube(Vector3 position, Quaternion orientation, float radius, float length, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
@@ -2342,7 +2679,6 @@ public static void DrawWireTube(Vector3 position, Quaternion orientation, float 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Frees the context for Debug Drawing.&quot;)]
 public static void FreeContext(IntPtr context)</code></pre>
   </div>
 
@@ -2383,7 +2719,6 @@ public static void FreeContext(IntPtr context)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the context for Debug Drawing to a custom or null to use global default.&quot;)]
 public static void SetContext(IntPtr context)</code></pre>
   </div>
 
@@ -2424,7 +2759,6 @@ public static void SetContext(IntPtr context)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the context for Debug Drawing.&quot;)]
 public static void UpdateContext(IntPtr context, float deltaTime)</code></pre>
   </div>
 
@@ -2471,7 +2805,8 @@ public static void UpdateContext(IntPtr context, float deltaTime)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -7,7 +7,7 @@
     <title>Creating and destroying objects | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Creating and destroying objects | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -93,37 +93,72 @@
 <h2 id="spawning-objects">Spawning objects</h2>
 <h3 id="c">C#</h3>
 <p>Example code that spawns a new point light:</p>
+<div class="tabGroup" id="tabgroup_giHrcroXqe">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe_code-csharp" role="tab" aria-controls="tabpanel_giHrcroXqe_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe_code-cpp" role="tab" aria-controls="tabpanel_giHrcroXqe_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_giHrcroXqe_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">public override void OnStart()
 {
     var light = new PointLight();
     light.Color = Color.Blue;
     light.Parent = Actor;
 }
-</code></pre><p>You can add new scripts to any objects by using <a href="https://docs.flaxengine.com/api/FlaxEngine.Actor.html#FlaxEngine_Actor_AddScript_FlaxEngine_Script_">AddScript</a> method:</p>
-<pre><code class="lang-cs">public override void OnStart()
-{
-    var player = Actor.AddScript&lt;Player&gt;();
-    player.HP = 100;
-}
-</code></pre><h3 id="c-1">C++</h3>
-<p>In C++ the implementation is the same.</p>
+</code></pre></section>
+<section id="tabpanel_giHrcroXqe_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">void ExampleScript::OnStart()
 {
     auto light = New&lt;PointLight&gt;();
     light-&gt;Color = Color::Blue;
     light-&gt;SetParent(GetActor());
 }
-</code></pre><p>In order to add a script you just create a new instance and set the parent.</p>
+</code></pre></section>
+</div>
+<p>You can add new scripts to any objects by using <a href="https://docs.flaxengine.com/api/FlaxEngine.Actor.html#FlaxEngine_Actor_AddScript_FlaxEngine_Script_">AddScript</a> method:</p>
+<div class="tabGroup" id="tabgroup_giHrcroXqe-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-1_code-csharp" role="tab" aria-controls="tabpanel_giHrcroXqe-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-1_code-cpp" role="tab" aria-controls="tabpanel_giHrcroXqe-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_giHrcroXqe-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">public override void OnStart()
+{
+    var player = Actor.AddScript&lt;Player&gt;();
+    player.HP = 100;
+}
+</code></pre></section>
+<section id="tabpanel_giHrcroXqe-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">void ExampleScript::OnStart()
 {
-    auto script = New&lt;SecondaryScript&gt;();
+    auto script = New&lt;Player&gt;();
     script-&gt;SetParent(GetActor());
+    script-&gt;HP = 100;
 }
-</code></pre><div class="NOTE"><h5>Note</h5><p>Scene objects (actors, scripts) should <strong>not use constructors</strong> to prevent issues.</p>
+</code></pre></section>
+</div>
+<div class="NOTE"><h5>Note</h5><p>Scene objects (actors, scripts) should <strong>not use constructors</strong> to prevent issues.</p>
 </div>
 <h2 id="removing-objects">Removing objects</h2>
 <p>Flax supports immediate and delayed objects removing system. This helps with cleanup up the scene from killed players or unused actors.</p>
-<h3 id="c-2">C#</h3>
+<div class="tabGroup" id="tabgroup_giHrcroXqe-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-2_code-csharp" role="tab" aria-controls="tabpanel_giHrcroXqe-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-2_code-cpp" role="tab" aria-controls="tabpanel_giHrcroXqe-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_giHrcroXqe-2_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 public class MyScript : Script
@@ -135,23 +170,8 @@ public class MyScript : Script
         Destroy(ref Flashlight);
     }
 }
-</code></pre><p>Here is an example script that will remove object after a specified timeout (in seconds):</p>
-<pre><code class="lang-csharp" name="Example2">using FlaxEngine;
-
-public class AutoRemoveObj : Script
-{
-    [Tooltip(&quot;The time left to destroy object (in seconds).&quot;)]
-    public float Timeout = 5.0f;
-
-    public override void OnStart()
-    {
-        Destroy(Actor, Timeout);
-    }
-}
-</code></pre><p>In the same way you can remove scripts:</p>
-<pre><code class="lang-cs">Destroy(Actor.GetScript&lt;Player&gt;());
-</code></pre><h3 id="c-3">C++</h3>
-<p>Simple deletion of a referenced object:</p>
+</code></pre></section>
+<section id="tabpanel_giHrcroXqe-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example3">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -167,15 +187,38 @@ API_CLASS() class EXAMPLE_API MyScript : public Script
     ScriptingObjectReference&lt;SpotLight&gt; Flashlight;
 
     // [Script]
-    void OnDisable() override;
-    void OnUpdate() override;
-    void OnEnable() override;
     void OnStart() override
     {
         Flashlight.Get()-&gt;DeleteObject();
     }
 };
-</code></pre><p>How to time object deletion:</p>
+</code></pre></section>
+</div>
+<p>Here is an example script that will remove object after a specified timeout (in seconds):</p>
+<div class="tabGroup" id="tabgroup_giHrcroXqe-3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-3_code-csharp" role="tab" aria-controls="tabpanel_giHrcroXqe-3_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-3_code-cpp" role="tab" aria-controls="tabpanel_giHrcroXqe-3_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_giHrcroXqe-3_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-csharp" name="Example2">using FlaxEngine;
+
+public class AutoRemoveObj : Script
+{
+    [Tooltip(&quot;The time left to destroy object (in seconds).&quot;)]
+    public float Timeout = 5.0f;
+
+    public override void OnStart()
+    {
+        Destroy(Actor, Timeout);
+    }
+}
+</code></pre></section>
+<section id="tabpanel_giHrcroXqe-3_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example4">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -189,17 +232,31 @@ API_CLASS() class GAME_API AutoRemoveObj : public Script
     float Timeout = 5.0f;
 
     // [Script]
-    void OnEnable() override;
-    void OnDisable() override;
-    void OnUpdate() override;
     void OnStart() override 
     {
         GetActor()-&gt;DeleteObject(Timeout);
     }
 };
-</code></pre><p>How to delete script:</p>
+</code></pre></section>
+</div>
+<p>In the same way you can remove scripts:</p>
+<div class="tabGroup" id="tabgroup_giHrcroXqe-4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-4_code-csharp" role="tab" aria-controls="tabpanel_giHrcroXqe-4_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_giHrcroXqe-4_code-cpp" role="tab" aria-controls="tabpanel_giHrcroXqe-4_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_giHrcroXqe-4_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">Destroy(Actor.GetScript&lt;Player&gt;());
+</code></pre></section>
+<section id="tabpanel_giHrcroXqe-4_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">GetActor()-&gt;GetScript&lt;ExampleScript&gt;()-&gt;DeleteObject();
-</code></pre></article>
+</code></pre></section>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -207,12 +264,13 @@ API_CLASS() class GAME_API AutoRemoveObj : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

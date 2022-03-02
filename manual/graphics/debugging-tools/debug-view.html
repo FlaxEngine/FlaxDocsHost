@@ -7,7 +7,7 @@
     <title>Debug View | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Debug View | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -95,7 +95,60 @@
 <p>The full list of options and the documentation is available <a href="https://docs.flaxengine.com/api/FlaxEngine.ViewMode.html">here</a>.</p>
 <p>You can also adjust those options from code:</p>
 <pre><code class="lang-cs">MainRenderTask.Instance.View.Mode = ViewMode.Diffuse;
-</code></pre></article>
+</code></pre><h2 id="lod-preview">LOD Preview</h2>
+<p><img src="media/lod-preview.png" alt="LOD Preview Debug View"></p>
+<p><strong>LOD Preview</strong> displays scene meshes in colors based on the LOD index. This comes handy when debugging model LODs transitions based on distance or object screen-size. The table below shows the legend of the colors used for this debug view.</p>
+<table>
+<thead>
+<tr>
+<th>LOD 0</th>
+<th>LOD 1</th>
+<th>LOD 2</th>
+<th>LOD 3</th>
+<th>LOD 4</th>
+<th>LOD 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White <div style="background-color: white; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Red <div style="background-color: red; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Orange <div style="background-color: orange; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Yellow <div style="background-color: yellow; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Green <div style="background-color: green; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Blue <div style="background-color: blue; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="material-complexity">Material Complexity</h2>
+<p><img src="media/material-complexity.png" alt="Material Complexity Debug View"></p>
+<p><strong>Material Complexity</strong> displays per-pixel complexity of the materials rendering. It colors the pixels based on the number of shader instructions, blending mode used, textures usage, and tessallation usage. This works in general as a good indication of performance metric of the materials and can be used to analyze and optimize scenes. The table below shows the legend of the colors used for this debug view.</p>
+<table>
+<thead>
+<tr>
+<th>Ideal</th>
+<th>Good</th>
+<th>Expensive</th>
+<th>Excessive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green <div style="background-color: #00f71e; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Blue <div style="background-color: #3333b2; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>Red <div style="background-color: #ff0000; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+<td>White <div style="background-color: #fff2f2; width: 10px; padding: 10px; border: 1px solid black;"></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="quad-overdraw">Quad Overdraw</h2>
+<p><img src="media/quad-overdraw.png" alt="Quad Overdraw Debug View"></p>
+<p><strong>Quad Overdraw</strong> displays per-pixel overdraw that accumulates during scene rendering. It is useful when analyzing geometry complexity (eg. too high poly meshes), models culling, and analyze overdraw from other objects such as particles and decals. The table below shows the legend of the colors used for this debug view based on the amount of triangles covering given pixel.</p>
+<p>| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|--------|--------|--------|--------|--------|--------|--------|
+| <div style="background-color: #029319; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #00ff95; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #00fffd; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #8efa00; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #fffb00; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #ff9300; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #941100; width: 10px; padding: 10px; border: 1px solid black;"> | <div style="background-color: #ffffff; width: 10px; padding: 10px; border: 1px solid black;"> |<p>
+<p>Reference: <a href="https://blog.selfshadow.com/2012/11/12/counting-quads/">https://blog.selfshadow.com/2012/11/12/counting-quads/</a></p>
+</div></div></div></div></div></div></div></div></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -103,12 +156,13 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/graphics/debugging-tools/debug-view.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/graphics/debugging-tools/debug-view.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

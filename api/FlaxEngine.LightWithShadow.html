@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LightWithShadow
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -109,6 +109,12 @@
       <div class="level6"><a class="xref" href="FlaxEngine.PointLight.html">PointLight</a></div>
       <div class="level6"><a class="xref" href="FlaxEngine.SpotLight.html">SpotLight</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_LightWithShadow" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_LightWithShadow" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_LightWithShadow" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -200,6 +206,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -382,6 +394,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -472,6 +487,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -504,8 +522,7 @@
   <h5 id="FlaxEngine_LightWithShadow_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for all light types that can cast dynamic or static shadow. Contains more shared properties for point/spot/directional lights.&quot;)]
-public abstract class LightWithShadow : Light</code></pre>
+public abstract class LightWithShadow : Light, ISerializable</code></pre>
   </div>
 
   
@@ -561,7 +578,6 @@ public abstract class LightWithShadow : Light</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, null)]
 [Limit(0F, 0.1F, 0.001F)]
 [Unmanaged]
-[Tooltip(&quot;The length of the rays for contact shadows computed via the screen-space tracing. Set this to values higher than 0 to enable screen-space shadows rendering for this light. This improves the shadowing details. Actual ray distance is based on the pixel distance from the camera.&quot;)]
 public float ContactShadowsLength { get; set; }</code></pre>
   </div>
 
@@ -603,7 +619,6 @@ public float ContactShadowsLength { get; set; }</code></pre>
 [EditorDisplay(&quot;Light&quot;, &quot;Minimum Roughness&quot;)]
 [Limit(0F, 1F, 0.01F)]
 [Unmanaged]
-[Tooltip(&quot;The minimum roughness value used to clamp material surface roughness during shading pixel.&quot;)]
 public float MinRoughness { get; set; }</code></pre>
   </div>
 
@@ -645,7 +660,6 @@ public float MinRoughness { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Depth Bias&quot;)]
 [Limit(0F, 10F, 0.0001F)]
 [Unmanaged]
-[Tooltip(&quot;The depth bias used for shadow map comparison.&quot;)]
 public float ShadowsDepthBias { get; set; }</code></pre>
   </div>
 
@@ -687,7 +701,6 @@ public float ShadowsDepthBias { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Distance&quot;)]
 [Limit(0F, 1000000F, 1F)]
 [Unmanaged]
-[Tooltip(&quot;The light shadows casting distance from view.&quot;)]
 public float ShadowsDistance { get; set; }</code></pre>
   </div>
 
@@ -729,7 +742,6 @@ public float ShadowsDistance { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Fade Distance&quot;)]
 [Limit(0F, 10000F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;The light shadows fade off distance&quot;)]
 public float ShadowsFadeDistance { get; set; }</code></pre>
   </div>
 
@@ -770,7 +782,6 @@ public float ShadowsFadeDistance { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(60)]
 [EditorDisplay(&quot;Shadow&quot;, &quot;Mode&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Shadows casting mode by this visual element&quot;)]
 public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
   </div>
 
@@ -812,7 +823,6 @@ public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Normal Offset Scale&quot;)]
 [Limit(0F, 100F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;A factor specifying the offset to add to the calculated shadow map depth with respect to the surface normal.&quot;)]
 public float ShadowsNormalOffsetScale { get; set; }</code></pre>
   </div>
 
@@ -854,7 +864,6 @@ public float ShadowsNormalOffsetScale { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Sharpness&quot;)]
 [Limit(1F, 10F, 0.001F)]
 [Unmanaged]
-[Tooltip(&quot;The light shadows edges sharpness&quot;)]
 public float ShadowsSharpness { get; set; }</code></pre>
   </div>
 
@@ -896,7 +905,6 @@ public float ShadowsSharpness { get; set; }</code></pre>
 [EditorDisplay(&quot;Shadow&quot;, &quot;Strength&quot;)]
 [Limit(0F, 1F, 0.001F)]
 [Unmanaged]
-[Tooltip(&quot;Dynamic shadows blending strength. Default is 1 for fully opaque shadows, value 0 disables shadows.&quot;)]
 public float ShadowsStrength { get; set; }</code></pre>
   </div>
 
@@ -940,7 +948,8 @@ public float ShadowsStrength { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

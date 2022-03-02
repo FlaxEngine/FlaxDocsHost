@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class D6Joint
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -93,7 +93,7 @@
   <h1 id="FlaxEngine_D6Joint" data-uid="FlaxEngine.D6Joint">Class D6Joint
   </h1>
   <div class="markdown level0 summary"><p>Physics joint that is the most customizable type of joint. This joint type can be used to create all other built-in joint
-types, and to design your own custom ones, but is less intuitive to use.Allows a specification of a linear
+types, and to design your own custom ones, but is less intuitive to use. Allows a specification of a linear
 constraint (for example for a slider), twist constraint (rotating around X) and swing constraint (rotating around Y and Z).
 It also allows you to constrain limits to only specific axes or completely lock specific axes.</p>
 </div>
@@ -110,10 +110,22 @@ It also allows you to constrain limits to only specific axes or completely lock 
     <div class="level5"><span class="xref">D6Joint</span></div>
     </div>
   </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_D6Joint" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_D6Joint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_D6Joint" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
+  </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_D6Joint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_D6Joint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_D6Joint" data-uid="FlaxEngine.Joint.SetJointLocation(FlaxEngine.Vector3)"><a href="#collapsible-inheritedMembers-FlaxEngine_D6Joint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_D6Joint" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_">Joint.SetJointLocation(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_">Joint.SetJointOrientation(Quaternion)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_GetCurrentForce_FlaxEngine_Vector3__FlaxEngine_Vector3__">Joint.GetCurrentForce(Vector3, Vector3)</a>
     </div>
@@ -128,6 +140,9 @@ It also allows you to constrain limits to only specific axes or completely lock 
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableCollision">Joint.EnableCollision</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableAutoAnchor">Joint.EnableAutoAnchor</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_TargetAnchor">Joint.TargetAnchor</a>
@@ -206,6 +221,12 @@ It also allows you to constrain limits to only specific axes or completely lock 
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -388,6 +409,9 @@ It also allows you to constrain limits to only specific axes or completely lock 
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -478,6 +502,9 @@ It also allows you to constrain limits to only specific axes or completely lock 
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -510,8 +537,7 @@ It also allows you to constrain limits to only specific axes or completely lock 
   <h5 id="FlaxEngine_D6Joint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Physics joint that is the most customizable type of joint. This joint type can be used to create all other built-in joint types, and to design your own custom ones, but is less intuitive to use.Allows a specification of a linear constraint (for example for a slider), twist constraint (rotating around X) and swing constraint (rotating around Y and Z). It also allows you to constrain limits to only specific axes or completely lock specific axes.&quot;)]
-public class D6Joint : Joint</code></pre>
+public class D6Joint : Joint, ISerializable</code></pre>
   </div>
 
   
@@ -552,11 +578,11 @@ public class D6Joint : Joint</code></pre>
   </h3>
   
   
-  <a id="FlaxEngine_D6Joint_CurrentSwingYAngle_" data-uid="FlaxEngine.D6Joint.CurrentSwingYAngle*"></a>
+  <a id="FlaxEngine_D6Joint_CurrentSwingY_" data-uid="FlaxEngine.D6Joint.CurrentSwingY*"></a>
   
-  <h4 id="FlaxEngine_D6Joint_CurrentSwingYAngle" data-uid="FlaxEngine.D6Joint.CurrentSwingYAngle"><a href="#collapsible-FlaxEngine_D6Joint_CurrentSwingYAngle" class="expander" data-toggle="collapse">CurrentSwingYAngle</a></h4>
+  <h4 id="FlaxEngine_D6Joint_CurrentSwingY" data-uid="FlaxEngine.D6Joint.CurrentSwingY"><a href="#collapsible-FlaxEngine_D6Joint_CurrentSwingY" class="expander" data-toggle="collapse">CurrentSwingY</a></h4>
   
-  <div id="collapsible-FlaxEngine_D6Joint_CurrentSwingYAngle" class="collapse in">
+  <div id="collapsible-FlaxEngine_D6Joint_CurrentSwingY" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the current swing angle of the joint from the Y axis.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -564,8 +590,7 @@ public class D6Joint : Joint</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current swing angle of the joint from the Y axis.&quot;)]
-public float CurrentSwingYAngle { get; }</code></pre>
+public float CurrentSwingY { get; }</code></pre>
   </div>
 
   
@@ -591,11 +616,11 @@ public float CurrentSwingYAngle { get; }</code></pre>
   </div>
   
   
-  <a id="FlaxEngine_D6Joint_CurrentSwingZAngle_" data-uid="FlaxEngine.D6Joint.CurrentSwingZAngle*"></a>
+  <a id="FlaxEngine_D6Joint_CurrentSwingZ_" data-uid="FlaxEngine.D6Joint.CurrentSwingZ*"></a>
   
-  <h4 id="FlaxEngine_D6Joint_CurrentSwingZAngle" data-uid="FlaxEngine.D6Joint.CurrentSwingZAngle"><a href="#collapsible-FlaxEngine_D6Joint_CurrentSwingZAngle" class="expander" data-toggle="collapse">CurrentSwingZAngle</a></h4>
+  <h4 id="FlaxEngine_D6Joint_CurrentSwingZ" data-uid="FlaxEngine.D6Joint.CurrentSwingZ"><a href="#collapsible-FlaxEngine_D6Joint_CurrentSwingZ" class="expander" data-toggle="collapse">CurrentSwingZ</a></h4>
   
-  <div id="collapsible-FlaxEngine_D6Joint_CurrentSwingZAngle" class="collapse in">
+  <div id="collapsible-FlaxEngine_D6Joint_CurrentSwingZ" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the current swing angle of the joint from the Z axis.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -603,8 +628,7 @@ public float CurrentSwingYAngle { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current swing angle of the joint from the Z axis.&quot;)]
-public float CurrentSwingZAngle { get; }</code></pre>
+public float CurrentSwingZ { get; }</code></pre>
   </div>
 
   
@@ -635,14 +659,13 @@ public float CurrentSwingZAngle { get; }</code></pre>
   <h4 id="FlaxEngine_D6Joint_CurrentTwist" data-uid="FlaxEngine.D6Joint.CurrentTwist"><a href="#collapsible-FlaxEngine_D6Joint_CurrentTwist" class="expander" data-toggle="collapse">CurrentTwist</a></h4>
   
   <div id="collapsible-FlaxEngine_D6Joint_CurrentTwist" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the twist angle of the joint.</p>
+  <div class="markdown level1 summary"><p>Gets the twist angle of the joint (in the range (-2<em>Pi, 2</em>Pi]).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The twist angle of the joint.&quot;)]
 public float CurrentTwist { get; }</code></pre>
   </div>
 
@@ -839,7 +862,6 @@ public Quaternion DriveRotation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(200)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Determines the linear limit used for constraining translation degrees of freedom.&quot;)]
 public LimitLinear LimitLinear { get; set; }</code></pre>
   </div>
 
@@ -880,7 +902,6 @@ public LimitLinear LimitLinear { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(220)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Determines the cone limit used for constraining the swing (rotation around Y and Z) degree of freedom.&quot;)]
 public LimitConeRange LimitSwing { get; set; }</code></pre>
   </div>
 
@@ -921,7 +942,6 @@ public LimitConeRange LimitSwing { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(210)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Determines the angular limit used for constraining the twist (rotation around X) degree of freedom.&quot;)]
 public LimitAngularRange LimitTwist { get; set; }</code></pre>
   </div>
 
@@ -962,7 +982,6 @@ public LimitAngularRange LimitTwist { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The drive parameters for the specified drive type.&quot;)]
 public D6JointDrive GetDrive(D6JointDriveType index)</code></pre>
   </div>
 
@@ -1013,7 +1032,6 @@ public D6JointDrive GetDrive(D6JointDriveType index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The motion type around the specified axis.&quot;)]
 public D6JointMotion GetMotion(D6JointAxis axis)</code></pre>
   </div>
 
@@ -1067,7 +1085,6 @@ public D6JointMotion GetMotion(D6JointAxis axis)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the drive parameters for the specified drive type.&quot;)]
 public void SetDrive(D6JointDriveType index, D6JointDrive value)</code></pre>
   </div>
 
@@ -1116,7 +1133,6 @@ public void SetDrive(D6JointDriveType index, D6JointDrive value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the motion type around the specified axis.&quot;)]
 public void SetMotion(D6JointAxis axis, D6JointMotion value)</code></pre>
   </div>
 
@@ -1180,7 +1196,8 @@ public void SetMotion(D6JointAxis axis, D6JointMotion value)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

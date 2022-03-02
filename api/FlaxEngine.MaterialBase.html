@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MaterialBase
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -188,6 +188,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -220,7 +223,6 @@
   <h5 id="FlaxEngine_MaterialBase_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for &lt;see cref=\&quot;Material\&quot;/&gt; and &lt;see cref=\&quot;MaterialInstance\&quot;/&gt;.&quot;)]
 public abstract class MaterialBase : BinaryAsset</code></pre>
   </div>
 
@@ -274,7 +276,6 @@ public abstract class MaterialBase : BinaryAsset</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The material info, structure which describes material surface.&quot;)]
 public MaterialInfo Info { get; }</code></pre>
   </div>
 
@@ -535,7 +536,6 @@ public MaterialInfo Info { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The material parameters collection.&quot;)]
 public MaterialParameter[] Parameters { get; }</code></pre>
   </div>
 
@@ -576,7 +576,6 @@ public MaterialParameter[] Parameters { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Creates the virtual material instance of this material which allows to override any material parameters.&quot;)]
 public MaterialInstance CreateVirtualInstance()</code></pre>
   </div>
 
@@ -616,7 +615,6 @@ public MaterialInstance CreateVirtualInstance()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The material parameter.&quot;)]
 public MaterialParameter GetParameter(string name)</code></pre>
   </div>
 
@@ -665,7 +663,6 @@ public MaterialParameter GetParameter(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The material parameter value.&quot;)]
 public object GetParameterValue(string name)</code></pre>
   </div>
 
@@ -715,7 +712,6 @@ public object GetParameterValue(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the material parameter value (and sets IsOverride to true).&quot;)]
 public void SetParameterValue(string name, object value, bool warnIfMissing = true)</code></pre>
   </div>
 
@@ -781,7 +777,8 @@ public void SetParameterValue(string name, object value, bool warnIfMissing = tr
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

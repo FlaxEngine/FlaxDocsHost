@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BezierCurve&lt;T&gt;
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -316,7 +316,8 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
   <h4 id="FlaxEngine_BezierCurve_1_Evaluate__0__System_Single_System_Boolean_" data-uid="FlaxEngine.BezierCurve`1.Evaluate(`0@,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_BezierCurve_1_Evaluate__0__System_Single_System_Boolean_" class="expander" data-toggle="collapse">Evaluate(out T, Single, Boolean)</a></h4>
   
   <div id="collapsible-FlaxEngine_BezierCurve_1_Evaluate__0__System_Single_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Evaluates the animation curve value at the specified time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -330,21 +331,24 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
       <td>
         <span class="pull-right"><span class="xref">T</span></span>
         <span class="parametername">result</span>
-        <p>
+        <p><p>The interpolated value from the curve at provided time.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">time</span>
-        <p>
+        <p><p>The time to evaluate the curve at.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">loop</span>
-        <p>
+        <p><p>If true the curve will loop when it goes past the end or beginning. Otherwise the curve value will be clamped.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -424,7 +428,8 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
   <h4 id="FlaxEngine_BezierCurve_1_FindKeys_System_Single_System_Int32__System_Int32__" data-uid="FlaxEngine.BezierCurve`1.FindKeys(System.Single,System.Int32@,System.Int32@)"><a href="#collapsible-FlaxEngine_BezierCurve_1_FindKeys_System_Single_System_Int32__System_Int32__" class="expander" data-toggle="collapse">FindKeys(Single, out Int32, out Int32)</a></h4>
   
   <div id="collapsible-FlaxEngine_BezierCurve_1_FindKeys_System_Single_System_Int32__System_Int32__" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a pair of keys that can be used for interpolating to field the value at the provided time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -438,21 +443,24 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">time</span>
-        <p>
+        <p><p>The time for which to find the relevant keys from. It is expected to be clamped to a valid range within the curve.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">leftKey</span>
-        <p>
+        <p><p>The index of the key to interpolate from.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">rightKey</span>
-        <p>
+        <p><p>The index of the key to interpolate to.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -477,7 +485,8 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
   <h4 id="FlaxEngine_BezierCurve_1_TransformTime_System_Single_System_Single_" data-uid="FlaxEngine.BezierCurve`1.TransformTime(System.Single,System.Single)"><a href="#collapsible-FlaxEngine_BezierCurve_1_TransformTime_System_Single_System_Single_" class="expander" data-toggle="collapse">TransformTime(Single, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_BezierCurve_1_TransformTime_System_Single_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Applies the linear transformation (scale and offset) to the keyframes time values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -491,14 +500,16 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">timeScale</span>
-        <p>
+        <p><p>The time scale.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">timeOffset</span>
-        <p>
+        <p><p>The time offset.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -523,7 +534,8 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
   <h4 id="FlaxEngine_BezierCurve_1_Trim_System_Single_System_Single_" data-uid="FlaxEngine.BezierCurve`1.Trim(System.Single,System.Single)"><a href="#collapsible-FlaxEngine_BezierCurve_1_Trim_System_Single_System_Single_" class="expander" data-toggle="collapse">Trim(Single, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_BezierCurve_1_Trim_System_Single_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Trims the curve keyframes to the specified time range.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -537,14 +549,16 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">start</span>
-        <p>
+        <p><p>The time start.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">end</span>
-        <p>
+        <p><p>The time end.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -584,7 +598,8 @@ public BezierCurve&lt;T&gt;.Keyframe[] Keyframes</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

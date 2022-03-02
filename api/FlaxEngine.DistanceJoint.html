@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DistanceJoint
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -107,10 +107,22 @@
     <div class="level5"><span class="xref">DistanceJoint</span></div>
     </div>
   </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_DistanceJoint" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_DistanceJoint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_DistanceJoint" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
+  </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_DistanceJoint" data-uid="FlaxEngine.Joint.GetCurrentForce(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-inheritedMembers-FlaxEngine_DistanceJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_DistanceJoint" data-uid="FlaxEngine.Joint.SetJointLocation(FlaxEngine.Vector3)"><a href="#collapsible-inheritedMembers-FlaxEngine_DistanceJoint" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_DistanceJoint" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_">Joint.SetJointLocation(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_">Joint.SetJointOrientation(Quaternion)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_GetCurrentForce_FlaxEngine_Vector3__FlaxEngine_Vector3__">Joint.GetCurrentForce(Vector3, Vector3)</a>
     </div>
@@ -125,6 +137,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableCollision">Joint.EnableCollision</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_EnableAutoAnchor">Joint.EnableAutoAnchor</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Joint.html#FlaxEngine_Joint_TargetAnchor">Joint.TargetAnchor</a>
@@ -203,6 +218,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -385,6 +406,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -475,6 +499,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -507,8 +534,7 @@
   <h5 id="FlaxEngine_DistanceJoint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Physics joint that maintains an upper or lower (or both) bound on the distance between two bodies.&quot;)]
-public class DistanceJoint : Joint</code></pre>
+public class DistanceJoint : Joint, ISerializable</code></pre>
   </div>
 
   
@@ -561,7 +587,6 @@ public class DistanceJoint : Joint</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current distance of the joint.&quot;)]
 public float CurrentDistance { get; }</code></pre>
   </div>
 
@@ -601,7 +626,6 @@ public float CurrentDistance { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(100)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the joint mode flags. Controls joint behaviour.&quot;)]
 public DistanceJointFlag Flags { get; set; }</code></pre>
   </div>
 
@@ -643,7 +667,6 @@ public DistanceJointFlag Flags { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the allowed maximum distance for the joint.&quot;)]
 public float MaxDistance { get; set; }</code></pre>
   </div>
 
@@ -688,7 +711,6 @@ public float MaxDistance { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the allowed minimum distance for the joint.&quot;)]
 public float MinDistance { get; set; }</code></pre>
   </div>
 
@@ -732,7 +754,6 @@ public float MinDistance { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(140)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the spring parameters.&quot;)]
 public SpringParameters SpringParameters { get; set; }</code></pre>
   </div>
 
@@ -774,7 +795,6 @@ public SpringParameters SpringParameters { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the error tolerance of the joint.&quot;)]
 public float Tolerance { get; set; }</code></pre>
   </div>
 
@@ -828,7 +848,8 @@ public float Tolerance { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

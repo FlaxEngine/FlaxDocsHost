@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Asset
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -150,6 +150,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -182,7 +185,6 @@
   <h5 id="FlaxEngine_Asset_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Asset objects base class.&quot;)]
 public abstract class Asset : Object</code></pre>
   </div>
 
@@ -236,7 +238,6 @@ public abstract class Asset : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if asset is loaded, otherwise false.&quot;)]
 public bool IsLoaded { get; }</code></pre>
   </div>
 
@@ -275,7 +276,6 @@ public bool IsLoaded { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this asset is virtual (generated or temporary, has no storage so it won't be saved).&quot;)]
 public bool IsVirtual { get; }</code></pre>
   </div>
 
@@ -314,7 +314,6 @@ public bool IsVirtual { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if last asset loading failed, otherwise false.&quot;)]
 public bool LastLoadFailed { get; }</code></pre>
   </div>
 
@@ -353,7 +352,6 @@ public bool LastLoadFailed { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The path to the asset storage file. In Editor it reflects the actual file, in cooked Game, it fakes the Editor path to be informative for developers.&quot;)]
 public string Path { get; }</code></pre>
   </div>
 
@@ -392,7 +390,6 @@ public string Path { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets asset's reference count. Asset will be automatically unloaded when this reaches zero.&quot;)]
 public int ReferencesCount { get; }</code></pre>
   </div>
 
@@ -431,7 +428,6 @@ public int ReferencesCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this asset was marked to be deleted on unload.&quot;)]
 public bool ShouldDeleteFileOnUnload { get; }</code></pre>
   </div>
 
@@ -472,7 +468,6 @@ public bool ShouldDeleteFileOnUnload { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The asset references. Supported only in Editor.&quot;)]
 public Guid[] GetReferences()</code></pre>
   </div>
 
@@ -518,7 +513,6 @@ Also the output data may have duplicated asset ids or even invalid ids (Guid.Emp
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Reloads the asset.&quot;)]
 public void Reload()</code></pre>
   </div>
 
@@ -586,7 +580,6 @@ public void Reload()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Stops the current thread execution and waits until asset will be loaded (loading will fail, success or be cancelled).&quot;)]
 public bool WaitForLoaded(double timeoutInMilliseconds = 30000)</code></pre>
   </div>
 
@@ -642,7 +635,8 @@ public bool WaitForLoaded(double timeoutInMilliseconds = 30000)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

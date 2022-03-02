@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GameCooker
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEditor_GameCooker_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Game building service. Processes project files and outputs build game for a target platform.&quot;)]
 public static class GameCooker</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class GameCooker</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current build data. Valid only during active build process.&quot;)]
 public static CookingData CurrentData { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static CookingData CurrentData { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether building cancel has been requested.&quot;)]
 public static bool IsCancelRequested { get; }</code></pre>
   </div>
 
@@ -239,7 +236,6 @@ public static bool IsCancelRequested { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether game building is running.&quot;)]
 public static bool IsRunning { get; }</code></pre>
   </div>
 
@@ -280,7 +276,6 @@ public static bool IsRunning { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts building game for the specified platform.&quot;)]
 public static void Build(BuildPlatform platform, BuildConfiguration configuration, string outputPath, BuildOptions options, string[] customDefines, string preset = null, string presetTarget = null)</code></pre>
   </div>
 
@@ -369,7 +364,6 @@ public static void Build(BuildPlatform platform, BuildConfiguration configuratio
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sends a cancel event to the game building service.&quot;)]
 public static void Cancel(bool waitForEnd = false)</code></pre>
   </div>
 
@@ -486,6 +480,43 @@ public static void Cancel(bool waitForEnd = false)</code></pre>
   
   
   
+  <h4 id="FlaxEditor_GameCooker_DeployFiles" data-uid="FlaxEditor.GameCooker.DeployFiles"><a href="#collapsible-FlaxEditor_GameCooker_DeployFiles" class="expander" data-toggle="collapse">DeployFiles</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GameCooker_DeployFiles" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when game files and data is deployed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action DeployFiles</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEditor_GameCooker_Event" data-uid="FlaxEditor.GameCooker.Event"><a href="#collapsible-FlaxEditor_GameCooker_Event" class="expander" data-toggle="collapse">Event</a></h4>
   
   <div id="collapsible-FlaxEditor_GameCooker_Event" class="collapse in">
@@ -508,6 +539,80 @@ public static void Cancel(bool waitForEnd = false)</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEditor.GameCooker.BuildEventDelegate.html">GameCooker.BuildEventDelegate</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_GameCooker_PackageFiles" data-uid="FlaxEditor.GameCooker.PackageFiles"><a href="#collapsible-FlaxEditor_GameCooker_PackageFiles" class="expander" data-toggle="collapse">PackageFiles</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GameCooker_PackageFiles" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when game files and data are ready to be packaged. Called only if game is about to packaged, otherwise this step is skipped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action PackageFiles</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_GameCooker_PostProcessFiles" data-uid="FlaxEditor.GameCooker.PostProcessFiles"><a href="#collapsible-FlaxEditor_GameCooker_PostProcessFiles" class="expander" data-toggle="collapse">PostProcessFiles</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GameCooker_PostProcessFiles" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when game files and data are deployed and can be post-processed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action PostProcessFiles</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
         <p>
       </td>
     </tr>
@@ -567,7 +672,8 @@ public static void Cancel(bool waitForEnd = false)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

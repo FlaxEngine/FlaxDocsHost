@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NavLink
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@ An off-mesh connection is a user defined traversable connection made up to two v
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">NavLink</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_NavLink" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_NavLink" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_NavLink" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -179,6 +185,12 @@ An off-mesh connection is a user defined traversable connection made up to two v
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -361,6 +373,9 @@ An off-mesh connection is a user defined traversable connection made up to two v
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -451,6 +466,9 @@ An off-mesh connection is a user defined traversable connection made up to two v
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -483,8 +501,7 @@ An off-mesh connection is a user defined traversable connection made up to two v
   <h5 id="FlaxEngine_NavLink_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The off-mesh link objects used to define a custom point-to-point edge within the navigation graph. An off-mesh connection is a user defined traversable connection made up to two vertices, at least one of which resides within a navigation mesh polygon allowing movement outside the navigation mesh.&quot;)]
-public class NavLink : Actor</code></pre>
+public class NavLink : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -539,7 +556,6 @@ public class NavLink : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Nav Link&quot;, null)]
 [EditorOrder(30)]
 [Unmanaged]
-[Tooltip(&quot;Flag used to define links that can be traversed in both directions. When set to false the link can only be traversed from start to end.&quot;)]
 public bool BiDirectional { get; set; }</code></pre>
   </div>
 
@@ -580,7 +596,6 @@ public bool BiDirectional { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Nav Link&quot;, null)]
 [EditorOrder(10)]
 [Unmanaged]
-[Tooltip(&quot;The end location which transform is representing link end position. It is defined in local-space of the actor.&quot;)]
 public Vector3 End { get; set; }</code></pre>
   </div>
 
@@ -621,7 +636,6 @@ public Vector3 End { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Nav Link&quot;, null)]
 [EditorOrder(20)]
 [Unmanaged]
-[Tooltip(&quot;The maximum radius of the agents that can go through the link.&quot;)]
 public float Radius { get; set; }</code></pre>
   </div>
 
@@ -662,7 +676,6 @@ public float Radius { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Nav Link&quot;, null)]
 [EditorOrder(0)]
 [Unmanaged]
-[Tooltip(&quot;The start location which transform is representing link start position. It is defined in local-space of the actor.&quot;)]
 public Vector3 Start { get; set; }</code></pre>
   </div>
 
@@ -709,7 +722,8 @@ public Vector3 Start { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -7,7 +7,7 @@
     <title>Cameras | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Cameras | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -212,6 +212,86 @@ The far plane is the furthest point the camera can see. It&#39;s also known as a
 </table>
 <h2 id="render-a-camera-to-a-texture">Render a camera to a texture</h2>
 <p>Flax Engine offers very wide range of customization that can be made to extend the rendering pipeline. One of them is rendering scene using the custom camera right to the render target. Then presenting it on an object surface. To create such effect check out the tutorial: <a href="render-camera-to-texture.html">How to render a camera to a texture</a>.</p>
+<h2 id="override-view">Override view</h2>
+<p>Flax uses extensible RenderTask system for high-level rendering achitecture. By default game uses <code>MainRenderTask.Instance</code> to drive the scene rendering into the main game viewport. You can use it to plug into rendering pipeline for custom effects, rendering or view override.</p>
+<div class="tabGroup" id="tabgroup_xJdqemeYyZ">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xJdqemeYyZ_code-csharp" role="tab" aria-controls="tabpanel_xJdqemeYyZ_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xJdqemeYyZ_code-cpp" role="tab" aria-controls="tabpanel_xJdqemeYyZ_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xJdqemeYyZ_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">class MyScript : Script
+{
+    public override void OnEnable()
+    {
+        MainRenderTask.Instance.PreRender += OnPreRender;
+    }
+
+    public override void OnDisable()
+    {
+        MainRenderTask.Instance.PreRender -= OnPreRender;
+    }
+
+    private void OnPreRender(GPUContext context, ref RenderContext renderContext)
+    {
+        // Here you can modify the render View
+        float fov = 120.0f;
+        renderContext.View.Near = 100.0f;
+        Viewport viewport = renderContext.Buffers.Viewport;
+        Matrix view = renderContext.View.View;
+        Matrix proj;
+        Matrix.PerspectiveFov(fov * Mathf.DegreesToRadians, viewport.AspectRatio, renderContext.View.Near, renderContext.View.Far, out proj);
+        renderContext.View.SetUp(ref view, ref proj);
+    }
+}
+</code></pre></section>
+<section id="tabpanel_xJdqemeYyZ_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Core/Log.h&quot;
+#include &quot;Engine/Graphics/RenderBuffers.h&quot;
+#include &quot;Engine/Graphics/RenderTask.h&quot;
+
+API_CLASS() class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+    void OnPreRender(GPUContext* context, RenderContext&amp; renderContext)
+    {
+        // Here you can modify the render View
+        float fov = 120.0f;
+        renderContext.View.Near = 100.0f;
+        const Viewport viewport(renderContext.Buffers-&gt;GetViewport());
+        Matrix view = renderContext.View.View;
+        Matrix proj;
+        Matrix::PerspectiveFov(fov * DegreesToRadians, viewport.GetAspectRatio(), renderContext.View.Near, renderContext.View.Far, proj);
+        renderContext.View.SetUp(view, proj);
+    }
+
+    // [Script]
+    void OnEnable() override
+    {
+        MainRenderTask::Instance-&gt;PreRender.Bind&lt;MyScript, &amp;MyScript::OnPreRender&gt;(this);
+    }
+
+    void OnDisable() override
+    {
+        MainRenderTask::Instance-&gt;PreRender.Unbind&lt;MyScript, &amp;MyScript::OnPreRender&gt;(this);
+    }
+};
+
+inline MyScript::MyScript(const SpawnParams&amp; params)
+    : Script(params)
+{
+}
+</code></pre></section>
+</div>
 </article>
           </div>
           
@@ -220,12 +300,13 @@ The far plane is the furthest point the camera can see. It&#39;s also known as a
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

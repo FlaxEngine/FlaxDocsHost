@@ -7,7 +7,7 @@
     <title>Game Settings | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Game Settings | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -198,6 +198,10 @@ Example game settings file can be found <a href="https://github.com/FlaxEngine/F
 <td>Reference to <a href="../../platforms/ps4.html">PlayStation 4 Settings</a> settings. Contains options used when building game for PlayStation 4.</td>
 </tr>
 <tr>
+<td><strong>PlayStation 5</strong></td>
+<td>Reference to <a href="../../platforms/ps5.html">PlayStation 5 Settings</a> settings. Contains options used when building game for PlayStation 5.</td>
+</tr>
+<tr>
 <td><strong>Xbox Scarlett</strong></td>
 <td>Reference to <a href="../../platforms/xbox-scarlett.html">Xbox Scarlett Settings</a> settings. Contains options used when building game for Xbox Scarlett.</td>
 </tr>
@@ -209,7 +213,16 @@ Example game settings file can be found <a href="https://github.com/FlaxEngine/F
 </table>
 <h2 id="accessing-settings-at-runtime">Accessing settings at runtime</h2>
 <p>Example code to access game settings data in game code.</p>
-<p>C#:</p>
+<div class="tabGroup" id="tabgroup_y8mgtri8+L">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_y8mgtri8+L_code-csharp" role="tab" aria-controls="tabpanel_y8mgtri8+L_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_y8mgtri8+L_code-cpp" role="tab" aria-controls="tabpanel_y8mgtri8+L_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_y8mgtri8+L_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">using FlaxEditor.Content.Settings;
 using FlaxEngine;
 
@@ -223,7 +236,8 @@ public class TestSettingsUsage : Script
         Debug.Log(&quot;Draw FPS from settings: &quot; + timeSettings.DrawFPS);
     }
 }
-</code></pre><p>C++:</p>
+</code></pre></section>
+<section id="tabpanel_y8mgtri8+L_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">#include &quot;Engine/Core/Log.h&quot;
 #include &quot;Engine/Core/Config/GameSettings.h&quot;
 #include &quot;Engine/Core/Config/TimeSettings.h&quot;
@@ -241,7 +255,9 @@ public:
         LOG(Info, &quot;Draw FPS from settings: {0}&quot;, timeSettings-&gt;DrawFPS);
     }
 };
-</code></pre></article>
+</code></pre></section>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -249,12 +265,13 @@ public:
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/editor/game-settings/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/editor/game-settings/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

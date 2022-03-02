@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Script
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><span class="xref">Script</span></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PostProcessEffect.html">PostProcessEffect</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Script" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Script" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Script" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -180,6 +186,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -215,8 +224,7 @@
   <h5 id="FlaxEngine_Script_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for all scripts.&quot;)]
-public abstract class Script : SceneObject</code></pre>
+public abstract class Script : SceneObject, ISerializable</code></pre>
   </div>
 
   
@@ -470,7 +478,6 @@ public Transform Transform { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called after the object is loaded.&quot;)]
 public virtual void OnAwake()</code></pre>
   </div>
 
@@ -501,7 +508,6 @@ public virtual void OnAwake()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called during drawing debug shapes in editor. Use &lt;see cref=\&quot;DebugDraw\&quot;/&gt; to draw debug shapes and other visualization.&quot;)]
 public virtual void OnDebugDraw()</code></pre>
   </div>
 
@@ -532,7 +538,6 @@ public virtual void OnDebugDraw()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called during drawing debug shapes in editor when object is selected. Use &lt;see cref=\&quot;DebugDraw\&quot;/&gt; to draw debug shapes and other visualization.&quot;)]
 public virtual void OnDebugDrawSelected()</code></pre>
   </div>
 
@@ -563,7 +568,6 @@ public virtual void OnDebugDrawSelected()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called before the object will be destroyed..&quot;)]
 public virtual void OnDestroy()</code></pre>
   </div>
 
@@ -594,7 +598,6 @@ public virtual void OnDestroy()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called when object becomes disabled and inactive.&quot;)]
 public virtual void OnDisable()</code></pre>
   </div>
 
@@ -625,7 +628,6 @@ public virtual void OnDisable()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called when object becomes enabled and active.&quot;)]
 public virtual void OnEnable()</code></pre>
   </div>
 
@@ -656,7 +658,6 @@ public virtual void OnEnable()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called every fixed framerate frame if object is enabled.&quot;)]
 public virtual void OnFixedUpdate()</code></pre>
   </div>
 
@@ -687,7 +688,6 @@ public virtual void OnFixedUpdate()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called every frame (after gameplay Update) if object is enabled.&quot;)]
 public virtual void OnLateUpdate()</code></pre>
   </div>
 
@@ -718,7 +718,6 @@ public virtual void OnLateUpdate()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called when a script is enabled just before any of the Update methods is called for the first time.&quot;)]
 public virtual void OnStart()</code></pre>
   </div>
 
@@ -749,7 +748,6 @@ public virtual void OnStart()</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
-[Tooltip(&quot;Called every frame if object is enabled.&quot;)]
 public virtual void OnUpdate()</code></pre>
   </div>
 
@@ -784,7 +782,8 @@ public virtual void OnUpdate()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

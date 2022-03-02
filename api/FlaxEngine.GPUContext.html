@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GPUContext
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_GPUContext_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Interface for GPU device context that can record and send graphics commands to the GPU in a sequence.&quot;)]
 public sealed class GPUContext : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class GPUContext : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The native pointer to the underlying graphics device context. It's a low-level platform-specific handle.&quot;)]
 public IntPtr NativePtr { get; }</code></pre>
   </div>
 
@@ -278,7 +279,6 @@ public IntPtr NativePtr { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the constant buffer to the slot.&quot;)]
 public void BindCB(int slot, IntPtr cb)</code></pre>
   </div>
 
@@ -327,7 +327,6 @@ public void BindCB(int slot, IntPtr cb)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the index buffer to the pipeline.&quot;)]
 public void BindIB(GPUBuffer indexBuffer)</code></pre>
   </div>
 
@@ -368,7 +367,6 @@ public void BindIB(GPUBuffer indexBuffer)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the texture sampler to the pipeline.&quot;)]
 public void BindSampler(int slot, GPUSampler sampler)</code></pre>
   </div>
 
@@ -417,7 +415,6 @@ public void BindSampler(int slot, GPUSampler sampler)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the resource view to the shader resource slot (texture view or buffer view).&quot;)]
 public void BindSR(int slot, GPUResourceView view)</code></pre>
   </div>
 
@@ -466,7 +463,6 @@ public void BindSR(int slot, GPUResourceView view)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the texture to the shader resource slot.&quot;)]
 public void BindSR(int slot, GPUTexture t)</code></pre>
   </div>
 
@@ -515,7 +511,6 @@ public void BindSR(int slot, GPUTexture t)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the resource view to the unordered access slot (texture view or buffer view).&quot;)]
 public void BindUA(int slot, GPUResourceView view)</code></pre>
   </div>
 
@@ -564,7 +559,6 @@ public void BindUA(int slot, GPUResourceView view)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Binds the vertex buffers to the pipeline.&quot;)]
 public void BindVB(GPUBuffer[] vertexBuffers, uint *vertexBuffersOffsets = default(uint *))</code></pre>
   </div>
 
@@ -613,7 +607,6 @@ public void BindVB(GPUBuffer[] vertexBuffers, uint *vertexBuffersOffsets = defau
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears texture surface with a color. Supports volumetric textures and texture arrays (including cube textures).&quot;)]
 public void Clear(GPUTextureView rt, Color color)</code></pre>
   </div>
 
@@ -662,7 +655,6 @@ public void Clear(GPUTextureView rt, Color color)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears depth buffer.&quot;)]
 public void ClearDepth(GPUTextureView depthBuffer, float depthValue = 1F)</code></pre>
   </div>
 
@@ -711,7 +703,6 @@ public void ClearDepth(GPUTextureView depthBuffer, float depthValue = 1F)</code>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears the context state.&quot;)]
 public void ClearState()</code></pre>
   </div>
 
@@ -734,14 +725,13 @@ public void ClearState()</code></pre>
   <h4 id="FlaxEngine_GPUContext_ClearUA_FlaxEngine_GPUBuffer_FlaxEngine_Vector4_" data-uid="FlaxEngine.GPUContext.ClearUA(FlaxEngine.GPUBuffer,FlaxEngine.Vector4)"><a href="#collapsible-FlaxEngine_GPUContext_ClearUA_FlaxEngine_GPUBuffer_FlaxEngine_Vector4_" class="expander" data-toggle="collapse">ClearUA(GPUBuffer, Vector4)</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUContext_ClearUA_FlaxEngine_GPUBuffer_FlaxEngine_Vector4_" class="collapse in">
-  <div class="markdown level1 summary"><p>Clears an unordered access resource with a float value.</p>
+  <div class="markdown level1 summary"><p>Clears an unordered access buffer with a float value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears an unordered access resource with a float value.&quot;)]
 public void ClearUA(GPUBuffer buf, Vector4 value)</code></pre>
   </div>
 
@@ -790,7 +780,6 @@ public void ClearUA(GPUBuffer buf, Vector4 value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Copies the buffer data.&quot;)]
 public void CopyBuffer(GPUBuffer dstBuffer, GPUBuffer srcBuffer, uint size, uint dstOffset = 0U, uint srcOffset = 0U)</code></pre>
   </div>
 
@@ -863,7 +852,6 @@ public void CopyBuffer(GPUBuffer dstBuffer, GPUBuffer srcBuffer, uint size, uint
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Copies the counter buffer value.&quot;)]
 public void CopyCounter(GPUBuffer dstBuffer, uint dstOffset, GPUBuffer srcBuffer)</code></pre>
   </div>
 
@@ -920,7 +908,6 @@ public void CopyCounter(GPUBuffer dstBuffer, uint dstOffset, GPUBuffer srcBuffer
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Copies the resource data (whole resource).&quot;)]
 public void CopyResource(GPUResource dstResource, GPUResource srcResource)</code></pre>
   </div>
 
@@ -969,7 +956,6 @@ public void CopyResource(GPUResource dstResource, GPUResource srcResource)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Copies the subresource data.&quot;)]
 public void CopySubresource(GPUResource dstResource, uint dstSubresource, GPUResource srcResource, uint srcSubresource)</code></pre>
   </div>
 
@@ -1034,7 +1020,6 @@ public void CopySubresource(GPUResource dstResource, uint dstSubresource, GPURes
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Copies region of the texture.&quot;)]
 public void CopyTexture(GPUTexture dstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, GPUTexture srcResource, uint srcSubresource)</code></pre>
   </div>
 
@@ -1123,7 +1108,6 @@ public void CopyTexture(GPUTexture dstResource, uint dstSubresource, uint dstX, 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Executes a command list from a thread group.&quot;)]
 public void Dispatch(IntPtr shader, uint threadGroupCountX, uint threadGroupCountY, uint threadGroupCountZ)</code></pre>
   </div>
 
@@ -1188,7 +1172,6 @@ public void Dispatch(IntPtr shader, uint threadGroupCountX, uint threadGroupCoun
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Executes a command list from a thread group. Buffer must contain GPUDispatchIndirectArgs.&quot;)]
 public void DispatchIndirect(IntPtr shader, GPUBuffer bufferForArgs, uint offsetForArgs)</code></pre>
   </div>
 
@@ -1245,7 +1228,6 @@ public void DispatchIndirect(IntPtr shader, GPUBuffer bufferForArgs, uint offset
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the specified texture to render target (using fullscreen triangle). Copies contents with resizing and format conversion support. Uses linear texture sampling.&quot;)]
 public void Draw(GPUTexture rt)</code></pre>
   </div>
 
@@ -1286,7 +1268,6 @@ public void Draw(GPUTexture rt)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the specified source texture to destination render target (using fullscreen triangle). Copies contents with resizing and format conversion support. Uses linear texture sampling.&quot;)]
 public void Draw(GPUTexture dst, GPUTexture src)</code></pre>
   </div>
 
@@ -1335,7 +1316,6 @@ public void Draw(GPUTexture dst, GPUTexture src)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the specified texture to render target (using fullscreen triangle). Copies contents with resizing and format conversion support. Uses linear texture sampling.&quot;)]
 public void Draw(GPUTextureView rt)</code></pre>
   </div>
 
@@ -1376,7 +1356,6 @@ public void Draw(GPUTextureView rt)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws non-indexed, non-instanced primitives.&quot;)]
 public void Draw(uint startVertex, uint verticesCount)</code></pre>
   </div>
 
@@ -1425,7 +1404,6 @@ public void Draw(uint startVertex, uint verticesCount)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the fullscreen triangle (using single triangle). Use instance count parameter to render more than one instance of the triangle.&quot;)]
 public void DrawFullscreenTriangle(int instanceCount = 1)</code></pre>
   </div>
 
@@ -1466,7 +1444,6 @@ public void DrawFullscreenTriangle(int instanceCount = 1)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the indexed primitives.&quot;)]
 public void DrawIndexed(uint indicesCount, int startVertex = 0, int startIndex = 0)</code></pre>
   </div>
 
@@ -1523,7 +1500,6 @@ public void DrawIndexed(uint indicesCount, int startVertex = 0, int startIndex =
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the indexed, instanced primitives.&quot;)]
 public void DrawIndexedInstanced(uint indicesCount, uint instanceCount, int startInstance = 0, int startVertex = 0, int startIndex = 0)</code></pre>
   </div>
 
@@ -1596,7 +1572,6 @@ public void DrawIndexedInstanced(uint indicesCount, uint instanceCount, int star
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the instanced GPU-generated indexed primitives. Buffer must contain GPUDrawIndexedIndirectArgs.&quot;)]
 public void DrawIndexedInstancedIndirect(GPUBuffer bufferForArgs, uint offsetForArgs)</code></pre>
   </div>
 
@@ -1645,7 +1620,6 @@ public void DrawIndexedInstancedIndirect(GPUBuffer bufferForArgs, uint offsetFor
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the instanced primitives.&quot;)]
 public void DrawInstanced(uint verticesCount, uint instanceCount, int startInstance = 0, int startVertex = 0)</code></pre>
   </div>
 
@@ -1710,7 +1684,6 @@ public void DrawInstanced(uint verticesCount, uint instanceCount, int startInsta
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Draws the instanced GPU-generated primitives. Buffer must contain GPUDrawIndirectArgs.&quot;)]
 public void DrawInstancedIndirect(GPUBuffer bufferForArgs, uint offsetForArgs)</code></pre>
   </div>
 
@@ -1759,7 +1732,6 @@ public void DrawInstancedIndirect(GPUBuffer bufferForArgs, uint offsetForArgs)</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Flushes the command buffer (calls GPU execution).&quot;)]
 public void Flush()</code></pre>
   </div>
 
@@ -1789,7 +1761,6 @@ public void Flush()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Flushes the internal cached context state with a command buffer.&quot;)]
 public void FlushState()</code></pre>
   </div>
 
@@ -1819,7 +1790,6 @@ public void FlushState()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current pipeline state binded to the graphics pipeline.&quot;)]
 public GPUPipelineState GetState()</code></pre>
   </div>
 
@@ -1859,7 +1829,6 @@ public GPUPipelineState GetState()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unbinds all constant buffer slots and flushes the change with the driver (used to prevent driver detection of resource hazards, eg. when down-scaling the texture).&quot;)]
 public void ResetCB()</code></pre>
   </div>
 
@@ -1889,7 +1858,6 @@ public void ResetCB()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resets the counter buffer to zero (hidden by the driver).&quot;)]
 public void ResetCounter(GPUBuffer buffer)</code></pre>
   </div>
 
@@ -1930,7 +1898,6 @@ public void ResetCounter(GPUBuffer buffer)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unbinds all the render targets and flushes the change with the driver (used to prevent driver detection of resource hazards, eg. when down-scaling the texture).&quot;)]
 public void ResetRenderTarget()</code></pre>
   </div>
 
@@ -1960,7 +1927,6 @@ public void ResetRenderTarget()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unbinds all shader resource slots and flushes the change with the driver (used to prevent driver detection of resource hazards, eg. when down-scaling the texture).&quot;)]
 public void ResetSR()</code></pre>
   </div>
 
@@ -1990,7 +1956,6 @@ public void ResetSR()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unbinds all unordered access resource slots and flushes the change with the driver (used to prevent driver detection of resource hazards, eg. when down-scaling the texture).&quot;)]
 public void ResetUA()</code></pre>
   </div>
 
@@ -2020,7 +1985,6 @@ public void ResetUA()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Resolves the multisampled texture by performing a copy of the resource into a non-multisampled resource.&quot;)]
 public void ResolveMultisample(GPUTexture sourceMultisampleTexture, GPUTexture destTexture, int sourceSubResource = 0, int destSubResource = 0, PixelFormat format = PixelFormat.Unknown)</code></pre>
   </div>
 
@@ -2093,7 +2057,6 @@ public void ResolveMultisample(GPUTexture sourceMultisampleTexture, GPUTexture d
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the render target to the output.&quot;)]
 public void SetRenderTarget(GPUTextureView rt)</code></pre>
   </div>
 
@@ -2124,55 +2087,6 @@ public void SetRenderTarget(GPUTextureView rt)</code></pre>
   
   <a id="FlaxEngine_GPUContext_SetRenderTarget_" data-uid="FlaxEngine.GPUContext.SetRenderTarget*"></a>
   
-  <h4 id="FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUBuffer_" data-uid="FlaxEngine.GPUContext.SetRenderTarget(FlaxEngine.GPUTextureView,FlaxEngine.GPUBuffer)"><a href="#collapsible-FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUBuffer_" class="expander" data-toggle="collapse">SetRenderTarget(GPUTextureView, GPUBuffer)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUBuffer_" class="collapse in">
-  <div class="markdown level1 summary"><p>Sets the render target and unordered access output.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the render target and unordered access output.&quot;)]
-public void SetRenderTarget(GPUTextureView rt, GPUBuffer uaOutput)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUTextureView.html">GPUTextureView</a></span>
-        <span class="parametername">rt</span>
-        <p><p>The render target to bind to output.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUBuffer.html">GPUBuffer</a></span>
-        <span class="parametername">uaOutput</span>
-        <p><p>The unordered access buffer to bind to output.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_GPUContext_SetRenderTarget_" data-uid="FlaxEngine.GPUContext.SetRenderTarget*"></a>
-  
   <h4 id="FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUTextureView_" data-uid="FlaxEngine.GPUContext.SetRenderTarget(FlaxEngine.GPUTextureView,FlaxEngine.GPUTextureView)"><a href="#collapsible-FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUTextureView_" class="expander" data-toggle="collapse">SetRenderTarget(GPUTextureView, GPUTextureView)</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUContext_SetRenderTarget_FlaxEngine_GPUTextureView_FlaxEngine_GPUTextureView_" class="collapse in">
@@ -2183,7 +2097,6 @@ public void SetRenderTarget(GPUTextureView rt, GPUBuffer uaOutput)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the render target and the depth buffer to the output.&quot;)]
 public void SetRenderTarget(GPUTextureView depthBuffer, GPUTextureView rt)</code></pre>
   </div>
 
@@ -2232,7 +2145,6 @@ public void SetRenderTarget(GPUTextureView depthBuffer, GPUTextureView rt)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the render targets and the depth buffer to the output.&quot;)]
 public void SetRenderTarget(GPUTextureView depthBuffer, GPUTextureView[] rts)</code></pre>
   </div>
 
@@ -2281,7 +2193,6 @@ public void SetRenderTarget(GPUTextureView depthBuffer, GPUTextureView[] rts)</c
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the scissor rectangle.&quot;)]
 public void SetScissor(ref Rectangle scissorRect)</code></pre>
   </div>
 
@@ -2322,7 +2233,6 @@ public void SetScissor(ref Rectangle scissorRect)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the graphics pipeline state.&quot;)]
 public void SetState(GPUPipelineState state)</code></pre>
   </div>
 
@@ -2363,7 +2273,6 @@ public void SetState(GPUPipelineState state)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the rendering viewport.&quot;)]
 public void SetViewport(ref Viewport viewport)</code></pre>
   </div>
 
@@ -2404,7 +2313,6 @@ public void SetViewport(ref Viewport viewport)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the rendering viewport.&quot;)]
 public void SetViewport(float width, float height)</code></pre>
   </div>
 
@@ -2453,7 +2361,6 @@ public void SetViewport(float width, float height)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the rendering viewport and scissor rectangle.&quot;)]
 public void SetViewportAndScissors(Viewport viewport)</code></pre>
   </div>
 
@@ -2494,7 +2401,6 @@ public void SetViewportAndScissors(Viewport viewport)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the rendering viewport and scissor rectangle.&quot;)]
 public void SetViewportAndScissors(float width, float height)</code></pre>
   </div>
 
@@ -2543,7 +2449,6 @@ public void SetViewportAndScissors(float width, float height)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the buffer data.&quot;)]
 public void UpdateBuffer(GPUBuffer buffer, IntPtr data, uint size, uint offset = 0U)</code></pre>
   </div>
 
@@ -2608,7 +2513,6 @@ public void UpdateBuffer(GPUBuffer buffer, IntPtr data, uint size, uint offset =
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the constant buffer data.&quot;)]
 public void UpdateCB(IntPtr cb, IntPtr data)</code></pre>
   </div>
 
@@ -2657,7 +2561,6 @@ public void UpdateCB(IntPtr cb, IntPtr data)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the texture data.&quot;)]
 public void UpdateTexture(GPUTexture texture, int arrayIndex, int mipIndex, IntPtr data, uint rowPitch, uint slicePitch)</code></pre>
   </div>
 
@@ -2746,7 +2649,8 @@ public void UpdateTexture(GPUTexture texture, int arrayIndex, int mipIndex, IntP
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TerrainTools
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEditor_TerrainTools_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Terrain* tools for editor. Allows to create and modify terrain.&quot;)]
 public static class TerrainTools</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class TerrainTools</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Deserializes the terrain chunk data from the JSON string.&quot;)]
 public static void DeserializePatch(Terrain terrain, ref Int2 patchCoord, string value)</code></pre>
   </div>
 
@@ -218,7 +216,6 @@ public static void DeserializePatch(Terrain terrain, ref Int2 patchCoord, string
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Export terrain's heightmap as a texture.&quot;)]
 public static bool ExportTerrain(Terrain terrain, string outputFolder)</code></pre>
   </div>
 
@@ -277,7 +274,6 @@ public static bool ExportTerrain(Terrain terrain, string outputFolder)</code></p
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Generates the terrain from the input heightmap and splat maps.&quot;)]
 public static bool GenerateTerrain(Terrain terrain, ref Int2 numberOfPatches, Texture heightmap, float heightmapScale, Texture splatmap1, Texture splatmap2)</code></pre>
   </div>
 
@@ -368,7 +364,6 @@ public static bool GenerateTerrain(Terrain terrain, ref Int2 numberOfPatches, Te
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The raw pointer to the heightmap data (cached internally by the c++ core in editor).&quot;)]
 public static float *GetHeightmapData(Terrain terrain, ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -427,7 +422,6 @@ public static float *GetHeightmapData(Terrain terrain, ref Int2 patchCoord)</cod
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The raw pointer to the holes mask data (cached internally by the c++ core in editor).&quot;)]
 public static byte *GetHolesMaskData(Terrain terrain, ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -486,7 +480,6 @@ public static byte *GetHolesMaskData(Terrain terrain, ref Int2 patchCoord)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The raw pointer to the splatmap data (cached internally by the c++ core in editor).&quot;)]
 public static Color32*GetSplatMapData(Terrain terrain, ref Int2 patchCoord, int index)</code></pre>
   </div>
 
@@ -553,7 +546,6 @@ public static Color32*GetSplatMapData(Terrain terrain, ref Int2 patchCoord, int 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Initializes the patch heightmap and collision to the default flat level.&quot;)]
 public static bool InitializePatch(Terrain terrain, ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -612,7 +604,6 @@ public static bool InitializePatch(Terrain terrain, ref Int2 patchCoord)</code><
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Modifies the terrain patch heightmap with the given samples.&quot;)]
 public static bool ModifyHeightMap(Terrain terrain, ref Int2 patchCoord, float *samples, ref Int2 offset, ref Int2 size)</code></pre>
   </div>
 
@@ -695,7 +686,6 @@ public static bool ModifyHeightMap(Terrain terrain, ref Int2 patchCoord, float *
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Modifies the terrain patch holes mask with the given samples.&quot;)]
 public static bool ModifyHolesMask(Terrain terrain, ref Int2 patchCoord, byte *samples, ref Int2 offset, ref Int2 size)</code></pre>
   </div>
 
@@ -778,7 +768,6 @@ public static bool ModifyHolesMask(Terrain terrain, ref Int2 patchCoord, byte *s
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Modifies the terrain patch splat map (layers mask) with the given samples.&quot;)]
 public static bool ModifySplatMap(Terrain terrain, ref Int2 patchCoord, int index, Color32*samples, ref Int2 offset, ref Int2 size)</code></pre>
   </div>
 
@@ -869,7 +858,6 @@ public static bool ModifySplatMap(Terrain terrain, ref Int2 patchCoord, int inde
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Serializes the terrain chunk data to JSON string.&quot;)]
 public static string SerializePatch(Terrain terrain, ref Int2 patchCoord)</code></pre>
   </div>
 
@@ -928,7 +916,6 @@ public static string SerializePatch(Terrain terrain, ref Int2 patchCoord)</code>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if a given ray hits any of the terrain patches sides to add a new patch there.&quot;)]
 public static bool TryGetPatchCoordToAdd(Terrain terrain, Ray ray, out Int2 result)</code></pre>
   </div>
 
@@ -993,7 +980,8 @@ public static bool TryGetPatchCoordToAdd(Terrain terrain, Ray ray, out Int2 resu
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

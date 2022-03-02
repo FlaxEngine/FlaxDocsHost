@@ -7,7 +7,7 @@
     <title>Anim Graph Parameters | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Anim Graph Parameters | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -103,6 +103,16 @@ To do it simply specify the parameter type (with combo box menu) and click the <
 <p><img src="../tutorials/media/get-param-node-use.png" alt="Anim Graph Get Param"></p>
 <h2 id="using-anim-graph-parameters-from-code">Using Anim Graph parameters from code</h2>
 <p>Created Anim Graph parameters can be accessed from C# script. You can cache the graph parameters, iterate over them and access from any part of your code. Here is an example code that updates the single graph parameter.</p>
+<div class="tabGroup" id="tabgroup_bRzZazfqre">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bRzZazfqre_code-csharp" role="tab" aria-controls="tabpanel_bRzZazfqre_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bRzZazfqre_code-cpp" role="tab" aria-controls="tabpanel_bRzZazfqre_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_bRzZazfqre_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">using FlaxEngine;
 
 public class EditAnimGraphParam : Script
@@ -124,7 +134,39 @@ public class EditAnimGraphParam : Script
         _parameter.Value = HeadScale;
     }
 }
-</code></pre><p>Result:</p>
+</code></pre></section>
+<section id="tabpanel_bRzZazfqre_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Animations/Graph/AnimGraph.h&quot;
+#include &quot;Engine/Level/Actors/AnimatedModel.h&quot;
+
+API_CLASS() class GAME_API EditAnimGraphParam : public Script
+{
+    API_AUTO_SERIALIZATION(EditAnimGraphParam);
+    DECLARE_SCRIPTING_TYPE(EditAnimGraphParam);
+
+private:
+    AnimGraphParameter* _parameter;
+
+public:
+    API_FIELD(Attributes=&quot;Range(0.5f, 2.5f)&quot;)
+    float HeadScale = 1.0f;
+
+public:
+    void OnStart() override
+    {
+        // Cache the parameter handle
+        _parameter = Cast&lt;AnimatedModel&gt;(GetActor())-&gt;GetParameter(TEXT(&quot;Head Scale&quot;));
+    }
+    void OnUpdate() override
+    {
+        // Update the value
+        _parameter-&gt;Value = HeadScale;
+    }
+};
+</code></pre></section>
+</div>
+<p>Result:</p>
 <p><img src="../tutorials/media/edit-anim-graph-param-code.gif" alt="Anim Graph Param Edit"></p>
 <h2 id="attributes">Attributes</h2>
 <p>Every parameter can have a collection of customizable <strong>attributes</strong> that can customize it&#39;s display logic in UI or be used as metadata for other systems (eg. serialization).</p>
@@ -139,12 +181,13 @@ public class EditAnimGraphParam : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/animation/anim-graph/parameters.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/animation/anim-graph/parameters.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

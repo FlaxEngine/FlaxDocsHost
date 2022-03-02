@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Vector4
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -125,7 +125,6 @@
   <h5 id="FlaxEngine_Vector4_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a four dimensional mathematical vector.&quot;)]
 public struct Vector4 : IEquatable&lt;Vector4&gt;, IFormattable</code></pre>
   </div>
 
@@ -408,8 +407,7 @@ public struct Vector4 : IEquatable&lt;Vector4&gt;, IFormattable</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span>[]</span>
         <span class="parametername">values</span>
-        <p><p>The values to assign to the X, Y, Z, and W components of the vector. This must be an array with
-four elements.</p>
+        <p><p>The values to assign to the X, Y, Z, and W components of the vector. This must be an array with four elements.</p>
 </p>
       </td>
     </tr>
@@ -436,8 +434,7 @@ four elements.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than four
-elements.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than four elements.</p>
 </p>
       </td>
     </tr>
@@ -782,8 +779,7 @@ elements.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The W component.&quot;)]
-public float W</code></pre>
+    <pre><code class="lang-csharp hljs">public float W</code></pre>
   </div>
 
   
@@ -819,8 +815,7 @@ public float W</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The X component.&quot;)]
-public float X</code></pre>
+    <pre><code class="lang-csharp hljs">public float X</code></pre>
   </div>
 
   
@@ -856,8 +851,7 @@ public float X</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Y component.&quot;)]
-public float Y</code></pre>
+    <pre><code class="lang-csharp hljs">public float Y</code></pre>
   </div>
 
   
@@ -893,8 +887,7 @@ public float Y</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The Z component.&quot;)]
-public float Z</code></pre>
+    <pre><code class="lang-csharp hljs">public float Z</code></pre>
   </div>
 
   
@@ -969,7 +962,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector4 Absolute { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector4 Absolute { get; }</code></pre>
   </div>
 
   
@@ -1006,7 +999,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float AvgValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float AvgValue { get; }</code></pre>
   </div>
 
   
@@ -1043,7 +1036,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsNormalized { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
   </div>
 
   
@@ -1080,7 +1073,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsOne { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsOne { get; }</code></pre>
   </div>
 
   
@@ -1117,7 +1110,7 @@ public float Z</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsZero { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsZero { get; }</code></pre>
   </div>
 
   
@@ -1163,8 +1156,7 @@ public float Z</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">index</span>
-        <p><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z
-component, and 3 for the W component.</p>
+        <p><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z component, and 3 for the W component.</p>
 </p>
       </td>
     </tr>
@@ -1194,8 +1186,7 @@ component, and 3 for the W component.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when the <code data-dev-comment-type="paramref" class="paramref">index</code> is out of the range [0,
-3].</p>
+        <p><p>Thrown when the <code data-dev-comment-type="paramref" class="paramref">index</code> is out of the range [0,3].</p>
 </p>
       </td>
     </tr>
@@ -1215,7 +1206,7 @@ component, and 3 for the W component.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Length { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float Length { get; }</code></pre>
   </div>
 
   
@@ -1237,8 +1228,7 @@ component, and 3 for the W component.</p>
   
   
   <h5 id="FlaxEngine_Vector4_Length_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -1257,7 +1247,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float LengthSquared { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float LengthSquared { get; }</code></pre>
   </div>
 
   
@@ -1279,8 +1269,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Vector4_LengthSquared_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_Length">Length</a> when only a relative length is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_Length">Length</a> when only a relative length is needed and speed is of the essence.</p>
 </div>
   
   
@@ -1299,7 +1288,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MaxValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float MaxValue { get; }</code></pre>
   </div>
 
   
@@ -1336,7 +1325,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MinValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float MinValue { get; }</code></pre>
   </div>
 
   
@@ -1373,7 +1362,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector4 Negative { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector4 Negative { get; }</code></pre>
   </div>
 
   
@@ -1410,7 +1399,7 @@ and speed is of the essence.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float ValuesSum { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly float ValuesSum { get; }</code></pre>
   </div>
 
   
@@ -1716,8 +1705,7 @@ and speed is of the essence.</p>
   <h4 id="FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_System_Single_" data-uid="FlaxEngine.Vector4.Barycentric(FlaxEngine.Vector4,FlaxEngine.Vector4,FlaxEngine.Vector4,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_System_Single_" class="expander" data-toggle="collapse">Barycentric(Vector4, Vector4, Vector4, Single, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric
-coordinates relative to a 4D triangle.</p>
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1756,8 +1744,7 @@ coordinates relative to a 4D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount1</span>
-        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
 </p>
       </td>
     </tr>
@@ -1765,8 +1752,7 @@ coordinates relative to a 4D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount2</span>
-        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
 </p>
       </td>
     </tr>
@@ -1800,8 +1786,7 @@ coordinates relative to a 4D triangle.</p>
   <h4 id="FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4__FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_System_Single_FlaxEngine_Vector4__" data-uid="FlaxEngine.Vector4.Barycentric(FlaxEngine.Vector4@,FlaxEngine.Vector4@,FlaxEngine.Vector4@,System.Single,System.Single,FlaxEngine.Vector4@)"><a href="#collapsible-FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4__FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_System_Single_FlaxEngine_Vector4__" class="expander" data-toggle="collapse">Barycentric(ref Vector4, ref Vector4, ref Vector4, Single, Single, out Vector4)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector4_Barycentric_FlaxEngine_Vector4__FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_System_Single_FlaxEngine_Vector4__" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric
-coordinates relative to a 4D triangle.</p>
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1840,8 +1825,7 @@ coordinates relative to a 4D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount1</span>
-        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
 </p>
       </td>
     </tr>
@@ -1849,8 +1833,7 @@ coordinates relative to a 4D triangle.</p>
       <td>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">amount2</span>
-        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in
-<code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
 </p>
       </td>
     </tr>
@@ -2400,8 +2383,7 @@ coordinates relative to a 4D triangle.</p>
   
   
   <h5 id="FlaxEngine_Vector4_Distance_FlaxEngine_Vector4_FlaxEngine_Vector4__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_DistanceSquared_FlaxEngine_Vector4_FlaxEngine_Vector4_">DistanceSquared(Vector4, Vector4)</a> may be preferred when only the relative distance is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_DistanceSquared_FlaxEngine_Vector4_FlaxEngine_Vector4_">DistanceSquared(Vector4, Vector4)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
 </div>
   
   
@@ -2459,9 +2441,7 @@ and speed is of the essence.</p>
   
   
   <h5 id="FlaxEngine_Vector4_Distance_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_DistanceSquared_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single__">DistanceSquared(ref Vector4, ref Vector4, out Single)</a> may be preferred when only the relative
-distance is needed
-and speed is of the essence.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Vector4.html#FlaxEngine_Vector4_DistanceSquared_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single__">DistanceSquared(ref Vector4, ref Vector4, out Single)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
 </div>
   
   
@@ -3104,8 +3084,7 @@ provides the same information and avoids calculating two square roots.</p>
     <tr>
       <td>
         <span class="xref">System.Int32</span>
-        <p><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -3344,8 +3323,7 @@ provides the same information and avoids calculating two square roots.</p>
   
   
   <h5 id="FlaxEngine_Vector4_Lerp_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3411,8 +3389,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   <h5 id="FlaxEngine_Vector4_Lerp_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_FlaxEngine_Vector4___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1
-will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
 </div>
   
   
@@ -3513,8 +3490,7 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
         <span class="parametername">result</span>
-        <p><p>When the method completes, contains an new vector composed of the largest components of the source
-vectors.</p>
+        <p><p>When the method completes, contains an new vector composed of the largest components of the source vectors.</p>
 </p>
       </td>
     </tr>
@@ -3626,8 +3602,7 @@ vectors.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
         <span class="parametername">result</span>
-        <p><p>When the method completes, contains an new vector composed of the smallest components of the
-source vectors.</p>
+        <p><p>When the method completes, contains an new vector composed of the smallest components of the source vectors.</p>
 </p>
       </td>
     </tr>
@@ -4281,16 +4256,14 @@ source vectors.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -4360,16 +4333,14 @@ source vectors.</p>
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -5337,8 +5308,7 @@ source vectors.</p>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>[]</span>
         <span class="parametername">destination</span>
-        <p><p>The array for which the transformed vectors are stored.
-This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>The array for which the transformed vectors are stored. This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -5358,16 +5328,14 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -5412,8 +5380,7 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>[]</span>
         <span class="parametername">destination</span>
-        <p><p>The array for which the transformed vectors are stored.
-This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>The array for which the transformed vectors are stored. This array may be the same array as <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -5433,16 +5400,14 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
     <tr>
       <td>
         <span class="xref">System.ArgumentNullException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is
-<code>null</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">source</code> or <code data-dev-comment-type="paramref" class="paramref">destination</code> is <code>null</code>.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="xref">System.ArgumentOutOfRangeException</span>
-        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than
-<code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">destination</code> is shorter in length than <code data-dev-comment-type="paramref" class="paramref">source</code>.</p>
 </p>
       </td>
     </tr>
@@ -5834,8 +5799,7 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -5990,8 +5954,7 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise,
-<code>false</code>.</p>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
 </p>
       </td>
     </tr>
@@ -6641,7 +6604,8 @@ This array may be the same array as <code data-dev-comment-type="paramref" class
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

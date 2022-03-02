@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SceneRenderTask
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -186,6 +186,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -221,7 +224,6 @@
   <h5 id="FlaxEngine_SceneRenderTask_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Render task which draws scene actors into the output buffer.&quot;)]
 public class SceneRenderTask : RenderTask</code></pre>
   </div>
 
@@ -385,7 +387,6 @@ public class SceneRenderTask : RenderTask</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The actors source to use (configures what objects to render).&quot;)]
 public ActorsSources ActorsSource { get; set; }</code></pre>
   </div>
 
@@ -424,7 +425,6 @@ public ActorsSources ActorsSource { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene rendering buffers. Created and managed by the task.&quot;)]
 public RenderBuffers Buffers { get; }</code></pre>
   </div>
 
@@ -463,7 +463,6 @@ public RenderBuffers Buffers { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene rendering camera. Can be used to override the rendering view properties based on the current camera setup.&quot;)]
 public Camera Camera { get; set; }</code></pre>
   </div>
 
@@ -502,7 +501,6 @@ public Camera Camera { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The output texture (can be null if using rendering to window swap chain). Can be used to redirect the default scene rendering output to a texture.&quot;)]
 public GPUTexture Output { get; set; }</code></pre>
   </div>
 
@@ -541,7 +539,6 @@ public GPUTexture Output { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The rendering output view.&quot;)]
 public GPUTextureView OutputView { get; }</code></pre>
   </div>
 
@@ -580,7 +577,6 @@ public GPUTextureView OutputView { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The rendering output viewport (after upsampling).&quot;)]
 public Viewport OutputViewport { get; }</code></pre>
   </div>
 
@@ -619,7 +615,6 @@ public Viewport OutputViewport { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scale of the rendering resolution relative to the output dimensions. If lower than 1 the scene and postprocessing will be rendered at a lower resolution and upscaled to the output backbuffer.&quot;)]
 public float RenderingPercentage { get; set; }</code></pre>
   </div>
 
@@ -658,7 +653,6 @@ public float RenderingPercentage { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The render view description.&quot;)]
 public RenderView View { get; set; }</code></pre>
   </div>
 
@@ -771,7 +765,6 @@ public RenderView View { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The rendering render task viewport (before upsampling).&quot;)]
 public Viewport Viewport { get; }</code></pre>
   </div>
 
@@ -812,7 +805,6 @@ public Viewport Viewport { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the custom actor to the rendering.&quot;)]
 public void AddCustomActor(Actor actor)</code></pre>
   </div>
 
@@ -853,7 +845,6 @@ public void AddCustomActor(Actor actor)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Marks the next rendered frame as camera cut. Used to clear the temporal effects history and prevent visual artifacts blended from the previous frames.&quot;)]
 public void CameraCut()</code></pre>
   </div>
 
@@ -883,7 +874,6 @@ public void CameraCut()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes all the custom actors from the rendering.&quot;)]
 public void ClearCustomActors()</code></pre>
   </div>
 
@@ -913,7 +903,6 @@ public void ClearCustomActors()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the custom actor from the rendering.&quot;)]
 public void RemoveCustomActor(Actor actor)</code></pre>
   </div>
 
@@ -955,8 +944,7 @@ public void RemoveCustomActor(Actor actor)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The action called on view rendering to collect draw calls. It allows to extend rendering pipeline and draw custom geometry non-existing in the scene or custom actors set.&quot;)]
-public event Action&lt;RenderContext&gt; CollectDrawCalls</code></pre>
+public event SceneRenderTask.CollectDrawCallsDelegate CollectDrawCalls</code></pre>
   </div>
 
   
@@ -968,7 +956,7 @@ public event Action&lt;RenderContext&gt; CollectDrawCalls</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a>&gt;
+        <a class="xref" href="FlaxEngine.SceneRenderTask.CollectDrawCallsDelegate.html">SceneRenderTask.CollectDrawCallsDelegate</a>
         <p>
       </td>
     </tr>
@@ -993,8 +981,7 @@ public event Action&lt;RenderContext&gt; CollectDrawCalls</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The action called after scene rendering. Can be used to render additional visual elements to the output.&quot;)]
-public event Action&lt;GPUContext, RenderContext&gt; PostRender</code></pre>
+public event SceneRenderTask.PostRenderDelegate PostRender</code></pre>
   </div>
 
   
@@ -1006,7 +993,7 @@ public event Action&lt;GPUContext, RenderContext&gt; PostRender</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.GPUContext.html">GPUContext</a>, <a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a>&gt;
+        <a class="xref" href="FlaxEngine.SceneRenderTask.PostRenderDelegate.html">SceneRenderTask.PostRenderDelegate</a>
         <p>
       </td>
     </tr>
@@ -1031,8 +1018,7 @@ public event Action&lt;GPUContext, RenderContext&gt; PostRender</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The action called after scene rendering. Can be used to perform custom pre-rendering or to modify the render view.&quot;)]
-public event Action&lt;GPUContext, RenderContext&gt; PreRender</code></pre>
+public event SceneRenderTask.PreRenderDelegate PreRender</code></pre>
   </div>
 
   
@@ -1044,7 +1030,7 @@ public event Action&lt;GPUContext, RenderContext&gt; PreRender</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.GPUContext.html">GPUContext</a>, <a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a>&gt;
+        <a class="xref" href="FlaxEngine.SceneRenderTask.PreRenderDelegate.html">SceneRenderTask.PreRenderDelegate</a>
         <p>
       </td>
     </tr>
@@ -1082,7 +1068,8 @@ public event Action&lt;GPUContext, RenderContext&gt; PreRender</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

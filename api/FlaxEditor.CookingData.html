@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CookingData
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEditor_CookingData_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Game cooking temporary data.&quot;)]
 public sealed class CookingData : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public sealed class CookingData : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The configuration.&quot;)]
 public BuildConfiguration Configuration { get; }</code></pre>
   </div>
 
@@ -276,7 +277,6 @@ public BuildConfiguration Configuration { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The list of custom defines passed to the build tool when compiling project scripts. Can be used in build scripts for configuration (Configuration.CustomDefines).&quot;)]
 public string[] CustomDefines { get; }</code></pre>
   </div>
 
@@ -315,7 +315,6 @@ public string[] CustomDefines { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The output path for data files (Content, Mono, etc.).&quot;)]
 public string DataOutputPath { get; }</code></pre>
   </div>
 
@@ -354,7 +353,6 @@ public string DataOutputPath { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The output path for binaries (C# code libraries).&quot;)]
 public string ManagedCodeOutputPath { get; }</code></pre>
   </div>
 
@@ -393,7 +391,6 @@ public string ManagedCodeOutputPath { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The output path for binaries (native executable and native code libraries).&quot;)]
 public string NativeCodeOutputPath { get; }</code></pre>
   </div>
 
@@ -432,7 +429,6 @@ public string NativeCodeOutputPath { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The options.&quot;)]
 public BuildOptions Options { get; }</code></pre>
   </div>
 
@@ -471,7 +467,6 @@ public BuildOptions Options { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The original output path (actual OutputPath could be modified by the Platform Tools or a plugin for additional layout customizations or packaging). This path is preserved.&quot;)]
 public string OriginalOutputPath { get; }</code></pre>
   </div>
 
@@ -510,7 +505,6 @@ public string OriginalOutputPath { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The platform.&quot;)]
 public BuildPlatform Platform { get; }</code></pre>
   </div>
 
@@ -549,7 +543,6 @@ public BuildPlatform Platform { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The name of build preset used for cooking (can be used by editor and game plugins).&quot;)]
 public string Preset { get; }</code></pre>
   </div>
 
@@ -588,7 +581,6 @@ public string Preset { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The name of build preset target used for cooking (can be used by editor and game plugins).&quot;)]
 public string PresetTarget { get; }</code></pre>
   </div>
 
@@ -635,7 +627,8 @@ public string PresetTarget { get; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

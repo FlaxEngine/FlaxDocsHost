@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Animation Slots | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Animation Slots | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Animation Slots | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="animation-slots">Animation Slots</h1>
+
+<p><img src="media/anim-slot-usage.gif" alt="Animation Slot in Anim Graph"></p>
+<p>Animation Slots are a feature of Anim Graph and Animated Models that allow playing custom animations from code inside the graph. This can be used to play hit-reaction clips or death animation which is controlled directly from the game scripts. Slots support blending in and out animation with custom play-rate speed.</p>
+<h2 id="anim-graph-setup">Anim Graph Setup</h2>
+<p><img src="media/animation-slot.png" alt="Animation Slot Setup in Anim Graph"></p>
+<p>To setup slot animation simply add <strong>Animation Slot</strong> node to the Anim Graph or Anim Graph Function and link as a connector at which location the animation should be injected. It can be placed just before final animation output to override the whole pose or you can use custom blending rules to perform more advanced results (eg. animation slot playing only on the upper part of the body with <em>Blend With Mask</em> node).</p>
+<p>Each slot has its own name but you can reuse the same name in different graph locations or use multiple different slots with your own naming.</p>
+<h2 id="scripting">Scripting</h2>
+<p><strong>Animated Model</strong> contains scripting API to play/pause/stop animation slots playback and to query the current state. You can play different animations on different slots simultaneously just remember that a single slot can play only one animation at a time. You can also stop all animations playback with <code>StopSlotAnimation</code> method.</p>
+<div class="tabGroup" id="tabgroup_REHBDgzbj6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_REHBDgzbj6_code-csharp" role="tab" aria-controls="tabpanel_REHBDgzbj6_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_REHBDgzbj6_code-cpp" role="tab" aria-controls="tabpanel_REHBDgzbj6_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_REHBDgzbj6_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">public class AnimationSlotPlayer : Script
+{
+    public AnimatedModel Model;
+    public string AnimSlot = &quot;Default&quot;;
+
+    public Animation Anim;
+    public float Speed = 1.0f;
+    public float BlendInTime = 0.2f;
+    public float BlendOutTime = 0.2f;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyboardKeys.Q))
+        {
+            Model.PlaySlotAnimation(AnimSlot, Anim, Speed, BlendInTime, BlendOutTime);
+        }
+        if (Input.GetKeyDown(KeyboardKeys.A))
+        {
+            Model.StopSlotAnimation(AnimSlot, Anim);
+        }
+        if (Input.GetKeyDown(KeyboardKeys.Z))
+        {
+            Model.PauseSlotAnimation(AnimSlot, Anim);
+        }
+    }
+}
+</code></pre></section>
+<section id="tabpanel_REHBDgzbj6_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+#include &quot;Engine/Level/Actors/AnimatedModel.h&quot;
+#include &quot;Engine/Content/AssetReference.h&quot;
+#include &quot;Engine/Content/Assets/Animation.h&quot;
+#include &quot;Engine/Input/Input.h&quot;
+
+API_CLASS() class GAME_API AnimationSlotPlayer : public Script
+{
+    API_AUTO_SERIALIZATION(AnimationSlotPlayer);
+    DECLARE_SCRIPTING_TYPE(AnimationSlotPlayer);
+public:
+    API_FIELD() ScriptingObjectReference&lt;AnimatedModel&gt; Model;
+    API_FIELD() String AnimSlot = TEXT(&quot;Default&quot;);
+
+    API_FIELD() AssetReference&lt;Animation&gt; Anim;
+    API_FIELD() float Speed = 1.0f;
+    API_FIELD() float BlendInTime = 0.2f;
+    API_FIELD() float BlendOutTime = 0.2f;
+
+public:
+
+    void OnUpdate() override
+    {
+        CHECK(Model);
+        if (Input::GetKeyDown(KeyboardKeys::Q))
+        {
+            Model-&gt;PlaySlotAnimation(AnimSlot, Anim, Speed, BlendInTime, BlendOutTime);
+        }
+        if (Input::GetKeyDown(KeyboardKeys::A))
+        {
+            Model-&gt;StopSlotAnimation(AnimSlot, Anim);
+        }
+        if (Input::GetKeyDown(KeyboardKeys::Z))
+        {
+            Model-&gt;PauseSlotAnimation(AnimSlot, Anim);
+        }
+    }
+};
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/animation/anim-graph/animation-slots.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

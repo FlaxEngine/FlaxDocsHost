@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TaskGraphSystem
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_TaskGraphSystem_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;System that can generate work into Task Graph for asynchronous execution.&quot;)]
 public abstract class TaskGraphSystem : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public abstract class TaskGraphSystem : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The execution order of the system (systems with higher order are executed later, lower first).&quot;)]
 public int Order { get; set; }</code></pre>
   </div>
 
@@ -278,7 +279,6 @@ public int Order { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the dependency on the system execution. Before this system can be executed the given dependant system has to be executed first.&quot;)]
 public void AddDependency(TaskGraphSystem system)</code></pre>
   </div>
 
@@ -319,7 +319,6 @@ public void AddDependency(TaskGraphSystem system)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Executes the system logic and schedules the asynchronous work.&quot;)]
 public virtual void Execute(TaskGraph graph)</code></pre>
   </div>
 
@@ -360,7 +359,6 @@ public virtual void Execute(TaskGraph graph)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called after executing all systems of the graph. Can be used to cleanup data (synchronous).&quot;)]
 public virtual void PostExecute(TaskGraph graph)</code></pre>
   </div>
 
@@ -401,7 +399,6 @@ public virtual void PostExecute(TaskGraph graph)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called before executing any systems of the graph. Can be used to initialize data (synchronous).&quot;)]
 public virtual void PreExecute(TaskGraph graph)</code></pre>
   </div>
 
@@ -447,7 +444,8 @@ public virtual void PreExecute(TaskGraph graph)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

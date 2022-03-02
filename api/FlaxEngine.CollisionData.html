@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CollisionData
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -186,6 +186,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -218,7 +221,6 @@
   <h5 id="FlaxEngine_CollisionData_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Represents a physics mesh that can be used with a MeshCollider. Physics mesh can be a generic triangle mesh or a convex mesh.&quot;)]
 public class CollisionData : BinaryAsset</code></pre>
   </div>
 
@@ -272,7 +274,6 @@ public class CollisionData : BinaryAsset</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The options.&quot;)]
 public CollisionDataOptions Options { get; }</code></pre>
   </div>
 
@@ -313,7 +314,6 @@ public CollisionDataOptions Options { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Cooks the mesh collision data and updates the virtual asset.&quot;)]
 public bool CookCollision(CollisionDataType type, ModelBase model, int modelLodIndex = 0, uint materialSlotsMask = 4294967295U, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
   </div>
 
@@ -374,7 +374,8 @@ public bool CookCollision(CollisionDataType type, ModelBase model, int modelLodI
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p>
+        <p><p>True if failed, otherwise false.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -396,6 +397,91 @@ public bool CookCollision(CollisionDataType type, ModelBase model, int modelLodI
   
   <a id="FlaxEngine_CollisionData_CookCollision_" data-uid="FlaxEngine.CollisionData.CookCollision*"></a>
   
+  <h4 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_Int32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEngine.CollisionData.CookCollision(FlaxEngine.CollisionDataType,FlaxEngine.Vector3[],System.Int32[],FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_Int32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookCollision(CollisionDataType, Vector3[], Int32[], ConvexMeshGenerationFlags, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_Int32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Cooks the mesh collision data and updates the virtual asset. action cannot be performed on a main thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool CookCollision(CollisionDataType type, Vector3[] vertices, int[] triangles, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.CollisionDataType.html">CollisionDataType</a></span>
+        <span class="parametername">type</span>
+        <p><p>The collision data type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The source geometry vertex buffer with vertices positions. Cannot be empty.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">triangles</span>
+        <p><p>The source data index buffer (triangles list). Uses 32-bit stride buffer. Cannot be empty. Length must be multiple of 3 (as 3 vertices build a triangle).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ConvexMeshGenerationFlags.html">ConvexMeshGenerationFlags</a></span>
+        <span class="parametername">convexFlags</span>
+        <p><p>The convex mesh generation flags.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">convexVertexLimit</span>
+        <p><p>The convex mesh vertex limit. Use values in range [8;255]</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_Int32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CollisionData_CookCollision_" data-uid="FlaxEngine.CollisionData.CookCollision*"></a>
+  
   <h4 id="FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_UInt32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" data-uid="FlaxEngine.CollisionData.CookCollision(FlaxEngine.CollisionDataType,FlaxEngine.Vector3[],System.UInt32[],FlaxEngine.ConvexMeshGenerationFlags,System.Int32)"><a href="#collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_UInt32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="expander" data-toggle="collapse">CookCollision(CollisionDataType, Vector3[], UInt32[], ConvexMeshGenerationFlags, Int32)</a></h4>
   
   <div id="collapsible-FlaxEngine_CollisionData_CookCollision_FlaxEngine_CollisionDataType_FlaxEngine_Vector3___System_UInt32___FlaxEngine_ConvexMeshGenerationFlags_System_Int32_" class="collapse in">
@@ -406,7 +492,6 @@ public bool CookCollision(CollisionDataType type, ModelBase model, int modelLodI
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Cooks the mesh collision data and updates the virtual asset. action cannot be performed on a main thread.&quot;)]
 public bool CookCollision(CollisionDataType type, Vector3[] vertices, uint[] triangles, ConvexMeshGenerationFlags convexFlags = ConvexMeshGenerationFlags.None, int convexVertexLimit = 255)</code></pre>
   </div>
 
@@ -459,7 +544,8 @@ public bool CookCollision(CollisionDataType type, Vector3[] vertices, uint[] tri
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p>
+        <p><p>True if failed, otherwise false.</p>
+</p>
       </td>
     </tr>
   </table>
@@ -491,7 +577,6 @@ public bool CookCollision(CollisionDataType type, Vector3[] vertices, uint[] tri
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Extracts the collision data geometry into list of triangles.&quot;)]
 public void ExtractGeometry(out Vector3[] vertexBuffer, out int[] indexBuffer)</code></pre>
   </div>
 
@@ -527,6 +612,75 @@ public void ExtractGeometry(out Vector3[] vertexBuffer, out int[] indexBuffer)</
   
   </div>
   
+  
+  <a id="FlaxEngine_CollisionData_GetModelTriangle_" data-uid="FlaxEngine.CollisionData.GetModelTriangle*"></a>
+  
+  <h4 id="FlaxEngine_CollisionData_GetModelTriangle_System_UInt32_FlaxEngine_MeshBase__System_UInt32__" data-uid="FlaxEngine.CollisionData.GetModelTriangle(System.UInt32,FlaxEngine.MeshBase@,System.UInt32@)"><a href="#collapsible-FlaxEngine_CollisionData_GetModelTriangle_System_UInt32_FlaxEngine_MeshBase__System_UInt32__" class="expander" data-toggle="collapse">GetModelTriangle(UInt32, out MeshBase, out UInt32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CollisionData_GetModelTriangle_System_UInt32_FlaxEngine_MeshBase__System_UInt32__" class="collapse in">
+  <div class="markdown level1 summary"><p>Extracts the triangle index of the original mesh data used for cooking this collision data. Can be used to get vertex attributes of the triangle mesh hit by the raycast.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool GetModelTriangle(uint faceIndex, out MeshBase mesh, out uint meshTriangleIndex)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">faceIndex</span>
+        <p><p>The face index of the collision mesh.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.MeshBase.html">MeshBase</a></span>
+        <span class="parametername">mesh</span>
+        <p><p>The result source mesh used to build this collision data (can be null if collision data was cooked using custom geometry without source Model set).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">meshTriangleIndex</span>
+        <p><p>The result triangle index of the source geometry used to build this collision data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if got a valid triangle index, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_CollisionData_GetModelTriangle_System_UInt32_FlaxEngine_MeshBase__System_UInt32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported only for collision data built as triangle mesh and without <a class="xref" href="FlaxEngine.ConvexMeshGenerationFlags.html#FlaxEngine_ConvexMeshGenerationFlags_SuppressFaceRemapTable">SuppressFaceRemapTable</a> flag set.</p>
+</div>
+  
+  
+  
+  </div>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
@@ -548,7 +702,8 @@ public void ExtractGeometry(out Vector3[] vertexBuffer, out int[] indexBuffer)</
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

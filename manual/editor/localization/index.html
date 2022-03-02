@@ -7,7 +7,7 @@
     <title>Localization | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Localization | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -132,32 +132,62 @@
 <p><code>LocalizedString</code> is supported in both C++ and C# scripting API and can be used for texts localization instead of raw <code>String</code> type. It supports implicit convertion between in-built string type and can be serialized or deserialized.</p>
 <h2 id="localization-and-culture">Localization and Culture</h2>
 <p><code>Localization</code> contains scripting API for string localization gather and implements values formatting handling for current culture.</p>
-<h3 id="c">C#</h3>
+<div class="tabGroup" id="tabgroup_-gkJ0ZVtDu">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu_code-csharp" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu_code-cpp" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu_code-vs" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu_code-vs" data-tab="code-vs" tabindex="-1">Visual Script</a>
+</li>
+</ul>
+<section id="tabpanel_-gkJ0ZVtDu_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">var myStr = Localization.GetString(&quot;localized_id&quot;, &quot;Fallback value&quot;);
 var myStrPlural = Localization.GetPluralString(&quot;localized_id_n&quot;, 2, &quot;Count: {}&quot;);
 var number =  string.Format(&quot;{0:n}&quot;, 1234);
-</code></pre><h3 id="c-1">C++</h3>
+</code></pre></section>
+<section id="tabpanel_-gkJ0ZVtDu_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">#include &quot;Engine/Localization/Localization.h&quot;
 
 auto myStr = Localization::GetString(TEXT(&quot;localized_id&quot;), TEXT(&quot;Fallback value&quot;));
 auto myStrPlural = Localization::GetPluralString(TEXT(&quot;localized_id_n&quot;), 2, TEXT(&quot;Count: {}&quot;));
 auto number =  String::Format(TEXT(&quot;{0:n}&quot;), 1234);
 </code></pre><p>To learn more about string formatting in C++ see <a href="../../scripting/cpp/string-formatting.html">this documentation</a>.</p>
-<h3 id="visual-script">Visual Script</h3>
+</section>
+<section id="tabpanel_-gkJ0ZVtDu_code-vs" role="tabpanel" data-tab="code-vs" aria-hidden="true" hidden="hidden">
 <p><img src="media/localization-vs-format.png" alt="Visual Script Localization String Formatting"></p>
+</section>
+</div>
+<h3 id="-"></h3>
 <h2 id="changing-current-language">Changing current language</h2>
 <p><code>Localization</code> contains scripting API for changing current display language for game and current culture for values formatting.</p>
 <h3 id="editor-preview">Editor Preview</h3>
 <p>Use Localization Settings asset editor dashboard for current language preview.</p>
 <p><img src="media/localization-preview.gif" alt="Localization Preview"></p>
-<h3 id="c-2">C#</h3>
+<div class="tabGroup" id="tabgroup_-gkJ0ZVtDu-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu-1_code-csharp" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu-1_code-cpp" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_-gkJ0ZVtDu-1_code-vs" role="tab" aria-controls="tabpanel_-gkJ0ZVtDu-1_code-vs" data-tab="code-vs" tabindex="-1">Visual Script</a>
+</li>
+</ul>
+<section id="tabpanel_-gkJ0ZVtDu-1_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">using System.Globalization;
 
 Debug.Log(&quot;Current language: &quot; + Localization.CurrentLanguage);
 Debug.Log(&quot;Current culture: &quot; + Localization.CurrentCulture);
 Localization.LocalizationChanged += () =&gt; { Debug.Log(&quot;Localization changed!&quot;); };
 Localization.SetCurrentLanguageCulture(new CultureInfo(&quot;en-US&quot;));
-</code></pre><h3 id="c-3">C++</h3>
+</code></pre></section>
+<section id="tabpanel_-gkJ0ZVtDu-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">#include &quot;Engine/Localization/Localization.h&quot;
 
 void OnLocalizationChanged()
@@ -169,8 +199,11 @@ LOG(Info, &quot;Current language: {}&quot;, Localization::GetCurrentLanguage());
 LOG(Info, &quot;Current culture: {}&quot;, Localization::GetCurrentCulture());
 Localization::LocalizationChanged.Bind(&amp;::OnLocalizationChanged);
 Localization::SetCurrentLanguageCulture(CultureInfo(&quot;en-US&quot;));
-</code></pre><h3 id="visual-script-1">Visual Script</h3>
+</code></pre></section>
+<section id="tabpanel_-gkJ0ZVtDu-1_code-vs" role="tabpanel" data-tab="code-vs" aria-hidden="true" hidden="hidden">
 <p><img src="media/localization-vs-language.png" alt="Localization Visual Script"></p>
+</section>
+</div>
 </article>
           </div>
           
@@ -179,12 +212,13 @@ Localization::SetCurrentLanguageCulture(CultureInfo(&quot;en-US&quot;));
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/editor/localization/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/editor/localization/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Scene
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><span class="xref">Scene</span></div>
       <div class="level5"><a class="xref" href="FlaxEngine.EditorScene.html">EditorScene</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Scene" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Scene" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Scene" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -179,6 +185,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -361,6 +373,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -451,6 +466,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -483,8 +501,7 @@
   <h5 id="FlaxEngine_Scene_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene root object that contains a hierarchy of actors.&quot;)]
-public class Scene : Actor</code></pre>
+public class Scene : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -611,7 +628,6 @@ public class Scene : Actor</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets path to the scene data folder&quot;)]
 public string DataFolderPath { get; }</code></pre>
   </div>
 
@@ -650,7 +666,6 @@ public string DataFolderPath { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets filename of the scene file&quot;)]
 public string Filename { get; }</code></pre>
   </div>
 
@@ -690,7 +705,6 @@ public string Filename { get; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Lightmap Settings&quot;, &quot;__inline__&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the lightmap settings (per scene).&quot;)]
 public LightmapSettings LightmapSettings { get; set; }</code></pre>
   </div>
 
@@ -729,7 +743,6 @@ public LightmapSettings LightmapSettings { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets path to the scene file&quot;)]
 public string Path { get; }</code></pre>
   </div>
 
@@ -770,7 +783,6 @@ public string Path { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Builds the CSG geometry for the given scene.&quot;)]
 public void BuildCSG(float timeoutMs = 50F)</code></pre>
   </div>
 
@@ -814,7 +826,6 @@ public void BuildCSG(float timeoutMs = 50F)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes all baked lightmap textures from the scene.&quot;)]
 public void ClearLightmaps()</code></pre>
   </div>
 
@@ -829,6 +840,49 @@ public void ClearLightmaps()</code></pre>
   
   
   
+  </div>
+  
+  
+  <a id="FlaxEngine_Scene_GetAssetReferences_" data-uid="FlaxEngine.Scene.GetAssetReferences*"></a>
+  
+  <h4 id="FlaxEngine_Scene_GetAssetReferences" data-uid="FlaxEngine.Scene.GetAssetReferences"><a href="#collapsible-FlaxEngine_Scene_GetAssetReferences" class="expander" data-toggle="collapse">GetAssetReferences()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Scene_GetAssetReferences" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the asset references (scene asset). Supported only in Editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Guid[] GetAssetReferences()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Guid</span>[]
+        <p><p>The collection of the asset ids referenced by this asset.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Scene_GetAssetReferences_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_GetReferences">GetReferences</a>()</div>
+  </div>
   </div>
   
   <h3 id="extensionmethods">Extension Methods</h3>
@@ -852,7 +906,8 @@ public void ClearLightmaps()</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

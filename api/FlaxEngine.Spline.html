@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Spline
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">Spline</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Spline" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Spline" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Spline" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_Spline_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spline shape actor that defines spatial curve with utility functions for general purpose usage.&quot;)]
-public class Spline : Actor</code></pre>
+public class Spline : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -538,7 +555,6 @@ public class Spline : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Spline&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Whether to use spline as closed loop. In that case, ensure to place start and end at the same location.&quot;)]
 public bool IsLoop { get; set; }</code></pre>
   </div>
 
@@ -577,7 +593,6 @@ public bool IsLoop { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total duration of the spline curve (time of the last point).&quot;)]
 public float SplineDuration { get; }</code></pre>
   </div>
 
@@ -658,7 +673,6 @@ public BezierCurve&lt;Transform&gt;.Keyframe[] SplineKeyframes { get; set; }</co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The total length of the spline curve (distance between all the points).&quot;)]
 public float SplineLength { get; }</code></pre>
   </div>
 
@@ -697,7 +711,6 @@ public float SplineLength { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The amount of points in the spline.&quot;)]
 public int SplinePointsCount { get; }</code></pre>
   </div>
 
@@ -738,7 +751,6 @@ public int SplinePointsCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the point to the spline curve (at the end).&quot;)]
 public void AddSplineLocalPoint(Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -787,7 +799,6 @@ public void AddSplineLocalPoint(Transform point, bool updateSpline = true)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the point to the spline curve (at the end).&quot;)]
 public void AddSplineLocalPoint(Vector3 point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -836,7 +847,6 @@ public void AddSplineLocalPoint(Vector3 point, bool updateSpline = true)</code><
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the point to the spline curve (at the end).&quot;)]
 public void AddSplinePoint(Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -885,7 +895,6 @@ public void AddSplinePoint(Transform point, bool updateSpline = true)</code></pr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the point to the spline curve (at the end).&quot;)]
 public void AddSplinePoint(Vector3 point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -934,7 +943,6 @@ public void AddSplinePoint(Vector3 point, bool updateSpline = true)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Clears the spline to be empty.&quot;)]
 public void ClearSpline()</code></pre>
   </div>
 
@@ -964,7 +972,6 @@ public void ClearSpline()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve direction (forward vector, aka position 1st derivative) at the given time in 3D (world-space).&quot;)]
 public Vector3 GetSplineDirection(float time)</code></pre>
   </div>
 
@@ -1064,7 +1071,6 @@ public Vector3 GetSplineDirection(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve direction (forward vector, aka position 1st derivative) at the given time in 3D (local-space).&quot;)]
 public Vector3 GetSplineLocalDirection(float time)</code></pre>
   </div>
 
@@ -1115,7 +1121,6 @@ public Vector3 GetSplineLocalDirection(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point rotation in 3D (local-space).&quot;)]
 public Quaternion GetSplineLocalOrientation(float time)</code></pre>
   </div>
 
@@ -1166,7 +1171,6 @@ public Quaternion GetSplineLocalOrientation(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given index (local-space).&quot;)]
 public Vector3 GetSplineLocalPoint(int index)</code></pre>
   </div>
 
@@ -1217,7 +1221,6 @@ public Vector3 GetSplineLocalPoint(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point location in 3D (local-space).&quot;)]
 public Vector3 GetSplineLocalPoint(float time)</code></pre>
   </div>
 
@@ -1268,7 +1271,6 @@ public Vector3 GetSplineLocalPoint(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve points list (local-space).&quot;)]
 public void GetSplineLocalPoints(out Transform[] points)</code></pre>
   </div>
 
@@ -1309,7 +1311,6 @@ public void GetSplineLocalPoints(out Transform[] points)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve points list (local-space).&quot;)]
 public void GetSplineLocalPoints(out Vector3[] points)</code></pre>
   </div>
 
@@ -1350,7 +1351,6 @@ public void GetSplineLocalPoints(out Vector3[] points)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point scale in 3D (local-space).&quot;)]
 public Vector3 GetSplineLocalScale(float time)</code></pre>
   </div>
 
@@ -1401,7 +1401,6 @@ public Vector3 GetSplineLocalScale(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve point tangent at the given index (local-space).&quot;)]
 public Transform GetSplineLocalTangent(int index, bool isIn)</code></pre>
   </div>
 
@@ -1463,7 +1462,6 @@ public Transform GetSplineLocalTangent(int index, bool isIn)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given index (local-space).&quot;)]
 public Transform GetSplineLocalTransform(int index)</code></pre>
   </div>
 
@@ -1514,7 +1512,6 @@ public Transform GetSplineLocalTransform(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the transformation in 3D (local-space).&quot;)]
 public Transform GetSplineLocalTransform(float time)</code></pre>
   </div>
 
@@ -1565,7 +1562,6 @@ public Transform GetSplineLocalTransform(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point rotation in 3D (world-space).&quot;)]
 public Quaternion GetSplineOrientation(float time)</code></pre>
   </div>
 
@@ -1616,7 +1612,6 @@ public Quaternion GetSplineOrientation(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given index (world-space).&quot;)]
 public Vector3 GetSplinePoint(int index)</code></pre>
   </div>
 
@@ -1667,7 +1662,6 @@ public Vector3 GetSplinePoint(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point location in 3D (world-space).&quot;)]
 public Vector3 GetSplinePoint(float time)</code></pre>
   </div>
 
@@ -1718,7 +1712,6 @@ public Vector3 GetSplinePoint(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates the closest point to the given location.&quot;)]
 public Vector3 GetSplinePointClosestToPoint(Vector3 point)</code></pre>
   </div>
 
@@ -1769,7 +1762,6 @@ public Vector3 GetSplinePointClosestToPoint(Vector3 point)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve points list (world-space).&quot;)]
 public void GetSplinePoints(out Transform[] points)</code></pre>
   </div>
 
@@ -1810,7 +1802,6 @@ public void GetSplinePoints(out Transform[] points)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve points list (world-space).&quot;)]
 public void GetSplinePoints(out Vector3[] points)</code></pre>
   </div>
 
@@ -1851,7 +1842,6 @@ public void GetSplinePoints(out Vector3[] points)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the point scale in 3D (world-space).&quot;)]
 public Vector3 GetSplineScale(float time)</code></pre>
   </div>
 
@@ -1902,7 +1892,6 @@ public Vector3 GetSplineScale(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The spline curve point tangent at the given index (world-space).&quot;)]
 public Transform GetSplineTangent(int index, bool isIn)</code></pre>
   </div>
 
@@ -1964,7 +1953,6 @@ public Transform GetSplineTangent(int index, bool isIn)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The time of the spline keyframe.&quot;)]
 public float GetSplineTime(int index)</code></pre>
   </div>
 
@@ -2015,7 +2003,6 @@ public float GetSplineTime(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Calculates the closest point to the given location and returns the spline time at that point.&quot;)]
 public float GetSplineTimeClosestToPoint(Vector3 point)</code></pre>
   </div>
 
@@ -2066,7 +2053,6 @@ public float GetSplineTimeClosestToPoint(Vector3 point)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given index (world-space).&quot;)]
 public Transform GetSplineTransform(int index)</code></pre>
   </div>
 
@@ -2117,7 +2103,6 @@ public Transform GetSplineTransform(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Evaluates the spline curve at the given time and calculates the transformation in 3D (world-space).&quot;)]
 public Transform GetSplineTransform(float time)</code></pre>
   </div>
 
@@ -2168,7 +2153,6 @@ public Transform GetSplineTransform(float time)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Inserts the spline curve point at the given index (local-space).&quot;)]
 public void InsertSplineLocalPoint(int index, float time, Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2233,7 +2217,6 @@ public void InsertSplineLocalPoint(int index, float time, Transform point, bool 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Inserts the spline curve point at the given index (world-space).&quot;)]
 public void InsertSplinePoint(int index, float time, Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2298,7 +2281,6 @@ public void InsertSplinePoint(int index, float time, Transform point, bool updat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the spline curve point at the given index.&quot;)]
 public void RemoveSplinePoint(int index, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2394,7 +2376,6 @@ public void RemoveSplinePoint(int index, bool updateSpline = true)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve at the given index (local-space).&quot;)]
 public void SetSplineLocalPoint(int index, Vector3 point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2451,7 +2432,6 @@ public void SetSplineLocalPoint(int index, Vector3 point, bool updateSpline = tr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve point tangent at the given index (local-space).&quot;)]
 public void SetSplineLocalTangent(int index, Transform point, bool isIn, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2519,7 +2499,6 @@ public void SetSplineLocalTangent(int index, Transform point, bool isIn, bool up
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve at the given index (local-space).&quot;)]
 public void SetSplineLocalTransform(int index, Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2576,7 +2555,6 @@ public void SetSplineLocalTransform(int index, Transform point, bool updateSplin
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve at the given index (world-space).&quot;)]
 public void SetSplinePoint(int index, Vector3 point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2633,7 +2611,6 @@ public void SetSplinePoint(int index, Vector3 point, bool updateSpline = true)</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve point time at the given index (world-space).&quot;)]
 public void SetSplinePointTime(int index, float time, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2690,7 +2667,6 @@ public void SetSplinePointTime(int index, float time, bool updateSpline = true)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve point tangent at the given index (world-space).&quot;)]
 public void SetSplineTangent(int index, Transform point, bool isIn, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2758,7 +2734,6 @@ public void SetSplineTangent(int index, Transform point, bool isIn, bool updateS
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the spline curve at the given index (world-space).&quot;)]
 public void SetSplineTransform(int index, Transform point, bool updateSpline = true)</code></pre>
   </div>
 
@@ -2815,7 +2790,6 @@ public void SetSplineTransform(int index, Transform point, bool updateSpline = t
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the curve tangent points to make curve linear.&quot;)]
 public void SetTangentsLinear()</code></pre>
   </div>
 
@@ -2845,7 +2819,6 @@ public void SetTangentsLinear()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the curve tangent points to make curve smooth.&quot;)]
 public void SetTangentsSmooth()</code></pre>
   </div>
 
@@ -2875,7 +2848,6 @@ public void SetTangentsSmooth()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Updates the spline after it was modified. Recreates the collision and/or any cached state that depends on the spline type.&quot;)]
 public virtual void UpdateSpline()</code></pre>
   </div>
 
@@ -2906,7 +2878,6 @@ public virtual void UpdateSpline()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Called when spline gets updated (eg. after curve modification).&quot;)]
 public event Action SplineUpdated</code></pre>
   </div>
 
@@ -2953,7 +2924,8 @@ public event Action SplineUpdated</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

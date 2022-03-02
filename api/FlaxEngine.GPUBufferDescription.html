@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct GPUBufferDescription
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_GPUBufferDescription_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;A common description for all GPU buffers.&quot;)]
 public struct GPUBufferDescription : IEquatable&lt;GPUBufferDescription&gt;</code></pre>
   </div>
 
@@ -149,8 +148,7 @@ public struct GPUBufferDescription : IEquatable&lt;GPUBufferDescription&gt;</cod
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The buffer flags.&quot;)]
-public GPUBufferFlags Flags</code></pre>
+    <pre><code class="lang-csharp hljs">public GPUBufferFlags Flags</code></pre>
   </div>
 
   
@@ -186,8 +184,7 @@ public GPUBufferFlags Flags</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The format of the data in a buffer.&quot;)]
-public PixelFormat Format</code></pre>
+    <pre><code class="lang-csharp hljs">public PixelFormat Format</code></pre>
   </div>
 
   
@@ -223,8 +220,7 @@ public PixelFormat Format</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The pointer to location of initial resource data. Null if not used.&quot;)]
-public IntPtr InitData</code></pre>
+    <pre><code class="lang-csharp hljs">public IntPtr InitData</code></pre>
   </div>
 
   
@@ -260,8 +256,7 @@ public IntPtr InitData</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The buffer total size.&quot;)]
-public uint Size</code></pre>
+    <pre><code class="lang-csharp hljs">public uint Size</code></pre>
   </div>
 
   
@@ -297,8 +292,7 @@ public uint Size</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The buffer structure stride (size in bytes per element).&quot;)]
-public uint Stride</code></pre>
+    <pre><code class="lang-csharp hljs">public uint Stride</code></pre>
   </div>
 
   
@@ -334,8 +328,7 @@ public uint Stride</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Value that identifies how the buffer is to be read from and written to. The most common value is &lt;see cref=\&quot;GPUResourceUsage.Default\&quot;/&gt;; see &lt;strong&gt;&lt;see cref=\&quot;GPUResourceUsage\&quot;/&gt;&lt;/strong&gt; for all possible values.&quot;)]
-public GPUResourceUsage Usage</code></pre>
+    <pre><code class="lang-csharp hljs">public GPUResourceUsage Usage</code></pre>
   </div>
 
   
@@ -374,7 +367,7 @@ public GPUResourceUsage Usage</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint GetElementsCount { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly uint GetElementsCount { get; }</code></pre>
   </div>
 
   
@@ -411,7 +404,7 @@ public GPUResourceUsage Usage</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsShaderResource { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsShaderResource { get; }</code></pre>
   </div>
 
   
@@ -448,7 +441,7 @@ public GPUResourceUsage Usage</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsUnorderedAccess { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool IsUnorderedAccess { get; }</code></pre>
   </div>
 
   
@@ -1837,7 +1830,8 @@ public GPUResourceUsage Usage</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

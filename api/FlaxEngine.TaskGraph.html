@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TaskGraph
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_TaskGraph_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Graph-based asynchronous tasks scheduler for high-performance computing and processing.&quot;)]
 public class TaskGraph : Object</code></pre>
   </div>
 
@@ -237,7 +239,6 @@ public class TaskGraph : Object</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The list of systems.&quot;)]
 public TaskGraphSystem[] Systems { get; }</code></pre>
   </div>
 
@@ -278,7 +279,6 @@ public TaskGraphSystem[] Systems { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the system to the graph for the execution.&quot;)]
 public void AddSystem(TaskGraphSystem system)</code></pre>
   </div>
 
@@ -319,7 +319,6 @@ public void AddSystem(TaskGraphSystem system)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Dispatches the job for the execution.&quot;)]
 public void DispatchJob(Action&lt;int&gt; job, int jobCount = 1)</code></pre>
   </div>
 
@@ -371,7 +370,6 @@ public void DispatchJob(Action&lt;int&gt; job, int jobCount = 1)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Schedules the asynchronous systems execution including ordering and dependencies handling.&quot;)]
 public void Execute()</code></pre>
   </div>
 
@@ -401,7 +399,6 @@ public void Execute()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the system from the graph.&quot;)]
 public void RemoveSystem(TaskGraphSystem system)</code></pre>
   </div>
 
@@ -450,7 +447,8 @@ public void RemoveSystem(TaskGraphSystem system)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

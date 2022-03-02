@@ -7,7 +7,7 @@
     <title>String Formatting for C++ in Flax | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="String Formatting for C++ in Flax | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -89,10 +89,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="string-formatting-for-c-in-flax">String Formatting for C++ in Flax</h1>
 
-<p>Flax uses <a href="https://fmt.dev/5.3.0/index.html">fmt</a> lib to format strings. The formatting syntax is similar to the one in C# and is considered as easy to use and quite extensible. The same formatting style can be used also in <code>LOG</code> macro to print formatted messages.</p>
+<p>Flax uses <a href="https://fmt.dev/6.2.1/index.html">fmt</a> lib to format strings. The formatting syntax is similar to the one in C# and is considered as easy to use and quite extensible. The same formatting style can be used also in <code>LOG</code> macro to print formatted messages.</p>
 <h2 id="syntax">Syntax</h2>
 <p>Format strings contain <code>replacement fields</code> surrounded by curly braces <code>{}</code>. Anything that is not contained in braces is considered literal text, which is copied unchanged to the output. If you need to include a brace character in the literal text, it can be escaped by doubling: <code>{{</code> and <code>}}</code>.</p>
-<p>To learn more see the reference: <a href="https://fmt.dev/5.3.0/syntax.html">fmt syntax</a>.</p>
+<p>To learn more see the reference: <a href="https://fmt.dev/6.2.1/syntax.html">fmt syntax</a>.</p>
 <h2 id="examples">Examples</h2>
 <p>Example usage of <code>String::Format</code> that provides string formatting. Macro <code>LOG_STR</code> prints the String directly to the Output Log.</p>
 <pre><code class="lang-cpp">auto str1 = String::Format(TEXT(&quot;a: {0}, b: {1}, a: {0}&quot;), TEXT(&quot;a&quot;), TEXT(&quot;b&quot;));
@@ -122,6 +122,11 @@ DEFINE_DEFAULT_FORMATTING(MyStruct, &quot;Direction:{0} Speed:{1}&quot;, v.Direc
 MyStruct data = { Vector2(1, 2), 10.0f };
 auto str1 = String::Format(TEXT(&quot;{0}&quot;), data);
 LOG_STR(Info, str1);
+</code></pre><h2 id="named-arguments">Named Arguments</h2>
+<p>String format text can can contain ordered arguments such as <code>{0}</code>, <code>{1}</code>, <code>{2}</code>, <code>{}</code>, etc. but also named arguments like <code>{PlayerName}</code>, <code>{Currency}</code>, etc. This can be implemented by using <code>fmt::arg(argName, argValue)</code> passed to the string format function.</p>
+<pre><code class="lang-cpp">String text1 = String::Format(TEXT(&quot;text: {0}, {1}&quot;), TEXT(&quot;one&quot;), TEXT(&quot;two&quot;));
+String text2 = String::Format(TEXT(&quot;text: {arg0}, {arg1}&quot;), fmt::arg(TEXT(&quot;arg0&quot;), TEXT(&quot;one&quot;)), fmt::arg(TEXT(&quot;arg1&quot;), TEXT(&quot;two&quot;)));
+ASSERT(text1 == text2);
 </code></pre></article>
           </div>
           
@@ -130,12 +135,13 @@ LOG_STR(Info, str1);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/cpp/string-formatting.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/cpp/string-formatting.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

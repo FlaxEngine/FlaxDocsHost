@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Texture
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -123,6 +123,18 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetMipData_System_Int32_System_Int32__System_Int32__">TextureBase.GetMipData(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color32____System_Int32_System_Int32_">TextureBase.GetPixels(Color32[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_GetPixels_FlaxEngine_Color____System_Int32_System_Int32_">TextureBase.GetPixels(Color[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color32___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color32[], Int32, Int32, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_SetPixels_FlaxEngine_Color___System_Int32_System_Int32_System_Boolean_">TextureBase.SetPixels(Color[], Int32, Int32, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.TextureBase.html#FlaxEngine_TextureBase_Init_FlaxEngine_TextureBase_InitData__">TextureBase.Init(TextureBase.InitData)</a>
@@ -236,6 +248,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -268,7 +283,6 @@
   <h5 id="FlaxEngine_Texture_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Texture asset contains an image that is usually stored on a GPU and is used during rendering graphics.&quot;)]
 public class Texture : TextureBase</code></pre>
   </div>
 
@@ -322,7 +336,6 @@ public class Texture : TextureBase</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if texture is a normal map.&quot;)]
 public bool IsNormalMap { get; }</code></pre>
   </div>
 
@@ -363,7 +376,6 @@ public bool IsNormalMap { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads the texture from the image file and creates the virtual texture asset for it. Supported file formats depend on a runtime platform. All platform support loading PNG, BMP, TGA, HDR and JPEG files.&quot;)]
 public static Texture FromFile(string path, bool generateMips = false)</code></pre>
   </div>
 
@@ -422,7 +434,6 @@ public static Texture FromFile(string path, bool generateMips = false)</code></p
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads the texture from the image file. Supported file formats depend on a runtime platform. All platform support loading PNG, BMP, TGA, HDR and JPEG files.&quot;)]
 public bool LoadFile(string path, bool generateMips = false)</code></pre>
   </div>
 
@@ -484,7 +495,6 @@ public bool LoadFile(string path, bool generateMips = false)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves this asset to the file. Supported only in Editor.&quot;)]
 public bool Save(string path = null)</code></pre>
   </div>
 
@@ -543,7 +553,8 @@ public bool Save(string path = null)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

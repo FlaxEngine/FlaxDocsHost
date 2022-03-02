@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ModelInstanceActor
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -108,6 +108,12 @@
       <div class="level5"><a class="xref" href="FlaxEngine.SplineModel.html">SplineModel</a></div>
       <div class="level5"><a class="xref" href="FlaxEngine.StaticModel.html">StaticModel</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_ModelInstanceActor" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_ModelInstanceActor" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_ModelInstanceActor" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -181,6 +187,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -363,6 +375,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -453,6 +468,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -485,8 +503,7 @@
   <h5 id="FlaxEngine_ModelInstanceActor_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Base class for actor types that use ModelInstanceEntries for mesh rendering.&quot;)]
-public abstract class ModelInstanceActor : Actor</code></pre>
+public abstract class ModelInstanceActor : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -543,7 +560,6 @@ public abstract class ModelInstanceActor : Actor</code></pre>
 [EditorDisplay(&quot;Entries&quot;, &quot;__inline__&quot;)]
 [Collection(CanReorderItems = false, NotNullItems = true, ReadOnly = true, Spacing = 10F)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model entries collection. Each entry contains data how to render meshes using this entry (transformation, material, shadows casting, etc.).&quot;)]
 public ModelInstanceEntry[] Entries { get; set; }</code></pre>
   </div>
 
@@ -584,7 +600,6 @@ public ModelInstanceEntry[] Entries { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Utility to crate a new virtual Material Instance asset, set its parent to the currently applied material, and assign it to the entry. Can be used to modify the material parameters from code.&quot;)]
 public MaterialInstance CreateAndSetVirtualMaterialInstance(int entryIndex)</code></pre>
   </div>
 
@@ -638,7 +653,6 @@ For more efficient collisions detection and ray casting use physics.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines if there is an intersection between the model actor mesh entry and a ray. If mesh data is available on the CPU performs exact intersection check with the geometry. Otherwise performs simple &lt;see cref=\&quot;BoundingBox\&quot;/&gt; vs &lt;see cref=\&quot;Ray\&quot;/&gt; test. For more efficient collisions detection and ray casting use physics.&quot;)]
 public virtual bool IntersectsEntry(ref Ray ray, out float distance, out Vector3 normal, out int entryIndex)</code></pre>
   </div>
 
@@ -716,7 +730,6 @@ For more efficient collisions detection and ray casting use physics.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines if there is an intersection between the model actor mesh entry and a ray. If mesh data is available on the CPU performs exact intersection check with the geometry. Otherwise performs simple &lt;see cref=\&quot;BoundingBox\&quot;/&gt; vs &lt;see cref=\&quot;Ray\&quot;/&gt; test. For more efficient collisions detection and ray casting use physics.&quot;)]
 public virtual bool IntersectsEntry(int entryIndex, ref Ray ray, out float distance, out Vector3 normal)</code></pre>
   </div>
 
@@ -791,7 +804,6 @@ public virtual bool IntersectsEntry(int entryIndex, ref Ray ray, out float dista
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the material to the entry slot. Can be used to override the material of the meshes using this slot.&quot;)]
 public void SetMaterial(int entryIndex, MaterialBase material)</code></pre>
   </div>
 
@@ -849,7 +861,8 @@ public void SetMaterial(int entryIndex, MaterialBase material)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

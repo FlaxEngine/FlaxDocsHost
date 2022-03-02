@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interfaces | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interfaces | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Interfaces | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="interfaces">Interfaces</h1>
+
+<p>Flax Scripting API supports using interfaces on classes to splitting unrelated functionality into separate interfaces. This comes useful when desiging larger game systems or when ensuring the code can be extended.</p>
+<h2 id="interface-declaration">Interface declaration</h2>
+<p>Declaring an interface is quite similar to declaring a normal class: simply use <code>API_INTERFACE</code> tag. Then you can declare virtual function to be part of the interface.</p>
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/Scripting/ScriptingType.h&quot;
+
+API_INTERFACE() class GAME_API IMyInterface
+{
+DECLARE_SCRIPTING_TYPE_MINIMAL(IMyInterface);
+
+    // Interface virtual method
+    API_FUNCTION() virtual float GetSpeed(const Vector3&amp; v) = 0;
+};
+</code></pre><div class="TIP"><h5>Tip</h5><p>Interfaces with an abstract method (deleted virtual) that don&#39;t contain <code>API_FUNCTION</code> tag are not supported.</p>
+</div>
+<h2 id="interface-implementation">Interface implementation</h2>
+<p>The next step is to define interface inheritance on an class and implement all it&#39;s methods. Interfaces can be implemented on any Scripting Object such as <code>Script</code>, <code>Actor</code>, <code>PersistentScriptingObject</code>. Interface methods are virtual thus they can be overridden also in C# and Visual Scripting.</p>
+<h3 id="c">C++</h3>
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;IMyInterface.h&quot;
+#include &quot;Engine/Scripting/Script.h&quot;
+
+// Script that implements custom interface
+API_CLASS() class GAME_API InterfaceInCpp : public Script, public IMyInterface
+{
+API_AUTO_SERIALIZATION();
+DECLARE_SCRIPTING_TYPE(InterfaceInCpp);
+
+    float GetSpeed(const Vector3&amp; v) override
+    {
+        // Implement interface method
+        return v.Length();
+    }
+};
+</code></pre><h3 id="c-1">C#</h3>
+<pre><code class="lang-cs">// Script that implements custom interface
+public class InterfaceInCSharp : Script, IMyInterface
+{
+    public float GetSpeed(Vector3 v)
+    {
+        // Implement interface method
+        return v.Length;
+    }
+}
+</code></pre><h2 id="interface-calling">Interface calling</h2>
+<h3 id="c-2">C++</h3>
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;IMyInterface.h&quot;
+#include &quot;Engine/Scripting/Script.h&quot;
+
+API_CLASS() class GAME_API InterfaceInCpp : public Script
+{
+API_AUTO_SERIALIZATION();
+DECLARE_SCRIPTING_TYPE(InterfaceInCpp);
+
+    // Pointer to object with interface implementation (can be set from other script in C++ or C# or VS)
+    API_FIELD() ScriptingObject* MyInterface = nullptr;
+
+    void OnUpdate() override
+    {
+        // Cast object into interface
+        auto interface = ToInterface&lt;IMyInterface&gt;(MyInterface);
+        if (interface)
+        {
+            // Call interface method (works with both C++ and C# interface implementations)
+            interface-&gt;GetSpeed(Vector3::One);
+        }
+    }
+};
+</code></pre><h3 id="c-3">C#</h3>
+<pre><code class="lang-cs">public class InterfaceInCSharp : Script, IMyInterface
+{
+    // Reference to object with interface implementation (can be set from other script in C# or VS)
+    public FlaxEngine.Object MyInterface;
+
+    public override void OnUpdate()
+    {
+        // Cast object into interface
+        var inter = MyInterface as IMyInterface;
+        if (inter != null)
+        {
+            // Call interface method (works with both C++ and C# interface implementations)
+            inter.GetSpeed(Vector3.One);
+        }
+    }
+}
+</code></pre><h2 id="checking-if-object-implements-interface">Checking if object implements interface</h2>
+<h3 id="c-4">C++</h3>
+<pre><code class="lang-cpp">auto someObject = GetActor();
+if (someObject &amp;&amp; someObject-&gt;GetType().GetInterface(IMyInterface::TypeInitializer))
+{
+    // someObject implements IMyInterface interface...
+}
+</code></pre><h3 id="c-5">C#</h3>
+<pre><code class="lang-cs">var someObject = Actor;
+if (someObject is IMyInterface)
+{
+    // someObject implements IMyInterface interface...
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/cpp/interfaces.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

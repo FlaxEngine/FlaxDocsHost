@@ -7,7 +7,7 @@
     <title>Raycasting | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Raycasting | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -126,6 +126,63 @@ Then, in the raycast function, set the <code>layerMask</code> accordingly. The l
         DebugDraw.DrawSphere(new BoundingSphere(hit.Point, 50), Color.Red);
     }
 }
+</code></pre><h2 id="example-raycast-with-mesh-data-access">Example raycast with mesh data access</h2>
+<p>If Raycast hit mesh collider or terrain it contains <code>FaceIndex</code> (an index of the face that was hit) and <code>UV</code> (barycentric coordinates of hit triangle). Those can be used to access the geometry data that was used to cook the hit collider. One example would be reading the vertex colors or normal vectors of the hit mesh geometry.</p>
+<p>To do so you can use <code>CollisionData.GetModelTriangle</code> method which converts the face index of the mesh collider into index of the geometry that was used for cooking collision. It&#39;s supported only for collision data built as triangle mesh and without <code>ConvexMeshGenerationFlags.SuppressFaceRemapTable</code> flag set.</p>
+<p>After retrieving the source mesh and its triangle index you can get the index and vertex buffers to read the data of the hit triangle. If the data is accessed frequently for similar meshes, try to use caching or use C++ API that contains improved data access and internal cache by default.</p>
+<pre><code class="lang-cs">public class RaycastUV : Script
+{
+    public override void OnUpdate()
+    {
+        // Try to hit something with a mouse click
+        if (!Input.GetMouseButtonDown(MouseButton.Left))
+            return;
+        var pos = Input.MousePosition;
+        var ray = Camera.MainCamera.ConvertMouseToRay(pos);
+        if (!Physics.RayCast(ray.Position, ray.Direction, out var hit))
+            return;
+
+        Debug.Log(&quot;Hit UV: &quot; + hit.UV);
+
+        // Check if mouse clicked on a mesh collider
+        if (hit.Collider is MeshCollider meshCollider)
+        {
+            // Read the source geometry triangle based on the hit face index
+            if (meshCollider.CollisionData.GetModelTriangle(hit.FaceIndex, out var meshBase, out var triangle))
+            {
+                Debug.Log(&quot;Hit mesh: &quot; + (meshBase != null ? meshBase.ModelBase.Path : &quot;&lt;null&gt;&quot;));
+                Debug.Log(&quot;Hit triangle: &quot; + triangle);
+
+                if (meshBase is Mesh mesh)
+                {
+                    // Access static mesh data
+                    var indexBuffer = mesh.DownloadIndexBuffer();
+                    var vertexBuffer = mesh.DownloadVertexBuffer();
+
+                    // Get the hit triangle data
+                    ref var v0 = ref vertexBuffer[indexBuffer[triangle * 3 + 0]];
+                    ref var v1 = ref vertexBuffer[indexBuffer[triangle * 3 + 1]];
+                    ref var v2 = ref vertexBuffer[indexBuffer[triangle * 3 + 2]];
+
+                    // Interpolate normal of the triangle using the barycentric coordinate of the hit
+                    var n = v0.Normal * (1.0f - hit.UV.X - hit.UV.Y) + v1.Normal * hit.UV.X + v2.Normal * hit.UV.Y;
+
+                    // Transform mesh data into world-space
+                    n = Vector3.Normalize(n);
+                    var t = hit.Collider.Transform;
+                    n = t.TransformDirection(n);
+                    var p0 = t.LocalToWorld(v0.Position);
+                    var p1 = t.LocalToWorld(v1.Position);
+                    var p2 = t.LocalToWorld(v2.Position);
+
+                    // Display hit geometry normal and the triangle
+                    DebugDraw.DrawTriangle(p0, p1, p2, Color.Green.AlphaMultiplied(0.5f), 10000);
+                    DebugDraw.DrawLine(hit.Point, hit.Point + n * 30.0f, Color.Red, 10000);
+                }
+            }
+        }
+    }
+}
 </code></pre></article>
           </div>
           
@@ -134,12 +191,13 @@ Then, in the raycast function, set the <code>layerMask</code> accordingly. The l
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/physics/raycasting.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/physics/raycasting.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

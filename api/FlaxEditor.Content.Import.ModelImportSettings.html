@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ModelImportSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -175,46 +175,6 @@ public class ModelImportSettings</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  
-  <a id="FlaxEditor_Content_Import_ModelImportSettings_AnimationIndex_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.AnimationIndex*"></a>
-  
-  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_AnimationIndex" data-uid="FlaxEditor.Content.Import.ModelImportSettings.AnimationIndex"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_AnimationIndex" class="expander" data-toggle="collapse">AnimationIndex</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_AnimationIndex" class="collapse in">
-  <div class="markdown level1 summary"><p>The zero-based index for the animation clip to import. If the source file has more than one animation it can be used to pick a desire clip.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1080)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The zero-based index for the animation clip to import. If the source file has more than one animation it can be used to pick a desire clip.&quot;)]
-public int AnimationIndex { get; set; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
   
   
   <a id="FlaxEditor_Content_Import_ModelImportSettings_BaseLOD_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.BaseLOD*"></a>
@@ -364,6 +324,45 @@ public bool CenterGeometry { get; set; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_Import_ModelImportSettings_CollisionMeshesPrefix_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.CollisionMeshesPrefix*"></a>
+  
+  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_CollisionMeshesPrefix" data-uid="FlaxEditor.Content.Import.ModelImportSettings.CollisionMeshesPrefix"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_CollisionMeshesPrefix" class="expander" data-toggle="collapse">CollisionMeshesPrefix</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_CollisionMeshesPrefix" class="collapse in">
+  <div class="markdown level1 summary"><p>If specified, all meshes which name starts with this prefix will be imported as a separate collision data (excluded used for rendering).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(100)]
+[EditorDisplay(&quot;Geometry&quot;, null)]
+public string CollisionMeshesPrefix { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
         <p>
       </td>
     </tr>
@@ -982,6 +981,46 @@ public bool MergeMeshes { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEditor_Content_Import_ModelImportSettings_ObjectIndex_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.ObjectIndex*"></a>
+  
+  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_ObjectIndex" data-uid="FlaxEditor.Content.Import.ModelImportSettings.ObjectIndex"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_ObjectIndex" class="expander" data-toggle="collapse">ObjectIndex</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_ObjectIndex" class="collapse in">
+  <div class="markdown level1 summary"><p>The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. Default -1 imports all objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2010)]
+[EditorDisplay(&quot;Splitting&quot;, null)]
+[Tooltip(&quot;The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. Default -1 imports all objects.&quot;)]
+public int ObjectIndex { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Content_Import_ModelImportSettings_OptimizeKeyframes_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.OptimizeKeyframes*"></a>
   
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_OptimizeKeyframes" data-uid="FlaxEditor.Content.Import.ModelImportSettings.OptimizeKeyframes"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_OptimizeKeyframes" class="expander" data-toggle="collapse">OptimizeKeyframes</a></h4>
@@ -1387,6 +1426,46 @@ public float SmoothingTangentsAngle { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEditor_Content_Import_ModelImportSettings_SplitObjects_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SplitObjects*"></a>
+  
+  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_SplitObjects" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SplitObjects"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_SplitObjects" class="expander" data-toggle="collapse">SplitObjects</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_SplitObjects" class="collapse in">
+  <div class="markdown level1 summary"><p>If checked, the imported mesh/animations are splitted into separate assets. Used if ObjectIndex is set to -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
+[EditorDisplay(&quot;Splitting&quot;, null)]
+[Tooltip(&quot;If checked, the imported mesh/animations are splitted into separate assets. Used if ObjectIndex is set to -1.&quot;)]
+public bool SplitObjects { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Content_Import_ModelImportSettings_Translation_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.Translation*"></a>
   
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_Translation" data-uid="FlaxEditor.Content.Import.ModelImportSettings.Translation"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_Translation" class="expander" data-toggle="collapse">Translation</a></h4>
@@ -1586,7 +1665,8 @@ public ModelType Type { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

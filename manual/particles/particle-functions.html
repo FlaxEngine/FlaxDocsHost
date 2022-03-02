@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Particle Functions | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Particle Functions | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Particle Functions | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="particle-functions">Particle Functions</h1>
+
+<p><strong>Particle Emitter Function</strong> is an asset that contains a reusable particle graph with a set of customizable inputs and outputs. Particle functions can be used in particle emitters and other particle functions to implement custom logic that can be reused multiple times. For instance, you can create a custom noise generator and reuse it in different assets. Particles functions are a great way of improving content creation and technical art.</p>
+<h2 id="how-to-create-a-particle-function">How to create a Particle Function</h2>
+<p><img src="media/particle-function-create.png" alt="New Particle Function"></p>
+<p>The first step is to <em>right-click</em> in <em>Content</em> window and choose option <strong>New -&gt; Particle Emitter Function</strong>. Then specify its name and confirm with <em>Enter</em>. Open the asset editor by double-clicking on it.</p>
+<p><img src="media/particle-function-empty.png" alt="Empty Particle Function"></p>
+<p>Now, you can let out your creativity and implement literally anything here. Particle Function is a graph of normal particle nodes but it contains custom <strong>Function Output</strong> and <strong>Function Input</strong> nodes on the graph that represent the function arguments and returned values. Particle function can use textures and perform complex calculations enclosed in a reusable graph.</p>
+<p>By default, a new function will contain single <em>Float</em> output. You can edit the returned value type using the combobox and rename the output variable by double-clicking on the name label (<em>Output</em> by default).</p>
+<p>Below is an example of the function that gets the <em>Texture</em> input and samples it at the particle location (simple SDF texture sampling). Particle functions can have multiple inputs and outputs that accept basic types and texture references too. Input nodes contain <strong>Default Value</strong> box that is optional and can be used to assign the default value of the input if caller doesn&#39;t specify it.</p>
+<p><img src="media/particle-function-example.png" alt="Particle Function"></p>
+<h2 id="how-to-use-particle-function">How to use Particle Function</h2>
+<p>Particle function can be used in any other particle function (excluding cyclic references) or particle emitter asset. To use it you can simply drag and drop the asset item into the target graph or use <em>right-click</em> and pick <strong>Particle Function</strong> node, then pick the asset you&#39;ve created. The node will populate the input and output boxes according to the function signature.</p>
+<p>Finally, Flax will automatically update all particle emitters using the particle function if you modify it so you can freely work on the art content easily.</p>
+<p><img src="media/particle-function-usage.png" alt="Particle Function Usage"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/particles/particle-functions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

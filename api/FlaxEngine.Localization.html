@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Localization
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Localization_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The language and culture localization manager.&quot;)]
 public static class Localization</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Localization</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the current culture (date, time, currency and values formatting locale).&quot;)]
 public static CultureInfo CurrentCulture { get; set; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static CultureInfo CurrentCulture { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the current language (text display locale).&quot;)]
 public static CultureInfo CurrentLanguage { get; set; }</code></pre>
   </div>
 
@@ -241,7 +238,6 @@ public static CultureInfo CurrentLanguage { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The localized plural string for the current language by using string id lookup.&quot;)]
 public static string GetPluralString(string id, int n, string fallback = null)</code></pre>
   </div>
 
@@ -308,7 +304,6 @@ public static string GetPluralString(string id, int n, string fallback = null)</
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The localized string for the current language by using string id lookup.&quot;)]
 public static string GetString(string id, string fallback = null)</code></pre>
   </div>
 
@@ -416,7 +411,6 @@ public static string GetString(string id, string fallback = null)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets both the current language (text display locale) and the current culture (date, time, currency and values formatting locale) at once.&quot;)]
 public static void SetCurrentLanguageCulture(CultureInfo value)</code></pre>
   </div>
 
@@ -457,7 +451,6 @@ public static void SetCurrentLanguageCulture(CultureInfo value)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when current culture or language gets changed. Can be used to refresh UI to reflect language changes.&quot;)]
 public static event Action LocalizationChanged</code></pre>
   </div>
 
@@ -494,7 +487,8 @@ public static event Action LocalizationChanged</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

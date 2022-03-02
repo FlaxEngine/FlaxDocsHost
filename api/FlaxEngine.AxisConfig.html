@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct AxisConfig
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_AxisConfig_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Maps keyboard, controller, or mouse inputs to a \&quot;friendly name\&quot; that will later be bound to continuous game behavior, such as movement. The inputs mapped in AxisMappings are continuously polled, even if they are just reporting that their input value.&quot;)]
 public struct AxisConfig</code></pre>
   </div>
 
@@ -150,7 +149,6 @@ public struct AxisConfig</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
-[Tooltip(&quot;The axis type (mouse, gamepad, etc.).&quot;)]
 public InputAxisType Axis</code></pre>
   </div>
 
@@ -188,7 +186,6 @@ public InputAxisType Axis</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
-[Tooltip(&quot;Any positive or negative values that are less than this number will register as zero. Useful for gamepads to specify the deadzone.&quot;)]
 public float DeadZone</code></pre>
   </div>
 
@@ -226,7 +223,6 @@ public float DeadZone</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
-[Tooltip(&quot;Which gamepad should be used.&quot;)]
 public InputGamepadIndex Gamepad</code></pre>
   </div>
 
@@ -264,7 +260,6 @@ public InputGamepadIndex Gamepad</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(70)]
-[Tooltip(&quot;For keyboard input describes how fast will the input recenter. Speed (in units/s) that output value will rest to neutral value if not when device at rest.&quot;)]
 public float Gravity</code></pre>
   </div>
 
@@ -302,7 +297,6 @@ public float Gravity</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[Tooltip(&quot;The axis \&quot;friendly name\&quot; used to access it from code.&quot;)]
 public string Name</code></pre>
   </div>
 
@@ -340,7 +334,6 @@ public string Name</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
-[Tooltip(&quot;The button to be pressed for movement in negative direction. Use &lt;see cref=\&quot;KeyboardKeys.None\&quot;/&gt; to ignore it.&quot;)]
 public KeyboardKeys NegativeButton</code></pre>
   </div>
 
@@ -378,7 +371,6 @@ public KeyboardKeys NegativeButton</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
-[Tooltip(&quot;The button to be pressed for movement in positive direction. Use &lt;see cref=\&quot;KeyboardKeys.None\&quot;/&gt; to ignore it.&quot;)]
 public KeyboardKeys PositiveButton</code></pre>
   </div>
 
@@ -416,7 +408,6 @@ public KeyboardKeys PositiveButton</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(80)]
-[Tooltip(&quot;Additional scale parameter applied to the axis value. Allows to invert it or modify the range.&quot;)]
 public float Scale</code></pre>
   </div>
 
@@ -454,7 +445,6 @@ public float Scale</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(60)]
-[Tooltip(&quot;For keyboard input, a larger value will result in faster response time (in units/s). A lower value will be more smooth. For Mouse delta the value will scale the actual mouse delta.&quot;)]
 public float Sensitivity</code></pre>
   </div>
 
@@ -492,7 +482,6 @@ public float Sensitivity</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(90)]
-[Tooltip(&quot;If enabled, the axis value will be immediately reset to zero after it receives opposite inputs. For keyboard input only.&quot;)]
 public bool Snap</code></pre>
   </div>
 
@@ -539,7 +528,8 @@ public bool Snap</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

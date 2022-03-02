@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct EyeAdaptationSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_EyeAdaptationSettings_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Contains settings for Eye Adaptation effect rendering.&quot;)]
 public struct EyeAdaptationSettings</code></pre>
   </div>
 
@@ -151,7 +150,6 @@ public struct EyeAdaptationSettings</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 99F, 0.001F)]
 [EditorOrder(3)]
-[Tooltip(&quot;The upper bound for the luminance histogram of the scene color. Value is in percent and limits the pixels above this brightness. Use values from range 80-95. Used only in AutomaticHistogram mode.&quot;)]
 public float HistogramHighPercent</code></pre>
   </div>
 
@@ -190,7 +188,6 @@ public float HistogramHighPercent</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 99F, 0.001F)]
 [EditorOrder(3)]
-[Tooltip(&quot;The lower bound for the luminance histogram of the scene color. Value is in percent and limits the pixels below this brightness. Use values from range 60-80. Used only in AutomaticHistogram mode.&quot;)]
 public float HistogramLowPercent</code></pre>
   </div>
 
@@ -230,7 +227,6 @@ public float HistogramLowPercent</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.01F)]
 [EditorOrder(6)]
 [EditorDisplay(null, &quot;Maximum Brightness&quot;)]
-[Tooltip(&quot;The maximum brightness for the auto exposure which limits the upper brightness the eye can adapt within.&quot;)]
 public float MaxBrightness</code></pre>
   </div>
 
@@ -270,7 +266,6 @@ public float MaxBrightness</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 20F, 0.01F)]
 [EditorOrder(5)]
 [EditorDisplay(null, &quot;Minimum Brightness&quot;)]
-[Tooltip(&quot;The minimum brightness for the auto exposure which limits the lower brightness the eye can adapt within.&quot;)]
 public float MinBrightness</code></pre>
   </div>
 
@@ -308,7 +303,6 @@ public float MinBrightness</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[Tooltip(&quot;The effect rendering mode used for the exposure processing.&quot;)]
 public EyeAdaptationMode Mode</code></pre>
   </div>
 
@@ -384,7 +378,6 @@ public EyeAdaptationSettingsOverride OverrideFlags</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(-100F, 100F, 0.01F)]
 [EditorOrder(3)]
-[Tooltip(&quot;The post-exposure value applied to the scene color after performing post-processing (such as bloom, lens flares, etc.) but before color grading and tone mapping.&quot;)]
 public float PostExposure</code></pre>
   </div>
 
@@ -423,7 +416,6 @@ public float PostExposure</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(-100F, 100F, 0.01F)]
 [EditorOrder(3)]
-[Tooltip(&quot;The pre-exposure value applied to the scene color before performing post-processing (such as bloom, lens flares, etc.).&quot;)]
 public float PreExposure</code></pre>
   </div>
 
@@ -462,7 +454,6 @@ public float PreExposure</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.01F)]
 [EditorOrder(2)]
-[Tooltip(&quot;The speed at which the exposure changes when the scene brightness moves from a bright area to a dark area (brightness goes down).&quot;)]
 public float SpeedDown</code></pre>
   </div>
 
@@ -501,7 +492,6 @@ public float SpeedDown</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.01F)]
 [EditorOrder(1)]
-[Tooltip(&quot;The speed at which the exposure changes when the scene brightness moves from a dark area to a bright area (brightness goes up).&quot;)]
 public float SpeedUp</code></pre>
   </div>
 
@@ -548,7 +538,8 @@ public float SpeedUp</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ExponentialHeightFog
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
     <div class="level3"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></div>
     <div class="level4"><span class="xref">ExponentialHeightFog</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_ExponentialHeightFog" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_ExponentialHeightFog" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_ExponentialHeightFog" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -178,6 +184,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -360,6 +372,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -450,6 +465,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -482,8 +500,7 @@
   <h5 id="FlaxEngine_ExponentialHeightFog_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Used to create fogging effects such as clouds but with a density that is related to the height of the fog.&quot;)]
-public class ExponentialHeightFog : Actor</code></pre>
+public class ExponentialHeightFog : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -539,7 +556,6 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
     <pre><code class="lang-csharp hljs">[EditorOrder(230)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Color&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Controls the color of the directional inscattering, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used.&quot;)]
 public Color DirectionalInscatteringColor { get; set; }</code></pre>
   </div>
 
@@ -582,7 +598,6 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
 [Limit(2F, 64F, 0.1F)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Exponent&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Controls the size of the directional inscattering cone, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used. Range: 2-64.&quot;)]
 public float DirectionalInscatteringExponent { get; set; }</code></pre>
   </div>
 
@@ -623,7 +638,6 @@ public float DirectionalInscatteringExponent { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(200)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Light&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Directional light used for Directional Inscattering.&quot;)]
 public DirectionalLight DirectionalInscatteringLight { get; set; }</code></pre>
   </div>
 
@@ -666,7 +680,6 @@ Note: there must be a directional light enabled for DirectionalInscattering to b
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Directional Inscattering&quot;, &quot;Start Distance&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Controls the start distance from the viewer of the directional inscattering, which is used to approximate inscattering from a directional light. Note: there must be a directional light enabled for DirectionalInscattering to be used.&quot;)]
 public float DirectionalInscatteringStartDistance { get; set; }</code></pre>
   </div>
 
@@ -708,7 +721,6 @@ public float DirectionalInscatteringStartDistance { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Scene elements past this distance will not have fog applied. This is useful for excluding skyboxes which already have fog baked in.&quot;)]
 public float FogCutoffDistance { get; set; }</code></pre>
   </div>
 
@@ -750,7 +762,6 @@ public float FogCutoffDistance { get; set; }</code></pre>
 [Limit(1E-07F, 100F, 0.001F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The fog density factor.&quot;)]
 public float FogDensity { get; set; }</code></pre>
   </div>
 
@@ -792,7 +803,6 @@ public float FogDensity { get; set; }</code></pre>
 [Limit(0.0001F, 10F, 0.001F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The fog height density factor that controls how the density increases as height decreases. The smaller values produce more visible transition larger.&quot;)]
 public float FogHeightFalloff { get; set; }</code></pre>
   </div>
 
@@ -833,7 +843,6 @@ public float FogHeightFalloff { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Color of the fog.&quot;)]
 public Color FogInscatteringColor { get; set; }</code></pre>
   </div>
 
@@ -877,7 +886,6 @@ A value of 0 means the fog color will not be factored in at all.</p>
 [Limit(0F, 1F, 0.001F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Maximum opacity of the fog. A value of 1 means the fog can become fully opaque at a distance and replace scene color completely. A value of 0 means the fog color will not be factored in at all.&quot;)]
 public float FogMaxOpacity { get; set; }</code></pre>
   </div>
 
@@ -919,7 +927,6 @@ public float FogMaxOpacity { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Exponential Height Fog&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Distance from the camera that the fog will start, in world units.&quot;)]
 public float StartDistance { get; set; }</code></pre>
   </div>
 
@@ -961,7 +968,6 @@ Water particles in air have an albedo near white, while dust has slightly darker
     <pre><code class="lang-csharp hljs">[EditorOrder(320)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Albedo&quot;)]
 [Unmanaged]
-[Tooltip(&quot;The height fog particle reflectiveness used by volumetric fog. Water particles in air have an albedo near white, while dust has slightly darker value.&quot;)]
 public Color VolumetricFogAlbedo { get; set; }</code></pre>
   </div>
 
@@ -1003,7 +1009,6 @@ public Color VolumetricFogAlbedo { get; set; }</code></pre>
 [Limit(0F, 3.40282347E+38F, 1F)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Distance&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Distance over which volumetric fog should be computed. Larger values extend the effect into the distance but expose under-sampling artifacts in details.&quot;)]
 public float VolumetricFogDistance { get; set; }</code></pre>
   </div>
 
@@ -1045,7 +1050,6 @@ In most cases using a Skylight is a better choice, however, it may be useful in 
     <pre><code class="lang-csharp hljs">[EditorOrder(330)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Emissive&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Light emitted by height fog. This is a density so more light is emitted the further you are looking through the fog. In most cases using a Skylight is a better choice, however, it may be useful in certain scenarios.&quot;)]
 public Color VolumetricFogEmissive { get; set; }</code></pre>
   </div>
 
@@ -1086,7 +1090,6 @@ public Color VolumetricFogEmissive { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(300)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Enable&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Whether to enable Volumetric fog. Graphics quality settings control the resolution of the fog simulation.&quot;)]
 public bool VolumetricFogEnable { get; set; }</code></pre>
   </div>
 
@@ -1129,7 +1132,6 @@ Values larger than 1 cause fog particles everywhere absorb more light. Range: 0.
 [Limit(0.1F, 10F, 0.1F)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Extinction Scale&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Scales the height fog particle extinction amount used by volumetric fog. Values larger than 1 cause fog particles everywhere absorb more light. Range: 0.1-10.&quot;)]
 public float VolumetricFogExtinctionScale { get; set; }</code></pre>
   </div>
 
@@ -1173,7 +1175,6 @@ In order to have visible volumetric fog light shafts from the side, the distribu
 [Limit(-0.9F, 0.9F, 0.001F)]
 [EditorDisplay(&quot;Volumetric Fog&quot;, &quot;Scattering Distribution&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Controls the scattering phase function - how much incoming light scatters in various directions. A distribution value of 0 scatters equally in all directions, while 0.9 scatters predominantly in the light direction. In order to have visible volumetric fog light shafts from the side, the distribution will need to be closer to 0. Range: -0.9-0.9.&quot;)]
 public float VolumetricFogScatteringDistribution { get; set; }</code></pre>
   </div>
 
@@ -1220,7 +1221,8 @@ public float VolumetricFogScatteringDistribution { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

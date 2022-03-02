@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Window
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -148,6 +148,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -183,7 +186,6 @@
   <h5 id="FlaxEngine_Window_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Native platform window object.&quot;)]
 public sealed class Window : Object</code></pre>
   </div>
 
@@ -318,7 +320,6 @@ Returns true if event has been processed and further actions should be canceled,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the client bounds of the window (client area not including border).&quot;)]
 public Rectangle ClientBounds { get; set; }</code></pre>
   </div>
 
@@ -357,7 +358,6 @@ public Rectangle ClientBounds { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the client position of the window (client area not including border).&quot;)]
 public Vector2 ClientPosition { get; set; }</code></pre>
   </div>
 
@@ -396,7 +396,6 @@ public Vector2 ClientPosition { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the size of the client area of the window (not including border).&quot;)]
 public Vector2 ClientSize { get; set; }</code></pre>
   </div>
 
@@ -435,7 +434,6 @@ public Vector2 ClientSize { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the mouse cursor.&quot;)]
 public CursorType Cursor { get; set; }</code></pre>
   </div>
 
@@ -474,7 +472,6 @@ public CursorType Cursor { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The window DPI setting.&quot;)]
 public int Dpi { get; }</code></pre>
   </div>
 
@@ -513,7 +510,6 @@ public int Dpi { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The window DPI scale factor (1 is default). Includes custom DPI scale&quot;)]
 public float DpiScale { get; }</code></pre>
   </div>
 
@@ -552,7 +548,6 @@ public float DpiScale { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The text entered during the current frame (Unicode).&quot;)]
 public string InputText { get; }</code></pre>
   </div>
 
@@ -591,7 +586,6 @@ public string InputText { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if window is closed.&quot;)]
 public bool IsClosed { get; }</code></pre>
   </div>
 
@@ -630,7 +624,6 @@ public bool IsClosed { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this window is focused.&quot;)]
 public bool IsFocused { get; }</code></pre>
   </div>
 
@@ -669,7 +662,6 @@ public bool IsFocused { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if window is foreground (the window with which the user is currently working).&quot;)]
 public bool IsForegroundWindow { get; }</code></pre>
   </div>
 
@@ -708,7 +700,6 @@ public bool IsForegroundWindow { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets a value that indicates whether a window is in a fullscreen mode.&quot;)]
 public bool IsFullscreen { get; set; }</code></pre>
   </div>
 
@@ -747,7 +738,6 @@ public bool IsFullscreen { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value that indicates whether a window is maximized.&quot;)]
 public bool IsMaximized { get; }</code></pre>
   </div>
 
@@ -786,8 +776,45 @@ public bool IsMaximized { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value that indicates whether a window is minimized.&quot;)]
 public bool IsMinimized { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Window_IsMouseTracking_" data-uid="FlaxEngine.Window.IsMouseTracking*"></a>
+  
+  <h4 id="FlaxEngine_Window_IsMouseTracking" data-uid="FlaxEngine.Window.IsMouseTracking"><a href="#collapsible-FlaxEngine_Window_IsMouseTracking" class="expander" data-toggle="collapse">IsMouseTracking</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Window_IsMouseTracking" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the value indicating whenever mouse input is tracked by this window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool IsMouseTracking { get; }</code></pre>
   </div>
 
   
@@ -825,7 +852,6 @@ public bool IsMinimized { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets a value that indicates whether a window is visible (hidden or shown).&quot;)]
 public bool IsVisible { get; set; }</code></pre>
   </div>
 
@@ -864,7 +890,6 @@ public bool IsVisible { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets a value that indicates whether a window is not in a fullscreen mode.&quot;)]
 public bool IsWindowed { get; }</code></pre>
   </div>
 
@@ -903,7 +928,6 @@ public bool IsWindowed { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the mouse position in window coordinates.&quot;)]
 public Vector2 MousePosition { get; set; }</code></pre>
   </div>
 
@@ -942,7 +966,6 @@ public Vector2 MousePosition { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse position change during the last frame.&quot;)]
 public Vector2 MousePositionDelta { get; }</code></pre>
   </div>
 
@@ -981,7 +1004,6 @@ public Vector2 MousePositionDelta { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse wheel change during the last frame.&quot;)]
 public float MouseScrollDelta { get; }</code></pre>
   </div>
 
@@ -1020,7 +1042,6 @@ public float MouseScrollDelta { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The native window handle.&quot;)]
 public IntPtr NativePtr { get; }</code></pre>
   </div>
 
@@ -1059,7 +1080,6 @@ public IntPtr NativePtr { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets window opacity value (valid only for windows created with SupportsTransparency flag). Opacity values are normalized to range [0;1].&quot;)]
 public float Opacity { get; set; }</code></pre>
   </div>
 
@@ -1098,7 +1118,6 @@ public float Opacity { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the window position (in screen coordinates).&quot;)]
 public Vector2 Position { get; set; }</code></pre>
   </div>
 
@@ -1137,7 +1156,6 @@ public Vector2 Position { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Gets or sets the value indicating whenever rendering to this window enabled.&quot;)]
 public bool RenderingEnabled { get; set; }</code></pre>
   </div>
 
@@ -1176,7 +1194,6 @@ public bool RenderingEnabled { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The window size (including border).&quot;)]
 public Vector2 Size { get; }</code></pre>
   </div>
 
@@ -1215,7 +1232,6 @@ public Vector2 Size { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The window title.&quot;)]
 public string Title { get; set; }</code></pre>
   </div>
 
@@ -1254,7 +1270,6 @@ public string Title { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse tracking offset.&quot;)]
 public Vector2 TrackingMouseOffset { get; }</code></pre>
   </div>
 
@@ -1295,7 +1310,6 @@ public Vector2 TrackingMouseOffset { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Brings window to the front of the Z order.&quot;)]
 public void BringToFront(bool force = false)</code></pre>
   </div>
 
@@ -1336,7 +1350,6 @@ public void BringToFront(bool force = false)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Converts window space location into screen space coordinates.&quot;)]
 public Vector2 ClientToScreen(Vector2 clientPos)</code></pre>
   </div>
 
@@ -1387,7 +1400,6 @@ public Vector2 ClientToScreen(Vector2 clientPos)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Closes the window.&quot;)]
 public void Close(ClosingReason reason = ClosingReason.CloseEvent)</code></pre>
   </div>
 
@@ -1467,7 +1479,6 @@ public void Close(ClosingReason reason = ClosingReason.CloseEvent)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts drag and drop operation&quot;)]
 public DragDropEffect DoDragDrop(string data)</code></pre>
   </div>
 
@@ -1518,7 +1529,6 @@ public DragDropEffect DoDragDrop(string data)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Ends the mouse tracking.&quot;)]
 public void EndTrackingMouse()</code></pre>
   </div>
 
@@ -1548,7 +1558,6 @@ public void EndTrackingMouse()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Flashes the window to bring use attention.&quot;)]
 public void FlashWindow()</code></pre>
   </div>
 
@@ -1578,7 +1587,6 @@ public void FlashWindow()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Focuses this window.&quot;)]
 public void Focus()</code></pre>
   </div>
 
@@ -1608,7 +1616,6 @@ public void Focus()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key state (true if key is being pressed during this frame).&quot;)]
 public bool GetKey(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1659,7 +1666,6 @@ public bool GetKey(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key 'down' state (true if key was pressed in this frame).&quot;)]
 public bool GetKeyDown(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1710,7 +1716,6 @@ public bool GetKeyDown(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The key 'up' state (true if key was released in this frame).&quot;)]
 public bool GetKeyUp(KeyboardKeys key)</code></pre>
   </div>
 
@@ -1761,7 +1766,6 @@ public bool GetKeyUp(KeyboardKeys key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button state.&quot;)]
 public bool GetMouseButton(MouseButton button)</code></pre>
   </div>
 
@@ -1812,7 +1816,6 @@ public bool GetMouseButton(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button down state.&quot;)]
 public bool GetMouseButtonDown(MouseButton button)</code></pre>
   </div>
 
@@ -1863,7 +1866,6 @@ public bool GetMouseButtonDown(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The mouse button up state.&quot;)]
 public bool GetMouseButtonUp(MouseButton button)</code></pre>
   </div>
 
@@ -1914,7 +1916,6 @@ public bool GetMouseButtonUp(MouseButton button)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Hides the window.&quot;)]
 public void Hide()</code></pre>
   </div>
 
@@ -1944,7 +1945,6 @@ public void Hide()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Maximizes the window.&quot;)]
 public void Maximize()</code></pre>
   </div>
 
@@ -1974,7 +1974,6 @@ public void Maximize()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Minimizes the window.&quot;)]
 public void Minimize()</code></pre>
   </div>
 
@@ -2004,7 +2003,6 @@ public void Minimize()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Restores the window state before minimizing or maximizing.&quot;)]
 public void Restore()</code></pre>
   </div>
 
@@ -2034,7 +2032,6 @@ public void Restore()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Converts screen space location into window space coordinates.&quot;)]
 public Vector2 ScreenToClient(Vector2 screenPos)</code></pre>
   </div>
 
@@ -2085,7 +2082,6 @@ public Vector2 ScreenToClient(Vector2 screenPos)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Shows the window.&quot;)]
 public void Show()</code></pre>
   </div>
 
@@ -2115,7 +2111,6 @@ public void Show()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Starts the mouse tracking.&quot;)]
 public void StartTrackingMouse(bool useMouseScreenOffset)</code></pre>
   </div>
 
@@ -2739,7 +2734,8 @@ public void StartTrackingMouse(bool useMouseScreenOffset)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

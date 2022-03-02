@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PostFxVolume
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.BoxVolume.html">BoxVolume</a></div>
     <div class="level5"><span class="xref">PostFxVolume</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_PostFxVolume" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_PostFxVolume" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_PostFxVolume" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -185,6 +191,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -367,6 +379,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -457,6 +472,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -489,8 +507,7 @@
   <h5 id="FlaxEngine_PostFxVolume_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;A special type of volume that blends custom set of post process settings into the rendering.&quot;)]
-public class PostFxVolume : BoxVolume</code></pre>
+public class PostFxVolume : BoxVolume, ISerializable</code></pre>
   </div>
 
   
@@ -545,7 +562,6 @@ public class PostFxVolume : BoxVolume</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Ambient Occlusion&quot;, null)]
 [EditorOrder(100)]
 [Unmanaged]
-[Tooltip(&quot;The ambient occlusion effect settings.&quot;)]
 public AmbientOcclusionSettings AmbientOcclusion { get; set; }</code></pre>
   </div>
 
@@ -586,7 +602,6 @@ public AmbientOcclusionSettings AmbientOcclusion { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Anti Aliasing&quot;, null)]
 [EditorOrder(1100)]
 [Unmanaged]
-[Tooltip(&quot;The anti-aliasing effect settings.&quot;)]
 public AntiAliasingSettings AntiAliasing { get; set; }</code></pre>
   </div>
 
@@ -627,7 +642,6 @@ public AntiAliasingSettings AntiAliasing { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;PostFx Volume&quot;, null)]
 [EditorOrder(70)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the distance inside the volume at which blending with the volume's settings occurs.&quot;)]
 public float BlendRadius { get; set; }</code></pre>
   </div>
 
@@ -668,7 +682,6 @@ public float BlendRadius { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;PostFx Volume&quot;, null)]
 [EditorOrder(80)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the amount of influence the volume's properties have. 0 is no effect; 1 is full effect.&quot;)]
 public float BlendWeight { get; set; }</code></pre>
   </div>
 
@@ -709,7 +722,6 @@ public float BlendWeight { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Bloom&quot;, null)]
 [EditorOrder(200)]
 [Unmanaged]
-[Tooltip(&quot;The bloom effect settings.&quot;)]
 public BloomSettings Bloom { get; set; }</code></pre>
   </div>
 
@@ -750,7 +762,6 @@ public BloomSettings Bloom { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Camera Artifacts&quot;, null)]
 [EditorOrder(600)]
 [Unmanaged]
-[Tooltip(&quot;The camera artifacts effect settings.&quot;)]
 public CameraArtifactsSettings CameraArtifacts { get; set; }</code></pre>
   </div>
 
@@ -791,7 +802,6 @@ public CameraArtifactsSettings CameraArtifacts { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Color Grading&quot;, null)]
 [EditorOrder(400)]
 [Unmanaged]
-[Tooltip(&quot;The color grading effect settings.&quot;)]
 public ColorGradingSettings ColorGrading { get; set; }</code></pre>
   </div>
 
@@ -832,7 +842,6 @@ public ColorGradingSettings ColorGrading { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Depth Of Field&quot;, null)]
 [EditorOrder(800)]
 [Unmanaged]
-[Tooltip(&quot;The depth of field effect settings.&quot;)]
 public DepthOfFieldSettings DepthOfField { get; set; }</code></pre>
   </div>
 
@@ -873,7 +882,6 @@ public DepthOfFieldSettings DepthOfField { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Eye Adaptation&quot;, null)]
 [EditorOrder(500)]
 [Unmanaged]
-[Tooltip(&quot;The eye adaptation effect settings.&quot;)]
 public EyeAdaptationSettings EyeAdaptation { get; set; }</code></pre>
   </div>
 
@@ -916,7 +924,6 @@ If true, the volume only has an effect within its bounds.</p>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;PostFx Volume&quot;, null)]
 [EditorOrder(90)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the value indicating whether the bounds of the volume are taken into account. If false, the volume affects the entire world, regardless of its bounds. If true, the volume only has an effect within its bounds.&quot;)]
 public bool IsBounded { get; set; }</code></pre>
   </div>
 
@@ -957,7 +964,6 @@ public bool IsBounded { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Lens Flares&quot;, null)]
 [EditorOrder(700)]
 [Unmanaged]
-[Tooltip(&quot;The lens flares effect settings.&quot;)]
 public LensFlaresSettings LensFlares { get; set; }</code></pre>
   </div>
 
@@ -998,7 +1004,6 @@ public LensFlaresSettings LensFlares { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Motion Blur&quot;, null)]
 [EditorOrder(900)]
 [Unmanaged]
-[Tooltip(&quot;The motion blur effect settings.&quot;)]
 public MotionBlurSettings MotionBlur { get; set; }</code></pre>
   </div>
 
@@ -1040,7 +1045,6 @@ public MotionBlurSettings MotionBlur { get; set; }</code></pre>
 [NoAnimate]
 [EditorOrder(1200)]
 [Unmanaged]
-[Tooltip(&quot;The PostFx materials rendering settings.&quot;)]
 public PostFxMaterialsSettings PostFxMaterials { get; set; }</code></pre>
   </div>
 
@@ -1082,7 +1086,6 @@ The volume with the highest priority takes precedence over all other overlapping
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;PostFx Volume&quot;, null)]
 [EditorOrder(60)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the order in which multiple volumes are blended together. The volume with the highest priority takes precedence over all other overlapping volumes.&quot;)]
 public int Priority { get; set; }</code></pre>
   </div>
 
@@ -1123,7 +1126,6 @@ public int Priority { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Screen Space Reflections&quot;, null)]
 [EditorOrder(1000)]
 [Unmanaged]
-[Tooltip(&quot;The screen space reflections effect settings.&quot;)]
 public ScreenSpaceReflectionsSettings ScreenSpaceReflections { get; set; }</code></pre>
   </div>
 
@@ -1164,7 +1166,6 @@ public ScreenSpaceReflectionsSettings ScreenSpaceReflections { get; set; }</code
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Tone Mapping&quot;, null)]
 [EditorOrder(300)]
 [Unmanaged]
-[Tooltip(&quot;The tone mapping effect settings.&quot;)]
 public ToneMappingSettings ToneMapping { get; set; }</code></pre>
   </div>
 
@@ -1205,7 +1206,6 @@ public ToneMappingSettings ToneMapping { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Adds the post fx material to the settings.&quot;)]
 public void AddPostFxMaterial(MaterialBase material)</code></pre>
   </div>
 
@@ -1246,7 +1246,6 @@ public void AddPostFxMaterial(MaterialBase material)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the post fx material from the settings.&quot;)]
 public void RemovePostFxMaterial(MaterialBase material)</code></pre>
   </div>
 
@@ -1295,7 +1294,8 @@ public void RemovePostFxMaterial(MaterialBase material)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

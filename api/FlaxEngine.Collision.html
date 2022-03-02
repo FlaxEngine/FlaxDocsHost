@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Collision
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -134,7 +134,6 @@
   <h5 id="FlaxEngine_Collision_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Contains a collision information passed to the OnCollisionEnter/OnCollisionExit events.&quot;)]
 public struct Collision : IEnumerable&lt;ContactPoint&gt;, IEnumerable</code></pre>
   </div>
 
@@ -156,8 +155,7 @@ public struct Collision : IEnumerable&lt;ContactPoint&gt;, IEnumerable</code></p
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The amount of valid contact points (less or equal to COLLISION_NAX_CONTACT_POINTS).&quot;)]
-public int ContactsCount</code></pre>
+    <pre><code class="lang-csharp hljs">public int ContactsCount</code></pre>
   </div>
 
   
@@ -193,8 +191,7 @@ public int ContactsCount</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The total impulse applied to this contact pair to resolve the collision.&quot;)]
-public Vector3 Impulse</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Impulse</code></pre>
   </div>
 
   
@@ -233,8 +230,7 @@ public Vector3 Impulse</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The second collider (other instance).&quot;)]
-public PhysicsColliderActor OtherActor</code></pre>
+    <pre><code class="lang-csharp hljs">public PhysicsColliderActor OtherActor</code></pre>
   </div>
 
   
@@ -270,8 +266,7 @@ public PhysicsColliderActor OtherActor</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The linear velocity of the second colliding object (other instance).&quot;)]
-public Vector3 OtherVelocity</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 OtherVelocity</code></pre>
   </div>
 
   
@@ -307,8 +302,7 @@ public Vector3 OtherVelocity</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The first collider (this instance).&quot;)]
-public PhysicsColliderActor ThisActor</code></pre>
+    <pre><code class="lang-csharp hljs">public PhysicsColliderActor ThisActor</code></pre>
   </div>
 
   
@@ -344,8 +338,7 @@ public PhysicsColliderActor ThisActor</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;The linear velocity of the first colliding object (this instance).&quot;)]
-public Vector3 ThisVelocity</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 ThisVelocity</code></pre>
   </div>
 
   
@@ -384,7 +377,7 @@ public Vector3 ThisVelocity</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContactPoint[] Contacts { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly ContactPoint[] Contacts { get; }</code></pre>
   </div>
 
   
@@ -424,7 +417,7 @@ public Vector3 ThisVelocity</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Collider OtherCollider { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Collider OtherCollider { get; }</code></pre>
   </div>
 
   
@@ -461,7 +454,7 @@ public Vector3 ThisVelocity</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 RelativeVelocity { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Vector3 RelativeVelocity { get; }</code></pre>
   </div>
 
   
@@ -501,7 +494,7 @@ public Vector3 ThisVelocity</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Collider ThisCollider { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly Collider ThisCollider { get; }</code></pre>
   </div>
 
   
@@ -628,7 +621,8 @@ public Vector3 ThisVelocity</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

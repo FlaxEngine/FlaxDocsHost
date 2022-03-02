@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Level
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Level_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene manager that contains the loaded scenes collection and spawns/deleted actors.&quot;)]
 public static class Level</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Level</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if any scene action is pending&quot;)]
 public static bool IsAnyActionPending { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static bool IsAnyActionPending { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if any scene has any actor&quot;)]
 public static bool IsAnyActorInGame { get; }</code></pre>
   </div>
 
@@ -239,7 +236,6 @@ public static bool IsAnyActorInGame { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks if any scene has been loaded. Loaded scene means deserialized and added to the scenes collection.&quot;)]
 public static bool IsAnySceneLoaded { get; }</code></pre>
   </div>
 
@@ -278,7 +274,6 @@ public static bool IsAnySceneLoaded { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The last scene load time (in UTC).&quot;)]
 public static DateTime LastSceneLoadTime { get; }</code></pre>
   </div>
 
@@ -317,7 +312,6 @@ public static DateTime LastSceneLoadTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The loaded scenes collection.&quot;)]
 public static Scene[] Scenes { get; }</code></pre>
   </div>
 
@@ -356,7 +350,6 @@ public static Scene[] Scenes { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scenes count.&quot;)]
 public static int ScenesCount { get; }</code></pre>
   </div>
 
@@ -495,7 +488,6 @@ public static int ScenesCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find actor with the given ID. It's very fast O(1) lookup.&quot;)]
 public static Actor FindActor(Guid id)</code></pre>
   </div>
 
@@ -546,7 +538,6 @@ public static Actor FindActor(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the actor with the given name.&quot;)]
 public static Actor FindActor(string name)</code></pre>
   </div>
 
@@ -597,7 +588,6 @@ public static Actor FindActor(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the actor of the given type in all the loaded scenes.&quot;)]
 public static Actor FindActor(Type type)</code></pre>
   </div>
 
@@ -757,7 +747,6 @@ public static Actor FindActor(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find scene with given ID.&quot;)]
 public static Scene FindScene(Guid id)</code></pre>
   </div>
 
@@ -808,7 +797,6 @@ public static Scene FindScene(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Tries to find the script of the given type in all the loaded scenes.&quot;)]
 public static Script FindScript(Type type)</code></pre>
   </div>
 
@@ -908,7 +896,6 @@ public static Script FindScript(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all the actors of the given type in all the loaded scenes.&quot;)]
 public static Actor[] GetActors(Type type)</code></pre>
   </div>
 
@@ -1008,7 +995,6 @@ public static Actor[] GetActors(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The zero-based index of the layer.&quot;)]
 public static int GetLayerIndex(string layer)</code></pre>
   </div>
 
@@ -1057,7 +1043,6 @@ public static int GetLayerIndex(string layer)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The scene.&quot;)]
 public static Scene GetScene(int index)</code></pre>
   </div>
 
@@ -1108,7 +1093,6 @@ public static Scene GetScene(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Finds all the scripts of the given type in all the loaded scenes.&quot;)]
 public static Script[] GetScripts(Type type)</code></pre>
   </div>
 
@@ -1247,9 +1231,9 @@ public static Script[] GetScripts(Type type)</code></pre>
   
   <a id="FlaxEngine_Level_LoadScene_" data-uid="FlaxEngine.Level.LoadScene*"></a>
   
-  <h4 id="FlaxEngine_Level_LoadScene_System_Guid_System_Boolean_" data-uid="FlaxEngine.Level.LoadScene(System.Guid,System.Boolean)"><a href="#collapsible-FlaxEngine_Level_LoadScene_System_Guid_System_Boolean_" class="expander" data-toggle="collapse">LoadScene(Guid, Boolean)</a></h4>
+  <h4 id="FlaxEngine_Level_LoadScene_System_Guid_" data-uid="FlaxEngine.Level.LoadScene(System.Guid)"><a href="#collapsible-FlaxEngine_Level_LoadScene_System_Guid_" class="expander" data-toggle="collapse">LoadScene(Guid)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Level_LoadScene_System_Guid_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_Level_LoadScene_System_Guid_" class="collapse in">
   <div class="markdown level1 summary"><p>Loads scene from the asset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1257,8 +1241,7 @@ public static Script[] GetScripts(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads scene from the asset.&quot;)]
-public static bool LoadScene(Guid id, bool autoInitialize = true)</code></pre>
+public static bool LoadScene(Guid id)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1268,14 +1251,6 @@ public static bool LoadScene(Guid id, bool autoInitialize = true)</code></pre>
         <span class="pull-right"><span class="xref">System.Guid</span></span>
         <span class="parametername">id</span>
         <p><p>Scene ID</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">autoInitialize</span>
-        <p><p>Enable/disable auto scene initialization, otherwise user should do it (in that situation scene is registered but not in a gameplay, call OnBeginPlay to start logic for it; it will deserialize scripts and references to the other objects).</p>
 </p>
       </td>
     </tr>
@@ -1365,7 +1340,6 @@ public static bool LoadScene(Guid id, bool autoInitialize = true)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads scene from the asset. Done in the background.&quot;)]
 public static bool LoadSceneAsync(Guid id)</code></pre>
   </div>
 
@@ -1406,9 +1380,9 @@ public static bool LoadSceneAsync(Guid id)</code></pre>
   
   <a id="FlaxEngine_Level_LoadSceneFromBytes_" data-uid="FlaxEngine.Level.LoadSceneFromBytes*"></a>
   
-  <h4 id="FlaxEngine_Level_LoadSceneFromBytes_System_Byte___System_Boolean_" data-uid="FlaxEngine.Level.LoadSceneFromBytes(System.Byte[],System.Boolean)"><a href="#collapsible-FlaxEngine_Level_LoadSceneFromBytes_System_Byte___System_Boolean_" class="expander" data-toggle="collapse">LoadSceneFromBytes(Byte[], Boolean)</a></h4>
+  <h4 id="FlaxEngine_Level_LoadSceneFromBytes_System_Byte___" data-uid="FlaxEngine.Level.LoadSceneFromBytes(System.Byte[])"><a href="#collapsible-FlaxEngine_Level_LoadSceneFromBytes_System_Byte___" class="expander" data-toggle="collapse">LoadSceneFromBytes(Byte[])</a></h4>
   
-  <div id="collapsible-FlaxEngine_Level_LoadSceneFromBytes_System_Byte___System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_Level_LoadSceneFromBytes_System_Byte___" class="collapse in">
   <div class="markdown level1 summary"><p>Loads scene from the bytes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1416,8 +1390,7 @@ public static bool LoadSceneAsync(Guid id)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Loads scene from the bytes.&quot;)]
-public static Scene LoadSceneFromBytes(byte[] data, bool autoInitialize = true)</code></pre>
+public static Scene LoadSceneFromBytes(byte[] data)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1427,14 +1400,6 @@ public static Scene LoadSceneFromBytes(byte[] data, bool autoInitialize = true)<
         <span class="pull-right"><span class="xref">System.Byte</span>[]</span>
         <span class="parametername">data</span>
         <p><p>The scene data to load.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">autoInitialize</span>
-        <p><p>Enable/disable auto scene initialization, otherwise user should do it (in that situation scene is registered but not in a gameplay, call OnBeginPlay to start logic for it; it will deserialize scripts and references to the other objects).</p>
 </p>
       </td>
     </tr>
@@ -1475,7 +1440,6 @@ public static Scene LoadSceneFromBytes(byte[] data, bool autoInitialize = true)<
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves all scenes to the assets.&quot;)]
 public static bool SaveAllScenes()</code></pre>
   </div>
 
@@ -1515,7 +1479,6 @@ public static bool SaveAllScenes()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves all scenes to the assets. Done in the background.&quot;)]
 public static void SaveAllScenesAsync()</code></pre>
   </div>
 
@@ -1545,7 +1508,6 @@ public static void SaveAllScenesAsync()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves scene to the asset.&quot;)]
 public static bool SaveScene(Scene scene, bool prettyJson = true)</code></pre>
   </div>
 
@@ -1604,7 +1566,6 @@ public static bool SaveScene(Scene scene, bool prettyJson = true)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves scene to the asset. Done in the background.&quot;)]
 public static void SaveSceneAsync(Scene scene)</code></pre>
   </div>
 
@@ -1645,7 +1606,6 @@ public static void SaveSceneAsync(Scene scene)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Saves scene to the bytes.&quot;)]
 public static byte[] SaveSceneToBytes(Scene scene, bool prettyJson = true)</code></pre>
   </div>
 
@@ -1704,7 +1664,6 @@ public static byte[] SaveSceneToBytes(Scene scene, bool prettyJson = true)</code
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawn actor on the scene&quot;)]
 public static bool SpawnActor(Actor actor)</code></pre>
   </div>
 
@@ -1755,7 +1714,6 @@ public static bool SpawnActor(Actor actor)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Spawns actor on the scene.&quot;)]
 public static bool SpawnActor(Actor actor, Actor parent)</code></pre>
   </div>
 
@@ -1814,7 +1772,6 @@ public static bool SpawnActor(Actor actor, Actor parent)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unloads all scenes.&quot;)]
 public static bool UnloadAllScenes()</code></pre>
   </div>
 
@@ -1854,7 +1811,6 @@ public static bool UnloadAllScenes()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unloads all scenes. Done in the background.&quot;)]
 public static void UnloadAllScenesAsync()</code></pre>
   </div>
 
@@ -1884,7 +1840,6 @@ public static void UnloadAllScenesAsync()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unloads given scene.&quot;)]
 public static bool UnloadScene(Scene scene)</code></pre>
   </div>
 
@@ -1934,7 +1889,6 @@ public static bool UnloadScene(Scene scene)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Unloads given scene. Done in the background.&quot;)]
 public static void UnloadSceneAsync(Scene scene)</code></pre>
   </div>
 
@@ -1975,7 +1929,6 @@ public static void UnloadSceneAsync(Scene scene)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when actor active state gets modified.&quot;)]
 public static event Action&lt;Actor&gt; ActorActiveChanged</code></pre>
   </div>
 
@@ -2013,7 +1966,6 @@ public static event Action&lt;Actor&gt; ActorActiveChanged</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when actor is removed from the game.&quot;)]
 public static event Action&lt;Actor&gt; ActorDeleted</code></pre>
   </div>
 
@@ -2051,7 +2003,6 @@ public static event Action&lt;Actor&gt; ActorDeleted</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when actor name gets changed.&quot;)]
 public static event Action&lt;Actor&gt; ActorNameChanged</code></pre>
   </div>
 
@@ -2089,7 +2040,6 @@ public static event Action&lt;Actor&gt; ActorNameChanged</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when actor index in parent actor children gets changed.&quot;)]
 public static event Action&lt;Actor&gt; ActorOrderInParentChanged</code></pre>
   </div>
 
@@ -2127,7 +2077,6 @@ public static event Action&lt;Actor&gt; ActorOrderInParentChanged</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when actor parent gets changed. Arguments: actor and previous parent actor.&quot;)]
 public static event Action&lt;Actor, Actor&gt; ActorParentChanged</code></pre>
   </div>
 
@@ -2165,7 +2114,6 @@ public static event Action&lt;Actor, Actor&gt; ActorParentChanged</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when new actor gets spawned to the game.&quot;)]
 public static event Action&lt;Actor&gt; ActorSpawned</code></pre>
   </div>
 
@@ -2203,7 +2151,6 @@ public static event Action&lt;Actor&gt; ActorSpawned</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene gets loaded.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneLoaded</code></pre>
   </div>
 
@@ -2241,7 +2188,6 @@ public static event Action&lt;Scene, Guid&gt; SceneLoaded</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene cannot be loaded (argument is error number).&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneLoadError</code></pre>
   </div>
 
@@ -2279,7 +2225,6 @@ public static event Action&lt;Scene, Guid&gt; SceneLoadError</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene starts loading.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneLoading</code></pre>
   </div>
 
@@ -2317,7 +2262,6 @@ public static event Action&lt;Scene, Guid&gt; SceneLoading</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene gets saved.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneSaved</code></pre>
   </div>
 
@@ -2355,7 +2299,6 @@ public static event Action&lt;Scene, Guid&gt; SceneSaved</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene gets saving error.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneSaveError</code></pre>
   </div>
 
@@ -2393,7 +2336,6 @@ public static event Action&lt;Scene, Guid&gt; SceneSaveError</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene starts saving.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneSaving</code></pre>
   </div>
 
@@ -2431,7 +2373,6 @@ public static event Action&lt;Scene, Guid&gt; SceneSaving</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene gets unloaded.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneUnloaded</code></pre>
   </div>
 
@@ -2469,7 +2410,6 @@ public static event Action&lt;Scene, Guid&gt; SceneUnloaded</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene gets unloading.&quot;)]
 public static event Action&lt;Scene, Guid&gt; SceneUnloading</code></pre>
   </div>
 
@@ -2507,8 +2447,44 @@ public static event Action&lt;Scene, Guid&gt; SceneUnloading</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene reloads scripts (scenes serialized and unloaded). All user objects should be cleaned up.&quot;)]
 public static event Action ScriptsReload</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Level_ScriptsReloaded" data-uid="FlaxEngine.Level.ScriptsReloaded"><a href="#collapsible-FlaxEngine_Level_ScriptsReloaded" class="expander" data-toggle="collapse">ScriptsReloaded</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Level_ScriptsReloaded" class="collapse in">
+  <div class="markdown level1 summary"><p>Fired when scene reloaded scripts (new scripting is loaded). All user objects can be restored before scenes reloading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action ScriptsReloaded</code></pre>
   </div>
 
   
@@ -2545,7 +2521,6 @@ public static event Action ScriptsReload</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene ends reloading scripts.&quot;)]
 public static event Action ScriptsReloadEnd</code></pre>
   </div>
 
@@ -2583,7 +2558,6 @@ public static event Action ScriptsReloadEnd</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Fired when scene starts reloading scripts.&quot;)]
 public static event Action ScriptsReloadStart</code></pre>
   </div>
 
@@ -2620,7 +2594,8 @@ public static event Action ScriptsReloadStart</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

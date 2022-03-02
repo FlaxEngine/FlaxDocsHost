@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class StaticModel
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.ModelInstanceActor.html">ModelInstanceActor</a></div>
     <div class="level5"><span class="xref">StaticModel</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_StaticModel" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_StaticModel" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_StaticModel" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -194,6 +200,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -376,6 +388,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -466,6 +481,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -498,8 +516,7 @@
   <h5 id="FlaxEngine_StaticModel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Renders model on the screen.&quot;)]
-public class StaticModel : ModelInstanceActor</code></pre>
+public class StaticModel : ModelInstanceActor, ISerializable</code></pre>
   </div>
 
   
@@ -555,7 +572,6 @@ public class StaticModel : ModelInstanceActor</code></pre>
 [EditorDisplay(&quot;Model&quot;, null)]
 [Limit(0F, 10F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model bounds scale. It is useful when using Position Offset to animate the vertices of the object outside of its bounds. Increasing the bounds of an object will reduce performance.&quot;)]
 public float BoundsScale { get; set; }</code></pre>
   </div>
 
@@ -596,7 +612,6 @@ public float BoundsScale { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(15)]
 [EditorDisplay(&quot;Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -638,7 +653,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model forced Level Of Detail index. Allows to bind the given model LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -677,7 +691,6 @@ public int ForcedLOD { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Determines whether this model has valid lightmap data.&quot;)]
 public bool HasLightmap { get; }</code></pre>
   </div>
 
@@ -716,7 +729,6 @@ public bool HasLightmap { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if model instance is using custom painted vertex colors buffer, otherwise it will use vertex colors from the original asset.&quot;)]
 public bool HasVertexColors { get; }</code></pre>
   </div>
 
@@ -758,7 +770,6 @@ public bool HasVertexColors { get; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model Level Of Detail bias value. Allows to increase or decrease rendered model quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -799,7 +810,6 @@ public int LODBias { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The model asset to draw.&quot;)]
 public Model Model { get; set; }</code></pre>
   </div>
 
@@ -841,7 +851,6 @@ public Model Model { get; set; }</code></pre>
 [EditorDisplay(&quot;Model&quot;, &quot;Scale In Lightmap&quot;)]
 [Limit(0F, 1000F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model scale in lightmap (applied to all the meshes).&quot;)]
 public float ScaleInLightmap { get; set; }</code></pre>
   </div>
 
@@ -882,7 +891,6 @@ public float ScaleInLightmap { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The material used to render mesh at given index (overriden by model instance buffer or model default).&quot;)]
 public MaterialBase GetMaterial(int meshIndex, int lodIndex = 0)</code></pre>
   </div>
 
@@ -941,7 +949,6 @@ public MaterialBase GetMaterial(int meshIndex, int lodIndex = 0)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The color of the painter vertex (this model instance).&quot;)]
 public Color32 GetVertexColor(int lodIndex, int meshIndex, int vertexIndex)</code></pre>
   </div>
 
@@ -1008,7 +1015,6 @@ public Color32 GetVertexColor(int lodIndex, int meshIndex, int vertexIndex)</cod
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the lightmap data from the model.&quot;)]
 public void RemoveLightmap()</code></pre>
   </div>
 
@@ -1038,7 +1044,6 @@ public void RemoveLightmap()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Removes the vertex colors buffer from this instance.&quot;)]
 public void RemoveVertexColors()</code></pre>
   </div>
 
@@ -1068,7 +1073,6 @@ public void RemoveVertexColors()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Sets the color of the painter vertex (this model instance).&quot;)]
 public void SetVertexColor(int lodIndex, int meshIndex, int vertexIndex, Color32 color)</code></pre>
   </div>
 
@@ -1141,7 +1145,8 @@ public void SetVertexColor(int lodIndex, int meshIndex, int vertexIndex, Color32
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

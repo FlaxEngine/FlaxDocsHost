@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Engine
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,7 +137,6 @@
   <h5 id="FlaxEngine_Engine_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The main engine class.&quot;)]
 public static class Engine</code></pre>
   </div>
 
@@ -161,7 +160,6 @@ public static class Engine</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The application command line arguments.&quot;)]
 public static string CommandLine { get; }</code></pre>
   </div>
 
@@ -200,7 +198,6 @@ public static string CommandLine { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current frame count since the start of the game.&quot;)]
 public static ulong FrameCount { get; }</code></pre>
   </div>
 
@@ -239,7 +236,6 @@ public static ulong FrameCount { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The amount of frames rendered during last second known as Frames Per Second. User scripts updates or fixed updates for physics may run at a different frequency than scene rendering. Use this property to get an accurate amount of frames rendered during the last second.&quot;)]
 public static int FramesPerSecond { get; }</code></pre>
   </div>
 
@@ -278,7 +274,6 @@ public static int FramesPerSecond { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;True if app has focus (one of the windows is being focused).&quot;)]
 public static bool HasFocus { get; }</code></pre>
   </div>
 
@@ -317,7 +312,6 @@ public static bool HasFocus { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Checks whenever the game viewport is focused by the user (eg. can receive input).&quot;)]
 public static bool HasGameViewportFocus { get; }</code></pre>
   </div>
 
@@ -356,7 +350,6 @@ public static bool HasGameViewportFocus { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if the game is running in the Flax Editor; false if run from any deployment target. Use this property to perform Editor-related actions.&quot;)]
 public static bool IsEditor { get; }</code></pre>
   </div>
 
@@ -395,7 +388,6 @@ public static bool IsEditor { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Returns true if engine is running without main window (aka headless mode).&quot;)]
 public static bool IsHeadless { get; }</code></pre>
   </div>
 
@@ -434,7 +426,6 @@ public static bool IsHeadless { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The engine start time (local time).&quot;)]
 public static DateTime StartupTime { get; }</code></pre>
   </div>
 
@@ -473,7 +464,6 @@ public static DateTime StartupTime { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Task graph for engine update.&quot;)]
 public static TaskGraph UpdateGraph { get; }</code></pre>
   </div>
 
@@ -514,7 +504,6 @@ public static TaskGraph UpdateGraph { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The custom game settings asset referenced by the given key.&quot;)]
 public static JsonAsset GetCustomSettings(string key)</code></pre>
   </div>
 
@@ -565,7 +554,6 @@ public static JsonAsset GetCustomSettings(string key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Requests normal engine exit.&quot;)]
 public static void RequestExit(int exitCode = 0)</code></pre>
   </div>
 
@@ -604,7 +592,8 @@ public static void RequestExit(int exitCode = 0)</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

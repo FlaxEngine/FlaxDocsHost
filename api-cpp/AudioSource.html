@@ -1,0 +1,2310 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AudioSource
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AudioSource
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class AudioSource
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AudioSource">
+  <h1 id="AudioSource" data-uid="AudioSource">Class AudioSource
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a source for emitting audio. Audio can be played spatially (gun shot), or normally (music). Each audio source must have an AudioClip to play - back, and it can also have a position in the case of spatial(3D) audio. </p><p>Whether or not an audio source is spatial is controlled by the assigned AudioClip.The volume and the pitch of a spatial audio source is controlled by its position and the AudioListener&#39;s position/direction/velocity. </p></div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-AudioSource" data-uid="AudioSource"><a href="#collapsible-inheritance-AudioSource" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-AudioSource" class="collapse">
+    <div class="level0"><a class="xref" href="Object.html">Object</a></div>
+    <div class="level1"><a class="xref" href="ScriptingObject.html">ScriptingObject</a></div>
+    <div class="level2"><a class="xref" href="SceneObject.html">SceneObject</a></div>
+    <div class="level3"><a class="xref" href="Actor.html">Actor</a></div>
+    <div class="level4"><span class="xref">AudioSource</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-AudioSource" data-uid="Actor._box"><a href="#collapsible-inheritedMembers-AudioSource" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-AudioSource" class="collapse">
+    <div>
+      <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject__id">ScriptingObject::_id</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__isActive">Actor::_isActive</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__isActiveInHierarchy">Actor::_isActiveInHierarchy</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__isEnabled">Actor::_isEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__isPrefabRoot">Actor::_isPrefabRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__layer">Actor::_layer</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__localTransform">Actor::_localTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__name">Actor::_name</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject__parent">SceneObject::_parent</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__physicsScene">Actor::_physicsScene</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject__prefabID">SceneObject::_prefabID</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject__prefabObjectID">SceneObject::_prefabObjectID</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__scene">Actor::_scene</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__sphere">Actor::_sphere</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__staticFlags">Actor::_staticFlags</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__tag">Actor::_tag</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor__transform">Actor::_transform</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject__type">ScriptingObject::_type</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_AddMovement_const_Vector3___">Actor::AddMovement(const Vector3&amp; translation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_AddMovement_const_Vector3___const_Quaternion___">Actor::AddMovement(const Vector3&amp; translation, const Quaternion&amp; rotation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_AddStaticFlags_StaticFlags_">Actor::AddStaticFlags(StaticFlags flags)</a>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_BreakPrefabLink__">Actor::BreakPrefabLink()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_ScriptingTypeHandle___const_ScriptingTypeHandle___">ScriptingObject::CanCast(const ScriptingTypeHandle&amp; from, const ScriptingTypeHandle&amp; to)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MClass___">ScriptingObject::CanCast(MClass* from, MClass* to)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MonoClass___">ScriptingObject::CanCast(MClass* from, MonoClass* to)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Cast_ScriptingObject___">ScriptingObject::Cast(ScriptingObject* obj)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ChangeID_const_Guid___">ScriptingObject::ChangeID(const Guid&amp; newId)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ChangeScriptOrder_Script___int32_">Actor::ChangeScriptOrder(Script* script, int32 newIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Children">Actor::Children</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CreateManaged__">ScriptingObject::CreateManaged()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CreateManagedInternal__">ScriptingObject::CreateManagedInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Deleted">ScriptingObject::Deleted</a>
+    </div>
+    <div>
+      <a class="xref" href="Object.html#Object_DeleteObject_float_bool_">Object::DeleteObject(float timeToLive = 0.0f, bool useGameTime=false)</a>
+    </div>
+    <div>
+      <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Draw_RenderContext___">Actor::Draw(RenderContext&amp; renderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_EndPlay__">Actor::EndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FindScript_const_MClass___">Actor::FindScript(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FindScript__">Actor::FindScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Object.html#Object_Flags">Object::Flags</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FromBytes_const_Span_byte____Array_Actor______ISerializeModifier___">Actor::FromBytes(const Span&lt;byte&gt;&amp; data, Array&lt;Actor* &gt;&amp; output, ISerializeModifier* modifier)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FromBytes_const_Span_byte____">Actor::FromBytes(const Span&lt;byte&gt;&amp; data)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FromBytes_const_Span_byte____const_Dictionary_Guid__Guid__HeapAllocation____">Actor::FromBytes(const Span&lt;byte&gt;&amp; data, const Dictionary&lt;Guid, Guid, HeapAllocation&gt;&amp; idsMapping)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_void___const_ScriptingTypeHandle___">ScriptingObject::FromInterface(void* interfaceObj, const ScriptingTypeHandle&amp; interfaceType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_FromJson_const_StringAnsiView___">Actor::FromJson(const StringAnsiView&amp; json)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetBox__">Actor::GetBox()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetBoxWithChildren__">Actor::GetBoxWithChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChild_int32_">Actor::GetChild(int32 index)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChild_const_StringView___">Actor::GetChild(const StringView&amp; name)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChild_const_MClass___">Actor::GetChild(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChild__">Actor::GetChild()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChildren_const_MClass___">Actor::GetChildren(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChildren__">Actor::GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetChildrenCount__">Actor::GetChildrenCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetClass__">ScriptingObject::GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetDirection__">Actor::GetDirection()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetEditorBoxChildren__">Actor::GetEditorBoxChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetID__">ScriptingObject::GetID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetIsActive__">Actor::GetIsActive()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLayer__">Actor::GetLayer()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLayerMask__">Actor::GetLayerMask()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLayerName__">Actor::GetLayerName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalOrientation__">Actor::GetLocalOrientation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalPosition__">Actor::GetLocalPosition()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalScale__">Actor::GetLocalScale()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalToWorldMatrix_Matrix___">Actor::GetLocalToWorldMatrix(Matrix&amp; localToWorld)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalTransform__">Actor::GetLocalTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetManagedInstance__">ScriptingObject::GetManagedInstance()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetName__">Actor::GetName()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrderInParent__">Actor::GetOrderInParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrientation__">Actor::GetOrientation()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_GetParent__">SceneObject::GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPerInstanceRandom__">Actor::GetPerInstanceRandom()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPhysicsScene__">Actor::GetPhysicsScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPosition__">Actor::GetPosition()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_GetPrefabID__">SceneObject::GetPrefabID()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScale__">Actor::GetScale()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScene__">Actor::GetScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetSceneObjectId__">Actor::GetSceneObjectId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetSceneRendering__">Actor::GetSceneRendering()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScript_int32_">Actor::GetScript(int32 index)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScript_const_MClass___">Actor::GetScript(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScript__">Actor::GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScriptByID_const_Guid___">Actor::GetScriptByID(const Guid&amp; id)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScripts_const_MClass___">Actor::GetScripts(const MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScripts__">Actor::GetScripts()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetScriptsCount__">Actor::GetScriptsCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetSphere__">Actor::GetSphere()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetStaticFlags__">Actor::GetStaticFlags()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetTag__">Actor::GetTag()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetTagIndex__">Actor::GetTagIndex()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetTransform__">Actor::GetTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetType__">ScriptingObject::GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_GetTypeHandle__">ScriptingObject::GetTypeHandle()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetWorldToLocalMatrix_Matrix___">Actor::GetWorldToLocalMatrix(Matrix&amp; worldToLocal)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HasActorInChildren_Actor___">Actor::HasActorInChildren(Actor* a)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HasActorInHierarchy_Actor___">Actor::HasActorInHierarchy(Actor* a)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_HasManagedInstance__">ScriptingObject::HasManagedInstance()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_HasParent__">SceneObject::HasParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_HasPrefabLink__">SceneObject::HasPrefabLink()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HasStaticFlag_StaticFlags_">Actor::HasStaticFlag(StaticFlags flag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HasTag__">Actor::HasTag()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HasTag_const_StringView___">Actor::HasTag(const StringView&amp; tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MClass___">ScriptingObject::Is(MClass* type)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MonoClass___">ScriptingObject::Is(MonoClass* klass)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is__">ScriptingObject::Is()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IsActiveInHierarchy__">Actor::IsActiveInHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_IsDuringPlay__">SceneObject::IsDuringPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IsPrefabRoot__">Actor::IsPrefabRoot()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_IsRegistered__">ScriptingObject::IsRegistered()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IsStatic__">Actor::IsStatic()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IsTransformStatic__">Actor::IsTransformStatic()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_LinkPrefab_const_Guid___const_Guid___">Actor::LinkPrefab(const Guid&amp; prefabId, const Guid&amp; prefabObjectId)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_LookAt_const_Vector3___">Actor::LookAt(const Vector3&amp; worldPos)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_LookAt_const_Vector3___const_Vector3___">Actor::LookAt(const Vector3&amp; worldPos, const Vector3&amp; worldUp)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_LookingAt_const_Vector3___">Actor::LookingAt(const Vector3&amp; worldPos)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_LookingAt_const_Vector3___const_Vector3___">Actor::LookingAt(const Vector3&amp; worldPos, const Vector3&amp; worldUp)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_NewObject_const_ScriptingTypeHandle___">ScriptingObject::NewObject(const ScriptingTypeHandle&amp; typeHandle)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_NewObject__">ScriptingObject::NewObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnActiveChanged__">Actor::OnActiveChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnActiveInTreeChanged__">Actor::OnActiveInTreeChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnBeginPlay__">Actor::OnBeginPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnDebugDraw__">Actor::OnDebugDraw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnDebugDrawSelected__">Actor::OnDebugDrawSelected()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnDeleteObject__">Actor::OnDeleteObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnEndPlay__">Actor::OnEndPlay()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnLayerChanged__">Actor::OnLayerChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_OnManagedInstanceDeleted__">ScriptingObject::OnManagedInstanceDeleted()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnOrderInParentChanged__">Actor::OnOrderInParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnParentChanged__">Actor::OnParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnPhysicsSceneChanged_PhysicsScene___">Actor::OnPhysicsSceneChanged(PhysicsScene* previous)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_OnScriptingDispose__">ScriptingObject::OnScriptingDispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnTagChanged__">Actor::OnTagChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_RemoveStaticFlags_StaticFlags_">Actor::RemoveStaticFlags(StaticFlags flags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ResetLocalTransform__">Actor::ResetLocalTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_SceneObject_const_SpawnParams___">SceneObject::SceneObject(const SpawnParams&amp; params)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ScriptingObject_const_SpawnParams___">ScriptingObject::ScriptingObject(const SpawnParams&amp; params)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Scripts">Actor::Scripts</a>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLayer_int32_">Actor::SetLayer(int32 layerIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLocalOrientation_const_Quaternion___">Actor::SetLocalOrientation(const Quaternion&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetName_const_StringView___">Actor::SetName(const StringView&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetOrderInParent_int32_">Actor::SetOrderInParent(int32 index)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetOrientation_const_Quaternion___">Actor::SetOrientation(const Quaternion&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetParent_Actor___bool_bool_">Actor::SetParent(Actor* value, bool worldPositionsStays, bool canBreakPrefabLink)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetParent_Actor___bool_">Actor::SetParent(Actor* value, bool canBreakPrefabLink=true)</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject_SetParent_Actor___">SceneObject::SetParent(Actor* value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetPhysicsScene_PhysicsScene___">Actor::SetPhysicsScene(PhysicsScene* scene)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetPosition_const_Vector3___">Actor::SetPosition(const Vector3&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetStaticFlag_StaticFlags_bool_">Actor::SetStaticFlag(StaticFlags flag, bool value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetStaticFlags_StaticFlags_">Actor::SetStaticFlags(StaticFlags value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetTag_const_StringView___">Actor::SetTag(const StringView&amp; tagName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetTagIndex_int32_">Actor::SetTagIndex(int32 tagIndex)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetTransform_const_Transform___">Actor::SetTransform(const Transform&amp; value)</a>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <span class="xref">AudioSource</span>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ToBytes_const_Array_Actor______MemoryWriteStream___">Actor::ToBytes(const Array&lt;Actor* &gt;&amp; actors, MemoryWriteStream&amp; output)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ToBytes_const_Array_Actor______">Actor::ToBytes(const Array&lt;Actor* &gt;&amp; actors)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToInterface_ScriptingObject___const_ScriptingTypeHandle___">ScriptingObject::ToInterface(ScriptingObject* obj, const ScriptingTypeHandle&amp; interfaceType)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToInterface_ScriptingObject___">ScriptingObject::ToInterface(ScriptingObject* obj)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ToJson__">Actor::ToJson()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToManaged_ScriptingObject___">ScriptingObject::ToManaged(ScriptingObject* obj)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToNative_MObject___">ScriptingObject::ToNative(MObject* obj)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_ToString__">Actor::ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_TreeExecute_Function_bool_Actor____Params_________Params_____">Actor::TreeExecute(Function&lt;bool(Actor* , Params ...)&gt;&amp; action, Params ... args)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_TreeExecuteChildren_Function_bool_Actor____Params_________Params_____">Actor::TreeExecuteChildren(Function&lt;bool(Actor* , Params ...)&gt;&amp; action, Params ... args)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_TryGetSerializedObjectsIds_const_Span_byte____">Actor::TryGetSerializedObjectsIds(const Span&lt;byte&gt;&amp; data)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_UnregisterObject__">ScriptingObject::UnregisterObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_UnregisterObjectHierarchy__">Actor::UnregisterObjectHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="ISerializable.html#ISerializable__ISerializable__">ISerializable::~ISerializable()</a>
+    </div>
+    <div>
+      <a class="xref" href="Object.html#Object__Object__">Object::~Object()</a>
+    </div>
+    <div>
+      <a class="xref" href="SceneObject.html#SceneObject__SceneObject__">SceneObject::~SceneObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject__ScriptingObject__">ScriptingObject::~ScriptingObject()</a>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
+  <h6><strong>File</strong>: Engine/Audio/AudioSource.h</h6>
+  
+  <h5 id="AudioSource_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public class AudioSource : public Actor</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h3 id="fields">Fields
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Clip.md&amp;value=---%0Auid%3A%20AudioSource.Clip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L73" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="AudioSource_Clip" data-uid="AudioSource.Clip"><a href="#collapsible-AudioSource_Clip" class="expander" data-toggle="collapse">Clip</a></h4>
+  
+  <div id="collapsible-AudioSource_Clip" class="collapse in">
+  <div class="markdown level1 summary"><p>The audio clip asset used as a source of the sound. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public AssetReference&lt;AudioClip&gt; Clip</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">AssetReference&lt;AudioClip&gt;</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SourceIDs.md&amp;value=---%0Auid%3A%20AudioSource.SourceIDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="AudioSource_SourceIDs" data-uid="AudioSource.SourceIDs"><a href="#collapsible-AudioSource_SourceIDs" class="expander" data-toggle="collapse">SourceIDs</a></h4>
+  
+  <div id="collapsible-AudioSource_SourceIDs" class="collapse in">
+  <div class="markdown level1 summary"><p>The internal IDs of this audio source used by the audio backend (unique ID per context/listener). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Array&lt;AUDIO_SOURCE_ID_TYPE, FixedAllocation&lt;AUDIO_MAX_LISTENERS&gt;&gt; SourceIDs</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">Array&lt;AUDIO_SOURCE_ID_TYPE, FixedAllocation&lt;AUDIO_MAX_LISTENERS&gt;&gt;</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20AudioSource.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L291" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_BeginPlay_" data-uid="AudioSource.BeginPlay*"></a>
+  
+  <h4 id="AudioSource_BeginPlay_SceneBeginData___" data-uid="AudioSource.BeginPlay(SceneBeginData *)"><a href="#collapsible-AudioSource_BeginPlay_SceneBeginData___" class="expander" data-toggle="collapse">BeginPlay(SceneBeginData* data)</a></h4>
+  
+  <div id="collapsible-AudioSource_BeginPlay_SceneBeginData___" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when adding object to the game. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected virtual void BeginPlay(SceneBeginData* data) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="SceneBeginData.html">SceneBeginData</a></span>
+        <span class="parametername">data</span>
+        <p><p>The initialization data (e.g. used to collect joints to link after begin).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SceneObject.html#SceneObject_BeginPlay_SceneBeginData___">SceneObject::BeginPlay(SceneBeginData* data)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Cleanup__.md&amp;value=---%0Auid%3A%20AudioSource.Cleanup()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L251" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Cleanup_" data-uid="AudioSource.Cleanup*"></a>
+  
+  <h4 id="AudioSource_Cleanup__" data-uid="AudioSource.Cleanup()"><a href="#collapsible-AudioSource_Cleanup__" class="expander" data-toggle="collapse">Cleanup()</a></h4>
+  
+  <div id="collapsible-AudioSource_Cleanup__" class="collapse in">
+  <div class="markdown level1 summary"><p>Cleanups the cached data. Called by the Audio manager. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Cleanup()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20AudioSource.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L281" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Deserialize_" data-uid="AudioSource.Deserialize*"></a>
+  
+  <h4 id="AudioSource_Deserialize_DeserializeStream___ISerializeModifier___" data-uid="AudioSource.Deserialize(DeserializeStream &amp;,ISerializeModifier *)"><a href="#collapsible-AudioSource_Deserialize_DeserializeStream___ISerializeModifier___" class="expander" data-toggle="collapse">Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></h4>
+  
+  <div id="collapsible-AudioSource_Deserialize_DeserializeStream___ISerializeModifier___" class="collapse in">
+  <div class="markdown level1 summary"><p>Deserializes object from the input stream. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">DeserializeStream</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The input stream.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ISerializeModifier.html">ISerializeModifier</a></span>
+        <span class="parametername">modifier</span>
+        <p><p>The deserialization modifier object. Always valid.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ISerializable.html#ISerializable_Deserialize_DeserializeStream___ISerializeModifier___">ISerializable::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetAttenuation__.md&amp;value=---%0Auid%3A%20AudioSource.GetAttenuation()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetAttenuation_" data-uid="AudioSource.GetAttenuation*"></a>
+  
+  <h4 id="AudioSource_GetAttenuation__" data-uid="AudioSource.GetAttenuation()"><a href="#collapsible-AudioSource_GetAttenuation__" class="expander" data-toggle="collapse">GetAttenuation()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetAttenuation__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the attenuation that controls how quickly does audio volume drop off as the listener moves further from the source. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetAttenuation() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetEditorBox__.md&amp;value=---%0Auid%3A%20AudioSource.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L274" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetEditorBox_" data-uid="AudioSource.GetEditorBox*"></a>
+  
+  <h4 id="AudioSource_GetEditorBox__" data-uid="AudioSource.GetEditorBox()"><a href="#collapsible-AudioSource_GetEditorBox__" class="expander" data-toggle="collapse">GetEditorBox()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetEditorBox__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets actor bounding box (single actor, no children included) for editor tools. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual BoundingBox GetEditorBox() const override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="BoundingBox.html">BoundingBox</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_GetEditorBox__">Actor::GetEditorBox()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetIsLooping__.md&amp;value=---%0Auid%3A%20AudioSource.GetIsLooping()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L118" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetIsLooping_" data-uid="AudioSource.GetIsLooping*"></a>
+  
+  <h4 id="AudioSource_GetIsLooping__" data-uid="AudioSource.GetIsLooping()"><a href="#collapsible-AudioSource_GetIsLooping__" class="expander" data-toggle="collapse">GetIsLooping()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetIsLooping__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the audio clip should loop when it finishes playing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool GetIsLooping() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetMinDistance__.md&amp;value=---%0Auid%3A%20AudioSource.GetMinDistance()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetMinDistance_" data-uid="AudioSource.GetMinDistance*"></a>
+  
+  <h4 id="AudioSource_GetMinDistance__" data-uid="AudioSource.GetMinDistance()"><a href="#collapsible-AudioSource_GetMinDistance__" class="expander" data-toggle="collapse">GetMinDistance()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetMinDistance__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the minimum distance at which audio attenuation starts. When the listener is closer to the source than this value, audio is heard at full volume. Once farther away the audio starts attenuating. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetMinDistance() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetPitch__.md&amp;value=---%0Auid%3A%20AudioSource.GetPitch()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetPitch_" data-uid="AudioSource.GetPitch*"></a>
+  
+  <h4 id="AudioSource_GetPitch__" data-uid="AudioSource.GetPitch()"><a href="#collapsible-AudioSource_GetPitch__" class="expander" data-toggle="collapse">GetPitch()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetPitch__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the pitch of the played audio. The default is 1. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetPitch() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetPlayOnStart__.md&amp;value=---%0Auid%3A%20AudioSource.GetPlayOnStart()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetPlayOnStart_" data-uid="AudioSource.GetPlayOnStart*"></a>
+  
+  <h4 id="AudioSource_GetPlayOnStart__" data-uid="AudioSource.GetPlayOnStart()"><a href="#collapsible-AudioSource_GetPlayOnStart__" class="expander" data-toggle="collapse">GetPlayOnStart()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetPlayOnStart__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the audio clip should auto play on level start. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool GetPlayOnStart() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetState__.md&amp;value=---%0Auid%3A%20AudioSource.GetState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L195" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetState_" data-uid="AudioSource.GetState*"></a>
+  
+  <h4 id="AudioSource_GetState__" data-uid="AudioSource.GetState()"><a href="#collapsible-AudioSource_GetState__" class="expander" data-toggle="collapse">GetState()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetState__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the current state of the audio playback (playing/paused/stopped). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public AudioSource::States GetState() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">AudioSource::States</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetTime__.md&amp;value=---%0Auid%3A%20AudioSource.GetTime()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L204" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetTime_" data-uid="AudioSource.GetTime*"></a>
+  
+  <h4 id="AudioSource_GetTime__" data-uid="AudioSource.GetTime()"><a href="#collapsible-AudioSource_GetTime__" class="expander" data-toggle="collapse">GetTime()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetTime__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the current time of playback. If playback has not yet started, it specifies the time at which playback will start at. The time is in seconds, in range [0, ClipLength]. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetTime() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p><p>The time.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetVelocity__.md&amp;value=---%0Auid%3A%20AudioSource.GetVelocity()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetVelocity_" data-uid="AudioSource.GetVelocity*"></a>
+  
+  <h4 id="AudioSource_GetVelocity__" data-uid="AudioSource.GetVelocity()"><a href="#collapsible-AudioSource_GetVelocity__" class="expander" data-toggle="collapse">GetVelocity()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetVelocity__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the velocity of the source. Determines pitch in relation to AudioListener&#39;s position. Only relevant for spatial (3D) sources. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Vector3 GetVelocity() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Vector3.html">Vector3</a>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetVolume__.md&amp;value=---%0Auid%3A%20AudioSource.GetVolume()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L88" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetVolume_" data-uid="AudioSource.GetVolume*"></a>
+  
+  <h4 id="AudioSource_GetVolume__" data-uid="AudioSource.GetVolume()"><a href="#collapsible-AudioSource_GetVolume__" class="expander" data-toggle="collapse">GetVolume()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetVolume__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the volume of the audio played from this source, in [0, 1] range. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetVolume() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_HasContentLoaded__.md&amp;value=---%0Auid%3A%20AudioSource.HasContentLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L282" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_HasContentLoaded_" data-uid="AudioSource.HasContentLoaded*"></a>
+  
+  <h4 id="AudioSource_HasContentLoaded__" data-uid="AudioSource.HasContentLoaded()"><a href="#collapsible-AudioSource_HasContentLoaded__" class="expander" data-toggle="collapse">HasContentLoaded()</a></h4>
+  
+  <div id="collapsible-AudioSource_HasContentLoaded__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if actor has loaded content. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool HasContentLoaded() const override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_HasContentLoaded__">Actor::HasContentLoaded()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_IntersectsItself_const_Ray___float___Vector3___.md&amp;value=---%0Auid%3A%20AudioSource.IntersectsItself(const%20Ray%20%26%2Cfloat%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L283" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_IntersectsItself_" data-uid="AudioSource.IntersectsItself*"></a>
+  
+  <h4 id="AudioSource_IntersectsItself_const_Ray___float___Vector3___" data-uid="AudioSource.IntersectsItself(const Ray &amp;,float &amp;,Vector3 &amp;)"><a href="#collapsible-AudioSource_IntersectsItself_const_Ray___float___Vector3___" class="expander" data-toggle="collapse">IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></h4>
+  
+  <div id="collapsible-AudioSource_IntersectsItself_const_Ray___float___Vector3___" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a Ray. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The ray to test.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">distance</span>
+        <p><p>When the method completes, contains the distance of the intersection (if any valid).</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="parametername">normal</span>
+        <p><p>When the method completes, contains the intersection surface normal vector (if any valid).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True whether the two objects intersected, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Is3D__.md&amp;value=---%0Auid%3A%20AudioSource.Is3D()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L216" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Is3D_" data-uid="AudioSource.Is3D*"></a>
+  
+  <h4 id="AudioSource_Is3D__" data-uid="AudioSource.Is3D()"><a href="#collapsible-AudioSource_Is3D__" class="expander" data-toggle="collapse">Is3D()</a></h4>
+  
+  <div id="collapsible-AudioSource_Is3D__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if the sound source is three dimensional (volume and pitch varies based on listener distance and velocity). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool Is3D() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_IsActuallyPlayingSth__.md&amp;value=---%0Auid%3A%20AudioSource.IsActuallyPlayingSth()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L235" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_IsActuallyPlayingSth_" data-uid="AudioSource.IsActuallyPlayingSth*"></a>
+  
+  <h4 id="AudioSource_IsActuallyPlayingSth__" data-uid="AudioSource.IsActuallyPlayingSth()"><a href="#collapsible-AudioSource_IsActuallyPlayingSth__" class="expander" data-toggle="collapse">IsActuallyPlayingSth()</a></h4>
+  
+  <div id="collapsible-AudioSource_IsActuallyPlayingSth__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether this audio source started playing audio via audio backend. After audio play it may wait for audio clip data to be loaded or streamed. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool IsActuallyPlayingSth() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>
+  <code>true</code> if audio source is actually playing something; otherwise, <code>false</code>.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnDisable__.md&amp;value=---%0Auid%3A%20AudioSource.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L289" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_OnDisable_" data-uid="AudioSource.OnDisable*"></a>
+  
+  <h4 id="AudioSource_OnDisable__" data-uid="AudioSource.OnDisable()"><a href="#collapsible-AudioSource_OnDisable__" class="expander" data-toggle="collapse">OnDisable()</a></h4>
+  
+  <div id="collapsible-AudioSource_OnDisable__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets removed from game systems. Occurs on EndPlay event or when actor gets inactivated in hierarchy. Use this event to unregister object from other game system (eg. audio). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected virtual void OnDisable() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_OnDisable__">Actor::OnDisable()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnEnable__.md&amp;value=---%0Auid%3A%20AudioSource.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L288" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_OnEnable_" data-uid="AudioSource.OnEnable*"></a>
+  
+  <h4 id="AudioSource_OnEnable__" data-uid="AudioSource.OnEnable()"><a href="#collapsible-AudioSource_OnEnable__" class="expander" data-toggle="collapse">OnEnable()</a></h4>
+  
+  <div id="collapsible-AudioSource_OnEnable__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets added to game systems. Occurs on BeginPlay event or when actor gets activated in hierarchy. Use this event to register object to other game system (eg. audio). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected virtual void OnEnable() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_OnEnable__">Actor::OnEnable()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnTransformChanged__.md&amp;value=---%0Auid%3A%20AudioSource.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L290" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_OnTransformChanged_" data-uid="AudioSource.OnTransformChanged*"></a>
+  
+  <h4 id="AudioSource_OnTransformChanged__" data-uid="AudioSource.OnTransformChanged()"><a href="#collapsible-AudioSource_OnTransformChanged__" class="expander" data-toggle="collapse">OnTransformChanged()</a></h4>
+  
+  <div id="collapsible-AudioSource_OnTransformChanged__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor transform gets changed. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected virtual void OnTransformChanged() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_OnTransformChanged__">Actor::OnTransformChanged()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Pause__.md&amp;value=---%0Auid%3A%20AudioSource.Pause()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L184" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Pause_" data-uid="AudioSource.Pause*"></a>
+  
+  <h4 id="AudioSource_Pause__" data-uid="AudioSource.Pause()"><a href="#collapsible-AudioSource_Pause__" class="expander" data-toggle="collapse">Pause()</a></h4>
+  
+  <div id="collapsible-AudioSource_Pause__" class="collapse in">
+  <div class="markdown level1 summary"><p>Pauses the audio playback. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Pause()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Play__.md&amp;value=---%0Auid%3A%20AudioSource.Play()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Play_" data-uid="AudioSource.Play*"></a>
+  
+  <h4 id="AudioSource_Play__" data-uid="AudioSource.Play()"><a href="#collapsible-AudioSource_Play__" class="expander" data-toggle="collapse">Play()</a></h4>
+  
+  <div id="collapsible-AudioSource_Play__" class="collapse in">
+  <div class="markdown level1 summary"><p>Starts playing the currently assigned audio clip. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Play()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_RequestStreamingBuffersUpdate__.md&amp;value=---%0Auid%3A%20AudioSource.RequestStreamingBuffersUpdate()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L243" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_RequestStreamingBuffersUpdate_" data-uid="AudioSource.RequestStreamingBuffersUpdate*"></a>
+  
+  <h4 id="AudioSource_RequestStreamingBuffersUpdate__" data-uid="AudioSource.RequestStreamingBuffersUpdate()"><a href="#collapsible-AudioSource_RequestStreamingBuffersUpdate__" class="expander" data-toggle="collapse">RequestStreamingBuffersUpdate()</a></h4>
+  
+  <div id="collapsible-AudioSource_RequestStreamingBuffersUpdate__" class="collapse in">
+  <div class="markdown level1 summary"><p>Requests the audio streaming buffers update. Rises tha flag to synchronize audio backend buffers of the emitter during next game logic update. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void RequestStreamingBuffersUpdate()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Restore__.md&amp;value=---%0Auid%3A%20AudioSource.Restore()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L227" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Restore_" data-uid="AudioSource.Restore*"></a>
+  
+  <h4 id="AudioSource_Restore__" data-uid="AudioSource.Restore()"><a href="#collapsible-AudioSource_Restore__" class="expander" data-toggle="collapse">Restore()</a></h4>
+  
+  <div id="collapsible-AudioSource_Restore__" class="collapse in">
+  <div class="markdown level1 summary"><p>Restores the saved time position and resumes/pauses the playback based on the state before. Used to restore audio source state after data rebuild (eg. by audio backend). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Restore()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20AudioSource.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L280" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Serialize_" data-uid="AudioSource.Serialize*"></a>
+  
+  <h4 id="AudioSource_Serialize_SerializeStream___const_void___" data-uid="AudioSource.Serialize(SerializeStream &amp;,const void *)"><a href="#collapsible-AudioSource_Serialize_SerializeStream___const_void___" class="expander" data-toggle="collapse">Serialize(SerializeStream&amp; stream, const void* otherObj)</a></h4>
+  
+  <div id="collapsible-AudioSource_Serialize_SerializeStream___const_void___" class="collapse in">
+  <div class="markdown level1 summary"><p>Serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void Serialize(SerializeStream&amp; stream, const void* otherObj) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">SerializeStream</span></span>
+        <span class="parametername">stream</span>
+        <p><p>The output stream.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">void</span></span>
+        <span class="parametername">otherObj</span>
+        <p><p>The instance of the object to compare with and serialize only the modified properties. If null, then serialize all properties.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ISerializable.html#ISerializable_Serialize_SerializeStream___const_void___">ISerializable::Serialize(SerializeStream&amp; stream, const void* otherObj)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetAttenuation_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetAttenuation(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L172" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetAttenuation_" data-uid="AudioSource.SetAttenuation*"></a>
+  
+  <h4 id="AudioSource_SetAttenuation_float_" data-uid="AudioSource.SetAttenuation(float)"><a href="#collapsible-AudioSource_SetAttenuation_float_" class="expander" data-toggle="collapse">SetAttenuation(float value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetAttenuation_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the attenuation that controls how quickly does audio volume drop off as the listener moves further from the source. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetAttenuation(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetIsLooping_bool_.md&amp;value=---%0Auid%3A%20AudioSource.SetIsLooping(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetIsLooping_" data-uid="AudioSource.SetIsLooping*"></a>
+  
+  <h4 id="AudioSource_SetIsLooping_bool_" data-uid="AudioSource.SetIsLooping(bool)"><a href="#collapsible-AudioSource_SetIsLooping_bool_" class="expander" data-toggle="collapse">SetIsLooping(bool value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetIsLooping_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the audio clip should loop when it finishes playing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetIsLooping(bool value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetMinDistance_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetMinDistance(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L157" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetMinDistance_" data-uid="AudioSource.SetMinDistance*"></a>
+  
+  <h4 id="AudioSource_SetMinDistance_float_" data-uid="AudioSource.SetMinDistance(float)"><a href="#collapsible-AudioSource_SetMinDistance_float_" class="expander" data-toggle="collapse">SetMinDistance(float value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetMinDistance_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the minimum distance at which audio attenuation starts. When the listener is closer to the source than this value, audio is heard at full volume. Once farther away the audio starts attenuating. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetMinDistance(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetPitch_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetPitch(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetPitch_" data-uid="AudioSource.SetPitch*"></a>
+  
+  <h4 id="AudioSource_SetPitch_float_" data-uid="AudioSource.SetPitch(float)"><a href="#collapsible-AudioSource_SetPitch_float_" class="expander" data-toggle="collapse">SetPitch(float value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetPitch_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the pitch of the played audio. The default is 1. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetPitch(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetPlayOnStart_bool_.md&amp;value=---%0Auid%3A%20AudioSource.SetPlayOnStart(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L142" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetPlayOnStart_" data-uid="AudioSource.SetPlayOnStart*"></a>
+  
+  <h4 id="AudioSource_SetPlayOnStart_bool_" data-uid="AudioSource.SetPlayOnStart(bool)"><a href="#collapsible-AudioSource_SetPlayOnStart_bool_" class="expander" data-toggle="collapse">SetPlayOnStart(bool value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetPlayOnStart_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the audio clip should auto play on game start. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetPlayOnStart(bool value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetTime_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetTime(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L210" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetTime_" data-uid="AudioSource.SetTime*"></a>
+  
+  <h4 id="AudioSource_SetTime_float_" data-uid="AudioSource.SetTime(float)"><a href="#collapsible-AudioSource_SetTime_float_" class="expander" data-toggle="collapse">SetTime(float time)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetTime_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the current time of playback. If playback has not yet started, it specifies the time at which playback will start at. The time is in seconds, in range [0, ClipLength]. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetTime(float time)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">time</span>
+        <p><p>The time.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetVolume_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetVolume(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L97" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetVolume_" data-uid="AudioSource.SetVolume*"></a>
+  
+  <h4 id="AudioSource_SetVolume_float_" data-uid="AudioSource.SetVolume(float)"><a href="#collapsible-AudioSource_SetVolume_float_" class="expander" data-toggle="collapse">SetVolume(float value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetVolume_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the volume of the audio played from this source, in [0, 1] range. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetVolume(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Stop__.md&amp;value=---%0Auid%3A%20AudioSource.Stop()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L189" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_Stop_" data-uid="AudioSource.Stop*"></a>
+  
+  <h4 id="AudioSource_Stop__" data-uid="AudioSource.Stop()"><a href="#collapsible-AudioSource_Stop__" class="expander" data-toggle="collapse">Stop()</a></h4>
+  
+  <div id="collapsible-AudioSource_Stop__" class="collapse in">
+  <div class="markdown level1 summary"><p>Stops audio playback, rewinding it to the start. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Stop()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_UseStreaming__.md&amp;value=---%0Auid%3A%20AudioSource.UseStreaming()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L222" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_UseStreaming_" data-uid="AudioSource.UseStreaming*"></a>
+  
+  <h4 id="AudioSource_UseStreaming__" data-uid="AudioSource.UseStreaming()"><a href="#collapsible-AudioSource_UseStreaming__" class="expander" data-toggle="collapse">UseStreaming()</a></h4>
+  
+  <div id="collapsible-AudioSource_UseStreaming__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if audio clip is valid, loaded and uses dynamic data streaming. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool UseStreaming() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if audio clip is using streaming, false otherwise.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource.md&amp;value=---%0Auid%3A%20AudioSource%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

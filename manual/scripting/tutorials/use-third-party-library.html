@@ -7,7 +7,7 @@
     <title>HOWTO: Use third-party library | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="HOWTO: Use third-party library | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -97,14 +97,14 @@
 </ul>
 <p>In this documentation section, you will learn how to use a third-party library in C++ or C# scripts.</p>
 <h2 id="using-c-library">Using C# library</h2>
-<p>To add a reference to prebuild .Net DLL file in your game scripts simply modify the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) by adding the file reference in overridden <code>Setup</code> method:</p>
+<p>To add a reference to prebuild .Net DLL file in your game scripts simply modify the build script file (eg. <code>Source/GameModule/GameModule.Build.cs</code>) by adding the file reference in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">// Reference C# DLL placed Content folder
 options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;JetBrains.Annotations.dll&quot;));
 </code></pre><p>Then generate scripts projects solution to use types from imported C# module inside game code.
 This will work for scripts build for the editor and cooked game as the referenced assembly will be packaged. Build system will also copy relevant <code>.pdb</code> and <code>.xml</code> files if provided.</p>
 <p>Remember that engine uses .Net Framework 4.5 (.Net Core API is not supported).</p>
 <h2 id="using-c-library-1">Using C++ library</h2>
-<p>To add a reference to the prebuild native library in your game scripts you need to modify the built environment of your game code module. It requires adding library header files location to includes search path and modification of the link environment to reference the given library. Also if you use a dynamic library you need to mark it as a dependency file to deploy during the build. To do so simply edit the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) in overridden <code>Setup</code> method:</p>
+<p>To add a reference to the prebuild native library in your game scripts you need to modify the built environment of your game code module. It requires adding library header files location to includes search path and modification of the link environment to reference the given library. Also if you use a dynamic library you need to mark it as a dependency file to deploy during the build. To do so simply edit the build script file (eg. <code>Source/GameModule/GameModule.Build.cs</code>) in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">var bcryptPath = Path.Combine(FolderPath, &quot;..&quot;, &quot;bcrypt&quot;);
 options.CompileEnv.IncludePaths.Add(Path.Combine(bcryptPath, &quot;include&quot;));
 options.LinkEnv.InputLibraries.Add(Path.Combine(bcryptPath, &quot;lib&quot;, &quot;bcrypt.lib&quot;));
@@ -117,7 +117,7 @@ options.CompileEnv.PreprocessorDefinitions.Add(&quot;USE_BCRYPT&quot;);
 <p>To understand referencing external libraries even better let&#39;s see how to use external Steamworks API from the native library with C# bindings. In this example, we will use <a href="https://github.com/rlabrecque/Steamworks.NET">Steamworks.NET</a> project. You can download a prebuild released version and get files from the package (files from folder <code>Windows-x64</code>).</p>
 <p>Firstly, copy library files into the project workspace so we can use them. You can place them in a <code>Content/Steamworks.NET</code> folder.</p>
 <p><img src="media/steamworks-files.png" alt="ThirdParty Library Code Use Example"></p>
-<p>Next step is to modify the game code build script (eg. <code>Source/GameModule/MyGame.Build.cs</code>) to reference the library in overridden <code>Setup</code> method:</p>
+<p>Next step is to modify the game code build script (eg. <code>Source/GameModule/GameModule.Build.cs</code>) to reference the library in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">var steamworksPath = Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;Steamworks.NET&quot;);
 options.ScriptingAPI.FileReferences.Add(Path.Combine(steamworksPath, &quot;Steamworks.NET.dll&quot;));
 options.DependencyFiles.Add(Path.Combine(steamworksPath, &quot;steam_api64.dll&quot;));
@@ -177,12 +177,13 @@ public class Steam : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Joint
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -93,7 +93,7 @@
   <h1 id="FlaxEngine_Joint" data-uid="FlaxEngine.Joint">Class Joint
   </h1>
   <div class="markdown level0 summary"><p>A base class for all Joint types. Joints constrain how two rigidbodies move relative to one another (for example a door hinge).
-One of the bodies in the joint must always be movable (non-kinematic).</p>
+One of the bodies in the joint must always be movable (non-kinematic and non-static).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -112,6 +112,12 @@ One of the bodies in the joint must always be movable (non-kinematic).</p>
       <div class="level5"><a class="xref" href="FlaxEngine.SliderJoint.html">SliderJoint</a></div>
       <div class="level5"><a class="xref" href="FlaxEngine.SphericalJoint.html">SphericalJoint</a></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Joint" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_Joint" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Joint" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -185,6 +191,12 @@ One of the bodies in the joint must always be movable (non-kinematic).</p>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -367,6 +379,9 @@ One of the bodies in the joint must always be movable (non-kinematic).</p>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -457,6 +472,9 @@ One of the bodies in the joint must always be movable (non-kinematic).</p>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -489,8 +507,7 @@ One of the bodies in the joint must always be movable (non-kinematic).</p>
   <h5 id="FlaxEngine_Joint_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;A base class for all Joint types. Joints constrain how two rigidbodies move relative to one another (for example a door hinge). One of the bodies in the joint must always be movable (non-kinematic).&quot;)]
-public abstract class Joint : Actor</code></pre>
+public abstract class Joint : Actor, ISerializable</code></pre>
   </div>
 
   
@@ -548,7 +565,6 @@ public abstract class Joint : Actor</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the break force. Determines the maximum force the joint can apply before breaking. Broken joints no longer participate in physics simulation.&quot;)]
 public float BreakForce { get; set; }</code></pre>
   </div>
 
@@ -589,7 +605,6 @@ public float BreakForce { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the break torque. Determines the maximum torque the joint can apply before breaking. Broken joints no longer participate in physics simulation.&quot;)]
 public float BreakTorque { get; set; }</code></pre>
   </div>
 
@@ -602,6 +617,46 @@ public float BreakTorque { get; set; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Joint_EnableAutoAnchor_" data-uid="FlaxEngine.Joint.EnableAutoAnchor*"></a>
+  
+  <h4 id="FlaxEngine_Joint_EnableAutoAnchor" data-uid="FlaxEngine.Joint.EnableAutoAnchor"><a href="#collapsible-FlaxEngine_Joint_EnableAutoAnchor" class="expander" data-toggle="collapse">EnableAutoAnchor</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Joint_EnableAutoAnchor" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether use automatic target anchor position and rotation based on the joint world-space frame (computed when creating joint).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(39)]
+[EditorDisplay(&quot;Joint&quot;, null)]
+[Unmanaged]
+public bool EnableAutoAnchor { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
@@ -630,7 +685,6 @@ public float BreakTorque { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Determines whether collision between the two bodies managed by the joint are enabled.&quot;)]
 public bool EnableCollision { get; set; }</code></pre>
   </div>
 
@@ -671,7 +725,6 @@ public bool EnableCollision { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
 [EditorDisplay(&quot;Joint&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The target actor for the joint. It has to be IPhysicsActor type (eg. RigidBody or CharacterController).&quot;)]
 public Actor Target { get; set; }</code></pre>
   </div>
 
@@ -711,8 +764,8 @@ public Actor Target { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [EditorDisplay(&quot;Joint&quot;, null)]
+[VisibleIf(&quot;EnableAutoAnchor&quot;, true)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the target anchor.&quot;)]
 public Vector3 TargetAnchor { get; set; }</code></pre>
   </div>
 
@@ -755,8 +808,8 @@ public Vector3 TargetAnchor { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [EditorDisplay(&quot;Joint&quot;, null)]
+[VisibleIf(&quot;EnableAutoAnchor&quot;, true)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the target anchor rotation.&quot;)]
 public Quaternion TargetAnchorRotation { get; set; }</code></pre>
   </div>
 
@@ -800,7 +853,6 @@ public Quaternion TargetAnchorRotation { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;The current force applied by the solver to maintain all constraints.&quot;)]
 public void GetCurrentForce(out Vector3 linear, out Vector3 angular)</code></pre>
   </div>
 
@@ -835,6 +887,92 @@ public void GetCurrentForce(out Vector3 linear, out Vector3 angular)</code></pre
   
   
   </div>
+  
+  
+  <a id="FlaxEngine_Joint_SetJointLocation_" data-uid="FlaxEngine.Joint.SetJointLocation*"></a>
+  
+  <h4 id="FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_" data-uid="FlaxEngine.Joint.SetJointLocation(FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">SetJointLocation(Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the location of the joint by automatically computing local position and target anchor to place a joint at the given location (world-space).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetJointLocation(Vector3 location)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">location</span>
+        <p><p>The joint location to set (world-space).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Joint_SetJointLocation_FlaxEngine_Vector3__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this utility to automatically place joint at the given location after setting up joint parent and target.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Joint_SetJointOrientation_" data-uid="FlaxEngine.Joint.SetJointOrientation*"></a>
+  
+  <h4 id="FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_" data-uid="FlaxEngine.Joint.SetJointOrientation(FlaxEngine.Quaternion)"><a href="#collapsible-FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_" class="expander" data-toggle="collapse">SetJointOrientation(Quaternion)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the orientation of the joint by automatically computing local orientation and target anchor orientation to orient a joint at the given rotation (world-space).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetJointOrientation(Quaternion orientation)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The joint orientation to set (world-space).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Joint_SetJointOrientation_FlaxEngine_Quaternion__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this utility to automatically rotate joint at the given location after setting up joint parent and target.</p>
+</div>
+  
+  
+  
+  </div>
   <h3 id="events">Events
   </h3>
   
@@ -850,7 +988,6 @@ public void GetCurrentForce(out Vector3 linear, out Vector3 angular)</code></pre
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Occurs when a joint gets broken during simulation.&quot;)]
 public event Action JointBreak</code></pre>
   </div>
 
@@ -898,7 +1035,8 @@ public event Action JointBreak</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

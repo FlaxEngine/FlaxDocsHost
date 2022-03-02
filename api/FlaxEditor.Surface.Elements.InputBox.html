@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class InputBox
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -192,9 +192,6 @@
       <a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_Connect_FlaxEditor_Surface_IConnectionInstigator_">Box.Connect(IConnectionInstigator)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_OnDestroy">Box.OnDestroy()</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_ID">Box.ID</a>
     </div>
     <div>
@@ -243,6 +240,18 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Tag">Control.Tag</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetUp">Control.NavTargetUp</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetDown">Control.NavTargetDown</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetLeft">Control.NavTargetLeft</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavTargetRight">Control.NavTargetRight</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -289,6 +298,21 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnEndMouseCapture">Control.OnEndMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavTarget_FlaxEngine_GUI_NavDirection_">Control.GetNavTarget(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_GetNavOrigin_FlaxEngine_GUI_NavDirection_">Control.GetNavOrigin(NavDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnNavigate_FlaxEngine_GUI_NavDirection_FlaxEngine_Vector2_FlaxEngine_GUI_Control_System_Collections_Generic_List_FlaxEngine_GUI_Control__">Control.OnNavigate(NavDirection, Vector2, Control, List&lt;Control&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_NavigationFocus">Control.NavigationFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseWheel_FlaxEngine_Vector2_System_Single_">Control.OnMouseWheel(Vector2, Single)</a>
@@ -567,6 +591,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsFocused">Control.IsFocused</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsNavFocused">Control.IsNavFocused</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IsMouseOver">Control.IsMouseOver</a>
     </div>
     <div>
@@ -761,6 +788,80 @@ public class InputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConne
   </div>
   
   
+  <a id="FlaxEditor_Surface_Elements_InputBox_HasCustomValueAccess_" data-uid="FlaxEditor.Surface.Elements.InputBox.HasCustomValueAccess*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_InputBox_HasCustomValueAccess" data-uid="FlaxEditor.Surface.Elements.InputBox.HasCustomValueAccess"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_HasCustomValueAccess" class="expander" data-toggle="collapse">HasCustomValueAccess</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_InputBox_HasCustomValueAccess" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if node has custom value access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasCustomValueAccess { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_InputBox_HasValue_" data-uid="FlaxEditor.Surface.Elements.InputBox.HasValue*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_InputBox_HasValue" data-uid="FlaxEditor.Surface.Elements.InputBox.HasValue"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_HasValue" class="expander" data-toggle="collapse">HasValue</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_InputBox_HasValue" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if node has value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasValue { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Surface_Elements_InputBox_IsOutput_" data-uid="FlaxEditor.Surface.Elements.InputBox.IsOutput*"></a>
   
   <h4 id="FlaxEditor_Surface_Elements_InputBox_IsOutput" data-uid="FlaxEditor.Surface.Elements.InputBox.IsOutput"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_IsOutput" class="expander" data-toggle="collapse">IsOutput</a></h4>
@@ -792,6 +893,43 @@ public class InputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConne
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_IsOutput">Box.IsOutput</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_InputBox_Value_" data-uid="FlaxEditor.Surface.Elements.InputBox.Value*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_InputBox_Value" data-uid="FlaxEditor.Surface.Elements.InputBox.Value"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_Value" class="expander" data-toggle="collapse">Value</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_InputBox_Value" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Value { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Object</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
   
   
   
@@ -914,6 +1052,36 @@ public class InputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConne
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_OnCurrentTypeChanged">Box.OnCurrentTypeChanged()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Surface_Elements_InputBox_OnDestroy_" data-uid="FlaxEditor.Surface.Elements.InputBox.OnDestroy*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_InputBox_OnDestroy" data-uid="FlaxEditor.Surface.Elements.InputBox.OnDestroy"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_OnDestroy" class="expander" data-toggle="collapse">OnDestroy()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_InputBox_OnDestroy" class="collapse in">
+  <div class="markdown level1 summary"><p>Method called when managed instance should be destroyed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDestroy()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.Surface.Elements.Box.html#FlaxEditor_Surface_Elements_Box_OnDestroy">Box.OnDestroy()</a></div>
   
   
   
@@ -1079,6 +1247,53 @@ public class InputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConne
   
   </div>
   
+  
+  <a id="FlaxEditor_Surface_Elements_InputBox_UseCustomValueAccess_" data-uid="FlaxEditor.Surface.Elements.InputBox.UseCustomValueAccess*"></a>
+  
+  <h4 id="FlaxEditor_Surface_Elements_InputBox_UseCustomValueAccess_System_Func_FlaxEditor_Surface_Elements_InputBox_System_Object__System_Action_FlaxEditor_Surface_Elements_InputBox_System_Object__" data-uid="FlaxEditor.Surface.Elements.InputBox.UseCustomValueAccess(System.Func{FlaxEditor.Surface.Elements.InputBox,System.Object},System.Action{FlaxEditor.Surface.Elements.InputBox,System.Object})"><a href="#collapsible-FlaxEditor_Surface_Elements_InputBox_UseCustomValueAccess_System_Func_FlaxEditor_Surface_Elements_InputBox_System_Object__System_Action_FlaxEditor_Surface_Elements_InputBox_System_Object__" class="expander" data-toggle="collapse">UseCustomValueAccess(Func&lt;InputBox, Object&gt;, Action&lt;InputBox, Object&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Surface_Elements_InputBox_UseCustomValueAccess_System_Func_FlaxEditor_Surface_Elements_InputBox_System_Object__System_Action_FlaxEditor_Surface_Elements_InputBox_System_Object__" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the custom accessor callbacks for the box value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UseCustomValueAccess(Func&lt;InputBox, object&gt; getter, Action&lt;InputBox, object&gt; setter)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Func</span>&lt;<a class="xref" href="FlaxEditor.Surface.Elements.InputBox.html">InputBox</a>, <span class="xref">System.Object</span>&gt;</span>
+        <span class="parametername">getter</span>
+        <p><p>The function to call to get value for the box.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEditor.Surface.Elements.InputBox.html">InputBox</a>, <span class="xref">System.Object</span>&gt;</span>
+        <span class="parametername">setter</span>
+        <p><p>The function to call to set value for the box.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
@@ -1101,7 +1316,8 @@ public class InputBox : Box, IComparable, IDrawable, ISurfaceNodeElement, IConne
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

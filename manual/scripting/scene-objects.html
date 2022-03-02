@@ -7,7 +7,7 @@
     <title>Accessing scene objects | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Accessing scene objects | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,11 +69,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -92,29 +92,131 @@
 <p>One of the most important aspects of the scripts is interaction and accessing other scene objects including of course the actor that script is attached to. For instance, if game wants to spawn a ball in front of the player, it needs to get a player location and a view direction which can be done by using <a href="https://github.com/FlaxEngine/FlaxEngine">Flax</a>.</p>
 <h2 id="accessing-actors">Accessing actors</h2>
 <p>Every script has inherited property <code>Actor</code> that represents an actor the script is attached to. For example you can use it to modify the actor position every frame:</p>
-<h3 id="c">C#</h3>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">public override void OnFixedUpdate()
 {
     Actor.Position += new Vector3(0, 2, 0);
 }
-</code></pre><p>You can also print its name:</p>
-<pre><code class="lang-cs">Debug.Log(Actor.Name);
-</code></pre><p>See <a href="https://docs.flaxengine.com/api/FlaxEngine.Actor.html">Actor</a> class reference to learn more.</p>
-<p>You can also print all child actors and rotate the parent actor:</p>
-<p>[!code-csharp[Example1](code-examples/scene-objects.cs]</p>
-<h3 id="c-1">C++</h3>
-<p>Here is the equivalent of the implemented logic above in C++.</p>
-<pre><code class="lang-cpp">void ScriptExample::OnUpdate()
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">void ScriptExample::OnFixedUpdate()
 {
     GetActor()-&gt;SetPosition(GetActor()-&gt;GetPosition() + Vector3(0, 2, 0));
 }
-</code></pre><p>Prints the name of the owning actor:</p>
+</code></pre></section>
+</div>
+<p>You can also print its name:</p>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-1_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-1_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">Debug.Log(Actor.Name);
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">DebugLog::Log(GetActor()-&gt;GetName());
-</code></pre><p>Prints all child actors and rotates the parent actor:</p>
-<p>[!code-csharp[Example2](code-examples/scene-objects.h]</p>
+</code></pre></section>
+</div>
+<p>See <a href="https://docs.flaxengine.com/api/FlaxEngine.Actor.html">Actor</a> class reference to learn more.</p>
+<p>You can also print all child actors and rotate the parent actor:</p>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-2_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-2_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-2_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-csharp" name="Example1">using FlaxEngine;
+
+public class MyScript : Script
+{
+    public override void OnStart()
+    {
+        // Prints all children names
+        var children = Actor.Children;
+        foreach (var a in children)
+            Debug.Log(a.Name);
+
+        // Changes the child point light color (if has)
+        var pointLight = Actor.GetChild&lt;PointLight&gt;();
+        if (pointLight)
+            pointLight.Color = Color.Red;
+    }
+
+    public override void OnFixedUpdate()
+    {
+        // Rotates the parent object
+        Actor.Parent.LocalEulerAngles += new Vector3(0, 2, 0);
+    }
+}
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp" name="Example2">#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Debug/DebugLog.h&quot;
+
+API_CLASS()
+class GAME_API ScriptExample : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(ScriptExample);
+
+    // [Script]
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnStart() override
+    {
+        // Prints all children names
+        Array&lt;Actor *&gt; children = GetActor()-&gt;GetChildren&lt;Actor&gt;();
+        for each (auto a in children)
+            DebugLog::Log(a-&gt;GetName());
+
+        // Changes the child point light color (if has)
+        auto pointLight = GetActor()-&gt;GetChild&lt;PointLight&gt;();
+        if (pointLight)
+            pointLight-&gt;Color = Color::Red;
+    }
+    void OnUpdate() override
+    {
+        // Rotates the parent object
+        Vector3 targetOrientation = GetActor()-&gt;GetParent()-&gt;GetLocalOrientation().GetEuler();
+        targetOrientation += {0, 2, 0};
+
+        GetActor()-&gt;GetParent()-&gt;SetLocalOrientation(Quaternion::Euler(targetOrientation));
+    }
+};
+</code></pre></section>
+</div>
 <h2 id="accessing-other-scripts">Accessing other scripts</h2>
 <p>Scripts attached to the actors can be queries like the actors using a dedicated methods:</p>
-<h3 id="c-2">C#</h3>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-3_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-3_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-3_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-3_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-3_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">private void OnTriggerEnter(Collider collider)
 {
     // Deal damage to the player when enters the trigger
@@ -122,14 +224,8 @@
     if (player)
         player.DealDamage(10);
 }
-</code></pre><p>You can also query all the scripts of the any actor and use them to perform any action:</p>
-<pre><code class="lang-cs">private void OnTriggerEnter(Collider collider)
-{
-    foreach (var provider in collider.GetScripts&lt;IAdProvider&gt;())
-       provider.ShowAd();
-}
-</code></pre><h3 id="c-3">C++</h3>
-<p>Same code as above, implemented in C++.</p>
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-3_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">void ScriptExample::OnTriggerEnter(Collider* collider)
 {
     // Deal damage to the player when enters the trigger
@@ -137,34 +233,78 @@
     if (player)
         player-&gt;DealDamage(10);
 }
-</code></pre><pre><code class="lang-cpp">void ScriptExample::OnTriggerEnter(Collider* collider)
+</code></pre></section>
+</div>
+<p>You can also query all the scripts of the any actor and use them to perform any action:</p>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-4_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-4_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-4_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-4_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-4_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">private void OnTriggerEnter(Collider collider)
+{
+    foreach (var provider in collider.GetScripts&lt;IAdProvider&gt;())
+       provider.ShowAd();
+}
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-4_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">void ScriptExample::OnTriggerEnter(Collider* collider)
 {
     for each (auto provider in collider-&gt;GetScripts&lt;IAdProvider&gt;())
         provider.ShowAd();
 }
-</code></pre><h2 id="finding-actors">Finding actors</h2>
+</code></pre></section>
+</div>
+<h2 id="finding-actors">Finding actors</h2>
 <p>Flax implements API to find objects.</p>
-<h3 id="c-4">C#</h3>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-5">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-5_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-5_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-5_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-5_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-5_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">private void OnTriggerLeave(Collider collider)
 {
     var obj = Actor.Scene.FindActor(&quot;Spaceship&quot;);
     Destroy(obj);
 }
-</code></pre><p>However, in most cases, the best solution is to expose a field with reference to the object and set it in the editor to improve game performance.</p>
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-5_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">void ScriptExample::OnTriggerLeave(Collider* collider)
+{
+    auto obj = GetActor()-&gt;GetScene()-&gt;FindActor(TEXT(&quot;Spaceship&quot;));
+    obj-&gt;DeleteObject();
+}
+</code></pre></section>
+</div>
+<p>However, in most cases, the best solution is to expose a field with reference to the object and set it in the editor to improve game performance.</p>
+<div class="tabGroup" id="tabgroup_taLdl7X0BX-6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-6_code-csharp" role="tab" aria-controls="tabpanel_taLdl7X0BX-6_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_taLdl7X0BX-6_code-cpp" role="tab" aria-controls="tabpanel_taLdl7X0BX-6_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_taLdl7X0BX-6_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">public Actor Spaceship;
 
 private void OnTriggerLeave(Collider collider)
 {
     Destroy(ref Spaceship);
 }
-</code></pre><h3 id="c-5">C++</h3>
-<p>Equal implementation in C++.</p>
-<pre><code class="lang-cpp">void ScriptExample::OnTriggerLeave(Collider* collider)
-{
-    auto obj = GetActor()-&gt;GetScene()-&gt;FindActor(TEXT(&quot;Spaceship&quot;));
-    obj-&gt;DeleteObject();
-}
-</code></pre><p>Using a field to store the spaceship.</p>
+</code></pre></section>
+<section id="tabpanel_taLdl7X0BX-6_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">//.h
 API_FIELD()
 ScriptingObjectReference&lt;Actor&gt; Spaceship;
@@ -172,9 +312,12 @@ ScriptingObjectReference&lt;Actor&gt; Spaceship;
 //.cpp
 void ScriptExample::OnTriggerLeave(Collider* collider)
 {
-    SpaceShip.Get()-&gt;DeleteObject();
+    CHECK(Spaceship);
+    Spaceship-&gt;DeleteObject();
 }
-</code></pre></article>
+</code></pre></section>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -182,12 +325,13 @@ void ScriptExample::OnTriggerLeave(Collider* collider)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c7ca0c976936f5203fc441816dcab68a7c4f31f9/manual/scripting/scene-objects.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bd0987f4b36bd5bb08233d51e2e1f9357c9bf02c/manual/scripting/scene-objects.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SplineModel
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -106,6 +106,12 @@
     <div class="level4"><a class="xref" href="FlaxEngine.ModelInstanceActor.html">ModelInstanceActor</a></div>
     <div class="level5"><span class="xref">SplineModel</span></div>
     </div>
+  </div>
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_SplineModel" data-uid="FlaxEngine.ISerializable"><a href="#collapsible-implements-FlaxEngine_SplineModel" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_SplineModel" class="collapse">
+    <div><a class="xref" href="FlaxEngine.ISerializable.html">ISerializable</a></div>
+  </div>
   </div>
   
   <div class="inheritedMembers">
@@ -194,6 +200,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookAt(Vector3, Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_">Actor.LookingAt(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_LookingAt_FlaxEngine_Vector3_FlaxEngine_Vector3_">Actor.LookingAt(Vector3, Vector3)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToBytes_FlaxEngine_Actor___">Actor.ToBytes(Actor[])</a>
@@ -376,6 +388,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsPrefabRoot">Actor.IsPrefabRoot</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_PhysicsScene">Actor.PhysicsScene</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_IsStatic">Actor.IsStatic</a>
     </div>
     <div>
@@ -466,6 +481,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -498,8 +516,7 @@
   <h5 id="FlaxEngine_SplineModel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Renders model over the spline segments.&quot;)]
-public class SplineModel : ModelInstanceActor</code></pre>
+public class SplineModel : ModelInstanceActor, ISerializable</code></pre>
   </div>
 
   
@@ -555,7 +572,6 @@ public class SplineModel : ModelInstanceActor</code></pre>
 [EditorDisplay(&quot;Model&quot;, null)]
 [Limit(0F, 10F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model bounds scale. It is useful when using Position Offset to animate the vertices of the object outside of its bounds.&quot;)]
 public float BoundsScale { get; set; }</code></pre>
   </div>
 
@@ -596,7 +612,6 @@ public float BoundsScale { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(15)]
 [EditorDisplay(&quot;Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The draw passes to use for rendering this object.&quot;)]
 public DrawPass DrawModes { get; set; }</code></pre>
   </div>
 
@@ -638,7 +653,6 @@ public DrawPass DrawModes { get; set; }</code></pre>
 [Limit(-1F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;Forced LOD&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model forced Level Of Detail index. Allows to bind the given model LOD to show. Value -1 disables this feature.&quot;)]
 public int ForcedLOD { get; set; }</code></pre>
   </div>
 
@@ -680,7 +694,6 @@ public int ForcedLOD { get; set; }</code></pre>
 [Limit(-100F, 100F, 0.1F)]
 [EditorDisplay(&quot;Model&quot;, &quot;LOD Bias&quot;)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the model Level Of Detail bias value. Allows to increase or decrease rendered model quality.&quot;)]
 public int LODBias { get; set; }</code></pre>
   </div>
 
@@ -721,7 +734,6 @@ public int LODBias { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;The model asset to draw.&quot;)]
 public Model Model { get; set; }</code></pre>
   </div>
 
@@ -762,7 +774,6 @@ public Model Model { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(21)]
 [EditorDisplay(&quot;Model&quot;, null)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the transformation applied to the model geometry before placing it over the spline. Can be used to change the way model goes over the spline.&quot;)]
 public Transform PreTransform { get; set; }</code></pre>
   </div>
 
@@ -804,7 +815,6 @@ public Transform PreTransform { get; set; }</code></pre>
 [EditorDisplay(&quot;Model&quot;, null)]
 [Limit(0.1F, 100F, 0.1F)]
 [Unmanaged]
-[Tooltip(&quot;Gets or sets the spline model quality scale. Higher values improve the spline representation (better tessellation) but reduce performance.&quot;)]
 public float Quality { get; set; }</code></pre>
   </div>
 
@@ -851,7 +861,8 @@ public float Quality { get; set; }</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

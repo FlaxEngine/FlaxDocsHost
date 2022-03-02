@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct ScreenSpaceReflectionsSettings
    | Flax Documentation ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -72,11 +72,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -127,7 +127,6 @@
   <h5 id="FlaxEngine_ScreenSpaceReflectionsSettings_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-[Tooltip(&quot;Contains settings for Screen Space Reflections effect rendering.&quot;)]
 public struct ScreenSpaceReflectionsSettings</code></pre>
   </div>
 
@@ -152,7 +151,6 @@ public struct ScreenSpaceReflectionsSettings</code></pre>
     <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.01F)]
 [EditorOrder(3)]
 [EditorDisplay(null, &quot;BRDF Bias&quot;)]
-[Tooltip(&quot;The reflection spread parameter. This value controls source roughness effect on reflections blur. Smaller values produce wider reflections spread but also introduce more noise. Higher values provide more mirror-like reflections. Default value is 0.82.&quot;)]
 public float BRDFBias</code></pre>
   </div>
 
@@ -190,7 +188,6 @@ public float BRDFBias</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(1)]
-[Tooltip(&quot;The depth buffer downscale option to optimize raycast performance. Full gives better quality, but half improves performance. The default value is half.&quot;)]
 public ResolutionMode DepthResolution</code></pre>
   </div>
 
@@ -229,7 +226,6 @@ public ResolutionMode DepthResolution</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.02F)]
 [EditorOrder(8)]
-[Tooltip(&quot;The point at which the far edges of the reflection begin to fade. Has no effect on performance. The default value is 0.1.&quot;)]
 public float EdgeFadeFactor</code></pre>
   </div>
 
@@ -268,7 +264,6 @@ public float EdgeFadeFactor</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(10)]
-[Tooltip(&quot;The effect fade distance (in world units). Defines the size of the effect fade from fully visible to fully invisible at FadeOutDistance.&quot;)]
 public float FadeDistance</code></pre>
   </div>
 
@@ -307,7 +302,6 @@ public float FadeDistance</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
 [EditorOrder(9)]
-[Tooltip(&quot;The effect fade out end distance from camera (in world units).&quot;)]
 public float FadeOutDistance</code></pre>
   </div>
 
@@ -346,7 +340,6 @@ public float FadeOutDistance</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 5F, 0.01F)]
 [EditorOrder(0)]
-[Tooltip(&quot;The effect intensity (normalized to range [0;1]). Use 0 to disable it.&quot;)]
 public float Intensity</code></pre>
   </div>
 
@@ -421,7 +414,6 @@ public ScreenSpaceReflectionsSettingsOverride OverrideFlags</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2)]
-[Tooltip(&quot;The raycast resolution. Full gives better quality, but half improves performance. The default value is half.&quot;)]
 public ResolutionMode RayTracePassResolution</code></pre>
   </div>
 
@@ -459,7 +451,6 @@ public ResolutionMode RayTracePassResolution</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(6)]
-[Tooltip(&quot;The raycast resolution. Full gives better quality, but half improves performance. The default value is half.&quot;)]
 public ResolutionMode ResolvePassResolution</code></pre>
   </div>
 
@@ -498,7 +489,6 @@ public ResolutionMode ResolvePassResolution</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(1F, 8F, 1F)]
 [EditorOrder(7)]
-[Tooltip(&quot;The number of rays used to resolve the reflection color. Higher values provide better quality but reduce effect performance. Default value is 4. Use 1 for the highest speed.&quot;)]
 public int ResolveSamples</code></pre>
   </div>
 
@@ -537,7 +527,6 @@ public int ResolveSamples</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.01F)]
 [EditorOrder(4)]
-[Tooltip(&quot;The maximum amount of roughness a material must have to reflect the scene. For example, if this value is set to 0.4, only materials with a roughness value of 0.4 or below reflect the scene. The default value is 0.45.&quot;)]
 public float RoughnessThreshold</code></pre>
   </div>
 
@@ -576,7 +565,6 @@ public float RoughnessThreshold</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(12)]
 [EditorDisplay(null, &quot;Enable Temporal Effect&quot;)]
-[Tooltip(&quot;If checked, enables the temporal pass. Reduces noise, but produces an animated \&quot;jittering\&quot; effect that's sometimes noticeable. If disabled, the properties below have no effect.&quot;)]
 public bool TemporalEffect</code></pre>
   </div>
 
@@ -615,7 +603,6 @@ public bool TemporalEffect</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0.05F, 1F, 0.01F)]
 [EditorOrder(14)]
-[Tooltip(&quot;Defines how quickly reflections blend between the reflection in the current frame and the history buffer. Lower values produce reflections faster, but with more jittering. If the camera in your game doesn't move much, we recommend values closer to 1. The default value is 0.8.&quot;)]
 public float TemporalResponse</code></pre>
   </div>
 
@@ -654,7 +641,6 @@ public float TemporalResponse</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 20F, 0.5F)]
 [EditorOrder(13)]
-[Tooltip(&quot;The intensity of the temporal effect. Lower values produce reflections faster, but more noise. The default value is 8.&quot;)]
 public float TemporalScale</code></pre>
   </div>
 
@@ -693,7 +679,6 @@ public float TemporalScale</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(11)]
 [EditorDisplay(null, &quot;Use Color Buffer Mips&quot;)]
-[Tooltip(&quot;\&quot;The input color buffer downscale mode that uses blurred mipmaps when resolving the reflection color. Produces more realistic results by blurring distant parts of reflections in rough (low-gloss) materials. It also improves performance on most platforms but uses more memory.&quot;)]
 public bool UseColorBufferMips</code></pre>
   </div>
 
@@ -732,7 +717,6 @@ public bool UseColorBufferMips</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Limit(0F, 10F, 0.01F)]
 [EditorOrder(5)]
-[Tooltip(&quot;The offset of the raycast origin. Lower values produce more correct reflection placement, but produce more artifacts. We recommend values of 0.3 or lower. The default value is 0.1.&quot;)]
 public float WorldAntiSelfOcclusionBias</code></pre>
   </div>
 
@@ -779,7 +763,8 @@ public float WorldAntiSelfOcclusionBias</code></pre>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
