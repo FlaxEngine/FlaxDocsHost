@@ -113,6 +113,9 @@
       <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__drawNoCulling">Actor::_drawNoCulling</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
     </div>
     <div>
@@ -230,13 +233,10 @@
       <span class="xref">EnvironmentProbe</span>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DestroyChildren_float_">Actor::DestroyChildren(float timeLeft = 0.0f)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_EndPlay__">Actor::EndPlay()</a>
@@ -348,6 +348,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrAddChild__">Actor::GetOrAddChild()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -464,7 +467,13 @@
       <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_Initialize__">Actor::Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_InitializeHierarchy__">Actor::InitializeHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___Real___Vector3___">Actor::Intersects(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
@@ -554,10 +563,7 @@
       <a class="xref" href="Actor.html#Actor_OnTagChanged__">Actor::OnTagChanged()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
+      <span class="xref">EnvironmentProbe</span>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
@@ -584,7 +590,7 @@
       <span class="xref">EnvironmentProbe</span>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Float3___">Actor::SetDirection(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
@@ -599,7 +605,7 @@
       <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Float3___">Actor::SetLocalScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
@@ -632,7 +638,7 @@
       <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Float3___">Actor::SetScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlag_StaticFlags_bool_">Actor::SetStaticFlag(StaticFlags flag, bool value)</a>
@@ -718,41 +724,33 @@
   
   
   
-  <h3 id="fields">Fields
+  <h3 id="constructors">Constructors
   </h3>
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_AutoUpdate.md&amp;value=---%0Auid%3A%20EnvironmentProbe.AutoUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe__EnvironmentProbe__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.~EnvironmentProbe()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
+  <a id="EnvironmentProbe__EnvironmentProbe_" data-uid="EnvironmentProbe.~EnvironmentProbe*"></a>
   
-  <h4 id="EnvironmentProbe_AutoUpdate" data-uid="EnvironmentProbe.AutoUpdate"><a href="#collapsible-EnvironmentProbe_AutoUpdate" class="expander" data-toggle="collapse">AutoUpdate</a></h4>
+  <h4 id="EnvironmentProbe__EnvironmentProbe__" data-uid="EnvironmentProbe.~EnvironmentProbe()"><a href="#collapsible-EnvironmentProbe__EnvironmentProbe__" class="expander" data-toggle="collapse">~EnvironmentProbe()</a></h4>
   
-  <div id="collapsible-EnvironmentProbe_AutoUpdate" class="collapse in">
-  <div class="markdown level1 summary"><p>Value indicating if probe should be updated automatically on change. </p></div>
+  <div id="collapsible-EnvironmentProbe__EnvironmentProbe__" class="collapse in">
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool AutoUpdate = false</code></pre>
+    <pre><code class="lang-cpp hljs">public ~EnvironmentProbe()</code></pre>
   </div>
 
   
   
   
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">bool</span>
-        <p>
-      </td>
-    </tr>
-  </table>
   
   
   
@@ -762,13 +760,15 @@
   
   
   </div>
+  <h3 id="fields">Fields
+  </h3>
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_Brightness.md&amp;value=---%0Auid%3A%20EnvironmentProbe.Brightness%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L27" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L49" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -810,7 +810,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_CaptureNearPlane.md&amp;value=---%0Auid%3A%20EnvironmentProbe.CaptureNearPlane%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -846,6 +846,90 @@
   
   
   </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_CubemapResolution.md&amp;value=---%0Auid%3A%20EnvironmentProbe.CubemapResolution%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="EnvironmentProbe_CubemapResolution" data-uid="EnvironmentProbe.CubemapResolution"><a href="#collapsible-EnvironmentProbe_CubemapResolution" class="expander" data-toggle="collapse">CubemapResolution</a></h4>
+  
+  <div id="collapsible-EnvironmentProbe_CubemapResolution" class="collapse in">
+  <div class="markdown level1 summary"><p>The reflections texture resolution. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ProbeCubemapResolution CubemapResolution = ProbeCubemapResolution::UseGraphicsSettings</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="ProbeCubemapResolution.html">ProbeCubemapResolution</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_UpdateMode.md&amp;value=---%0Auid%3A%20EnvironmentProbe.UpdateMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L54" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="EnvironmentProbe_UpdateMode" data-uid="EnvironmentProbe.UpdateMode"><a href="#collapsible-EnvironmentProbe_UpdateMode" class="expander" data-toggle="collapse">UpdateMode</a></h4>
+  
+  <div id="collapsible-EnvironmentProbe_UpdateMode" class="collapse in">
+  <div class="markdown level1 summary"><p>The probe update mode. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ProbeUpdateMode UpdateMode = ProbeUpdateMode::Manual</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">ProbeUpdateMode</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -854,7 +938,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_Bake_float_.md&amp;value=---%0Auid%3A%20EnvironmentProbe.Bake(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L110" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_Bake_" data-uid="EnvironmentProbe.Bake*"></a>
@@ -898,7 +982,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L143" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_Deserialize_" data-uid="EnvironmentProbe.Deserialize*"></a>
@@ -951,7 +1035,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_Draw_RenderContext___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.Draw(RenderContext%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_Draw_" data-uid="EnvironmentProbe.Draw*"></a>
@@ -959,7 +1043,7 @@
   <h4 id="EnvironmentProbe_Draw_RenderContext___" data-uid="EnvironmentProbe.Draw(RenderContext &amp;)"><a href="#collapsible-EnvironmentProbe_Draw_RenderContext___" class="expander" data-toggle="collapse">Draw(RenderContext&amp; renderContext)</a></h4>
   
   <div id="collapsible-EnvironmentProbe_Draw_RenderContext___" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws this actor. Called by Scene Rendering service. This call is more optimized than generic Draw (eg. models are rendered during all passed but other actors are invoked only during GBufferFill pass). </p></div>
+  <div class="markdown level1 summary"><p>Draws this actor. Called by Scene Rendering service. This call is more optimized than generic Draw (eg. geometry is rendered during all pass types but other actors are drawn only during GBufferFill pass). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -1040,7 +1124,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_GetEditorBox__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L131" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_GetEditorBox_" data-uid="EnvironmentProbe.GetEditorBox*"></a>
@@ -1085,7 +1169,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_GetProbe__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.GetProbe()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_GetProbe_" data-uid="EnvironmentProbe.GetProbe*"></a>
@@ -1098,7 +1182,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public CubeTexture* GetProbe() const</code></pre>
+    <pre><code class="lang-cpp hljs">public GPUTexture* GetProbe() const</code></pre>
   </div>
 
   
@@ -1106,7 +1190,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="CubeTexture.html">CubeTexture</a>
+        <a class="xref" href="GPUTexture.html">GPUTexture</a>
         <p>
       </td>
     </tr>
@@ -1128,7 +1212,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_GetRadius__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.GetRadius()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L65" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_GetRadius_" data-uid="EnvironmentProbe.GetRadius*"></a>
@@ -1171,7 +1255,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_GetScaledRadius__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.GetScaledRadius()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L54" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_GetScaledRadius_" data-uid="EnvironmentProbe.GetScaledRadius*"></a>
@@ -1214,7 +1298,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_HasContentLoaded__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.HasContentLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L144" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_HasContentLoaded_" data-uid="EnvironmentProbe.HasContentLoaded*"></a>
@@ -1256,109 +1340,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_HasProbe__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.HasProbe()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_IntersectsItself_const_Ray___Real___Vector3___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.IntersectsItself(const%20Ray%20%26%2CReal%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="EnvironmentProbe_HasProbe_" data-uid="EnvironmentProbe.HasProbe*"></a>
-  
-  <h4 id="EnvironmentProbe_HasProbe__" data-uid="EnvironmentProbe.HasProbe()"><a href="#collapsible-EnvironmentProbe_HasProbe__" class="expander" data-toggle="collapse">HasProbe()</a></h4>
-  
-  <div id="collapsible-EnvironmentProbe_HasProbe__" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if env probe has cube texture assigned. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool HasProbe() const</code></pre>
-  </div>
-
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">bool</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_HasProbeLoaded__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.HasProbeLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L67" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="EnvironmentProbe_HasProbeLoaded_" data-uid="EnvironmentProbe.HasProbeLoaded*"></a>
-  
-  <h4 id="EnvironmentProbe_HasProbeLoaded__" data-uid="EnvironmentProbe.HasProbeLoaded()"><a href="#collapsible-EnvironmentProbe_HasProbeLoaded__" class="expander" data-toggle="collapse">HasProbeLoaded()</a></h4>
-  
-  <div id="collapsible-EnvironmentProbe_HasProbeLoaded__" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if env probe has cube texture assigned. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool HasProbeLoaded() const</code></pre>
-  </div>
-
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">bool</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_IntersectsItself_const_Ray___float___Vector3___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.IntersectsItself(const%20Ray%20%26%2Cfloat%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L145" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_IntersectsItself_" data-uid="EnvironmentProbe.IntersectsItself*"></a>
   
-  <h4 id="EnvironmentProbe_IntersectsItself_const_Ray___float___Vector3___" data-uid="EnvironmentProbe.IntersectsItself(const Ray &amp;,float &amp;,Vector3 &amp;)"><a href="#collapsible-EnvironmentProbe_IntersectsItself_const_Ray___float___Vector3___" class="expander" data-toggle="collapse">IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></h4>
+  <h4 id="EnvironmentProbe_IntersectsItself_const_Ray___Real___Vector3___" data-uid="EnvironmentProbe.IntersectsItself(const Ray &amp;,Real &amp;,Vector3 &amp;)"><a href="#collapsible-EnvironmentProbe_IntersectsItself_const_Ray___Real___Vector3___" class="expander" data-toggle="collapse">IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a></h4>
   
-  <div id="collapsible-EnvironmentProbe_IntersectsItself_const_Ray___float___Vector3___" class="collapse in">
+  <div id="collapsible-EnvironmentProbe_IntersectsItself_const_Ray___Real___Vector3___" class="collapse in">
   <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a Ray. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual bool IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal) override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal) override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1372,14 +1370,14 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="pull-right"><span class="xref">Real</span></span>
         <span class="parametername">distance</span>
         <p><p>When the method completes, contains the distance of the intersection (if any valid).</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">normal</span>
         <p><p>When the method completes, contains the intersection surface normal vector (if any valid).</p></p>
       </td>
@@ -1401,7 +1399,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></div>
+  <div><a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___Real___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a></div>
   
   
   
@@ -1414,7 +1412,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_IsUsingCustomProbe__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.IsUsingCustomProbe()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L83" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_IsUsingCustomProbe_" data-uid="EnvironmentProbe.IsUsingCustomProbe*"></a>
@@ -1457,7 +1455,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_OnDebugDrawSelected__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.OnDebugDrawSelected()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_OnDebugDrawSelected_" data-uid="EnvironmentProbe.OnDebugDrawSelected*"></a>
@@ -1493,7 +1491,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_OnDisable__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_OnDisable_" data-uid="EnvironmentProbe.OnDisable*"></a>
@@ -1529,7 +1527,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_OnEnable__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L146" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L149" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_OnEnable_" data-uid="EnvironmentProbe.OnEnable*"></a>
@@ -1565,7 +1563,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_OnLayerChanged__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.OnLayerChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_OnLayerChanged_" data-uid="EnvironmentProbe.OnLayerChanged*"></a>
@@ -1601,7 +1599,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_OnTransformChanged__.md&amp;value=---%0Auid%3A%20EnvironmentProbe.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L151" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_OnTransformChanged_" data-uid="EnvironmentProbe.OnTransformChanged*"></a>
@@ -1637,7 +1635,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L138" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L142" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_Serialize_" data-uid="EnvironmentProbe.Serialize*"></a>
@@ -1731,7 +1729,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetProbeData_TextureData___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetProbeData(TextureData%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetProbeData_GPUContext___GPUTexture___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetProbeData(GPUContext%20*%2CGPUTexture%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L117" title="View Source"><i class="fa fa-code"></i></a>
@@ -1739,10 +1737,61 @@
   
   <a id="EnvironmentProbe_SetProbeData_" data-uid="EnvironmentProbe.SetProbeData*"></a>
   
+  <h4 id="EnvironmentProbe_SetProbeData_GPUContext___GPUTexture___" data-uid="EnvironmentProbe.SetProbeData(GPUContext *,GPUTexture *)"><a href="#collapsible-EnvironmentProbe_SetProbeData_GPUContext___GPUTexture___" class="expander" data-toggle="collapse">SetProbeData(GPUContext* context, GPUTexture* data)</a></h4>
+  
+  <div id="collapsible-EnvironmentProbe_SetProbeData_GPUContext___GPUTexture___" class="collapse in">
+  <div class="markdown level1 summary"><p>Action fired when probe has been baked. Copies data to the texture memory (GPU-only for real-time probes). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetProbeData(GPUContext* context, GPUTexture* data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="GPUContext.html">GPUContext</a></span>
+        <span class="parametername">context</span>
+        <p><p>The GPU context to use for probe data copying.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="GPUTexture.html">GPUTexture</a></span>
+        <span class="parametername">data</span>
+        <p><p>The new probe data (GPU texture).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetProbeData_TextureData___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetProbeData(TextureData%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L123" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="EnvironmentProbe_SetProbeData_" data-uid="EnvironmentProbe.SetProbeData*"></a>
+  
   <h4 id="EnvironmentProbe_SetProbeData_TextureData___" data-uid="EnvironmentProbe.SetProbeData(TextureData &amp;)"><a href="#collapsible-EnvironmentProbe_SetProbeData_TextureData___" class="expander" data-toggle="collapse">SetProbeData(TextureData&amp; data)</a></h4>
   
   <div id="collapsible-EnvironmentProbe_SetProbeData_TextureData___" class="collapse in">
-  <div class="markdown level1 summary"><p>Action fired when probe has been baked. </p></div>
+  <div class="markdown level1 summary"><p>Action fired when probe has been baked. Imports data to the texture asset (virtual if running in game). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -1778,7 +1827,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetRadius_float_.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetRadius(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L49" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L70" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EnvironmentProbe_SetRadius_" data-uid="EnvironmentProbe.SetRadius*"></a>
@@ -1819,7 +1868,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetupProbeData_struct_ProbeData___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetupProbeData(struct%20ProbeData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe_SetupProbeData_const_RenderContext___struct_ProbeData___.md&amp;value=---%0Auid%3A%20EnvironmentProbe.SetupProbeData(const%20RenderContext%20%26%2Cstruct%20ProbeData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
@@ -1827,19 +1876,26 @@
   
   <a id="EnvironmentProbe_SetupProbeData_" data-uid="EnvironmentProbe.SetupProbeData*"></a>
   
-  <h4 id="EnvironmentProbe_SetupProbeData_struct_ProbeData___" data-uid="EnvironmentProbe.SetupProbeData(struct ProbeData *)"><a href="#collapsible-EnvironmentProbe_SetupProbeData_struct_ProbeData___" class="expander" data-toggle="collapse">SetupProbeData(struct ProbeData* data)</a></h4>
+  <h4 id="EnvironmentProbe_SetupProbeData_const_RenderContext___struct_ProbeData___" data-uid="EnvironmentProbe.SetupProbeData(const RenderContext &amp;,struct ProbeData *)"><a href="#collapsible-EnvironmentProbe_SetupProbeData_const_RenderContext___struct_ProbeData___" class="expander" data-toggle="collapse">SetupProbeData(const RenderContext&amp; renderContext, struct ProbeData* data)</a></h4>
   
-  <div id="collapsible-EnvironmentProbe_SetupProbeData_struct_ProbeData___" class="collapse in">
+  <div id="collapsible-EnvironmentProbe_SetupProbeData_const_RenderContext___struct_ProbeData___" class="collapse in">
   <div class="markdown level1 summary"><p>Setup probe data structure </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void SetupProbeData(struct ProbeData* data) const</code></pre>
+    <pre><code class="lang-cpp hljs">public void SetupProbeData(const RenderContext&amp; renderContext, struct ProbeData* data) const</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RenderContext.html">RenderContext</a></span>
+        <span class="parametername">renderContext</span>
+        <p><p>Rendering context</p></p>
+      </td>
+    </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">struct ProbeData</span></span>
@@ -1873,7 +1929,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EnvironmentProbe.md&amp;value=---%0Auid%3A%20EnvironmentProbe%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/EnvironmentProbe.h/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

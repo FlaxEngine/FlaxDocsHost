@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Game Data Security | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Game Data Security | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Game Data Security | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="game-data-security">Game Data Security</h1>
+
+<p>This page covers various aspects of the game data and code files that are deployed during game cooking for distribution.</p>
+<h2 id="assets">Assets</h2>
+<p>During game cooking, all assets used by the game are collected, processed, and packaged into <code>.flaxpac</code> files. It&#39;s a custom binary format that allows storing multiple assets in a single file with support for:</p>
+<ul>
+<li>random-data-access from multiple Content Loading threads (at runtime)</li>
+<li>in-built data compression (eg. <em>LZ4</em>),</li>
+<li>metadata-storage (eg. asset header, asset dependencies cache),</li>
+<li>asset chunks remapping (eg. custom asset chunks placement in a file).</li>
+</ul>
+<p><a href="../game-settings/build-settings.html">Build Settings</a> allows to configure the packaging process by adjusting maximum package size and amount of assets packed into a single file.</p>
+<h3 id="binary-assets">Binary Assets</h3>
+<p>Binary assets (<code>BinaryAsset</code>) in most cases are packaged as-it-is after processing. This depends on the asset type, for instance:</p>
+<ul>
+<li><strong>textures</strong> can be converted into the other format for some platforms (eg. Android) or down-scaled based on the <a href="../../graphics/textures/texture-groups.html">texture groups settings</a>,</li>
+<li><strong>shaders</strong> are pre-compiled thus no shader source code is even deployed (no runtime shaders compilation),</li>
+<li><strong>materials, particle emitters</strong> are precompiled into destination platform shader bytecode (shader source code is removed).</li>
+</ul>
+<h3 id="json-assets">Json Assets</h3>
+<p>Json assets (<code>JsonAssetBase</code>) by default are compressed using <em>LZ4</em> algorithm (internally) and stored in compressed format. At runtime content system automatically decompressed data and parsed the Json for further processing (eg. settings loading or scene deserialization). This reduces built game size (compressed text weights far less) and improves gaming performance (fewer data to read from a drive, data is decompressed in memory).</p>
+<h3 id="custom-assets">Custom Assets</h3>
+<p>Custom assets can be processed for game cooking with <code>CookAssetsStep::AssetProcessors</code>.</p>
+<h2 id="code">Code</h2>
+<p>Depending on the scripting language used in the game project it might be more or less secure. There are several actions that can increase the final security of the game but remember that it might be very hard or nearly impossible to secure the game fully.</p>
+<h3 id="c">C#</h3>
+<p>Game code is compiled into .Net assemblies - separate for each binary module such as <code>Game.CSharp.dll</code> (default). Thus no source code is deployed with the game. However, C# DLLs can be easily decompiled with the various tools which make it insecure. Possible ways to overcome this:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">Obfuscation</a> tools (eg. <a href="https://www.gapotchenko.com/eazfuscator.net">Eazfuscator.NET</a>, <a href="https://yck1509.github.io/ConfuserEx/">ConfuserEx</a>, <a href="https://github.com/XenocodeRCE/neo-ConfuserEx">neo-ConfuserEx</a>, <a href="https://www.babelfor.net/products/babel-obfuscator/">Babel Obfuscator</a>, etc.) - those can mangle code-flow, variable names, constants, and types. But if the class typenames or field/properties get renamed it might lead to incorrect deserialization when loading scenes or prefabs. For this case <a href="../../scripting/serialization/index.html">Serialization Callbacks</a> can be used to load the data from the asset for runtime.</li>
+<li><a href="https://en.wikipedia.org/wiki/Code_signing">Code signing</a> - after project compilation all game DLLs can be signed with a code-signing certificate which allows validating the file upon the execution to prevent hacking game files (at least partially).</li>
+<li>Critical-code could be moved into C++ scripts which are compiled directly into the platform bytecode.</li>
+</ul>
+<h3 id="c-1">C++</h3>
+<p>Native C++ game code is compiled directly into the target platform executable format (eg. <code>.dll</code>, <code>.so</code>, <code>.dylib</code>, etc.). In <code>Release</code> mode there is <strong>no debug information</strong> and all <strong>code optimizations are enabled</strong> in the compiler. This results in secure code in a way it&#39;s unable to decompile and very hard to hack.</p>
+<h3 id="visual-script">Visual Script</h3>
+<p>Visual Scripts are stored in binary format as <em>Visject Surface</em> that is a common format for various graph asset types in Flax (materials, particles, animations, etc.). Currently, there is no post-processing of those files (aside from packaging into <code>.flaxpac</code> files) which makes them vulnerable.</p>
+<h2 id="platform-specific">Platform-specific</h2>
+<p>Various platforms implement different techniques to improve the security of the game. For instance, consoles such as Switch, Xbox, or Playstation support encryption of the game package and restrict the user access to those files. However, in most cases (Windows, macOS, Linux, Android) game files are in DRM-free format. Any additional protection might be provided by the game store platform (eg. GOG).</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/editor/game-cooker/security.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -89,7 +89,85 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="richtextbox">RichTextBox</h1>
 
+<p><img src="media/rich-text-box.png" alt="Rich Text Box"></p>
 <p>The <strong>RichTextBox</strong> control allows display formatted text using advanced styling options.</p>
+<h2 id="tags">Tags</h2>
+<p>Rich text box tags can be used to alter the appearance and layout of the text. These tags work like <code>HTML</code> or <code>XML</code> tags, but they have less strict syntax that is more optimzied for games.</p>
+<p>A single tag looks like <code>&lt;tag&gt;</code> with special <code>&lt;</code> and <code>&gt;</code> characters and name inside it. There are some tags which operate in a scope, which you can end with <code>&lt;/tag&gt;</code> (note <code>/</code> character). Those scopes can be nested, for example bold text scope can have italics inside it.</p>
+<p>Many tags accept attributes with syntax <code>&lt;tag=value&gt;</code> or <code>&lt;tag attribute=value&gt;</code>. These argument values are either names or numeric values. Numbers are either regular decimal numbers, percentages like <code>80%</code> or hexadecimal values like <code>#FA</code>. Names can be specified either with or without double quotes (especially if the name contains spaces or special characters inside it).</p>
+<h2 id="html-tags-list">HTML Tags List</h2>
+<p>List with all supported tags (games and/or plugins can provide custom tags as well).</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;b&gt;</code></td>
+<td><code>Here is &lt;b&gt;bold text&lt;/b&gt;.</code></td>
+<td>Changes the font style by making text bold.</td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;</code></td>
+<td><code>Here is &lt;i&gt;italic text&lt;/i&gt;.</code></td>
+<td>Changes the font style by making text italic.</td>
+</tr>
+<tr>
+<td><code>&lt;br&gt;</code></td>
+<td><code>Here is &lt;br&gt;a newline.</code></td>
+<td>Inserts a newline.</td>
+</tr>
+<tr>
+<td><code>&lt;color=X&gt;</code></td>
+<td><code>Here is &lt;color=red&gt;red&lt;/color&gt; and &lt;color=#0000FF&gt;blue&lt;/color&gt; text.</code></td>
+<td>Controls the color of the text and images. <code>X</code> - named color or hexadecimal value.</td>
+</tr>
+<tr>
+<td><code>&lt;alpha=X&gt;</code></td>
+<td><code>Here is &lt;alpha=50%&gt;transparent&lt;/alpha&gt; text.</code></td>
+<td>Controls the opacity. <code>X</code> - percentage or hexadecimal value.</td>
+</tr>
+<tr>
+<td><code>&lt;img=X src=X width=Y height=Z scale=W&gt;</code></td>
+<td><code>Here is an image &lt;img=icon1&gt;.</code></td>
+<td>Inlined image (texture or sprite) from <code>Images</code> property of <code>RichTextBox</code> or found globally by filename in the Content. <code>X</code> - image name. <code>Y</code>/<code>Z</code> - image width/height override with sepcific value or percentage, <code>W</code> - image scale or percentage.</td>
+</tr>
+<tr>
+<td><code>&lt;size=X&gt;</code></td>
+<td><code>Here is &lt;size=50&gt;larger&lt;/size&gt; text.</code></td>
+<td>Controls the text size. <code>X</code> - font size (value or percentage).</td>
+</tr>
+<tr>
+<td><code>&lt;font=X size=Y&gt;</code></td>
+<td><code>Here is &lt;font size=50&gt;larger&lt;/font&gt; text with &lt;font=font1&gt;style&lt;/font&gt;.</code></td>
+<td>Controls the text font. <code>X</code> - font asset name, <code>Y</code> - font size (value or percentage).</td>
+</tr>
+<tr>
+<td><code>&lt;style=X&gt;</code></td>
+<td><code>Here is text with &lt;style=style1&gt;style&lt;/style&gt;.</code></td>
+<td>Controls the text style. <code>X</code> - style name from <code>Styles</code> property of <code>RichTextBox</code>.</td>
+</tr>
+<tr>
+<td><code>&lt;align=left/center/right&gt;</code></td>
+<td><code>Here is centered text &lt;align=center&gt;text&lt;/align&gt;.</code></td>
+<td>Controls the horizontal alignment of the contents.</td>
+</tr>
+<tr>
+<td><code>&lt;valign=top/bottom/middle/baseline&gt;</code></td>
+<td><code>Here is centered image &lt;valign=middle&gt;&lt;img=icon1&gt;&lt;/valign&gt;.</code></td>
+<td>Controls the vertical alignment of the contents.</td>
+</tr>
+<tr>
+<td><code>&lt;center&gt;</code></td>
+<td><code>Here is centered text &lt;center&gt;text&lt;/center&gt;.</code></td>
+<td>Centers the contents horizontally.</td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           
@@ -98,7 +176,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/ui/controls/rich-text-box.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/ui/controls/rich-text-box.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

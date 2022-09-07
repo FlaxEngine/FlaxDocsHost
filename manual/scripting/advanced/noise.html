@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Noise | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Noise | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Noise | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="noise">Noise</h1>
+
+<p>Flax contains various utilities for sampling different noise functions such as:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Noise</strong></th>
+<th><strong>Preview</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perlin</td>
+<td><img src="media/noise-perlin.png" alt="Perlin Noise"></td>
+</tr>
+<tr>
+<td>Simplex</td>
+<td><img src="media/noise-simplex.png" alt="Simplex Noise"></td>
+</tr>
+<tr>
+<td>Worley</td>
+<td><img src="media/noise-worley.png" alt="Worley Noise"></td>
+</tr>
+<tr>
+<td>Voronoi</td>
+<td><img src="media/noise-voronoi.png" alt="Voronoi Noise"></td>
+</tr>
+<tr>
+<td>Custom</td>
+<td><img src="media/noise-custom.png" alt="Custom Noise"></td>
+</tr>
+</tbody>
+</table>
+<p>Those can be accessed via scripting <code>FlaxEngine.Utilities.Noise</code> static class and used to enrich procedurally generated worlds and content.</p>
+<h2 id="noise-in-materialsparticles">Noise in Materials/Particles</h2>
+<p><img src="media/noise-shader.png" alt="Material Graph Noise Nodes"></p>
+<p>All visual graphs (materials, particles, animations) can sample noise functions both on CPU and GPU to enrich the content. All noise functions return normalized results in the range 0-1. Some of them return more noise components, such as Voronoi Noise where <code>X=minDistToCell</code>, <code>Y=randomColor</code>, <code>Z=minEdgeDistance</code>. Depending on the context only one or even all components can be used. Follow the tooltip with documentation for every node.</p>
+<h2 id="noise-preview-control">Noise preview control</h2>
+<p>Below is a sample code for custom UI Control that can be added to the scene for debugging or testing different noise types visually. Simply create <code>UI Canvas</code>, add <code>UI Control</code> to it, set control type to <code>NoisePreview</code>, and use <code>NoiseType</code> with <code>NoiseScale</code> properties to analyze noises.</p>
+<pre><code class="lang-cs">public class NoisePreview : ContainerControl
+{
+    private GPUTexture _tempTexture;
+    private byte[] _data;
+    private Noises _noise = Noises.None;
+    private float _scale;
+
+    public enum Noises
+    {
+        [HideInEditor]
+        None,
+        Perlin,
+        Simplex,
+        Voronoi,
+        Worley,
+        Custom,
+    }
+
+    /// &lt;summary&gt;
+    /// Noise to preview.
+    /// &lt;/summary&gt;
+    public Noises NoiseType = Noises.Perlin;
+
+    /// &lt;summary&gt;
+    /// Noise scale.
+    /// &lt;/summary&gt;
+    [Limit(0.001f)]
+    public float NoiseScale = 10.0f;
+
+    /// &lt;inheritdoc /&gt;
+    public NoisePreview()
+    {
+        Size = new Float2(64);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void DrawSelf()
+    {
+        base.DrawSelf();
+
+        if (!_tempTexture)
+        {
+            // Create new GPU texture
+            var texture = new GPUTexture();
+            _tempTexture = texture;
+            var desc = GPUTextureDescription.New2D(64, 64, PixelFormat.R8G8B8A8_UNorm, GPUTextureFlags.ShaderResource);
+            if (texture.Init(ref desc))
+                return;
+        }
+
+        if (_noise != NoiseType || _scale != NoiseScale)
+        {
+            // Update noise texture
+            _noise = NoiseType;
+            _scale = NoiseScale;
+            UpdateTexture();
+        }
+
+        // Draw noise texture
+        Render2D.DrawTexture(_tempTexture, new Rectangle(Float2.Zero, Size));
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDestroy()
+    {
+        // Ensure to cleanup resources
+        _tempTexture?.ReleaseGPU();
+        FlaxEngine.Object.Destroy(ref _tempTexture);
+
+        base.OnDestroy();
+    }
+
+    private unsafe void UpdateTexture()
+    {
+        var desc = _tempTexture.Description;
+        var size = desc.Width * desc.Height * PixelFormatExtensions.SizeInBytes(desc.Format);
+        if (_data == null || _data.Length != size)
+            _data = new byte[size];
+        fixed (byte* dataPtr = _data)
+        {
+            // Generate pixels data
+            Float2 uv;
+            var colorsPtr = (Color32*)dataPtr;
+            for (int y = 0; y &lt; desc.Height; y++)
+            {
+                uv.Y = (float)y / desc.Height * _scale;
+                for (int x = 0; x &lt; desc.Width; x++)
+                {
+                    uv.X = (float)x / desc.Width * _scale;
+
+                    // Sample noise at uv location
+                    var noise = Vector3.Zero;
+                    switch (_noise)
+                    {
+                    case Noises.Perlin:
+                        noise = new Vector3(FlaxEngine.Utilities.Noise.PerlinNoise(uv));
+                        break;
+                    case Noises.Simplex:
+                        noise = new Vector3(FlaxEngine.Utilities.Noise.SimplexNoise(uv));
+                        break;
+                    case Noises.Voronoi:
+                        noise = FlaxEngine.Utilities.Noise.VoronoiNoise(uv);
+                        break;
+                    case Noises.Worley:
+                        noise = new Vector3(FlaxEngine.Utilities.Noise.WorleyNoise(uv), 0.0f);
+                        break;
+                    case Noises.Custom:
+                        noise = new Vector3(FlaxEngine.Utilities.Noise.CustomNoise(new Float3(uv, 0.0f)));
+                        break;
+                    }
+
+                    colorsPtr[y * desc.Width + x] = (Color32)(Color)noise;
+                }
+            }
+
+            // Update texture data on a GPU (send data)
+            uint rowPitch = (uint)size / (uint)desc.Height;
+            uint slicePitch = (uint)size;
+            GPUDevice.Instance.MainContext.UpdateTexture(_tempTexture, 0, 0, new IntPtr(dataPtr), rowPitch, slicePitch);
+            _tempTexture.ResidentMipLevels = 1; // Mark mip-map as available (required for standard textures only - other than render textures)
+        }
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/advanced/noise.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

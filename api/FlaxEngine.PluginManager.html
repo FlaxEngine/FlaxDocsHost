@@ -144,44 +144,6 @@ public static class PluginManager</code></pre>
   
   
   
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  
-  <h4 id="FlaxEngine_PluginManager_CanLoadPlugin" data-uid="FlaxEngine.PluginManager.CanLoadPlugin"><a href="#collapsible-FlaxEngine_PluginManager_CanLoadPlugin" class="expander" data-toggle="collapse">CanLoadPlugin</a></h4>
-  
-  <div id="collapsible-FlaxEngine_PluginManager_CanLoadPlugin" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether can load the specified plugin.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static PluginManager.CanLoadPluginDelegate CanLoadPlugin</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.PluginManager.CanLoadPluginDelegate.html">PluginManager.CanLoadPluginDelegate</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   <h3 id="properties">Properties
   </h3>
   
@@ -197,7 +159,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;Plugin&gt; EditorPlugins { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Plugin[] EditorPlugins { get; }</code></pre>
   </div>
 
   
@@ -208,7 +171,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>&gt;
+        <a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>[]
         <p>
       </td>
     </tr>
@@ -234,7 +197,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;GamePlugin&gt; GamePlugins { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static GamePlugin[] GamePlugins { get; }</code></pre>
   </div>
 
   
@@ -245,7 +209,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="FlaxEngine.GamePlugin.html">GamePlugin</a>&gt;
+        <a class="xref" href="FlaxEngine.GamePlugin.html">GamePlugin</a>[]
         <p>
       </td>
     </tr>
@@ -262,55 +226,6 @@ public static class PluginManager</code></pre>
   </h3>
   
   
-  <a id="FlaxEngine_PluginManager_DefaultCanLoadPlugin_" data-uid="FlaxEngine.PluginManager.DefaultCanLoadPlugin*"></a>
-  
-  <h4 id="FlaxEngine_PluginManager_DefaultCanLoadPlugin_FlaxEngine_PluginDescription__" data-uid="FlaxEngine.PluginManager.DefaultCanLoadPlugin(FlaxEngine.PluginDescription@)"><a href="#collapsible-FlaxEngine_PluginManager_DefaultCanLoadPlugin_FlaxEngine_PluginDescription__" class="expander" data-toggle="collapse">DefaultCanLoadPlugin(ref PluginDescription)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_PluginManager_DefaultCanLoadPlugin_FlaxEngine_PluginDescription__" class="collapse in">
-  <div class="markdown level1 summary"><p>The default implementation for <a class="xref" href="FlaxEngine.PluginManager.html#FlaxEngine_PluginManager_CanLoadPlugin">CanLoadPlugin</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool DefaultCanLoadPlugin(ref PluginDescription pluginDesc)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.PluginDescription.html">PluginDescription</a></span>
-        <span class="parametername">pluginDesc</span>
-        <p><p>The plugin description.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p><p>True if load it, otherwise false.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_PluginManager_GetPlugin_" data-uid="FlaxEngine.PluginManager.GetPlugin*"></a>
   
   <h4 id="FlaxEngine_PluginManager_GetPlugin_System_String_" data-uid="FlaxEngine.PluginManager.GetPlugin(System.String)"><a href="#collapsible-FlaxEngine_PluginManager_GetPlugin_System_String_" class="expander" data-toggle="collapse">GetPlugin(String)</a></h4>
@@ -322,7 +237,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Plugin GetPlugin(string name)</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Plugin GetPlugin(string name)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -362,6 +278,56 @@ public static class PluginManager</code></pre>
   
   <a id="FlaxEngine_PluginManager_GetPlugin_" data-uid="FlaxEngine.PluginManager.GetPlugin*"></a>
   
+  <h4 id="FlaxEngine_PluginManager_GetPlugin_System_Type_" data-uid="FlaxEngine.PluginManager.GetPlugin(System.Type)"><a href="#collapsible-FlaxEngine_PluginManager_GetPlugin_System_Type_" class="expander" data-toggle="collapse">GetPlugin(Type)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PluginManager_GetPlugin_System_Type_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns the first plugin of the provided type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Plugin GetPlugin([TypeReference(typeof(Plugin), null)] Type type)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">type</span>
+        <p><p>Type of the plugin to search for. Includes any plugin base class derived from the type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>
+        <p><p>The plugin or null.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PluginManager_GetPlugin_" data-uid="FlaxEngine.PluginManager.GetPlugin*"></a>
+  
   <h4 id="FlaxEngine_PluginManager_GetPlugin__1" data-uid="FlaxEngine.PluginManager.GetPlugin``1"><a href="#collapsible-FlaxEngine_PluginManager_GetPlugin__1" class="expander" data-toggle="collapse">GetPlugin&lt;T&gt;()</a></h4>
   
   <div id="collapsible-FlaxEngine_PluginManager_GetPlugin__1" class="collapse in">
@@ -372,7 +338,7 @@ public static class PluginManager</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T GetPlugin&lt;T&gt;()
-    where T : class</code></pre>
+    where T : Plugin</code></pre>
   </div>
 
   
@@ -421,7 +387,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static event PluginManager.PluginDelegate PluginLoaded</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Plugin&gt; PluginLoaded</code></pre>
   </div>
 
   
@@ -433,7 +400,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.PluginManager.PluginDelegate.html">PluginManager.PluginDelegate</a>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>&gt;
         <p>
       </td>
     </tr>
@@ -457,7 +424,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static event PluginManager.PluginDelegate PluginLoading</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Plugin&gt; PluginLoading</code></pre>
   </div>
 
   
@@ -469,7 +437,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.PluginManager.PluginDelegate.html">PluginManager.PluginDelegate</a>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>&gt;
         <p>
       </td>
     </tr>
@@ -493,7 +461,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static event Action PluginsChanged</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action PluginsChanged</code></pre>
   </div>
 
   
@@ -529,7 +498,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static event PluginManager.PluginDelegate PluginUnloaded</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Plugin&gt; PluginUnloaded</code></pre>
   </div>
 
   
@@ -541,7 +511,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.PluginManager.PluginDelegate.html">PluginManager.PluginDelegate</a>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>&gt;
         <p>
       </td>
     </tr>
@@ -565,7 +535,8 @@ public static class PluginManager</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static event PluginManager.PluginDelegate PluginUnloading</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Plugin&gt; PluginUnloading</code></pre>
   </div>
 
   
@@ -577,7 +548,7 @@ public static class PluginManager</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.PluginManager.PluginDelegate.html">PluginManager.PluginDelegate</a>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Plugin.html">Plugin</a>&gt;
         <p>
       </td>
     </tr>

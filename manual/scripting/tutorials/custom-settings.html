@@ -113,7 +113,13 @@ Press <strong>Create</strong> button to make a file with default values of the t
 #endif
 </code></pre><p>The sample code creates a new settigns asset in Content folder named <em>myPluginSettings.json</em>.</p>
 <p>Note: if you are developing a plugin you can create a default plugin settings asset and ship it with the plugin so it can be used to adjust plugin options in the project that uses it.</p>
-<h3 id="3-edit-settings-in-editor">3. Edit settings in Editor</h3>
+<p>You can also inject custom settings asset proxy controller for Editor which allows to extend the asset type with custom actions, editor window, creation method, etc:</p>
+<pre><code class="lang-cs">var assetProxy = new CustomSettingsProxy(typeof(MySettings), &quot;My Settings&quot;);
+Editor.ContentDatabase.Proxy.Add(assetProxy);
+
+// then ensure to cleanup on deinitialization (eg. of the plugin)
+// Editor.ContentDatabase.Proxy.Remove(assetProxy);
+</code></pre><h3 id="3-edit-settings-in-editor">3. Edit settings in Editor</h3>
 <p>Now you can use Flax Editor to open and edit the settings. Simply <strong>double click on an asset in the Content Window</strong> to open the editor window and modify the settings.</p>
 <p><img src="media/custom-settings-edit.png" alt="Edit Custom Settings"></p>
 <h3 id="4-access-settings-at-runtime">4. Access settings at runtime</h3>
@@ -123,7 +129,34 @@ if (settings)
 {
     Debug.Log(&quot;Settings: &quot; + settings.CreateInstance&lt;MySettings&gt;().Speed);
 }
-</code></pre></article>
+</code></pre><h2 id="settings-in-c">Settings in C++</h2>
+<p>If you use C++ scripting you can create a class that defines the data for the settings with <code>API_CLASS</code> and inherit from <code>SettingsBase</code>. It will be automatically exposed to the C#/Visual scripting and will be accessible in native scripts.</p>
+<p>Use <code>API_AUTO_SERIALIZATION</code> tag to make it automatically serializable (all <code>API_FIELD</code> items), add default <code>DECLARE_SCRIPTING_TYPE_NO_SPAWN</code> macro to insert scripting information and place utility <code>DECLARE_SETTINGS_GETTER</code> macro to insert settings getter for easier usage in game code (implemented with <code>IMPLEMENT_GAME_SETTINGS_GETTER</code> macro in <code>cpp</code> file).</p>
+<pre><code class="lang-cpp">// .h
+#include &quot;Engine/Core/Config/Settings.h&quot;
+#include &quot;Engine/Scripting/ScriptingObject.h&quot;
+
+/// &lt;summary&gt;
+/// The custom settings.
+/// &lt;/summary&gt;
+API_CLASS() class GAME_API MySettings : public SettingsBase
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE_NO_SPAWN(SettingsBase);
+    DECLARE_SETTINGS_GETTER(SettingsBase);
+public:
+    // The custom option.
+    API_FIELD() String Text;
+};
+
+// .cpp
+#include &quot;MySettings.h&quot;
+
+IMPLEMENT_GAME_SETTINGS_GETTER(MySettings, &quot;MySettings&quot;);
+</code></pre><p>Then you can use them in C#/Visual just like any other settings, in C++ code this can be accessed via getter:</p>
+<pre><code class="lang-cpp">const auto settings = MySettings::Get();
+</code></pre><p>Which will take the current settings data from the asset linked to the Cusstom Settings (in root <code>GameSettings.json</code>). Use <code>CustomSettingsProxy</code> mentioned above to make it easier to construct this asset in Editor.</p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -131,7 +164,7 @@ if (settings)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

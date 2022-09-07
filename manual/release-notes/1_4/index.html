@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 1.4 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 1.4 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Flax 1.4 release notes | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-14-release-notes">Flax 1.4 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="realtime-global-illumination">Realtime Global Illumination</h3>
+<center><iframe width="750" height="421" src="https://www.youtube-nocookie.com/embed/22zplE1STgU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></center>
+
+<p><strong>Realtime Global Illumination</strong> comes to Flax! This was one of the most requested features and now it&#39;s available to use in games and architectural visualization projects. You can see it in action in the video above. We implemented it using <strong>DDGI algorithm</strong> with scrolled-probes volumes around the camera which utilizes our <strong>custom Software Ray Tracing</strong> solution that runs on all modern GPUs - no need to have RTX-ready GPU. Instead, we added support for Sign Distance Fields for models to rasterize them into a global volume which can be ray traced in shaders on a GPU. Together with Global Surface Cache, we can simulate the GI effect in a dynamic environment where lighting conditions are constantly changing (eg. via time of the day).</p>
+<p>To learn more see the <a href="../../graphics/lighting/gi/realtime.html">Realtime GI docs</a>.</p>
+<h3 id="download-tech-demo">Download Tech Demo</h3>
+<p><img src="media/demo-shot.jpg" alt="Flax Engine Tech Demo 2022 GI"></p>
+<p>To showcase the capabilities of the new <strong>Global Illumination</strong> rendering we made a small demo presenting the ArchVis scene with dynamic lighting, dynamic objects, and adjustable time of the day. It&#39;s a small sandbox where you can playtest how the GI looks in an actual production project and how it performs. You can <strong><a href="https://flaxengine.com/tech-demo-2022/">download it now</a></strong> from our server or get it from Steam.</p>
+<center><iframe src="https://store.steampowered.com/widget/2138130/" frameborder="0" width="646" height="190"></iframe></center>
+
+<p>In the demo, you can control the camera with a mouse and keyboard or play with a gamepad. Use <em>D-pad</em> or <em>UHJK</em> keys to rotate the sun and play with the time of the day in the scene to see how it affects the dynamic lighting.</p>
+<h3 id="licensing-changes">Licensing Changes</h3>
+<p>Together with a massive amount of new features coming to Flax in this update we wanted to do even more. Thus we updated our licensing terms by <strong>increasing the minimum revenue threshold to $250k</strong> from $25k. Now, it&#39;s free to use Flax if your game or product earns less than $250k in a calendar quarter. Any revenue above this value is using a 4% revenue share, as it was before. For example, if your game earns $300k you pay $2k, which is 4% out of $50k above that new threshold.</p>
+<p>We believe this change will make the engine more affordable for small developers. It begins to be effective including with this calendar quarter (Q3 2022).</p>
+<h3 id="64-bit-world-coordinates">64-bit World Coordinates</h3>
+<p><img src="media/large-worlds-support.gif" alt="Large World whole World Earth"></p>
+<p>Flax Engine contains various features to create large and rich worlds such as async data streaming, different content tools (for foliage and terrain), and optimized multi-threading. In this update, we&#39;re bringing <strong>64-bit precision support for World Coordinates</strong> to enable building even larger worlds. Together with relative-to-camera rendering and physics scene origin shifting large worlds can be efficiently simulated and rendered which makes it possible for the game scenes to be as large as the whole Solar System while still maintaining good quality and precision.</p>
+<p>By default, the engine still uses 32-bit floats precision which can be upgraded to 64-bits in Custom Build. To learn more see the <a href="../../editor/large-worlds/index.html">docs</a>.</p>
+<h3 id="global-sdf">Global SDF</h3>
+<p><img src="media/global-sdf.jpeg" alt="Global SDF"></p>
+<p>In order to implement real-time GI, we needed a <strong>way of tracing through the scene to simulate light transport</strong> for diffuse light bounces and specular light with reflections. Nowadays, the most common way to do it is through hardware raytracing which is limited to high-end GPUs only. We decided to use <strong>Sign Distance Fields</strong> which provide an efficient way for ray tracing. To do it, we rasterize model SDFs into an array of volume textures (called <em>Global SDF</em>) to provide up to 10cm precision nearby the camera at a distance of 200m or more. This gives a rough approximation of the scene geometry and can be used for <strong>software raytracing</strong>.</p>
+<p>To learn more see the <a href="../../graphics/models/sdf.html">Global SDF docs</a>.</p>
+<h4 id="global-sdf-in-content">Global SDF in Content</h4>
+<p><img src="media/particles-global-sdf-collisions.gif" alt="Particles Global SDF Collisions"></p>
+<p>Additionally, the benefit of maintaining Global SDF for a whole scene is the ability to use it in materials, particles, and shaders. We added new <code>Sample Global SDF</code> and <code>Sample Global SDF Gradient</code> nodes to materials and particles for sampling SDF at any position. Also, particle emitters have new modules for Global SDF collisions and Global SDF forces to drive the realistic VFX simulation.</p>
+<p><img src="media/particles-global-sdf.gif" alt="Particles Global SDF"></p>
+<h3 id="crowd-navigation">Crowd Navigation</h3>
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/nav-agents-crowd-before.gif" alt="Nav Agents Before"></td>
+<td><img src="media/nav-agents-crowd-after.gif" alt="Nav Agents After"></td>
+</tr>
+</tbody>
+</table>
+<p>For game projects that use AI with NavMesh-based navigation, we&#39;ve added a new <code>NavCrowd</code> system which allows to efficiently simulate pathfinding with avoidance for <strong>crowd of agents</strong>. Above you can see 2 groups of simple <a href="../../navigation/tutorials/path-following.html">navmesh agents</a> that are colliding with each other. <a href="../../navigation/nav-crowd.html">NavCrowd</a> is a navigation steering behaviors system for a group of agents. It handles avoidance between agents by using an adaptive RVO sampling calculation. It can be used to implement automatic avoidance and movement for a crowd of agents using navmesh and supports asynchronous calculations which can run on our Job System (as shown in docs).</p>
+<h3 id="rich-text-formatting">Rich Text Formatting</h3>
+<p><img src="media/custom-text-styling.png" alt="Custom Text Styling Rich Text Box"></p>
+<p>For this release, we improved <a href="../../ui/controls/rich-text-box.html">Rich Text Box</a> GUI control by adding HTML tag formatting with styling, layout, and inlined image support. This notably makes it easier to style text in UI and create more elegant content. Our simple HTML parser is very extensible and can use custom tags (eg. defined by plugins). Follow the <a href="../../ui/controls/rich-text-box.html">documentation</a> to learn which tags are supported and how to use them in your projects.</p>
+<h3 id="visual-scripting-improvements">Visual Scripting improvements</h3>
+<p><img src="media/dictionaries-visual-script.png" alt="Visual Script Dictionary"></p>
+<p>Every update, we bring many features and improvements for Visual Scripting users. Our goal is to make it a very extensible and usable solution for gameplay scripting. This time we added <strong>Dictionaries</strong> support, new editor features for easier script editing, as well as, Finder tool. <strong>New Finder tool</strong> allows you to quickly search anything in the graph or even in all scripts in projects (bring it via <code>Ctrl+F</code> in all graph editors). This can be also used to search for something in all materials, particles, and animation graphs in a whole project (eg. to search usages of a certain texture or method).</p>
+<p>Finally, <strong>Reroute node got more usability</strong> and now can be easily connected to other nodes including multiple inputs/outputs (depending on the type). This will improve reusing graph parts and help organize visual scripts or material graphs.</p>
+<h2 id="screen-space-reflections-for-transparency">Screen Space Reflections for transparency</h2>
+<p><img src="media/ssr-transparency.png" alt="SSR Transparency"></p>
+<p>Transparent materials have new options for performing per-pixel depth-buffer raytracing to render reflections which improve the realism of water surfaces like puddles. Also, transparency can sample new Global Illumination and/or use Non-Directional Lighting mode which is useful when creating smoke, fog, or dust particle materials (shown below).</p>
+<p><img src="media/volumetric-particles-lighting.gif" alt="Volumetric Particles Lighting"></p>
+<h2 id="nested-animations">Nested Animations</h2>
+<p><img src="media/nested-anim.png" alt="Nested Animation"></p>
+<p>Animations can have nested animations inside to create sub-clips or composites (aka montages). This allows to easily reuse existing animation assets (eg. single reload gun animation duplicate 3 times for each gun shell).</p>
+<h2 id="noise-utilities">Noise utilities</h2>
+<p><img src="media/noise-nodes.png" alt="Noise Nodes in Materials"></p>
+<p>Now, Flax contains various utilities for different noise functions such as: Perlin, Simplex, Worley, Voronoi, Custom. Those can be accessed via scripting <code>FlaxEngine.Utilities.Noise</code> static class and used to enrich procedurally generated worlds and content.</p>
+<p><img src="media/noise-examples.png" alt="Noise Examples"></p>
+<p>All visual graphs (materials, particles, animations) can sample noise functions both on CPU and GPU to enrich the content. All noise functions return normalized results in the range 0-1. Some of them return more noise components, such as Voronoi Noise where <code>X=minDistToCell</code>, <code>Y=randomColor</code>, <code>Z=minEdgeDistance</code>. Depending on the context only one or even all components can be used. Follow the tooltip with documentation for every node.</p>
+<h2 id="migration-guide">Migration Guide</h2>
+<h3 id="scripts-initialization-order">Scripts initialization order</h3>
+<p>We refactored actors&#39; <code>PostLoad</code>/<code>PostSpawn</code> methods into <code>Initialize</code> and changed the script <code>OnAwake</code> event to be called during this initialization phase - before any <code>OnStart</code>/<code>OnEnable</code> logic. This helps to create gameplay systems in a scheme of manager+objects where the manager can use <code>OnAwake</code> to initialize properly, and <code>OnEnable</code> can be used to register objects to the manager. This change has no performance impact but might be important to address in existing Flax projects.</p>
+<h3 id="plugins-scripting-changes">Plugins scripting changes</h3>
+<p>For this update, we&#39;ve added support for implementing Game Plugins in C++ scripts - previously it was C#-only feature. For this change, both <code>GamePlugin</code> and <code>EditorPlugin</code> has been slightly modified:</p>
+<ul>
+<li><code>Description</code> getter is read-only and your plugin can fill <code>_description</code> field in the constructor to set up plugin info.</li>
+<li><code>OnCollectAssets</code> has been renamed to <code>GetReferences</code> and returns the list of Guids with referenced assets.</li>
+<li><code>DeinitializeEditor</code> new method for Editor plugins to pair with <code>InitializeEditor</code> and match Editor lifetime.
+We&#39;ve updated docs, code examples, and all official plugins to reflect those changes.</li>
+</ul>
+<h3 id="large-worlds">Large Worlds</h3>
+<p>Adding 64-bit precision to the world coordinates to the Flax was a challenge. Both Engine and Editor have very complex and mature systems with tooling thus we wanted to make this transition seamless and stable. One of the goals was to don&#39;t bloat memory by just doubling every floating-point value but instead upgrade world-coordinates-related data to support very large worlds. For instance, 32-bit float gives us enough precision to represent object rotation and scale thus we upgraded only <code>Translation</code> (aka <code>Position</code>) of the <code>Transform</code> to a 64-bit double vector. Also, the UI system, mesh data, textures converter, and other engine features were changed to keep explicitly <em>Float</em> vectors for performance reasons.</p>
+<p><img src="media/world-coordinates-64-bit.png" alt="Large Worlds with 64bit Coordinates"></p>
+<p>Regarding data compatibility, we did automatic upgrade support for the older projects, as well as, an implicit conversion between 32-bit and 64-bit vector types to ensure gameplay code can be easily updated to the new engine version. Finally, this Large World Coordinates feature can be enabled via engine configuration parameter (see <code>Flax.flaxproj</code>). If your game needs 64-bit floats then you can use a custom engine build (<a href="../../editor/large-worlds/index.html">docs</a>) and enable that feature.</p>
+<p>Important changes regarding this feature:</p>
+<ul>
+<li>Refactored Vector types Float/Double/Int to have float/double/int as data and Vector to have a float or double (typedef as <code>Real</code> based on <code>USE_LARGE_WORLDS</code> define at compile time)</li>
+<li>Refactored UI to use <code>Float2</code> explicitly instead of <code>Vector2</code> (UI doesn&#39;t need 64-bit precision)</li>
+<li>Refactored rendering to use <code>Float3</code> explicitly instead of <code>Vector3</code> (GPU support for 64-bit coordinates is limited and due to performance reasons we continue to use 32-bit precision but the scene rendering is relative to the large world chunk thus enables using large worlds)</li>
+<li>Added implicit conversion between Vector&lt;-&gt;Float&lt;-&gt;Double&lt;-&gt;Int vector types to make it easier for upgrade projects to 1.4 version</li>
+<li>Core math types that will keep 32-bit float precision: <code>Rectangle</code>, <code>Color</code>, <code>Matrix</code>, <code>Matrix3x3</code>, <code>Matrix3x4</code>, <code>Quaternion</code>, <code>Viewport</code>, <code>BoundingFrustum</code></li>
+<li>Core math types that were upgraded to 64-bit double-precision: <code>Vector2/3/4</code>, <code>BoundingBox</code>, <code>BoundingSphere</code>, <code>OrientedBoundingBox</code>, <code>Plane</code>, <code>Ray</code>, <code>Triangle</code>, <code>Transform</code> (only translation, orientation, and scale will use 32-bit precision as it&#39;s enough to represent rotation and scaling)</li>
+<li>Mesh API has been changed to explicitly use <code>Float2/3/4</code> for mesh vertices data (instead of <code>Vector2/3/4</code>) - old API has been deprecated but will still work</li>
+<li>Collision Data and Physics uses 32-bit precision for vertices and geometry - old API has been deprecated but will still work</li>
+<li>Packed vector types (eg. <code>FloatR10G10B10A2</code>, <code>Half3</code>) have been refactor to use Float2/3/4 types for conversion as default instead of <code>Vector2/3/4</code></li>
+<li>Material, particle, and animation graphs parameters were changed from Vector to Float (explicit type) but with new support for Doubles</li>
+<li>Gameplay Globals entries of <code>Vector2/3/4</code> has been changed into <code>Float2/3/4</code> and added <code>Double2/3/4</code> if more precision is needed</li>
+</ul>
+<p>Migration guide:</p>
+<ul>
+<li>BoundingBox, BoundingSphere. Transform, Ray, Triangle Plane, Vector2/3/4 types can have different memory sizes if using doubles. Ensure the serialization of data using those types will work accordingly. You can use new WriteStream and ReadStream utility methods for those data types serialization. <code>Variant</code> type will automatically upgrade existing data.</li>
+<li>GameplayGlobals values of vector type have been changed into <code>Float2/3/4</code> (reading vectors will need to be changed explicitly).</li>
+<li>User Interface and Input use <code>Float2</code> explicitly for coordinates, please update your UI code.</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-146334---7-september-2022">Version 1.4.6334 - 7 September 2022</h3>
+<p>Contributors: mafiesto4, GoaLitiuM, iainmckay, PrecisionRender, mxruben, whocares77, ScottLongley, tom-weiland, Wolfos</p>
+<p>PRs merged: 23</p>
+<ul>
+<li>Add <strong>Dynamic Diffuse Global Illumination</strong> with real-time irradiance probes</li>
+<li>Add <code>JobSystem.Execute</code> utility for quick jobs running</li>
+<li>Add <strong>Global Sign Distance Field</strong> rendering</li>
+<li>Add Distance to box/point for Bounding Box</li>
+<li>Add <code>LineHitBox</code> to <code>Collisions.hlsl</code></li>
+<li>Add flip presentation mode and tearing support to D3D11</li>
+<li>Add <code>MeshAccelerationStructure</code> utility for robust triangles geometry queries</li>
+<li>Add more utilities for using <code>Matrix3x3</code></li>
+<li>Add <code>IsSingleFrame</code> to <code>RenderView</code> for thumbnails/pre-render views drawing without temporal effects and LOD transitions</li>
+<li>Add <code>DynamicStructuredBuffer</code> and <code>DynamicTypesBuffer</code> utilities</li>
+<li>Add automatic group panels hiding if all properties are hidden by <code>VisibleIf</code> rule</li>
+<li>Add utilities for Model SDF generation (on import, in editor window, or batch for all models on a scene)</li>
+<li>Add <strong>Sample Global SDF</strong> node to materials and particles</li>
+<li>Add <code>Collision (Global SDF)</code> particle module</li>
+<li>Add <code>Conform to Global SDF</code> module to GPU particles</li>
+<li>Add <code>Position (Global SDF)</code> module to GPU particles</li>
+<li>Add utility <code>Copy</code> option for various labels in  assets editors</li>
+<li>Add <code>ISceneRenderingListener</code> for using scene information in the renderer cache</li>
+<li>Add utility to editor CodeDocs for tooltips from C# types and members</li>
+<li>Add <code>CustomBuffers</code> for injecting custom state into <code>RenderBuffers</code></li>
+<li>Add support for implicit casting from Quaternion to other types in shaders</li>
+<li>Add <code>Rotate Vector</code> node to Visject Surface graphs</li>
+<li>Add <strong>Screen Space Reflections for transparent materials</strong></li>
+<li>Add <code>Array Add Unique</code> node to Visual Scripting</li>
+<li>Add support for sampling Scene Color in transparent materials (forward pass)</li>
+<li>Add keyboard key navigation to Content View based on items name first character</li>
+<li>Add <code>JsonAsset.Instance</code> for C# asset object</li>
+<li>Add <code>Delegate::BindUnique</code></li>
+<li>Add <strong>Dictionaries to Visual Scripting</strong></li>
+<li>Add support for array of Visual Script objects</li>
+<li>Add support for <code>constexpr</code> fields in Scripting API</li>
+<li>Add <strong>World Triplanar Texture node</strong> to materials</li>
+<li>Add playback speed option for Scene Animation rendering</li>
+<li>Add Smoothstep and Step material nodes</li>
+<li>Add preserving existing value of the Visual Script parameter when changing its type</li>
+<li>Add <code>View Size</code> node for GUI materials</li>
+<li>Add additive scene opening in Editor via drag&amp;drop into Scene Tree window</li>
+<li>Add <code>Custom Global Code</code> node to materials for injecting custom code, includes or constants</li>
+<li>Add <code>loopCount</code> to <code>PlaySlotAnimation</code> for looping slot animation</li>
+<li>Add <code>Color.FromRGBA</code></li>
+<li>Add confirmation dialog for Scenes Data building in Editor toolbar (prevent misclicks)</li>
+<li>Add cursor clipping (for RTS, MOBA games)</li>
+<li>Add <code>Double2</code>, <code>Double3</code>, <code>Double4</code> to C# scripting API</li>
+<li>Add <strong>Large Worlds support for 64-bit world coordinates</strong> (enable <code>UseLargeWorlds</code> in custom engine build)</li>
+<li>Add relative-to-camera rendering for large worlds</li>
+<li>Add support for the latest Windows 11 SDK (22H2)</li>
+<li>Add support for Physics Scene origin shifting</li>
+<li>Add support for Double2/3/4 for native storage in <code>Variant</code></li>
+<li>Add custom floats formatting to prevent scientific notation</li>
+<li>Add selectable Environment Probes resolution (in Graphics Settings or per-probe)</li>
+<li>Add support for dispatching jobs within jobs in JobSystem</li>
+<li>Add <strong>Transparent Lighting Modes for material</strong> with option to use non-directional shading</li>
+<li>Add  Global Illumination sampling option to transparent materials (eg. particles)</li>
+<li>Add utility buttons to check/uncheck all Material Instance parameters overrides in Editor window</li>
+<li>Add separate GBuffer view modes in Editor viewport widget</li>
+<li>Add <strong>real-time environment probes</strong> support</li>
+<li>Add support for baking env probes in cooked game</li>
+<li>Add new trace mode to Screen Space Reflections for DDGI Scene tracing</li>
+<li>Add showing model screen size in the Model Preview</li>
+<li>Add editor camera speed up for gamepad right trigger</li>
+<li>Add <code>GamepadDPadX</code>/<code>GamepadDPadY</code> input axes for gamepad DPad</li>
+<li>Add <code>Engine.FocusGameViewport</code> to implement game menu with camera focus gather</li>
+<li>Add <strong>HTML tags processing in Rich Text Box</strong></li>
+<li>Add <code>HtmlParser</code> to engine utilities (with unit tests for it)</li>
+<li>Add option to disable text clipping in text boxes</li>
+<li>Add option to disable selecting text in text box</li>
+<li>Add utility for parsing Color from text (hex or named color)</li>
+<li>Add <code>Content.GetEditorAssetPath</code></li>
+<li>Add <code>EditorPlugin.DeinitializeEditor</code> to properly cleanup Editor extensions on exit</li>
+<li>Add support for generic types in Scripting API with <code>Template</code> flag</li>
+<li>Add waiting for model to be loaded in <code>SetMaterial</code></li>
+<li>Add <code>NavCrowd</code> for navigation steering behaviors system for a group of agents</li>
+<li>Add support for renaming GPU resources (development builds only)</li>
+<li>Add new <code>API_TYPEDEF</code> metadata for Scripting API types instantiation (with <code>Alias</code> option)</li>
+<li>Add <code>FLAX_BUILD_BINDINGS</code> define for Scripting API parser to be used if needed</li>
+<li>Add various improvements for C# math library</li>
+<li>Add <strong>Content Search</strong> window to searching Visual Scripts and other assets</li>
+<li>Add <code>Find references</code> utility for graph parameters and methods</li>
+<li>Add public events for Editor play mode flow</li>
+<li>Add setting timer resolution to lowest possible value in all Windows systems</li>
+<li>Add support for main view information in Surface materials during subpass rendering (eg. shadow depth)</li>
+<li>Add support for font size and color in <code>Header</code> attribute</li>
+<li>Add <code>TypeReference</code> attribute to actors/scripts searching utilities for easier type picking in Visual Script</li>
+<li>Add support for setting C++ version for build module compilation</li>
+<li>Add <strong>Nested Animations</strong> for compositing animation clips</li>
+<li>Add new <strong>Noise</strong> library for C++/C#/VisualScript/HLSL utilities</li>
+<li>Add <code>Default</code> auto-generated member to scripting structures and improve deserialization</li>
+<li>Add <code>UseAlpha</code> to <code>RenderBuffers</code> for pass-though renderer with alpha channel</li>
+<li>Add late initialization to Content Finder tool in Editor</li>
+<li>Add support for virtual Prefab assets created from code</li>
+<li>Add GPU Dispatch calls in GPU profiler draw calls collumn</li>
+<li>Add batching undo actions for Surface editing to prevent undo actions spam during a single edit</li>
+<li>Add missing pipeline barriers after Dispatch on Vulkan to prevent race conditions with UAVs</li>
+<li>Add support for using mipmaps with 3D textures</li>
+<li>Add support for  in-built color constants in Visject (eg. red/blue/violet)</li>
+<li>Add drawing <code>RenderList</code> if it was not batched/sorted</li>
+<li>Add <code>Actor::GetOrAddChild</code> to C++</li>
+<li>Add auto-selecting new item created in Content window</li>
+<li>Add shader getter to <code>IMaterial</code> interface</li>
+<li>Add shader reloading on header file edit for shaders with compilation errors</li>
+<li>Add support for Volume textures to have residency changed as regular textures</li>
+<li>Add events for streamable resources residency changes tracking</li>
+<li>Optimize empty comments parsing in Scripting API</li>
+<li>Optimize ProbesFilter shader</li>
+<li>Expose <code>IsDuringPlay</code> property for actors and scripts to use in scripting</li>
+<li>Improve <code>StaticModel</code> to register for Scene Rendering once the model has any LOD streamed-in</li>
+<li>Improve  initial name for static model collision data asset</li>
+<li>Improve properties display (group all parameters from the same group together)</li>
+<li>Improve JetBrains Rider installation detection</li>
+<li>Improve Linux source code editor detection (Rider and VSCode)</li>
+<li>Improve property names displayed in UI</li>
+<li>Change search boxes in Editor to stick to the top of the panel</li>
+<li>Update to .Net Framework 4.5.2</li>
+<li>Update DirectXShaderCompiler to version 1.7 (July 2022)</li>
+<li>Move <code>Actor.DestroyChildren</code> to C++</li>
+<li>Remove disabling temporal reprojection from Volumetric Fog</li>
+<li>Remove <code>FlaxException</code></li>
+<li>Remove warning on missing initial entry state for Anim Graph state machine</li>
+<li>Refactor model Import Options to display only relevant properties for asset Type</li>
+<li>Refactor <code>PhysicsActor</code> into <code>Rigidbody</code> (use <code>IPhysicsActor</code> interface manually)</li>
+<li>Refactor <code>HashSet</code> to support custom allocator</li>
+<li>Refactor <code>API_INJECT_CPP_CODE</code> into <code>API_INJECT_CODE</code> to support code injection in other languages</li>
+<li>Refactor Visject reroute node to support reconnecting and have more usability</li>
+<li>Refactor scene objects initialization to call <code>OnAwake</code> before all <code>OnStart</code></li>
+<li>Refactor engine to support double-precision vectors</li>
+<li>Refactor <code>OrientedBoundingBox</code> to use <code>Transform</code> for transformation instead of <code>Matrix</code> (for large worlds)</li>
+<li>Refactor <code>FlaxTests</code> to run as Editor with all engine services initialized</li>
+<li>Format engine codebase with ReSharper</li>
+<li>Fix <code>Lightmap UVs Source</code> not working in model import options</li>
+<li>Fix for macOS dylib path</li>
+<li>Fix text box not consuming key down event causing editor shortcuts to activate when typing</li>
+<li>Fix preserving Alpha channel when changing color with Value slider</li>
+<li>Fix Android build with NDK 25</li>
+<li>Fix editor options startup to not log error on a missing file</li>
+<li>Fix for faster models exporting</li>
+<li>Fix opening and editing animation with missing Anim Events</li>
+<li>Fix <code>Vector2</code> equality comparison</li>
+<li>Fix sampling Curves with keyframes that have negative time value</li>
+<li>Fix displaying multiple structure parameters in Visject Surface parameters panel</li>
+<li>Fix opening material or particle emitter in editor if shader compilation fails</li>
+<li>Fix picking to properly select closest triangle for meshes</li>
+<li>Fix Directional Light color alpha in Sky atmosphere color</li>
+<li>Fix CSM split point when using 3 cascades</li>
+<li>Fix <code>TextureBrush</code> to return valid size if texture is not yet loaded</li>
+<li>Fix editor viewport capturing mouse if window is not foreground</li>
+<li>Fix looping streamable audio clips with multiple chunks</li>
+<li>Fix enum operators to be <code>constexpr</code></li>
+<li>Fix game ticking in editor during cut-scene rendering at edit time</li>
+<li>Fix <code>Ctrl+S</code> in timeline view to not split the camera shot media</li>
+<li>Fix debug name for DirectX resources</li>
+<li>Fix Surface parameter attributes editor popup location</li>
+<li>Fix Constant Buffer binding on D3D12 when using Graphics after Compute pass with the same constants</li>
+<li>Fix the Depth Of Field to be consistent no matter the resolution</li>
+<li>Fix borders sampling in Depth Of Field to reduce leaking artifacts on screen edges</li>
+<li>Fix editor error when selecting foliage type</li>
+<li>Fix <code>FlaxStorage</code> refs counting to be atomic</li>
+<li>Fix pasting/duplicating nodes in Visject to call spawn event</li>
+<li>Fix error when loading surface from not yet loaded asset</li>
+<li>Fix drag&amp;drop into Scene Tree if move goes over valid drop target first</li>
+<li>Fix wrong timestamps in C# profiler events</li>
+<li>Fix copy pasting multi-line text into a single-line textbox</li>
+<li>Fix removing Gameplay Globals</li>
+<li>Fix Multi Blend 2D node if all blend points are on the same line</li>
+<li>Fix selecting Debug Log window entries with the left-mouse button</li>
+<li>Fix errors in Editor when editing particle emitter if effect that uses it is selected</li>
+<li>Fix missing Properties window focus after adding script to the actor</li>
+<li>Fix <code>ParticleEmitter.Spawn()</code> with default duration</li>
+<li>Fix <code>[AssetReference(typeof(typeName)]</code> not working for arrays of assets (fix for collection types)</li>
+<li>Fix PhysX crashes due to lazy actors adding by adding PhysX actors to the scene immediately</li>
+<li>Fix foreach loop in Visual Script to continue flow on null array or dictionary</li>
+<li>Fix default value in <code>Dot</code> and <code>Distance</code> graph nodes</li>
+<li>Fix editing <code>LinearCurve&lt;Color&gt;</code> in properties window (color picker window closed keyframe editing popup)</li>
+<li>Fix using null array of dictionary in Visual Script for init</li>
+<li>Fix invoking anim events for multi-blend animations</li>
+<li>Fix mouse hovering controls under expanded dropdown list panel</li>
+<li>Fix <code>Spline::GetSplineLength</code> freeze</li>
+<li>Fix Editor Analytics tracking option file SetupStyle</li>
+<li>Fix duplicated actors after reparenting actor in Prefab</li>
+<li>Fix Reroute node in Visual Script impulse flow</li>
+<li>Fix Editor play mode exit bug after closing maximized Game window</li>
+<li>Fix using preprocessor define values in Flax.Build bindings parsing</li>
+<li>Fix processing <code>else</code> and <code>elif</code> preprocessor blocks in <code>Flax.Build</code> bindings parser</li>
+<li>Fix parsing comments for Scripting API types that are templates</li>
+<li>Fix snapping object to the group in Editor to skip trigger volumes</li>
+<li>Fix error when double-clicking empty RichTextBox</li>
+<li>Fix minor issue with Visual Script set parameter node calling flow during debugger value evaluation</li>
+<li>Fix uploading volume texture data to GPU in D3D12</li>
+<li>Fix shader source code encoding error on a compilation error</li>
+<li>Fix font rendering and alignment with custom DPI scales</li>
+<li>Fix <code>Dictionary::Remove</code> return value if empty</li>
+<li>Fix error in Forward Shader Feature when rendering directional light shadow map</li>
+<li>Fix ParticleEffectEditor issues after emitter editing if selected</li>
+<li>Fix <code>UsedSRsMask</code>/<code>UsedUAsMask</code> when binding arrays to the shader</li>
+<li>Fix normal map when importing materials for model files</li>
+<li>Fix sorting items in various contextual list popups in Editor</li>
+<li>Fix <code>InstanceOrigin</code>, <code>PerInstanceRandom</code> and <code>LODDitherFactor</code> to not use interpolation between shader stages</li>
+<li>Fix <code>Multiply</code> (and similar) nodes result value in Visject if the first input is disconnected</li>
+<li>Fix highlighting the first error/warning from the Output Log message text</li>
+<li>Fix opening particle emitter editor window if shader compilation fails</li>
+<li>Fix invalid Rigidbody bounds if it has no  shapes  attached</li>
+<li>Fix crash if D3D device gets <code>DXGI_ERROR_DEVICE_REMOVED</code> during init</li>
+<li>Fix crash with Vulkan when using Blur Panel in Screen Space canvas</li>
+<li>Fix crash on macOS due to Vulkan timestamp queries error</li>
+<li>Fix crash due to GPU Particles define not used in some headers</li>
+<li>Fix crash when setting up recursive Material Instances inheritance</li>
+<li>Fix crash when changing actor scene</li>
+<li>Fix crash on opening skeleton mask window</li>
+<li>Fix crash in scripting init if current localization is null</li>
+<li>Fix crash on API event in C# after Editor hot-reload</li>
+<li>Fix crash on Linux with empty log message</li>
+<li>Fix crash when spawning prefab without scenes loaded</li>
+<li>Fix crash when loading empty json for Variant structure data</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/release-notes/1_4/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

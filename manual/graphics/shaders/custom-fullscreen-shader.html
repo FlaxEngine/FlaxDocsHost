@@ -232,7 +232,7 @@ float4 PS_Fullscreen(Quad_VS2PS input) : SV_Target
 [StructLayout(LayoutKind.Sequential)]
 private struct Data
 {
-    public Vector2 TexelSize;
+    public Float2 TexelSize;
     public float Sharpness;
     public float Dummy0;
 }
@@ -246,7 +246,7 @@ if (cb != IntPtr.Zero)
 {
     var data = new Data
     {
-        TexelSize = Vector2.One / input.Size,
+        TexelSize = Float2.One / input.Size,
         Sharpness = Sharpness,
     };
     context.UpdateCB(cb, new IntPtr(&amp;data));
@@ -270,7 +270,7 @@ context.DrawFullscreenTriangle();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/graphics/shaders/custom-fullscreen-shader.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/graphics/shaders/custom-fullscreen-shader.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

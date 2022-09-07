@@ -97,19 +97,27 @@
 <p>Create and implement the following script:</p>
 <pre><code class="lang-cs">public class Agent007 : Script
 {
-    [Tooltip(&quot;The target object to follow.&quot;)]
+    /// &lt;summary&gt;
+    /// The target object to follow.
+    /// &lt;/summary&gt;
     public Actor MoveToTarget;
 
-    [Tooltip(&quot;The offset applied to the actor position on moving it.&quot;)]
+    /// &lt;summary&gt;
+    /// The offset applied to the actor position on moving it.
+    /// &lt;/summary&gt;
     public Vector3 Offset = new Vector3(0, 100, 0);
 
-    public float Speed = 10.0f;
+    /// &lt;summary&gt;
+    /// Agent movement speed (units/second).
+    /// &lt;/summary&gt;
+    public float Speed = 500.0f;
 
     private Vector3 _targetPos;
     private Vector3[] _path;
     private float _pathLength;
     private float _pathPosition;
 
+    /// &lt;inheritdoc /&gt;
     public override void OnUpdate()
     {
         if (!MoveToTarget)
@@ -122,7 +130,7 @@
         var targetPos = MoveToTarget.Position;
 
         // Check if reached target location
-        if (Vector3.DistanceSquared(currentPos, targetPos) &lt; 2)
+        if (Vector3.Distance(ref currentPos, ref targetPos) &lt; 2)
             return;
 
         // Check if need to build a new path
@@ -133,7 +141,7 @@
             _pathLength = 0;
             if (!Navigation.FindPath(currentPos, targetPos, out _path))
             {
-                Debug.LogError(&quot;Failed to find path to the target.&quot;);
+                Debug.LogWarning(&quot;Failed to find path to the target.&quot;);
                 return;
             }
 
@@ -144,11 +152,8 @@
                 Navigation.ProjectPoint(_path[_path.Length - 1], out _path[_path.Length - 1]);
 
             // Compute path length
-            for (int i = 0; i &lt; _path.Length - 1; i++)
-            {
-                var segmentLength = Vector3.Distance(_path[i], _path[i + 1]);
-                _pathLength += segmentLength;
-            }
+            for (int i = 1; i &lt; _path.Length; i++)
+                _pathLength += Vector3.Distance(ref _path[i - 1], ref _path[i]);
         }
 
         // Skip if has no path
@@ -163,11 +168,12 @@
         float segmentsSum = 0;
         for (int i = 0; i &lt; _path.Length - 1; i++)
         {
-            var segmentLength = Vector3.Distance(_path[i], _path[i + 1]);
+            var segmentLength = Vector3.Distance(ref _path[i], ref _path[i + 1]);
             if (segmentsSum &lt;= pathProgress &amp;&amp; segmentsSum + segmentLength &gt;= pathProgress)
             {
                 float t = (pathProgress - segmentsSum) / segmentLength;
-                Actor.Position = Vector3.Lerp(_path[i], _path[i + 1], t) + Offset;
+                targetPos = Vector3.Lerp(_path[i], _path[i + 1], t) + Offset;
+                Actor.AddMovement(targetPos - currentPos);
                 break;
             }
 
@@ -188,7 +194,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/navigation/tutorials/path-following.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/navigation/tutorials/path-following.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

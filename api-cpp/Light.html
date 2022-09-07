@@ -113,6 +113,9 @@
       <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__drawNoCulling">Actor::_drawNoCulling</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
     </div>
     <div>
@@ -230,16 +233,13 @@
       <span class="xref">Light</span>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DestroyChildren_float_">Actor::DestroyChildren(float timeLeft = 0.0f)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_Draw_RenderContext___">Actor::Draw(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_EndPlay__">Actor::EndPlay()</a>
@@ -351,6 +351,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrAddChild__">Actor::GetOrAddChild()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -470,10 +473,16 @@
       <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_Initialize__">Actor::Initialize()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_InitializeHierarchy__">Actor::InitializeHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___Real___Vector3___">Actor::Intersects(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___Real___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
@@ -578,12 +587,6 @@
       <a class="xref" href="Actor.html#Actor_OnTransformChanged__">Actor::OnTransformChanged()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
@@ -608,7 +611,7 @@
       <span class="xref">Light</span>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Float3___">Actor::SetDirection(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
@@ -623,7 +626,7 @@
       <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Float3___">Actor::SetLocalScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
@@ -656,7 +659,7 @@
       <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Float3___">Actor::SetScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlag_StaticFlags_bool_">Actor::SetStaticFlag(StaticFlags flag, bool value)</a>
@@ -750,7 +753,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Brightness.md&amp;value=---%0Auid%3A%20Light.Brightness%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -792,7 +795,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_CastVolumetricShadow.md&amp;value=---%0Auid%3A%20Light.CastVolumetricShadow%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L45" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -834,7 +837,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Color.md&amp;value=---%0Auid%3A%20Light.Color%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L20" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L19" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -876,7 +879,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_IndirectLightingIntensity.md&amp;value=---%0Auid%3A%20Light.IndirectLightingIntensity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L34" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -918,7 +921,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_ViewDistance.md&amp;value=---%0Auid%3A%20Light.ViewDistance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L29" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -960,7 +963,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_VolumetricScatteringIntensity.md&amp;value=---%0Auid%3A%20Light.VolumetricScatteringIntensity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L39" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1004,7 +1007,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_AdjustBrightness_const_RenderView___float___.md&amp;value=---%0Auid%3A%20Light.AdjustBrightness(const%20RenderView%20%26%2Cfloat%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_AdjustBrightness_" data-uid="Light.AdjustBrightness*"></a>
@@ -1055,7 +1058,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20Light.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L63" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L60" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_Deserialize_" data-uid="Light.Deserialize*"></a>
@@ -1108,7 +1111,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_GetEditorBox__.md&amp;value=---%0Auid%3A%20Light.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L56" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_GetEditorBox_" data-uid="Light.GetEditorBox*"></a>
@@ -1153,7 +1156,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20Light.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L62" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_Serialize_" data-uid="Light.Serialize*"></a>

@@ -114,6 +114,9 @@
       <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__drawNoCulling">Actor::_drawNoCulling</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
     </div>
     <div>
@@ -234,10 +237,10 @@
       <span class="xref">Terrain</span>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
+      <a class="xref" href="Actor.html#Actor_DestroyChildren_float_">Actor::DestroyChildren(float timeLeft = 0.0f)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
@@ -349,6 +352,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrAddChild__">Actor::GetOrAddChild()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -468,7 +474,13 @@
       <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_Initialize__">Actor::Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_InitializeHierarchy__">Actor::InitializeHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___Real___Vector3___">Actor::Intersects(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
@@ -564,12 +576,6 @@
       <a class="xref" href="PhysicsColliderActor.html#PhysicsColliderActor_OnTriggerExit_PhysicsColliderActor___">PhysicsColliderActor::OnTriggerExit(PhysicsColliderActor* c)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
@@ -594,7 +600,7 @@
       <span class="xref">Terrain</span>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Float3___">Actor::SetDirection(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
@@ -609,7 +615,7 @@
       <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Float3___">Actor::SetLocalScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
@@ -642,7 +648,7 @@
       <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Float3___">Actor::SetScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlag_StaticFlags_bool_">Actor::SetStaticFlag(StaticFlags flag, bool value)</a>
@@ -926,7 +932,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -970,7 +976,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">numberOfPatches</span>
         <p><p>The number of patches (x and z axis).</p></p>
       </td>
@@ -994,7 +1000,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20Terrain.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L453" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L452" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_BeginPlay_" data-uid="Terrain.BeginPlay*"></a>
@@ -1094,14 +1100,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">position</span>
         <p><p>The position to find the closest point to it.</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">result</span>
         <p><p>The result point on the collider that is closest to the specified location.</p></p>
       </td>
@@ -1125,7 +1131,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20Terrain.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L442" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L441" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_Deserialize_" data-uid="Terrain.Deserialize*"></a>
@@ -1186,7 +1192,7 @@
   <h4 id="Terrain_Draw_RenderContext___" data-uid="Terrain.Draw(RenderContext &amp;)"><a href="#collapsible-Terrain_Draw_RenderContext___" class="expander" data-toggle="collapse">Draw(RenderContext&amp; renderContext)</a></h4>
   
   <div id="collapsible-Terrain_Draw_RenderContext___" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws this actor. Called by Scene Rendering service. This call is more optimized than generic Draw (eg. models are rendered during all passed but other actors are invoked only during GBufferFill pass). </p></div>
+  <div class="markdown level1 summary"><p>Draws this actor. Called by Scene Rendering service. This call is more optimized than generic Draw (eg. geometry is rendered during all pass types but other actors are drawn only during GBufferFill pass). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -1251,14 +1257,14 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">chunkCoord</span>
         <p><p>The chunk location (x and z).</p></p>
       </td>
@@ -1284,52 +1290,6 @@
   
   
   
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_DrawGeneric_RenderContext___.md&amp;value=---%0Auid%3A%20Terrain.DrawGeneric(RenderContext%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L435" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="Terrain_DrawGeneric_" data-uid="Terrain.DrawGeneric*"></a>
-  
-  <h4 id="Terrain_DrawGeneric_RenderContext___" data-uid="Terrain.DrawGeneric(RenderContext &amp;)"><a href="#collapsible-Terrain_DrawGeneric_RenderContext___" class="expander" data-toggle="collapse">DrawGeneric(RenderContext&amp; renderContext)</a></h4>
-  
-  <div id="collapsible-Terrain_DrawGeneric_RenderContext___" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws this actor. Called during custom actor rendering or any other generic rendering from code. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void DrawGeneric(RenderContext&amp; renderContext) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="RenderContext.html">RenderContext</a></span>
-        <span class="parametername">renderContext</span>
-        <p><p>The rendering context.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a></div>
   
   
   
@@ -1369,7 +1329,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -1407,7 +1367,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_EndPlay__.md&amp;value=---%0Auid%3A%20Terrain.EndPlay()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L454" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L453" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_EndPlay_" data-uid="Terrain.EndPlay*"></a>
@@ -1443,7 +1403,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_GetAttachedRigidBody__.md&amp;value=---%0Auid%3A%20Terrain.GetAttachedRigidBody()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L443" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L442" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_GetAttachedRigidBody_" data-uid="Terrain.GetAttachedRigidBody*"></a>
@@ -1509,7 +1469,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="Vector3.html">Vector3</a>
+        <span class="xref">Vector3</span>
         <p>
       </td>
     </tr>
@@ -1609,14 +1569,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch coordinates (x and z).</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">chunkCoord</span>
         <p><p>The chunk coordinates (x and z).</p></p>
       </td>
@@ -1927,7 +1887,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -2151,7 +2111,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -2238,7 +2198,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -2334,7 +2294,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -2364,23 +2324,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_IntersectsItself_const_Ray___float___Vector3___.md&amp;value=---%0Auid%3A%20Terrain.IntersectsItself(const%20Ray%20%26%2Cfloat%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_IntersectsItself_const_Ray___Real___Vector3___.md&amp;value=---%0Auid%3A%20Terrain.IntersectsItself(const%20Ray%20%26%2CReal%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L440" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L439" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_IntersectsItself_" data-uid="Terrain.IntersectsItself*"></a>
   
-  <h4 id="Terrain_IntersectsItself_const_Ray___float___Vector3___" data-uid="Terrain.IntersectsItself(const Ray &amp;,float &amp;,Vector3 &amp;)"><a href="#collapsible-Terrain_IntersectsItself_const_Ray___float___Vector3___" class="expander" data-toggle="collapse">IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></h4>
+  <h4 id="Terrain_IntersectsItself_const_Ray___Real___Vector3___" data-uid="Terrain.IntersectsItself(const Ray &amp;,Real &amp;,Vector3 &amp;)"><a href="#collapsible-Terrain_IntersectsItself_const_Ray___Real___Vector3___" class="expander" data-toggle="collapse">IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a></h4>
   
-  <div id="collapsible-Terrain_IntersectsItself_const_Ray___float___Vector3___" class="collapse in">
+  <div id="collapsible-Terrain_IntersectsItself_const_Ray___Real___Vector3___" class="collapse in">
   <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a Ray. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual bool IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal) override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal) override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2394,14 +2354,14 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="pull-right"><span class="xref">Real</span></span>
         <span class="parametername">distance</span>
         <p><p>When the method completes, contains the distance of the intersection (if any valid).</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">normal</span>
         <p><p>When the method completes, contains the intersection surface normal vector (if any valid).</p></p>
       </td>
@@ -2423,7 +2383,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a></div>
+  <div><a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___Real___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a></div>
   
   
   
@@ -2436,7 +2396,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnActiveInTreeChanged__.md&amp;value=---%0Auid%3A%20Terrain.OnActiveInTreeChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L451" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L450" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnActiveInTreeChanged_" data-uid="Terrain.OnActiveInTreeChanged*"></a>
@@ -2472,7 +2432,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnDebugDrawSelected__.md&amp;value=---%0Auid%3A%20Terrain.OnDebugDrawSelected()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L437" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L436" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnDebugDrawSelected_" data-uid="Terrain.OnDebugDrawSelected*"></a>
@@ -2508,7 +2468,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnDisable__.md&amp;value=---%0Auid%3A%20Terrain.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L449" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L448" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnDisable_" data-uid="Terrain.OnDisable*"></a>
@@ -2544,7 +2504,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnEnable__.md&amp;value=---%0Auid%3A%20Terrain.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L448" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L447" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnEnable_" data-uid="Terrain.OnEnable*"></a>
@@ -2580,7 +2540,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnLayerChanged__.md&amp;value=---%0Auid%3A%20Terrain.OnLayerChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L439" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L438" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnLayerChanged_" data-uid="Terrain.OnLayerChanged*"></a>
@@ -2616,7 +2576,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnPhysicsSceneChanged_PhysicsScene___.md&amp;value=---%0Auid%3A%20Terrain.OnPhysicsSceneChanged(PhysicsScene%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L452" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L451" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnPhysicsSceneChanged_" data-uid="Terrain.OnPhysicsSceneChanged*"></a>
@@ -2662,7 +2622,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_OnTransformChanged__.md&amp;value=---%0Auid%3A%20Terrain.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L450" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L449" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_OnTransformChanged_" data-uid="Terrain.OnTransformChanged*"></a>
@@ -2732,14 +2692,14 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">resultPatchCoord</span>
         <p><p>The raycast result hit terrain patch coordinates (x and z). Valid only if raycast hits anything.</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">resultChunkCoord</span>
         <p><p>The raycast result hit terrain chunk coordinates (relative to the patch, x and z). Valid only if raycast hits anything.</p></p>
       </td>
@@ -2799,14 +2759,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">origin</span>
         <p><p>The origin of the ray.</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">direction</span>
         <p><p>The normalized direction of the ray.</p></p>
       </td>
@@ -2873,14 +2833,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">origin</span>
         <p><p>The origin of the ray.</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">direction</span>
         <p><p>The normalized direction of the ray.</p></p>
       </td>
@@ -2954,14 +2914,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">origin</span>
         <p><p>The origin of the ray.</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">direction</span>
         <p><p>The normalized direction of the ray.</p></p>
       </td>
@@ -3062,7 +3022,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch location (x and z).</p></p>
       </td>
@@ -3086,7 +3046,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Terrain_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20Terrain.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L441" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Terrain/Terrain.h/#L440" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Terrain_Serialize_" data-uid="Terrain.Serialize*"></a>
@@ -3159,7 +3119,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Vector3.html">Vector3</a></span>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
         <span class="parametername">value</span>
         <p>
       </td>
@@ -3203,14 +3163,14 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch coordinates (x and z).</p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">chunkCoord</span>
         <p><p>The chunk coordinates (x and z).</p></p>
       </td>
@@ -3532,7 +3492,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch coordinates (x and z).</p></p>
       </td>
@@ -3613,7 +3573,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Int2.html">Int2</a></span>
+        <span class="pull-right"><span class="xref">Int2</span></span>
         <span class="parametername">patchCoord</span>
         <p><p>The patch coordinates (x and z).</p></p>
       </td>

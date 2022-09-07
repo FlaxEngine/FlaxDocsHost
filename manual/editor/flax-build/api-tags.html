@@ -157,6 +157,14 @@ int32 CalculateSpeedParams(API_PARAM(ref) Vector3&amp; offset);
 <p>Use it on the delegate field to expose it as an event to the scripting API.
 Example:</p>
 <pre><code class="lang-cpp">API_EVENT() Delegate&lt;float&gt; SpeedChanged;
+</code></pre><h2 id="apitypedef">API_TYPEDEF(...)</h2>
+<p>Use it on the type alias to expose it to the scripting API.
+Example:</p>
+<pre><code class="lang-cpp">// Introduces `Float3` type from template `Vector3Base&lt;T&gt;`
+API_TYPEDEF() typedef Vector3Base&lt;float&gt; Float3;
+
+// Aliases `Real` type to `float`
+API_TYPEDEF(Alias) typedef float Real;
 </code></pre><h2 id="apiautoserialization">API_AUTO_SERIALIZATION()</h2>
 <p>Use it inside a class or structure to generate automatic object data serialization code for <code>ISerializable</code> interface.
 Example:</p>
@@ -165,6 +173,9 @@ Example:</p>
 API_AUTO_SERIALIZATION();
 DECLARE_SCRIPTING_TYPE_NO_SPAWN(ToneMappingSettings);
 };
+</code></pre><h2 id="apiinjectcode">API_INJECT_CODE</h2>
+<p>Custom macro to insert code into generated C#/C++ bindings code. Can be used to overlap type with <code>typedef</code>/<code>using</code> or to include an additional file. Very rarely used.</p>
+<pre><code class="lang-cpp">API_INJECT_CODE(cpp, &quot;#include \&quot;Engine/Platform/Platform.h\&quot;&quot;);
 </code></pre><h2 id="tag-parameters">Tag parameters</h2>
 <p>Tag attributes that can be added to the API tags braces to adjust the bindings logic:</p>
 <ul>
@@ -183,6 +194,8 @@ DECLARE_SCRIPTING_TYPE_NO_SPAWN(ToneMappingSettings);
 <li><code>Name=&quot;...&quot;</code> - overrides the name of the type to be used in the bindings</li>
 <li><code>Namespace=&quot;...&quot;</code> - overrides the namespace of the type to be used in the bindings</li>
 <li><code>Hidden</code> - marks the method/field/property to be hidden in scripting API (skips C# and Visual Script access but allows to serialize it by auto)</li>
+<li><code>Template</code> - marks the structure/class/interface as generic type to be used as template for other types (eg. via <code>API_TYPEDEF</code>).</li>
+<li><code>Alias</code> - marks typedef to alias typename instead of inflating template type.</li>
 </ul>
 <h2 id="special-cases">Special cases</h2>
 <h3 id="arraylttgt">Array&lt;T&gt;</h3>
@@ -200,7 +213,7 @@ Also, the bindings generator will implement automatic conversion between native 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/editor/flax-build/api-tags.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/editor/flax-build/api-tags.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

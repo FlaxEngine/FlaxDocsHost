@@ -113,6 +113,9 @@
       <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__drawNoCulling">Actor::_drawNoCulling</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
     </div>
     <div>
@@ -227,16 +230,13 @@
       <span class="xref">SceneAnimationPlayer</span>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DestroyChildren_float_">Actor::DestroyChildren(float timeLeft = 0.0f)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_Draw_RenderContext___">Actor::Draw(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
@@ -345,6 +345,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrAddChild__">Actor::GetOrAddChild()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -461,10 +464,16 @@
       <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_Initialize__">Actor::Initialize()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_InitializeHierarchy__">Actor::InitializeHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___Real___Vector3___">Actor::Intersects(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___Real___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
@@ -560,12 +569,6 @@
       <a class="xref" href="Actor.html#Actor_OnTagChanged__">Actor::OnTagChanged()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
@@ -590,7 +593,7 @@
       <span class="xref">SceneAnimationPlayer</span>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Float3___">Actor::SetDirection(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
@@ -605,7 +608,7 @@
       <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Float3___">Actor::SetLocalScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
@@ -638,7 +641,7 @@
       <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Float3___">Actor::SetScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlag_StaticFlags_bool_">Actor::SetStaticFlag(StaticFlags flag, bool value)</a>
@@ -732,7 +735,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Animation.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Animation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L81" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -774,7 +777,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_CameraArtifacts.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.CameraArtifacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L72" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L71" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -816,7 +819,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Loop.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Loop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L99" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -858,7 +861,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_PlayOnStart.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.PlayOnStart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L106" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L104" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -900,7 +903,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_PostFxMaterials.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.PostFxMaterials%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L73" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L72" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -942,7 +945,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_RandomStartTime.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.RandomStartTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L109" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -984,7 +987,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_RestoreStateOnStop.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.RestoreStateOnStop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L116" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1026,7 +1029,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Speed.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Speed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L86" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L84" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1068,7 +1071,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_StartTime.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.StartTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L91" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1110,7 +1113,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_UpdateMode.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.UpdateMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L119" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1152,7 +1155,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_UsePrefabObjects.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.UsePrefabObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L126" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L124" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1194,7 +1197,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_UseTimeScale.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.UseTimeScale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L96" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1238,7 +1241,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L232" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L226" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_BeginPlay_" data-uid="SceneAnimationPlayer.BeginPlay*"></a>
@@ -1284,7 +1287,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Blend_PostProcessSettings___float_.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Blend(PostProcessSettings%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L227" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L222" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Blend_" data-uid="SceneAnimationPlayer.Blend*"></a>
@@ -1337,7 +1340,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Collect_RenderContext___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Collect(RenderContext%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L226" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L221" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Collect_" data-uid="SceneAnimationPlayer.Collect*"></a>
@@ -1383,7 +1386,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L216" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L211" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Deserialize_" data-uid="SceneAnimationPlayer.Deserialize*"></a>
@@ -1436,7 +1439,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_EndPlay__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.EndPlay()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L233" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L227" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_EndPlay_" data-uid="SceneAnimationPlayer.EndPlay*"></a>
@@ -1472,7 +1475,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_GetEditorBox__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L218" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L213" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_GetEditorBox_" data-uid="SceneAnimationPlayer.GetEditorBox*"></a>
@@ -1517,7 +1520,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_GetTime__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.GetTime()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L155" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_GetTime_" data-uid="SceneAnimationPlayer.GetTime*"></a>
@@ -1560,7 +1563,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_HasContentLoaded__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.HasContentLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L214" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L209" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_HasContentLoaded_" data-uid="SceneAnimationPlayer.HasContentLoaded*"></a>
@@ -1605,7 +1608,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_IsPaused__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.IsPaused()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L138" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_IsPaused_" data-uid="SceneAnimationPlayer.IsPaused*"></a>
@@ -1648,7 +1651,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_IsPlaying__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.IsPlaying()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L130" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_IsPlaying_" data-uid="SceneAnimationPlayer.IsPlaying*"></a>
@@ -1691,7 +1694,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_IsStopped__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.IsStopped()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L149" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L146" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_IsStopped_" data-uid="SceneAnimationPlayer.IsStopped*"></a>
@@ -1734,7 +1737,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_MapObject_const_Guid___const_Guid___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.MapObject(const%20Guid%20%26%2Cconst%20Guid%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L189" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_MapObject_" data-uid="SceneAnimationPlayer.MapObject*"></a>
@@ -1785,7 +1788,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_MapTrack_const_StringView___const_Guid___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.MapTrack(const%20StringView%20%26%2Cconst%20Guid%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L199" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L196" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_MapTrack_" data-uid="SceneAnimationPlayer.MapTrack*"></a>
@@ -1836,7 +1839,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_OnDisable__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L235" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L229" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_OnDisable_" data-uid="SceneAnimationPlayer.OnDisable*"></a>
@@ -1872,7 +1875,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_OnEnable__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L234" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L228" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_OnEnable_" data-uid="SceneAnimationPlayer.OnEnable*"></a>
@@ -1908,7 +1911,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_OnTransformChanged__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L236" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L230" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_OnTransformChanged_" data-uid="SceneAnimationPlayer.OnTransformChanged*"></a>
@@ -1944,7 +1947,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Pause__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Pause()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Pause_" data-uid="SceneAnimationPlayer.Pause*"></a>
@@ -1978,7 +1981,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Play__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Play()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L169" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Play_" data-uid="SceneAnimationPlayer.Play*"></a>
@@ -2012,7 +2015,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L215" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L210" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Serialize_" data-uid="SceneAnimationPlayer.Serialize*"></a>
@@ -2065,7 +2068,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_SetTime_float_.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.SetTime(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_SetTime_" data-uid="SceneAnimationPlayer.SetTime*"></a>
@@ -2109,7 +2112,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Stop__.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Stop()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L176" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Stop_" data-uid="SceneAnimationPlayer.Stop*"></a>
@@ -2143,7 +2146,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SceneAnimationPlayer_Tick_float_.md&amp;value=---%0Auid%3A%20SceneAnimationPlayer.Tick(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L185" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Animations/SceneAnimations/SceneAnimationPlayer.h/#L182" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SceneAnimationPlayer_Tick_" data-uid="SceneAnimationPlayer.Tick*"></a>

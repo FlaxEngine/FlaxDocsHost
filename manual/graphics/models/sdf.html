@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Signed Distance Fields | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Signed Distance Fields | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Signed Distance Fields | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="signed-distance-fields">Signed Distance Fields</h1>
+
+<p><img src="media/global-sdf-preview2.png" alt="Signed Distance Fields in Flax"></p>
+<p><strong>Signed Distance Fields</strong>, shorten as <strong>SDF</strong>, are 3D textures where each texel contains the signed distance to the closes surface of an object. If this distance is negative, then the texel is inside the object. SDFs can roughly represent mesh geometry and allows to efficently approaximate compelx meshes. By having ability to quickly sample distance to the closest surface (and direction via SDF derivative) SDFs can be used for:</p>
+<ul>
+<li>procedural content creation (eg. foam in river material nearby river banks, dirt/moss in room corners),</li>
+<li>lighting, reflections and shadowing (eg. raytracing though SDF volume to determinate intersections),</li>
+<li>particle collisions and forces (eg. snow/rain falling on world surfaces, birds floc vfx avoiding objects).</li>
+</ul>
+<h2 id="model-sdf">Model SDF</h2>
+<p><img src="media/model-sdf-editor.png" alt="Model SDF Editor"></p>
+<p>Model asset can contain SDF texture baked for the meshes which can be created in Model Window. It displays the resolution and GPU memory usage of the baked texture. You can adjust the bake options and <em>Rebuild</em> or <em>Remove</em> the data.</p>
+<div class="WARNING"><h5>Warning</h5><p>Calculating SDF texture is very computationally expensive process and Flax uses Job System to schedule asynchronious calculations which might <em>freeze the computer</em>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resolution Scale</strong></td>
+<td>The SDF texture resolution scale used for building texture. Higher values drastically increase memory usage and computation time but increase the quality of the mesh representation.</td>
+</tr>
+<tr>
+<td><strong>Backfaces Threshold</strong></td>
+<td>Custom threshold (in range <code>0-1</code>) for adjusting mesh internals detection based on the percentage of test rays hit triangle backfaces. Use lower value for more dense mesh.</td>
+</tr>
+<tr>
+<td><strong>LOD Index</strong></td>
+<td>Index of the model Level of Detail to use for SDF data building. By default uses the lowest quality LOD for fast building.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="model-sdf-on-import">Model SDF on import</h3>
+<p><img src="media/model-sdf-import-settings.png" alt="Model Import SDF Generate Option"></p>
+<p>When importing model assets you can check <strong>Generate SDF</strong> option to automatically calculate SDF texture for eveyr imported model file. In projects that use DDGI or Global SDF you can enable <strong>Generate SDF On Model Import</strong> option in <a href="../../editor/game-settings/graphics-settings.html">Graphics Settings</a> which will change the default model import value to always generate SDFs on model import.</p>
+<p><img src="media/model-sdf-option-setting.png" alt="Model SDF option in Game Settings"></p>
+<p>You can also use small utility in Editor under <strong>Tools -&gt; Build all meshes SDF</strong> which will compute SDF for all meshes on the scene. It might take some time and freeze your computer due to large amount of data needed to process.</p>
+<p><img src="media/build-all-meshes-sdf.png" alt="Model SDF utility"></p>
+<h2 id="global-sdf">Global SDF</h2>
+<p><img src="media/global-sdf-preview.png" alt="Global SDF Preview"></p>
+<p>Flax contains feature called <strong>Global Signed Distance Fields</strong>, shorten as <strong>Global SDF</strong>, which rasterizes all models, foliage and terrains on a scene into a single Global Volume texture which represents a whole scene. This Global SDF provides up to 10cm quality nearby camera and can cover 200m world around the camera to efficently represent the scene. It uses 4 cascades to yeld higher precision nearby camera and improve performance for large worlds.</p>
+<p>Global SDF is used by <a href="../lighting/gi/realtime.html">Realtime Global Illumination</a> but can be accessed in Particles, Materials and Shaders. If you plan to use it in a Content, then check <strong>Enable Global SDF</strong> in Graphics Settings. If checked, enables Global SDF rendering (before scene rendering). You can control its Quality just like other Graphics quality settings.</p>
+<p>You can preview it in every Editor viewport (both scene and model editors) with <strong>View -&gt; Debug View -&gt; Global SDF</strong>.</p>
+<p>Every object (model, terrain, foliage) can control whether it&#39;s visible in Global SDF by using <code>DrawPass.GlobalSDF</code>.</p>
+<h3 id="global-sdf-in-content">Global SDF in Content</h3>
+<h4 id="gpu-graph-nodes">GPU Graph Nodes</h4>
+<p><img src="media/global-sdf-material.png" alt="Sampling Global SDF in Material"></p>
+<p>Materials and Particles can use nodes:</p>
+<ul>
+<li><code>Sample Global SDF</code> - samples the Global SDF to get the distance to the closest surface (in world-space).</li>
+<li><code>Sample Global SDF Gradient</code> - samples the Global SDF to get the gradient and distance to the closest surface (in world-space). Normalize gradient to get SDF surface normal vector.</li>
+</ul>
+<h4 id="gpu-full-scene-collisions">GPU Full Scene Collisions</h4>
+<p><img src="media/global-sdf-particles.gif" alt="Global Scene Collisions with Global SDF"></p>
+<p><img src="media/global-sdf-particles-nodes.png" alt="Global SDF in Particles Nodes"></p>
+<p>GPU Particles can access Global SDF manually (eg. via sampling) or with in-build simulation modules:</p>
+<ul>
+<li><code>Position (Global SDF)</code> - places the particles on Global SDF surface (uses current particle position to snap it to SDF).</li>
+<li><code>Collision (Global SDF)</code> - collides particles with the scene Global SDF.</li>
+<li><code>Conform to Global SDF</code> - applies the force vector to particles to conform around Global SDF.</li>
+</ul>
+<p>When creating more advanced VFX you can use Global SDF in your <a href="../../particles/particle-functions.html">Particle Emitter Functions</a> to provide reusability of the logic component in the content.</p>
+<h4 id="shaders">Shaders</h4>
+<p>Global SDF can be sampling in custom shaders by using utility header with constant buffer data and textures binded to GPU Context. Example:</p>
+<pre><code class="lang-hlsl">// Include Global SDF utility
+#include &quot;./Flax/GlobalSignDistanceField.hlsl&quot;
+
+META_CB_BEGIN(0, Data)
+//..constants..
+
+// Place GlobalSDF data in constants buffer
+GlobalSDFData GlobalSDF;
+META_CB_END
+
+// Provide shader resources with GlobalSDF texture and low-res mip
+Texture3D&lt;float&gt; GlobalSDFTex : register(t0);
+Texture3D&lt;float&gt; GlobalSDFMip : register(t1);
+
+float TestSampleSDF(float3 worldPosition)
+{
+    // Sampling SDF at worldPosition
+    float sdf = SampleGlobalSDF(GlobalSDF, GlobalSDFTex, GlobalSDFMip, worldPosition);
+    return sdf;
+}
+
+float3 TestSampleNormalSDF(float3 worldPosition)
+{
+    // Sampling SDF Gradient (derivative) (+ distance at once)
+    float sdf;
+    float3 sdfGradient = SampleGlobalSDFGradient(GlobalSDF, GlobalSDFTex, GlobalSDFMip, worldPosition, sdf);
+    float3 sdfNormal = normalize(sdfGradient); // normalize gradient to get normal vector
+    return sdfNormal;
+}
+
+bool TestRayTraceSDF(float3 worldPosition, float3 worldDirection)
+{
+    // Initialize Global SDF trace input options
+    GlobalSDFTrace trace;
+    float minDistance = 0.0f;
+    float maxDistance = 10000.0f;
+    trace.Init(worldPosition, worldDirection, minDistance, maxDistance);
+
+    // Raytrace
+    GlobalSDFHit hit = RayTraceGlobalSDF(GlobalSDF, GlobalSDFTex, GlobalSDFMip, trace);
+
+    // Process the result
+    bool isHit = hit.IsHit();
+    float3 hitPosition = hit.GetHitPosition(trace);
+    return isHit;
+}
+</code></pre><p>C++ code for binding resources:</p>
+<pre><code class="lang-cpp">// Include Global SDF render pass
+#include &quot;Engine/Renderer/GlobalSignDistanceFieldPass.h&quot;
+
+PACK_STRUCT(struct Data0
+    {
+    //..constants..
+
+    // Place GlobalSDF data in constants buffer
+    GlobalSignDistanceFieldPass::ConstantsData GlobalSDF;
+    });
+
+void Render()
+{
+    // Get Global SDF data for binding
+    GlobalSignDistanceFieldPass::BindingData bindingDataSDF;
+    if (GlobalSignDistanceFieldPass::Instance()-&gt;Render(renderContext, context, bindingDataSDF))
+        return;
+
+    // Bind constants buffer
+    Data0 data;
+    data.GlobalSDF = bindingDataSDF.Constants;
+    auto cb0 = _shader-&gt;GetCB(0);
+    context-&gt;UpdateCB(cb0, &amp;data);
+    context-&gt;BindCB(0, cb0);
+
+    // Bind shader resources
+    context-&gt;BindSR(0, bindingDataSDF.Texture ? bindingDataSDF.Texture-&gt;ViewVolume() : nullptr);
+    context-&gt;BindSR(1, bindingDataSDF.TextureMip ? bindingDataSDF.TextureMip-&gt;ViewVolume() : nullptr);
+
+    // draw or dispatch..
+}
+</code></pre><h2 id="sdf-tips--tricks">SDF Tips &amp; Tricks</h2>
+<ul>
+<li><strong>Avoid non-uniform scale</strong>, distant fields are inaccurate if model has scale eg. <em>(10, 1, 1)</em>.</li>
+<li>Material <strong>Position Offset is not supported</strong> and might cause lighting issues.</li>
+<li>Use <em>Backfaces Threshold</em> to <code>1</code> to generate Two Sided SDF for a mesh (eg. foliage or small prop).</li>
+<li>Enable <em>Generate SDF On Model Import</em> option in Graphics settings to use it easily.</li>
+<li>If model is used on levels with very large or very small scales (eg. <em>1000</em> or <em>0.0001</em>) then apply this scale to the import transform or adjust the SDF resolution scale on the asset to have accoring SDF quality.</li>
+<li>Use Global SDF debug view to analyze the SDF scene (it should roughly match the actual scene geometry - that&#39;s what GI algorithm sees).</li>
+<li>Use <code>StaticFlags</code> for static objects so Global SDF can optimize rasterization of static scene.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/graphics/models/sdf.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

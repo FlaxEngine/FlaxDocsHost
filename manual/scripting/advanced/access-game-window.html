@@ -96,6 +96,29 @@
 RootControl.GameRoot.RootWindow.Window.Title = &quot;Hello!&quot;
 #endif
 </code></pre><p>You can also resize or adjust the window manually.</p>
+<h2 id="managing-cursor-and-focus">Managing cursor and focus</h2>
+<p>Engine provides a utility to show/hide and constrain mouse cursor via: <code>Screen.CursorVisible</code> and <code>CursorLock.CursorLockMode</code> properties. Cursor lock modes are:</p>
+<ul>
+<li><code>None</code> - the default mode.</li>
+<li><code>Locked</code> -  cursor position is locked to the center of the game window. Ideal for FPS games.</li>
+<li><code>Clipped</code> - cursor position is confined to the bounds of the game window. Ideal for RTS/Strategy games.</li>
+</ul>
+<p>Your game camera script can manage those and use <code>Engine.HasGameViewportFocus</code> property to detect whether game viewport is focused by the player, which is well supported in Ediotr to allow developer debug game while it&#39;s running in one of the Editor windows:</p>
+<pre><code class="lang-cs">/// &lt;inheritdoc /&gt;
+public override void OnUpdate()
+{
+    if (Engine.HasGameViewportFocus)
+    {
+        Screen.CursorVisible = false;
+        Screen.CursorLock = CursorLockMode.Locked;
+    }
+
+    var mouseDelta = new Float2(Input.GetAxis(&quot;Mouse X&quot;), Input.GetAxis(&quot;Mouse Y&quot;));
+    pitch = Mathf.Clamp(pitch + mouseDelta.Y, -88, 88);
+    yaw += mouseDelta.X;
+    // ...more camera logic
+}
+</code></pre><p>When creating pause menu or game main menu you can use <code>Engine.FocusGameViewport()</code> method which focuses the game window and allows player to use UI Navigation (eg. with gamepad or Tab) within the opened UI panel.</p>
 </article>
           </div>
           
@@ -104,7 +127,7 @@ RootControl.GameRoot.RootWindow.Window.Title = &quot;Hello!&quot;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/advanced/access-game-window.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/advanced/access-game-window.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -139,7 +139,7 @@
         FlaxEngine.Object.Destroy(ref _tempMaterialInstance);
     }
 
-    private unsafe void OnPreRender(GPUContext context, RenderContext renderContext)
+    private unsafe void OnPreRender(GPUContext context, ref RenderContext renderContext)
     {
         if (!Enabled || !Actor.IsActiveInHierarchy)
             return;
@@ -169,7 +169,7 @@
             uint rowPitch = (uint)size / (uint)desc.Height;
             uint slicePitch = (uint)size;
             context.UpdateTexture(_tempTexture, 0, 0, new IntPtr(dataPtr), rowPitch, slicePitch);
-            _tempTexture.ResidentMipLevels = 1; // Mark mip-map as available (required for normal textures only)
+            _tempTexture.ResidentMipLevels = 1; // Mark mip-map as available (required for standard textures only - other than render textures)
         }
     }
 }
@@ -189,7 +189,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/graphics/tutorials/use-dynamic-texture.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/graphics/tutorials/use-dynamic-texture.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

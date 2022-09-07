@@ -102,7 +102,7 @@
 options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;JetBrains.Annotations.dll&quot;));
 </code></pre><p>Then generate scripts projects solution to use types from imported C# module inside game code.
 This will work for scripts build for the editor and cooked game as the referenced assembly will be packaged. Build system will also copy relevant <code>.pdb</code> and <code>.xml</code> files if provided.</p>
-<p>Remember that engine uses .Net Framework 4.5 (.Net Core API is not supported).</p>
+<p>Remember that engine uses .Net Framework 4.5.2 (.Net Core API is not supported).</p>
 <h2 id="using-c-library-1">Using C++ library</h2>
 <p>To add a reference to the prebuild native library in your game scripts you need to modify the built environment of your game code module. It requires adding library header files location to includes search path and modification of the link environment to reference the given library. Also if you use a dynamic library you need to mark it as a dependency file to deploy during the build. To do so simply edit the build script file (eg. <code>Source/GameModule/GameModule.Build.cs</code>) in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">var bcryptPath = Path.Combine(FolderPath, &quot;..&quot;, &quot;bcrypt&quot;);
@@ -169,7 +169,10 @@ public class Steam : Script
     }
 }
 </code></pre><p>To learn more see the libary <a href="https://github.com/rlabrecque/Steamworks.NET">website</a>.</p>
-</article>
+<h2 id="external-module-with-scripting">External module with scripting</h2>
+<p>If your project references a custom code module that contains Flax Scripts (eg. F# library or custom native lib) you can include it with your game module binaries by modifying the build script (inside <code>Setup</code> method):</p>
+<pre><code class="lang-cs">options.ExternalModules.Add(new BuildOptions.ExternalModule(BuildOptions.ExternalModule.Types.CSharp, System.IO.Path.Combine(FolderPath, &quot;../../External/MyScripts.dll&quot;)));
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -177,7 +180,7 @@ public class Steam : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

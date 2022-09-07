@@ -413,7 +413,7 @@ public static byte[] LoadSurface(JsonAsset asset, ExpressionGraph assetInstance,
             return null;
         }
         surfaceContext.Nodes.Add(node);
-        node.Location = Vector2.Zero;
+        node.Location = Float2.Zero;
         surfaceContext.Save();
         return surfaceContext.Context.SurfaceData;
     }
@@ -466,7 +466,7 @@ public static readonly NodeArchetype[] ExpressionGraphNodes =
         Title = &quot;ExpressionGraph&quot;,
         Description = &quot;Main number graph node&quot;,
         Flags = NodeFlags.AllGraphs | NodeFlags.NoRemove | NodeFlags.NoSpawnViaGUI | NodeFlags.NoCloseButton,
-        Size = new Vector2(150, 300),
+        Size = new Float2(150, 300),
         Elements = new[]
         {
             NodeElementArchetype.Factory.Input(0, &quot;Float&quot;, true, typeof(float), 0),
@@ -481,7 +481,7 @@ public static readonly NodeArchetype[] ExpressionGraphNodes =
         Title = &quot;Random float&quot;,
         Description = &quot;A random float&quot;,
         Flags = NodeFlags.AllGraphs,
-        Size = new Vector2(150, 30),
+        Size = new Float2(150, 30),
         Elements = new[]
         {
             NodeElementArchetype.Factory.Output(0, &quot;Float&quot;, typeof(float), 0),
@@ -604,7 +604,7 @@ box.Archetype.ValueIndex; // Index of the box in node.Values[ ]
         Render2D.DrawText(
             Style.Current.FontLarge,
             $&quot;Float: {ExpressionGraph.OutputFloat}\n&quot;,
-            new Rectangle(Vector2.Zero, Size),
+            new Rectangle(Float2.Zero, Size),
             Color.Wheat,
             TextAlignment.Near,
             TextAlignment.Far);
@@ -632,7 +632,7 @@ box.Archetype.ValueIndex; // Index of the box in node.Values[ ]
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/editor/advanced/custom-visject-surface.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/editor/advanced/custom-visject-surface.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

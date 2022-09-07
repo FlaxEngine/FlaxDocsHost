@@ -117,6 +117,9 @@
       <a class="xref" href="Actor.html#Actor__box">Actor::_box</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__drawNoCulling">Actor::_drawNoCulling</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__gcHandle">ScriptingObject::_gcHandle</a>
     </div>
     <div>
@@ -237,16 +240,13 @@
       <span class="xref">PostFxVolume</span>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DestroyChildren_float_">Actor::DestroyChildren(float timeLeft = 0.0f)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_Draw_RenderContext___">Actor::Draw(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawGeneric_RenderContext___">Actor::DrawGeneric(RenderContext&amp; renderContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_DrawHierarchy_RenderContext___">Actor::DrawHierarchy(RenderContext&amp; renderContext)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_EndPlay__">Actor::EndPlay()</a>
@@ -361,6 +361,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetNamePath_Char_">SceneObject::GetNamePath(Char separatorChar='/')</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetOrAddChild__">Actor::GetOrAddChild()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -483,10 +486,16 @@
       <a class="xref" href="Actor.html#Actor_HideFlags">Actor::HideFlags</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___float___Vector3___">Actor::Intersects(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_Initialize__">Actor::Initialize()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___float___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, float&amp; distance, Vector3&amp; normal)</a>
+      <a class="xref" href="Actor.html#Actor_InitializeHierarchy__">Actor::InitializeHierarchy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Intersects_const_Ray___Real___Vector3___">Actor::Intersects(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_IntersectsItself_const_Ray___Real___Vector3___">Actor::IntersectsItself(const Ray&amp; ray, Real&amp; distance, Vector3&amp; normal)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
@@ -588,12 +597,6 @@
       <a class="xref" href="BoxVolume.html#BoxVolume_OnTransformChanged__">BoxVolume::OnTransformChanged()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_PostLoad__">Actor::PostLoad()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_PostSpawn__">Actor::PostSpawn()</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
@@ -618,7 +621,7 @@
       <span class="xref">PostFxVolume</span>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetDirection_const_Vector3___">Actor::SetDirection(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetDirection_const_Float3___">Actor::SetDirection(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetIsActive_bool_">Actor::SetIsActive(bool value)</a>
@@ -633,7 +636,7 @@
       <a class="xref" href="Actor.html#Actor_SetLocalPosition_const_Vector3___">Actor::SetLocalPosition(const Vector3&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Vector3___">Actor::SetLocalScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetLocalScale_const_Float3___">Actor::SetLocalScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalTransform_const_Transform___">Actor::SetLocalTransform(const Transform&amp; value)</a>
@@ -666,7 +669,7 @@
       <a class="xref" href="Actor.html#Actor_SetRotation_const_Matrix___">Actor::SetRotation(const Matrix&amp; value)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_SetScale_const_Vector3___">Actor::SetScale(const Vector3&amp; value)</a>
+      <a class="xref" href="Actor.html#Actor_SetScale_const_Float3___">Actor::SetScale(const Float3&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="BoxVolume.html#BoxVolume_SetSize_const_Vector3___">BoxVolume::SetSize(const Vector3&amp; value)</a>
@@ -763,7 +766,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_AmbientOcclusion.md&amp;value=---%0Auid%3A%20PostFxVolume.AmbientOcclusion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L27" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -805,7 +808,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_AntiAliasing.md&amp;value=---%0Auid%3A%20PostFxVolume.AntiAliasing%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -847,7 +850,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_Bloom.md&amp;value=---%0Auid%3A%20PostFxVolume.Bloom%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -889,7 +892,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_CameraArtifacts.md&amp;value=---%0Auid%3A%20PostFxVolume.CameraArtifacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L52" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -931,7 +934,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_ColorGrading.md&amp;value=---%0Auid%3A%20PostFxVolume.ColorGrading%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L42" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L45" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -973,7 +976,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_DepthOfField.md&amp;value=---%0Auid%3A%20PostFxVolume.DepthOfField%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L62" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L65" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1015,7 +1018,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_EyeAdaptation.md&amp;value=---%0Auid%3A%20PostFxVolume.EyeAdaptation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1054,10 +1057,52 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GlobalIllumination.md&amp;value=---%0Auid%3A%20PostFxVolume.GlobalIllumination%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="PostFxVolume_GlobalIllumination" data-uid="PostFxVolume.GlobalIllumination"><a href="#collapsible-PostFxVolume_GlobalIllumination" class="expander" data-toggle="collapse">GlobalIllumination</a></h4>
+  
+  <div id="collapsible-PostFxVolume_GlobalIllumination" class="collapse in">
+  <div class="markdown level1 summary"><p>The Global Illumination effect settings. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public GlobalIlluminationSettings GlobalIllumination</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="GlobalIlluminationSettings.html">GlobalIlluminationSettings</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_LensFlares.md&amp;value=---%0Auid%3A%20PostFxVolume.LensFlares%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L57" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L60" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1099,7 +1144,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_MotionBlur.md&amp;value=---%0Auid%3A%20PostFxVolume.MotionBlur%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L67" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L70" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1141,7 +1186,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_PostFxMaterials.md&amp;value=---%0Auid%3A%20PostFxVolume.PostFxMaterials%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L82" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1183,7 +1228,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_ScreenSpaceReflections.md&amp;value=---%0Auid%3A%20PostFxVolume.ScreenSpaceReflections%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L72" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1225,7 +1270,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_ToneMapping.md&amp;value=---%0Auid%3A%20PostFxVolume.ToneMapping%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1269,7 +1314,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_AddPostFxMaterial_MaterialBase___.md&amp;value=---%0Auid%3A%20PostFxVolume.AddPostFxMaterial(MaterialBase%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L170" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_AddPostFxMaterial_" data-uid="PostFxVolume.AddPostFxMaterial*"></a>
@@ -1465,7 +1510,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GetBlendRadius__.md&amp;value=---%0Auid%3A%20PostFxVolume.GetBlendRadius()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L110" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_GetBlendRadius_" data-uid="PostFxVolume.GetBlendRadius*"></a>
@@ -1508,7 +1553,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GetBlendWeight__.md&amp;value=---%0Auid%3A%20PostFxVolume.GetBlendWeight()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L128" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L130" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_GetBlendWeight_" data-uid="PostFxVolume.GetBlendWeight*"></a>
@@ -1551,7 +1596,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GetIsBounded__.md&amp;value=---%0Auid%3A%20PostFxVolume.GetIsBounded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_GetIsBounded_" data-uid="PostFxVolume.GetIsBounded*"></a>
@@ -1594,7 +1639,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GetPriority__.md&amp;value=---%0Auid%3A%20PostFxVolume.GetPriority()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L91" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_GetPriority_" data-uid="PostFxVolume.GetPriority*"></a>
@@ -1637,7 +1682,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_GetWiresColor__.md&amp;value=---%0Auid%3A%20PostFxVolume.GetWiresColor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L195" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L194" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_GetWiresColor_" data-uid="PostFxVolume.GetWiresColor*"></a>
@@ -1727,7 +1772,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_OnDisable__.md&amp;value=---%0Auid%3A%20PostFxVolume.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L193" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_OnDisable_" data-uid="PostFxVolume.OnDisable*"></a>
@@ -1763,7 +1808,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_OnEnable__.md&amp;value=---%0Auid%3A%20PostFxVolume.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L191" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_OnEnable_" data-uid="PostFxVolume.OnEnable*"></a>
@@ -1799,7 +1844,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_RemovePostFxMaterial_MaterialBase___.md&amp;value=---%0Auid%3A%20PostFxVolume.RemovePostFxMaterial(MaterialBase%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L176" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_RemovePostFxMaterial_" data-uid="PostFxVolume.RemovePostFxMaterial*"></a>
@@ -1896,7 +1941,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_SetBlendRadius_float_.md&amp;value=---%0Auid%3A%20PostFxVolume.SetBlendRadius(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L119" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_SetBlendRadius_" data-uid="PostFxVolume.SetBlendRadius*"></a>
@@ -1940,7 +1985,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_SetBlendWeight_float_.md&amp;value=---%0Auid%3A%20PostFxVolume.SetBlendWeight(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_SetBlendWeight_" data-uid="PostFxVolume.SetBlendWeight*"></a>
@@ -1984,7 +2029,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_SetIsBounded_bool_.md&amp;value=---%0Auid%3A%20PostFxVolume.SetIsBounded(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L159" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_SetIsBounded_" data-uid="PostFxVolume.SetIsBounded*"></a>
@@ -2037,7 +2082,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PostFxVolume_SetPriority_int32_.md&amp;value=---%0Auid%3A%20PostFxVolume.SetPriority(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/PostFxVolume.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PostFxVolume_SetPriority_" data-uid="PostFxVolume.SetPriority*"></a>

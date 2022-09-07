@@ -100,8 +100,9 @@
     <h5 id="inheritance-FlaxEngine_GamePlugin" data-uid="FlaxEngine.GamePlugin"><a href="#collapsible-inheritance-FlaxEngine_GamePlugin" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
     <div id="collapsible-inheritance-FlaxEngine_GamePlugin" class="collapse">
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="FlaxEngine.Plugin.html">Plugin</a></div>
-    <div class="level2"><span class="xref">GamePlugin</span></div>
+    <div class="level1"><a class="xref" href="FlaxEngine.Object.html">Object</a></div>
+    <div class="level2"><a class="xref" href="FlaxEngine.Plugin.html">Plugin</a></div>
+    <div class="level3"><span class="xref">GamePlugin</span></div>
     </div>
   </div>
   
@@ -115,16 +116,67 @@
       <a class="xref" href="FlaxEngine.Plugin.html#FlaxEngine_Plugin_Deinitialize">Plugin.Deinitialize()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Plugin.html#FlaxEngine_Plugin__description">Plugin._description</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Plugin.html#FlaxEngine_Plugin_Description">Plugin.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object___unmanagedPtr">Object.__unmanagedPtr</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object___internalId">Object.__internalId</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_As__1">Object.As&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_NewValue_System_Type_">Object.NewValue(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New__1">Object.New&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_Type_">Object.New(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_ID">Object.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TypeName">Object.TypeName</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
       <span class="xref">System.Object.GetType()</span>
@@ -146,15 +198,13 @@
   
   <h5 id="FlaxEngine_GamePlugin_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GamePlugin : Plugin</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public abstract class GamePlugin : Plugin</code></pre>
   </div>
 
   
   
   
-  <h5 id="FlaxEngine_GamePlugin_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Plugins should have a public and parameter-less constructor.</p>
-</div>
   
   <h3 id="constructors">Constructors
   </h3>
@@ -165,7 +215,8 @@
   <h4 id="FlaxEngine_GamePlugin__ctor" data-uid="FlaxEngine.GamePlugin.#ctor"><a href="#collapsible-FlaxEngine_GamePlugin__ctor" class="expander" data-toggle="collapse">GamePlugin()</a></h4>
   
   <div id="collapsible-FlaxEngine_GamePlugin__ctor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.GamePlugin.html">GamePlugin</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -189,32 +240,32 @@
   </h3>
   
   
-  <a id="FlaxEngine_GamePlugin_OnCollectAssets_" data-uid="FlaxEngine.GamePlugin.OnCollectAssets*"></a>
+  <a id="FlaxEngine_GamePlugin_GetReferences_" data-uid="FlaxEngine.GamePlugin.GetReferences*"></a>
   
-  <h4 id="FlaxEngine_GamePlugin_OnCollectAssets_System_Collections_Generic_List_System_Guid__" data-uid="FlaxEngine.GamePlugin.OnCollectAssets(System.Collections.Generic.List{System.Guid})"><a href="#collapsible-FlaxEngine_GamePlugin_OnCollectAssets_System_Collections_Generic_List_System_Guid__" class="expander" data-toggle="collapse">OnCollectAssets(List&lt;Guid&gt;)</a></h4>
+  <h4 id="FlaxEngine_GamePlugin_GetReferences" data-uid="FlaxEngine.GamePlugin.GetReferences"><a href="#collapsible-FlaxEngine_GamePlugin_GetReferences" class="expander" data-toggle="collapse">GetReferences()</a></h4>
   
-  <div id="collapsible-FlaxEngine_GamePlugin_OnCollectAssets_System_Collections_Generic_List_System_Guid__" class="collapse in">
-  <div class="markdown level1 summary"><p>Event called during game cooking in Editor to collect any assets that this plugin uses. Can be used to inject content for plugins.</p>
+  <div id="collapsible-FlaxEngine_GamePlugin_GetReferences" class="collapse in">
+  <div class="markdown level1 summary"><p>Function called during game cooking in Editor to collect any assets that this plugin uses. Can be used to inject content for plugins.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnCollectAssets(List&lt;Guid&gt; assets)</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual Guid[] GetReferences()</code></pre>
   </div>
 
-  <h5 class="parameters">Parameters</h5>
+  
+  <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Guid</span>&gt;</span>
-        <span class="parametername">assets</span>
-        <p><p>The result assets list (always valid).</p>
+        <span class="xref">System.Guid</span>[]
+        <p><p>The result assets list.</p>
 </p>
       </td>
     </tr>
   </table>
-  
   
   
   
@@ -235,10 +286,6 @@
       <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>
   </div>
   
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="FlaxEngine.Plugin.html">Plugin</a></div>
-  </div>
 </article>
           </div>
           

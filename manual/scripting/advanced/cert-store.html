@@ -119,15 +119,18 @@ public sealed class CertStore : GamePlugin
 {
     // Reference: https://github.com/mono/mono/blob/main/mcs/tools/security/mozroots.cs
 
-    /// &lt;inheritdoc /&gt;
-    public override PluginDescription Description =&gt; new PluginDescription
+    public CertStore()
     {
-        Name = &quot;Cert Store&quot;,
-        Category = &quot;Other&quot;,
-        Description = &quot;Trusted certificates store utility.&quot;,
-        Author = &quot;Flax&quot;,
-        AuthorUrl = &quot;https://flaxengine.com/&quot;,
-    };
+        // Initialize plugin description
+        _description = new PluginDescription
+        {
+            Name = &quot;Cert Store&quot;,
+            Category = &quot;Other&quot;,
+            Description = &quot;Trusted certificates store utility.&quot;,
+            Author = &quot;Flax&quot;,
+            AuthorUrl = &quot;https://flaxengine.com/&quot;,
+        };
+    }
 
     /// &lt;inheritdoc /&gt;
     public override void Initialize()
@@ -198,13 +201,11 @@ public sealed class CertStore : GamePlugin
 
 #if FLAX_EDITOR
     /// &lt;inheritdoc /&gt;
-    public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt; assets)
+    public override Guid[] GetReferences()
     {
-        base.OnCollectAssets(assets);
-
         // Reference cached certificates asset
         var asset = InitAsset();
-        assets.Add(asset.ID);
+        return new Guid[1] { asset.ID };
     }
 #endif
 
@@ -266,7 +267,7 @@ public sealed class CertStore : GamePlugin
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/advanced/cert-store.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/advanced/cert-store.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

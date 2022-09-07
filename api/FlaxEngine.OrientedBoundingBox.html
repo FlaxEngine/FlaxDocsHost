@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEngine.OrientedBoundingBox">
   <h1 id="FlaxEngine_OrientedBoundingBox" data-uid="FlaxEngine.OrientedBoundingBox">Struct OrientedBoundingBox
   </h1>
-  <div class="markdown level0 summary"><p>OrientedBoundingBox (OBB) is a rectangular block, much like an AABB (BoundingBox) but with an arbitrary orientation.</p>
+  <div class="markdown level0 summary"><p>Oriented Bounding Box (OBB) is a rectangular block, much like an AABB (Bounding Box) but with an arbitrary orientation in 3D space.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -124,7 +124,8 @@
   
   <h5 id="FlaxEngine_OrientedBoundingBox_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct OrientedBoundingBox : IEquatable&lt;OrientedBoundingBox&gt;, IFormattable</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public struct OrientedBoundingBox : IEquatable&lt;OrientedBoundingBox&gt;, IFormattable</code></pre>
   </div>
 
   
@@ -358,13 +359,13 @@
   <h4 id="FlaxEngine_OrientedBoundingBox_Transformation" data-uid="FlaxEngine.OrientedBoundingBox.Transformation"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Transformation" class="expander" data-toggle="collapse">Transformation</a></h4>
   
   <div id="collapsible-FlaxEngine_OrientedBoundingBox_Transformation" class="collapse in">
-  <div class="markdown level1 summary"><p>The matrix which aligns and scales the box, and its translation vector represents the center of the box.</p>
+  <div class="markdown level1 summary"><p>The transformation which aligns and scales the box, and its translation vector represents the center of the box.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Matrix Transformation</code></pre>
+    <pre><code class="lang-csharp hljs">public Transform Transformation</code></pre>
   </div>
 
   
@@ -374,7 +375,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>
+        <a class="xref" href="FlaxEngine.Transform.html">Transform</a>
         <p>
       </td>
     </tr>
@@ -415,6 +416,43 @@
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_OrientedBoundingBox_Default_" data-uid="FlaxEngine.OrientedBoundingBox.Default*"></a>
+  
+  <h4 id="FlaxEngine_OrientedBoundingBox_Default" data-uid="FlaxEngine.OrientedBoundingBox.Default"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Default" class="expander" data-toggle="collapse">Default</a></h4>
+  
+  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Default" class="collapse in">
+  <div class="markdown level1 summary"><p>The default <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly OrientedBoundingBox Default { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a>
         <p>
       </td>
     </tr>
@@ -471,105 +509,6 @@
   </h3>
   
   
-  <a id="FlaxEngine_OrientedBoundingBox_Add_" data-uid="FlaxEngine.OrientedBoundingBox.Add*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_Add_FlaxEngine_OrientedBoundingBox__System_Boolean_" data-uid="FlaxEngine.OrientedBoundingBox.Add(FlaxEngine.OrientedBoundingBox@,System.Boolean)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Add_FlaxEngine_OrientedBoundingBox__System_Boolean_" class="expander" data-toggle="collapse">Add(ref OrientedBoundingBox, Boolean)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Add_FlaxEngine_OrientedBoundingBox__System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Merge another OrientedBoundingBox into this OrientedBoundingBox.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(ref OrientedBoundingBox OBB, bool NoMatrixScaleApplied = false)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">OBB</span>
-        <p><p>The other <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into this OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">NoMatrixScaleApplied</span>
-        <p><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_Contains_" data-uid="FlaxEngine.OrientedBoundingBox.Contains*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingBox__" data-uid="FlaxEngine.OrientedBoundingBox.Contains(FlaxEngine.BoundingBox@)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingBox__" class="expander" data-toggle="collapse">Contains(ref BoundingBox)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingBox__" class="collapse in">
-  <div class="markdown level1 summary"><p>Check the intersection between an <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> and <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingBox box)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
-        <span class="parametername">box</span>
-        <p><p>The BoundingBox to test.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
-        <p><p>The type of containment the two objects have.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingBox___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it. Anyway, scaling using Scale method will keep this method accurate.</p>
-</div>
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_OrientedBoundingBox_Contains_" data-uid="FlaxEngine.OrientedBoundingBox.Contains*"></a>
   
   <h4 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingSphere_System_Boolean_" data-uid="FlaxEngine.OrientedBoundingBox.Contains(FlaxEngine.BoundingSphere,System.Boolean)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingSphere_System_Boolean_" class="expander" data-toggle="collapse">Contains(BoundingSphere, Boolean)</a></h4>
@@ -623,58 +562,6 @@
   
   <h5 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_BoundingSphere_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is not designed for <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> which has a non-uniform scaling applied to its transformation matrix. But any type of scaling applied using Scale method will keep this method accurate.</p>
-</div>
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_Contains_" data-uid="FlaxEngine.OrientedBoundingBox.Contains*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_OrientedBoundingBox__" data-uid="FlaxEngine.OrientedBoundingBox.Contains(FlaxEngine.OrientedBoundingBox@)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_OrientedBoundingBox__" class="expander" data-toggle="collapse">Contains(ref OrientedBoundingBox)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_OrientedBoundingBox__" class="collapse in">
-  <div class="markdown level1 summary"><p>Check the intersection between two <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref OrientedBoundingBox obb)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">obb</span>
-        <p><p>The OrientedBoundingBox to test.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
-        <p><p>The type of containment the two objects have.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_OrientedBoundingBox___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for both <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it. Anyway, scaling using Scale method will keep this method accurate.</p>
 </div>
   
   
@@ -774,115 +661,6 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_Contains_" data-uid="FlaxEngine.OrientedBoundingBox.Contains*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_Vector3___" data-uid="FlaxEngine.OrientedBoundingBox.Contains(FlaxEngine.Vector3[])"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_Vector3___" class="expander" data-toggle="collapse">Contains(Vector3[])</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Contains_FlaxEngine_Vector3___" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> contains an array of points&gt;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContainmentType Contains(Vector3[] points)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
-        <span class="parametername">points</span>
-        <p><p>The points array to test.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
-        <p><p>The type of containment.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_ContainsLine_" data-uid="FlaxEngine.OrientedBoundingBox.ContainsLine*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_ContainsLine_FlaxEngine_Vector3__FlaxEngine_Vector3__" data-uid="FlaxEngine.OrientedBoundingBox.ContainsLine(FlaxEngine.Vector3@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_ContainsLine_FlaxEngine_Vector3__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">ContainsLine(ref Vector3, ref Vector3)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_ContainsLine_FlaxEngine_Vector3__FlaxEngine_Vector3__" class="collapse in">
-  <div class="markdown level1 summary"><p>Check the intersection between an <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> and a line defined by two points</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContainmentType ContainsLine(ref Vector3 L1, ref Vector3 L2)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
-        <span class="parametername">L1</span>
-        <p><p>The first point in the line.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
-        <span class="parametername">L2</span>
-        <p><p>The second point in the line.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.ContainmentType.html">ContainmentType</a>
-        <p><p>The type of containment the two objects have.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="FlaxEngine_OrientedBoundingBox_ContainsLine_FlaxEngine_Vector3__FlaxEngine_Vector3___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it. Anyway, scaling using Scale method will keep this method accurate.</p>
-</div>
   
   
   
@@ -1061,71 +839,6 @@
       <td>
         <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>
         <p><p>The axis-aligned BoundingBox of this OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_GetBoxToBoxMatrix_" data-uid="FlaxEngine.OrientedBoundingBox.GetBoxToBoxMatrix*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_GetBoxToBoxMatrix_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" data-uid="FlaxEngine.OrientedBoundingBox.GetBoxToBoxMatrix(FlaxEngine.OrientedBoundingBox@,FlaxEngine.OrientedBoundingBox@,System.Boolean)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_GetBoxToBoxMatrix_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" class="expander" data-toggle="collapse">GetBoxToBoxMatrix(ref OrientedBoundingBox, ref OrientedBoundingBox, Boolean)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_GetBoxToBoxMatrix_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Calculates the matrix required to transfer any point from one <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> local coordinates to another.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Matrix GetBoxToBoxMatrix(ref OrientedBoundingBox A, ref OrientedBoundingBox B, bool NoMatrixScaleApplied = false)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">A</span>
-        <p><p>The source OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">B</span>
-        <p><p>The target OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">NoMatrixScaleApplied</span>
-        <p><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>
-        <p><p>The matrix.</p>
 </p>
       </td>
     </tr>
@@ -1580,118 +1293,12 @@
   </div>
   
   
-  <a id="FlaxEngine_OrientedBoundingBox_Merge_" data-uid="FlaxEngine.OrientedBoundingBox.Merge*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_Merge_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" data-uid="FlaxEngine.OrientedBoundingBox.Merge(FlaxEngine.OrientedBoundingBox@,FlaxEngine.OrientedBoundingBox@,System.Boolean)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Merge_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" class="expander" data-toggle="collapse">Merge(ref OrientedBoundingBox, ref OrientedBoundingBox, Boolean)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Merge_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Merge an OrientedBoundingBox B into another OrientedBoundingBox A, by expanding A to contain B and keeping A orientation.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Merge(ref OrientedBoundingBox A, ref OrientedBoundingBox B, bool NoMatrixScaleApplied = false)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">A</span>
-        <p><p>The <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into it.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">B</span>
-        <p><p>The <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> to be merged</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">NoMatrixScaleApplied</span>
-        <p><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="FlaxEngine_OrientedBoundingBox_Merge_FlaxEngine_OrientedBoundingBox__FlaxEngine_OrientedBoundingBox__System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Unlike merging axis aligned boxes, The operation is not interchangeable, because it keeps A orientation and merge B into it.</p>
-</div>
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_OrientedBoundingBox_MergeInto_" data-uid="FlaxEngine.OrientedBoundingBox.MergeInto*"></a>
-  
-  <h4 id="FlaxEngine_OrientedBoundingBox_MergeInto_FlaxEngine_OrientedBoundingBox__System_Boolean_" data-uid="FlaxEngine.OrientedBoundingBox.MergeInto(FlaxEngine.OrientedBoundingBox@,System.Boolean)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_MergeInto_FlaxEngine_OrientedBoundingBox__System_Boolean_" class="expander" data-toggle="collapse">MergeInto(ref OrientedBoundingBox, Boolean)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_OrientedBoundingBox_MergeInto_FlaxEngine_OrientedBoundingBox__System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Merge this OrientedBoundingBox into another OrientedBoundingBox, keeping the other OrientedBoundingBox orientation.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void MergeInto(ref OrientedBoundingBox OBB, bool NoMatrixScaleApplied = false)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
-        <span class="parametername">OBB</span>
-        <p><p>The other <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">NoMatrixScaleApplied</span>
-        <p><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_OrientedBoundingBox_Scale_" data-uid="FlaxEngine.OrientedBoundingBox.Scale*"></a>
   
   <h4 id="FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3_" data-uid="FlaxEngine.OrientedBoundingBox.Scale(FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">Scale(Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3_" class="collapse in">
-  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
-By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix, By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1729,8 +1336,7 @@ By keeping Transformation matrix scaling-free, the collision detection methods w
   <h4 id="FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3__" data-uid="FlaxEngine.OrientedBoundingBox.Scale(FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3__" class="expander" data-toggle="collapse">Scale(ref Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_OrientedBoundingBox_Scale_FlaxEngine_Vector3__" class="collapse in">
-  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
-By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix, By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1768,8 +1374,7 @@ By keeping Transformation matrix scaling-free, the collision detection methods w
   <h4 id="FlaxEngine_OrientedBoundingBox_Scale_System_Single_" data-uid="FlaxEngine.OrientedBoundingBox.Scale(System.Single)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Scale_System_Single_" class="expander" data-toggle="collapse">Scale(Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_OrientedBoundingBox_Scale_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
-By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix, By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2033,8 +1638,7 @@ By keeping Transformation matrix scaling-free, the collision detection methods w
   
   
   <h5 id="FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Matrix__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which
-scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
+  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
 </div>
   
   
@@ -2076,8 +1680,49 @@ scales the Extents and keeps the Transformation matrix for rotation only, and th
   
   
   <h5 id="FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Matrix___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which
-scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
+  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_OrientedBoundingBox_Transform_" data-uid="FlaxEngine.OrientedBoundingBox.Transform*"></a>
+  
+  <h4 id="FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Transform__" data-uid="FlaxEngine.OrientedBoundingBox.Transform(FlaxEngine.Transform@)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Transform__" class="expander" data-toggle="collapse">Transform(ref Transform)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Transform__" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms this box using a transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Transform(ref Transform transform)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_OrientedBoundingBox_Transform_FlaxEngine_Transform___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which scales the Extents and keeps the Transformation for rotation only, and that preserves collision detection accuracy.</p>
 </div>
   
   
@@ -2308,6 +1953,63 @@ scales the Extents and keeps the Transformation matrix for rotation only, and th
         <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
         <span class="parametername">transform</span>
         <p><p>The transformation matrix.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a>
+        <p><p>The result of the transformation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_OrientedBoundingBox_op_Multiply_" data-uid="FlaxEngine.OrientedBoundingBox.op_Multiply*"></a>
+  
+  <h4 id="FlaxEngine_OrientedBoundingBox_op_Multiply_FlaxEngine_OrientedBoundingBox_FlaxEngine_Transform_" data-uid="FlaxEngine.OrientedBoundingBox.op_Multiply(FlaxEngine.OrientedBoundingBox,FlaxEngine.Transform)"><a href="#collapsible-FlaxEngine_OrientedBoundingBox_op_Multiply_FlaxEngine_OrientedBoundingBox_FlaxEngine_Transform_" class="expander" data-toggle="collapse">Multiply(OrientedBoundingBox, Transform)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_OrientedBoundingBox_op_Multiply_FlaxEngine_OrientedBoundingBox_FlaxEngine_Transform_" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms bounding box using the given transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static OrientedBoundingBox operator *(OrientedBoundingBox box, Transform transform)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
+        <span class="parametername">box</span>
+        <p><p>The bounding box to transform.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation.</p>
 </p>
       </td>
     </tr>

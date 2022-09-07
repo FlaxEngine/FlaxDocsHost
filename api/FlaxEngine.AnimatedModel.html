@@ -154,6 +154,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren_System_Type_">Actor.GetChildren(Type)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScript_System_Int32_">Actor.GetScript(Int32)</a>
     </div>
     <div>
@@ -284,9 +287,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts__1">Actor.GetScripts&lt;T&gt;()</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
@@ -422,6 +422,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_GetNamePath_System_Char_">SceneObject.GetNamePath(Char)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_IsDuringPlay">SceneObject.IsDuringPlay</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_HasParent">SceneObject.HasParent</a>
@@ -1781,9 +1784,9 @@ public void PauseSlotAnimation(string slotName, Animation anim)</code></pre>
   
   <a id="FlaxEngine_AnimatedModel_PlaySlotAnimation_" data-uid="FlaxEngine.AnimatedModel.PlaySlotAnimation*"></a>
   
-  <h4 id="FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" data-uid="FlaxEngine.AnimatedModel.PlaySlotAnimation(System.String,FlaxEngine.Animation,System.Single,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" class="expander" data-toggle="collapse">PlaySlotAnimation(String, Animation, Single, Single, Single)</a></h4>
+  <h4 id="FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_System_Int32_" data-uid="FlaxEngine.AnimatedModel.PlaySlotAnimation(System.String,FlaxEngine.Animation,System.Single,System.Single,System.Single,System.Int32)"><a href="#collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_System_Int32_" class="expander" data-toggle="collapse">PlaySlotAnimation(String, Animation, Single, Single, Single, Int32)</a></h4>
   
-  <div id="collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_" class="collapse in">
+  <div id="collapsible-FlaxEngine_AnimatedModel_PlaySlotAnimation_System_String_FlaxEngine_Animation_System_Single_System_Single_System_Single_System_Int32_" class="collapse in">
   <div class="markdown level1 summary"><p>Plays the animation on the slot in Anim Graph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1791,7 +1794,7 @@ public void PauseSlotAnimation(string slotName, Animation anim)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public void PlaySlotAnimation(string slotName, Animation anim, float speed = 1F, float blendInTime = 0.2F, float blendOutTime = 0.2F)</code></pre>
+public void PlaySlotAnimation(string slotName, Animation anim, float speed = 1F, float blendInTime = 0.2F, float blendOutTime = 0.2F, int loopCount = 0)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1833,6 +1836,14 @@ public void PlaySlotAnimation(string slotName, Animation anim, float speed = 1F,
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">blendOutTime</span>
         <p><p>The animation blending out time (in seconds). Cam be used to smooth the slot animation playback with the input pose when ending animation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">loopCount</span>
+        <p><p>The amount of loops to play the animation: 0 to play once, -1 to play infinite, 1 or higher to loop once or more.</p>
 </p>
       </td>
     </tr>

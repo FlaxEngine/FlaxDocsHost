@@ -92,23 +92,21 @@
             <article class="content wrap" id="_content" data-uid="FlaxEngine.Double4">
   <h1 id="FlaxEngine_Double4" data-uid="FlaxEngine.Double4">Struct Double4
   </h1>
-  <div class="markdown level0 summary"><p>Represents a four dimensional mathematical vector.</p>
+  <div class="markdown level0 summary"><p>Represents a four dimensional mathematical vector with 32-bit precision (per-component).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
+  <div classs="implements">
+    <h5 id="implements-FlaxEngine_Double4" data-uid="System.IEquatable{FlaxEngine.Double4}"><a href="#collapsible-implements-FlaxEngine_Double4" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
+  <div id="collapsible-implements-FlaxEngine_Double4" class="collapse">
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="FlaxEngine.Double4.html">Double4</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Double4" data-uid="System.ValueType.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Double4" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_Double4" data-uid="System.Object.Equals(System.Object,System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Double4" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_Double4" class="collapse">
-    <div>
-      <span class="xref">System.ValueType.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.ValueType.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.ValueType.ToString()</span>
-    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
@@ -127,15 +125,687 @@
   <h5 id="FlaxEngine_Double4_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public struct Double4</code></pre>
+public struct Double4 : IEquatable&lt;Double4&gt;, IFormattable</code></pre>
   </div>
 
   
   
   
   
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_FlaxEngine_Double2_FlaxEngine_Double2_" data-uid="FlaxEngine.Double4.#ctor(FlaxEngine.Double2,FlaxEngine.Double2)"><a href="#collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double2_FlaxEngine_Double2_" class="expander" data-toggle="collapse">Double4(Double2, Double2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double2_FlaxEngine_Double2_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Double2 xy, Double2 zw)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double2.html">Double2</a></span>
+        <span class="parametername">xy</span>
+        <p><p>A vector containing the values with which to initialize the X and Y components.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double2.html">Double2</a></span>
+        <span class="parametername">zw</span>
+        <p><p>A vector containing the values with which to initialize the Z and W components.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_FlaxEngine_Double2_System_Double_System_Double_" data-uid="FlaxEngine.Double4.#ctor(FlaxEngine.Double2,System.Double,System.Double)"><a href="#collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double2_System_Double_System_Double_" class="expander" data-toggle="collapse">Double4(Double2, Double, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double2_System_Double_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Double2 value, double z, double w)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double2.html">Double2</a></span>
+        <span class="parametername">value</span>
+        <p><p>A vector containing the values with which to initialize the X and Y components.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">z</span>
+        <p><p>Initial value for the Z component of the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">w</span>
+        <p><p>Initial value for the W component of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_FlaxEngine_Double3_System_Double_" data-uid="FlaxEngine.Double4.#ctor(FlaxEngine.Double3,System.Double)"><a href="#collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double3_System_Double_" class="expander" data-toggle="collapse">Double4(Double3, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Double3_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Double3 value, double w)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a></span>
+        <span class="parametername">value</span>
+        <p><p>A vector containing the values with which to initialize the X, Y, and Z components.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">w</span>
+        <p><p>Initial value for the W component of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_FlaxEngine_Vector4_" data-uid="FlaxEngine.Double4.#ctor(FlaxEngine.Vector4)"><a href="#collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Vector4_" class="expander" data-toggle="collapse">Double4(Vector4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_FlaxEngine_Vector4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Vector4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">value</span>
+        <p><p>A vector containing the values with which to initialize the X, Y, Z, and W components.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_System_Double_" data-uid="FlaxEngine.Double4.#ctor(System.Double)"><a href="#collapsible-FlaxEngine_Double4__ctor_System_Double_" class="expander" data-toggle="collapse">Double4(Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value that will be assigned to all components.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_System_Double_System_Double_System_Double_System_Double_" data-uid="FlaxEngine.Double4.#ctor(System.Double,System.Double,System.Double,System.Double)"><a href="#collapsible-FlaxEngine_Double4__ctor_System_Double_System_Double_System_Double_System_Double_" class="expander" data-toggle="collapse">Double4(Double, Double, Double, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_System_Double_System_Double_System_Double_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double x, double y, double z, double w)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">x</span>
+        <p><p>Initial value for the X component of the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">y</span>
+        <p><p>Initial value for the Y component of the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">z</span>
+        <p><p>Initial value for the Z component of the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">w</span>
+        <p><p>Initial value for the W component of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4__ctor_" data-uid="FlaxEngine.Double4.#ctor*"></a>
+  
+  <h4 id="FlaxEngine_Double4__ctor_System_Double___" data-uid="FlaxEngine.Double4.#ctor(System.Double[])"><a href="#collapsible-FlaxEngine_Double4__ctor_System_Double___" class="expander" data-toggle="collapse">Double4(Double[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4__ctor_System_Double___" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double[] values)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span>[]</span>
+        <span class="parametername">values</span>
+        <p><p>The values to assign to the X, Y, Z, and W components of the vector. This must be an array with four elements.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentNullException</span>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> is <code>null</code>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentOutOfRangeException</span>
+        <p><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">values</code> contains more or less than four elements.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
   <h3 id="fields">Fields
   </h3>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_Half" data-uid="FlaxEngine.Double4.Half"><a href="#collapsible-FlaxEngine_Double4_Half" class="expander" data-toggle="collapse">Half</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Half" class="collapse in">
+  <div class="markdown level1 summary"><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> with all of its components set to half.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Half</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_Maximum" data-uid="FlaxEngine.Double4.Maximum"><a href="#collapsible-FlaxEngine_Double4_Maximum" class="expander" data-toggle="collapse">Maximum</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Maximum" class="collapse in">
+  <div class="markdown level1 summary"><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> with all components equal to <span class="xref">System.Double.MaxValue</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Maximum</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_Minimum" data-uid="FlaxEngine.Double4.Minimum"><a href="#collapsible-FlaxEngine_Double4_Minimum" class="expander" data-toggle="collapse">Minimum</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Minimum" class="collapse in">
+  <div class="markdown level1 summary"><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> with all components equal to <span class="xref">System.Double.MinValue</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Minimum</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_One" data-uid="FlaxEngine.Double4.One"><a href="#collapsible-FlaxEngine_Double4_One" class="expander" data-toggle="collapse">One</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_One" class="collapse in">
+  <div class="markdown level1 summary"><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> with all of its components set to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 One</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_SizeInBytes" data-uid="FlaxEngine.Double4.SizeInBytes"><a href="#collapsible-FlaxEngine_Double4_SizeInBytes" class="expander" data-toggle="collapse">SizeInBytes</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_SizeInBytes" class="collapse in">
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="FlaxEngine.Double4.html">Double4</a> type, in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SizeInBytes</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_UnitW" data-uid="FlaxEngine.Double4.UnitW"><a href="#collapsible-FlaxEngine_Double4_UnitW" class="expander" data-toggle="collapse">UnitW</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_UnitW" class="collapse in">
+  <div class="markdown level1 summary"><p>The W unit <a class="xref" href="FlaxEngine.Double4.html">Double4</a> (0, 0, 0, 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitW</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_UnitX" data-uid="FlaxEngine.Double4.UnitX"><a href="#collapsible-FlaxEngine_Double4_UnitX" class="expander" data-toggle="collapse">UnitX</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_UnitX" class="collapse in">
+  <div class="markdown level1 summary"><p>The X unit <a class="xref" href="FlaxEngine.Double4.html">Double4</a> (1, 0, 0, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitX</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_UnitY" data-uid="FlaxEngine.Double4.UnitY"><a href="#collapsible-FlaxEngine_Double4_UnitY" class="expander" data-toggle="collapse">UnitY</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_UnitY" class="collapse in">
+  <div class="markdown level1 summary"><p>The Y unit <a class="xref" href="FlaxEngine.Double4.html">Double4</a> (0, 1, 0, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitY</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_UnitZ" data-uid="FlaxEngine.Double4.UnitZ"><a href="#collapsible-FlaxEngine_Double4_UnitZ" class="expander" data-toggle="collapse">UnitZ</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_UnitZ" class="collapse in">
+  <div class="markdown level1 summary"><p>The Z unit <a class="xref" href="FlaxEngine.Double4.html">Double4</a> (0, 0, 1, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitZ</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   
@@ -271,6 +941,5497 @@ public struct Double4</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Double4_Zero" data-uid="FlaxEngine.Double4.Zero"><a href="#collapsible-FlaxEngine_Double4_Zero" class="expander" data-toggle="collapse">Zero</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Zero" class="collapse in">
+  <div class="markdown level1 summary"><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> with all of its components set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Zero</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FlaxEngine_Double4_Absolute_" data-uid="FlaxEngine.Double4.Absolute*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Absolute" data-uid="FlaxEngine.Double4.Absolute"><a href="#collapsible-FlaxEngine_Double4_Absolute" class="expander" data-toggle="collapse">Absolute</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Absolute" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a vector with values being absolute values of that vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Double4 Absolute { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_AvgValue_" data-uid="FlaxEngine.Double4.AvgValue*"></a>
+  
+  <h4 id="FlaxEngine_Double4_AvgValue" data-uid="FlaxEngine.Double4.AvgValue"><a href="#collapsible-FlaxEngine_Double4_AvgValue" class="expander" data-toggle="collapse">AvgValue</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_AvgValue" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets an arithmetic average value of all vector components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double AvgValue { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Default_" data-uid="FlaxEngine.Double4.Default*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Default" data-uid="FlaxEngine.Double4.Default"><a href="#collapsible-FlaxEngine_Double4_Default" class="expander" data-toggle="collapse">Default</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Default" class="collapse in">
+  <div class="markdown level1 summary"><p>The default <a class="xref" href="FlaxEngine.Double4.html">Double4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Default { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_IsNormalized_" data-uid="FlaxEngine.Double4.IsNormalized*"></a>
+  
+  <h4 id="FlaxEngine_Double4_IsNormalized" data-uid="FlaxEngine.Double4.IsNormalized"><a href="#collapsible-FlaxEngine_Double4_IsNormalized" class="expander" data-toggle="collapse">IsNormalized</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_IsNormalized" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicting whether this instance is normalized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_IsOne_" data-uid="FlaxEngine.Double4.IsOne*"></a>
+  
+  <h4 id="FlaxEngine_Double4_IsOne" data-uid="FlaxEngine.Double4.IsOne"><a href="#collapsible-FlaxEngine_Double4_IsOne" class="expander" data-toggle="collapse">IsOne</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_IsOne" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicting whether this vector is one</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsOne { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_IsZero_" data-uid="FlaxEngine.Double4.IsZero*"></a>
+  
+  <h4 id="FlaxEngine_Double4_IsZero" data-uid="FlaxEngine.Double4.IsZero"><a href="#collapsible-FlaxEngine_Double4_IsZero" class="expander" data-toggle="collapse">IsZero</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_IsZero" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicting whether this vector is zero</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsZero { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Item_" data-uid="FlaxEngine.Double4.Item*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Item_System_Int32_" data-uid="FlaxEngine.Double4.Item(System.Int32)"><a href="#collapsible-FlaxEngine_Double4_Item_System_Int32_" class="expander" data-toggle="collapse">Item[Int32]</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Item_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z component, and 3 for the W component.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The value of the X, Y, Z, or W component, depending on the index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.ArgumentOutOfRangeException</span>
+        <p><p>Thrown when the <code data-dev-comment-type="paramref" class="paramref">index</code> is out of the range [0,3].</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Length_" data-uid="FlaxEngine.Double4.Length*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Length" data-uid="FlaxEngine.Double4.Length"><a href="#collapsible-FlaxEngine_Double4_Length" class="expander" data-toggle="collapse">Length</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Length" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double Length { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The length of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_Length_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Double4.html#FlaxEngine_Double4_LengthSquared">LengthSquared</a> may be preferred when only the relative length is needed and speed is of the essence.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_LengthSquared_" data-uid="FlaxEngine.Double4.LengthSquared*"></a>
+  
+  <h4 id="FlaxEngine_Double4_LengthSquared" data-uid="FlaxEngine.Double4.LengthSquared"><a href="#collapsible-FlaxEngine_Double4_LengthSquared" class="expander" data-toggle="collapse">LengthSquared</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_LengthSquared" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the squared length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double LengthSquared { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The squared length of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_LengthSquared_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="FlaxEngine.Double4.html#FlaxEngine_Double4_Length">Length</a> when only a relative length is needed and speed is of the essence.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_MaxValue_" data-uid="FlaxEngine.Double4.MaxValue*"></a>
+  
+  <h4 id="FlaxEngine_Double4_MaxValue" data-uid="FlaxEngine.Double4.MaxValue"><a href="#collapsible-FlaxEngine_Double4_MaxValue" class="expander" data-toggle="collapse">MaxValue</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_MaxValue" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a maximum component value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double MaxValue { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_MinValue_" data-uid="FlaxEngine.Double4.MinValue*"></a>
+  
+  <h4 id="FlaxEngine_Double4_MinValue" data-uid="FlaxEngine.Double4.MinValue"><a href="#collapsible-FlaxEngine_Double4_MinValue" class="expander" data-toggle="collapse">MinValue</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_MinValue" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a minimum component value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double MinValue { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Negative_" data-uid="FlaxEngine.Double4.Negative*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Negative" data-uid="FlaxEngine.Double4.Negative"><a href="#collapsible-FlaxEngine_Double4_Negative" class="expander" data-toggle="collapse">Negative</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Negative" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a vector with values being opposite to values of that vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Double4 Negative { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ValuesSum_" data-uid="FlaxEngine.Double4.ValuesSum*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ValuesSum" data-uid="FlaxEngine.Double4.ValuesSum"><a href="#collapsible-FlaxEngine_Double4_ValuesSum" class="expander" data-toggle="collapse">ValuesSum</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ValuesSum" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a sum of the component values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double ValuesSum { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEngine_Double4_Abs_" data-uid="FlaxEngine.Double4.Abs*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Abs_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Abs(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Abs_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Abs(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Abs_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns the absolute value of a vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Abs(Double4 v)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">v</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector which components are less or equal to 0.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Add_" data-uid="FlaxEngine.Double4.Add*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Add_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Add(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Add(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Add(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to add.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to add.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The sum of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Add_" data-uid="FlaxEngine.Double4.Add*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Add_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Add(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Add(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Add(Double4 left, double right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The input vector</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">right</span>
+        <p><p>The scalar value to be added to elements</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with added scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Add_" data-uid="FlaxEngine.Double4.Add*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Add_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Add(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Add(ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref Double4 left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to add.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to add.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the sum of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Add_" data-uid="FlaxEngine.Double4.Add*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Add_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Add(FlaxEngine.Double4@,System.Double@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Add(ref Double4, ref Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Add_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref Double4 left, ref double right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The input vector</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">right</span>
+        <p><p>The scalar value to be added to elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>The vector with added scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Barycentric_" data-uid="FlaxEngine.Double4.Barycentric*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Barycentric_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_System_Double_" data-uid="FlaxEngine.Double4.Barycentric(FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4,System.Double,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Barycentric_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_System_Double_" class="expander" data-toggle="collapse">Barycentric(Double4, Double4, Double4, Double, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Barycentric_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Barycentric(Double4 value1, Double4 value2, Double4 value3, double amount1, double amount2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value3</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount1</span>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount2</span>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A new <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of the specified point.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Barycentric_" data-uid="FlaxEngine.Double4.Barycentric*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Barycentric_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Barycentric(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Barycentric_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Barycentric(ref Double4, ref Double4, ref Double4, Double, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Barycentric_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Barycentric(ref Double4 value1, ref Double4 value2, ref Double4 value3, double amount1, double amount2, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value3</span>
+        <p><p>A <a class="xref" href="FlaxEngine.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount1</span>
+        <p><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code data-dev-comment-type="paramref" class="paramref">value2</code>).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount2</span>
+        <p><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code data-dev-comment-type="paramref" class="paramref">value3</code>).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the 4D Cartesian coordinates of the specified point.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_CatmullRom_" data-uid="FlaxEngine.Double4.CatmullRom*"></a>
+  
+  <h4 id="FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.CatmullRom(FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">CatmullRom(Double4, Double4, Double4, Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a Catmull-Rom interpolation using the specified positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 CatmullRom(Double4 value1, Double4 value2, Double4 value3, Double4 value4, double amount)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value3</span>
+        <p><p>The third position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value4</span>
+        <p><p>The fourth position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Weighting factor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector that is the result of the Catmull-Rom interpolation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_CatmullRom_" data-uid="FlaxEngine.Double4.CatmullRom*"></a>
+  
+  <h4 id="FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.CatmullRom(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">CatmullRom(ref Double4, ref Double4, ref Double4, ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_CatmullRom_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a Catmull-Rom interpolation using the specified positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CatmullRom(ref Double4 value1, ref Double4 value2, ref Double4 value3, ref Double4 value4, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value3</span>
+        <p><p>The third position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value4</span>
+        <p><p>The fourth position in the interpolation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Weighting factor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the result of the Catmull-Rom interpolation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Clamp_" data-uid="FlaxEngine.Double4.Clamp*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Clamp_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Clamp(FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Clamp_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Clamp(Double4, Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Clamp_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Clamp(Double4 value, Double4 min, Double4 max)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value to clamp.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">min</span>
+        <p><p>The minimum value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">max</span>
+        <p><p>The maximum value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The clamped value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Clamp_" data-uid="FlaxEngine.Double4.Clamp*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Clamp_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Clamp(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Clamp_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Clamp(ref Double4, ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Clamp_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clamp(ref Double4 value, ref Double4 min, ref Double4 max, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value to clamp.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">min</span>
+        <p><p>The minimum value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">max</span>
+        <p><p>The maximum value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the clamped value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ClampLength_" data-uid="FlaxEngine.Double4.ClampLength*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.ClampLength(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">ClampLength(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Makes sure that Length of the output vector is always below max and above 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 ClampLength(Double4 vector, double max)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>Input Vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">max</span>
+        <p><p>Max Length</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ClampLength_" data-uid="FlaxEngine.Double4.ClampLength*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_" data-uid="FlaxEngine.Double4.ClampLength(FlaxEngine.Double4,System.Double,System.Double)"><a href="#collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_" class="expander" data-toggle="collapse">ClampLength(Double4, Double, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Makes sure that Length of the output vector is always below max and above min.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 ClampLength(Double4 vector, double min, double max)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>Input Vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">min</span>
+        <p><p>Min Length</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">max</span>
+        <p><p>Max Length</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ClampLength_" data-uid="FlaxEngine.Double4.ClampLength*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.ClampLength(FlaxEngine.Double4,System.Double,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">ClampLength(Double4, Double, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ClampLength_FlaxEngine_Double4_System_Double_System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Makes sure that Length of the output vector is always below max and above min.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClampLength(Double4 vector, double min, double max, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>Input Vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">min</span>
+        <p><p>Min Length</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">max</span>
+        <p><p>Max Length</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>The result vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Distance_" data-uid="FlaxEngine.Double4.Distance*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Distance_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Distance(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Distance_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Distance(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Distance_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Distance(Double4 value1, Double4 value2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The distance between the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_Distance_FlaxEngine_Double4_FlaxEngine_Double4__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Double4.html#FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4_FlaxEngine_Double4_">DistanceSquared(Double4, Double4)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Distance_" data-uid="FlaxEngine.Double4.Distance*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Distance_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" data-uid="FlaxEngine.Double4.Distance(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double@)"><a href="#collapsible-FlaxEngine_Double4_Distance_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="expander" data-toggle="collapse">Distance(ref Double4, ref Double4, out Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Distance_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Distance(ref Double4 value1, ref Double4 value2, out double result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the distance between the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_Distance_FlaxEngine_Double4__FlaxEngine_Double4__System_Double___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="FlaxEngine.Double4.html#FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__">DistanceSquared(ref Double4, ref Double4, out Double)</a> may be preferred when only the relative distance is needed and speed is of the essence.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_DistanceSquared_" data-uid="FlaxEngine.Double4.DistanceSquared*"></a>
+  
+  <h4 id="FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.DistanceSquared(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">DistanceSquared(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the squared distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DistanceSquared(Double4 value1, Double4 value2)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The squared distance between the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_DistanceSquared_" data-uid="FlaxEngine.Double4.DistanceSquared*"></a>
+  
+  <h4 id="FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" data-uid="FlaxEngine.Double4.DistanceSquared(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double@)"><a href="#collapsible-FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="expander" data-toggle="collapse">DistanceSquared(ref Double4, ref Double4, out Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_DistanceSquared_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the squared distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DistanceSquared(ref Double4 value1, ref Double4 value2, out double result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>The first vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>The second vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the squared distance between the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Divide_" data-uid="FlaxEngine.Double4.Divide*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Divide_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Divide(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Divide_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Divide(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Divide_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Divide(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Divide_" data-uid="FlaxEngine.Double4.Divide*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Divide_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Divide(FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Divide_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Divide(ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Divide_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Divide(ref Double4 value, double scale, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Divide_" data-uid="FlaxEngine.Double4.Divide*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Divide(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Divide(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Divide(double scale, Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Divide_" data-uid="FlaxEngine.Double4.Divide*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Divide(System.Double,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Divide(Double, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Divide_System_Double_FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Divide(double scale, ref Double4 value, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Dot_" data-uid="FlaxEngine.Double4.Dot*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Dot_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Dot(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Dot_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Dot(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Dot_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Dot(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>First source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>Second source vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>
+        <p><p>The dot product of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Dot_" data-uid="FlaxEngine.Double4.Dot*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Dot_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" data-uid="FlaxEngine.Double4.Dot(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double@)"><a href="#collapsible-FlaxEngine_Double4_Dot_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="expander" data-toggle="collapse">Dot(ref Double4, ref Double4, out Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Dot_FlaxEngine_Double4__FlaxEngine_Double4__System_Double__" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dot(ref Double4 left, ref Double4 right, out double result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>First source vector</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>Second source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the dot product of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Equals_" data-uid="FlaxEngine.Double4.Equals*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Equals_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Equals(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Equals_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Equals(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Equals_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="FlaxEngine.Double4.html">Double4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Double4 other)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">other</span>
+        <p><p>The <a class="xref" href="FlaxEngine.Double4.html">Double4</a> to compare with this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if the specified <a class="xref" href="FlaxEngine.Double4.html">Double4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.IEquatable&lt;T&gt;.Equals(T)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Equals_" data-uid="FlaxEngine.Double4.Equals*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Equals_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Equals(FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Equals_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Equals(ref Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Equals_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="FlaxEngine.Double4.html">Double4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref Double4 other)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">other</span>
+        <p><p>The <a class="xref" href="FlaxEngine.Double4.html">Double4</a> to compare with this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if the specified <a class="xref" href="FlaxEngine.Double4.html">Double4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Equals_" data-uid="FlaxEngine.Double4.Equals*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Equals_System_Object_" data-uid="FlaxEngine.Double4.Equals(System.Object)"><a href="#collapsible-FlaxEngine_Double4_Equals_System_Object_" class="expander" data-toggle="collapse">Equals(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Equals_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">value</span>
+        <p><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_GetHashCode_" data-uid="FlaxEngine.Double4.GetHashCode*"></a>
+  
+  <h4 id="FlaxEngine_Double4_GetHashCode" data-uid="FlaxEngine.Double4.GetHashCode"><a href="#collapsible-FlaxEngine_Double4_GetHashCode" class="expander" data-toggle="collapse">GetHashCode()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_GetHashCode" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Hermite_" data-uid="FlaxEngine.Double4.Hermite*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Hermite_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Hermite(FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4,FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Hermite_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Hermite(Double4, Double4, Double4, Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Hermite_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a Hermite spline interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Hermite(Double4 value1, Double4 tangent1, Double4 value2, Double4 tangent2, double amount)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>First source position vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">tangent1</span>
+        <p><p>First source tangent vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>Second source position vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">tangent2</span>
+        <p><p>Second source tangent vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Weighting factor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The result of the Hermite spline interpolation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Hermite_" data-uid="FlaxEngine.Double4.Hermite*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Hermite_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Hermite(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Hermite_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Hermite(ref Double4, ref Double4, ref Double4, ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Hermite_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a Hermite spline interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Hermite(ref Double4 value1, ref Double4 tangent1, ref Double4 value2, ref Double4 tangent2, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value1</span>
+        <p><p>First source position vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">tangent1</span>
+        <p><p>First source tangent vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value2</span>
+        <p><p>Second source position vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">tangent2</span>
+        <p><p>Second source tangent vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Weighting factor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the result of the Hermite spline interpolation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Lerp_" data-uid="FlaxEngine.Double4.Lerp*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Lerp_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Lerp(FlaxEngine.Double4,FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Lerp_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Lerp(Double4, Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Lerp_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Lerp(Double4 start, Double4 end, double amount)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The linear interpolation of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_Lerp_FlaxEngine_Double4_FlaxEngine_Double4_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Lerp_" data-uid="FlaxEngine.Double4.Lerp*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Lerp_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Lerp(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Lerp_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Lerp(ref Double4, ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Lerp_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref Double4 start, ref Double4 end, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the linear interpolation of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Double4_Lerp_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Passing <code data-dev-comment-type="paramref" class="paramref">amount</code> a value of 0 will cause <code data-dev-comment-type="paramref" class="paramref">start</code> to be returned; a value of 1 will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to be returned.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Max_" data-uid="FlaxEngine.Double4.Max*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Max_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Max(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Max_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Max(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Max_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a vector containing the largest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Max(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second source vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector containing the largest components of the source vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Max_" data-uid="FlaxEngine.Double4.Max*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Max_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Max(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Max_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Max(ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Max_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a vector containing the largest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Max(ref Double4 left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains an new vector composed of the largest components of the source vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Min_" data-uid="FlaxEngine.Double4.Min*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Min_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Min(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Min_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Min(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Min_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Min(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second source vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector containing the smallest components of the source vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Min_" data-uid="FlaxEngine.Double4.Min*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Min_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Min(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Min_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Min(ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Min_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Min(ref Double4 left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains an new vector composed of the smallest components of the source vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Multiply_" data-uid="FlaxEngine.Double4.Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Multiply(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Multiply(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Multiplies a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Multiply(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The multiplied vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Multiply_" data-uid="FlaxEngine.Double4.Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Multiply_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Multiply(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Multiply(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Multiply(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Multiply_" data-uid="FlaxEngine.Double4.Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Multiply_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Multiply(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Multiply(ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Multiplies a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref Double4 left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the multiplied vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Multiply_" data-uid="FlaxEngine.Double4.Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Multiply_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Multiply(FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">Multiply(ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Multiply_FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref Double4 value, double scale, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_NearEqual_" data-uid="FlaxEngine.Double4.NearEqual*"></a>
+  
+  <h4 id="FlaxEngine_Double4_NearEqual_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.NearEqual(FlaxEngine.Double4,FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_NearEqual_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">NearEqual(Double4, Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_NearEqual_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tests whether one vector is near another vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool NearEqual(Double4 left, Double4 right, double epsilon = 1E-16)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The left vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The right vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">epsilon</span>
+        <p><p>The epsilon.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if left and right are near another, <code>false</code> otherwise</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_NearEqual_" data-uid="FlaxEngine.Double4.NearEqual*"></a>
+  
+  <h4 id="FlaxEngine_Double4_NearEqual_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_" data-uid="FlaxEngine.Double4.NearEqual(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double)"><a href="#collapsible-FlaxEngine_Double4_NearEqual_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_" class="expander" data-toggle="collapse">NearEqual(ref Double4, ref Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_NearEqual_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tests whether one vector is near another vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool NearEqual(ref Double4 left, ref Double4 right, double epsilon = 1E-16)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The left vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The right vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">epsilon</span>
+        <p><p>The epsilon.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if left and right are near another, <code>false</code> otherwise</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Negate_" data-uid="FlaxEngine.Double4.Negate*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Negate_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Negate(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Negate_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Negate(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Negate_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Negate(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to negate.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector facing in the opposite direction.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Negate_" data-uid="FlaxEngine.Double4.Negate*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Negate_FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Negate(FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Negate_FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Negate(ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Negate_FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref Double4 value, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to negate.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains a vector facing in the opposite direction.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Normalize_" data-uid="FlaxEngine.Double4.Normalize*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Normalize" data-uid="FlaxEngine.Double4.Normalize"><a href="#collapsible-FlaxEngine_Double4_Normalize" class="expander" data-toggle="collapse">Normalize()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Normalize" class="collapse in">
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Normalize_" data-uid="FlaxEngine.Double4.Normalize*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Normalize_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Normalize(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Normalize_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Normalize(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Normalize_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Normalize(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to normalize.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The normalized vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Normalize_" data-uid="FlaxEngine.Double4.Normalize*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Normalize_FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Normalize(FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Normalize_FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Normalize(ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Normalize_FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(ref Double4 value, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to normalize.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the normalized vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_SmoothStep_" data-uid="FlaxEngine.Double4.SmoothStep*"></a>
+  
+  <h4 id="FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.SmoothStep(FlaxEngine.Double4,FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">SmoothStep(Double4, Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 SmoothStep(Double4 start, Double4 end, double amount)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The cubic interpolation of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_SmoothStep_" data-uid="FlaxEngine.Double4.SmoothStep*"></a>
+  
+  <h4 id="FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.SmoothStep(FlaxEngine.Double4@,FlaxEngine.Double4@,System.Double,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="expander" data-toggle="collapse">SmoothStep(ref Double4, ref Double4, Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_SmoothStep_FlaxEngine_Double4__FlaxEngine_Double4__System_Double_FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SmoothStep(ref Double4 start, ref Double4 end, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the cubic interpolation of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Subtract(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Subtract(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Subtract(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The difference of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.Subtract(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Subtract(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Subtract(Double4 left, double right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The input vector</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">right</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with subtracted scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Subtract(FlaxEngine.Double4@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Subtract(ref Double4, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref Double4 left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the difference of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Subtract(FlaxEngine.Double4@,System.Double@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Subtract(ref Double4, ref Double, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_FlaxEngine_Double4__System_Double__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref Double4 left, ref double right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The input vector</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">right</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>The vector with subtracted scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.Subtract(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_Subtract_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Subtract(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Subtract(double left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">left</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with subtracted scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Subtract_" data-uid="FlaxEngine.Double4.Subtract*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Subtract_System_Double__FlaxEngine_Double4__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Subtract(System.Double@,FlaxEngine.Double4@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Subtract_System_Double__FlaxEngine_Double4__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Subtract(ref Double, ref Double4, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Subtract_System_Double__FlaxEngine_Double4__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref double left, ref Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">left</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>The vector with subtracted scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ToArray_" data-uid="FlaxEngine.Double4.ToArray*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ToArray" data-uid="FlaxEngine.Double4.ToArray"><a href="#collapsible-FlaxEngine_Double4_ToArray" class="expander" data-toggle="collapse">ToArray()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ToArray" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] ToArray()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Double</span>[]
+        <p><p>A four-element array containing the components of the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ToString_" data-uid="FlaxEngine.Double4.ToString*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ToString" data-uid="FlaxEngine.Double4.ToString"><a href="#collapsible-FlaxEngine_Double4_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ToString" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ToString_" data-uid="FlaxEngine.Double4.ToString*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ToString_System_IFormatProvider_" data-uid="FlaxEngine.Double4.ToString(System.IFormatProvider)"><a href="#collapsible-FlaxEngine_Double4_ToString_System_IFormatProvider_" class="expander" data-toggle="collapse">ToString(IFormatProvider)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ToString_System_IFormatProvider_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IFormatProvider</span></span>
+        <span class="parametername">formatProvider</span>
+        <p><p>The format provider.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ToString_" data-uid="FlaxEngine.Double4.ToString*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ToString_System_String_" data-uid="FlaxEngine.Double4.ToString(System.String)"><a href="#collapsible-FlaxEngine_Double4_ToString_System_String_" class="expander" data-toggle="collapse">ToString(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ToString_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">format</span>
+        <p><p>The format.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_ToString_" data-uid="FlaxEngine.Double4.ToString*"></a>
+  
+  <h4 id="FlaxEngine_Double4_ToString_System_String_System_IFormatProvider_" data-uid="FlaxEngine.Double4.ToString(System.String,System.IFormatProvider)"><a href="#collapsible-FlaxEngine_Double4_ToString_System_String_System_IFormatProvider_" class="expander" data-toggle="collapse">ToString(String, IFormatProvider)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_ToString_System_String_System_IFormatProvider_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">format</span>
+        <p><p>The format.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IFormatProvider</span></span>
+        <span class="parametername">formatProvider</span>
+        <p><p>The format provider.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><span class="xref">System.IFormattable.ToString(System.String, System.IFormatProvider)</span></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Transform_" data-uid="FlaxEngine.Double4.Transform*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Matrix_" data-uid="FlaxEngine.Double4.Transform(FlaxEngine.Double4,FlaxEngine.Matrix)"><a href="#collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Matrix_" class="expander" data-toggle="collapse">Transform(Double4, Matrix)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Matrix_" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Transform(Double4 vector, Matrix transform)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>The source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The transformed <a class="xref" href="FlaxEngine.Double4.html">Double4</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Transform_" data-uid="FlaxEngine.Double4.Transform*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Quaternion_" data-uid="FlaxEngine.Double4.Transform(FlaxEngine.Double4,FlaxEngine.Quaternion)"><a href="#collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Quaternion_" class="expander" data-toggle="collapse">Transform(Double4, Quaternion)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4_FlaxEngine_Quaternion_" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Transform(Double4 vector, Quaternion rotation)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>The vector to rotate.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">rotation</span>
+        <p><p>The <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rotation to apply.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The transformed <a class="xref" href="FlaxEngine.Double4.html">Double4</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Transform_" data-uid="FlaxEngine.Double4.Transform*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Matrix__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Transform(FlaxEngine.Double4@,FlaxEngine.Matrix@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Matrix__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Transform(ref Double4, ref Matrix, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Matrix__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref Double4 vector, ref Matrix transform, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>The source vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the transformed <a class="xref" href="FlaxEngine.Double4.html">Double4</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_Transform_" data-uid="FlaxEngine.Double4.Transform*"></a>
+  
+  <h4 id="FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Quaternion__FlaxEngine_Double4__" data-uid="FlaxEngine.Double4.Transform(FlaxEngine.Double4@,FlaxEngine.Quaternion@,FlaxEngine.Double4@)"><a href="#collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Quaternion__FlaxEngine_Double4__" class="expander" data-toggle="collapse">Transform(ref Double4, ref Quaternion, out Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_Transform_FlaxEngine_Double4__FlaxEngine_Quaternion__FlaxEngine_Double4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref Double4 vector, ref Quaternion rotation, out Double4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">vector</span>
+        <p><p>The vector to rotate.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">rotation</span>
+        <p><p>The <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rotation to apply.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the transformed <a class="xref" href="FlaxEngine.Double4.html">Double4</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="operators">Operators
+  </h3>
+  
+  
+  <a id="FlaxEngine_Double4_op_Addition_" data-uid="FlaxEngine.Double4.op_Addition*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Addition(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Addition(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to add.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to add.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The sum of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Addition_" data-uid="FlaxEngine.Double4.op_Addition*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.op_Addition(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Addition(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Addition_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(Double4 value, double scalar)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scalar</span>
+        <p><p>The scalar value to be added on elements</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with added scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Addition_" data-uid="FlaxEngine.Double4.op_Addition*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Addition_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Addition(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Addition_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Addition(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Addition_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(double scalar, Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scalar</span>
+        <p><p>The scalar value to be added on elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with added scalar for each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Division_" data-uid="FlaxEngine.Double4.op_Division*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Division_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Division(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Division_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Division(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Division_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(Double4 value, Double4 scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Division_" data-uid="FlaxEngine.Double4.op_Division*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Division_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.op_Division(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_op_Division_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Division(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Division_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Division_" data-uid="FlaxEngine.Double4.op_Division*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Division_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Division(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Division_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Division(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Division_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(double scale, Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Equality_" data-uid="FlaxEngine.Double4.op_Equality*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Equality_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Equality(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Equality_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Equality(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Equality_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first value to compare.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second value to compare.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Explicit_" data-uid="FlaxEngine.Double4.op_Explicit*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double2" data-uid="FlaxEngine.Double4.op_Explicit(FlaxEngine.Double4)~FlaxEngine.Double2"><a href="#collapsible-FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double2" class="expander" data-toggle="collapse">Explicit(Double4 to Double2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double2" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="FlaxEngine.Double4.html">Double4</a> to <a class="xref" href="FlaxEngine.Vector2.html">Vector2</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Double2(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double2.html">Double2</a>
+        <p><p>The result of the conversion.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Explicit_" data-uid="FlaxEngine.Double4.op_Explicit*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double3" data-uid="FlaxEngine.Double4.op_Explicit(FlaxEngine.Double4)~FlaxEngine.Double3"><a href="#collapsible-FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double3" class="expander" data-toggle="collapse">Explicit(Double4 to Double3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Explicit_FlaxEngine_Double4__FlaxEngine_Double3" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="FlaxEngine.Double4.html">Double4</a> to <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Double3(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double3.html">Double3</a>
+        <p><p>The result of the conversion.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Implicit_" data-uid="FlaxEngine.Double4.op_Implicit*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Float4" data-uid="FlaxEngine.Double4.op_Implicit(FlaxEngine.Double4)~FlaxEngine.Float4"><a href="#collapsible-FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Float4" class="expander" data-toggle="collapse">Implicit(Double4 to Float4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Float4" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="FlaxEngine.Double3.html">Double3</a> to <a class="xref" href="FlaxEngine.Float4.html">Float4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Float4(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Float4.html">Float4</a>
+        <p><p>The result of the conversion.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Implicit_" data-uid="FlaxEngine.Double4.op_Implicit*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Vector4" data-uid="FlaxEngine.Double4.op_Implicit(FlaxEngine.Double4)~FlaxEngine.Vector4"><a href="#collapsible-FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Vector4" class="expander" data-toggle="collapse">Implicit(Double4 to Vector4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Implicit_FlaxEngine_Double4__FlaxEngine_Vector4" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="FlaxEngine.Double3.html">Double3</a> to <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Vector4(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>
+        <p><p>The result of the conversion.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Inequality_" data-uid="FlaxEngine.Double4.op_Inequality*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Inequality_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Inequality(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Inequality_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Inequality(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Inequality_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first value to compare.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second value to compare.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Modulus_" data-uid="FlaxEngine.Double4.op_Modulus*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Modulus(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Modulus(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Remainder of value divided by scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator %(Double4 value, Double4 scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The remained vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Modulus_" data-uid="FlaxEngine.Double4.op_Modulus*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.op_Modulus(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Modulus(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Modulus_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Remainder of value divided by scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator %(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The remained vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Modulus_" data-uid="FlaxEngine.Double4.op_Modulus*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Modulus_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Modulus(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Modulus_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Modulus(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Modulus_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Remainder of value divided by scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator %(double value, Double4 scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">value</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">scale</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The remained vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Multiply_" data-uid="FlaxEngine.Double4.op_Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Multiply(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Multiply(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Multiplies a vector with another by performing component-wise multiplication equivalent to <a class="xref" href="FlaxEngine.Double4.html#FlaxEngine_Double4_Multiply_FlaxEngine_Double4__FlaxEngine_Double4__FlaxEngine_Double4__">Multiply(ref Double4, ref Double4, out Double4)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to multiply.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The multiplication of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Multiply_" data-uid="FlaxEngine.Double4.op_Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.op_Multiply(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Multiply(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Multiply_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Multiply_" data-uid="FlaxEngine.Double4.op_Multiply*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Multiply_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Multiply(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Multiply_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Multiply(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Multiply_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(double scale, Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scale</span>
+        <p><p>The amount by which to scale the vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to scale.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The scaled vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Subtraction_" data-uid="FlaxEngine.Double4.op_Subtraction*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Subtraction(FlaxEngine.Double4,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Subtraction(Double4, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">left</span>
+        <p><p>The first vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">right</span>
+        <p><p>The second vector to subtract.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The difference of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Subtraction_" data-uid="FlaxEngine.Double4.op_Subtraction*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_System_Double_" data-uid="FlaxEngine.Double4.op_Subtraction(FlaxEngine.Double4,System.Double)"><a href="#collapsible-FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_System_Double_" class="expander" data-toggle="collapse">Subtraction(Double4, Double)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Subtraction_FlaxEngine_Double4_System_Double_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(Double4 value, double scalar)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scalar</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with subtracted scalar from each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_Subtraction_" data-uid="FlaxEngine.Double4.op_Subtraction*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_Subtraction_System_Double_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_Subtraction(System.Double,FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_Subtraction_System_Double_FlaxEngine_Double4_" class="expander" data-toggle="collapse">Subtraction(Double, Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_Subtraction_System_Double_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a component-wise subtraction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(double scalar, Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Double</span></span>
+        <span class="parametername">scalar</span>
+        <p><p>The scalar value to be subtracted from elements</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The input vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The vector with subtracted scalar from each element.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_UnaryNegation_" data-uid="FlaxEngine.Double4.op_UnaryNegation*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_UnaryNegation_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_UnaryNegation(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_UnaryNegation_FlaxEngine_Double4_" class="expander" data-toggle="collapse">UnaryNegation(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_UnaryNegation_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to negate.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>A vector facing in the opposite direction.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Double4_op_UnaryPlus_" data-uid="FlaxEngine.Double4.op_UnaryPlus*"></a>
+  
+  <h4 id="FlaxEngine_Double4_op_UnaryPlus_FlaxEngine_Double4_" data-uid="FlaxEngine.Double4.op_UnaryPlus(FlaxEngine.Double4)"><a href="#collapsible-FlaxEngine_Double4_op_UnaryPlus_FlaxEngine_Double4_" class="expander" data-toggle="collapse">UnaryPlus(Double4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Double4_op_UnaryPlus_FlaxEngine_Double4_" class="collapse in">
+  <div class="markdown level1 summary"><p>Assert a vector (return it unchanged).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(Double4 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double4.html">Double4</a></span>
+        <span class="parametername">value</span>
+        <p><p>The vector to assert (unchanged).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Double4.html">Double4</a>
+        <p><p>The asserted (unchanged) vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
   
   
   

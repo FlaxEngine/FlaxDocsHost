@@ -462,6 +462,44 @@ public ModelLOD[] LODs { get; }</code></pre>
   
   
   </div>
+  
+  
+  <a id="FlaxEngine_Model_SDF_" data-uid="FlaxEngine.Model.SDF*"></a>
+  
+  <h4 id="FlaxEngine_Model_SDF" data-uid="FlaxEngine.Model.SDF"><a href="#collapsible-FlaxEngine_Model_SDF" class="expander" data-toggle="collapse">SDF</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Model_SDF" class="collapse in">
+  <div class="markdown level1 summary"><p>The generated Sign Distant Field (SDF) for this model (merged all meshes). Use GenerateSDF to update it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public ModelBase.SDFData SDF { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ModelBase.SDFData.html">ModelBase.SDFData</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -538,6 +576,83 @@ public void Draw(ref RenderContext renderContext, MaterialBase material, ref Mat
   </div>
   
   
+  <a id="FlaxEngine_Model_GenerateSDF_" data-uid="FlaxEngine.Model.GenerateSDF*"></a>
+  
+  <h4 id="FlaxEngine_Model_GenerateSDF_System_Single_System_Int32_System_Boolean_System_Single_" data-uid="FlaxEngine.Model.GenerateSDF(System.Single,System.Int32,System.Boolean,System.Single)"><a href="#collapsible-FlaxEngine_Model_GenerateSDF_System_Single_System_Int32_System_Boolean_System_Single_" class="expander" data-toggle="collapse">GenerateSDF(Single, Int32, Boolean, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Model_GenerateSDF_System_Single_System_Int32_System_Boolean_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Generates the Sign Distant Field for this model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool GenerateSDF(float resolutionScale = 1F, int lodIndex = 6, bool cacheData = true, float backfacesThreshold = 0.6F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">resolutionScale</span>
+        <p><p>The SDF texture resolution scale. Use higher values for more precise data but with significant performance and memory overhead.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">lodIndex</span>
+        <p><p>The index of the LOD to use for the SDF building.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">cacheData</span>
+        <p><p>If true, the generated SDF texture data will be cached on CPU (in asset chunk storage) to allow saving it later, otherwise it will be runtime for GPU-only. Ignored for virtual assets or in build.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">backfacesThreshold</span>
+        <p><p>Custom threshold (in range 0-1) for adjusting mesh internals detection based on the percentage of test rays hit triangle backfaces. Use lower value for more dense mesh.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Model_GenerateSDF_System_Single_System_Int32_System_Boolean_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can be called in async in case of SDF generation on a CPU (assuming model is not during rendering).</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Model_GetBox_" data-uid="FlaxEngine.Model.GetBox*"></a>
   
   <h4 id="FlaxEngine_Model_GetBox_FlaxEngine_Matrix_System_Int32_" data-uid="FlaxEngine.Model.GetBox(FlaxEngine.Matrix,System.Int32)"><a href="#collapsible-FlaxEngine_Model_GetBox_FlaxEngine_Matrix_System_Int32_" class="expander" data-toggle="collapse">GetBox(Matrix, Int32)</a></h4>
@@ -560,6 +675,64 @@ public BoundingBox GetBox(Matrix world, int lodIndex = 0)</code></pre>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
         <span class="parametername">world</span>
         <p><p>The transformation matrix.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">lodIndex</span>
+        <p><p>The Level Of Detail index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a>
+        <p><p>The bounding box.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Model_GetBox_" data-uid="FlaxEngine.Model.GetBox*"></a>
+  
+  <h4 id="FlaxEngine_Model_GetBox_FlaxEngine_Transform_System_Int32_" data-uid="FlaxEngine.Model.GetBox(FlaxEngine.Transform,System.Int32)"><a href="#collapsible-FlaxEngine_Model_GetBox_FlaxEngine_Transform_System_Int32_" class="expander" data-toggle="collapse">GetBox(Transform, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Model_GetBox_FlaxEngine_Transform_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the model bounding box in custom transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public BoundingBox GetBox(Transform transform, int lodIndex = 0)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The instance transformation.</p>
 </p>
       </td>
     </tr>
@@ -701,6 +874,45 @@ public bool Save(bool withMeshDataFromGpu = false, string path = null)</code></p
   <h5 id="FlaxEngine_Model_Save_System_Boolean_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If you use saving with the GPU mesh data then the call has to be provided from the thread other than the main game thread.</p>
 </div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Model_SetSDF_" data-uid="FlaxEngine.Model.SetSDF*"></a>
+  
+  <h4 id="FlaxEngine_Model_SetSDF_FlaxEngine_ModelBase_SDFData_" data-uid="FlaxEngine.Model.SetSDF(FlaxEngine.ModelBase.SDFData)"><a href="#collapsible-FlaxEngine_Model_SetSDF_FlaxEngine_ModelBase_SDFData_" class="expander" data-toggle="collapse">SetSDF(ModelBase.SDFData)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Model_SetSDF_FlaxEngine_ModelBase_SDFData_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets set SDF data (releases the current one).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetSDF(ModelBase.SDFData sdf)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.ModelBase.SDFData.html">ModelBase.SDFData</a></span>
+        <span class="parametername">sdf</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

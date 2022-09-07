@@ -138,6 +138,9 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren_System_Type_">Actor.GetChildren(Type)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScript_System_Int32_">Actor.GetScript(Int32)</a>
     </div>
     <div>
@@ -268,9 +271,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts__1">Actor.GetScripts&lt;T&gt;()</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_DestroyChildren_System_Single_">Actor.DestroyChildren(Single)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
@@ -408,6 +408,9 @@
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_GetNamePath_System_Char_">SceneObject.GetNamePath(Char)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_IsDuringPlay">SceneObject.IsDuringPlay</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_HasParent">SceneObject.HasParent</a>
     </div>
     <div>
@@ -541,46 +544,6 @@ public class EnvironmentProbe : Actor, ISerializable</code></pre>
   </h3>
   
   
-  <a id="FlaxEngine_EnvironmentProbe_AutoUpdate_" data-uid="FlaxEngine.EnvironmentProbe.AutoUpdate*"></a>
-  
-  <h4 id="FlaxEngine_EnvironmentProbe_AutoUpdate" data-uid="FlaxEngine.EnvironmentProbe.AutoUpdate"><a href="#collapsible-FlaxEngine_EnvironmentProbe_AutoUpdate" class="expander" data-toggle="collapse">AutoUpdate</a></h4>
-  
-  <div id="collapsible-FlaxEngine_EnvironmentProbe_AutoUpdate" class="collapse in">
-  <div class="markdown level1 summary"><p>Value indicating if probe should be updated automatically on change.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(30)]
-[EditorDisplay(&quot;Probe&quot;, null)]
-[Unmanaged]
-public bool AutoUpdate { get; set; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_EnvironmentProbe_Brightness_" data-uid="FlaxEngine.EnvironmentProbe.Brightness*"></a>
   
   <h4 id="FlaxEngine_EnvironmentProbe_Brightness" data-uid="FlaxEngine.EnvironmentProbe.Brightness"><a href="#collapsible-FlaxEngine_EnvironmentProbe_Brightness" class="expander" data-toggle="collapse">Brightness</a></h4>
@@ -663,6 +626,46 @@ public float CaptureNearPlane { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_EnvironmentProbe_CubemapResolution_" data-uid="FlaxEngine.EnvironmentProbe.CubemapResolution*"></a>
+  
+  <h4 id="FlaxEngine_EnvironmentProbe_CubemapResolution" data-uid="FlaxEngine.EnvironmentProbe.CubemapResolution"><a href="#collapsible-FlaxEngine_EnvironmentProbe_CubemapResolution" class="expander" data-toggle="collapse">CubemapResolution</a></h4>
+  
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_CubemapResolution" class="collapse in">
+  <div class="markdown level1 summary"><p>The reflections texture resolution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(0)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[Unmanaged]
+public ProbeCubemapResolution CubemapResolution { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ProbeCubemapResolution.html">ProbeCubemapResolution</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_EnvironmentProbe_CustomProbe_" data-uid="FlaxEngine.EnvironmentProbe.CustomProbe*"></a>
   
   <h4 id="FlaxEngine_EnvironmentProbe_CustomProbe" data-uid="FlaxEngine.EnvironmentProbe.CustomProbe"><a href="#collapsible-FlaxEngine_EnvironmentProbe_CustomProbe" class="expander" data-toggle="collapse">CustomProbe</a></h4>
@@ -689,82 +692,6 @@ public CubeTexture CustomProbe { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.CubeTexture.html">CubeTexture</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_EnvironmentProbe_HasProbe_" data-uid="FlaxEngine.EnvironmentProbe.HasProbe*"></a>
-  
-  <h4 id="FlaxEngine_EnvironmentProbe_HasProbe" data-uid="FlaxEngine.EnvironmentProbe.HasProbe"><a href="#collapsible-FlaxEngine_EnvironmentProbe_HasProbe" class="expander" data-toggle="collapse">HasProbe</a></h4>
-  
-  <div id="collapsible-FlaxEngine_EnvironmentProbe_HasProbe" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if env probe has cube texture assigned.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public bool HasProbe { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_EnvironmentProbe_HasProbeLoaded_" data-uid="FlaxEngine.EnvironmentProbe.HasProbeLoaded*"></a>
-  
-  <h4 id="FlaxEngine_EnvironmentProbe_HasProbeLoaded" data-uid="FlaxEngine.EnvironmentProbe.HasProbeLoaded"><a href="#collapsible-FlaxEngine_EnvironmentProbe_HasProbeLoaded" class="expander" data-toggle="collapse">HasProbeLoaded</a></h4>
-  
-  <div id="collapsible-FlaxEngine_EnvironmentProbe_HasProbeLoaded" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if env probe has cube texture assigned.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public bool HasProbeLoaded { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
@@ -829,7 +756,7 @@ public bool IsUsingCustomProbe { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public CubeTexture Probe { get; }</code></pre>
+public GPUTexture Probe { get; }</code></pre>
   </div>
 
   
@@ -840,7 +767,7 @@ public CubeTexture Probe { get; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.CubeTexture.html">CubeTexture</a>
+        <a class="xref" href="FlaxEngine.GPUTexture.html">GPUTexture</a>
         <p>
       </td>
     </tr>
@@ -920,6 +847,46 @@ public float ScaledRadius { get; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_EnvironmentProbe_UpdateMode_" data-uid="FlaxEngine.EnvironmentProbe.UpdateMode*"></a>
+  
+  <h4 id="FlaxEngine_EnvironmentProbe_UpdateMode" data-uid="FlaxEngine.EnvironmentProbe.UpdateMode"><a href="#collapsible-FlaxEngine_EnvironmentProbe_UpdateMode" class="expander" data-toggle="collapse">UpdateMode</a></h4>
+  
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_UpdateMode" class="collapse in">
+  <div class="markdown level1 summary"><p>The probe update mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(30)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[Unmanaged]
+public EnvironmentProbe.ProbeUpdateMode UpdateMode { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.EnvironmentProbe.ProbeUpdateMode.html">EnvironmentProbe.ProbeUpdateMode</a>
         <p>
       </td>
     </tr>

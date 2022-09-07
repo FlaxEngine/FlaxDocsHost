@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Setup time of the day simulation | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Setup time of the day simulation | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Setup time of the day simulation | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-setup-time-of-the-day-simulation">HOWTO: Setup time of the day simulation</h1>
+
+<p><img src="media/time-of-the-day.gif" alt="Texture"></p>
+<p>In this tutorial, you will learn how to setup script to control sun light colors to match the current time of the day (from sun rotaton).</p>
+<h2 id="tutorial">Tutorial</h2>
+<h3 id="1-setup-directional-light">1. Setup Directional Light</h3>
+<p>Adjust the rotation and brightness (eg. <code>10</code>).</p>
+<h3 id="2-setup-sky">2. Setup Sky</h3>
+<p>Setup <code>Sky</code> actor by linking the <code>Sun Light</code> to the created Directional Light actor (if not linked already).</p>
+<h3 id="3-create-new-c-script-realisticsun">3. Create new C# script <code>RealisticSun</code></h3>
+<p>Setup new script that will control the Directional Light color based it&#39;s rotation to match the lighting color during time of the day.</p>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Realistic sun coloring script.
+/// &lt;/summary&gt;
+[ExecuteInEditMode]
+public class RealisticSun : Script
+{
+    /// &lt;summary&gt;
+    /// Reference to the sun actor to control (if not specified the first Directional Light is used).
+    /// &lt;/summary&gt;
+    public DirectionalLight SunActor;
+
+    /// &lt;summary&gt;
+    /// Color curve for sun light colors. In time range [-1;1] where positive time values (between [0;1]) are for day-time and negative values (between [-1;0)) are for night-time.
+    /// &lt;/summary&gt;
+    public LinearCurve&lt;Color&gt; SunLightColors = new LinearCurve&lt;Color&gt;
+    {
+        Keyframes = new[]
+        {
+            new LinearCurve&lt;Color&gt;.Keyframe(-0.2f, new Color(0.609958f, 0.768231f, 0.97746f, 0.3f)),
+            new LinearCurve&lt;Color&gt;.Keyframe(0.0f, new Color(0.998158f, 0.431645f, 0.083600f, 0.7f)),
+            new LinearCurve&lt;Color&gt;.Keyframe(0.1f, new Color(0.991379f, 0.796836f, 0.427773f, 0.9f)),
+            new LinearCurve&lt;Color&gt;.Keyframe(0.2f, new Color(0.991379f, 0.893238f, 0.598813f)),
+            new LinearCurve&lt;Color&gt;.Keyframe(0.4f, new Color(1.0f, 0.966467f, 0.911958f)),
+            new LinearCurve&lt;Color&gt;.Keyframe(1.0f, new Color(1.0f, 0.977460f, 0.911515f)),
+        }
+    };
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnStart()
+    {
+        // Automatically pick the first sun light
+        if (!SunActor)
+            SunActor = Actor as DirectionalLight;
+        if (!SunActor)
+            SunActor = Level.FindActor&lt;DirectionalLight&gt;();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnUpdate()
+    {
+        if (!SunActor)
+            return;
+
+        // Update light color based on the pitch angle
+        var sunAngle = SunActor.Orientation.EulerAngles.X / 90.0f;
+        SunLightColors.Evaluate(out var color, sunAngle, false);
+        SunActor.Color = color;
+    }
+}
+</code></pre><h3 id="4-attach-the-script">4. Attach the script</h3>
+<p>Now, attach the created script to the Directional Light actor (or any other actor). Now, you can edit the sun color curve property <code>Sun Light Colors</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/graphics/tutorials/time-of-the-day.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

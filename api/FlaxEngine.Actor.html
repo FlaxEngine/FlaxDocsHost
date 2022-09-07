@@ -120,9 +120,9 @@
       <div class="level4"><a class="xref" href="FlaxEngine.NavLink.html">NavLink</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.NavMesh.html">NavMesh</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.ParticleEffect.html">ParticleEffect</a></div>
-      <div class="level4"><a class="xref" href="FlaxEngine.PhysicsActor.html">PhysicsActor</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.PhysicsColliderActor.html">PhysicsColliderActor</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Ragdoll.html">Ragdoll</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.RigidBody.html">RigidBody</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Scene.html">Scene</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.SceneAnimationPlayer.html">SceneAnimationPlayer</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.Sky.html">Sky</a></div>
@@ -156,6 +156,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_GetNamePath_System_Char_">SceneObject.GetNamePath(Char)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_IsDuringPlay">SceneObject.IsDuringPlay</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.SceneObject.html#FlaxEngine_SceneObject_HasParent">SceneObject.HasParent</a>
@@ -459,7 +462,7 @@ public int ChildrenCount { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-public Vector3 Direction { get; set; }</code></pre>
+public Float3 Direction { get; set; }</code></pre>
   </div>
 
   
@@ -470,7 +473,7 @@ public Vector3 Direction { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -575,7 +578,7 @@ public BoundingBox EditorBoxChildren { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [NoAnimate]
-public Vector3 EulerAngles { get; set; }</code></pre>
+public Float3 EulerAngles { get; set; }</code></pre>
   </div>
 
   
@@ -586,7 +589,7 @@ public Vector3 EulerAngles { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -1012,7 +1015,7 @@ public string LayerName { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [NoAnimate]
-public Vector3 LocalEulerAngles { get; set; }</code></pre>
+public Float3 LocalEulerAngles { get; set; }</code></pre>
   </div>
 
   
@@ -1023,7 +1026,7 @@ public Vector3 LocalEulerAngles { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -1098,7 +1101,7 @@ public Quaternion LocalOrientation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Position&quot;)]
 [EditorOrder(-30)]
 [NoSerialize]
-[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionEditor&quot;)]
 [Unmanaged]
 public Vector3 LocalPosition { get; set; }</code></pre>
   </div>
@@ -1141,9 +1144,9 @@ public Vector3 LocalPosition { get; set; }</code></pre>
 [Limit(-3.40282347E+38F, 3.40282347E+38F, 0.01F)]
 [EditorOrder(-10)]
 [NoSerialize]
-[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionScaleEditor&quot;)]
+[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+ScaleEditor&quot;)]
 [Unmanaged]
-public Vector3 LocalScale { get; set; }</code></pre>
+public Float3 LocalScale { get; set; }</code></pre>
   </div>
 
   
@@ -1154,7 +1157,7 @@ public Vector3 LocalScale { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -1498,7 +1501,7 @@ public Matrix Rotation { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[HideInEditor]
 [NoSerialize]
 [Unmanaged]
-public Vector3 Scale { get; set; }</code></pre>
+public Float3 Scale { get; set; }</code></pre>
   </div>
 
   
@@ -1509,7 +1512,7 @@ public Vector3 Scale { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -2178,13 +2181,14 @@ public void AddStaticFlags(StaticFlags flags)</code></pre>
   <h4 id="FlaxEngine_Actor_DestroyChildren_System_Single_" data-uid="FlaxEngine.Actor.DestroyChildren(System.Single)"><a href="#collapsible-FlaxEngine_Actor_DestroyChildren_System_Single_" class="expander" data-toggle="collapse">DestroyChildren(Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_DestroyChildren_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Destroys the children. Calls Object.Destroy on every child actor and unlink them for the parent.</p>
+  <div class="markdown level1 summary"><p>Destroys the children. Calls Object.Destroy on every child actor and unlinks them for this actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[NoAnimate]
+[Unmanaged]
 public void DestroyChildren(float timeLeft = 0F)</code></pre>
   </div>
 
@@ -2275,7 +2279,7 @@ public Actor FindActor(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor FindActor(Type type)</code></pre>
+public Actor FindActor([TypeReference(typeof(Actor), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2374,7 +2378,7 @@ public Actor FindActor(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script FindScript(Type type)</code></pre>
+public Script FindScript([TypeReference(typeof(Script), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2721,7 +2725,7 @@ public Actor GetChild(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor GetChild(Type type)</code></pre>
+public Actor GetChild([TypeReference(typeof(Actor), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2820,7 +2824,7 @@ public Actor GetChild(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor[] GetChildren(Type type)</code></pre>
+public Actor[] GetChildren([TypeReference(typeof(Actor), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3058,7 +3062,7 @@ public Script GetScript(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script GetScript(Type type)</code></pre>
+public Script GetScript([TypeReference(typeof(Script), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3157,7 +3161,7 @@ public Script GetScript(Type type)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script[] GetScripts(Type type)</code></pre>
+public Script[] GetScripts([TypeReference(typeof(Script), null)] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

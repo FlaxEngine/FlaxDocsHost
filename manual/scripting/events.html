@@ -160,7 +160,7 @@ API_CLASS() class GAME_API MyScript : public Script
 <tbody>
 <tr>
 <td><strong>void OnAwake()</strong></td>
-<td>Called after the object is loaded. Before the enabling it or calling start.</td>
+<td>Called after the object is loaded to initialize it. Before the enabling it or calling start (including any other scene objects).</td>
 </tr>
 <tr>
 <td><strong>void OnEnable()</strong></td>
@@ -180,15 +180,15 @@ API_CLASS() class GAME_API MyScript : public Script
 </tr>
 <tr>
 <td><strong>void OnUpdate()</strong></td>
-<td>Called every frame if object is enabled.</td>
+<td>Called every frame if object is enabled (C++ scripts need to set <code>_tickUpdate=true</code> in constructor).</td>
 </tr>
 <tr>
 <td><strong>void OnLateUpdate()</strong></td>
-<td>Called every frame (after <em>Update</em>) if object is enabled.</td>
+<td>Called every frame (after <em>Update</em>) if object is enabled (C++ scripts need to set <code>_tickLateUpdate=true</code> in constructor).</td>
 </tr>
 <tr>
 <td><strong>void OnFixedUpdate()</strong></td>
-<td>Called every fixed framerate frame if object is enabled.</td>
+<td>Called every fixed framerate frame if object is enable (C++ scripts need to set <code>_tickFixedUpdate=true</code> in constructor)d.</td>
 </tr>
 <tr>
 <td><strong>void OnDebugDraw()</strong></td>
@@ -205,7 +205,7 @@ API_CLASS() class GAME_API MyScript : public Script
 <p><img src="media/script-events.png" alt="Script Events Order"></p>
 <h3 id="initialization">Initialization</h3>
 <p>Every created and added to <em>Actor</em> script receives <strong>OnAwake</strong>. If Script and its parent are active in the hierarchy then <strong>OnStart</strong> and <strong>OnEnable</strong> are being called (on game start or object spawn). Otherwise, this call is postponed until someone enables that script.</p>
-<p>Events OnAwake and OnStart can be called only once on a script. OnStart is always called before the first OnEnable.</p>
+<p>Events OnAwake and OnStart can be called only once on a script. OnStart is always called before the first OnEnable. All scripts receive OnAwake first, before BeginPlay-phrase starts that enables the scripts. In general, OnAwake should be used to initialize the object itself (eg. setup game system manager or pre-allocate memory). Then OnStart/OnEnable should be utilized for cross-object interactions (eg. register to a game manager, cache player scripts, etc.).</p>
 <h3 id="game-logic">Game Logic</h3>
 <p>Engine main loop update is highly configurable and supports performing the game update, physics update and drawing at different framerates. This means that update, fixed update, and a draw might be desynchronized and not called in the same order. Event <strong>OnUpdate</strong> is called during the game update, then is followed by <strong>OnLateUpdate</strong>. During physics update engine invokes <strong>OnFixedUpdate</strong>. During rendering engine can invoke <strong>OnDebugDraw</strong> and <strong>OnDebugDrawSelected</strong> (used by the editor).</p>
 <h3 id="deinitialization">Deinitialization</h3>
@@ -216,7 +216,7 @@ API_CLASS() class GAME_API MyScript : public Script
 <h3 id="order">Order</h3>
 <p>The Script event&#39;s invocation order depends on the event type. Gameplay logic events (update, fixed update and debug drawing) are called in non-stable order so gameplay logic should not depend on it. Initialization events (awake, enable, start) and deinitialization events (disable, destroy) are always called for the parent objects first, then further down into the hierarchy. This means that script in parent actor can query the child actors&#39; objects and scripts but they might not be initialized yet.</p>
 <p>However, you can still use initialization events to add new objects as child actors/scripts because Flax will invoke initialization for them when required.</p>
-<p>All script events are called when a script is already deserialized and has valid data ready to use.</p>
+<p>All script events are called when a script is already deserialized and has valid data ready to use (exception is OnAwake which relies to a single object readiness - other objects might be not initialized yet).</p>
 </article>
           </div>
           
@@ -225,7 +225,7 @@ API_CLASS() class GAME_API MyScript : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

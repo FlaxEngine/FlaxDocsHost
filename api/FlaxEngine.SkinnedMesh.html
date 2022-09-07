@@ -572,9 +572,9 @@ public class SkinnedMesh : MeshBase</code></pre>
   
   <a id="FlaxEngine_SkinnedMesh_UpdateMesh_" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh*"></a>
   
-  <h4 id="FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Int4[],FlaxEngine.Vector4[],FlaxEngine.Vector3[],FlaxEngine.Vector3[],FlaxEngine.Vector2[])"><a href="#collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="expander" data-toggle="collapse">UpdateMesh(Vector3[], Int32[], Int4[], Vector4[], Vector3[], Vector3[], Vector2[])</a></h4>
+  <h4 id="FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_Int32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh(FlaxEngine.Float3[],System.Int32[],FlaxEngine.Int4[],FlaxEngine.Float4[],FlaxEngine.Float3[],FlaxEngine.Float3[],FlaxEngine.Float2[])"><a href="#collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_Int32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="expander" data-toggle="collapse">UpdateMesh(Float3[], Int32[], Int4[], Float4[], Float3[], Float3[], Float2[])</a></h4>
   
-  <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="collapse in">
+  <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_Int32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="collapse in">
   <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
 Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
 Mesh data will be cached and uploaded to the GPU with a delay.</p>
@@ -583,7 +583,276 @@ Mesh data will be cached and uploaded to the GPU with a delay.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void UpdateMesh(Vector3[] vertices, int[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void UpdateMesh(Float3[] vertices, int[] triangles, Int4[] blendIndices, Float4[] blendWeights, Float3[] normals = null, Float3[] tangents = null, Float2[] uv = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The mesh vertices positions. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">triangles</span>
+        <p><p>The mesh index buffer (clockwise triangles). Uses 32-bit stride buffer. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int4.html">Int4</a>[]</span>
+        <span class="parametername">blendIndices</span>
+        <p><p>The skinned mesh blend indices buffer. Contains indices of the skeleton bones (up to 4 bones per vertex) to use for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float4.html">Float4</a>[]</span>
+        <span class="parametername">blendWeights</span>
+        <p><p>The skinned mesh blend weights buffer (normalized). Contains weights per blend bone (up to 4 bones per vertex) of the skeleton bones to mix for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">normals</span>
+        <p><p>The normal vectors (per vertex).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">tangents</span>
+        <p><p>The normal vectors (per vertex). Use null to compute them from normal vectors.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a>[]</span>
+        <span class="parametername">uv</span>
+        <p><p>The texture coordinates (per vertex).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SkinnedMesh_UpdateMesh_" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh*"></a>
+  
+  <h4 id="FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt16___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh(FlaxEngine.Float3[],System.UInt16[],FlaxEngine.Int4[],FlaxEngine.Float4[],FlaxEngine.Float3[],FlaxEngine.Float3[],FlaxEngine.Float2[])"><a href="#collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt16___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="expander" data-toggle="collapse">UpdateMesh(Float3[], UInt16[], Int4[], Float4[], Float3[], Float3[], Float2[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt16___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
+Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
+Mesh data will be cached and uploaded to the GPU with a delay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateMesh(Float3[] vertices, ushort[] triangles, Int4[] blendIndices, Float4[] blendWeights, Float3[] normals = null, Float3[] tangents = null, Float2[] uv = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The mesh vertices positions. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt16</span>[]</span>
+        <span class="parametername">triangles</span>
+        <p><p>The mesh index buffer (clockwise triangles). Uses 16-bit stride buffer. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int4.html">Int4</a>[]</span>
+        <span class="parametername">blendIndices</span>
+        <p><p>The skinned mesh blend indices buffer. Contains indices of the skeleton bones (up to 4 bones per vertex) to use for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float4.html">Float4</a>[]</span>
+        <span class="parametername">blendWeights</span>
+        <p><p>The skinned mesh blend weights buffer (normalized). Contains weights per blend bone (up to 4 bones per vertex) of the skeleton bones to mix for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">normals</span>
+        <p><p>The normal vectors (per vertex).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">tangents</span>
+        <p><p>The tangent vectors (per vertex). Use null to compute them from normal vectors.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a>[]</span>
+        <span class="parametername">uv</span>
+        <p><p>The texture coordinates (per vertex).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SkinnedMesh_UpdateMesh_" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh*"></a>
+  
+  <h4 id="FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh(FlaxEngine.Float3[],System.UInt32[],FlaxEngine.Int4[],FlaxEngine.Float4[],FlaxEngine.Float3[],FlaxEngine.Float3[],FlaxEngine.Float2[])"><a href="#collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="expander" data-toggle="collapse">UpdateMesh(Float3[], UInt32[], Int4[], Float4[], Float3[], Float3[], Float2[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Float3___System_UInt32___FlaxEngine_Int4___FlaxEngine_Float4___FlaxEngine_Float3___FlaxEngine_Float3___FlaxEngine_Float2___" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
+Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
+Mesh data will be cached and uploaded to the GPU with a delay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateMesh(Float3[] vertices, uint[] triangles, Int4[] blendIndices, Float4[] blendWeights, Float3[] normals = null, Float3[] tangents = null, Float2[] uv = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The mesh vertices positions. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span>[]</span>
+        <span class="parametername">triangles</span>
+        <p><p>The mesh index buffer (clockwise triangles). Uses 32-bit stride buffer. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Int4.html">Int4</a>[]</span>
+        <span class="parametername">blendIndices</span>
+        <p><p>The skinned mesh blend indices buffer. Contains indices of the skeleton bones (up to 4 bones per vertex) to use for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float4.html">Float4</a>[]</span>
+        <span class="parametername">blendWeights</span>
+        <p><p>The skinned mesh blend weights buffer (normalized). Contains weights per blend bone (up to 4 bones per vertex) of the skeleton bones to mix for vertex position blending. Cannot be null.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">normals</span>
+        <p><p>The normal vectors (per vertex).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">tangents</span>
+        <p><p>The normal vectors (per vertex). Use null to compute them from normal vectors.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a>[]</span>
+        <span class="parametername">uv</span>
+        <p><p>The texture coordinates (per vertex).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SkinnedMesh_UpdateMesh_" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh*"></a>
+  
+  <h4 id="FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" data-uid="FlaxEngine.SkinnedMesh.UpdateMesh(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Int4[],FlaxEngine.Vector4[],FlaxEngine.Vector3[],FlaxEngine.Vector3[],FlaxEngine.Vector2[])"><a href="#collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="expander" data-toggle="collapse">UpdateMesh(Vector3[], Int32[], Int4[], Vector4[], Vector3[], Vector3[], Vector2[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_Int32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
+Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
+Mesh data will be cached and uploaded to the GPU with a delay.
+[Deprecated on 26.05.2022, expires on 26.05.2024]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated in 1.4&quot;)]
+public void UpdateMesh(Vector3[] vertices, int[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -666,13 +935,15 @@ Mesh data will be cached and uploaded to the GPU with a delay.</p>
   <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_UInt16___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="collapse in">
   <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
 Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
-Mesh data will be cached and uploaded to the GPU with a delay.</p>
+Mesh data will be cached and uploaded to the GPU with a delay.
+[Deprecated on 26.05.2022, expires on 26.05.2024]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void UpdateMesh(Vector3[] vertices, ushort[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated in 1.4&quot;)]
+public void UpdateMesh(Vector3[] vertices, ushort[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -755,13 +1026,15 @@ Mesh data will be cached and uploaded to the GPU with a delay.</p>
   <div id="collapsible-FlaxEngine_SkinnedMesh_UpdateMesh_FlaxEngine_Vector3___System_UInt32___FlaxEngine_Int4___FlaxEngine_Vector4___FlaxEngine_Vector3___FlaxEngine_Vector3___FlaxEngine_Vector2___" class="collapse in">
   <div class="markdown level1 summary"><p>Updates the skinned model mesh vertex and index buffer data.
 Can be used only for virtual assets (see <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_IsVirtual">IsVirtual</a> and <a class="xref" href="FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">CreateVirtualAsset&lt;T&gt;()</a>).
-Mesh data will be cached and uploaded to the GPU with a delay.</p>
+Mesh data will be cached and uploaded to the GPU with a delay.
+[Deprecated on 26.05.2022, expires on 26.05.2024]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void UpdateMesh(Vector3[] vertices, uint[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated in 1.4&quot;)]
+public void UpdateMesh(Vector3[] vertices, uint[] triangles, Int4[] blendIndices, Vector4[] blendWeights, Vector3[] normals = null, Vector3[] tangents = null, Vector2[] uv = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

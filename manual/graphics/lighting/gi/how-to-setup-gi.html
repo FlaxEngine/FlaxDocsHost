@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Setup Realtime Global Illumination | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Setup Realtime Global Illumination | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Setup Realtime Global Illumination | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-setup-realtime-global-illumination">HOWTO: Setup Realtime Global Illumination</h1>
+
+<p><img src="media/ddgi.png" alt="Realtime Global Illumination"></p>
+<p>In this tutorial you will learn how to setup Realtime Global Illumination in your project and use it to have realistic lighting in your scenes.</p>
+<p>See <a href="realtime.html">Realtime Global Illumination</a> page to learn basics about GI in Flax.</p>
+<h2 id="1-enable-ddgi">1. Enable DDGI</h2>
+<p>Firstly open <a href="../../../editor/game-settings/graphics-settings.html">Graphics Settings</a> and in <em>Global Illumination</em> section, under <em>Post Process Settings</em>, set <strong>Mode</strong> to <strong>DDGI</strong>. This will enable realtime GI rendering globally.</p>
+<p><img src="media/ddgi-enabled-settings.png" alt="Enable DDGI in Graphics Settings"></p>
+<h2 id="2-enable-ray-traced-reflections">2. Enable Ray Traced Reflections</h2>
+<p>The next step is to enable using <strong>Software Tracing</strong> for <strong>Trace Mode</strong> in <em>Screen Space Reflections</em> settings (inside Graphics Settings). This will enable using Global Surface Atlas raytracing as a fallback to normal screen-space tracing which will enhance reflective surfaces look by adding off-screen reflections of the whole scene.</p>
+<p><img src="media/ddgi-software-tracing-reflections.png" alt="Enable Software Tracing in Graphics Settings"></p>
+<h3 id="3-setup-sdf">3. Setup SDF</h3>
+<p>Now, you need to ensure that all your scene meshes have proper <a href="../../models/sdf.html">Signed Distance Fields</a> setup in order to be visible in Global SDF.</p>
+<p>It&#39;s recommended to enable  <strong>Generate SDF On Model Import</strong> option in Graphics Settings which will change the default model import value to always generate SDFs on model import.</p>
+<p><img src="../../models/media/model-sdf-option-setting.png" alt="Model SDF option in Game Settings"></p>
+<p>Next time, you import model to the project it will be selected by default:</p>
+<p><img src="../../models/media/model-sdf-import-settings.png" alt="Model Import SDF Generate Option"></p>
+<p>You can also manually generate SDF for all your models in project by using Model Window <em>SDF</em> section or use small utility in Editor under <strong>Tools -&gt; Build all meshes SDF</strong> which will compute SDF for all meshes on the scene. It might take some time and freeze your computer due to large amount of data needed to process.</p>
+<p><img src="../../models/media/build-all-meshes-sdf.png" alt="Model SDF utility"></p>
+<p>Use <strong>View -&gt; Debug View -&gt; Global SDF</strong> to insect your scene and ensure that it has good representation in SDF. It doen&#39;t need to be exact but should roughly represent major scene objects - especially walls, floor and ceiling of the structures.</p>
+<p><img src="../../models/media/global-sdf-preview.png" alt="Global SDF Preview"></p>
+<h3 id="3-setup-surface-atlas">3. Setup Surface Atlas</h3>
+<p>Now, use <strong>View -&gt; Debug View -&gt; Global Surface Atlas</strong> to debug the surface cache rendering that uses DDGI algorithm to calculate lighting inside the level. Global Surface Atlas is low-resolution representation of the scene, and combined with Global SDF has can roughly represent the scene which is used by DDGI raytracer (this shows <em>what GI alrothim sees</em>). Follow <em>Software Ray Tracing</em> amd <em>Debugging Surface Atlas</em> sections in <a href="realtime.html">DDGI</a> docs to learn more.</p>
+<p><img src="media/ddgi-surface-atlas-debug.png" alt="Global Surface Atlas Debug Preview"></p>
+<p>The important thing during this step is to split large objects with interiors into smaller chunks thus the Surface Atlas can represent these object surfaces and have bounce on them. Common problem is using interior meshes of the whole house or other building wheras to have proper GI lighting inside it, the structure should be divided into 2 or 3 parts (eg. separate walls and separate floor). By using Global Surface Atlas debug view you can spot pink areas of the level that have missing representation in the atlas. If the area is large (eg. covers significant part of the screen) then you should optimize the content to work better with the algorrithm (eg. splitting meshes). Also, adding model LODs is a good practise as it greatly improves the performance.</p>
+<p>Below you can see an example of non-ideal scene where walls and some props are largly covered in pink color which indicates missing coverage on Global Surface Atlas.</p>
+<p><img src="media/ddgi-surface-atlas-gaps.png" alt="Global Surface Atlas Gaps"></p>
+<h3 id="4-test-results-and-iterate">4. Test results and iterate</h3>
+<p><img src="media/realtime-gi.gif" alt="Realtiem GI in Flax Engine with DDGI"></p>
+<p>Finally, you can test and validate GI in your scenes. It should work fine after initial setup but might require some minor adjustments depending on your Content and gameplay in the world.</p>
+<p>For further adusting, aside from things mentions above, use <em>Temporal Response</em> to improve responsivness of GI for lighting changes (eg. if set to <code>0.8</code>) or increase it to make it more stable with less indirect lighting micro-flickering (eg. to <code>0.95</code>). You can also manually boost or reduce GI <em>Intensity</em> and <em>Bounce Intensity</em> to control the artistic look of the lighting (eg. globally or per-scene with Post Fx Volume).</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/graphics/lighting/gi/how-to-setup-gi.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2021 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

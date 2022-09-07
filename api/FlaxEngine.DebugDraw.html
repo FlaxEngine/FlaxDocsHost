@@ -613,9 +613,9 @@ public static void DrawBox(OrientedBoundingBox box, Color color, float duration 
   
   <a id="FlaxEngine_DebugDraw_DrawCircle_" data-uid="FlaxEngine.DebugDraw.DrawCircle*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCircle(FlaxEngine.Vector3,FlaxEngine.Vector3,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCircle(Vector3, Vector3, Single, Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Float3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCircle(FlaxEngine.Vector3,FlaxEngine.Float3,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Float3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCircle(Vector3, Float3, Single, Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawCircle_FlaxEngine_Vector3_FlaxEngine_Float3_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the circle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -623,7 +623,7 @@ public static void DrawBox(OrientedBoundingBox box, Color color, float duration 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawCircle(Vector3 position, Float3 normal, float radius, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -638,7 +638,7 @@ public static void DrawCircle(Vector3 position, Vector3 normal, float radius, Co
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a></span>
         <span class="parametername">normal</span>
         <p><p>The normal vector direction.</p>
 </p>
@@ -949,9 +949,9 @@ public static void DrawLine(Vector3 start, Vector3 end, Color color, float durat
   
   <a id="FlaxEngine_DebugDraw_DrawLines_" data-uid="FlaxEngine.DebugDraw.DrawLines*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawLines(FlaxEngine.Vector3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawLines(Vector3[], Matrix, Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawLines(FlaxEngine.Double3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawLines(Double3[], Matrix, Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the lines. Line positions are located one after another (e.g. l0.start, l0.end, l1.start, l1.end,...).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -959,14 +959,86 @@ public static void DrawLine(Vector3 start, Vector3 end, Color color, float durat
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawLines(Vector3[] lines, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawLines(Double3[] lines, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
+        <span class="parametername">lines</span>
+        <p><p>The list of vertices for lines (must have multiple of 2 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The custom matrix used to transform all line vertices.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawLines_" data-uid="FlaxEngine.DebugDraw.DrawLines*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawLines(FlaxEngine.Float3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawLines(Float3[], Matrix, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the lines. Line positions are located one after another (e.g. l0.start, l0.end, l1.start, l1.end,...).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawLines(Float3[] lines, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
         <span class="parametername">lines</span>
         <p><p>The list of vertices for lines (must have multiple of 2 elements).</p>
 </p>
@@ -1085,17 +1157,17 @@ public static void DrawSphere(BoundingSphere sphere, Color color, float duration
   
   <a id="FlaxEngine_DebugDraw_DrawText_" data-uid="FlaxEngine.DebugDraw.DrawText*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Transform,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Transform, Color, Int32, Single)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Float2_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Float2,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Float2_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Float2, Color, Int32, Single)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws the text (3D).</p>
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Float2_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the text on a screen (2D).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawText(string text, Transform transform, Color color, int size = 32, float duration = 0F)</code></pre>
+public static void DrawText(string text, Float2 position, Color color, int size = 20, float duration = 0F)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1110,9 +1182,9 @@ public static void DrawText(string text, Transform transform, Color color, int s
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
-        <span class="parametername">transform</span>
-        <p><p>The transformation of the text (world-space).</p>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">position</span>
+        <p><p>The position of the text on the screen (in screen-space coordinates).</p>
 </p>
       </td>
     </tr>
@@ -1157,17 +1229,17 @@ public static void DrawText(string text, Transform transform, Color color, int s
   
   <a id="FlaxEngine_DebugDraw_DrawText_" data-uid="FlaxEngine.DebugDraw.DrawText*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Vector2,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Vector2, Color, Int32, Single)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" data-uid="FlaxEngine.DebugDraw.DrawText(System.String,FlaxEngine.Transform,FlaxEngine.Color,System.Int32,System.Single)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="expander" data-toggle="collapse">DrawText(String, Transform, Color, Int32, Single)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Vector2_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws the text on a screen (2D).</p>
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawText_System_String_FlaxEngine_Transform_FlaxEngine_Color_System_Int32_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the text (3D).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawText(string text, Vector2 position, Color color, int size = 20, float duration = 0F)</code></pre>
+public static void DrawText(string text, Transform transform, Color color, int size = 32, float duration = 0F)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1182,9 +1254,9 @@ public static void DrawText(string text, Vector2 position, Color color, int size
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector2.html">Vector2</a></span>
-        <span class="parametername">position</span>
-        <p><p>The position of the text on the screen (in screen-space coordinates).</p>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The transformation of the text (world-space).</p>
 </p>
       </td>
     </tr>
@@ -1381,9 +1453,9 @@ public static void DrawTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color color,
   
   <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Vector3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Vector3[], Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Double3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Double3[], Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the triangles.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1391,14 +1463,14 @@ public static void DrawTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color color,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawTriangles(Vector3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawTriangles(Double3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
 </p>
@@ -1445,9 +1517,9 @@ public static void DrawTriangles(Vector3[] vertices, Color color, float duration
   
   <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Vector3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Vector3[], Matrix, Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Double3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Double3[], Matrix, Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the triangles.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1455,14 +1527,14 @@ public static void DrawTriangles(Vector3[] vertices, Color color, float duration
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawTriangles(Vector3[] vertices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawTriangles(Double3[] vertices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
 </p>
@@ -1517,9 +1589,9 @@ public static void DrawTriangles(Vector3[] vertices, Matrix transform, Color col
   
   <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Vector3[], Int32[], Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Double3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Double3[], Int32[], Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the triangles using the given index buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1527,14 +1599,14 @@ public static void DrawTriangles(Vector3[] vertices, Matrix transform, Color col
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawTriangles(Vector3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawTriangles(Double3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list.</p>
 </p>
@@ -1589,9 +1661,9 @@ public static void DrawTriangles(Vector3[] vertices, int[] indices, Color color,
   
   <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Vector3[], Int32[], Matrix, Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Double3[],System.Int32[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Double3[], Int32[], Matrix, Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the triangles using the given index buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1599,14 +1671,302 @@ public static void DrawTriangles(Vector3[] vertices, int[] indices, Color color,
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawTriangles(Vector3[] vertices, int[] indices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawTriangles(Double3[] vertices, int[] indices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">indices</span>
+        <p><p>The triangle indices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The custom matrix used to transform all line vertices.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Float3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Float3[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawTriangles(Float3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Float3[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Float3[], Matrix, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawTriangles(Float3[] vertices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The custom matrix used to transform all line vertices.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Float3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Float3[], Int32[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the triangles using the given index buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawTriangles(Float3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">indices</span>
+        <p><p>The triangle indices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawTriangles_" data-uid="FlaxEngine.DebugDraw.DrawTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTriangles(FlaxEngine.Float3[],System.Int32[],FlaxEngine.Matrix,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTriangles(Float3[], Int32[], Matrix, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Matrix_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the triangles using the given index buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawTriangles(Float3[] vertices, int[] indices, Matrix transform, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list.</p>
 </p>
@@ -2445,9 +2805,9 @@ public static void DrawWireTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color co
   
   <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Vector3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Vector3[], Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Double3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Double3[], Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the wireframe triangles.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2455,14 +2815,14 @@ public static void DrawWireTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Color co
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawWireTriangles(Vector3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawWireTriangles(Double3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
 </p>
@@ -2509,9 +2869,9 @@ public static void DrawWireTriangles(Vector3[] vertices, Color color, float dura
   
   <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
   
-  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Vector3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Vector3[], Int32[], Color, Single, Boolean)</a></h4>
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Double3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Double3[], Int32[], Color, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Vector3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Double3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws the wireframe triangles using the given index buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2519,14 +2879,150 @@ public static void DrawWireTriangles(Vector3[] vertices, Color color, float dura
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void DrawWireTriangles(Vector3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+public static void DrawWireTriangles(Double3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>[]</span>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Double3.html">Double3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span>[]</span>
+        <span class="parametername">indices</span>
+        <p><p>The triangle indices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Float3[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Float3[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawWireTriangles(Float3[] vertices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
+        <span class="parametername">vertices</span>
+        <p><p>The triangle vertices list (must have multiple of 3 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawWireTriangles_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTriangles(FlaxEngine.Float3[],System.Int32[],FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTriangles(Float3[], Int32[], Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTriangles_FlaxEngine_Float3___System_Int32___FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe triangles using the given index buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawWireTriangles(Float3[] vertices, int[] indices, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a>[]</span>
         <span class="parametername">vertices</span>
         <p><p>The triangle vertices list.</p>
 </p>

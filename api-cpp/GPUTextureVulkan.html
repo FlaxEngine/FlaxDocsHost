@@ -130,6 +130,9 @@
       <a class="xref" href="GPUResource.html#GPUResource__memoryUsage">GPUResource::_memoryUsage</a>
     </div>
     <div>
+      <a class="xref" href="GPUResource.html#GPUResource__name">GPUResource::_name</a>
+    </div>
+    <div>
       <a class="xref" href="GPUTexture.html#GPUTexture__residentMipLevels">GPUTexture::_residentMipLevels</a>
     </div>
     <div>
@@ -220,10 +223,10 @@
       <a class="xref" href="DescriptorOwnerResourceVulkan.html#DescriptorOwnerResourceVulkan_DescriptorAsStorageBuffer_GPUContextVulkan___VkBuffer___VkDeviceSize___VkDeviceSize___">DescriptorOwnerResourceVulkan::DescriptorAsStorageBuffer(GPUContextVulkan* context, VkBuffer&amp; buffer, VkDeviceSize&amp; offset, VkDeviceSize&amp; range)</a>
     </div>
     <div>
-      <a class="xref" href="DescriptorOwnerResourceVulkan.html#DescriptorOwnerResourceVulkan_DescriptorAsStorageTexelBuffer_GPUContextVulkan___const_VkBufferView____">DescriptorOwnerResourceVulkan::DescriptorAsStorageTexelBuffer(GPUContextVulkan* context, const VkBufferView*&amp; bufferView)</a>
+      <a class="xref" href="DescriptorOwnerResourceVulkan.html#DescriptorOwnerResourceVulkan_DescriptorAsStorageTexelBuffer_GPUContextVulkan___VkBufferView___">DescriptorOwnerResourceVulkan::DescriptorAsStorageTexelBuffer(GPUContextVulkan* context, VkBufferView&amp; bufferView)</a>
     </div>
     <div>
-      <a class="xref" href="DescriptorOwnerResourceVulkan.html#DescriptorOwnerResourceVulkan_DescriptorAsUniformTexelBuffer_GPUContextVulkan___const_VkBufferView____">DescriptorOwnerResourceVulkan::DescriptorAsUniformTexelBuffer(GPUContextVulkan* context, const VkBufferView*&amp; bufferView)</a>
+      <a class="xref" href="DescriptorOwnerResourceVulkan.html#DescriptorOwnerResourceVulkan_DescriptorAsUniformTexelBuffer_GPUContextVulkan___VkBufferView___">DescriptorOwnerResourceVulkan::DescriptorAsUniformTexelBuffer(GPUContextVulkan* context, VkBufferView&amp; bufferView)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
@@ -274,7 +277,7 @@
       <a class="xref" href="GPUTexture.html#GPUTexture_GetMipSize_int32_int32___int32___int32___">GPUTexture::GetMipSize(int32 mipLevelIndex, int32&amp; mipWidth, int32&amp; mipHeight, int32&amp; mipDepth)</a>
     </div>
     <div>
-      <a class="xref" href="GPUResourceBase.html#GPUResourceBase_GetName__">GPUResourceBase::GetName()</a>
+      <a class="xref" href="GPUResource.html#GPUResource_GetName__">GPUResource::GetName()</a>
     </div>
     <div>
       <a class="xref" href="GPUTexture.html#GPUTexture_GetObjectType__">GPUTexture::GetObjectType()</a>
@@ -436,16 +439,22 @@
       <a class="xref" href="GPUTexture.html#GPUTexture_ResidentMipLevels__">GPUTexture::ResidentMipLevels()</a>
     </div>
     <div>
-      <a class="xref" href="GPUTexture.html#GPUTexture_Resize_int32_int32_">GPUTexture::Resize(int32 width, int32 height)</a>
+      <a class="xref" href="GPUTexture.html#GPUTexture_ResidentMipsChanged">GPUTexture::ResidentMipsChanged</a>
     </div>
     <div>
-      <a class="xref" href="GPUTexture.html#GPUTexture_Resize_int32_int32_int32_">GPUTexture::Resize(int32 width, int32 height, int32 depth)</a>
+      <a class="xref" href="GPUTexture.html#GPUTexture_Resize_int32_int32_PixelFormat_">GPUTexture::Resize(int32 width, int32 height, PixelFormat format=PixelFormat::Unknown)</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUTexture.html#GPUTexture_Resize_int32_int32_int32_PixelFormat_">GPUTexture::Resize(int32 width, int32 height, int32 depth, PixelFormat format=PixelFormat::Unknown)</a>
     </div>
     <div>
       <a class="xref" href="GPUTexture.html#GPUTexture_RowPitch_int32_">GPUTexture::RowPitch(int32 mipIndex = 0)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ScriptingObject_const_SpawnParams___">ScriptingObject::ScriptingObject(const SpawnParams&amp; params)</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUResource.html#GPUResource_SetName_const_StringView___">GPUResource::SetName(const StringView&amp; name)</a>
     </div>
     <div>
       <a class="xref" href="GPUTexture.html#GPUTexture_SetResidentMipLevels_int32_">GPUTexture::SetResidentMipLevels(int32 count)</a>
@@ -1028,23 +1037,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUTextureVulkan_onResidentMipsChanged__.md&amp;value=---%0Auid%3A%20GPUTextureVulkan.onResidentMipsChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUTextureVulkan_OnResidentMipsChanged__.md&amp;value=---%0Auid%3A%20GPUTextureVulkan.OnResidentMipsChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUTextureVulkan.h/#L185" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="GPUTextureVulkan_onResidentMipsChanged_" data-uid="GPUTextureVulkan.onResidentMipsChanged*"></a>
+  <a id="GPUTextureVulkan_OnResidentMipsChanged_" data-uid="GPUTextureVulkan.OnResidentMipsChanged*"></a>
   
-  <h4 id="GPUTextureVulkan_onResidentMipsChanged__" data-uid="GPUTextureVulkan.onResidentMipsChanged()"><a href="#collapsible-GPUTextureVulkan_onResidentMipsChanged__" class="expander" data-toggle="collapse">onResidentMipsChanged()</a></h4>
+  <h4 id="GPUTextureVulkan_OnResidentMipsChanged__" data-uid="GPUTextureVulkan.OnResidentMipsChanged()"><a href="#collapsible-GPUTextureVulkan_OnResidentMipsChanged__" class="expander" data-toggle="collapse">OnResidentMipsChanged()</a></h4>
   
-  <div id="collapsible-GPUTextureVulkan_onResidentMipsChanged__" class="collapse in">
+  <div id="collapsible-GPUTextureVulkan_OnResidentMipsChanged__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected virtual void onResidentMipsChanged() override</code></pre>
+    <pre><code class="lang-cpp hljs">protected virtual void OnResidentMipsChanged() override</code></pre>
   </div>
 
   
@@ -1054,7 +1063,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="GPUTexture.html#GPUTexture_onResidentMipsChanged__">GPUTexture::onResidentMipsChanged()</a></div>
+  <div><a class="xref" href="GPUTexture.html#GPUTexture_OnResidentMipsChanged__">GPUTexture::OnResidentMipsChanged()</a></div>
   
   
   

@@ -168,16 +168,29 @@ options.DependencyFiles.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&qu
 </ul>
 <h2 id="game-plugins">Game Plugins</h2>
 <p><strong>Game Plugins</strong> are type of plugin that can be used at runtime. Game plugins are deployed with the game and can extend the engine by adding new features. Plugins can contain custom scripts that can be used in a game. To create a simple game plugin use the following code example:</p>
+<div class="tabGroup" id="tabgroup_XBN-TycwWJ">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_XBN-TycwWJ_code-csharp" role="tab" aria-controls="tabpanel_XBN-TycwWJ_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_XBN-TycwWJ_code-cpp" role="tab" aria-controls="tabpanel_XBN-TycwWJ_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_XBN-TycwWJ_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">public class MyPlugin : GamePlugin
 {
-    /// &lt;inheritdoc /&gt;
-    public override PluginDescription Description =&gt; new PluginDescription
+    public MyPlugin()
     {
-        Name = &quot;My Plugin&quot;,
-        Category = &quot;Other&quot;,
-        Description = &quot;This is my custom plugin made for Flax.&quot;,
-        Author = &quot;Someone Inc.&quot;,
-    };
+        // Initialize plugin description
+        _description = new PluginDescription
+        {
+            Name = &quot;My Plugin&quot;,
+            Category = &quot;Other&quot;,
+            Description = &quot;This is my custom plugin made for Flax.&quot;,
+            Author = &quot;Someone Inc.&quot;,
+        };
+    }
 
     /// &lt;inheritdoc /&gt;
     public override void Initialize()
@@ -195,16 +208,56 @@ options.DependencyFiles.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&qu
         base.Deinitialize();
     }
 }
-</code></pre><p>Your game can also use a Game Plugins within a code to implement various gameplay features because plugins don&#39;t rely on loaded scenes or scene objects and are created before the scenes loading (compared to the normal scripts).</p>
+</code></pre></section>
+<section id="tabpanel_XBN-TycwWJ_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// .h
+#pragma once
+
+#include &quot;Engine/Scripting/Plugins/GamePlugin.h&quot;
+
+API_CLASS() class GAME_API MyPlugin : public GamePlugin
+{
+    DECLARE_SCRIPTING_TYPE(MyPlugin);
+
+    void Initialize() override;
+    void Deinitialize() override;
+};
+
+// .cpp
+#include &quot;MyPlugin.h&quot;
+#include &quot;Engine/Core/Log.h&quot;
+
+MyPlugin::MyPlugin(const SpawnParams&amp; params)
+    : GamePlugin(params)
+{
+    // Initialize plugin description
+    _description.Name = TEXT(&quot;My Plugin&quot;);
+    _description.Category = TEXT(&quot;Other&quot;);
+    _description.Description = TEXT(&quot;This is my custom plugin made for Flax.&quot;);
+    _description.Author = TEXT(&quot;Someone Inc.&quot;);
+}
+
+void MyPlugin::Initialize()
+{
+    LOG(Info, &quot;Plugin initialization!&quot;);
+}
+
+void MyPlugin::Deinitialize()
+{
+    LOG(Info, &quot;Plugin cleanup!&quot;);
+}
+</code></pre></section>
+</div>
+<p>Your game can also use a Game Plugins within a code to implement various gameplay features because plugins don&#39;t rely on loaded scenes or scene objects and are created before the scenes loading (compared to the normal scripts).</p>
 <h3 id="game-plugin-settings">Game Plugin Settings</h3>
 <p>If you need to include custom settings for your plugin see <a href="../tutorials/custom-settings.html">this tutorial</a> to learn more.</p>
 <h3 id="game-plugin-assets">Game Plugin Assets</h3>
-<p>If you want to bundle custom assets used in code-only plugin (eg. shader or debug model) override <code>OnCollectAssets</code> method as follows and provide IDs of the assets to include:</p>
+<p>If you want to bundle custom assets used in code-only plugin (eg. shader or debug model) override <code>GetReferences</code> method as follows and provide IDs of the assets to include:</p>
 <pre><code class="lang-cs">#if FLAX_EDITOR
 /// &lt;inheritdoc /&gt;
-public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt; assets)
+public override Guid[] GetReferences()
 {
-    base.OnCollectAssets(assets);
+    var assets = new System.Collections.Generic.List&lt;Guid&gt;();
 
     // Add asset ID to the list
     assets.Add(ShaderId);
@@ -213,6 +266,9 @@ public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt;
     var path = Path.Combine(Globals.ProjectFolder, &quot;Plugins/MyPlugin/Content/MyCustomDebugModel.flax&quot;);
     Content.GetAssetInfo(path, out var info);
     assets.Add(info.ID);
+
+    return assets.ToArray();
+}
 #endif
 </code></pre><h2 id="editor-plugins">Editor Plugins</h2>
 <p><strong>Editor Plugins</strong> can extend the Flax Editor by adding new tools or functionalities. Editor plugin can add new buttons to the Editor GUI and/or override the Custom Editors pipeline or create custom windows to be used for game content creation. The amount of possibilities is very large. To learn more how to create and use editor plugin see the related tutorial <a href="../tutorials/custom-plugin.html">here</a>.</p>
@@ -233,7 +289,7 @@ public override void OnCollectAssets(System.Collections.Generic.List&lt;Guid&gt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/4595b874a513ec83a8d3055c625a15836da4b20a/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/849a7590c46daff20b35593ba48d8ec67c23a5e1/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

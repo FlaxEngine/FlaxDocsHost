@@ -188,10 +188,10 @@ public class ModelImportSettings</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1110)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Level Of Detail&quot;, &quot;Base LOD&quot;)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(1110)]
 [Limit(0F, 5F, 1F)]
-[EditorDisplay(&quot;Level Of Detail&quot;, &quot;Base LOD&quot;)]
-[Tooltip(&quot;The index of the LOD from the source model data to use as a reference for following LODs generation.&quot;)]
 public int BaseLOD { get; set; }</code></pre>
   </div>
 
@@ -223,15 +223,15 @@ public int BaseLOD { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_CalculateNormals" data-uid="FlaxEditor.Content.Import.ModelImportSettings.CalculateNormals"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_CalculateNormals" class="expander" data-toggle="collapse">CalculateNormals</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_CalculateNormals" class="collapse in">
-  <div class="markdown level1 summary"><p>True if calculate model normals, otherwise will import them.</p>
+  <div class="markdown level1 summary"><p>Enable model normal vectors recalculating.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable model normal vectors recalculating&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(20)]
 public bool CalculateNormals { get; set; }</code></pre>
   </div>
 
@@ -263,15 +263,15 @@ public bool CalculateNormals { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_CalculateTangents" data-uid="FlaxEditor.Content.Import.ModelImportSettings.CalculateTangents"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_CalculateTangents" class="expander" data-toggle="collapse">CalculateTangents</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_CalculateTangents" class="collapse in">
-  <div class="markdown level1 summary"><p>True if calculate model tangents, otherwise will import them.</p>
+  <div class="markdown level1 summary"><p>Enable model tangent vectors recalculating.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(40)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable model tangent vectors recalculating&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(40)]
 public bool CalculateTangents { get; set; }</code></pre>
   </div>
 
@@ -311,7 +311,6 @@ public bool CalculateTangents { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(530)]
 [EditorDisplay(&quot;Transform&quot;, null)]
-[Tooltip(&quot;If checked, the imported geometry will be shifted to the center of mass.&quot;)]
 public bool CenterGeometry { get; set; }</code></pre>
   </div>
 
@@ -349,8 +348,9 @@ public bool CenterGeometry { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(100)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(100)]
 public string CollisionMeshesPrefix { get; set; }</code></pre>
   </div>
 
@@ -388,10 +388,10 @@ public string CollisionMeshesPrefix { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1025)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1025)]
 [Limit(0F, 1000F, 0.01F)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The imported animation default frame rate. Can specify the default frames per second amount for imported animation. If value is 0 then the original animation frame rate will be used.&quot;)]
 public float DefaultFrameRate { get; set; }</code></pre>
   </div>
 
@@ -423,15 +423,15 @@ public float DefaultFrameRate { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_Duration" data-uid="FlaxEditor.Content.Import.ModelImportSettings.Duration"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_Duration" class="expander" data-toggle="collapse">Duration</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_Duration" class="collapse in">
-  <div class="markdown level1 summary"><p>The imported animation duration mode.</p>
+  <div class="markdown level1 summary"><p>Imported animation duration mode. Can use the original value or overriden by settings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1000)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;Imported animation duration mode. Can use the original value or overriden by settings.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1000)]
 public AnimationDuration Duration { get; set; }</code></pre>
   </div>
 
@@ -469,9 +469,9 @@ public AnimationDuration Duration { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1060)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;Enables root motion extraction support from this animation.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1060)]
 public bool EnableRootMotion { get; set; }</code></pre>
   </div>
 
@@ -509,9 +509,9 @@ public bool EnableRootMotion { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(35)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;If checked, the imported normal vectors of the mesh will be flipped (scaled by -1).&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(35)]
 public bool FlipNormals { get; set; }</code></pre>
   </div>
 
@@ -543,16 +543,16 @@ public bool FlipNormals { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_FramesRangeEnd" data-uid="FlaxEditor.Content.Import.ModelImportSettings.FramesRangeEnd"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_FramesRangeEnd" class="expander" data-toggle="collapse">FramesRangeEnd</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_FramesRangeEnd" class="collapse in">
-  <div class="markdown level1 summary"><p>The imported animation end frame index. Used only if Duration mode is set to Custom.</p>
+  <div class="markdown level1 summary"><p>Imported animation last frame index. Used only if Duration mode is set to Custom.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1020)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowFramesRange&quot;, false)]
+[EditorOrder(1020)]
 [Limit(0F, 3.40282347E+38F, 1F)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;Imported animation last frame index. Used only if Duration mode is set to Custom.&quot;)]
 public float FramesRangeEnd { get; set; }</code></pre>
   </div>
 
@@ -584,16 +584,16 @@ public float FramesRangeEnd { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_FramesRangeStart" data-uid="FlaxEditor.Content.Import.ModelImportSettings.FramesRangeStart"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_FramesRangeStart" class="expander" data-toggle="collapse">FramesRangeStart</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_FramesRangeStart" class="collapse in">
-  <div class="markdown level1 summary"><p>The imported animation first frame index. Used only if Duration mode is set to Custom.</p>
+  <div class="markdown level1 summary"><p>Imported animation first frame index. Used only if Duration mode is set to Custom.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1010)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowFramesRange&quot;, false)]
+[EditorOrder(1010)]
 [Limit(0F, 3.40282347E+38F, 1F)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;Imported animation first frame index. Used only if Duration mode is set to Custom.&quot;)]
 public float FramesRangeStart { get; set; }</code></pre>
   </div>
 
@@ -631,10 +631,50 @@ public float FramesRangeStart { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1100)]
-[EditorDisplay(&quot;Level Of Detail&quot;, &quot;Generate LODs&quot;)]
-[Tooltip(&quot;If checked, the importer will generate a sequence of LODs based on the base LOD index.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Level Of Detail&quot;, &quot;Generate LODs&quot;)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(1100)]
 public bool GenerateLODs { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_Import_ModelImportSettings_GenerateSDF_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.GenerateSDF*"></a>
+  
+  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_GenerateSDF" data-uid="FlaxEditor.Content.Import.ModelImportSettings.GenerateSDF"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_GenerateSDF" class="expander" data-toggle="collapse">GenerateSDF</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_GenerateSDF" class="collapse in">
+  <div class="markdown level1 summary"><p>If checked, enables generation of Signed Distance Field (SDF).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;SDF&quot;, null)]
+[VisibleIf(&quot;ShowModel&quot;, false)]
+[EditorOrder(1500)]
+public bool GenerateSDF { get; set; }</code></pre>
   </div>
 
   
@@ -671,9 +711,9 @@ public bool GenerateLODs { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(85)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable/disable importing blend shapes (morph targets).&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowSkinnedModel&quot;, false)]
+[EditorOrder(85)]
 public bool ImportBlendShapes { get; set; }</code></pre>
   </div>
 
@@ -711,9 +751,9 @@ public bool ImportBlendShapes { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(70)]
-[EditorDisplay(&quot;Geometry&quot;, &quot;Import LODs&quot;)]
-[Tooltip(&quot;Enable/disable importing meshes Level of Details&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, &quot;Import LODs&quot;)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(70)]
 public bool ImportLODs { get; set; }</code></pre>
   </div>
 
@@ -751,9 +791,9 @@ public bool ImportLODs { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(400)]
-[EditorDisplay(&quot;Materials&quot;, null)]
-[Tooltip(&quot;If checked, the importer will create materials for model meshes as specified in the file.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Materials&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(400)]
 public bool ImportMaterials { get; set; }</code></pre>
   </div>
 
@@ -791,9 +831,9 @@ public bool ImportMaterials { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(410)]
-[EditorDisplay(&quot;Materials&quot;, null)]
-[Tooltip(&quot;If checked, the importer will import texture files used by the model and any embedded texture resources.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Materials&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(410)]
 public bool ImportTextures { get; set; }</code></pre>
   </div>
 
@@ -831,9 +871,9 @@ public bool ImportTextures { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(80)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable/disable importing vertex colors (channel 0 only)&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowModel&quot;, false)]
+[EditorOrder(80)]
 public bool ImportVertexColors { get; set; }</code></pre>
   </div>
 
@@ -871,9 +911,9 @@ public bool ImportVertexColors { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(90)]
-[EditorDisplay(&quot;Geometry&quot;, &quot;Lightmap UVs Source&quot;)]
-[Tooltip(&quot;Model lightmap UVs source&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, &quot;Lightmap UVs Source&quot;)]
+[VisibleIf(&quot;ShowModel&quot;, false)]
+[EditorOrder(90)]
 public ModelLightmapUVsSource LightmapUVsSource { get; set; }</code></pre>
   </div>
 
@@ -911,10 +951,10 @@ public ModelLightmapUVsSource LightmapUVsSource { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1120)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Level Of Detail&quot;, &quot;LOD Count&quot;)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(1120)]
 [Limit(1F, 6F, 1F)]
-[EditorDisplay(&quot;Level Of Detail&quot;, &quot;LOD Count&quot;)]
-[Tooltip(&quot;The amount of LODs to include in the model (all remaining ones starting from Base LOD will be generated).&quot;)]
 public int LODCount { get; set; }</code></pre>
   </div>
 
@@ -952,9 +992,9 @@ public int LODCount { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(60)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable/disable geometry merge for meshes with the same materials&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(60)]
 public bool MergeMeshes { get; set; }</code></pre>
   </div>
 
@@ -994,7 +1034,6 @@ public bool MergeMeshes { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2010)]
 [EditorDisplay(&quot;Splitting&quot;, null)]
-[Tooltip(&quot;The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. Default -1 imports all objects.&quot;)]
 public int ObjectIndex { get; set; }</code></pre>
   </div>
 
@@ -1032,9 +1071,9 @@ public int ObjectIndex { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1050)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The imported animation channels will be optimized to remove redundant keyframes.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1050)]
 public bool OptimizeKeyframes { get; set; }</code></pre>
   </div>
 
@@ -1072,9 +1111,9 @@ public bool OptimizeKeyframes { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(50)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Enable/disable meshes geometry optimization&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(50)]
 public bool OptimizeMeshes { get; set; }</code></pre>
   </div>
 
@@ -1112,9 +1151,9 @@ public bool OptimizeMeshes { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(420)]
-[EditorDisplay(&quot;Materials&quot;, &quot;Restore Materials On Reimport&quot;)]
-[Tooltip(&quot;If checked, the importer will try to restore the assigned materials to the model slots.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Materials&quot;, &quot;Restore Materials On Reimport&quot;)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(420)]
 public bool RestoreMaterialsOnReimport { get; set; }</code></pre>
   </div>
 
@@ -1152,9 +1191,9 @@ public bool RestoreMaterialsOnReimport { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1070)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The custom node name to be used as a root motion source. If not specified the actual root node will be used.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1070)]
 public string RootNodeName { get; set; }</code></pre>
   </div>
 
@@ -1194,7 +1233,6 @@ public string RootNodeName { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(510)]
 [EditorDisplay(&quot;Transform&quot;, null)]
-[Tooltip(&quot;Custom import geometry rotation&quot;)]
 public Quaternion Rotation { get; set; }</code></pre>
   </div>
 
@@ -1232,10 +1270,10 @@ public Quaternion Rotation { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1030)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1030)]
 [Limit(0F, 1000F, 0.01F)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The imported animation sampling rate. If value is 0 then the original animation speed will be used.&quot;)]
 public float SamplingRate { get; set; }</code></pre>
   </div>
 
@@ -1275,8 +1313,48 @@ public float SamplingRate { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(500)]
 [EditorDisplay(&quot;Transform&quot;, null)]
-[Tooltip(&quot;Custom uniform import scale&quot;)]
 public float Scale { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_Import_ModelImportSettings_SDFResolution_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SDFResolution*"></a>
+  
+  <h4 id="FlaxEditor_Content_Import_ModelImportSettings_SDFResolution" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SDFResolution"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_SDFResolution" class="expander" data-toggle="collapse">SDFResolution</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_SDFResolution" class="collapse in">
+  <div class="markdown level1 summary"><p>Resolution scale for generated Signed Distance Field (SDF) texture. Higher values improve accuracy but increase memory usage and reduce performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;SDF&quot;, null)]
+[VisibleIf(&quot;ShowModel&quot;, false)]
+[EditorOrder(1510)]
+[Limit(0.0001F, 100F, 1F)]
+public float SDFResolution { get; set; }</code></pre>
   </div>
 
   
@@ -1313,9 +1391,9 @@ public float Scale { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1040)]
-[EditorDisplay(&quot;Animation&quot;, null)]
-[Tooltip(&quot;The imported animation will have removed tracks with no keyframes or unspecified data.&quot;)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Animation&quot;, null)]
+[VisibleIf(&quot;ShowAnimation&quot;, false)]
+[EditorOrder(1040)]
 public bool SkipEmptyCurves { get; set; }</code></pre>
   </div>
 
@@ -1347,17 +1425,16 @@ public bool SkipEmptyCurves { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_SmoothingNormalsAngle" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SmoothingNormalsAngle"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_SmoothingNormalsAngle" class="expander" data-toggle="collapse">SmoothingNormalsAngle</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_SmoothingNormalsAngle" class="collapse in">
-  <div class="markdown level1 summary"><p>Calculated normals smoothing angle.</p>
+  <div class="markdown level1 summary"><p>Specifies the maximum angle (in degrees) that may be between two face normals at the same vertex position that their are smoothed together. The default value is 175.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[VisibleIf(&quot;CalculateNormals&quot;, false)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowSmoothingNormalsAngle&quot;, false)]
 [EditorOrder(30)]
 [Limit(0F, 175F, 0.1F)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Specifies the maximum angle (in degrees) that may be between two face normals at the same vertex position that their are smoothed together. The default value is 175.&quot;)]
 public float SmoothingNormalsAngle { get; set; }</code></pre>
   </div>
 
@@ -1389,17 +1466,16 @@ public float SmoothingNormalsAngle { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_SmoothingTangentsAngle" data-uid="FlaxEditor.Content.Import.ModelImportSettings.SmoothingTangentsAngle"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_SmoothingTangentsAngle" class="expander" data-toggle="collapse">SmoothingTangentsAngle</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_SmoothingTangentsAngle" class="collapse in">
-  <div class="markdown level1 summary"><p>Calculated normals smoothing angle.</p>
+  <div class="markdown level1 summary"><p>Specifies the maximum angle (in degrees) that may be between two vertex tangents that their tangents and bi-tangents are smoothed. The default value is 45.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[VisibleIf(&quot;CalculateTangents&quot;, false)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Geometry&quot;, null)]
+[VisibleIf(&quot;ShowSmoothingTangentsAngle&quot;, false)]
 [EditorOrder(45)]
 [Limit(0F, 45F, 0.1F)]
-[EditorDisplay(&quot;Geometry&quot;, null)]
-[Tooltip(&quot;Specifies the maximum angle (in degrees) that may be between two vertex tangents that their tangents and bi-tangents are smoothed. The default value is 45.&quot;)]
 public float SmoothingTangentsAngle { get; set; }</code></pre>
   </div>
 
@@ -1439,7 +1515,6 @@ public float SmoothingTangentsAngle { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2000)]
 [EditorDisplay(&quot;Splitting&quot;, null)]
-[Tooltip(&quot;If checked, the imported mesh/animations are splitted into separate assets. Used if ObjectIndex is set to -1.&quot;)]
 public bool SplitObjects { get; set; }</code></pre>
   </div>
 
@@ -1479,8 +1554,7 @@ public bool SplitObjects { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(520)]
 [EditorDisplay(&quot;Transform&quot;, null)]
-[Tooltip(&quot;Custom import geometry offset&quot;)]
-public Vector3 Translation { get; set; }</code></pre>
+public Float3 Translation { get; set; }</code></pre>
   </div>
 
   
@@ -1491,7 +1565,7 @@ public Vector3 Translation { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
         <p>
       </td>
     </tr>
@@ -1517,10 +1591,10 @@ public Vector3 Translation { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1130)]
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Level Of Detail&quot;, null)]
+[VisibleIf(&quot;ShowGeometry&quot;, false)]
+[EditorOrder(1130)]
 [Limit(0F, 1F, 0.001F)]
-[EditorDisplay(&quot;Level Of Detail&quot;, null)]
-[Tooltip(&quot;The target amount of triangles for the generated LOD (based on the higher LOD). Normalized to range 0-1. For instance 0.4 cuts the triangle count to 40%.&quot;)]
 public float TriangleReduction { get; set; }</code></pre>
   </div>
 
@@ -1552,14 +1626,13 @@ public float TriangleReduction { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_Type" data-uid="FlaxEditor.Content.Import.ModelImportSettings.Type"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_Type" class="expander" data-toggle="collapse">Type</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_Type" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the type of the imported asset.</p>
+  <div class="markdown level1 summary"><p>Type of the imported asset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[Tooltip(&quot;Type of the imported asset&quot;)]
 public ModelType Type { get; set; }</code></pre>
   </div>
 
@@ -1593,13 +1666,13 @@ public ModelType Type { get; set; }</code></pre>
   <h4 id="FlaxEditor_Content_Import_ModelImportSettings_TryRestore_FlaxEditor_Content_Import_ModelImportSettings__System_String_" data-uid="FlaxEditor.Content.Import.ModelImportSettings.TryRestore(FlaxEditor.Content.Import.ModelImportSettings@,System.String)"><a href="#collapsible-FlaxEditor_Content_Import_ModelImportSettings_TryRestore_FlaxEditor_Content_Import_ModelImportSettings__System_String_" class="expander" data-toggle="collapse">TryRestore(ref ModelImportSettings, String)</a></h4>
   
   <div id="collapsible-FlaxEditor_Content_Import_ModelImportSettings_TryRestore_FlaxEditor_Content_Import_ModelImportSettings__System_String_" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries the restore the asset import options from the target resource file.</p>
+  <div class="markdown level1 summary"><p>Tries the restore the asset import options from the target resource file. Applies the project default options too.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryRestore(ref ModelImportSettings options, string assetPath)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void TryRestore(ref ModelImportSettings options, string assetPath)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1622,16 +1695,6 @@ public ModelType Type { get; set; }</code></pre>
     </tr>
   </table>
   
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p><p>True settings has been restored, otherwise false.</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   
   
