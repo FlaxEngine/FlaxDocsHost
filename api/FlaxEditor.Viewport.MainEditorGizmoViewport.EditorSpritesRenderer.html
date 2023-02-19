@@ -115,10 +115,19 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer" data-uid="FlaxEngine.PostProcessEffect.Location"><a href="#collapsible-inheritedMembers-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer" data-uid="FlaxEngine.PostProcessEffect.CanRender(FlaxEngine.RenderContext)"><a href="#collapsible-inheritedMembers-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer" class="collapse">
     <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender_FlaxEngine_RenderContext_">PostProcessEffect.CanRender(RenderContext)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Location">PostProcessEffect.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_UseSingleTarget">PostProcessEffect.UseSingleTarget</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Order">PostProcessEffect.Order</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnAwake">Script.OnAwake()</a>
@@ -229,6 +238,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -239,6 +251,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -350,13 +365,13 @@ public class EditorSpritesRenderer : PostProcessEffect, ISerializable</code></pr
   
   
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
   <a id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender_" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.CanRender*"></a>
   
-  <h4 id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.CanRender"><a href="#collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender" class="expander" data-toggle="collapse">CanRender</a></h4>
+  <h4 id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.CanRender"><a href="#collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender" class="expander" data-toggle="collapse">CanRender()</a></h4>
   
   <div id="collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_CanRender" class="collapse in">
   <div class="markdown level1 summary"><p>Gets a value indicating whether this effect can be rendered.</p>
@@ -365,14 +380,11 @@ public class EditorSpritesRenderer : PostProcessEffect, ISerializable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool CanRender { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool CanRender()</code></pre>
   </div>
 
   
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
@@ -383,94 +395,17 @@ public class EditorSpritesRenderer : PostProcessEffect, ISerializable</code></pr
   </table>
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender">PostProcessEffect.CanRender</a></div>
   
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_Order_" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.Order*"></a>
-  
-  <h4 id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_Order" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.Order"><a href="#collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_Order" class="expander" data-toggle="collapse">Order</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_Order" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the effect rendering order. Registered post effects are sorted before rendering (from the lowest order to the highest order).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int Order { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Order">PostProcessEffect.Order</a></div>
+  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender">PostProcessEffect.CanRender()</a></div>
   
   
   
   
   
   </div>
-  
-  
-  <a id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_UseSingleTarget_" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.UseSingleTarget*"></a>
-  
-  <h4 id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_UseSingleTarget" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.UseSingleTarget"><a href="#collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_UseSingleTarget" class="expander" data-toggle="collapse">UseSingleTarget</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_UseSingleTarget" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets a value indicating whether use a single render target as both input and output. Use this if your effect doesn&apos;t need to copy the input buffer to the output but can render directly to the single texture. Can be used to optimize game performance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool UseSingleTarget { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_UseSingleTarget">PostProcessEffect.UseSingleTarget</a></div>
-  
-  
-  
-  
-  
-  </div>
-  <h3 id="methods">Methods
-  </h3>
   
   
   <a id="FlaxEditor_Viewport_MainEditorGizmoViewport_EditorSpritesRenderer_Draw_" data-uid="FlaxEditor.Viewport.MainEditorGizmoViewport.EditorSpritesRenderer.Draw*"></a>

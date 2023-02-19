@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>High-Level Networking | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="High-Level Networking | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="High-Level Networking | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="high-level-networking">High-Level Networking</h1>
+
+<p>High-level networking layer supports creating fully-featured multiplayer games. It features:</p>
+<ul>
+<li>High-level networking abstraction and implementation<ul>
+<li>Singleton service (1 per running game)</li>
+<li>Configuration from game settings</li>
+<li>Ability to adjust configs at runtime (eg. server ip/port)</li>
+</ul>
+</li>
+<li>Allows creating multiplayer games easily<ul>
+<li>Shooters</li>
+<li>Strategy</li>
+<li>Coop</li>
+<li>Competitive</li>
+</ul>
+</li>
+<li>Can be integrated into an existing game project</li>
+<li>Not enabled/user by default<ul>
+<li>Reduce bloat in the engine from this feature</li>
+</ul>
+</li>
+<li>Synchronizes game objects across the network<ul>
+<li>Game session state</li>
+<li>Players data</li>
+<li>Scene objects<ul>
+<li>Actors</li>
+<li>Scripts</li>
+<li>SubObjects</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Provides automatic data replication<ul>
+<li>Ability to prioritize objects to synchronize</li>
+<li>Synchronize objects placed on a map (already on the level)</li>
+<li>Synchronize objects spawned on a map<ul>
+<li>Synchronized object/prefab spawning</li>
+<li>Authoritative or weak</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Remote procedure call (RPC)<ul>
+<li>Ability to invoke gameplay method on server or remote clients</li>
+<li>Automatic arguments serialization</li>
+<li>Customizable <code>NetworkChannelType</code></li>
+</ul>
+</li>
+<li>Build on top of the existing <a href="low-level.html">low-level networking</a><ul>
+<li>Offers the ability to swap <code>INetworkDriver</code> backend</li>
+<li>Cross-platform networking</li>
+</ul>
+</li>
+<li>Supports cross-play</li>
+<li>Client-Server connection only (clients cannot communicate directly)</li>
+<li>Scales up to 100 players</li>
+<li>Provides network profiler<ul>
+<li>Analyze data transfer usage per-frame</li>
+</ul>
+</li>
+</ul>
+<h2 id="scripting-integration">Scripting integration</h2>
+<p>If you want to use automatic objects network replication or RPCs codegen, then modify your game code module build scripts by adding <code>Network</code> tag to it - it wil trigger additional processing and code generation to optimize networking.</p>
+<pre><code class="lang-cs">// Game.Build.cs
+
+public override void Setup(BuildOptions options)
+{
+    base.Setup(options);
+
+    Tags[&quot;Network&quot;] = string.Empty;
+    options.PublicDependencies.Add(&quot;Networking&quot;);
+}
+</code></pre><h2 id="network-manager">Network Manager</h2>
+<p>The main manager of high-level networking system is <code>NetworkManager</code> which provides API such as <code>StartServer()</code>/<code>StartClient()</code>/<code>StartHost()</code>/<code>Stop()</code>.  It creates <code>NetworkManager.Peer</code> to run as a server or client.</p>
+<h3 id="clients">Clients</h3>
+<p>Network Manager running as server or host receives new client connections which can be validated/rejected with <code>NetworkManager.ClientConnecting</code> event. For example, game client can send version, player info or local game files checksum to perform server-side verification for competitive multiplayer gaming.</p>
+<p>After performing initial handshake with a new client it&#39;s added to <code>NetworkManager.Clients</code> list and <code>NetworkManager.ClientConnected</code> event is being called (as opposted to <code>NetworkManager.ClientDisconnected</code> event upon connection end or timeout). Network state can be checked with <code>State</code> property (<code>NetworkConnectionState</code> enum) and responsed to changes on <code>NetworkManager.StateChanged</code> event.</p>
+<p>Each client has own unique <code>uint32 ClientId</code> used to identify it within a newtowkr session. Network manager in mode Server or Host always uses <code>NetworkManager.ServerClientId = 0</code> to distinguish from other peers.</p>
+<h2 id="network-settings">Network Settings</h2>
+<p>To control network system use <strong>Network Settings</strong> asset (linked into <a href="../editor/game-settings/index.html">Game Settings</a>). You can adjust those options from code at runtime (eg. to set server address or port) with the following code:</p>
+<pre><code class="lang-cs">// Setup network connection settings
+var networkSettings = GameSettings.Load&lt;NetworkSettings&gt;();
+networkSettings.Address = &quot;23.145.242.343&quot;;
+networkSettings.Port = 2137;
+GameSettings.LoadAsset&lt;NetworkSettings&gt;().SetInstance(networkSettings);
+</code></pre><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Max Clients</strong></td>
+<td>Maximum amount of active network clients in a game session. Used by server or host to limit amount of players and spectators.</td>
+</tr>
+<tr>
+<td><strong>Protocol Version</strong></td>
+<td>Network protocol version of the game. Network clients and server can use only the same protocol version (verified upon client joining).</td>
+</tr>
+<tr>
+<td><strong>Network FPS</strong></td>
+<td>The target amount of the network system updates per second. Higher values provide better network synchronization (eg. <em>60</em> for shooters), lower values reduce network usage and performance impact (eg. <em>30</em> for strategy games). Can be used to tweak networking performance impact on game. Cannot be higher that UpdateFPS (from <a href="../editor/game-settings/time-settings.html">Time Settings</a>). Use 0 to run every game update.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Address</strong></td>
+<td>Address of the server (server/host always runs on <em>localhost</em>). Only <code>IPv4</code> is supported.</td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>The port for the network peer.</td>
+</tr>
+<tr>
+<td><strong>Network Driver</strong></td>
+<td>The type of the network driver (implements <code>INetworkDriver</code>) that will be used to create, manage, send and receive messages over the network.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-replicator">Network Replicator</h2>
+<p><code>NetworkReplicator</code> is system responsible for replicating networked objects and sending/receiving RPCs. It supports objects network role and ownership concepts but also cotains API to spawn/despawn objects at runtime.</p>
+<p>To register object (script or actor) for network call <code>NetworkReplicator.AddObject</code> (eg. in <code>OnEnable</code> method). It will be automatically added to replication and will be able to invoke or execute RPCs. If you want to register dynamically spawned scene object (eg. player prefab) then call <code>NetworkReplicator.SpawnObject</code> (<code>DespawnObject</code> to remove it).</p>
+<pre><code class="lang-cs">public class MyPlayer : Script
+{
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        // Register for replication
+        NetworkReplicator.AddObject(this);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        // Unregister from replication
+        NetworkReplicator.RemoveObject(this);
+    }
+}
+
+public class MyGameManager : Script
+{
+    public Prefab PlayerPrefab;
+
+    public void SpawnPlayer()
+    {
+        // Spawning prefab object over the network (by default all objects are always owned by the server)
+        var player = PrefabManager.SpawnPrefab(PlayerPrefab);  
+        NetworkReplicator.SpawnObject(player);
+    }
+}
+</code></pre><p>Each object can query own role and ownership via <code>GetObjectRole</code>/<code>GetObjectOwnerClientId</code> including utilities such as <code>IsObjectOwned</code>/<code>IsObjectSimulated</code>/<code>IsObjectReplicated</code>. Object owner can also update its ownership via <code>SetObjectOwnership</code>.</p>
+<h2 id="object-ownership">Object Ownership</h2>
+<p>In a fully-authoritative setup server owns all gameplay objects replicated over the network thus clients cannot enforce property changes on other clients directly. Hoverwer, the game might want to retain overship for local client pawns/characters and let servers do the sync or validation only. This might simplify gameplay simulation of the player inputs (players control local pawns) but still allows the server to validate state before replicating it to other clients.</p>
+<p>Objects might rely on the ownership thus can be split into:</p>
+<ul>
+<li><strong>server only</strong> - objects only exist on the server,<ul>
+<li><em>Game Mode</em> - controls the global gameplay logic (eg. winning conditions),</li>
+</ul>
+</li>
+<li><strong>server and clients</strong> - objects exist on the server and all clients,<ul>
+<li><em>Game State</em> - contains global gameplay data,</li>
+<li><em>Player State</em> - contains players data,</li>
+<li><em>Player Pawn</em> - represents player pawn on a scene,</li>
+</ul>
+</li>
+<li><strong>server and owning client</strong> - objects exist on the server and owning client only,<ul>
+<li><em>Player Controller</em> - controls player logic,</li>
+</ul>
+</li>
+<li><strong>owning client only</strong> - objects exist on owning client only,<ul>
+<li><em>UI and HUD</em> - displays the player and gameplay state,</li>
+</ul>
+</li>
+</ul>
+<p>Owning client is a player/client that owns the object (spawned it with authority - eg. player pawn prefab).</p>
+<p>Network object roles:</p>
+<ul>
+<li><strong>None</strong> - not replicated object,</li>
+<li><strong>Owned Authoritative</strong> - server/client owns the object and replicates it to others,</li>
+<li><strong>Replicated</strong> - server/client gets replicated object from other server/client,</li>
+<li><strong>Replicated Simulated</strong>- client gets replicated object from server but can locally autonomously simulate it too (eg. control local pawn with real human input but sync+validate with server - player can smoothly move but won&#39;t go through the walls since server does the validation).</li>
+</ul>
+<h2 id="object-serialization">Object Serialization</h2>
+<p>Game objects and types can define their own serialization/deserialization methods to customize how data is passed through the network via <code>INetworkSerializable</code> interface or by registering via <code>NetworkReplicator::AddSerializer</code>. Serialization methods use <code>NetworkStream</code> which supports streaming raw bytes, structure, in-built types, collections and custom types. When sending larger objects data (bigger than default message size of <code>INetworkDriver</code> which is usually 1500 bytes) the networking system will split message into parts.</p>
+<p>Examples of network object data serialization with fields/properties marked with <code>NetworkReplicated</code> attribute:</p>
+<div class="tabGroup" id="tabgroup_xsTwwwFj38">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xsTwwwFj38_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Automatic replication of custom structures
+public struct CustomStruct
+{
+    [NetworkReplicated] int MyVar;
+};
+
+// Automatic replication of object properties
+public class MyScript :  Script
+{
+    [NetworkReplicated] float MyFloat = 0.0f;
+    [NetworkReplicated] CustomStruct MyStruct;
+    [NetworkReplicated] PlatformType MyEnum = PlatformType.Windows;
+    [NetworkReplicated] string MyString = &quot;text&quot;;
+    [NetworkReplicated] int[] MyArray = new []{ 1, 2, 3 };
+    [NetworkReplicated] Dictionary&lt;int, string&gt; MyMap;
+};
+</code></pre></section>
+<section id="tabpanel_xsTwwwFj38_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// Automatic replication of custom structures
+API_STRUCT() struct GAME_API CustomStruct
+{
+    DECLARE_SCRIPTING_TYPE_STRUCTURE(CustomStruct);
+
+    API_FIELD(NetworkReplicated) int32 MyVar = 0.0f;
+};
+
+// Automatic replication of object properties
+API_CLASS() class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+    API_FIELD(NetworkReplicated) float MyFloat = 0.0f;
+    API_FIELD(NetworkReplicated) CustomStruct MyStruct;
+    API_FIELD(NetworkReplicated) PlatformType MyEnum = PlatformType::Windows;
+    API_FIELD(NetworkReplicated) String MyString = TEXT(&quot;text&quot;);
+    API_FIELD(NetworkReplicated) Array&lt;int32&gt; MyArray = { 1, 2, 3 };
+    API_FIELD(NetworkReplicated) Dictionary&lt;int32, String&gt; MyMap;
+};
+</code></pre></section>
+</div>
+<h2 id="rpcs">RPCs</h2>
+<p><strong>Remote Procedure Call</strong> (shorten as RPC) is used to invoke code on other network clients. For example, call server method from client or vice versa: call method on all clients from server. This is useful to synchronize state or invoke certain action over the network (eg. player attack, chat message, etc.). RPC methods can be normally called from gameplay code but inner logic might be executed only on other clients.</p>
+<p>To declare RPC use <code>NetworkRpc</code> attribute on function with <code>Server</code> or <code>Client</code> value set. Each RPC can also specify the transport channel to use (<code>Unreliable</code>, <code>UnreliableOrdered</code>, <code>Reliable</code>, <code>ReliableOrdered</code>). <a href="../editor/flax-build/index.html">Flax.Build</a> codegen will inject custom code before the method body which will invoke the method properly on remote clients. Example RPCs:</p>
+<div class="TIP"><h5>Tip</h5><p>RPCs can be used only in networked objects (registered via <code>NetworkReplicator.AddObject</code>) and in types which code module is marked with <code>Natwork</code> tag.</p>
+</div>
+<div class="tabGroup" id="tabgroup_xsTwwwFj38-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-1_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-1_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xsTwwwFj38-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Example RPC invoked on server-only
+[NetworkRpc(Server = true)]
+public void SetSequenceIndex(ushort value)
+{
+    _currentSequence = value;
+}
+
+// Example RPC invoked on clients with Unreliable channel (message might not arrive but will have less lag)
+[NetworkRpc(Client = true, Channel = NetworkChannelType.Unreliable)]
+public void CallClientRPC(string text, uint[] ids)
+{
+    Debug.Log(&quot;Got msg from server: &quot; + text);
+}
+</code></pre></section>
+<section id="tabpanel_xsTwwwFj38-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// .h
+API_CLASS() class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+    // Example RPC invoked on server-only
+    API_FUNCTION(NetworkRpc=Server)
+    void SetSequenceIndex(ushort value);
+
+    // Example RPC invoked on clients with Unreliable channel (message might not arrive but will have less lag)
+    API_FUNCTION(NetworkRpc=&quot;Client, Unreliable&quot;)
+    void CallClientRPC(const String&amp; text, Array&lt;uint32&gt;&amp; ids);
+};
+
+// .cpp
+
+// Ensure to include utility header for RPC impl
+#include &quot;Engine/Networking/NetworkRpc.h&quot;
+
+void MyScript::SetSequenceIndex(ushort value)
+{
+    // Macro `NETWORK_RPC_IMPL` is used to inject RPC invoke/execute code
+    // Usage: NETWORK_RPC_IMPL(&lt;type&gt;, &lt;rpcName&gt;, &lt;arguments&gt;)
+    NETWORK_RPC_IMPL(MyScript, SetSequenceIndex, value);
+
+    // then method body..
+    _currentSequence = value;
+}
+
+void MyScript::CallClientRPC(const String&amp; text, Array&lt;uint32&gt;&amp; ids)
+{
+    NETWORK_RPC_IMPL(MyScript, CallClientRPC, text, ids);
+
+    LOG(Info, &quot;Got msg from server: {0}&quot;, text);
+}
+
+// If you override virtual RPC method, then use `NETWORK_RPC_OVERRIDE_IMPL` macro before calling base method or overriden method body.
+</code></pre></section>
+</div>
+<h3 id="extending-network-objects">Extending network objects</h3>
+<p>To extend networking for more custom case you can use <code>INetworkObject</code> interfaces on networked objects:</p>
+<ul>
+<li><code>INetworkObject</code> - allows to extend networked objects lifetime with custom events called on certain points during it&#39;s lifetime (eg. spawn/despawn or during replication).</li>
+<li><code>INetworkSerializable</code> - allows to override default replication logic by using custom serialize/deserialize methods that send object state over network using <code>NetworkStream</code> object.</li>
+</ul>
+<h3 id="profiling-and-debugging">Profiling and debugging</h3>
+<p>To analyze network transfer use Network tab in <a href="../editor/profiling/profiler.html">Profiler window</a> in Editor.
+To quickly profile networking with lag simulation (eg. due to bad network ocnnection) you can use <code>NetworkLagDriver</code> (set it in <code>Network Settings</code>) which can delay network messages sending to fake the lag between server and client.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/networking/high-level.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

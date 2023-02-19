@@ -291,7 +291,7 @@
   
   <a id="MotionBlurPass_Render_" data-uid="MotionBlurPass.Render*"></a>
   
-  <h4 id="MotionBlurPass_Render_RenderContext___GPUTexture____GPUTexture____" data-uid="MotionBlurPass.Render(RenderContext &amp;,GPUTexture *&amp;,GPUTexture *&amp;)"><a href="#collapsible-MotionBlurPass_Render_RenderContext___GPUTexture____GPUTexture____" class="expander" data-toggle="collapse">Render(RenderContext&amp; renderContext, GPUTexture*&amp; input, GPUTexture*&amp; output)</a></h4>
+  <h4 id="MotionBlurPass_Render_RenderContext___GPUTexture____GPUTexture____" data-uid="MotionBlurPass.Render(RenderContext &amp;,GPUTexture *&amp;,GPUTexture *&amp;)"><a href="#collapsible-MotionBlurPass_Render_RenderContext___GPUTexture____GPUTexture____" class="expander" data-toggle="collapse">Render(RenderContext&amp; renderContext, GPUTexture*&amp; frame, GPUTexture*&amp; tmp)</a></h4>
   
   <div id="collapsible-MotionBlurPass_Render_RenderContext___GPUTexture____GPUTexture____" class="collapse in">
   <div class="markdown level1 summary"><p>Renders the motion blur. Swaps the input with output if rendering is performed. Does nothing if rendering is not performed. </p></div>
@@ -299,7 +299,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Render(RenderContext&amp; renderContext, GPUTexture*&amp; input, GPUTexture*&amp; output)</code></pre>
+    <pre><code class="lang-cpp hljs">public void Render(RenderContext&amp; renderContext, GPUTexture*&amp; frame, GPUTexture*&amp; tmp)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -314,15 +314,15 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="GPUTexture.html">GPUTexture</a></span>
-        <span class="parametername">input</span>
-        <p><p>The input frame.</p></p>
+        <span class="parametername">frame</span>
+        <p><p>Input and output frame (leave unchanged when not using this effect).</p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="GPUTexture.html">GPUTexture</a></span>
-        <span class="parametername">output</span>
-        <p><p>The output frame.</p></p>
+        <span class="parametername">tmp</span>
+        <p><p>Temporary frame (the same format as frame)</p></p>
       </td>
     </tr>
   </table>
@@ -506,7 +506,7 @@
     <tr>
       <td>
         <a class="xref" href="String.html">String</a>
-        <p><p>The string.</p></p>
+        <p>
       </td>
     </tr>
   </table>

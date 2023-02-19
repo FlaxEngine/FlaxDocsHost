@@ -115,10 +115,19 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_CanvasRenderer" data-uid="FlaxEngine.PostProcessEffect.CanRender"><a href="#collapsible-inheritedMembers-FlaxEngine_CanvasRenderer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_CanvasRenderer" data-uid="FlaxEngine.PostProcessEffect.CanRender(FlaxEngine.RenderContext)"><a href="#collapsible-inheritedMembers-FlaxEngine_CanvasRenderer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_CanvasRenderer" class="collapse">
     <div>
-      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender">PostProcessEffect.CanRender</a>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender_FlaxEngine_RenderContext_">PostProcessEffect.CanRender(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Location">PostProcessEffect.Location</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_UseSingleTarget">PostProcessEffect.UseSingleTarget</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Order">PostProcessEffect.Order</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnAwake">Script.OnAwake()</a>
@@ -229,6 +238,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -239,6 +251,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -350,107 +365,26 @@ public sealed class CanvasRenderer : PostProcessEffect, ISerializable</code></pr
   
   
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="FlaxEngine_CanvasRenderer_Location_" data-uid="FlaxEngine.CanvasRenderer.Location*"></a>
+  <a id="FlaxEngine_CanvasRenderer_CanRender_" data-uid="FlaxEngine.CanvasRenderer.CanRender*"></a>
   
-  <h4 id="FlaxEngine_CanvasRenderer_Location" data-uid="FlaxEngine.CanvasRenderer.Location"><a href="#collapsible-FlaxEngine_CanvasRenderer_Location" class="expander" data-toggle="collapse">Location</a></h4>
+  <h4 id="FlaxEngine_CanvasRenderer_CanRender" data-uid="FlaxEngine.CanvasRenderer.CanRender"><a href="#collapsible-FlaxEngine_CanvasRenderer_CanRender" class="expander" data-toggle="collapse">CanRender()</a></h4>
   
-  <div id="collapsible-FlaxEngine_CanvasRenderer_Location" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the effect rendering location within rendering pipeline.</p>
+  <div id="collapsible-FlaxEngine_CanvasRenderer_CanRender" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this effect can be rendered.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override PostProcessEffectLocation Location { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool CanRender()</code></pre>
   </div>
 
   
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.PostProcessEffectLocation.html">PostProcessEffectLocation</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Location">PostProcessEffect.Location</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_CanvasRenderer_Order_" data-uid="FlaxEngine.CanvasRenderer.Order*"></a>
-  
-  <h4 id="FlaxEngine_CanvasRenderer_Order" data-uid="FlaxEngine.CanvasRenderer.Order"><a href="#collapsible-FlaxEngine_CanvasRenderer_Order" class="expander" data-toggle="collapse">Order</a></h4>
-  
-  <div id="collapsible-FlaxEngine_CanvasRenderer_Order" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the effect rendering order. Registered post effects are sorted before rendering (from the lowest order to the highest order).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int Order { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_Order">PostProcessEffect.Order</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_CanvasRenderer_UseSingleTarget_" data-uid="FlaxEngine.CanvasRenderer.UseSingleTarget*"></a>
-  
-  <h4 id="FlaxEngine_CanvasRenderer_UseSingleTarget" data-uid="FlaxEngine.CanvasRenderer.UseSingleTarget"><a href="#collapsible-FlaxEngine_CanvasRenderer_UseSingleTarget" class="expander" data-toggle="collapse">UseSingleTarget</a></h4>
-  
-  <div id="collapsible-FlaxEngine_CanvasRenderer_UseSingleTarget" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets a value indicating whether use a single render target as both input and output. Use this if your effect doesn&apos;t need to copy the input buffer to the output but can render directly to the single texture. Can be used to optimize game performance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool UseSingleTarget { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
@@ -461,16 +395,17 @@ public sealed class CanvasRenderer : PostProcessEffect, ISerializable</code></pr
   </table>
   
   
+  
+  
+  
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_UseSingleTarget">PostProcessEffect.UseSingleTarget</a></div>
+  <div><a class="xref" href="FlaxEngine.PostProcessEffect.html#FlaxEngine_PostProcessEffect_CanRender">PostProcessEffect.CanRender()</a></div>
   
   
   
   
   
   </div>
-  <h3 id="methods">Methods
-  </h3>
   
   
   <a id="FlaxEngine_CanvasRenderer_Render_" data-uid="FlaxEngine.CanvasRenderer.Render*"></a>

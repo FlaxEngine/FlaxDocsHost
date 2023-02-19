@@ -147,7 +147,91 @@ inline MyActor::MyActor(const SpawnParams&amp; params)
 </div>
 <h3 id="2-use-actor">2. Use actor</h3>
 <p>The next step is to drahg&amp;drop actor from <em>Content</em> window into scene or scene tree. You can also use <em>*Toolbox</em> window to search for actor type and spawn it from there. You can also create your actor from code in other scripts.</p>
-</article>
+<h3 id="3-extend-actor">3. Extend actor</h3>
+<p>Editor offers various ways to customize or extend custom actor type.</p>
+<h3 id="actor-creation-utility">Actor creation utility</h3>
+<p>If you develop 3rd Party SDK plugin or commonly used actor type then you can use <code>ActorContextMenu</code> attribute to link it into the Editor&#39;s scene/prefab editors.</p>
+<div class="tabGroup" id="tabgroup_SPrhTeo08u-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_SPrhTeo08u-1_code-csharp" role="tab" aria-controls="tabpanel_SPrhTeo08u-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_SPrhTeo08u-1_code-cpp" role="tab" aria-controls="tabpanel_SPrhTeo08u-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_SPrhTeo08u-1_code-vs" role="tab" aria-controls="tabpanel_SPrhTeo08u-1_code-vs" data-tab="code-vs" tabindex="-1">Visual Script</a>
+</li>
+</ul>
+<section id="tabpanel_SPrhTeo08u-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">[ActorContextMenu(&quot;New/My Actor&quot;)]
+public class MyActor : Actor
+{
+...
+}
+</code></pre></section>
+<section id="tabpanel_SPrhTeo08u-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">API_CLASS(Attributes=&quot;ActorContextMenu(\&quot;New/My Actor\&quot;)&quot;)
+class GAME_API MyActor : public Actor
+{
+...
+};
+</code></pre></section>
+<section id="tabpanel_SPrhTeo08u-1_code-vs" role="tabpanel" data-tab="code-vs" aria-hidden="true" hidden="hidden">
+</section>
+</div>
+<h3 id="actor-with-an-icon">Actor with an icon</h3>
+<p>If you want to attach a simple icon to the actor so it&#39;s more visible and usable in Editor viewport then use similar code as follows:</p>
+<pre><code class="lang-cs">using FlaxEngine;
+#if FLAX_EDITOR
+using FlaxEditor;
+using FlaxEditor.SceneGraph;
+#endif
+
+public class MyActorType : Actor
+{
+#if FLAX_EDITOR
+    static MyActorType()
+    {
+        ViewportIconsRenderer.AddCustomIcon(typeof(MyActorType), Content.LoadAsync&lt;Texture&gt;(System.IO.Path.Combine(Globals.ProjectContentFolder, &quot;Path/To/TextureAsset.flax&quot;)));
+        SceneGraphFactory.CustomNodesTypes.Add(typeof(MyActorType), typeof(MyActorTypeNode));
+    }
+#endif
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        base.OnEnable();
+
+#if FLAX_EDITOR
+        ViewportIconsRenderer.AddActor(this);
+#endif
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+#if FLAX_EDITOR
+        ViewportIconsRenderer.RemoveActor(this);
+#endif
+
+        base.OnDisable();
+    }
+}
+
+#if FLAX_EDITOR
+/// &lt;summary&gt;Custom actor node for Editor.&lt;/summary&gt;
+[HideInEditor]
+public sealed class MyActorTypeNode : ActorNodeWithIcon
+{
+    /// &lt;inheritdoc /&gt;
+    public MyActorTypeNode(Actor actor)
+        : base(actor)
+    {
+    }
+}
+#endif
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -155,7 +239,7 @@ inline MyActor::MyActor(const SpawnParams&amp; params)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/scripting/tutorials/custom-actor.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/scripting/tutorials/custom-actor.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

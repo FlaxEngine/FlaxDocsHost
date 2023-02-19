@@ -124,7 +124,13 @@
       <a class="xref" href="GPUResource.html#GPUResource__memoryUsage">GPUResource::_memoryUsage</a>
     </div>
     <div>
-      <a class="xref" href="GPUResource.html#GPUResource__name">GPUResource::_name</a>
+      <a class="xref" href="GPUResource.html#GPUResource__nameCapacity">GPUResource::_nameCapacity</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUResource.html#GPUResource__namePtr">GPUResource::_namePtr</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUResource.html#GPUResource__nameSize">GPUResource::_nameSize</a>
     </div>
     <div>
       <a class="xref" href="GPUConstantBuffer.html#GPUConstantBuffer__size">GPUConstantBuffer::_size</a>
@@ -136,10 +142,10 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_ScriptingTypeHandle___const_ScriptingTypeHandle___">ScriptingObject::CanCast(const ScriptingTypeHandle&amp; from, const ScriptingTypeHandle&amp; to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MClass___">ScriptingObject::CanCast(MClass* from, MClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MClass___">ScriptingObject::CanCast(const MClass* from, const MClass* to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MonoClass___">ScriptingObject::CanCast(MClass* from, MonoClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MonoClass___">ScriptingObject::CanCast(const MClass* from, const MonoClass* to)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Cast_ScriptingObject___">ScriptingObject::Cast(ScriptingObject* obj)</a>
@@ -152,12 +158,6 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_CreateManagedInternal__">ScriptingObject::CreateManagedInternal()</a>
-    </div>
-    <div>
-      <a class="xref" href="GPUResource.html#GPUResource_DECLARE_ENUM_10_ResourceType_RenderTarget_Texture_CubeTexture_VolumeTexture_Buffer_Shader_PipelineState_Descriptor_Query_Sampler_">GPUResource::DECLARE_ENUM_10(ResourceType, RenderTarget, Texture, CubeTexture, VolumeTexture, Buffer, Shader, PipelineState, Descriptor, Query, Sampler)</a>
-    </div>
-    <div>
-      <a class="xref" href="GPUResource.html#GPUResource_DECLARE_ENUM_3_ObjectType_Texture_Buffer_Other_">GPUResource::DECLARE_ENUM_3(ObjectType, Texture, Buffer, Other)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Deleted">ScriptingObject::Deleted</a>
@@ -178,6 +178,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_void___const_ScriptingTypeHandle___">ScriptingObject::FromInterface(void* interfaceObj, const ScriptingTypeHandle&amp; interfaceType)</a>
     </div>
     <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_T___">ScriptingObject::FromInterface(T* interfaceObj)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetClass__">ScriptingObject::GetClass()</a>
     </div>
     <div>
@@ -194,9 +197,6 @@
     </div>
     <div>
       <a class="xref" href="GPUResource.html#GPUResource_GetName__">GPUResource::GetName()</a>
-    </div>
-    <div>
-      <a class="xref" href="GPUResource.html#GPUResource_GetObjectType__">GPUResource::GetObjectType()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetOrCreateManagedInstance__">ScriptingObject::GetOrCreateManagedInstance()</a>
@@ -232,7 +232,7 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MClass___">ScriptingObject::Is(MClass* type)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_MClass___">ScriptingObject::Is(const MClass* type)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MonoClass___">ScriptingObject::Is(MonoClass* klass)</a>
@@ -335,23 +335,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_.md&amp;value=---%0Auid%3A%20GPUConstantBufferDX12.GPUConstantBufferDX12(GPUDeviceDX12%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_const_StringView___.md&amp;value=---%0Auid%3A%20GPUConstantBufferDX12.GPUConstantBufferDX12(GPUDeviceDX12%20*%2Cuint32%2Cconst%20StringView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX12/GPUShaderDX12.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX12/GPUShaderDX12.h/#L17" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUConstantBufferDX12_GPUConstantBufferDX12_" data-uid="GPUConstantBufferDX12.GPUConstantBufferDX12*"></a>
   
-  <h4 id="GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_" data-uid="GPUConstantBufferDX12.GPUConstantBufferDX12(GPUDeviceDX12 *,uint32)"><a href="#collapsible-GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_" class="expander" data-toggle="collapse">GPUConstantBufferDX12(GPUDeviceDX12* device, uint32 size)</a></h4>
+  <h4 id="GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_const_StringView___" data-uid="GPUConstantBufferDX12.GPUConstantBufferDX12(GPUDeviceDX12 *,uint32,const StringView &amp;)"><a href="#collapsible-GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_const_StringView___" class="expander" data-toggle="collapse">GPUConstantBufferDX12(GPUDeviceDX12* device, uint32 size, const StringView&amp; name)</a></h4>
   
-  <div id="collapsible-GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="GPUConstantBufferDX12.html">GPUConstantBufferDX12</a> class. </p></div>
+  <div id="collapsible-GPUConstantBufferDX12_GPUConstantBufferDX12_GPUDeviceDX12___uint32_const_StringView___" class="collapse in">
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public GPUConstantBufferDX12(GPUDeviceDX12* device, uint32 size) noexcept</code></pre>
+    <pre><code class="lang-cpp hljs">public GPUConstantBufferDX12(GPUDeviceDX12* device, uint32 size, const StringView&amp; name) noexcept</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -360,14 +360,21 @@
       <td>
         <span class="pull-right"><a class="xref" href="GPUDeviceDX12.html">GPUDeviceDX12</a></span>
         <span class="parametername">device</span>
-        <p><p>The graphics device.</p></p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">uint32</span></span>
         <span class="parametername">size</span>
-        <p><p>The buffer size (in bytes).</p></p>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
+        <span class="parametername">name</span>
+        <p>
       </td>
     </tr>
   </table>
@@ -391,7 +398,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUConstantBufferDX12_GPUAddress.md&amp;value=---%0Auid%3A%20GPUConstantBufferDX12.GPUAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX12/GPUShaderDX12.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX12/GPUShaderDX12.h/#L29" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   

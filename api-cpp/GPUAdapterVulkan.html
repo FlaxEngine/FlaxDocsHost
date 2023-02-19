@@ -121,10 +121,10 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_ScriptingTypeHandle___const_ScriptingTypeHandle___">ScriptingObject::CanCast(const ScriptingTypeHandle&amp; from, const ScriptingTypeHandle&amp; to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MClass___">ScriptingObject::CanCast(MClass* from, MClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MClass___">ScriptingObject::CanCast(const MClass* from, const MClass* to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MonoClass___">ScriptingObject::CanCast(MClass* from, MonoClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MonoClass___">ScriptingObject::CanCast(const MClass* from, const MonoClass* to)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Cast_ScriptingObject___">ScriptingObject::Cast(ScriptingObject* obj)</a>
@@ -157,6 +157,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_void___const_ScriptingTypeHandle___">ScriptingObject::FromInterface(void* interfaceObj, const ScriptingTypeHandle&amp; interfaceType)</a>
     </div>
     <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_T___">ScriptingObject::FromInterface(T* interfaceObj)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetClass__">ScriptingObject::GetClass()</a>
     </div>
     <div>
@@ -187,7 +190,7 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MClass___">ScriptingObject::Is(MClass* type)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_MClass___">ScriptingObject::Is(const MClass* type)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MonoClass___">ScriptingObject::Is(MonoClass* klass)</a>
@@ -492,7 +495,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUAdapterVulkan_GetDescription__.md&amp;value=---%0Auid%3A%20GPUAdapterVulkan.GetDescription()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUAdapterVulkan.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUAdapterVulkan.h/#L72" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUAdapterVulkan_GetDescription_" data-uid="GPUAdapterVulkan.GetDescription*"></a>
@@ -534,10 +537,55 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUAdapterVulkan_GetVendorId__.md&amp;value=---%0Auid%3A%20GPUAdapterVulkan.GetVendorId()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUAdapterVulkan_GetNativePtr__.md&amp;value=---%0Auid%3A%20GPUAdapterVulkan.GetNativePtr()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUAdapterVulkan.h/#L64" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUAdapterVulkan_GetNativePtr_" data-uid="GPUAdapterVulkan.GetNativePtr*"></a>
+  
+  <h4 id="GPUAdapterVulkan_GetNativePtr__" data-uid="GPUAdapterVulkan.GetNativePtr()"><a href="#collapsible-GPUAdapterVulkan_GetNativePtr__" class="expander" data-toggle="collapse">GetNativePtr()</a></h4>
+  
+  <div id="collapsible-GPUAdapterVulkan_GetNativePtr__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the native pointer to the underlying graphics device adapter. It&#39;s a low-level platform-specific handle. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void* GetNativePtr() const override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUAdapter.html#GPUAdapter_GetNativePtr__">GPUAdapter::GetNativePtr()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUAdapterVulkan_GetVendorId__.md&amp;value=---%0Auid%3A%20GPUAdapterVulkan.GetVendorId()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUAdapterVulkan.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUAdapterVulkan_GetVendorId_" data-uid="GPUAdapterVulkan.GetVendorId*"></a>

@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Render FPS weapon | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Render FPS weapon | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Render FPS weapon | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-render-fps-weapon">HOWTO: Render FPS weapon</h1>
+
+<p>In this tutorial, you will learn how to create a custom PostFx script and use it to render player weapon in a first-person shooter game. It features:</p>
+<ul>
+<li>separate weapon rendering pass</li>
+<li>no clipping with world geometry</li>
+<li>customizable visuals for a weapon (eg. can disable SSAO/SSR)</li>
+<li>customizable render projection (weapon can be rendered with own FOV/Frustum)</li>
+<li>customizable lighting (eg. weapon can be affected only by sunlight).</li>
+</ul>
+<h3 id="1-create-script">1. Create script</h3>
+<p>Create a new script and add code that performs the effect rendering. Use <strong>PostProcessEffect</strong> class that inherits from Script and can be used as postfx on camera and view.</p>
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// PostFx script for custom player weapon rendering over world geometry. Attached to the player camera actor.
+/// &lt;/summary&gt;
+public class WeaponRenderer : PostProcessEffect
+{
+    private Camera _camera;
+    private SceneRenderTask _renderingTask;
+    private GPUTexture _outputTexture;
+    private GPUPipelineState _compositeOutputPipeline;
+
+    /// &lt;summary&gt;
+    /// Layer (or layers) that are used by weapon. Used to hide weapon from default scene rendering in the Game viewport.
+    /// &lt;/summary&gt;
+    public LayersMask WeaponLayer = new LayersMask(0);
+
+    /// &lt;summary&gt;
+    /// Layer (or layers) that are used by additional objects used by weapon rendering (eg. lights, postfx volumes).
+    /// &lt;/summary&gt;
+    public LayersMask AdditionalLayers = new LayersMask(0);
+
+    /// &lt;summary&gt;
+    /// Rendering features to use for weapon rendering (limited to main rendering - PostFx are configured in the main view drawing).
+    /// &lt;/summary&gt;
+    public ViewFlags RenderFlags = ViewFlags.DirectionalLights |
+                                   ViewFlags.SkyLights |
+                                   ViewFlags.SpotLights |
+                                   ViewFlags.PointLights |
+                                   ViewFlags.SpecularLight |
+                                   ViewFlags.Shadows |
+                                   ViewFlags.ContactShadows |
+                                   ViewFlags.Fog |
+                                   ViewFlags.Reflections |
+                                   ViewFlags.GI;
+
+    /// &lt;summary&gt;
+    /// If checked then weapon will be rendered with custom projection (customizable FOV and near/far planes).
+    /// &lt;/summary&gt;
+    [EditorDisplay(&quot;Projection&quot;)]
+    public bool CustomProjection = false;
+
+    /// &lt;summary&gt;
+    /// Custom Field Of View angle for the weapon rendering.
+    /// &lt;/summary&gt;
+    [Range(30, 120), EditorDisplay(&quot;Projection&quot;), VisibleIf(nameof(CustomProjection))]
+    public float WeaponFov = 60.0f;
+
+    /// &lt;summary&gt;
+    /// Custom Near Plane distance for the weapon rendering.
+    /// &lt;/summary&gt;
+    [Limit(0.0001f), EditorDisplay(&quot;Projection&quot;), VisibleIf(nameof(CustomProjection))]
+    public float WeaponNearPlane = 0.1f;
+
+    /// &lt;summary&gt;
+    /// Custom Far Plane distance for the weapon rendering.
+    /// &lt;/summary&gt;
+    [Limit(10.0f), EditorDisplay(&quot;Projection&quot;), VisibleIf(nameof(CustomProjection))]
+    public float WeaponFarPlane = 10000.0f;
+
+    public WeaponRenderer()
+    {
+        // Render weapons after scene is rendered but before any PostFx
+        Location = PostProcessEffectLocation.AfterForwardPass;
+        UseSingleTarget = true;
+    }
+
+    public override void OnEnable()
+    {
+        _camera = Actor.As&lt;Camera&gt;();
+        if (_camera == null)
+        {
+            Debug.LogError(&quot;Attach WeaponRenderer to the player camera actor.&quot;, this);
+            return;
+        }
+
+        // Disable weapons drawing in camera&#39;s view
+        _camera.RenderLayersMask &amp;= ~WeaponLayer;
+
+        // Create new rendering task to draw
+        _outputTexture = GPUDevice.Instance.CreateTexture(&quot;WeaponTexture&quot;);
+        _renderingTask = new SceneRenderTask
+        {
+            IsCustomRendering = true, // Don&#39;t use automatic rendering but manually schedule rendering
+            Output = _outputTexture,
+        };
+        _renderingTask.Buffers.UseAlpha = true;
+
+        // Create PSO that will draw weapon over the scene (rendered weapon is alpha-masked)
+        var psoDesc = GPUPipelineState.Description.DefaultFullscreenTriangle;
+        psoDesc.PS = GPUDevice.Instance.QuadShader.GetPS(&quot;PS_CopyLinear&quot;);
+        psoDesc.BlendMode = BlendingMode.AlphaBlend;
+        psoDesc.BlendMode.SrcBlend = BlendingMode.Blend.One;
+        psoDesc.BlendMode.DestBlend = BlendingMode.Blend.InvSrcAlpha;
+        psoDesc.BlendMode.BlendOp = BlendingMode.Operation.Add;
+        psoDesc.BlendMode.SrcBlendAlpha = BlendingMode.Blend.One;
+        psoDesc.BlendMode.DestBlendAlpha = BlendingMode.Blend.Zero;
+        psoDesc.BlendMode.BlendOp = BlendingMode.Operation.Add;
+        _compositeOutputPipeline = new GPUPipelineState();
+        _compositeOutputPipeline.Init(ref psoDesc);
+    }
+
+    public override void OnDisable()
+    {
+        // Cleanup
+        Destroy(ref _compositeOutputPipeline);
+        Destroy(ref _outputTexture);
+        Destroy(ref _renderingTask);
+        _camera = null;
+    }
+
+    public override void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
+    {
+        if (!_renderingTask)
+            return;
+        var camera = _camera ?? Actor.As&lt;Camera&gt;();
+        if (!camera)
+            return;
+        Profiler.BeginEventGPU(&quot;Weapon&quot;);
+        var width = input.Width;
+        var height = input.Height;
+
+        // Initialize weapon rendering
+        var view = renderContext.View;
+        view.Mode = ViewMode.NoPostFx; // Just render weapon with lighting, postfx are applied once for a whole game view
+        view.RenderLayersMask = WeaponLayer | AdditionalLayers; // Render both weapon and lighting
+        view.Flags = RenderFlags; // Select visual features to use during rendering
+        if (CustomProjection)
+        {
+            // Customize projection matrix
+            view.Near = WeaponNearPlane;
+            view.Far = WeaponFarPlane;
+            float aspect = (float)width / (float)height;
+            float fov = WeaponFov * Mathf.DegreesToRadians;
+            Matrix.PerspectiveFov(fov, aspect, view.Near, view.Far, out view.Projection);
+            view.NonJitteredProjection = view.Projection;
+            view.UpdateCachedData();
+        }
+        _renderingTask.View = view;
+
+        // Setup rendering resolution
+        if (!_outputTexture.IsAllocated)
+        {
+            var outputDesc = GPUTextureDescription.New2D(width, height, _renderingTask.Buffers.OutputFormat);
+            _outputTexture.Init(ref outputDesc);
+        }
+        _renderingTask.Resize(width, height);
+
+        // Reuse main game viewport GI/GlobalSDF/etc when rendering weapon
+        _renderingTask.Buffers.LinkedCustomBuffers = renderContext.Buffers;
+
+        // Render nested scene with weapon-only
+        Renderer.Render(_renderingTask);
+
+        // Composite weapon over the scene view
+        context.ResetRenderTarget();
+        context.SetViewport(width, height);
+        context.SetRenderTarget(input.View());
+        context.BindSR(0, _outputTexture.View());
+        var pipeline = _compositeOutputPipeline;
+        context.SetState(pipeline);
+        context.DrawFullscreenTriangle();
+
+        Profiler.EndEventGPU();
+    }
+}
+</code></pre><h3 id="2-setup-layers">2. Setup layers</h3>
+<p>Open <a href="../../editor/game-settings/layers-and-tags-settings.html">Layers and Tags settings</a> and add separate layers for <code>Weapons</code> and <code>Lights</code>. Then set those layers to proper actors so the game <em>knows</em> which object is player&#39;s weapon, and which are lights on a scene.</p>
+<p><img src="media/weapon-fps-render-layers.png" alt="FPS Weapon Render Layers Setup"></p>
+<h3 id="3-setup-scene">3. Setup scene</h3>
+<p>Now, add created script to the Camera actor, link <strong>WeaponLayer</strong> property of the script to the layer with player weapon objects. Link <strong>AdditionalLayers</strong> property to global PostFx volume, Environment probes and Lights that should be used when rendering weapons.</p>
+<p><img src="media/weapon-fps-script-setup.png" alt="FPS Weapon Render Setup"></p>
+<p>You can also adjust rendering settings via <strong>RenderFlags</strong> property or override the projection matrix used for weapon rendering.</p>
+<h3 id="4-test-it-out">4. Test it out!</h3>
+<p>Finally start the game and see the result.</p>
+<p><img src="media/weapon-fps.gif" alt="FPS Weapon Render Showcase"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/graphics/tutorials/render-fps-weapon.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

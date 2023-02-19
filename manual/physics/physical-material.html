@@ -95,6 +95,67 @@
 <p><img src="media/new-physical-material.jpg" alt="Create New Physical Material"></p>
 <h2 id="use-physical-material">Use physical material</h2>
 <p>Physical materials are used by the colliders to define their surface properties. You can set the collider material by dragging the asset right into the <strong>Material</strong> property. Alternatively, you can modify the material at runtime using C# API (see <a href="https://docs.flaxengine.com/api/FlaxEngine.Collider.html#FlaxEngine_Collider_Material">Collider.Material</a> property).</p>
+<h2 id="sfx-or-vfx-based-on-material-type">SFX or VFX based on material type</h2>
+<p>Every Physical Material contains a <code>Tag</code> property which identifies it for the gameplay. For example, it can be used to distinguish material types to play matching sound or visual effects when a player walks on a surface of a given type (eg. wood or grass).</p>
+<p>Example code:</p>
+<div class="tabGroup" id="tabgroup_lVCb1SStLC">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_lVCb1SStLC_code-csharp" role="tab" aria-controls="tabpanel_lVCb1SStLC_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_lVCb1SStLC_code-cpp" role="tab" aria-controls="tabpanel_lVCb1SStLC_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_lVCb1SStLC_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Event called by Anim Event
+private void OnFootstep(Vector3 footLocation)
+{
+    // Raycast at foot location to detect surface over which character walks over
+    var offset = 10.0f;
+    var maxDistance = 100.0f;
+    if (Physics.RayCast(footLocation + Vector3.Up * offset, Vector3.Down, out RayCastHit hitInfo, maxDistance))
+    {
+        // Get surface under floor
+        if (hitInfo.Collider is Collider collider &amp;&amp; collider.Material)
+        {
+            var material = (PhysicalMaterial)collider.Material.Instance;
+            if (material.Tag == &quot;Surface.Wood&quot;)
+            {
+                // play sfx/vfx...
+            }
+        }
+    }
+}
+</code></pre></section>
+<section id="tabpanel_lVCb1SStLC_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Physics/Physics.h&quot;
+#include &quot;Engine/Physics/PhysicalMaterial.h&quot;
+#include &quot;Engine/Physics/Colliders/Collider.h&quot;
+
+// Event called by Anim Event
+void PointLight::OnFootstep(Vector3 footLocation)
+{
+    // Raycast at foot location to detect surface over which character walks over
+    const float offset = 10.0f;
+    const float maxDistance = 100.0f;
+    RayCastHit hitInfo;
+    if (Physics::RayCast(footLocation + Vector3::Up * offset, Vector3::Down, hitInfo, maxDistance))
+    {
+        // Get surface under floor
+        auto collider = Cast&lt;Collider&gt;(hitInfo.Collider);
+        if (collider &amp;&amp; collider-&gt;Material)
+        {
+            auto material = collider-&gt;Material-&gt;GetInstance&lt;PhysicalMaterial&gt;();
+            if (material-&gt;Tag == TEXT(&quot;Surface.Wood&quot;))
+            {
+                // play sfx/vfx...
+            }
+        }
+    }
+}
+</code></pre></section>
+</div>
 <h2 id="properties">Properties</h2>
 <p><img src="media/physical-material.jpg" alt="Edit Physical Material"></p>
 <table>
@@ -125,6 +186,10 @@
 <td><strong>Density</strong></td>
 <td>Physical material density in kilograms per cubic meter (kg/m^3). Higher density means a higher weight of the object using this material. Wood is around 700, water is 1000, steel is around 8000.</td>
 </tr>
+<tr>
+<td><strong>Tag</strong></td>
+<td>Physical material tag used to identify it (eg. <code>Surface.Wood</code>). Can be used to play proper footstep sounds when walking over object with that material.</td>
+</tr>
 </tbody>
 </table>
 </article>
@@ -135,7 +200,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/physics/physical-material.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/physics/physical-material.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

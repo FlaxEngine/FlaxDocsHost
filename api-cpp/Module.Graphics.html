@@ -232,8 +232,8 @@
       </tr>
       <tr>
         <td>
-          <p><a class="xref" href="PostProcessBase.html">PostProcessBase</a></p>
-          <p><p>Post process effects base class. </p></p>
+          <p><a class="xref" href="PostProcessEffect.html">PostProcessEffect</a></p>
+          <p><p>Custom PostFx which can modify final image by processing it with material based filters. The base class for all post process effects used by the graphics pipeline. Allows to extend frame rendering logic and apply custom effects such as outline, night vision, contrast etc. </p><p>Override this class and implement custom post fx logic. Use <b>MainRenderTask.Instance.CustomPostFx.Add(myPostFx)</b> to attach your script to rendering or add script to camera actor. </p></p>
         </td>
       </tr>
       <tr>
@@ -318,12 +318,6 @@
         <td>
           <p><a class="xref" href="MaterialParameter.html">MaterialParameter</a></p>
           <p><p>Material variable object. Allows to modify material parameter value at runtime. </p></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><a class="xref" href="ManagedPostProcessEffect.html">ManagedPostProcessEffect</a></p>
-          <p><p>Wrapper for PostProcessBase that allows to render to customized managed postFx. TODO: add support for managed inheritance of custom native types with proper spawn handling (like for ManagedScript) </p></p>
         </td>
       </tr>
       <tr>
@@ -487,12 +481,6 @@
         <td>
           <p><a class="xref" href="GPUResourceState.html">GPUResourceState</a></p>
           <p><p>Tracking of per-resource or per-subresource state for GPU resources that require to issue resource access barriers during rendering. </p></p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><a class="xref" href="GPUResourcesCollection.html">GPUResourcesCollection</a></p>
-          <p><p>GPU Resources collection container </p></p>
         </td>
       </tr>
       <tr>
@@ -737,6 +725,12 @@
         <td>
           <p><a class="xref" href="RenderView.html">RenderView</a></p>
           <p><p>Rendering view description that defines how to render the objects (camera placement, rendering properties, etc.). </p></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><a class="xref" href="RenderContextBatch.html">RenderContextBatch</a></p>
+          <p><p>The high-level renderer context batch that encapsulates multiple rendering requests within a single task (eg. optimize main view scene rendering and shadow projections at once). </p></p>
         </td>
       </tr>
       <tr>
@@ -1021,6 +1015,12 @@
       </tr>
       <tr>
         <td>
+          <p><a class="xref" href="RenderingUpscaleLocation.html">RenderingUpscaleLocation</a></p>
+          <p>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <p><a class="xref" href="ActorsSources.html">ActorsSources</a></p>
           <p>
         </td>
@@ -1208,6 +1208,12 @@
       <tr>
         <td>
           <p><a class="xref" href="MaterialDomain.html">MaterialDomain</a></p>
+          <p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><a class="xref" href="GPUResourceType.html">GPUResourceType</a></p>
           <p>
         </td>
       </tr>

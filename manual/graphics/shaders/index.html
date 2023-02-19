@@ -194,10 +194,10 @@ void PS_Spot(Model_VS2PS input, out float4 output : SV_Target0)
 }
 </code></pre><p>This shader is used to calculate per pixel lighting for spot lights (tooltip: <strong>IES Profile</strong> is a technique to simulate real-life light bulb physical properties like non-uniform light propagation, look at the above screenshot).
 The problem is that we have to create a set of different <strong>variations of this shader</strong>.</p>
-<p>1) With specular, without IES Profile.
-2) Without specular, without IES Profile.
-3) With specular, with IES Profile.
-4) Without specular, with IES Profile.</p>
+<p>1) With specular, without IES Profile.</p>
+<p>2) Without specular, without IES Profile.</p>
+<p>3) With specular, with IES Profile.</p>
+<p>4) Without specular, with IES Profile.</p>
 <p>However we don’t want to write 4 shaders but single one and just permutate it.
 That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compile shader with different sets of macros (eg. <em>NO_SPECULAR=1</em>, <em>USE_IES_PROFILE=0</em>) and generate different shaders from the same source code. The key to success is that we use data-oriented design and define all possible shader permutation statically in a shader. Later at runtime we just select desire permutation by index and use it in rendering code. This approach is low-overhead and doesn&#39;t generate unnessesery permutations but only the ones delcared by the user.</p>
 <p>Also, if your code needs to be used just for a single shader function use macro <code>_&lt;function_name&gt;</code> (eg. <code>_CS_Sort</code>). In that way also resources used just by this function (eg. buffer slot or texture slot) can be exlucded from other functions compilation.</p>
@@ -226,7 +226,7 @@ That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

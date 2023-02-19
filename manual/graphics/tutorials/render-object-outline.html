@@ -123,9 +123,6 @@ public class OutlineRenderer : PostProcessEffect
     /// &lt;/summary&gt;
     public MaterialBase Material;
 
-    /// &lt;inheritdoc /&gt;
-    public override bool CanRender =&gt; Enabled &amp;&amp; _material &amp;&amp; Actors?.Count != 0;
-
     /// &lt;inheritdoc/&gt;
     public override void OnEnable()
     {
@@ -136,6 +133,12 @@ public class OutlineRenderer : PostProcessEffect
     public override void OnDisable()
     {
         Destroy(ref _material);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override bool CanRender()
+    {
+        return base.CanRender() &amp;&amp; _material &amp;&amp; Actors?.Count != 0;
     }
 
     /// &lt;inheritdoc/&gt;
@@ -176,7 +179,7 @@ public class OutlineRenderer : PostProcessEffect
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/graphics/tutorials/render-object-outline.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/graphics/tutorials/render-object-outline.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -209,6 +209,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -219,6 +222,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -974,8 +980,11 @@ public int Layer { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public string LayerName { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+[NoSerialize]
+[NoAnimate]
+[Unmanaged]
+public string LayerName { get; set; }</code></pre>
   </div>
 
   
@@ -1735,17 +1744,18 @@ public StaticFlags StaticFlags { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Tag" data-uid="FlaxEngine.Actor.Tag"><a href="#collapsible-FlaxEngine_Actor_Tag" class="expander" data-toggle="collapse">Tag</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Tag" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the name of the tag.</p>
+  <div class="markdown level1 summary"><p>Gets the name of the tag.
+[Deprecated in v1.5]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NoAnimate]
-[EditorDisplay(&quot;General&quot;, null)]
-[EditorOrder(-68)]
-[CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTagEditor&quot;)]
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+[NoSerialize]
+[NoAnimate]
 [Unmanaged]
+[Obsolete]
 public string Tag { get; set; }</code></pre>
   </div>
 
@@ -1758,6 +1768,47 @@ public string Tag { get; set; }</code></pre>
     <tr>
       <td>
         <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_Tags_" data-uid="FlaxEngine.Actor.Tags*"></a>
+  
+  <h4 id="FlaxEngine_Actor_Tags" data-uid="FlaxEngine.Actor.Tags"><a href="#collapsible-FlaxEngine_Actor_Tags" class="expander" data-toggle="collapse">Tags</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_Tags" class="collapse in">
+  <div class="markdown level1 summary"><p>Actor tags collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NoAnimate]
+[EditorDisplay(&quot;General&quot;, null)]
+[EditorOrder(-68)]
+[Unmanaged]
+public Tag[] Tags { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Tag.html">Tag</a>[]
         <p>
       </td>
     </tr>
@@ -2176,6 +2227,46 @@ public void AddStaticFlags(StaticFlags flags)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Actor_AddTag_" data-uid="FlaxEngine.Actor.AddTag*"></a>
+  
+  <h4 id="FlaxEngine_Actor_AddTag_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.AddTag(FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_AddTag_FlaxEngine_Tag_" class="expander" data-toggle="collapse">AddTag(Tag)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_AddTag_FlaxEngine_Tag_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds a tag to the actor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void AddTag(Tag tag)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>The tag to add.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Actor_DestroyChildren_" data-uid="FlaxEngine.Actor.DestroyChildren*"></a>
   
   <h4 id="FlaxEngine_Actor_DestroyChildren_System_Single_" data-uid="FlaxEngine.Actor.DestroyChildren(System.Single)"><a href="#collapsible-FlaxEngine_Actor_DestroyChildren_System_Single_" class="expander" data-toggle="collapse">DestroyChildren(Single)</a></h4>
@@ -2428,7 +2519,7 @@ public Script FindScript([TypeReference(typeof(Script), null)] Type type)</code>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public T FindScript&lt;T&gt;()
-    where T : Script</code></pre>
+    where T : class</code></pre>
   </div>
 
   
@@ -3112,7 +3203,7 @@ public Script GetScript([TypeReference(typeof(Script), null)] Type type)</code><
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public T GetScript&lt;T&gt;()
-    where T : Script</code></pre>
+    where T : class</code></pre>
   </div>
 
   
@@ -3211,7 +3302,7 @@ public Script[] GetScripts([TypeReference(typeof(Script), null)] Type type)</cod
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public T[] GetScripts&lt;T&gt;()
-    where T : Script</code></pre>
+    where T : class</code></pre>
   </div>
 
   
@@ -3444,7 +3535,7 @@ public bool HasStaticFlag(StaticFlags flag)</code></pre>
   <h4 id="FlaxEngine_Actor_HasTag" data-uid="FlaxEngine.Actor.HasTag"><a href="#collapsible-FlaxEngine_Actor_HasTag" class="expander" data-toggle="collapse">HasTag()</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_HasTag" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether this actor has tag assigned.</p>
+  <div class="markdown level1 summary"><p>Determines whether this actor has any tag assigned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3479,10 +3570,59 @@ public bool HasTag()</code></pre>
   
   <a id="FlaxEngine_Actor_HasTag_" data-uid="FlaxEngine.Actor.HasTag*"></a>
   
+  <h4 id="FlaxEngine_Actor_HasTag_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.HasTag(FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_HasTag_FlaxEngine_Tag_" class="expander" data-toggle="collapse">HasTag(Tag)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_HasTag_FlaxEngine_Tag_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether this actor has given tag assigned (exact match).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool HasTag(Tag tag)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>The tag to check.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_HasTag_" data-uid="FlaxEngine.Actor.HasTag*"></a>
+  
   <h4 id="FlaxEngine_Actor_HasTag_System_String_" data-uid="FlaxEngine.Actor.HasTag(System.String)"><a href="#collapsible-FlaxEngine_Actor_HasTag_System_String_" class="expander" data-toggle="collapse">HasTag(String)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_HasTag_System_String_" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether this actor has given tag assigned.</p>
+  <div class="markdown level1 summary"><p>Determines whether this actor has given tag assigned (exact match).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3866,6 +4006,122 @@ public Quaternion LookingAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
 public virtual void OnBeginPlay()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnDebugDraw_" data-uid="FlaxEngine.Actor.OnDebugDraw*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnDebugDraw" data-uid="FlaxEngine.Actor.OnDebugDraw"><a href="#collapsible-FlaxEngine_Actor_OnDebugDraw" class="expander" data-toggle="collapse">OnDebugDraw()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnDebugDraw" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws debug shapes for the actor and all child scripts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnDebugDraw()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnDebugDrawSelected_" data-uid="FlaxEngine.Actor.OnDebugDrawSelected*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnDebugDrawSelected" data-uid="FlaxEngine.Actor.OnDebugDrawSelected"><a href="#collapsible-FlaxEngine_Actor_OnDebugDrawSelected" class="expander" data-toggle="collapse">OnDebugDrawSelected()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnDebugDrawSelected" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws debug shapes for the selected actor and all child scripts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnDebugDrawSelected()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnDisable_" data-uid="FlaxEngine.Actor.OnDisable*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnDisable" data-uid="FlaxEngine.Actor.OnDisable"><a href="#collapsible-FlaxEngine_Actor_OnDisable" class="expander" data-toggle="collapse">OnDisable()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnDisable" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets removed from game systems. Occurs on EndPlay event or when actor gets inactivated in hierarchy. Use this event to unregister object from other game system (eg. audio).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnDisable()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnEnable_" data-uid="FlaxEngine.Actor.OnEnable*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnEnable" data-uid="FlaxEngine.Actor.OnEnable"><a href="#collapsible-FlaxEngine_Actor_OnEnable" class="expander" data-toggle="collapse">OnEnable()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnEnable" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets added to game systems. Occurs on BeginPlay event or when actor gets activated in hierarchy. Use this event to register object to other game system (eg. audio).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnEnable()</code></pre>
   </div>
 
   
@@ -4343,7 +4599,7 @@ public string ToJson()</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool TryGetScript&lt;T&gt;(out T script)
-    where T : Script</code></pre>
+    where T : class</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

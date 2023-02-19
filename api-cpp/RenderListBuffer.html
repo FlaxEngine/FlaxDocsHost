@@ -1,0 +1,1157 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RenderListBuffer
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RenderListBuffer
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class RenderListBuffer
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RenderListBuffer">
+  <h1 id="RenderListBuffer" data-uid="RenderListBuffer">Class RenderListBuffer
+  </h1>
+  <div class="markdown level0 summary"><p>Template for dynamic array with variable capacity that support concurrent elements appending (atomic add). </p></div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-RenderListBuffer" data-uid="RenderListBuffer"><a href="#collapsible-inheritance-RenderListBuffer" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-RenderListBuffer" class="collapse">
+    <div class="level0"><span class="xref">RenderListBuffer</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-RenderListBuffer" data-uid="RenderListBuffer.AllocationData"><a href="#collapsible-inheritedMembers-RenderListBuffer" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-RenderListBuffer" class="collapse">
+    <div>
+      <span class="xref">RenderListBuffer</span>
+    </div>
+    <div>
+      <span class="xref">RenderListBuffer</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
+  <h6><strong>File</strong>: Engine/Renderer/RenderListBuffer.h</h6>
+  
+  <h5 id="RenderListBuffer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public class RenderListBuffer&lt;T, AllocationType&gt;</code></pre>
+  </div>
+
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p><p>The type of elements in the array.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">AllocationType</span>
+        <p><p>The type of memory allocator.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer__RenderListBuffer__.md&amp;value=---%0Auid%3A%20RenderListBuffer.~RenderListBuffer()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer__RenderListBuffer_" data-uid="RenderListBuffer.~RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer__RenderListBuffer__" data-uid="RenderListBuffer.~RenderListBuffer()"><a href="#collapsible-RenderListBuffer__RenderListBuffer__" class="expander" data-toggle="collapse">~RenderListBuffer()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer__RenderListBuffer__" class="collapse in">
+  <div class="markdown level1 summary"><p>Finalizes an instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ~RenderListBuffer()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_RenderListBuffer_const_RenderListBuffer___.md&amp;value=---%0Auid%3A%20RenderListBuffer.RenderListBuffer(const%20RenderListBuffer%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L73" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_RenderListBuffer_" data-uid="RenderListBuffer.RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer_RenderListBuffer_const_RenderListBuffer___" data-uid="RenderListBuffer.RenderListBuffer(const RenderListBuffer &amp;)"><a href="#collapsible-RenderListBuffer_RenderListBuffer_const_RenderListBuffer___" class="expander" data-toggle="collapse">RenderListBuffer(const RenderListBuffer&amp; other)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_RenderListBuffer_const_RenderListBuffer___" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer(const RenderListBuffer&amp; other)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RenderListBuffer.html">RenderListBuffer</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other collection to copy.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_RenderListBuffer_const_T___int32_.md&amp;value=---%0Auid%3A%20RenderListBuffer.RenderListBuffer(const%20T%20*%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_RenderListBuffer_" data-uid="RenderListBuffer.RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer_RenderListBuffer_const_T___int32_" data-uid="RenderListBuffer.RenderListBuffer(const T *,int32)"><a href="#collapsible-RenderListBuffer_RenderListBuffer_const_T___int32_" class="expander" data-toggle="collapse">RenderListBuffer(const T* data, int32 length)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_RenderListBuffer_const_T___int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer(const T* data, int32 length)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">data</span>
+        <p><p>The initial data.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">length</span>
+        <p><p>The amount of items.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_RenderListBuffer_int32_.md&amp;value=---%0Auid%3A%20RenderListBuffer.RenderListBuffer(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L45" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_RenderListBuffer_" data-uid="RenderListBuffer.RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer_RenderListBuffer_int32_" data-uid="RenderListBuffer.RenderListBuffer(int32)"><a href="#collapsible-RenderListBuffer_RenderListBuffer_int32_" class="expander" data-toggle="collapse">RenderListBuffer(int32 capacity)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_RenderListBuffer_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer(int32 capacity)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">capacity</span>
+        <p><p>The initial capacity.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_RenderListBuffer_RenderListBuffer____.md&amp;value=---%0Auid%3A%20RenderListBuffer.RenderListBuffer(RenderListBuffer%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L87" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_RenderListBuffer_" data-uid="RenderListBuffer.RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer_RenderListBuffer_RenderListBuffer____" data-uid="RenderListBuffer.RenderListBuffer(RenderListBuffer &amp;&amp;)"><a href="#collapsible-RenderListBuffer_RenderListBuffer_RenderListBuffer____" class="expander" data-toggle="collapse">RenderListBuffer(RenderListBuffer&amp;&amp; other)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_RenderListBuffer_RenderListBuffer____" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer(RenderListBuffer&amp;&amp; other) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RenderListBuffer.html">RenderListBuffer</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other collection to move.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Add_const_T___.md&amp;value=---%0Auid%3A%20RenderListBuffer.Add(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L302" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Add_" data-uid="RenderListBuffer.Add*"></a>
+  
+  <h4 id="RenderListBuffer_Add_const_T___" data-uid="RenderListBuffer.Add(const T &amp;)"><a href="#collapsible-RenderListBuffer_Add_const_T___" class="expander" data-toggle="collapse">Add(const T&amp; item)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Add_const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds the specified item to the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Add(const T&amp; item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>The item to add.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p><p>Index of the added element.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Add_T____.md&amp;value=---%0Auid%3A%20RenderListBuffer.Add(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L315" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Add_" data-uid="RenderListBuffer.Add*"></a>
+  
+  <h4 id="RenderListBuffer_Add_T____" data-uid="RenderListBuffer.Add(T &amp;&amp;)"><a href="#collapsible-RenderListBuffer_Add_T____" class="expander" data-toggle="collapse">Add(T&amp;&amp; item)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Add_T____" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds the specified item to the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Add(T&amp;&amp; item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p><p>The item to add.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p><p>Index of the added element.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_begin__.md&amp;value=---%0Auid%3A%20RenderListBuffer.begin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L208" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_begin_" data-uid="RenderListBuffer.begin*"></a>
+  
+  <h4 id="RenderListBuffer_begin__" data-uid="RenderListBuffer.begin()"><a href="#collapsible-RenderListBuffer_begin__" class="expander" data-toggle="collapse">begin()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_begin__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T* begin()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Capacity__.md&amp;value=---%0Auid%3A%20RenderListBuffer.Capacity()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Capacity_" data-uid="RenderListBuffer.Capacity*"></a>
+  
+  <h4 id="RenderListBuffer_Capacity__" data-uid="RenderListBuffer.Capacity()"><a href="#collapsible-RenderListBuffer_Capacity__" class="expander" data-toggle="collapse">Capacity()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Capacity__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the amount of the items that can be contained by collection without resizing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Capacity() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Clear__.md&amp;value=---%0Auid%3A%20RenderListBuffer.Clear()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L232" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Clear_" data-uid="RenderListBuffer.Clear*"></a>
+  
+  <h4 id="RenderListBuffer_Clear__" data-uid="RenderListBuffer.Clear()"><a href="#collapsible-RenderListBuffer_Clear__" class="expander" data-toggle="collapse">Clear()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Clear__" class="collapse in">
+  <div class="markdown level1 summary"><p>Clear the collection without changing its capacity. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Clear()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Count__.md&amp;value=---%0Auid%3A%20RenderListBuffer.Count()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Count_" data-uid="RenderListBuffer.Count*"></a>
+  
+  <h4 id="RenderListBuffer_Count__" data-uid="RenderListBuffer.Count()"><a href="#collapsible-RenderListBuffer_Count__" class="expander" data-toggle="collapse">Count()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Count__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the amount of the items in the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Count() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_end__.md&amp;value=---%0Auid%3A%20RenderListBuffer.end()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L213" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_end_" data-uid="RenderListBuffer.end*"></a>
+  
+  <h4 id="RenderListBuffer_end__" data-uid="RenderListBuffer.end()"><a href="#collapsible-RenderListBuffer_end__" class="expander" data-toggle="collapse">end()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_end__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T* end()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_EnsureCapacity_int32_.md&amp;value=---%0Auid%3A%20RenderListBuffer.EnsureCapacity(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L283" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_EnsureCapacity_" data-uid="RenderListBuffer.EnsureCapacity*"></a>
+  
+  <h4 id="RenderListBuffer_EnsureCapacity_int32_" data-uid="RenderListBuffer.EnsureCapacity(int32)"><a href="#collapsible-RenderListBuffer_EnsureCapacity_int32_" class="expander" data-toggle="collapse">EnsureCapacity(int32 minCapacity)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_EnsureCapacity_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Ensures the collection has given capacity (or more). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void EnsureCapacity(int32 minCapacity)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">minCapacity</span>
+        <p><p>The minimum capacity.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Get__.md&amp;value=---%0Auid%3A%20RenderListBuffer.Get()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Get_" data-uid="RenderListBuffer.Get*"></a>
+  
+  <h4 id="RenderListBuffer_Get__" data-uid="RenderListBuffer.Get()"><a href="#collapsible-RenderListBuffer_Get__" class="expander" data-toggle="collapse">Get()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Get__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the pointer to the first item in the collection (linear allocation). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T* Get()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Locker__.md&amp;value=---%0Auid%3A%20RenderListBuffer.Locker()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Locker_" data-uid="RenderListBuffer.Locker*"></a>
+  
+  <h4 id="RenderListBuffer_Locker__" data-uid="RenderListBuffer.Locker()"><a href="#collapsible-RenderListBuffer_Locker__" class="expander" data-toggle="collapse">Locker()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Locker__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the critical section locking the collection during resizing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public CriticalSection Locker() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">CriticalSection</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_operator___int32_.md&amp;value=---%0Auid%3A%20RenderListBuffer.operator%5B%5D(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L191" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_operator___" data-uid="RenderListBuffer.operator[]*"></a>
+  
+  <h4 id="RenderListBuffer_operator___int32_" data-uid="RenderListBuffer.operator[](int32)"><a href="#collapsible-RenderListBuffer_operator___int32_" class="expander" data-toggle="collapse">operator[](int32 index)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_operator___int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the item at the given index. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T operator[](int32 index)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">index</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>The reference to the item.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_operator__const_RenderListBuffer___.md&amp;value=---%0Auid%3A%20RenderListBuffer.operator%3D(const%20RenderListBuffer%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_operator__" data-uid="RenderListBuffer.operator=*"></a>
+  
+  <h4 id="RenderListBuffer_operator__const_RenderListBuffer___" data-uid="RenderListBuffer.operator=(const RenderListBuffer &amp;)"><a href="#collapsible-RenderListBuffer_operator__const_RenderListBuffer___" class="expander" data-toggle="collapse">operator=(const RenderListBuffer&amp; other)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_operator__const_RenderListBuffer___" class="collapse in">
+  <div class="markdown level1 summary"><p>The assignment operator that deletes the current collection of items and the copies items from the other array. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer operator=(const RenderListBuffer&amp; other) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RenderListBuffer.html">RenderListBuffer</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other collection to copy.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a>
+        <p><p>The reference to this.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_operator__RenderListBuffer____.md&amp;value=---%0Auid%3A%20RenderListBuffer.operator%3D(RenderListBuffer%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L123" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_operator__" data-uid="RenderListBuffer.operator=*"></a>
+  
+  <h4 id="RenderListBuffer_operator__RenderListBuffer____" data-uid="RenderListBuffer.operator=(RenderListBuffer &amp;&amp;)"><a href="#collapsible-RenderListBuffer_operator__RenderListBuffer____" class="expander" data-toggle="collapse">operator=(RenderListBuffer&amp;&amp; other)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_operator__RenderListBuffer____" class="collapse in">
+  <div class="markdown level1 summary"><p>The move assignment operator that deletes the current collection of items and the moves items from the other array. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer operator=(RenderListBuffer&amp;&amp; other) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RenderListBuffer.html">RenderListBuffer</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other collection to move.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a>
+        <p><p>The reference to this.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_RenderListBuffer__.md&amp;value=---%0Auid%3A%20RenderListBuffer.RenderListBuffer()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_RenderListBuffer_" data-uid="RenderListBuffer.RenderListBuffer*"></a>
+  
+  <h4 id="RenderListBuffer_RenderListBuffer__" data-uid="RenderListBuffer.RenderListBuffer()"><a href="#collapsible-RenderListBuffer_RenderListBuffer__" class="expander" data-toggle="collapse">RenderListBuffer()</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_RenderListBuffer__" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RenderListBuffer.html">RenderListBuffer</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public RenderListBuffer()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">FORCE_INLINE</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_Resize_int32_bool_.md&amp;value=---%0Auid%3A%20RenderListBuffer.Resize(int32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L263" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_Resize_" data-uid="RenderListBuffer.Resize*"></a>
+  
+  <h4 id="RenderListBuffer_Resize_int32_bool_" data-uid="RenderListBuffer.Resize(int32,bool)"><a href="#collapsible-RenderListBuffer_Resize_int32_bool_" class="expander" data-toggle="collapse">Resize(int32 size, bool preserveContents=true)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_Resize_int32_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Resizes the collection to the specified size. If the size is equal or less to the current capacity no additional memory reallocation in performed. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Resize(int32 size, bool preserveContents=true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">size</span>
+        <p><p>The new collection size.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">preserveContents</span>
+        <p><p>True if preserve collection data when changing its size, otherwise collection after resize might not contain the previous data.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer_SetCapacity_const_int32_bool_.md&amp;value=---%0Auid%3A%20RenderListBuffer.SetCapacity(const%20int32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L245" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RenderListBuffer_SetCapacity_" data-uid="RenderListBuffer.SetCapacity*"></a>
+  
+  <h4 id="RenderListBuffer_SetCapacity_const_int32_bool_" data-uid="RenderListBuffer.SetCapacity(const int32,bool)"><a href="#collapsible-RenderListBuffer_SetCapacity_const_int32_bool_" class="expander" data-toggle="collapse">SetCapacity(const int32 capacity, bool preserveContents=true)</a></h4>
+  
+  <div id="collapsible-RenderListBuffer_SetCapacity_const_int32_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Changes the capacity of the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetCapacity(const int32 capacity, bool preserveContents=true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">capacity</span>
+        <p><p>The new capacity.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">preserveContents</span>
+        <p><p>True if preserve collection data when changing its size, otherwise collection after resize will be empty.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderListBuffer.md&amp;value=---%0Auid%3A%20RenderListBuffer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/RenderListBuffer.h/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

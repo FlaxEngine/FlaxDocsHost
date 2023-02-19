@@ -92,9 +92,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEngine.PostProcessEffect">
   <h1 id="FlaxEngine_PostProcessEffect" data-uid="FlaxEngine.PostProcessEffect">Class PostProcessEffect
   </h1>
-  <div class="markdown level0 summary"><p>Custom postFx which can modify final image by processing it with material based filters.
-The base class for all post process effects used by the graphics pipeline.
-Allows to extend frame rendering logic and apply custom effects such as outline, night vision, contrast etc.</p>
+  <div class="markdown level0 summary"><p>Custom PostFx which can modify final image by processing it with material based filters. The base class for all post process effects used by the graphics pipeline. Allows to extend frame rendering logic and apply custom effects such as outline, night vision, contrast etc.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -231,6 +229,9 @@ Allows to extend frame rendering logic and apply custom effects such as outline,
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -241,6 +242,9 @@ Allows to extend frame rendering logic and apply custom effects such as outline,
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -277,16 +281,15 @@ Allows to extend frame rendering logic and apply custom effects such as outline,
   
   <h5 id="FlaxEngine_PostProcessEffect_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class PostProcessEffect : Script, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public abstract class PostProcessEffect : Script, ISerializable</code></pre>
   </div>
 
   
   
   
   <h5 id="FlaxEngine_PostProcessEffect_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Override this class and implement custom post fx logic.
-Use <strong>MainRenderTask.Instance.CustomPostFx.Add(myPostFx)</strong> to attach your script to rendering.
-Or add script to camera.</p>
+  <div class="markdown level0 remarks"><p>Override this class and implement custom post fx logic. Use <strong>MainRenderTask.Instance.CustomPostFx.Add(myPostFx)</strong> to attach your script to rendering or add script to camera actor.</p>
 </div>
   
   <h3 id="constructors">Constructors
@@ -298,7 +301,8 @@ Or add script to camera.</p>
   <h4 id="FlaxEngine_PostProcessEffect__ctor" data-uid="FlaxEngine.PostProcessEffect.#ctor"><a href="#collapsible-FlaxEngine_PostProcessEffect__ctor" class="expander" data-toggle="collapse">PostProcessEffect()</a></h4>
   
   <div id="collapsible-FlaxEngine_PostProcessEffect__ctor" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.PostProcessEffect.html">PostProcessEffect</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -322,55 +326,21 @@ Or add script to camera.</p>
   </h3>
   
   
-  <a id="FlaxEngine_PostProcessEffect_CanRender_" data-uid="FlaxEngine.PostProcessEffect.CanRender*"></a>
-  
-  <h4 id="FlaxEngine_PostProcessEffect_CanRender" data-uid="FlaxEngine.PostProcessEffect.CanRender"><a href="#collapsible-FlaxEngine_PostProcessEffect_CanRender" class="expander" data-toggle="collapse">CanRender</a></h4>
-  
-  <div id="collapsible-FlaxEngine_PostProcessEffect_CanRender" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets a value indicating whether this effect can be rendered.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool CanRender { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="FlaxEngine_PostProcessEffect_Location_" data-uid="FlaxEngine.PostProcessEffect.Location*"></a>
   
   <h4 id="FlaxEngine_PostProcessEffect_Location" data-uid="FlaxEngine.PostProcessEffect.Location"><a href="#collapsible-FlaxEngine_PostProcessEffect_Location" class="expander" data-toggle="collapse">Location</a></h4>
   
   <div id="collapsible-FlaxEngine_PostProcessEffect_Location" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the effect rendering location within rendering pipeline.</p>
+  <div class="markdown level1 summary"><p>Effect rendering location within rendering pipeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual PostProcessEffectLocation Location { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Post Process Effect&quot;, null)]
+[ExpandGroups]
+[Unmanaged]
+public PostProcessEffectLocation Location { get; set; }</code></pre>
   </div>
 
   
@@ -401,13 +371,15 @@ Or add script to camera.</p>
   <h4 id="FlaxEngine_PostProcessEffect_Order" data-uid="FlaxEngine.PostProcessEffect.Order"><a href="#collapsible-FlaxEngine_PostProcessEffect_Order" class="expander" data-toggle="collapse">Order</a></h4>
   
   <div id="collapsible-FlaxEngine_PostProcessEffect_Order" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the effect rendering order. Registered post effects are sorted before rendering (from the lowest order to the highest order).</p>
+  <div class="markdown level1 summary"><p>Effect rendering order. Post effects are sorted before rendering (from the lowest order to the highest order).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual int Order { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Post Process Effect&quot;, null)]
+[Unmanaged]
+public int Order { get; set; }</code></pre>
   </div>
 
   
@@ -438,13 +410,15 @@ Or add script to camera.</p>
   <h4 id="FlaxEngine_PostProcessEffect_UseSingleTarget" data-uid="FlaxEngine.PostProcessEffect.UseSingleTarget"><a href="#collapsible-FlaxEngine_PostProcessEffect_UseSingleTarget" class="expander" data-toggle="collapse">UseSingleTarget</a></h4>
   
   <div id="collapsible-FlaxEngine_PostProcessEffect_UseSingleTarget" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets a value indicating whether use a single render target as both input and output. Use this if your effect doesn&apos;t need to copy the input buffer to the output but can render directly to the single texture. Can be used to optimize game performance.</p>
+  <div class="markdown level1 summary"><p>True whether use a single render target as both input and output. Use this if your effect doesn&apos;t need to copy the input buffer to the output but can render directly to the single texture. Can be used to optimize game performance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool UseSingleTarget { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Post Process Effect&quot;, null)]
+[Unmanaged]
+public bool UseSingleTarget { get; set; }</code></pre>
   </div>
 
   
@@ -472,6 +446,93 @@ Or add script to camera.</p>
   </h3>
   
   
+  <a id="FlaxEngine_PostProcessEffect_CanRender_" data-uid="FlaxEngine.PostProcessEffect.CanRender*"></a>
+  
+  <h4 id="FlaxEngine_PostProcessEffect_CanRender" data-uid="FlaxEngine.PostProcessEffect.CanRender"><a href="#collapsible-FlaxEngine_PostProcessEffect_CanRender" class="expander" data-toggle="collapse">CanRender()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PostProcessEffect_CanRender" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this effect can be rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual bool CanRender()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PostProcessEffect_CanRender_" data-uid="FlaxEngine.PostProcessEffect.CanRender*"></a>
+  
+  <h4 id="FlaxEngine_PostProcessEffect_CanRender_FlaxEngine_RenderContext_" data-uid="FlaxEngine.PostProcessEffect.CanRender(FlaxEngine.RenderContext)"><a href="#collapsible-FlaxEngine_PostProcessEffect_CanRender_FlaxEngine_RenderContext_" class="expander" data-toggle="collapse">CanRender(RenderContext)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PostProcessEffect_CanRender_FlaxEngine_RenderContext_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this effect can be rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual bool CanRender(RenderContext renderContext)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.RenderContext.html">RenderContext</a></span>
+        <span class="parametername">renderContext</span>
+        <p><p>The target render context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_PostProcessEffect_Render_" data-uid="FlaxEngine.PostProcessEffect.Render*"></a>
   
   <h4 id="FlaxEngine_PostProcessEffect_Render_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_" data-uid="FlaxEngine.PostProcessEffect.Render(FlaxEngine.GPUContext,FlaxEngine.RenderContext@,FlaxEngine.GPUTexture,FlaxEngine.GPUTexture)"><a href="#collapsible-FlaxEngine_PostProcessEffect_Render_FlaxEngine_GPUContext_FlaxEngine_RenderContext__FlaxEngine_GPUTexture_FlaxEngine_GPUTexture_" class="expander" data-toggle="collapse">Render(GPUContext, ref RenderContext, GPUTexture, GPUTexture)</a></h4>
@@ -483,7 +544,8 @@ Or add script to camera.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

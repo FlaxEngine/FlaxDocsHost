@@ -120,7 +120,13 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag">Actor.HasTag()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_FlaxEngine_Tag_">Actor.HasTag(Tag)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag_System_String_">Actor.HasTag(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTag_FlaxEngine_Tag_">Actor.AddTag(Tag)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
@@ -160,6 +166,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetLocalToWorldMatrix_FlaxEngine_Matrix__">Actor.GetLocalToWorldMatrix(Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDebugDraw">Actor.OnDebugDraw()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDebugDrawSelected">Actor.OnDebugDrawSelected()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_String_">Actor.FindActor(String)</a>
@@ -211,6 +223,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FromJson_System_String_">Actor.FromJson(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnEnable">Actor.OnEnable()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDisable">Actor.OnDisable()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnBeginPlay">Actor.OnBeginPlay()</a>
@@ -286,6 +304,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HideFlags">Actor.HideFlags</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_Tags">Actor.Tags</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_Layer">Actor.Layer</a>
@@ -459,6 +480,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -469,6 +493,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -502,7 +529,9 @@
   
   <h5 id="FlaxEngine_TextRender_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
+    <pre><code class="lang-csharp hljs">[ActorContextMenu(&quot;New/UI/Text Render&quot;)]
+[ActorToolbox(&quot;GUI&quot;)]
+[Unmanaged]
 public class TextRender : Actor, ISerializable</code></pre>
   </div>
 
@@ -851,6 +880,46 @@ public ShadowsCastingMode ShadowsMode { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.ShadowsCastingMode.html">ShadowsCastingMode</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_TextRender_SortOrder_" data-uid="FlaxEngine.TextRender.SortOrder*"></a>
+  
+  <h4 id="FlaxEngine_TextRender_SortOrder" data-uid="FlaxEngine.TextRender.SortOrder"><a href="#collapsible-FlaxEngine_TextRender_SortOrder" class="expander" data-toggle="collapse">SortOrder</a></h4>
+  
+  <div id="collapsible-FlaxEngine_TextRender_SortOrder" class="collapse in">
+  <div class="markdown level1 summary"><p>The object sort order key used when sorting drawable objects during rendering. Use lower values to draw object before others, higher values are rendered later (on top). Can be use to control transparency drawing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(85)]
+[EditorDisplay(&quot;Text&quot;, null)]
+[Unmanaged]
+public short SortOrder { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int16</span>
         <p>
       </td>
     </tr>

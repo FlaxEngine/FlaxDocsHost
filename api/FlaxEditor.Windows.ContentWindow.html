@@ -299,9 +299,6 @@ Provides various functionalities for asset operations.</p>
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_ScrollViewTo_FlaxEngine_Rectangle_System_Boolean_">Panel.ScrollViewTo(Rectangle, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_OnMouseDown_FlaxEngine_Float2_FlaxEngine_MouseButton_">Panel.OnMouseDown(Float2, MouseButton)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_OnMouseWheel_FlaxEngine_Float2_System_Single_">Panel.OnMouseWheel(Float2, Single)</a>
     </div>
     <div>
@@ -447,6 +444,9 @@ Provides various functionalities for asset operations.</p>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_PerformLayoutAfterChildren">ContainerControl.PerformLayoutAfterChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_ClearState">ContainerControl.ClearState()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawSelf">ContainerControl.DrawSelf()</a>
@@ -828,6 +828,9 @@ Provides various functionalities for asset operations.</p>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ShowTooltip">Control.ShowTooltip</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_EditorBounds">Control.EditorBounds</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocationChanged">Control.LocationChanged</a>
@@ -1740,6 +1743,65 @@ At this point, main window, content database, default editor windows are ready.<
   </div>
   
   
+  <a id="FlaxEditor_Windows_ContentWindow_OnMouseDown_" data-uid="FlaxEditor.Windows.ContentWindow.OnMouseDown*"></a>
+  
+  <h4 id="FlaxEditor_Windows_ContentWindow_OnMouseDown_FlaxEngine_Float2_FlaxEngine_MouseButton_" data-uid="FlaxEditor.Windows.ContentWindow.OnMouseDown(FlaxEngine.Float2,FlaxEngine.MouseButton)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_OnMouseDown_FlaxEngine_Float2_FlaxEngine_MouseButton_" class="expander" data-toggle="collapse">OnMouseDown(Float2, MouseButton)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_ContentWindow_OnMouseDown_FlaxEngine_Float2_FlaxEngine_MouseButton_" class="collapse in">
+  <div class="markdown level1 summary"><p>When mouse goes down over control&apos;s area</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool OnMouseDown(Float2 location, MouseButton button)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">location</span>
+        <p><p>Mouse location in Control Space</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.MouseButton.html">MouseButton</a></span>
+        <span class="parametername">button</span>
+        <p><p>Mouse buttons state (flags)</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if event has been handled, otherwise false</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_OnMouseDown_FlaxEngine_Float2_FlaxEngine_MouseButton_">Panel.OnMouseDown(Float2, MouseButton)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Windows_ContentWindow_OnMouseUp_" data-uid="FlaxEditor.Windows.ContentWindow.OnMouseUp*"></a>
   
   <h4 id="FlaxEditor_Windows_ContentWindow_OnMouseUp_FlaxEngine_Float2_FlaxEngine_MouseButton_" data-uid="FlaxEditor.Windows.ContentWindow.OnMouseUp(FlaxEngine.Float2,FlaxEngine.MouseButton)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_OnMouseUp_FlaxEngine_Float2_FlaxEngine_MouseButton_" class="expander" data-toggle="collapse">OnMouseUp(Float2, MouseButton)</a></h4>
@@ -2042,6 +2104,84 @@ At this point, main window, content database, default editor windows are ready.<
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">newShortName</span>
         <p><p>New name (without extension, just the filename).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_ContentWindow_ScrollingOnContentView_" data-uid="FlaxEditor.Windows.ContentWindow.ScrollingOnContentView*"></a>
+  
+  <h4 id="FlaxEditor_Windows_ContentWindow_ScrollingOnContentView_System_Boolean_" data-uid="FlaxEditor.Windows.ContentWindow.ScrollingOnContentView(System.Boolean)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_ScrollingOnContentView_System_Boolean_" class="expander" data-toggle="collapse">ScrollingOnContentView(Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_ContentWindow_ScrollingOnContentView_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Enables or disables vertical and horizontal scrolling on the content view panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ScrollingOnContentView(bool enabled)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">enabled</span>
+        <p><p>The state to set scrolling to</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_ContentWindow_ScrollingOnTreeView_" data-uid="FlaxEditor.Windows.ContentWindow.ScrollingOnTreeView*"></a>
+  
+  <h4 id="FlaxEditor_Windows_ContentWindow_ScrollingOnTreeView_System_Boolean_" data-uid="FlaxEditor.Windows.ContentWindow.ScrollingOnTreeView(System.Boolean)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_ScrollingOnTreeView_System_Boolean_" class="expander" data-toggle="collapse">ScrollingOnTreeView(Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_ContentWindow_ScrollingOnTreeView_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Enables or disables vertical and horizontal scrolling on the content tree panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ScrollingOnTreeView(bool enabled)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">enabled</span>
+        <p><p>The state to set scrolling to</p>
 </p>
       </td>
     </tr>

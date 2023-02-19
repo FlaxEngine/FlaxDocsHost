@@ -283,7 +283,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=DepthOfFieldPass_Render_RenderContext___GPUTexture___.md&amp;value=---%0Auid%3A%20DepthOfFieldPass.Render(RenderContext%20%26%2CGPUTexture%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=DepthOfFieldPass_Render_RenderContext___GPUTexture____GPUTexture____.md&amp;value=---%0Auid%3A%20DepthOfFieldPass.Render(RenderContext%20%26%2CGPUTexture%20*%26%2CGPUTexture%20*%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Renderer/DepthOfFieldPass.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
@@ -291,15 +291,15 @@
   
   <a id="DepthOfFieldPass_Render_" data-uid="DepthOfFieldPass.Render*"></a>
   
-  <h4 id="DepthOfFieldPass_Render_RenderContext___GPUTexture___" data-uid="DepthOfFieldPass.Render(RenderContext &amp;,GPUTexture *)"><a href="#collapsible-DepthOfFieldPass_Render_RenderContext___GPUTexture___" class="expander" data-toggle="collapse">Render(RenderContext&amp; renderContext, GPUTexture* input)</a></h4>
+  <h4 id="DepthOfFieldPass_Render_RenderContext___GPUTexture____GPUTexture____" data-uid="DepthOfFieldPass.Render(RenderContext &amp;,GPUTexture *&amp;,GPUTexture *&amp;)"><a href="#collapsible-DepthOfFieldPass_Render_RenderContext___GPUTexture____GPUTexture____" class="expander" data-toggle="collapse">Render(RenderContext&amp; renderContext, GPUTexture*&amp; frame, GPUTexture*&amp; tmp)</a></h4>
   
-  <div id="collapsible-DepthOfFieldPass_Render_RenderContext___GPUTexture___" class="collapse in">
+  <div id="collapsible-DepthOfFieldPass_Render_RenderContext___GPUTexture____GPUTexture____" class="collapse in">
   <div class="markdown level1 summary"><p>Perform Depth Of Field rendering for the input task </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public GPUTexture* Render(RenderContext&amp; renderContext, GPUTexture* input)</code></pre>
+    <pre><code class="lang-cpp hljs">public void Render(RenderContext&amp; renderContext, GPUTexture*&amp; frame, GPUTexture*&amp; tmp)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -314,21 +314,19 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="GPUTexture.html">GPUTexture</a></span>
-        <span class="parametername">input</span>
-        <p><p>Target with rendered HDR frame</p></p>
+        <span class="parametername">frame</span>
+        <p><p>Input and output frame (leave unchanged when not using this effect).</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="GPUTexture.html">GPUTexture</a></span>
+        <span class="parametername">tmp</span>
+        <p><p>Temporary frame (the same format as frame)</p></p>
       </td>
     </tr>
   </table>
   
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="GPUTexture.html">GPUTexture</a>
-        <p><p>Allocated temporary render target, should be released by the called. Can be null if pass skipped.</p></p>
-      </td>
-    </tr>
-  </table>
   
   
   
@@ -413,7 +411,7 @@
     <tr>
       <td>
         <a class="xref" href="String.html">String</a>
-        <p><p>The string.</p></p>
+        <p>
       </td>
     </tr>
   </table>

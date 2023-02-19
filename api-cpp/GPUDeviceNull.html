@@ -130,6 +130,12 @@
       <a class="xref" href="GPUDevice.html#GPUDevice__res">GPUDevice::_res</a>
     </div>
     <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice__resources">GPUDevice::_resources</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice__resourcesLock">GPUDevice::_resourcesLock</a>
+    </div>
+    <div>
       <a class="xref" href="GPUDevice.html#GPUDevice__shaderProfile">GPUDevice::_shaderProfile</a>
     </div>
     <div>
@@ -142,13 +148,16 @@
       <a class="xref" href="GPUDevice.html#GPUDevice__wasVSyncUsed">GPUDevice::_wasVSyncUsed</a>
     </div>
     <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice_AddResource_GPUResource___">GPUDevice::AddResource(GPUResource* resource)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_ScriptingTypeHandle___const_ScriptingTypeHandle___">ScriptingObject::CanCast(const ScriptingTypeHandle&amp; from, const ScriptingTypeHandle&amp; to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MClass___">ScriptingObject::CanCast(MClass* from, MClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MClass___">ScriptingObject::CanCast(const MClass* from, const MClass* to)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_MClass___MonoClass___">ScriptingObject::CanCast(MClass* from, MonoClass* to)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_CanCast_const_MClass___const_MonoClass___">ScriptingObject::CanCast(const MClass* from, const MonoClass* to)</a>
     </div>
     <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_CanDraw__">GPUDevice::CanDraw()</a>
@@ -175,9 +184,6 @@
       <a class="xref" href="GPUDevice.html#GPUDevice_CurrentTask">GPUDevice::CurrentTask</a>
     </div>
     <div>
-      <a class="xref" href="GPUDevice.html#GPUDevice_DECLARE_ENUM_6_DeviceState_Missing_Created_Ready_Removed_Disposing_Disposed_">GPUDevice::DECLARE_ENUM_6(DeviceState, Missing, Created, Ready, Removed, Disposing, Disposed)</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Deleted">ScriptingObject::Deleted</a>
     </div>
     <div>
@@ -190,10 +196,16 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
+      <span class="xref">GPUDeviceNull</span>
+    </div>
+    <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_DrawBegin__">GPUDevice::DrawBegin()</a>
     </div>
     <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_DrawEnd__">GPUDevice::DrawEnd()</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice_DumpResourcesToLog__">GPUDevice::DumpResourcesToLog()</a>
     </div>
     <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_FeaturesPerFormat">GPUDevice::FeaturesPerFormat[static_cast&lt;int32&gt;(PixelFormat::MAX)</a>
@@ -203,6 +215,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_void___const_ScriptingTypeHandle___">ScriptingObject::FromInterface(void* interfaceObj, const ScriptingTypeHandle&amp; interfaceType)</a>
+    </div>
+    <div>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_T___">ScriptingObject::FromInterface(T* interfaceObj)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetClass__">ScriptingObject::GetClass()</a>
@@ -253,10 +268,16 @@
       <a class="xref" href="GPUDevice.html#GPUDevice_GetRendererType__">GPUDevice::GetRendererType()</a>
     </div>
     <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice_GetResources__">GPUDevice::GetResources()</a>
+    </div>
+    <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_GetShaderProfile__">GPUDevice::GetShaderProfile()</a>
     </div>
     <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_GetState__">GPUDevice::GetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice_GetTasksManager__">GPUDevice::GetTasksManager()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetType__">ScriptingObject::GetType()</a>
@@ -277,7 +298,7 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_ScriptingTypeHandle___">ScriptingObject::Is(const ScriptingTypeHandle&amp; type)</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MClass___">ScriptingObject::Is(MClass* type)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_const_MClass___">ScriptingObject::Is(const MClass* type)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_Is_MonoClass___">ScriptingObject::Is(MonoClass* klass)</a>
@@ -322,22 +343,19 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
+      <a class="xref" href="GPUDevice.html#GPUDevice_RemoveResource_GPUResource___">GPUDevice::RemoveResource(GPUResource* resource)</a>
+    </div>
+    <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_RenderBegin__">GPUDevice::RenderBegin()</a>
     </div>
     <div>
       <a class="xref" href="GPUDevice.html#GPUDevice_RenderEnd__">GPUDevice::RenderEnd()</a>
     </div>
     <div>
-      <a class="xref" href="GPUDevice.html#GPUDevice_Resources">GPUDevice::Resources</a>
-    </div>
-    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ScriptingObject_const_SpawnParams___">ScriptingObject::ScriptingObject(const SpawnParams&amp; params)</a>
     </div>
     <div>
       <span class="xref">GPUDeviceNull</span>
-    </div>
-    <div>
-      <a class="xref" href="GPUDevice.html#GPUDevice_TasksManager">GPUDevice::TasksManager</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ToInterface_ScriptingObject___const_ScriptingTypeHandle___">ScriptingObject::ToInterface(ScriptingObject* obj, const ScriptingTypeHandle&amp; interfaceType)</a>
@@ -554,6 +572,68 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="GPUDevice.html#GPUDevice_CreateBuffer_const_StringView___">GPUDevice::CreateBuffer(const StringView&amp; name=StringView::Empty)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUDeviceNull_CreateConstantBuffer_uint32_const_StringView___.md&amp;value=---%0Auid%3A%20GPUDeviceNull.CreateConstantBuffer(uint32%2Cconst%20StringView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Null/GPUDeviceNull.h/#L51" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUDeviceNull_CreateConstantBuffer_" data-uid="GPUDeviceNull.CreateConstantBuffer*"></a>
+  
+  <h4 id="GPUDeviceNull_CreateConstantBuffer_uint32_const_StringView___" data-uid="GPUDeviceNull.CreateConstantBuffer(uint32,const StringView &amp;)"><a href="#collapsible-GPUDeviceNull_CreateConstantBuffer_uint32_const_StringView___" class="expander" data-toggle="collapse">CreateConstantBuffer(uint32 size, const StringView&amp; name)</a></h4>
+  
+  <div id="collapsible-GPUDeviceNull_CreateConstantBuffer_uint32_const_StringView___" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates the constant buffer. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual GPUConstantBuffer* CreateConstantBuffer(uint32 size, const StringView&amp; name) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint32</span></span>
+        <span class="parametername">size</span>
+        <p><p>The buffer size (in bytes).</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
+        <span class="parametername">name</span>
+        <p><p>The resource name.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="GPUConstantBuffer.html">GPUConstantBuffer</a>
+        <p><p>The constant buffer.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUDevice.html#GPUDevice_CreateConstantBuffer_uint32_const_StringView___">GPUDevice::CreateConstantBuffer(uint32 size, const StringView&amp; name=StringView::Empty)</a></div>
   
   
   

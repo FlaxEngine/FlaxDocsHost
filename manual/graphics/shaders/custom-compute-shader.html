@@ -262,16 +262,19 @@ public class BlurComputeShader : PostProcessEffect
         _isComputeSupported = GPUDevice.Instance.Limits.HasCompute;
 
         // Register postFx to game view
-        MainRenderTask.Instance.CustomPostFx.Add(this);
+        MainRenderTask.Instance.AddCustomPostFx(this);
     }
 
     public override void OnDisable()
     {
         // Remember to unregister from drawing
-        MainRenderTask.Instance?.CustomPostFx.Remove(this);
+        MainRenderTask.Instance?.RemoveCustomPostFx(this);
     }
 
-    public override bool CanRender =&gt; base.CanRender &amp;&amp; _isComputeSupported &amp;&amp; Shader &amp;&amp; Shader.IsLoaded;
+    public override bool CanRender()
+    {
+        return base.CanRender() &amp;&amp; _isComputeSupported &amp;&amp; Shader &amp;&amp; Shader.IsLoaded;
+    }
 
     public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
     {
@@ -342,7 +345,7 @@ public class BlurComputeShader : PostProcessEffect
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/graphics/shaders/custom-compute-shader.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/graphics/shaders/custom-compute-shader.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

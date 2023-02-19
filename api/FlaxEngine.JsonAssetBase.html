@@ -143,6 +143,9 @@
       <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_ShouldDeleteFileOnUnload">Asset.ShouldDeleteFileOnUnload</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_MemoryUsage">Asset.MemoryUsage</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object___unmanagedPtr">Object.__unmanagedPtr</a>
     </div>
     <div>
@@ -173,6 +176,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind_System_Guid__System_Type_">Object.TryFind(Guid, Type)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
@@ -183,6 +189,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedInterface_System_Object_System_Type_">Object.GetUnmanagedInterface(Object, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
@@ -270,7 +279,7 @@ public abstract class JsonAssetBase : Asset</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public string Data { get; }</code></pre>
+public string Data { get; set; }</code></pre>
   </div>
 
   
@@ -477,6 +486,56 @@ public bool Init(string dataTypeName, string dataJson)</code></pre>
   <h5 id="FlaxEngine_JsonAssetBase_Init_System_String_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Can be used only for virtual assets created at runtime.</p>
 </div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_JsonAssetBase_Save_" data-uid="FlaxEngine.JsonAssetBase.Save*"></a>
+  
+  <h4 id="FlaxEngine_JsonAssetBase_Save_System_String_" data-uid="FlaxEngine.JsonAssetBase.Save(System.String)"><a href="#collapsible-FlaxEngine_JsonAssetBase_Save_System_String_" class="expander" data-toggle="collapse">Save(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_JsonAssetBase_Save_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Saves this asset to the file. Supported only in Editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool Save(string path = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">path</span>
+        <p><p>The custom asset path to use for the saving. Use empty value to save this asset to its own storage location. Can be used to duplicate asset. Must be specified when saving virtual asset.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if cannot save data, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
   
   
   

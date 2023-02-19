@@ -121,6 +121,7 @@ public class SceneChanger : Script
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Content/SceneReference.h&quot;
 #include &quot;Engine/Input/Input.h&quot;
 #include &quot;Engine/Level/Level.h&quot;
 
@@ -129,17 +130,17 @@ API_CLASS() class GAME_API SceneChanger : public Script
     API_AUTO_SERIALIZATION();
     DECLARE_SCRIPTING_TYPE(SceneChanger);
 
-    API_FIELD(Attributes = &quot;CustomEditorAlias(\&quot;FlaxEditor.CustomEditors.Editors.SceneRefEditor\&quot;), AssetReference(typeof(SceneReference))&quot;)
-    Guid AnotherScene;
+    API_FIELD()
+    SceneReference AnotherScene;
 
     // [Script]
     void OnUpdate() override
     {
-        if (Input::GetKeyDown(KeyboardKeys::G) &amp;&amp; AnotherScene.IsValid())
+        if (Input::GetKeyDown(KeyboardKeys::G) &amp;&amp; AnotherScene.ID.IsValid())
         {
             // Does the same as the C# API
             Level::UnloadAllScenesAsync();
-            Level::LoadSceneAsync(AnotherScene);
+            Level::LoadSceneAsync(AnotherScene.ID);
         }
     }
 };
@@ -161,7 +162,7 @@ API_CLASS() class GAME_API SceneChanger : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/scripting/tutorials/change-scene.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -120,7 +120,10 @@
       <div class="level2"><a class="xref" href="FlaxEngine.ModelLOD.html">ModelLOD</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.NavCrowd.html">NavCrowd</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.ENetDriver.html">ENetDriver</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkClient.html">NetworkClient</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkLagDriver.html">NetworkLagDriver</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkPeer.html">NetworkPeer</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkStream.html">NetworkStream</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.ParticleEffectParameter.html">ParticleEffectParameter</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Plugin.html">Plugin</a></div>
@@ -662,6 +665,55 @@ Actual object destruction is always delayed until after the current Update loop,
   </div>
   
   
+  <a id="FlaxEngine_Object_FromUnmanagedPtr_" data-uid="FlaxEngine.Object.FromUnmanagedPtr*"></a>
+  
+  <h4 id="FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_" data-uid="FlaxEngine.Object.FromUnmanagedPtr(System.IntPtr)"><a href="#collapsible-FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_" class="expander" data-toggle="collapse">FromUnmanagedPtr(IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the managed object from the native object pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Object FromUnmanagedPtr(IntPtr ptr)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">ptr</span>
+        <p><p>The pointer to the unmanaged (native) object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Object.html">Object</a>
+        <p><p>The object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Object_GetHashCode_" data-uid="FlaxEngine.Object.GetHashCode*"></a>
   
   <h4 id="FlaxEngine_Object_GetHashCode" data-uid="FlaxEngine.Object.GetHashCode"><a href="#collapsible-FlaxEngine_Object_GetHashCode" class="expander" data-toggle="collapse">GetHashCode()</a></h4>
@@ -990,6 +1042,63 @@ public static T New&lt;T&gt;()
       <td>
         <span class="xref">System.Object</span>
         <p><p>Created object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Object_TryFind_" data-uid="FlaxEngine.Object.TryFind*"></a>
+  
+  <h4 id="FlaxEngine_Object_TryFind_System_Guid__System_Type_" data-uid="FlaxEngine.Object.TryFind(System.Guid@,System.Type)"><a href="#collapsible-FlaxEngine_Object_TryFind_System_Guid__System_Type_" class="expander" data-toggle="collapse">TryFind(ref Guid, Type)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_TryFind_System_Guid__System_Type_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the object by the given identifier. Searches only registered scene objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Object TryFind(ref Guid id, Type type)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Guid</span></span>
+        <span class="parametername">id</span>
+        <p><p>Unique ID of the object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">type</span>
+        <p><p>Type of the object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Object.html">Object</a>
+        <p><p>Found object or null if missing.</p>
 </p>
       </td>
     </tr>

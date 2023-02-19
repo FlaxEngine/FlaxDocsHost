@@ -95,11 +95,31 @@
 <h2 id="android-setup">Android Setup</h2>
 <p>Follow these steps to setup your development PC for building game for Android platform. In case of problems, please follow official documentation of Android platform.</p>
 <ul>
-<li>Install <strong>Open JDK</strong> (<a href="https://jdk.java.net/15">https://jdk.java.net/15</a> and set <code>JAVA_HOME</code> to jdk root folder)</li>
-<li>Download and install <strong>Android Studio</strong> (<a href="https://developer.android.com/studio">https://developer.android.com/studio</a>)</li>
-<li>Open Android Studio and complete the setup (install it to the default location or custom one and set <code>ANDROID_SDK</code> to SDK root folder)</li>
-<li>Install <strong>NDK</strong> (via Android SDK side-by-side or manually via <a href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a> and set <code>ANDROID_NDK</code> to install location)</li>
+<li>Download and install <strong>Android Studio</strong> (<a href="https://developer.android.com/studio">https://developer.android.com/studio</a>)<ul>
+<li>Install <strong>Android SDK</strong> within Android Studio setup.</li>
+<li>Set <code>ANDROID_HOME</code> env var to SDK location (typically <code>C:\Users\USERNAME\AppData\Local\Android\android-studio\sdk</code> on Windows)</li>
+</ul>
+</li>
+<li>Install <strong>NDK</strong><ul>
+<li>via Android SDK Manager: <em>Android SDK -&gt; SDK Tools -&gt; NDK (side by side)</em></li>
+<li>or manually via <a href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a> and set <code>ANDROID_NDK</code> env var to install location) </li>
+</ul>
+</li>
+<li>Install <strong>Java</strong><ul>
+<li>use in-built from Android Studio: set <code>JAVA_HOME</code> env var to <code>&lt;android-studio&gt;\jbr</code></li>
+<li>or download manually from <a href="https://jdk.java.net/19">https://jdk.java.net/19</a> and set env var <code>JAVA_HOME</code> to jdk root folder</li>
+</ul>
+</li>
 <li>(when using Flax from Launcher) Install Android Platform Tools for Editor installation via Flax Launcher</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li>Ensure to <a href="https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components">accept software licenses</a> from Android SDK</li>
+<li>Verify that environment variables are properly set:<ul>
+<li>On Windows: <code>echo %ANDROID_HOME%</code>, <code>echo %JAVA_HOME%</code></li>
+<li>On Linux/Mac: <code>echo $ANDROID_HOME</code>, <code>echo $JAVA_HOME</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="build-options">Build options</h2>
 <p>See <em>Game Cooker</em> window.</p>
@@ -187,7 +207,7 @@ Use <code>.\adb.exe -d logcat Flax:I *:S</code> to listen for game logs on devic
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/platforms/android.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/platforms/android.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

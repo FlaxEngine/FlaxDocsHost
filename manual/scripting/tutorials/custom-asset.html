@@ -252,7 +252,60 @@ inline MyScript::MyScript(const SpawnParams&amp; params)
 </code></pre></section>
 </div>
 <p><img src="media/custom-asset-tutorial-3.jpg" alt="Tutorial"></p>
-</article>
+<h2 id="asset-creation-utility">Asset creation utility</h2>
+<p>If you develop 3rd Party SDK plugin or commonly used asset type then you can use <code>ContentContextMenu</code> attribute to link it into the Editor&#39;s Content window.</p>
+<div class="tabGroup" id="tabgroup_Ng1M2RGwpp-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_Ng1M2RGwpp-2_code-csharp" role="tab" aria-controls="tabpanel_Ng1M2RGwpp-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_Ng1M2RGwpp-2_code-cpp" role="tab" aria-controls="tabpanel_Ng1M2RGwpp-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_Ng1M2RGwpp-2_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">[ContentContextMenu(&quot;New/My Settings&quot;)]
+public class MySettings
+{
+...
+}
+</code></pre></section>
+<section id="tabpanel_Ng1M2RGwpp-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">API_CLASS(Attributes=&quot;ContentContextMenu(\&quot;New/My Settings\&quot;)&quot;)
+class GAME_API MySettings : public ISerializable
+{
+...
+};
+</code></pre></section>
+</div>
+<h2 id="asset-extenion-in-editor">Asset extenion in Editor</h2>
+<p>Flax Editor supports extending editing and usage experience per-asset type. For example, you can override the default asset icon, generate a thumbnail based on contents or provide additional actions executable from <em>Content</em> window.</p>
+<p>Example C# code for Editor extending the <code>MySettings</code> asset:</p>
+<pre><code class="lang-cs">public class MySettingsItem : JsonAssetItem
+{
+    /// &lt;inheritdoc /&gt;
+    public MySettingsItem(string path, Guid id, string typeName)
+    : base(path, id, typeName)
+    {
+        // Use custom icon (Sprite)
+        _thumbnail = Editor.Instance.Icons.Document128;
+    }
+}
+
+[ContentContextMenu(&quot;New/My Settings&quot;)]
+public class MySettingsProxy : SpawnableJsonAssetProxy&lt;MySettings&gt;
+{
+    /// &lt;inheritdoc /&gt;
+    public override AssetItem ConstructItem(string path, string typeName, ref Guid id)
+    {
+        // Use custom type of the Asset Item for editor
+        return new MySettingsItem(path, id, typeName);
+    }
+}
+</code></pre><p>You can easily customizable proxy methods by overriding them.</p>
+<p>Then register custom asset proxy within <a href="custom-plugin.html">Editor plugin</a> initialization (ensure to remove it on game code unloading - eg. during script hot-reload in Editor):</p>
+<pre><code class="lang-cs">Editor.Instance.ContentDatabase.Proxy.Add(new MySettingsProxy());
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -260,7 +313,7 @@ inline MyScript::MyScript(const SpawnParams&amp; params)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/scripting/tutorials/custom-asset.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/scripting/tutorials/custom-asset.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

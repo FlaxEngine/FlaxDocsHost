@@ -134,7 +134,20 @@ private float WalkableRadius
 }
 </code></pre></section>
 <section id="tabpanel_fFxQYdsBko_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
-<pre><code class="lang-cpp">// If your type is using API_AUTO_SERIALIZATION() then remove it and manually implement ISerializable interface
+<pre><code class="lang-cpp">// If your type is using API_AUTO_SERIALIZATION() then add deprecated property upgrader:
+private:
+API_PROPERTY(Attributes=&quot;Serialize, Obsolete, NoUndo&quot;) float GetWalkableRadius() const
+{
+    return Surface.WalkRadius;
+}
+
+API_PROPERTY(Attributes=&quot;Serialize, Obsolete, NoUndo&quot;) void SetWalkableRadius(float value)
+{
+    // Upgrade value
+    Surface.WalkRadius = value;
+}
+
+// If you manually serialize your type, then read the old json entry during deserialization:
 void MyType::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)
 {
     const auto e = SERIALIZE_FIND_MEMBER(stream, &quot;WalkableRadius&quot;);
@@ -152,7 +165,7 @@ void MyType::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/a0c20e7eedc403a0707155c495b9ce5bfefe5859/manual/scripting/advanced/refactoring-renaming.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/scripting/advanced/refactoring-renaming.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

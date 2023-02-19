@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tags | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Tags | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Tags | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tags">Tags</h1>
+
+<p>Gameplay tag that represents a hierarchical name of the form <code>X.Y.Z</code> (namespaces separated with a dot). Tags are defined in project <a href="../../editor/game-settings/layers-and-tags-settings.html">LayersAndTagsSettings</a> asset but can be also created from code.</p>
+<p>Scripting API contains the structure <code>Tag</code> which holds index of the tag in a global <code>Tags.List</code> array. Tags comparison is very fast (<code>int32</code> compare), also single tag uses very little memory (4 bytes). Scripting API  <code>Tags</code> contains utilities for using tag lists such as <code>HasTag</code>/<code>HasTagExact</code>/<code>HasAny</code>/<code>HasAnyExact</code>/<code>HasAll</code>/<code>HasAllExact</code> which use an array of tags (<code>Tag[]</code> in C#, <code>Array&lt;Tag&gt;</code> in C++).</p>
+<h2 id="actor-tags">Actor Tags</h2>
+<p>Every actor contains list of tags (<code>Actor.Tags</code>) and various utilities for quick checking for a tag (<code>Actor.HasTag</code>). Actors can be marked with specific tags to be used by different gameplay systems. For example, player rigidbody and collider can be marked with a tag <code>Player</code> to distinguish them when processing collision events or when calculating hit damage in a shooter game.</p>
+<h2 id="tag-editor">Tag Editor</h2>
+<p><img src="media/tags-editor.png" alt="Tags Editor"></p>
+<p><code>Tag</code> and <code>Tag[]</code> are displayed in the properties panel with the ability to edit them via tree hierarchy. Each tag can contain nested child nodes. Tags can be selected via checkboxes. Each node has a plus (<code>+</code>) button on the right side which can be used to add a sub-tag to the list. Utility buttons on the top can help to edit tags, and the search field allows filtering tags by name.</p>
+<h2 id="scripting">Scripting</h2>
+<p>Follow code examples below to use tags in your gameplay code:</p>
+<div class="tabGroup" id="tabgroup_+qHoyxi5vw">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_+qHoyxi5vw_code-csharp" role="tab" aria-controls="tabpanel_+qHoyxi5vw_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_+qHoyxi5vw_code-cpp" role="tab" aria-controls="tabpanel_+qHoyxi5vw_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_+qHoyxi5vw_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+public class MyScript : Script
+{
+    private BoxCollider _trigger;
+    public Tag PlayerTag = Tags.Get(&quot;Player&quot;);
+    public Tag[] EnemyTags;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        _trigger = Level.FindActor(Tags.Get(&quot;ObjectDetector&quot;)) as BoxCollider;
+        if (_trigger)
+            _trigger.TriggerEnter += OnTriggerEnter;
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        if (_trigger)
+            _trigger.TriggerEnter -= OnTriggerEnter;
+    }
+
+    private void OnTriggerEnter(PhysicsColliderActor other)
+    {
+        if (other.HasTag(PlayerTag))
+        {
+            Debug.Log(&quot;Player entered trigger&quot;);
+        }
+        else if (other.Tags.HasAny(EnemyTags))
+        {
+            Debug.Log(&quot;Enemy entered trigger&quot;);
+        }
+    }
+}
+</code></pre></section>
+<section id="tabpanel_+qHoyxi5vw_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/Core/Log.h&quot;
+#include &quot;Engine/Level/Level.h&quot;
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+#include &quot;Engine/Physics/Colliders/BoxCollider.h&quot;
+
+API_CLASS()
+class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+private:
+    ScriptingObjectReference&lt;BoxCollider&gt; _trigger;
+
+public:
+    API_FIELD() Tag PlayerTag = Tags::Get(TEXT(&quot;Player&quot;));
+    API_FIELD() Array&lt;Tag&gt; EnemyTags;
+
+    void OnEnable() override
+    {
+        _trigger = Cast&lt;BoxCollider&gt;(Level::FindActor(Tags::Get(TEXT(&quot;ObjectDetector&quot;))));
+        if (_trigger)
+            _trigger-&gt;TriggerEnter.Bind&lt;MyScript, &amp;MyScript::OnTriggerEnter&gt;(this);
+    }
+    void OnDisable() override
+    {
+        if (_trigger)
+            _trigger-&gt;TriggerEnter.Unbind&lt;MyScript, &amp;MyScript::OnTriggerEnter&gt;(this);
+    }
+
+private:
+    void OnTriggerEnter(PhysicsColliderActor* other)
+    {
+        if (other-&gt;HasTag(PlayerTag))
+        {
+            LOG(Info, &quot;Player entered trigger&quot;);
+        }
+        else if (Tags::HasAll(other-&gt;Tags, EnemyTags))
+        {
+            LOG(Info, &quot;Enemy entered trigger&quot;);
+        }
+    }
+};
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0f123c09c583c69100275139edd49f982a59a864/manual/scripting/advanced/tags.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
