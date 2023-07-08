@@ -185,6 +185,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object___internalId">Object.__internalId</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Finalize">Object.Finalize()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_As__1">Object.As&lt;T&gt;()</a>
     </div>
     <div>
@@ -218,6 +221,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
@@ -227,6 +233,12 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_MapObjectID_System_Guid__">Object.MapObjectID(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_RemapObjectID_System_Guid__">Object.RemapObjectID(Guid)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -234,21 +246,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TypeName">Object.TypeName</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   </div>
@@ -1702,7 +1699,7 @@ public BoundingSphere Sphere { get; }</code></pre>
   <h4 id="FlaxEngine_Actor_StaticFlags" data-uid="FlaxEngine.Actor.StaticFlags"><a href="#collapsible-FlaxEngine_Actor_StaticFlags" class="expander" data-toggle="collapse">StaticFlags</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_StaticFlags" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the actor static fags.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the actor static flags.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1755,7 +1752,6 @@ public StaticFlags StaticFlags { get; set; }</code></pre>
 [NoSerialize]
 [NoAnimate]
 [Unmanaged]
-[Obsolete]
 public string Tag { get; set; }</code></pre>
   </div>
 
@@ -2370,7 +2366,7 @@ public Actor FindActor(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor FindActor([TypeReference(typeof(Actor), null)] Type type)</code></pre>
+public Actor FindActor([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2380,6 +2376,122 @@ public Actor FindActor([TypeReference(typeof(Actor), null)] Type type)</code></p
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
         <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Actor.html">Actor</a>
+        <p><p>Actor instance if found, null otherwise.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
+  
+  <h4 id="FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.FindActor(System.Type,FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" class="expander" data-toggle="collapse">FindActor(Type, Tag)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type and tag in this actor hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Actor FindActor([TypeReference] Type type, Tag tag)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">type</span>
+        <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>The tag of the actor to search for.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Actor.html">Actor</a>
+        <p><p>Actor instance if found, null otherwise.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
+  
+  <h4 id="FlaxEngine_Actor_FindActor_System_Type_System_String_" data-uid="FlaxEngine.Actor.FindActor(System.Type,System.String)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_System_String_" class="expander" data-toggle="collapse">FindActor(Type, String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type and name in this actor hierarchy (checks this actor and all children hierarchy).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Actor FindActor([TypeReference] Type type, string name)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Type</span></span>
+        <span class="parametername">type</span>
+        <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>The name of the actor.</p>
 </p>
       </td>
     </tr>
@@ -2457,6 +2569,126 @@ public Actor FindActor([TypeReference(typeof(Actor), null)] Type type)</code></p
   </div>
   
   
+  <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
+  
+  <h4 id="FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.FindActor``1(FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" class="expander" data-toggle="collapse">FindActor&lt;T&gt;(Tag)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find actor of the given type and tag in this actor hierarchy (checks this actor and all children hierarchy).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;(Tag tag)
+    where T : Actor</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>A tag on the object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Actor instance if found, null otherwise.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p><p>Type of the object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
+  
+  <h4 id="FlaxEngine_Actor_FindActor__1_System_String_" data-uid="FlaxEngine.Actor.FindActor``1(System.String)"><a href="#collapsible-FlaxEngine_Actor_FindActor__1_System_String_" class="expander" data-toggle="collapse">FindActor&lt;T&gt;(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_FindActor__1_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type and name in this actor hierarchy (checks this actor and all children hierarchy).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;(string name)
+    where T : Actor</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>Name of the object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Actor instance if found, null otherwise.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p><p>Type of the object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Actor_FindScript_" data-uid="FlaxEngine.Actor.FindScript*"></a>
   
   <h4 id="FlaxEngine_Actor_FindScript_System_Type_" data-uid="FlaxEngine.Actor.FindScript(System.Type)"><a href="#collapsible-FlaxEngine_Actor_FindScript_System_Type_" class="expander" data-toggle="collapse">FindScript(Type)</a></h4>
@@ -2469,7 +2701,7 @@ public Actor FindActor([TypeReference(typeof(Actor), null)] Type type)</code></p
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script FindScript([TypeReference(typeof(Script), null)] Type type)</code></pre>
+public Script FindScript([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2816,7 +3048,7 @@ public Actor GetChild(string name)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor GetChild([TypeReference(typeof(Actor), null)] Type type)</code></pre>
+public Actor GetChild([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2915,7 +3147,7 @@ public Actor GetChild([TypeReference(typeof(Actor), null)] Type type)</code></pr
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor[] GetChildren([TypeReference(typeof(Actor), null)] Type type)</code></pre>
+public Actor[] GetChildren([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3153,7 +3385,7 @@ public Script GetScript(int index)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script GetScript([TypeReference(typeof(Script), null)] Type type)</code></pre>
+public Script GetScript([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3252,7 +3484,7 @@ public Script GetScript([TypeReference(typeof(Script), null)] Type type)</code><
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Script[] GetScripts([TypeReference(typeof(Script), null)] Type type)</code></pre>
+public Script[] GetScripts([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -4517,8 +4749,6 @@ public string ToJson()</code></pre>
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Object.ToString()</span></div>
   
   
   

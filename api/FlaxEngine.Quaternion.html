@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Quaternion
+    <title>Class Quaternion
    | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Quaternion
+    <meta name="title" content="Class Quaternion
    | Flax Documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -22,7 +22,7 @@
     <meta property="docfx:newtab" content="true">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@flaxengine">
-    <meta name="og:title" content="Struct Quaternion
+    <meta name="og:title" content="Class Quaternion
    | Flax Documentation ">
     <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
   
@@ -90,12 +90,19 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="FlaxEngine.Quaternion">
-  <h1 id="FlaxEngine_Quaternion" data-uid="FlaxEngine.Quaternion">Struct Quaternion
+  <h1 id="FlaxEngine_Quaternion" data-uid="FlaxEngine.Quaternion">Class Quaternion
   </h1>
   <div class="markdown level0 summary"><p>Represents a four dimensional mathematical quaternion. Euler angles are stored in: pitch, yaw, roll order (x, y, z).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEngine_Quaternion" data-uid="FlaxEngine.Quaternion"><a href="#collapsible-inheritance-FlaxEngine_Quaternion" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEngine_Quaternion" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Quaternion</span></div>
+    </div>
+  </div>
   <div classs="implements">
     <h5 id="implements-FlaxEngine_Quaternion" data-uid="System.IEquatable{FlaxEngine.Quaternion}"><a href="#collapsible-implements-FlaxEngine_Quaternion" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
   <div id="collapsible-implements-FlaxEngine_Quaternion" class="collapse">
@@ -104,20 +111,6 @@
   </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Quaternion" data-uid="System.Object.Equals(System.Object,System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Quaternion" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Quaternion" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
@@ -125,7 +118,7 @@
   <h5 id="FlaxEngine_Quaternion_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pre>
+public sealed class Quaternion : ValueType, IEquatable&lt;Quaternion&gt;, IFormattable</code></pre>
   </div>
 
   
@@ -683,7 +676,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float Angle { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float Angle { get; }</code></pre>
   </div>
 
   
@@ -720,7 +713,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly Float3 Axis { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Float3 Axis { get; }</code></pre>
   </div>
 
   
@@ -757,7 +750,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Quaternion Default { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static Quaternion Default { get; }</code></pre>
   </div>
 
   
@@ -794,7 +787,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly Float3 EulerAngles { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Float3 EulerAngles { get; }</code></pre>
   </div>
 
   
@@ -831,7 +824,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly bool IsIdentity { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsIdentity { get; }</code></pre>
   </div>
 
   
@@ -868,7 +861,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsNormalized { get; }</code></pre>
   </div>
 
   
@@ -964,7 +957,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float Length { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float Length { get; }</code></pre>
   </div>
 
   
@@ -1005,7 +998,7 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly float LengthSquared { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float LengthSquared { get; }</code></pre>
   </div>
 
   
@@ -1827,8 +1820,6 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><span class="xref">System.IEquatable&lt;T&gt;.Equals(T)</span></div>
   
   
   
@@ -1926,8 +1917,6 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
   
   
   
@@ -2335,8 +2324,6 @@ public struct Quaternion : IEquatable&lt;Quaternion&gt;, IFormattable</code></pr
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   
   
   
@@ -4998,8 +4985,6 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
   
   
   
@@ -5156,8 +5141,6 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><span class="xref">System.IFormattable.ToString(System.String, System.IFormatProvider)</span></div>
   
   
   
@@ -5617,9 +5600,6 @@ will cause <code data-dev-comment-type="paramref" class="paramref">end</code> to
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
-  </div>
-  <div>
-      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_DeepClone__1___0_">Extensions.DeepClone&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>

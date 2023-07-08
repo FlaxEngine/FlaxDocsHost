@@ -129,27 +129,6 @@
     <div>
       <a class="xref" href="FlaxEditor.Modules.EditorModule.html#FlaxEditor_Modules_EditorModule_Undo">EditorModule.Undo</a>
     </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
   </div>
   </div>
   
@@ -209,7 +188,7 @@
   <h4 id="FlaxEditor_Modules_ContentDatabaseModule_Proxy" data-uid="FlaxEditor.Modules.ContentDatabaseModule.Proxy"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_Proxy" class="expander" data-toggle="collapse">Proxy</a></h4>
   
   <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_Proxy" class="collapse in">
-  <div class="markdown level1 summary"><p>The list with all content items proxy objects.</p>
+  <div class="markdown level1 summary"><p>The list with all content items proxy objects. Use <a class="xref" href="FlaxEditor.Modules.ContentDatabaseModule.html#FlaxEditor_Modules_ContentDatabaseModule_AddProxy_FlaxEditor_Content_ContentProxy_System_Boolean_">AddProxy(ContentProxy, Boolean)</a> and <a class="xref" href="FlaxEditor.Modules.ContentDatabaseModule.html#FlaxEditor_Modules_ContentDatabaseModule_RemoveProxy_FlaxEditor_Content_ContentProxy_System_Boolean_">RemoveProxy(ContentProxy, Boolean)</a> to modify this or <a class="xref" href="FlaxEditor.Modules.ContentDatabaseModule.html#FlaxEditor_Modules_ContentDatabaseModule_Rebuild_System_Boolean_">Rebuild(Boolean)</a> to refresh database when adding new item proxy types.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -391,6 +370,53 @@
   </div>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="FlaxEditor_Modules_ContentDatabaseModule_AddProxy_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.AddProxy*"></a>
+  
+  <h4 id="FlaxEditor_Modules_ContentDatabaseModule_AddProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.AddProxy(FlaxEditor.Content.ContentProxy,System.Boolean)"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_AddProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" class="expander" data-toggle="collapse">AddProxy(ContentProxy, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_AddProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds the proxy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddProxy(ContentProxy proxy, bool rebuild = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.Content.ContentProxy.html">ContentProxy</a></span>
+        <span class="parametername">proxy</span>
+        <p><p>The proxy type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">rebuild</span>
+        <p><p>Should rebuild entire database after addition.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   <a id="FlaxEditor_Modules_ContentDatabaseModule_Copy_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.Copy*"></a>
@@ -1354,6 +1380,45 @@
   </div>
   
   
+  <a id="FlaxEditor_Modules_ContentDatabaseModule_Rebuild_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.Rebuild*"></a>
+  
+  <h4 id="FlaxEditor_Modules_ContentDatabaseModule_Rebuild_System_Boolean_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.Rebuild(System.Boolean)"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_Rebuild_System_Boolean_" class="expander" data-toggle="collapse">Rebuild(Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_Rebuild_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Rebuilds the whole database (eg. when adding custom item types from plugin).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rebuild(bool immediate = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">immediate</span>
+        <p><p>True if rebuild now, otherwise will be scheduled for the next editor update (eg. to batch multiple rebuilds within a frame).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Modules_ContentDatabaseModule_RefreshFolder_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.RefreshFolder*"></a>
   
   <h4 id="FlaxEditor_Modules_ContentDatabaseModule_RefreshFolder_FlaxEditor_Content_ContentItem_System_Boolean_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.RefreshFolder(FlaxEditor.Content.ContentItem,System.Boolean)"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_RefreshFolder_FlaxEditor_Content_ContentItem_System_Boolean_" class="expander" data-toggle="collapse">RefreshFolder(ContentItem, Boolean)</a></h4>
@@ -1383,6 +1448,53 @@
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">checkSubDirs</span>
         <p><p>True if search for changes inside a subdirectories, otherwise only top-most folder will be updated</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Modules_ContentDatabaseModule_RemoveProxy_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.RemoveProxy*"></a>
+  
+  <h4 id="FlaxEditor_Modules_ContentDatabaseModule_RemoveProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" data-uid="FlaxEditor.Modules.ContentDatabaseModule.RemoveProxy(FlaxEditor.Content.ContentProxy,System.Boolean)"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_RemoveProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" class="expander" data-toggle="collapse">RemoveProxy(ContentProxy, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_RemoveProxy_FlaxEditor_Content_ContentProxy_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes the proxy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveProxy(ContentProxy proxy, bool rebuild = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEditor.Content.ContentProxy.html">ContentProxy</a></span>
+        <span class="parametername">proxy</span>
+        <p><p>The proxy type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">rebuild</span>
+        <p><p>Should rebuild entire database after removal.</p>
 </p>
       </td>
     </tr>
@@ -1486,6 +1598,78 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event Action WorkspaceModified</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilding" data-uid="FlaxEditor.Modules.ContentDatabaseModule.WorkspaceRebuilding"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilding" class="expander" data-toggle="collapse">WorkspaceRebuilding</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilding" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when workspace has will be rebuilt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action WorkspaceRebuilding</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilt" data-uid="FlaxEditor.Modules.ContentDatabaseModule.WorkspaceRebuilt"><a href="#collapsible-FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilt" class="expander" data-toggle="collapse">WorkspaceRebuilt</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Modules_ContentDatabaseModule_WorkspaceRebuilt" class="collapse in">
+  <div class="markdown level1 summary"><p>Occurs when workspace has been rebuilt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action WorkspaceRebuilt</code></pre>
   </div>
 
   

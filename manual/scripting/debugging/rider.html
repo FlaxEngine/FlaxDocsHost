@@ -104,30 +104,32 @@ Simply drag and drop it into the selected actor properties area.</p>
 <h3 id="4-add-a-breakpoint">4. Add a breakpoint</h3>
 <p>Click on a left side of the code editor to assign a breakpoint to the line. Red dot should be added as shown in the picture below.</p>
 <p><img src="media/rider-breakpoint.png" alt="Add a breakpoint"></p>
-<h3 id="5-find-debugger-port">5. Find debugger port</h3>
-<p>To attach with C# debugger to Flax you will need to know the <strong>debugger port</strong>. This can be checked in the log file of the engine from <code>&lt;project&gt;\Logs</code> - see the latest file and find the line similar to the following:</p>
+<h3 id="5-attach-to-flax">5. Attach to Flax</h3>
+<p>Now, use <strong>Run -&gt; Attach to Process</strong> option.</p>
+<p><img src="media/rider-debug-attach-1.png" alt="Rider debugger attach"></p>
+<p>Then, select <code>FlaxEditor</code> process (or cooked Flax Game executable) to attach with .NET Core Debugger (you can attach with native C++ debugger too for native scripts).</p>
+<p><img src="media/rider-debug-attach-2.png" alt="Rider debugger attach"></p>
+<h3 id="6-start-a-game">6. Start a game</h3>
+<p>Go back to the Flax Editor and press the <code>Play</code> button to start a game. Then script <em>OnUpdate()</em> function will be called and assigned breakpoint hit.</p>
+<p><img src="media/debug-vs-4.jpg" alt="Script in Rider"></p>
+<h3 id="7-debug-your-code">7. Debug your code</h3>
+<p>Now you can use all Rider debugging features to verify state of the variables and test your code.</p>
+<p><img src="media/rider-debugging-csharp.png" alt="Debuggign C# Script in Rider"></p>
+<p>For more information about C# in Rider, see the <a href="https://www.jetbrains.com/help/rider/Languages_CSharp.html">Rider documentation</a>.</p>
+<h2 id="mono-debugging">Mono debugging</h2>
+<p>In past, Flax used mono for C# runtime (version 1.5 and older). Mobile and Console platforms still use mono for .NET hosting (including Mono AOT feature). To debug such builds use to attach with C# Mono debugger by identifying the debugger server port from Log:</p>
 <pre><code>...
 [ 00:00:02.667 ]: [Info] Initialize Scripting...
 [ 00:00:02.667 ]: [Info] Mono debugger server at 127.0.0.1:41816
 ...
-</code></pre><p>This informs about the Mono debugger server running on a local machine and the given port. It&#39;s calculated from expression <code>41000 + process_id % 1000</code>. You can also run Flax Editor with specified ip and port with a command-line argument such as <code>-debug 127.0.0.1:55555</code>.</p>
-<h3 id="6-add-configuration">6. Add configuration</h3>
+</code></pre><p>This informs about the Mono debugger server running on a local machine and the given port. It&#39;s calculated from expression <code>41000 + process_id % 1000</code>. You can also run Flax with specified ip and port with a command-line argument such as <code>-debug 127.0.0.1:55555</code>.</p>
 <p>Once you know the port you can create configuration of type <strong>Mono Remote</strong>. Use <em>Edit Configuration</em> button and select <code>+</code> plus button to create new confgiuration for Mono Remote debugging.</p>
 <p><img src="media/rider-edit-configuration.png" alt="Rider Edit Configuration"></p>
 <p><img src="media/rider-add-mono-remote.png" alt="Rider Mono Remote"></p>
 <p>Then name it eg. to <code>Debug C# Game</code> and set <strong>Port</strong> to the value from the editor log.</p>
 <p><img src="media/rider-edit-mono-remote.png" alt="Rider Mono Remote"></p>
-<p>You can run Editor from command line eg. <code>FlaxEditor.exe -project project_path -debug 127.0.0.1:50000</code> to use fixed Mono debugger port.</p>
-<h3 id="7-attach-to-flax">7. Attach to Flax</h3>
 <p>Once you&#39;ve set the port you can launch this configuration and attach with debugger.</p>
 <p><img src="media/rider-start-debug.png" alt="Rider Debug C# Start"></p>
-<h3 id="8-start-a-game">8. Start a game</h3>
-<p>Go back to the Flax Editor and press the <code>Play</code> button to start a game. Then script <em>OnUpdate()</em> function will be called and assigned breakpoint hit.</p>
-<p><img src="media/debug-vs-4.jpg" alt="Script in Rider"></p>
-<h3 id="8-debug-your-code">8. Debug your code</h3>
-<p>Now you can use all Rider debugging features to verify state of the variables and test your code.</p>
-<p><img src="media/rider-debugging-csharp.png" alt="Debuggign C# Script in Rider"></p>
-<p>For more information about C# in Rider, see the <a href="https://www.jetbrains.com/help/rider/Languages_CSharp.html">Rider documentation</a>.</p>
 </article>
           </div>
           
@@ -136,7 +138,7 @@ Simply drag and drop it into the selected actor properties area.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/debugging/rider.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/debugging/rider.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

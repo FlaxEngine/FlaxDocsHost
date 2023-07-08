@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Matrix
+    <title>Class Matrix
    | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Matrix
+    <meta name="title" content="Class Matrix
    | Flax Documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -22,7 +22,7 @@
     <meta property="docfx:newtab" content="true">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@flaxengine">
-    <meta name="og:title" content="Struct Matrix
+    <meta name="og:title" content="Class Matrix
    | Flax Documentation ">
     <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
   
@@ -90,12 +90,19 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="FlaxEngine.Matrix">
-  <h1 id="FlaxEngine_Matrix" data-uid="FlaxEngine.Matrix">Struct Matrix
+  <h1 id="FlaxEngine_Matrix" data-uid="FlaxEngine.Matrix">Class Matrix
   </h1>
   <div class="markdown level0 summary"><p>Represents a 4x4 mathematical matrix.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEngine_Matrix" data-uid="FlaxEngine.Matrix"><a href="#collapsible-inheritance-FlaxEngine_Matrix" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEngine_Matrix" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Matrix</span></div>
+    </div>
+  </div>
   <div classs="implements">
     <h5 id="implements-FlaxEngine_Matrix" data-uid="System.IEquatable{FlaxEngine.Matrix}"><a href="#collapsible-implements-FlaxEngine_Matrix" class="expander collapsed" data-toggle="collapse">Implements</a></h5>
   <div id="collapsible-implements-FlaxEngine_Matrix" class="collapse">
@@ -104,20 +111,6 @@
   </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Matrix" data-uid="System.Object.Equals(System.Object,System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Matrix" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Matrix" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
@@ -125,7 +118,7 @@
   <h5 id="FlaxEngine_Matrix_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public struct Matrix : IEquatable&lt;Matrix&gt;, IFormattable</code></pre>
+public sealed class Matrix : ValueType, IEquatable&lt;Matrix&gt;, IFormattable</code></pre>
   </div>
 
   
@@ -1275,7 +1268,7 @@ elements.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Matrix Default { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static Matrix Default { get; }</code></pre>
   </div>
 
   
@@ -1386,7 +1379,7 @@ elements.</p>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly bool IsIdentity { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsIdentity { get; }</code></pre>
   </div>
 
   
@@ -3529,8 +3522,6 @@ A uniform scale matrix has the same scale in every axis.</p>
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><span class="xref">System.IEquatable&lt;T&gt;.Equals(T)</span></div>
   
   
   
@@ -3628,8 +3619,6 @@ A uniform scale matrix has the same scale in every axis.</p>
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
   
   
   
@@ -3894,8 +3883,6 @@ A uniform scale matrix has the same scale in every axis.</p>
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   
   
   
@@ -7359,8 +7346,6 @@ The effect is such that the skewed rotation vector has the specified angle with 
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
   
   
   
@@ -7517,8 +7502,6 @@ The effect is such that the skewed rotation vector has the specified angle with 
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><span class="xref">System.IFormattable.ToString(System.String, System.IFormatProvider)</span></div>
   
   
   
@@ -9124,9 +9107,6 @@ number of solutions exist.</p>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
-  </div>
-  <div>
-      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_DeepClone__1___0_">Extensions.DeepClone&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>

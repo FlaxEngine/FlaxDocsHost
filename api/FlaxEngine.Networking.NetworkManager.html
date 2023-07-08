@@ -104,32 +104,6 @@
     </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Networking_NetworkManager" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Networking_NetworkManager" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Networking_NetworkManager" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.Networking.html">FlaxEngine.Networking</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
@@ -137,7 +111,7 @@
   <h5 id="FlaxEngine_Networking_NetworkManager_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static class NetworkManager</code></pre>
+public static class NetworkManager : Object</code></pre>
   </div>
 
   
@@ -683,6 +657,43 @@ public static NetworkConnectionState State { get; }</code></pre>
   </h3>
   
   
+  <a id="FlaxEngine_Networking_NetworkManager_add_ClientConnecting_" data-uid="FlaxEngine.Networking.NetworkManager.add_ClientConnecting*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkManager_add_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" data-uid="FlaxEngine.Networking.NetworkManager.add_ClientConnecting(FlaxEngine.Networking.NetworkManager.ClientConnectingDelegate)"><a href="#collapsible-FlaxEngine_Networking_NetworkManager_add_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" class="expander" data-toggle="collapse">add_ClientConnecting(NetworkManager.ClientConnectingDelegate)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkManager_add_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void add_ClientConnecting(NetworkManager.ClientConnectingDelegate value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Networking.NetworkManager.ClientConnectingDelegate.html">NetworkManager.ClientConnectingDelegate</a></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Networking_NetworkManager_GetClient_" data-uid="FlaxEngine.Networking.NetworkManager.GetClient*"></a>
   
   <h4 id="FlaxEngine_Networking_NetworkManager_GetClient_FlaxEngine_Networking_NetworkConnection__" data-uid="FlaxEngine.Networking.NetworkManager.GetClient(FlaxEngine.Networking.NetworkConnection@)"><a href="#collapsible-FlaxEngine_Networking_NetworkManager_GetClient_FlaxEngine_Networking_NetworkConnection__" class="expander" data-toggle="collapse">GetClient(ref NetworkConnection)</a></h4>
@@ -720,6 +731,93 @@ public static NetworkClient GetClient(ref NetworkConnection connection)</code></
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Networking_NetworkManager_GetClient_" data-uid="FlaxEngine.Networking.NetworkManager.GetClient*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkManager_GetClient_System_UInt32_" data-uid="FlaxEngine.Networking.NetworkManager.GetClient(System.UInt32)"><a href="#collapsible-FlaxEngine_Networking_NetworkManager_GetClient_System_UInt32_" class="expander" data-toggle="collapse">GetClient(UInt32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkManager_GetClient_System_UInt32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the network client with a given identifier. Returns null if failed to find it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static NetworkClient GetClient(uint clientId)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">clientId</span>
+        <p><p>Network client identifier (synchronized on all peers).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Networking.NetworkClient.html">NetworkClient</a>
+        <p><p>Found client or null.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Networking_NetworkManager_remove_ClientConnecting_" data-uid="FlaxEngine.Networking.NetworkManager.remove_ClientConnecting*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkManager_remove_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" data-uid="FlaxEngine.Networking.NetworkManager.remove_ClientConnecting(FlaxEngine.Networking.NetworkManager.ClientConnectingDelegate)"><a href="#collapsible-FlaxEngine_Networking_NetworkManager_remove_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" class="expander" data-toggle="collapse">remove_ClientConnecting(NetworkManager.ClientConnectingDelegate)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkManager_remove_ClientConnecting_FlaxEngine_Networking_NetworkManager_ClientConnectingDelegate_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void remove_ClientConnecting(NetworkManager.ClientConnectingDelegate value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Networking.NetworkManager.ClientConnectingDelegate.html">NetworkManager.ClientConnectingDelegate</a></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   

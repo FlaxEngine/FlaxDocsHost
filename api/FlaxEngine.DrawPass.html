@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum DrawPass
+    <title>Class DrawPass
    | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum DrawPass
+    <meta name="title" content="Class DrawPass
    | Flax Documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
@@ -22,7 +22,7 @@
     <meta property="docfx:newtab" content="true">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@flaxengine">
-    <meta name="og:title" content="Enum DrawPass
+    <meta name="og:title" content="Class DrawPass
    | Flax Documentation ">
     <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
   
@@ -90,13 +90,19 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="FlaxEngine.DrawPass">
-  
-  <h1 id="FlaxEngine_DrawPass" data-uid="FlaxEngine.DrawPass">Enum DrawPass
+  <h1 id="FlaxEngine_DrawPass" data-uid="FlaxEngine.DrawPass">Class DrawPass
   </h1>
   <div class="markdown level0 summary"><p>The objects drawing pass types. Used as a flags for objects drawing masking.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
+  <div class="inheritance">
+    <h5 id="inheritance-FlaxEngine_DrawPass" data-uid="FlaxEngine.DrawPass"><a href="#collapsible-inheritance-FlaxEngine_DrawPass" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-FlaxEngine_DrawPass" class="collapse">
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DrawPass</span></div>
+    </div>
+  </div>
   
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
@@ -104,9 +110,8 @@
   
   <h5 id="FlaxEngine_DrawPass_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Flags]
-[Unmanaged]
-public enum DrawPass</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public sealed class DrawPass : Enum</code></pre>
   </div>
 
   
@@ -115,81 +120,450 @@ public enum DrawPass</code></pre>
   
   <h3 id="fields">Fields
   </h3>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="FlaxEngine_DrawPass_All">All</td>
-        <td><p>The all draw passes combined into a single mask.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_Default">Default</td>
-        <td><p>The default set of draw passes for the scene objects.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_Depth">Depth</td>
-        <td><p>The hardware depth rendering to the depth buffer (used for shadow maps rendering).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_Distortion">Distortion</td>
-        <td><p>The transparent objects distortion vectors rendering (with blending).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_Forward">Forward</td>
-        <td><p>The forward pass rendering (for transparent materials).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_GBuffer">GBuffer</td>
-        <td><p>The base pass rendering to the GBuffer (for opaque materials).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_GlobalSDF">GlobalSDF</td>
-        <td><p>The Global Sign Distance Field (SDF) rendering pass. Used for software raytracing though the scene on a GPU.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_GlobalSurfaceAtlas">GlobalSurfaceAtlas</td>
-        <td><p>The Global Surface Atlas rendering pass. Used for software raytracing though the scene on a GPU to evaluate the object surface material properties.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_MotionVectors">MotionVectors</td>
-        <td><p>The motion vectors (velocity) rendering pass (for movable objects).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_None">None</td>
-        <td><p>The none.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="FlaxEngine_DrawPass_QuadOverdraw">QuadOverdraw</td>
-        <td><p>The debug quad overdraw rendering (editor-only).</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_All" data-uid="FlaxEngine.DrawPass.All"><a href="#collapsible-FlaxEngine_DrawPass_All" class="expander" data-toggle="collapse">All</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_All" class="collapse in">
+  <div class="markdown level1 summary"><p>The all draw passes combined into a single mask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+public const DrawPass All</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_Default" data-uid="FlaxEngine.DrawPass.Default"><a href="#collapsible-FlaxEngine_DrawPass_Default" class="expander" data-toggle="collapse">Default</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_Default" class="collapse in">
+  <div class="markdown level1 summary"><p>The default set of draw passes for the scene objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+public const DrawPass Default</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_Depth" data-uid="FlaxEngine.DrawPass.Depth"><a href="#collapsible-FlaxEngine_DrawPass_Depth" class="expander" data-toggle="collapse">Depth</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_Depth" class="collapse in">
+  <div class="markdown level1 summary"><p>The hardware depth rendering to the depth buffer (used for shadow maps rendering).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass Depth</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_Distortion" data-uid="FlaxEngine.DrawPass.Distortion"><a href="#collapsible-FlaxEngine_DrawPass_Distortion" class="expander" data-toggle="collapse">Distortion</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_Distortion" class="collapse in">
+  <div class="markdown level1 summary"><p>The transparent objects distortion vectors rendering (with blending).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass Distortion</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_Forward" data-uid="FlaxEngine.DrawPass.Forward"><a href="#collapsible-FlaxEngine_DrawPass_Forward" class="expander" data-toggle="collapse">Forward</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_Forward" class="collapse in">
+  <div class="markdown level1 summary"><p>The forward pass rendering (for transparent materials).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass Forward</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_GBuffer" data-uid="FlaxEngine.DrawPass.GBuffer"><a href="#collapsible-FlaxEngine_DrawPass_GBuffer" class="expander" data-toggle="collapse">GBuffer</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_GBuffer" class="collapse in">
+  <div class="markdown level1 summary"><p>The base pass rendering to the GBuffer (for opaque materials).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(null, &quot;GBuffer&quot;)]
+public const DrawPass GBuffer</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_GlobalSDF" data-uid="FlaxEngine.DrawPass.GlobalSDF"><a href="#collapsible-FlaxEngine_DrawPass_GlobalSDF" class="expander" data-toggle="collapse">GlobalSDF</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_GlobalSDF" class="collapse in">
+  <div class="markdown level1 summary"><p>The Global Sign Distance Field (SDF) rendering pass. Used for software raytracing though the scene on a GPU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass GlobalSDF</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_GlobalSurfaceAtlas" data-uid="FlaxEngine.DrawPass.GlobalSurfaceAtlas"><a href="#collapsible-FlaxEngine_DrawPass_GlobalSurfaceAtlas" class="expander" data-toggle="collapse">GlobalSurfaceAtlas</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_GlobalSurfaceAtlas" class="collapse in">
+  <div class="markdown level1 summary"><p>The Global Surface Atlas rendering pass. Used for software raytracing though the scene on a GPU to evaluate the object surface material properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass GlobalSurfaceAtlas</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_MotionVectors" data-uid="FlaxEngine.DrawPass.MotionVectors"><a href="#collapsible-FlaxEngine_DrawPass_MotionVectors" class="expander" data-toggle="collapse">MotionVectors</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_MotionVectors" class="collapse in">
+  <div class="markdown level1 summary"><p>The motion vectors (velocity) rendering pass (for movable objects).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass MotionVectors</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_None" data-uid="FlaxEngine.DrawPass.None"><a href="#collapsible-FlaxEngine_DrawPass_None" class="expander" data-toggle="collapse">None</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_None" class="collapse in">
+  <div class="markdown level1 summary"><p>The none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const DrawPass None</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_QuadOverdraw" data-uid="FlaxEngine.DrawPass.QuadOverdraw"><a href="#collapsible-FlaxEngine_DrawPass_QuadOverdraw" class="expander" data-toggle="collapse">QuadOverdraw</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_QuadOverdraw" class="collapse in">
+  <div class="markdown level1 summary"><p>The debug quad overdraw rendering (editor-only).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInEditor]
+public const DrawPass QuadOverdraw</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.DrawPass.html">DrawPass</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_DrawPass_value__" data-uid="FlaxEngine.DrawPass.value__"><a href="#collapsible-FlaxEngine_DrawPass_value__" class="expander" data-toggle="collapse">value__</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DrawPass_value__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int value__</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;DrawPass&gt;(DrawPass)</a>
+      <a class="xref" href="FlaxEditor.Utilities.Extensions.html#FlaxEditor_Utilities_Extensions_ReflectiveCompare__1___0___0_">Extensions.ReflectiveCompare&lt;T&gt;(T, T)</a>
   </div>
   <div>
-      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_DeepClone__1___0_">Extensions.DeepClone&lt;DrawPass&gt;()</a>
+      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;T&gt;(T)</a>
   </div>
-  <div>
-      <a class="xref" href="FlaxEngine.Utilities.Extensions.html#FlaxEngine_Utilities_Extensions_RawClone__1___0_">Extensions.RawClone&lt;DrawPass&gt;()</a>
-  </div>
+  
 </article>
           </div>
           

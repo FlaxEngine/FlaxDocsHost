@@ -104,32 +104,6 @@
     </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Networking_NetworkReplicator" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Networking_NetworkReplicator" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Networking_NetworkReplicator" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.Networking.html">FlaxEngine.Networking</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
@@ -137,13 +111,91 @@
   <h5 id="FlaxEngine_Networking_NetworkReplicator_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static class NetworkReplicator</code></pre>
+public static class NetworkReplicator : Object</code></pre>
   </div>
 
   
   
   
   
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FlaxEngine_Networking_NetworkReplicator_EnableLog_" data-uid="FlaxEngine.Networking.NetworkReplicator.EnableLog*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkReplicator_EnableLog" data-uid="FlaxEngine.Networking.NetworkReplicator.EnableLog"><a href="#collapsible-FlaxEngine_Networking_NetworkReplicator_EnableLog" class="expander" data-toggle="collapse">EnableLog</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkReplicator_EnableLog" class="collapse in">
+  <div class="markdown level1 summary"><p>Enables verbose logging of the networking runtime. Can be used to debug problems of missing RPC invoke or object replication issues.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static bool EnableLog { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Networking_NetworkReplicator_Hierarchy_" data-uid="FlaxEngine.Networking.NetworkReplicator.Hierarchy*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkReplicator_Hierarchy" data-uid="FlaxEngine.Networking.NetworkReplicator.Hierarchy"><a href="#collapsible-FlaxEngine_Networking_NetworkReplicator_Hierarchy" class="expander" data-toggle="collapse">Hierarchy</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkReplicator_Hierarchy" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the network replication hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static NetworkReplicationHierarchy Hierarchy { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Networking.NetworkReplicationHierarchy.html">NetworkReplicationHierarchy</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -211,7 +263,7 @@ public static void AddObject(Object obj, Object parent = null)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void AddRPC(Type type, string name, NetworkReplicator.ExecuteRPCFunc execute, bool isServer = true, bool isClient = false, NetworkChannelType channel = NetworkChannelType.ReliableOrdered)</code></pre>
+public static void AddRPC(Type type, string name, NetworkReplicator.ExecuteRPCFunc execute, bool isServer = true, bool isClient = false, NetworkChannelType channel)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -462,9 +514,9 @@ public static void DirtyObject(Object obj)</code></pre>
   
   <a id="FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_" data-uid="FlaxEngine.Networking.NetworkReplicator.EndInvokeRPC*"></a>
   
-  <h4 id="FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_" data-uid="FlaxEngine.Networking.NetworkReplicator.EndInvokeRPC(FlaxEngine.Object,System.Type,System.String,FlaxEngine.Networking.NetworkStream)"><a href="#collapsible-FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_" class="expander" data-toggle="collapse">EndInvokeRPC(Object, Type, String, NetworkStream)</a></h4>
+  <h4 id="FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_System_UInt32___" data-uid="FlaxEngine.Networking.NetworkReplicator.EndInvokeRPC(FlaxEngine.Object,System.Type,System.String,FlaxEngine.Networking.NetworkStream,System.UInt32[])"><a href="#collapsible-FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_System_UInt32___" class="expander" data-toggle="collapse">EndInvokeRPC(Object, Type, String, NetworkStream, UInt32[])</a></h4>
   
-  <div id="collapsible-FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_" class="collapse in">
+  <div id="collapsible-FlaxEngine_Networking_NetworkReplicator_EndInvokeRPC_FlaxEngine_Object_System_Type_System_String_FlaxEngine_Networking_NetworkStream_System_UInt32___" class="collapse in">
   <div class="markdown level1 summary"><p>Ends invoking the RPC.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -472,7 +524,7 @@ public static void DirtyObject(Object obj)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void EndInvokeRPC(Object obj, Type type, string name, NetworkStream argsStream)</code></pre>
+public static bool EndInvokeRPC(Object obj, Type type, string name, NetworkStream argsStream, uint[] targetIds = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -509,8 +561,26 @@ public static void EndInvokeRPC(Object obj, Type type, string name, NetworkStrea
 </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span>[]</span>
+        <span class="parametername">targetIds</span>
+        <p><p>Optional list with network client IDs that should receive RPC. Empty to send on all clients. Ignored by Server RPCs.</p>
+</p>
+      </td>
+    </tr>
   </table>
   
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if RPC cannot be executed locally, false if execute it locally too (checks RPC mode and target client ids).</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -607,6 +677,56 @@ public static NetworkObjectRole GetObjectRole(Object obj)</code></pre>
       <td>
         <a class="xref" href="FlaxEngine.Networking.NetworkObjectRole.html">NetworkObjectRole</a>
         <p><p>The object role.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Networking_NetworkReplicator_HasObject_" data-uid="FlaxEngine.Networking.NetworkReplicator.HasObject*"></a>
+  
+  <h4 id="FlaxEngine_Networking_NetworkReplicator_HasObject_FlaxEngine_Object_" data-uid="FlaxEngine.Networking.NetworkReplicator.HasObject(FlaxEngine.Object)"><a href="#collapsible-FlaxEngine_Networking_NetworkReplicator_HasObject_FlaxEngine_Object_" class="expander" data-toggle="collapse">HasObject(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Networking_NetworkReplicator_HasObject_FlaxEngine_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if the network object is spawned or added to the network replication system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static bool HasObject(Object obj)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Object.html">Object</a></span>
+        <span class="parametername">obj</span>
+        <p><p>The network object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if object exists in networking, otherwise false.</p>
 </p>
       </td>
     </tr>
@@ -986,7 +1106,7 @@ public static void RemoveObject(Object obj)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void SetObjectOwnership(Object obj, uint ownerClientId, NetworkObjectRole localRole = NetworkObjectRole.Replicated, bool hierarchical = true)</code></pre>
+public static void SetObjectOwnership(Object obj, uint ownerClientId, NetworkObjectRole localRole, bool hierarchical = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1073,7 +1193,7 @@ public static void SpawnObject(Object obj)</code></pre>
   
   
   <h5 id="FlaxEngine_Networking_NetworkReplicator_SpawnObject_FlaxEngine_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Does nothing if network is offline.</p>
+  <div class="markdown level1 remarks"><p>Does nothing if network is offline. Doesn&apos;t spawn actor in a level - but in network replication system.</p>
 </div>
   
   
@@ -1124,7 +1244,7 @@ public static void SpawnObject(Object obj, uint[] clientIds)</code></pre>
   
   
   <h5 id="FlaxEngine_Networking_NetworkReplicator_SpawnObject_FlaxEngine_Object_System_UInt32____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Does nothing if network is offline.</p>
+  <div class="markdown level1 remarks"><p>Does nothing if network is offline. Doesn&apos;t spawn actor in a level - but in network replication system.</p>
 </div>
   
   

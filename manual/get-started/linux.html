@@ -105,7 +105,7 @@
 <tbody>
 <tr>
 <td>Tested operating systems</td>
-<td>Ubuntu 18 LTS, Ubuntu 20 LTS</td>
+<td>Ubuntu 22 LTS</td>
 </tr>
 <tr>
 <td>Processor</td>
@@ -125,8 +125,15 @@
 </tr>
 </tbody>
 </table>
-<p>Flax Editor needs <code>curl</code> and <code>mono</code> libs on the system:</p>
-<pre><code>apt-get install -y curl libcurl4-gnutls-dev mono-devel
+<p>Flax Editor needs:</p>
+<ul>
+<li><code>curl</code> lib on the system:</li>
+</ul>
+<pre><code>apt-get install -y curl libcurl4-gnutls-dev
+</code></pre><ul>
+<li><code>.Net 7 SDK</code> (<a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">https://dotnet.microsoft.com/en-us/download/dotnet/7.0</a>). Setup can be verified with:</li>
+</ul>
+<pre><code>dotnet --version
 </code></pre><p>*On Fedora you might need additional fix for invalid lib linkage: <code>sudo ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4</code>.</p>
 <h2 id="gpu-drivers">GPU Drivers</h2>
 <p>Please ensure to have the latest GPU drivers installed. Helper links:</p>
@@ -159,7 +166,7 @@
 </tr>
 </tbody>
 </table>
-<p>You can also specify the C# Mono debugger port eg. <code>-debug 127.0.0.1:55555</code>. To learn more about command line switches see <a href="../editor/advanced/command-line-access.html">this documentation page</a>.</p>
+<p>To learn more about command line switches see <a href="../editor/advanced/command-line-access.html">this documentation page</a>.</p>
 <p>Example command line to run Editor with custom options:</p>
 <pre><code>./FlaxEditor -project &quot;&lt;project-path&gt;&quot; -std -nvidia
 </code></pre><h2 id="new-project">New project</h2>
@@ -175,7 +182,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/get-started/linux.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/get-started/linux.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

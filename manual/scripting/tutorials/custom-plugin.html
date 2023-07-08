@@ -120,7 +120,7 @@ namespace ExamplePlugin
         }
 
         /// &lt;inheritdoc /&gt;
-        public override void Deinitialize()
+        public override void DeinitializeEditor()
         {
             if (_button != null)
             {
@@ -128,12 +128,12 @@ namespace ExamplePlugin
                 _button = null;
             }
 
-            base.Deinitialize();
+            base.DeinitializeEditor();
         }
     }
 }
 #endif
-</code></pre><p>Flax plugins use two main methods for the lifetime: <code>Initialize</code> and <code>Deinitialize</code>. However for Editor plugins when <code>Initialize</code> is called the Editor may still be uninitialized so it&#39;s better to use <code>InitializeEditor</code> to add custom GUI to the Editor.</p>
+</code></pre><p>Flax plugins use two main methods for the lifetime: <code>InitializeEditor</code> and <code>DeinitializeEditor</code>.</p>
 <h3 id="3-test-it-out">3. Test it out</h3>
 <p>Go back to the Editor, wait for scripts recompilation and see the custom button is added. Click it to see the popup we have implemented. Now you are ready to implement more cool features to the editor.</p>
 <p><img src="media/editor-plugin-step-2.png" alt="Use Custom Editor Plugin"></p>
@@ -145,7 +145,7 @@ namespace ExamplePlugin
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/tutorials/custom-plugin.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/tutorials/custom-plugin.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

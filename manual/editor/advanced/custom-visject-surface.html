@@ -155,16 +155,16 @@
         _expressionGraphProxy = new ExpressionGraphProxy();
 
         // Register the proxy
-        Editor.ContentDatabase.Proxy.Insert(0, _expressionGraphProxy);
+        Editor.ContentDatabase.AddProxy(_expressionGraphProxy);
     }
 
     /// &lt;inheritdoc /&gt;
-    public override void Deinitialize()
+    public override void DeinitializeEditor()
     {
         // Cleanup on plugin deinit
-        Editor.ContentDatabase.Proxy.Remove(_expressionGraphProxy);
+        Editor.ContentDatabase.RemoveProxy(_expressionGraphProxy);
 
-        base.Deinitialize();
+        base.DeinitializeEditor();
     }
 }
 </code></pre><p>Once this is done, you should be able to create a new expression graph asset in your <code>Content</code> folder.</p>
@@ -632,7 +632,7 @@ box.Archetype.ValueIndex; // Index of the box in node.Values[ ]
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/editor/advanced/custom-visject-surface.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/editor/advanced/custom-visject-surface.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

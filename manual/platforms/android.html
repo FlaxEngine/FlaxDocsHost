@@ -102,12 +102,17 @@
 </li>
 <li>Install <strong>NDK</strong><ul>
 <li>via Android SDK Manager: <em>Android SDK -&gt; SDK Tools -&gt; NDK (side by side)</em></li>
-<li>or manually via <a href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a> and set <code>ANDROID_NDK</code> env var to install location) </li>
+<li>or manually via <a href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a> and set <code>ANDROID_NDK</code> env var to install location</li>
 </ul>
 </li>
 <li>Install <strong>Java</strong><ul>
 <li>use in-built from Android Studio: set <code>JAVA_HOME</code> env var to <code>&lt;android-studio&gt;\jbr</code></li>
 <li>or download manually from <a href="https://jdk.java.net/19">https://jdk.java.net/19</a> and set env var <code>JAVA_HOME</code> to jdk root folder</li>
+</ul>
+</li>
+<li>Install <strong>.Net Android Workload</strong><ul>
+<li>Run <code>dotnet workload install android</code> via command line</li>
+<li>More info: <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install">https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install</a></li>
 </ul>
 </li>
 <li>(when using Flax from Launcher) Install Android Platform Tools for Editor installation via Flax Launcher</li>
@@ -120,6 +125,7 @@
 <li>On Linux/Mac: <code>echo $ANDROID_HOME</code>, <code>echo $JAVA_HOME</code></li>
 </ul>
 </li>
+<li>If you&#39;re getting the error <code>Missing NET SDK runtime for Android ARM64.</code> then install Android workload for dotnet (as mentioned above). It contains .Net libs and runtime for Android required to run C#.</li>
 </ul>
 <h2 id="build-options">Build options</h2>
 <p>See <em>Game Cooker</em> window.</p>
@@ -183,6 +189,13 @@
 <li>Use <code>Debug -&gt; Attach to Android Process</code></li>
 <li>Once debugger is attached you can insert breakpoints and debug the game code</li>
 </ul>
+<p>To fix some problems with <code>gdb</code> debugger inside Visual Studio do:</p>
+<ul>
+<li>Add environment variable on Windows <code>HOME=C:/Users/yourusername</code> where <code>yourusername</code> is your Windows username</li>
+<li>Restart Visual Studio (if opened)</li>
+<li>Create <code>.gdbinit</code> file in that <code>HOME</code> directory with the contents:
+<code>handle SIGXCPU SIG33 SIG35 SIG36 SIGPWR nostop noprint</code></li>
+</ul>
 <h2 id="android-adb-logs-collecting">Android adb logs collecting</h2>
 <p>Debug and Devlopment builds are using low-level Android logger to output engine and game logs directly to the <code>adb</code>.
 Use <code>.\adb.exe -d logcat Flax:I *:S</code> to listen for game logs on device.</p>
@@ -207,7 +220,7 @@ Use <code>.\adb.exe -d logcat Flax:I *:S</code> to listen for game logs on devic
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/platforms/android.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/platforms/android.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -104,16 +104,52 @@
 <h3 id="cpu">CPU</h3>
 <p>The CPU performance profiling mode.</p>
 <p>To add code section to be included in profile blocks use the following code:</p>
+<div class="tabGroup" id="tabgroup_3-KwuCJ8YS">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS_code-csharp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS_code-cpp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_3-KwuCJ8YS_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">Profiler.BeginEvent(&quot;MyFunction&quot;);
 // do something
 Profiler.EndEvent();
-</code></pre><h3 id="gpu">GPU</h3>
+</code></pre></section>
+<section id="tabpanel_3-KwuCJ8YS_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Profiler/Profiler.h&quot;
+
+PROFILE_CPU_NAMED(&quot;MyFunction&quot;); // or PROFILE_CPU to use auto-name of the current function
+// do something
+</code></pre></section>
+</div>
+<h3 id="gpu">GPU</h3>
 <p>The GPU performance profiling mode.</p>
 <p>To add code section to be included in profile blocks use the following code:</p>
+<div class="tabGroup" id="tabgroup_3-KwuCJ8YS-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS-1_code-csharp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS-1_code-cpp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_3-KwuCJ8YS-1_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">Profiler.BeginEventGPU(&quot;MyFunction&quot;);
 // do something on GPU with GPUContext
 Profiler.EndEventGPU();
-</code></pre><h3 id="memory">Memory</h3>
+</code></pre></section>
+<section id="tabpanel_3-KwuCJ8YS-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Profiler/Profiler.h&quot;
+
+PROFILE_GPU(&quot;MyFunction&quot;); // or PROFILE_GPU_CPU to inject both CPU and GPU profile event
+// do something on GPU with GPUContext
+</code></pre></section>
+</div>
+<h3 id="memory">Memory</h3>
 <p>The memory profiling mode focused on breaking down system memory allocations. This includes separate stats for native memory allocation and managed C# allocations.</p>
 <h3 id="network">Network</h3>
 <p>The network data transfer send/receive charts over game time.</p>
@@ -125,7 +161,7 @@ Profiler.EndEventGPU();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/editor/profiling/profiler.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/editor/profiling/profiler.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

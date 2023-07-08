@@ -104,39 +104,13 @@
     </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEditor_Utilities_Utils" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEditor_Utilities_Utils" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEditor_Utilities_Utils" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEditor.Utilities.html">FlaxEditor.Utilities</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
   
   <h5 id="FlaxEditor_Utilities_Utils_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Utils</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Utils : Object</code></pre>
   </div>
 
   
@@ -254,7 +228,7 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T ByteArrayToStructure&lt;T&gt;(byte[] bytes)
-    where T : struct</code></pre>
+    where T : struct, ValueType</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -314,7 +288,7 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void ByteArrayToStructure&lt;T&gt;(byte[] bytes, out T result)
-    where T : struct</code></pre>
+    where T : struct, ValueType</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -733,6 +707,55 @@
   </div>
   
   
+  <a id="FlaxEditor_Utilities_Utils_GetAssetNamePathWithExt_" data-uid="FlaxEditor.Utilities.Utils.GetAssetNamePathWithExt*"></a>
+  
+  <h4 id="FlaxEditor_Utilities_Utils_GetAssetNamePathWithExt_System_String_" data-uid="FlaxEditor.Utilities.Utils.GetAssetNamePathWithExt(System.String)"><a href="#collapsible-FlaxEditor_Utilities_Utils_GetAssetNamePathWithExt_System_String_" class="expander" data-toggle="collapse">GetAssetNamePathWithExt(String)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Utilities_Utils_GetAssetNamePathWithExt_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the asset name relative to the project root folder (with asset file extension)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetAssetNamePathWithExt(string path)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">path</span>
+        <p><p>The asset path.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>The processed name path.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Utilities_Utils_GetPropertyNameUI_" data-uid="FlaxEditor.Utilities.Utils.GetPropertyNameUI*"></a>
   
   <h4 id="FlaxEditor_Utilities_Utils_GetPropertyNameUI_System_String_" data-uid="FlaxEditor.Utilities.Utils.GetPropertyNameUI(System.String)"><a href="#collapsible-FlaxEditor_Utilities_Utils_GetPropertyNameUI_System_String_" class="expander" data-toggle="collapse">GetPropertyNameUI(String)</a></h4>
@@ -814,6 +837,64 @@
       <td>
         <span class="xref">System.Boolean</span>
         <p><p><code>true</code> if the given string cannot be used as a path because it contains one or more illegal characters; otherwise, <code>false</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Utilities_Utils_IncrementNameNumber_" data-uid="FlaxEditor.Utilities.Utils.IncrementNameNumber*"></a>
+  
+  <h4 id="FlaxEditor_Utilities_Utils_IncrementNameNumber_System_String_System_Func_System_String_System_Boolean__" data-uid="FlaxEditor.Utilities.Utils.IncrementNameNumber(System.String,System.Func{System.String,System.Boolean})"><a href="#collapsible-FlaxEditor_Utilities_Utils_IncrementNameNumber_System_String_System_Func_System_String_System_Boolean__" class="expander" data-toggle="collapse">IncrementNameNumber(String, Func&lt;String, Boolean&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Utilities_Utils_IncrementNameNumber_System_String_System_Func_System_String_System_Boolean__" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to parse number in the name brackets at the end of the value and then increment it to create a new name.
+Supports numbers at the end without brackets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string IncrementNameNumber(string name, Func&lt;string, bool&gt; isValid)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>The input name.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">isValid</span>
+        <p><p>Custom function to validate the created name.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>The new name.</p>
 </p>
       </td>
     </tr>
@@ -1106,7 +1187,7 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static byte[] StructureToByteArray&lt;T&gt;(ref T value)
-    where T : struct</code></pre>
+    where T : struct, ValueType</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1159,7 +1240,7 @@
   <h4 id="FlaxEditor_Utilities_Utils_UpdateSearchPopupFilter_FlaxEditor_GUI_Tree_TreeNode_System_String_" data-uid="FlaxEditor.Utilities.Utils.UpdateSearchPopupFilter(FlaxEditor.GUI.Tree.TreeNode,System.String)"><a href="#collapsible-FlaxEditor_Utilities_Utils_UpdateSearchPopupFilter_FlaxEditor_GUI_Tree_TreeNode_System_String_" class="expander" data-toggle="collapse">UpdateSearchPopupFilter(TreeNode, String)</a></h4>
   
   <div id="collapsible-FlaxEditor_Utilities_Utils_UpdateSearchPopupFilter_FlaxEditor_GUI_Tree_TreeNode_System_String_" class="collapse in">
-  <div class="markdown level1 summary"><p>Updates (recursivly) search popup tree structures based on the filter text.</p>
+  <div class="markdown level1 summary"><p>Updates (recursively) search popup tree structures based on the filter text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

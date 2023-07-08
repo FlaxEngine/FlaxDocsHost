@@ -379,9 +379,6 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_Float2_">Control.PointFromParent(Float2)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_Float2__">Control.PointFromParent(Float2)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_GUI_ContainerControl_FlaxEngine_Float2_">Control.PointFromParent(ContainerControl, Float2)</a>
     </div>
     <div>
@@ -461,6 +458,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PivotRelative">Control.PivotRelative</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
@@ -596,27 +596,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_VisibleChanged">Control.VisibleChanged</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   </div>
@@ -1357,6 +1336,63 @@ public sealed class CanvasRootControl : RootControl, IComparable, IDrawable</cod
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.RootControl.html#FlaxEngine_GUI_RootControl_GetMouseButtonUp_FlaxEngine_MouseButton_">RootControl.GetMouseButtonUp(MouseButton)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CanvasRootControl_Intersects3D_" data-uid="FlaxEngine.GUI.CanvasRootControl.Intersects3D*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CanvasRootControl_Intersects3D_FlaxEngine_Ray__FlaxEngine_Float2__" data-uid="FlaxEngine.GUI.CanvasRootControl.Intersects3D(FlaxEngine.Ray@,FlaxEngine.Float2@)"><a href="#collapsible-FlaxEngine_GUI_CanvasRootControl_Intersects3D_FlaxEngine_Ray__FlaxEngine_Float2__" class="expander" data-toggle="collapse">Intersects3D(ref Ray, out Float2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CanvasRootControl_Intersects3D_FlaxEngine_Ray__FlaxEngine_Float2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if the 3D canvas intersects with a given 3D mouse ray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects3D(ref Ray ray, out Float2 canvasLocation)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Ray.html">Ray</a></span>
+        <span class="parametername">ray</span>
+        <p><p>The input ray to test (in world-space).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">canvasLocation</span>
+        <p><p>Output canvas-space local position.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if canvas intersects with that point, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
   
   
   
@@ -2312,6 +2348,57 @@ public sealed class CanvasRootControl : RootControl, IComparable, IDrawable</cod
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_OnTouchUp_FlaxEngine_Float2_System_Int32_">ContainerControl.OnTouchUp(Float2, Int32)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_CanvasRootControl_PointFromParent_" data-uid="FlaxEngine.GUI.CanvasRootControl.PointFromParent*"></a>
+  
+  <h4 id="FlaxEngine_GUI_CanvasRootControl_PointFromParent_FlaxEngine_Float2__" data-uid="FlaxEngine.GUI.CanvasRootControl.PointFromParent(FlaxEngine.Float2@)"><a href="#collapsible-FlaxEngine_GUI_CanvasRootControl_PointFromParent_FlaxEngine_Float2__" class="expander" data-toggle="collapse">PointFromParent(ref Float2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_CanvasRootControl_PointFromParent_FlaxEngine_Float2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Converts point in parent control coordinates into local control&apos;s space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Float2 PointFromParent(ref Float2 locationParent)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">locationParent</span>
+        <p><p>The input location of the point to convert.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Float2.html">Float2</a>
+        <p><p>The converted point location in control&apos;s space.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_Float2__">Control.PointFromParent(ref Float2)</a></div>
   
   
   

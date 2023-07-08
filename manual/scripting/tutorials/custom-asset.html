@@ -304,7 +304,26 @@ public class MySettingsProxy : SpawnableJsonAssetProxy&lt;MySettings&gt;
 }
 </code></pre><p>You can easily customizable proxy methods by overriding them.</p>
 <p>Then register custom asset proxy within <a href="custom-plugin.html">Editor plugin</a> initialization (ensure to remove it on game code unloading - eg. during script hot-reload in Editor):</p>
-<pre><code class="lang-cs">Editor.Instance.ContentDatabase.Proxy.Add(new MySettingsProxy());
+<pre><code class="lang-cs">public class MyEditorPlugin : EditorPlugin
+{
+    private MySettingsProxy _proxy;
+
+    /// &lt;inheritdoc /&gt;
+    public override void InitializeEditor()
+    {
+        _proxy = new MySettingsProxy();
+        Editor.ContentDatabase.AddProxy(_proxy, true);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void DeinitializeEditor()
+    {
+        Editor.ContentDatabase.RemoveProxy(_proxy, true);
+        _proxy = null;
+
+        base.DeinitializeEditor();
+    }
+}
 </code></pre></article>
           </div>
           
@@ -313,7 +332,7 @@ public class MySettingsProxy : SpawnableJsonAssetProxy&lt;MySettings&gt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/tutorials/custom-asset.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/tutorials/custom-asset.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

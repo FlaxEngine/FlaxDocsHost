@@ -123,6 +123,8 @@
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkClient.html">NetworkClient</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkLagDriver.html">NetworkLagDriver</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkPeer.html">NetworkPeer</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkReplicationHierarchyUpdateResult.html">NetworkReplicationHierarchyUpdateResult</a></div>
+      <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkReplicationNode.html">NetworkReplicationNode</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.Networking.NetworkStream.html">NetworkStream</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.ParticleEffectParameter.html">ParticleEffectParameter</a></div>
       <div class="level2"><a class="xref" href="FlaxEngine.PhysicsScene.html">PhysicsScene</a></div>
@@ -139,36 +141,13 @@
     </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Object" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Object" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Object" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
   
   <h5 id="FlaxEngine_Object_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Object</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Object : Object</code></pre>
   </div>
 
   
@@ -520,6 +499,52 @@ Actual object destruction is always delayed until after the current Update loop,
   </div>
   
   
+  <a id="FlaxEngine_Object_Equals_" data-uid="FlaxEngine.Object.Equals*"></a>
+  
+  <h4 id="FlaxEngine_Object_Equals_System_Object_" data-uid="FlaxEngine.Object.Equals(System.Object)"><a href="#collapsible-FlaxEngine_Object_Equals_System_Object_" class="expander" data-toggle="collapse">Equals(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_Equals_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">obj</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Object_Finalize_" data-uid="FlaxEngine.Object.Finalize*"></a>
   
   <h4 id="FlaxEngine_Object_Finalize" data-uid="FlaxEngine.Object.Finalize"><a href="#collapsible-FlaxEngine_Object_Finalize" class="expander" data-toggle="collapse">Finalize()</a></h4>
@@ -531,7 +556,7 @@ Actual object destruction is always delayed until after the current Update loop,
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void Finalize()</code></pre>
   </div>
 
   
@@ -742,8 +767,6 @@ Actual object destruction is always delayed until after the current Update loop,
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Object.GetHashCode()</span></div>
   
   
   
@@ -858,6 +881,45 @@ Actual object destruction is always delayed until after the current Update loop,
   </div>
   
   
+  <a id="FlaxEngine_Object_MapObjectID_" data-uid="FlaxEngine.Object.MapObjectID*"></a>
+  
+  <h4 id="FlaxEngine_Object_MapObjectID_System_Guid__" data-uid="FlaxEngine.Object.MapObjectID(System.Guid@)"><a href="#collapsible-FlaxEngine_Object_MapObjectID_System_Guid__" class="expander" data-toggle="collapse">MapObjectID(ref Guid)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_MapObjectID_System_Guid__" class="collapse in">
+  <div class="markdown level1 summary"><p>Maps the object ID using the current Scripting::ObjectsLookupIdMapping (key to value). Used to map prefab object IDs into prefab instance object IDs, or when using network replication IDs table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MapObjectID(ref Guid id)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Guid</span></span>
+        <span class="parametername">id</span>
+        <p><p>Inout object identifier mapped as a result or unchanged if not mapped.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Object_New_" data-uid="FlaxEngine.Object.New*"></a>
   
   <h4 id="FlaxEngine_Object_New_System_String_" data-uid="FlaxEngine.Object.New(System.String)"><a href="#collapsible-FlaxEngine_Object_New_System_String_" class="expander" data-toggle="collapse">New(String)</a></h4>
@@ -870,7 +932,7 @@ All unused objects should be released using <a class="xref" href="FlaxEngine.Obj
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Object New([TypeReference(typeof(Object), null)] string typeName)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Object New([TypeReference] string typeName)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1021,7 +1083,7 @@ public static T New&lt;T&gt;()
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object NewValue([TypeReference(typeof(object), null)] Type type)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object NewValue([TypeReference] Type type)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1046,6 +1108,45 @@ public static T New&lt;T&gt;()
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Object_RemapObjectID_" data-uid="FlaxEngine.Object.RemapObjectID*"></a>
+  
+  <h4 id="FlaxEngine_Object_RemapObjectID_System_Guid__" data-uid="FlaxEngine.Object.RemapObjectID(System.Guid@)"><a href="#collapsible-FlaxEngine_Object_RemapObjectID_System_Guid__" class="expander" data-toggle="collapse">RemapObjectID(ref Guid)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_RemapObjectID_System_Guid__" class="collapse in">
+  <div class="markdown level1 summary"><p>Remaps the object ID using the current Scripting::ObjectsLookupIdMapping (value to key). Used to remap prefab instance IDs into prefab object IDs, or when using network replication IDs table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemapObjectID(ref Guid id)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Guid</span></span>
+        <span class="parametername">id</span>
+        <p><p>Inout object identifier mapped as a result or unchanged if not mapped.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   
@@ -1178,6 +1279,60 @@ public static T New&lt;T&gt;()
   </h3>
   
   
+  <a id="FlaxEngine_Object_op_Equality_" data-uid="FlaxEngine.Object.op_Equality*"></a>
+  
+  <h4 id="FlaxEngine_Object_op_Equality_FlaxEngine_Object_FlaxEngine_Object_" data-uid="FlaxEngine.Object.op_Equality(FlaxEngine.Object,FlaxEngine.Object)"><a href="#collapsible-FlaxEngine_Object_op_Equality_FlaxEngine_Object_FlaxEngine_Object_" class="expander" data-toggle="collapse">Equality(Object, Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_op_Equality_FlaxEngine_Object_FlaxEngine_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks whether the two objects are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Object left, Object right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Object.html">Object</a></span>
+        <span class="parametername">left</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Object.html">Object</a></span>
+        <span class="parametername">right</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Object_op_Implicit_" data-uid="FlaxEngine.Object.op_Implicit*"></a>
   
   <h4 id="FlaxEngine_Object_op_Implicit_FlaxEngine_Object__System_Boolean" data-uid="FlaxEngine.Object.op_Implicit(FlaxEngine.Object)~System.Boolean"><a href="#collapsible-FlaxEngine_Object_op_Implicit_FlaxEngine_Object__System_Boolean" class="expander" data-toggle="collapse">Implicit(Object to Boolean)</a></h4>
@@ -1211,6 +1366,60 @@ public static T New&lt;T&gt;()
         <span class="xref">System.Boolean</span>
         <p><p>True if object is valid, otherwise false.</p>
 </p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Object_op_Inequality_" data-uid="FlaxEngine.Object.op_Inequality*"></a>
+  
+  <h4 id="FlaxEngine_Object_op_Inequality_FlaxEngine_Object_FlaxEngine_Object_" data-uid="FlaxEngine.Object.op_Inequality(FlaxEngine.Object,FlaxEngine.Object)"><a href="#collapsible-FlaxEngine_Object_op_Inequality_FlaxEngine_Object_FlaxEngine_Object_" class="expander" data-toggle="collapse">Inequality(Object, Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Object_op_Inequality_FlaxEngine_Object_FlaxEngine_Object_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks whether the two objects are not equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Object left, Object right)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Object.html">Object</a></span>
+        <span class="parametername">left</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Object.html">Object</a></span>
+        <span class="parametername">right</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
       </td>
     </tr>
   </table>

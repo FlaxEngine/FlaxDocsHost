@@ -95,6 +95,16 @@
 <h2 id="tutorial">Tutorial</h2>
 <h3 id="1-create-new-c-script-texturefromcode">1. Create new C# script <code>TextureFromCode</code></h3>
 <h3 id="2-write-texture-data-generating-code">2. Write texture data generating code</h3>
+<div class="tabGroup" id="tabgroup_s2QHieejXF">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_s2QHieejXF_code-csharp" role="tab" aria-controls="tabpanel_s2QHieejXF_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_s2QHieejXF_code-cpp" role="tab" aria-controls="tabpanel_s2QHieejXF_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_s2QHieejXF_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">public class TextureFromCode : Script
 {
     private Texture _tempTexture;
@@ -106,7 +116,8 @@
     public override unsafe void OnStart()
     {
         // Ensure that model asset is loaded
-        Model.WaitForLoaded();
+        if (Model.WaitForLoaded())
+            return;
 
         // Create new texture asset
         var texture = Content.CreateVirtualAsset&lt;Texture&gt;();
@@ -143,7 +154,8 @@
                 SlicePitch = data.Length
             },
         };
-        texture.Init(ref initData);
+        if (texture.Init(ref initData))
+            return;
 
         // Use a dynamic material instance with a texture to sample
         var material = Material.CreateVirtualInstance();
@@ -163,7 +175,112 @@
         FlaxEngine.Object.Destroy(ref _tempMaterialInstance);
     }
 }
-</code></pre><h3 id="3-create-material">3. Create material</h3>
+</code></pre></section>
+<section id="tabpanel_s2QHieejXF_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// .h
+#pragma once
+
+#include &quot;Engine/Scripting/Script.h&quot;
+#include &quot;Engine/Content/AssetReference.h&quot;
+#include &quot;Engine/Content/Assets/Model.h&quot;
+#include &quot;Engine/Content/Assets/Material.h&quot;
+
+API_CLASS() class MYPROJECT_API TextureFromCodeCpp : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(TextureFromCodeCpp);
+private:
+    Texture* _tempTexture = nullptr;
+    MaterialInstance* _tempMaterialInstance = nullptr;
+
+public:
+    // The custom material to set it&#39;s texture.
+    API_FIELD() AssetReference&lt;Material&gt; Material;
+    // The custom model to set its material.
+    API_FIELD() AssetReference&lt;Model&gt; Model;
+
+    // [Script]
+    void OnStart() override;
+    void OnDestroy() override;
+};
+
+// .cpp
+#include &quot;TextureFromCodeCpp.h&quot;
+#include &quot;Engine/Core/Types/Variant.h&quot;
+#include &quot;Engine/Level/Actor.h&quot;
+#include &quot;Engine/Content/Content.h&quot;
+#include &quot;Engine/Content/Assets/MaterialInstance.h&quot;
+#include &quot;Engine/Graphics/PixelFormatExtensions.h&quot;
+#include &quot;Engine/Level/Actors/StaticModel.h&quot;
+
+TextureFromCodeCpp::TextureFromCodeCpp(const SpawnParams&amp; params)
+    : Script(params)
+{
+}
+
+void TextureFromCodeCpp::OnStart()
+{
+    CHECK(Material);
+    CHECK(Model);
+
+    // Ensure that model asset is loaded
+    if (Model-&gt;WaitForLoaded())
+        return;
+
+    // Create new texture asset
+    auto texture = Content::CreateVirtualAsset&lt;Texture&gt;();
+    _tempTexture = texture;
+    TextureBase::InitData initData;
+    initData.Width = 64;
+    initData.Height = 64;
+    initData.ArraySize = 1;
+    initData.Format = PixelFormat::R8G8B8A8_UNorm;
+    auto&amp; mipData = initData.Mips.AddOne();
+    {
+        // Initialize mip maps data container description
+        mipData.Data.Allocate(initData.Width * initData.Height * PixelFormatExtensions::SizeInBytes(initData.Format));
+        mipData.RowPitch = mipData.Data.Length() / initData.Height;
+        mipData.SlicePitch = mipData.Data.Length();
+    }
+    byte* data = mipData.Data.Get();
+    {
+        // Generate pixels data (linear gradient)
+        auto colorsPtr = (Color32*)data;
+        for (int y = 0; y &lt; initData.Height; y++)
+        {
+            float t1 = (float)y / initData.Height;
+            Color c1 = Color::Lerp(Color::Red, Color::Blue, t1);
+            Color c2 = Color::Lerp(Color::Yellow, Color::Green, t1);
+            for (int x = 0; x &lt; initData.Width; x++)
+            {
+                float t2 = (float)x / initData.Width;
+                colorsPtr[y * initData.Width + x] = Color32(Color::Lerp(c1, c2, t2));
+            }
+        }
+    }
+    if (texture-&gt;Init(MoveTemp(initData)))
+        return;
+
+    // Use a dynamic material instance with a texture to sample
+    auto material = Material-&gt;CreateVirtualInstance();
+    _tempMaterialInstance = material;
+    material-&gt;SetParameterValue(TEXT(&quot;tex&quot;), Variant(texture));
+
+    // Add a model actor and use the dynamic material for rendering
+    auto staticModel = GetActor()-&gt;GetOrAddChild&lt;StaticModel&gt;();
+    staticModel-&gt;Model = Model;
+    staticModel-&gt;SetMaterial(0, material);
+}
+
+void TextureFromCodeCpp::OnDestroy()
+{
+    // Ensure to cleanup resources
+    SAFE_DELETE(_tempMaterialInstance);
+    SAFE_DELETE(_tempTexture);
+}
+</code></pre></section>
+</div>
+<h3 id="3-create-material">3. Create material</h3>
 <p>Create a sample material that contains a public texture parameter named <code>tex</code>. It&#39;s used by the script to assign a texture to draw.</p>
 <p><img src="media/material1.png" alt="Material"></p>
 <h3 id="4-link-material-and-model">4. Link material and model</h3>
@@ -180,7 +297,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/graphics/textures/generate-texture.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/graphics/textures/generate-texture.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -236,6 +236,12 @@ Provides various functionalities for asset operations.</p>
       <a class="xref" href="FlaxEditor.GUI.Docking.DockWindow.html#FlaxEditor_GUI_Docking_DockWindow_OnShow">DockWindow.OnShow()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.GUI.Docking.DockWindow.html#FlaxEditor_GUI_Docking_DockWindow_LayoutSerializeSplitter_System_Xml_XmlWriter_System_String_FlaxEngine_GUI_SplitPanel_">DockWindow.LayoutSerializeSplitter(XmlWriter, String, SplitPanel)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.GUI.Docking.DockWindow.html#FlaxEditor_GUI_Docking_DockWindow_LayoutDeserializeSplitter_System_Xml_XmlElement_System_String_FlaxEngine_GUI_SplitPanel_">DockWindow.LayoutDeserializeSplitter(XmlElement, String, SplitPanel)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.GUI.Docking.DockWindow.html#FlaxEditor_GUI_Docking_DockWindow_Focus">DockWindow.Focus()</a>
     </div>
     <div>
@@ -704,6 +710,9 @@ Provides various functionalities for asset operations.</p>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PivotRelative">Control.PivotRelative</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
     </div>
     <div>
@@ -843,27 +852,6 @@ Provides various functionalities for asset operations.</p>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_VisibleChanged">Control.VisibleChanged</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   </div>
@@ -1479,16 +1467,16 @@ Provides various functionalities for asset operations.</p>
   
   <a id="FlaxEditor_Windows_ContentWindow_NewItem_" data-uid="FlaxEditor.Windows.ContentWindow.NewItem*"></a>
   
-  <h4 id="FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_" data-uid="FlaxEditor.Windows.ContentWindow.NewItem(FlaxEditor.Content.ContentProxy,System.Object,System.Action{FlaxEditor.Content.ContentItem},System.String)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_" class="expander" data-toggle="collapse">NewItem(ContentProxy, Object, Action&lt;ContentItem&gt;, String)</a></h4>
+  <h4 id="FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_System_Boolean_" data-uid="FlaxEditor.Windows.ContentWindow.NewItem(FlaxEditor.Content.ContentProxy,System.Object,System.Action{FlaxEditor.Content.ContentItem},System.String,System.Boolean)"><a href="#collapsible-FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_System_Boolean_" class="expander" data-toggle="collapse">NewItem(ContentProxy, Object, Action&lt;ContentItem&gt;, String, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_" class="collapse in">
+  <div id="collapsible-FlaxEditor_Windows_ContentWindow_NewItem_FlaxEditor_Content_ContentProxy_System_Object_System_Action_FlaxEditor_Content_ContentItem__System_String_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Starts creating new item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void NewItem(ContentProxy proxy, object argument = null, Action&lt;ContentItem&gt; created = null, string initialName = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void NewItem(ContentProxy proxy, object argument = null, Action&lt;ContentItem&gt; created = null, string initialName = null, bool withRenaming = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1522,6 +1510,14 @@ Provides various functionalities for asset operations.</p>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">initialName</span>
         <p><p>The initial item name.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">withRenaming</span>
+        <p><p>True if start initial item renaming by user, or tru to skip it.</p>
 </p>
       </td>
     </tr>

@@ -95,16 +95,25 @@ Using a version control system makes it easier for users to manage their code an
 <h2 id="example-gitignore">Example .gitignore</h2>
 <p>Here is an example <code>.gitignore</code> file for the <strong>Git</strong> repository with Flax project (<a href="https://github.com/FlaxEngine/FlaxSamples/blob/master/.gitignore">download link</a>).</p>
 <pre><code># Ignore Flax project files
-Binaries/
-Cache/
-Logs/
-Output/
-Screenshots/
+/Binaries/
+/Cache/
+/Logs/
+/Output/
+/Screenshots/
 *.HotReload.*
+Source/*.Gen.*
 
 # Ignore Visual Studio project files (generated locally)
 *.csproj
 *.sln
+launchSettings.json
+
+# Ignore Visual Code project files (generated locally)
+*.code-workspace
+*.vscode/
+
+# Ignore Rider project files (generated locally)
+*.idea/
 
 # Ignore thumbnails created by Windows
 Thumbs.db
@@ -128,11 +137,9 @@ Thumbs.db
 *.ilk
 *.log
 [Bb]in
-[Dd]ebug*/
 *.lib
 *.sbr
-obj/
-[Rr]elease*/
+/Source/obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 .vs/
@@ -163,7 +170,7 @@ packages/
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/get-started/version-control.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/get-started/version-control.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

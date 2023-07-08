@@ -90,74 +90,8 @@
 <h1 id="xbox-one">Xbox One</h1>
 
 <p><img src="media/Post_XboxOneSupport1.jpg" alt="Title"></p>
-<h2 id="technical-information">Technical information</h2>
-<p>Flax is compiled for Xbox One (via UWP) using Microsoft Visual C++ compiler. It uses <strong>v141</strong> (VC++ 2017) toolset and <strong>Windows 10 SDK</strong> with Multi-threaded DLL runtime. All dependent libraries are used via static linking by the Flax Engine binary.</p>
-<h2 id="build-options">Build options</h2>
-<p><img src="media/build-xbox-one.jpg" alt="Build Options"></p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Output</strong></td>
-<td>The built game output folder (relative to the project).</td>
-</tr>
-<tr>
-<td><strong>Show Output</strong></td>
-<td>If checked, after building the output folder will be shown in an Explorer.</td>
-</tr>
-<tr>
-<td><strong>Configuration Mode</strong></td>
-<td>Game building mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Release</strong></td><td>The release build ready for shipment.</td></tr><tr><td><strong>Debug</strong></td><td>The debug build for testing and profiling. Most of the code optimizations are disabled for the best debugging experience.</td></tr><tr><td><strong>Development</strong></td><td>The development build for testing and profiling but is more optimized for runtime than Debug build.</td></tr></tbody></table></td>
-</tr>
-</tbody>
-</table>
-<h2 id="platform-settings">Platform settings</h2>
-<p><img src="media/settings-uwp.jpg" alt="Settings"></p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Preferred Launch Windowing Mode</strong></td>
-<td><em>Not used on Xbox One. Always fullscreen mode.</em></td>
-</tr>
-<tr>
-<td><strong>Auto Rotation Preferences</strong></td>
-<td><em>Not used on Xbox One. No screen rotation.</em></td>
-</tr>
-<tr>
-<td><strong>Certificate Location</strong></td>
-<td>The location of the package certificate (relative to the project).</td>
-</tr>
-</tbody>
-</table>
-<h2 id="deployment">Deployment</h2>
-<p>Building you game to support Xbox One platform is rather straighforward process hovewer you will need to have an acess to Xbox One or Xbox One S device that has Developer Mode activated. Follow these steps to build your game for Xbox One:</p>
-<ul>
-<li>Prepare you game to support Xbox One (remove or fix platform dependant code and verify gamepad support)</li>
-<li>Prepare you Xbox Developer account and Xbox Dev Kit</li>
-<li>Learn about Xbox One development by following the official Microsoft guidelines and documentation <a href="https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/getting-started">here</a></li>
-<li>Ensure to have the newest <strong>Windows 10 SDK</strong> installed</li>
-<li>Open <em>Game Cooker</em>, and start <strong>Build</strong></li>
-<li>Application certificate generator window will popup, Flax uses Windows SDK toolset to generate a temporary certificates that you can use for your app. Every store app needs to have a valid own certificate for code signing required by Microsoft policy</li>
-<li>Enter your game certificate password (note: you can use a custom certificate if you need, just specify its location in build settings)</li>
-<li>Wait for game cooking end (please note that Xbox One does not support runtime code generation so Flax needs to perform AOT on all C# assemblies including your game code)</li>
-<li>Open generated UWP project solution located in the build output directory</li>
-<li>Ensure to use <code>Debug</code> configuration mode (<code>Release</code> mode is not supported now due to dynamic libraries merging by the toolchain not maintained by Flax)</li>
-<li>Build solution (optionally perform Rebuild)</li>
-<li>Pick Xbox One device for remote deploy (connect your PC to the same network as Xbox One, eg. via WiFi). Follow Microsoft guidelines and documentation in this area.</li>
-<li>Press <strong>Remote Machine</strong> to start the app on device</li>
-</ul>
-<p>After editing project content or source code, the amount of data to rebuild is relatively slow so your iteration times should be fairly good if you are porting your game to support Xbox One. Remember to follow Microsoft guidelines and documentation.</p>
+<p>Xbox One platform support documentation is located in NDA-restricted folder in Flax source repository.
+If you want to develop your game on Xbox One please <a href="https://flaxengine.com/contact/">contact</a> (avaliable only for developers approved by Microsoft with access to GDK).</p>
 </article>
           </div>
           
@@ -166,7 +100,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/platforms/xbox-one.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/platforms/xbox-one.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

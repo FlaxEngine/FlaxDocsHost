@@ -115,10 +115,10 @@ Press <strong>Create</strong> button to make a file with default values of the t
 <p>Note: if you are developing a plugin you can create a default plugin settings asset and ship it with the plugin so it can be used to adjust plugin options in the project that uses it.</p>
 <p>You can also inject custom settings asset proxy controller for Editor which allows to extend the asset type with custom actions, editor window, creation method, etc:</p>
 <pre><code class="lang-cs">var assetProxy = new CustomSettingsProxy(typeof(MySettings), &quot;My Settings&quot;);
-Editor.ContentDatabase.Proxy.Add(assetProxy);
+Editor.ContentDatabase.AddProxy(assetProxy);
 
 // then ensure to cleanup on deinitialization (eg. of the plugin)
-// Editor.ContentDatabase.Proxy.Remove(assetProxy);
+// Editor.ContentDatabase.RemoveProxy(assetProxy);
 </code></pre><h3 id="3-edit-settings-in-editor">3. Edit settings in Editor</h3>
 <p>Now you can use Flax Editor to open and edit the settings. Simply <strong>double click on an asset in the Content Window</strong> to open the editor window and modify the settings.</p>
 <p><img src="media/custom-settings-edit.png" alt="Edit Custom Settings"></p>
@@ -164,7 +164,7 @@ IMPLEMENT_GAME_SETTINGS_GETTER(MySettings, &quot;MySettings&quot;);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

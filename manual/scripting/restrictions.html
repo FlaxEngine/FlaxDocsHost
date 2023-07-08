@@ -106,17 +106,21 @@
 <p>Ahead-of-time (<strong>AOT</strong>) compile is a technique used to precompile all the managed code during game building process instead of using just-in-time (<strong>JIT</strong>) compilation on the target device. That&#39;s because some platforms do not allow runtime code generation. In most cases this has no effect on game scripting but in a few specific cases, AOT platforms require additional consideration.</p>
 <p>Because code generation is disabled in AOT mode (scripting backend throws an exception) the following features are not supported:</p>
 <ul>
-<li>Methods from <code>System.Reflection.Emit</code> namespace are unsupported.</li>
+<li>No dynamic loading (eg. <code>Assembly.LoadFile</code>).</li>
+<li>No runtime code generation (eg. <code>System.Reflection.Emit</code>).</li>
 <li>Generic virtual methods have restrictions.</li>
 <li>When using generic types you need to declare generic attributes types to precompile them.</li>
+<li>C# debugger is not available - but debug symbols are available for native debugger (eg. full Stack Traces).</li>
 </ul>
+<p>When compiling with AOT mode enabled C# scripts have a preprocessor defined <code>USE_AOT</code>. It can be used to redirect different API usage depending o the target platform build.</p>
 <p>Platforms that use AOT:</p>
 <ul>
 <li>Xbox One</li>
 <li>Xbox Scarlett</li>
-<li>UWP</li>
 <li>PlayStation 4</li>
+<li>PlayStation 5</li>
 <li>Switch</li>
+<li>iOS</li>
 </ul>
 </article>
           </div>
@@ -126,7 +130,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/restrictions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/restrictions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

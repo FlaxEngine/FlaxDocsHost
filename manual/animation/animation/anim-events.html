@@ -102,7 +102,7 @@
 <h3 id="data-and-cache">Data and cache</h3>
 <p>Engine creates <code>AnimEvent</code> object instances within <code>Animation</code> asset during loading. Those are reused by animated models when playing the animation thus caching any data or state within a custom animation event needs to be done with caution. For example, <code>AnimContinuousEvent</code> can store data in <code>OnBegin</code> and clear in <code>OnEnd</code> (guaranteed to be always called). But keep in mind that a single <code>AnimEvent</code> object can receive multiple different callbacks from different animated objects at the same time - literally at the same time because Animation System schedules Anim Graph updates with async Job System. This means that data stored in Anim Event or reused globally (eg. character state accessed via <code>AnimatedModel</code>) needs to be accessed cautiously (see Multithreading section above).</p>
 <h2 id="how-to-create-anim-event-type">How to create Anim Event type?</h2>
-<p>Game and plugins can define custom anim event types with instanced data and custom gameplay logic. Here is an example of custom anim event which plays a sound clip on event at the given skeleton node location. It can be sued to play character footsteps sounds or be extended to spawn VFX and Decal too.</p>
+<p>Game and plugins can define custom anim event types with instanced data and custom gameplay logic. Here is an example of custom anim event which plays a sound clip on event at the given skeleton node location. It can be used to play character footsteps sounds or be extended to spawn VFX and Decal too.</p>
 <div class="tabGroup" id="tabgroup_USdlhK1d5-">
 <ul role="tablist">
 <li role="presentation">
@@ -240,7 +240,7 @@ DECLARE_SCRIPTING_TYPE(PlaySoundAnimEvent);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/animation/animation/anim-events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/animation/animation/anim-events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

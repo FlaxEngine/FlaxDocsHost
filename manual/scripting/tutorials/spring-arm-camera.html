@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create Spring Arm camera | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create Spring Arm camera | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Create Spring Arm camera | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-spring-arm-camera">HOWTO: Create Spring Arm camera</h1>
+
+<h3 id="1-create-script">1. Create script</h3>
+<p>Firstly, create a new script and add code that reads mouse input to rotate camera and performs the physics collision raycast to adjust camera placement (prevent intersecting with world collisions).</p>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Arc-ball 3rd person-style camera controller script that handles collisions with world.
+/// &lt;/summary&gt;
+public class SpringArmCamera : Script
+{
+    private Float2 _mouse = new Float2(45, 45);
+
+    /// &lt;summary&gt;
+    /// Target actor to follow.
+    /// &lt;/summary&gt;
+    public Actor TargetActor;
+
+    /// &lt;summary&gt;
+    /// Target camera actor.
+    /// &lt;/summary&gt;
+    public Camera CamerActor;
+
+    /// &lt;summary&gt;
+    /// Initial spring arm radius to roam around.
+    /// &lt;/summary&gt;
+    public float Distance = 1000;
+
+    /// &lt;summary&gt;
+    /// The minimum distance for spring arm correction.
+    /// &lt;/summary&gt;
+    public float MinDistance = 10.0f;
+
+    /// &lt;summary&gt;
+    /// The maximum distance for spring arm correction.
+    /// &lt;/summary&gt;
+    public float MaxDistance = 2000.0f;
+
+    /// &lt;summary&gt;
+    /// Mouse movement speed scale.
+    /// &lt;/summary&gt;
+    public float MouseSpeed = 0.5f;
+
+    /// &lt;summary&gt;
+    /// Mouse wheel movement speed scale.
+    /// &lt;/summary&gt;
+    public float MouseWheelSpeed = 1.0f;
+
+    /// &lt;summary&gt;
+    /// The physics layers that with which spring arm will collide.
+    /// &lt;/summary&gt;
+    public LayersMask CollisionLayers = LayersMask.Default;
+
+    /// &lt;summary&gt;
+    /// The additional distance to apply when colliding with geometry in order to prevent camera intersecting with it.
+    /// &lt;/summary&gt;
+    public float CollisionDistanceBias = 10.0f;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnStart()
+    {
+        // Auto-link actors
+        if (!TargetActor)
+            TargetActor = Actor;
+        if (!CamerActor)
+        {
+            CamerActor = Scene.FindActor&lt;Camera&gt;();
+            if (CamerActor == null)
+                Debug.LogError(&quot;Missing camera&quot;);
+        }
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnUpdate()
+    {
+        if (!CamerActor || !TargetActor)
+            return;
+
+        // Update input
+        _mouse += Input.MousePositionDelta * MouseSpeed;
+        _mouse.Y = Mathf.Clamp(_mouse.Y, -89, 89);
+        Distance += Input.MouseScrollDelta * -20.0f * MouseWheelSpeed;
+        Distance = Mathf.Clamp(Distance, MinDistance, MaxDistance);
+
+        // Update arc-ball camera
+        Quaternion rotation = Quaternion.Euler(-_mouse.Y, _mouse.X, 0);
+        Vector3 targetPosition = TargetActor.Position;
+        Vector3 direction = Vector3.Transform(Vector3.Forward, rotation) * Distance;
+        Vector3 newPosition = targetPosition + direction;
+        direction = (newPosition - targetPosition).Normalized;
+        CamerActor.Position = targetPosition + direction * Distance;
+        CamerActor.LookAt(targetPosition, Vector3.Up);
+
+        // Snap Camera if it intercepts with an environment
+        if (Physics.RayCast(targetPosition, direction, out RayCastHit hit, Distance, CollisionLayers))
+        {
+            var bias = CollisionDistanceBias + CamerActor.NearPlane;
+            var distance = Mathf.Max(hit.Distance - bias, MinDistance);
+            CamerActor.Position = targetPosition + direction * distance;
+        }
+    }
+}
+</code></pre><h3 id="2-setup">2. Setup</h3>
+<p>Add script to the player actor and optionally link the camera actor to control. Otherwise script will pick the first camera it founds on a scene.</p>
+<h3 id="3-test-it-out">3. Test it out!</h3>
+<p>Finally, start the game and test the result.</p>
+<p><img src="media/spring-arm-camera.gif" alt="Spring Arm Camera Script Flax Engine"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/tutorials/spring-arm-camera.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

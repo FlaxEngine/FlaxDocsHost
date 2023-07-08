@@ -104,32 +104,6 @@
     </div>
   </div>
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Input" data-uid="System.Object.Equals(System.Object)"><a href="#collapsible-inheritedMembers-FlaxEngine_Input" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-FlaxEngine_Input" class="collapse">
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Namespace</strong>: <a class="xref" href="FlaxEngine.html">FlaxEngine</a></h6>
   <h6><strong>Assembly</strong>: FlaxEngine.CSharp.dll</h6>
@@ -137,7 +111,7 @@
   <h5 id="FlaxEngine_Input_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static class Input</code></pre>
+public static class Input : Object</code></pre>
   </div>
 
   
@@ -616,6 +590,60 @@ public static bool GetAction(string name)</code></pre>
   
   
   <h5 id="FlaxEngine_Input_GetAction_System_String__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="FlaxEngine.Input.html#FlaxEngine_Input_ActionMappings">ActionMappings</a></div>
+  </div>
+  </div>
+  
+  
+  <a id="FlaxEngine_Input_GetActionState_" data-uid="FlaxEngine.Input.GetActionState*"></a>
+  
+  <h4 id="FlaxEngine_Input_GetActionState_System_String_" data-uid="FlaxEngine.Input.GetActionState(System.String)"><a href="#collapsible-FlaxEngine_Input_GetActionState_System_String_" class="expander" data-toggle="collapse">GetActionState(String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_GetActionState_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the value of the virtual action identified by name. Use <a class="xref" href="FlaxEngine.Input.html#FlaxEngine_Input_ActionMappings">ActionMappings</a> to get the current config.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static InputActionState GetActionState(string name)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>The action name.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.InputActionState.html">InputActionState</a>
+        <p><p>A InputActionPhase determining the current phase of the Action (e.g If it was just pressed, is being held or just released).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Input_GetActionState_System_String__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="FlaxEngine.Input.html#FlaxEngine_Input_ActionMappings">ActionMappings</a></div>
   </div>
@@ -1588,6 +1616,43 @@ public static event Action&lt;string&gt; ActionTriggered</code></pre>
   
   
   
+  <h4 id="FlaxEngine_Input_CharInput" data-uid="FlaxEngine.Input.CharInput"><a href="#collapsible-FlaxEngine_Input_CharInput" class="expander" data-toggle="collapse">CharInput</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_CharInput" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired on character input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;char&gt; CharInput</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<span class="xref">System.Char</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEngine_Input_GamepadsChanged" data-uid="FlaxEngine.Input.GamepadsChanged"><a href="#collapsible-FlaxEngine_Input_GamepadsChanged" class="expander" data-toggle="collapse">GamepadsChanged</a></h4>
   
   <div id="collapsible-FlaxEngine_Input_GamepadsChanged" class="collapse in">
@@ -1611,6 +1676,413 @@ public static event Action GamepadsChanged</code></pre>
     <tr>
       <td>
         <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_KeyDown" data-uid="FlaxEngine.Input.KeyDown"><a href="#collapsible-FlaxEngine_Input_KeyDown" class="expander" data-toggle="collapse">KeyDown</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_KeyDown" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired on key pressed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;KeyboardKeys&gt; KeyDown</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.KeyboardKeys.html">KeyboardKeys</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_KeyUp" data-uid="FlaxEngine.Input.KeyUp"><a href="#collapsible-FlaxEngine_Input_KeyUp" class="expander" data-toggle="collapse">KeyUp</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_KeyUp" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired on key released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;KeyboardKeys&gt; KeyUp</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.KeyboardKeys.html">KeyboardKeys</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseDoubleClick" data-uid="FlaxEngine.Input.MouseDoubleClick"><a href="#collapsible-FlaxEngine_Input_MouseDoubleClick" class="expander" data-toggle="collapse">MouseDoubleClick</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseDoubleClick" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse button double clicks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, MouseButton&gt; MouseDoubleClick</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <a class="xref" href="FlaxEngine.MouseButton.html">MouseButton</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseDown" data-uid="FlaxEngine.Input.MouseDown"><a href="#collapsible-FlaxEngine_Input_MouseDown" class="expander" data-toggle="collapse">MouseDown</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseDown" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse button goes down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, MouseButton&gt; MouseDown</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <a class="xref" href="FlaxEngine.MouseButton.html">MouseButton</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseLeave" data-uid="FlaxEngine.Input.MouseLeave"><a href="#collapsible-FlaxEngine_Input_MouseLeave" class="expander" data-toggle="collapse">MouseLeave</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseLeave" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse leaves window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action MouseLeave</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseMove" data-uid="FlaxEngine.Input.MouseMove"><a href="#collapsible-FlaxEngine_Input_MouseMove" class="expander" data-toggle="collapse">MouseMove</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseMove" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse moves.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2&gt; MouseMove</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseUp" data-uid="FlaxEngine.Input.MouseUp"><a href="#collapsible-FlaxEngine_Input_MouseUp" class="expander" data-toggle="collapse">MouseUp</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseUp" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse button goes up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, MouseButton&gt; MouseUp</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <a class="xref" href="FlaxEngine.MouseButton.html">MouseButton</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_MouseWheel" data-uid="FlaxEngine.Input.MouseWheel"><a href="#collapsible-FlaxEngine_Input_MouseWheel" class="expander" data-toggle="collapse">MouseWheel</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_MouseWheel" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when mouse wheel is scrolling (wheel delta is normalized).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, float&gt; MouseWheel</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <span class="xref">System.Single</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_TouchDown" data-uid="FlaxEngine.Input.TouchDown"><a href="#collapsible-FlaxEngine_Input_TouchDown" class="expander" data-toggle="collapse">TouchDown</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_TouchDown" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when touch action begins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, int&gt; TouchDown</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <span class="xref">System.Int32</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_TouchMove" data-uid="FlaxEngine.Input.TouchMove"><a href="#collapsible-FlaxEngine_Input_TouchMove" class="expander" data-toggle="collapse">TouchMove</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_TouchMove" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when touch action moves.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, int&gt; TouchMove</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <span class="xref">System.Int32</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_Input_TouchUp" data-uid="FlaxEngine.Input.TouchUp"><a href="#collapsible-FlaxEngine_Input_TouchUp" class="expander" data-toggle="collapse">TouchUp</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Input_TouchUp" class="collapse in">
+  <div class="markdown level1 summary"><p>Event fired when touch action ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Float2, int&gt; TouchUp</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Float2.html">Float2</a>, <span class="xref">System.Int32</span>&gt;
         <p>
       </td>
     </tr>

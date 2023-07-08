@@ -140,6 +140,12 @@
       <a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_RefreshThumbnail">ContentItem.RefreshThumbnail()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_UpdateTooltipText">ContentItem.UpdateTooltipText()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_OnBuildTooltipText_System_Text_StringBuilder_">ContentItem.OnBuildTooltipText(StringBuilder)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_Find_System_String_">ContentItem.Find(String)</a>
     </div>
     <div>
@@ -506,6 +512,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_LocalLocation">Control.LocalLocation</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PivotRelative">Control.PivotRelative</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Width">Control.Width</a>
     </div>
     <div>
@@ -648,24 +657,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_VisibleChanged">Control.VisibleChanged</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   </div>
@@ -820,6 +811,43 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
   </div>
   
   
+  <a id="FlaxEditor_Content_AssetItem_IsLoaded_" data-uid="FlaxEditor.Content.AssetItem.IsLoaded*"></a>
+  
+  <h4 id="FlaxEditor_Content_AssetItem_IsLoaded" data-uid="FlaxEditor.Content.AssetItem.IsLoaded"><a href="#collapsible-FlaxEditor_Content_AssetItem_IsLoaded" class="expander" data-toggle="collapse">IsLoaded</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_AssetItem_IsLoaded" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns true if asset is now loaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLoaded { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Content_AssetItem_ItemType_" data-uid="FlaxEditor.Content.AssetItem.ItemType*"></a>
   
   <h4 id="FlaxEditor_Content_AssetItem_ItemType" data-uid="FlaxEditor.Content.AssetItem.ItemType"><a href="#collapsible-FlaxEditor_Content_AssetItem_ItemType" class="expander" data-toggle="collapse">ItemType</a></h4>
@@ -851,6 +879,45 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_ItemType">ContentItem.ItemType</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Content_AssetItem_TypeDescription_" data-uid="FlaxEditor.Content.AssetItem.TypeDescription*"></a>
+  
+  <h4 id="FlaxEditor_Content_AssetItem_TypeDescription" data-uid="FlaxEditor.Content.AssetItem.TypeDescription"><a href="#collapsible-FlaxEditor_Content_AssetItem_TypeDescription" class="expander" data-toggle="collapse">TypeDescription</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_AssetItem_TypeDescription" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the content item type description (for UI).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string TypeDescription { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_TypeDescription">ContentItem.TypeDescription</a></div>
   
   
   
@@ -1046,32 +1113,31 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
   </div>
   
   
-  <a id="FlaxEditor_Content_AssetItem_OnBuildTooltipText_" data-uid="FlaxEditor.Content.AssetItem.OnBuildTooltipText*"></a>
+  <a id="FlaxEditor_Content_AssetItem_LoadAsync_" data-uid="FlaxEditor.Content.AssetItem.LoadAsync*"></a>
   
-  <h4 id="FlaxEditor_Content_AssetItem_OnBuildTooltipText_System_Text_StringBuilder_" data-uid="FlaxEditor.Content.AssetItem.OnBuildTooltipText(System.Text.StringBuilder)"><a href="#collapsible-FlaxEditor_Content_AssetItem_OnBuildTooltipText_System_Text_StringBuilder_" class="expander" data-toggle="collapse">OnBuildTooltipText(StringBuilder)</a></h4>
+  <h4 id="FlaxEditor_Content_AssetItem_LoadAsync" data-uid="FlaxEditor.Content.AssetItem.LoadAsync"><a href="#collapsible-FlaxEditor_Content_AssetItem_LoadAsync" class="expander" data-toggle="collapse">LoadAsync()</a></h4>
   
-  <div id="collapsible-FlaxEditor_Content_AssetItem_OnBuildTooltipText_System_Text_StringBuilder_" class="collapse in">
-  <div class="markdown level1 summary"><p>Called when building tooltip text.</p>
+  <div id="collapsible-FlaxEditor_Content_AssetItem_LoadAsync" class="collapse in">
+  <div class="markdown level1 summary"><p>Loads the asset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnBuildTooltipText(StringBuilder sb)</code></pre>
+    <pre><code class="lang-csharp hljs">public Asset LoadAsync()</code></pre>
   </div>
 
-  <h5 class="parameters">Parameters</h5>
+  
+  <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Text.StringBuilder</span></span>
-        <span class="parametername">sb</span>
-        <p><p>The String Builder.</p>
+        <a class="xref" href="FlaxEngine.Asset.html">Asset</a>
+        <p><p>The asset object.</p>
 </p>
       </td>
     </tr>
   </table>
-  
   
   
   
@@ -1224,6 +1290,34 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
   </div>
   
   
+  <a id="FlaxEditor_Content_AssetItem_Reload_" data-uid="FlaxEditor.Content.AssetItem.Reload*"></a>
+  
+  <h4 id="FlaxEditor_Content_AssetItem_Reload" data-uid="FlaxEditor.Content.AssetItem.Reload"><a href="#collapsible-FlaxEditor_Content_AssetItem_Reload" class="expander" data-toggle="collapse">Reload()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Content_AssetItem_Reload" class="collapse in">
+  <div class="markdown level1 summary"><p>Reloads the asset (if it&apos;s loaded).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reload()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Content_AssetItem_ToString_" data-uid="FlaxEditor.Content.AssetItem.ToString*"></a>
   
   <h4 id="FlaxEditor_Content_AssetItem_ToString" data-uid="FlaxEditor.Content.AssetItem.ToString"><a href="#collapsible-FlaxEditor_Content_AssetItem_ToString" class="expander" data-toggle="collapse">ToString()</a></h4>
@@ -1254,36 +1348,6 @@ public abstract class AssetItem : ContentItem, IComparable, IDrawable</code></pr
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_ToString">ContentItem.ToString()</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEditor_Content_AssetItem_UpdateTooltipText_" data-uid="FlaxEditor.Content.AssetItem.UpdateTooltipText*"></a>
-  
-  <h4 id="FlaxEditor_Content_AssetItem_UpdateTooltipText" data-uid="FlaxEditor.Content.AssetItem.UpdateTooltipText"><a href="#collapsible-FlaxEditor_Content_AssetItem_UpdateTooltipText" class="expander" data-toggle="collapse">UpdateTooltipText()</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Content_AssetItem_UpdateTooltipText" class="collapse in">
-  <div class="markdown level1 summary"><p>Updates the tooltip text text.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void UpdateTooltipText()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEditor.Content.ContentItem.html#FlaxEditor_Content_ContentItem_UpdateTooltipText">ContentItem.UpdateTooltipText()</a></div>
   
   
   

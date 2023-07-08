@@ -214,6 +214,9 @@ GameSettings.LoadAsset&lt;NetworkSettings&gt;().SetInstance(networkSettings);
 <h2 id="network-replicator">Network Replicator</h2>
 <p><code>NetworkReplicator</code> is system responsible for replicating networked objects and sending/receiving RPCs. It supports objects network role and ownership concepts but also cotains API to spawn/despawn objects at runtime.</p>
 <p>To register object (script or actor) for network call <code>NetworkReplicator.AddObject</code> (eg. in <code>OnEnable</code> method). It will be automatically added to replication and will be able to invoke or execute RPCs. If you want to register dynamically spawned scene object (eg. player prefab) then call <code>NetworkReplicator.SpawnObject</code> (<code>DespawnObject</code> to remove it).</p>
+<p>Statically placed objects on a level (eg. door actor) can register themselves (eg. in <code>OnEnable</code>/<code>BeginPlay</code> method) so when the network is online those objects will be properly replicated with RPCs support since they exist on server and clients (assuming all of them loaded that level).</p>
+<div class="TIP"><h5>Tip</h5><p><code>NetworkReplicator</code> APIs are ignored when <code>NetworkManager</code> is offline.</p>
+</div>
 <pre><code class="lang-cs">public class MyPlayer : Script
 {
     /// &lt;inheritdoc /&gt;
@@ -243,6 +246,140 @@ public class MyGameManager : Script
     }
 }
 </code></pre><p>Each object can query own role and ownership via <code>GetObjectRole</code>/<code>GetObjectOwnerClientId</code> including utilities such as <code>IsObjectOwned</code>/<code>IsObjectSimulated</code>/<code>IsObjectReplicated</code>. Object owner can also update its ownership via <code>SetObjectOwnership</code>.</p>
+<h2 id="replication-hierarchy">Replication Hierarchy</h2>
+<p><code>NetworkReplicationHierarchy</code> is a feature that allows the game to configure objects replication mechanism. It&#39;s an optional extension to <code>NetworkReplicator</code> accessible via <code>Hierarchy</code> property and can be set by game to a custom nodes hierarchy. It&#39;s used to store objects for replication in a more optimized structure (eg. grid or hierarchical tree) and it can be used to control the replication rate and target clients for each object individually.</p>
+<p><code>NetworkReplicationHierarchy</code> runs on both server and client but contains only objects that are <em>owned locally</em> - no need to manage objects that should not be replicated by remote clients.</p>
+<p>For example, when a large game level contains 10k networked objects (eg. POIs) then replicating all of them to all connected clients would kill the performance. To solve this problem a simple replication hierarchy can be created that would control Replication FPS for each object and skip unnecessary replications for clients that are too far away. Below is the sample code:</p>
+<div class="TIP"><h5>Tip</h5><p>Use <code>NetworkReplicator.DirtyObject(obj)</code> to mark object as modified for immediate replication (eg. when an object has low Replication FPS but needs to replicate state quickly). You can also set <code>ReplicationFPS</code> of an object to be less than <code>0</code> if you only want it to be replicated on spawn.</p>
+</div>
+<div class="tabGroup" id="tabgroup_xsTwwwFj38">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xsTwwwFj38_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Custom replication hierarchy type
+public class MyReplicationHierarchy : NetworkReplicationHierarchy
+{
+    private NetworkReplicationGridNode _grid = new NetworkReplicationGridNode();
+
+    ~MyReplicationHierarchy()
+    {
+        // Cleanup memory
+        Destroy(_grid);
+    }
+
+    // Called by NetworkReplicator to insert object into hierarchy
+    public override void AddObject(NetworkReplicationHierarchyObject obj)
+    {
+        // Scale down update rate (it can be setup per-object type or from object interface method)
+        obj.ReplicationFPS = 30;
+
+        var actor = obj.Actor;
+        if (actor != null &amp;&amp; actor.HasStaticFlag(StaticFlags.Transform))
+        {
+            // Insert static objects into a grid for faster replication
+            _grid.AddObject(obj);
+            return;
+        }
+
+        base.AddObject(obj);
+    }
+
+    // Called by NetworkReplicator to remove object from hierarchy
+    public override bool RemoveObject(Object obj)
+    {
+        if (_grid.RemoveObject(obj))
+            return true;
+        return base.RemoveObject(obj);
+    }
+
+    // Called every network update to gather objects for replication
+    public override void Update(NetworkReplicationHierarchyUpdateResult result)
+    {
+        // Setup players locations for distance culling
+        var clients = NetworkManager.Clients;
+        for (var i = 0; i &lt; clients.Length; i++)
+        {
+            var client = clients[i];
+            // TODO: use real-life location of the player
+            result.SetClientLocation(i, Vector3.Zero);
+        }
+
+        // Update hierarchy
+        _grid.Update(result);
+        base.Update(result);
+    }
+}
+
+// Then in your game code before starting the multiplayer:
+NetworkReplicator.SetHierarchy(new MyReplicationHierarchy());
+</code></pre></section>
+<section id="tabpanel_xsTwwwFj38_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">
+#include &quot;Engine/Networking/NetworkReplicationHierarchy.h&quot;
+#include &quot;Engine/Networking/NetworkManager.h&quot;
+#include &quot;Engine/Level/Actor.h&quot;
+
+// Custom replication hierarchy type
+API_CLASS() class GAME_API MyReplicationHierarchy : public NetworkReplicationHierarchy
+{
+    DECLARE_SCRIPTING_TYPE_WITH_CONSTRUCTOR_IMPL(MyReplicationHierarchy, NetworkReplicationHierarchy);
+private:
+    NetworkReplicationGridNode _grid;
+
+public:
+    // Called by NetworkReplicator to insert object into hierarchy
+    void AddObject(NetworkReplicationHierarchyObject obj) override
+    {
+        // Scale down update rate (it can be setup per-object type or from object interface method)
+        obj.ReplicationFPS = 30;
+
+        const Actor* actor = obj.GetActor();
+        if (actor &amp;&amp; actor-&gt;HasStaticFlag(StaticFlags::Transform))
+        {
+            // Insert static objects into a grid for faster replication
+            _grid.AddObject(obj);
+            return;
+        }
+
+        NetworkReplicationHierarchy::AddObject(obj);
+    }
+
+    // Called by NetworkReplicator to remove object from hierarchy
+    bool RemoveObject(ScriptingObject* obj) override
+    {
+        if (_grid.RemoveObject(obj))
+            return true;
+        return NetworkReplicationHierarchy::RemoveObject(obj);
+    }
+
+    // Called every network update to gather objects for replication
+    void Update(NetworkReplicationHierarchyUpdateResult* result) override
+    {
+        // Setup players locations for distance culling
+        const auto&amp; clients = NetworkManager::Clients;
+        for (int32 i = 0; i &lt; clients.Count(); i++)
+        {
+            NetworkClient* client = clients[i];
+            // TODO: use real-life location of the player
+            result-&gt;SetClientLocation(i, Vector3::Zero);
+        }
+
+        // Update hierarchy
+        _grid.Update(result);
+        NetworkReplicationHierarchy::Update(result);
+    }
+};
+
+// Then in your game code before starting the multiplayer:
+NetworkReplicator::SetHierarchy(New&lt;MyReplicationHierarchy&gt;());
+</code></pre></section>
+</div>
 <h2 id="object-ownership">Object Ownership</h2>
 <p>In a fully-authoritative setup server owns all gameplay objects replicated over the network thus clients cannot enforce property changes on other clients directly. Hoverwer, the game might want to retain overship for local client pawns/characters and let servers do the sync or validation only. This might simplify gameplay simulation of the player inputs (players control local pawns) but still allows the server to validate state before replicating it to other clients.</p>
 <p>Objects might rely on the ownership thus can be split into:</p>
@@ -277,34 +414,52 @@ public class MyGameManager : Script
 <h2 id="object-serialization">Object Serialization</h2>
 <p>Game objects and types can define their own serialization/deserialization methods to customize how data is passed through the network via <code>INetworkSerializable</code> interface or by registering via <code>NetworkReplicator::AddSerializer</code>. Serialization methods use <code>NetworkStream</code> which supports streaming raw bytes, structure, in-built types, collections and custom types. When sending larger objects data (bigger than default message size of <code>INetworkDriver</code> which is usually 1500 bytes) the networking system will split message into parts.</p>
 <p>Examples of network object data serialization with fields/properties marked with <code>NetworkReplicated</code> attribute:</p>
-<div class="tabGroup" id="tabgroup_xsTwwwFj38">
+<div class="tabGroup" id="tabgroup_xsTwwwFj38-1">
 <ul role="tablist">
 <li role="presentation">
-<a href="#tabpanel_xsTwwwFj38_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+<a href="#tabpanel_xsTwwwFj38-1_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
 </li>
 <li role="presentation">
-<a href="#tabpanel_xsTwwwFj38_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+<a href="#tabpanel_xsTwwwFj38-1_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
 </li>
 </ul>
-<section id="tabpanel_xsTwwwFj38_code-csharp" role="tabpanel" data-tab="code-csharp">
+<section id="tabpanel_xsTwwwFj38-1_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">// Automatic replication of custom structures
 public struct CustomStruct
 {
-    [NetworkReplicated] int MyVar;
+    [NetworkReplicated] public int MyVar;
 };
 
 // Automatic replication of object properties
 public class MyScript :  Script
 {
-    [NetworkReplicated] float MyFloat = 0.0f;
-    [NetworkReplicated] CustomStruct MyStruct;
-    [NetworkReplicated] PlatformType MyEnum = PlatformType.Windows;
-    [NetworkReplicated] string MyString = &quot;text&quot;;
-    [NetworkReplicated] int[] MyArray = new []{ 1, 2, 3 };
-    [NetworkReplicated] Dictionary&lt;int, string&gt; MyMap;
+    [NetworkReplicated] public float MyFloat = 0.0f;
+    [NetworkReplicated] public CustomStruct MyStruct;
+    [NetworkReplicated] public PlatformType MyEnum = PlatformType.Windows;
+    [NetworkReplicated] public string MyString = &quot;text&quot;;
+    [NetworkReplicated] public int[] MyArray = new []{ 1, 2, 3 };
+    [NetworkReplicated] public Dictionary&lt;int, string&gt; MyMap;
+};
+
+// Custom network serialization of custom structures
+public struct CustomStructManual : INetworkSerializable
+{
+    public float MyVar;
+
+    public void Serialize(NetworkStream stream)
+    {
+        // Custom data replication
+        stream.WriteSingle(Val);
+    }
+
+    public void Deserialize(NetworkStream stream)
+    {
+        // Custom data replication
+        Val = stream.ReadSingle();
+    }
 };
 </code></pre></section>
-<section id="tabpanel_xsTwwwFj38_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_xsTwwwFj38-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">// Automatic replication of custom structures
 API_STRUCT() struct GAME_API CustomStruct
 {
@@ -326,23 +481,62 @@ API_CLASS() class GAME_API MyScript : public Script
     API_FIELD(NetworkReplicated) Array&lt;int32&gt; MyArray = { 1, 2, 3 };
     API_FIELD(NetworkReplicated) Dictionary&lt;int32, String&gt; MyMap;
 };
+
+#include &quot;Engine/Networking/INetworkSerializable.h&quot;
+#include &quot;Engine/Networking/NetworkStream.h&quot;
+
+// Custom network serialization of custom structures
+API_STRUCT() struct GAME_API CustomStructManual : INetworkSerializable
+{
+    DECLARE_SCRIPTING_TYPE_STRUCTURE(CustomStructManual);
+
+    API_FIELD() float Val;
+
+    void Serialize(NetworkStream* stream) override
+    {
+        // Custom data replication
+        stream-&gt;Write(Val);
+    }
+
+    void Deserialize(NetworkStream* stream) override
+    {
+        // Custom data replication
+        stream-&gt;Read(Val);
+    }
+};
 </code></pre></section>
 </div>
 <h2 id="rpcs">RPCs</h2>
 <p><strong>Remote Procedure Call</strong> (shorten as RPC) is used to invoke code on other network clients. For example, call server method from client or vice versa: call method on all clients from server. This is useful to synchronize state or invoke certain action over the network (eg. player attack, chat message, etc.). RPC methods can be normally called from gameplay code but inner logic might be executed only on other clients.</p>
 <p>To declare RPC use <code>NetworkRpc</code> attribute on function with <code>Server</code> or <code>Client</code> value set. Each RPC can also specify the transport channel to use (<code>Unreliable</code>, <code>UnreliableOrdered</code>, <code>Reliable</code>, <code>ReliableOrdered</code>). <a href="../editor/flax-build/index.html">Flax.Build</a> codegen will inject custom code before the method body which will invoke the method properly on remote clients. Example RPCs:</p>
-<div class="TIP"><h5>Tip</h5><p>RPCs can be used only in networked objects (registered via <code>NetworkReplicator.AddObject</code>) and in types which code module is marked with <code>Natwork</code> tag.</p>
+<div class="TIP"><h5>Tip</h5><p>RPCs can be used only in networked objects (registered via <code>NetworkReplicator.AddObject</code>) and in types which code module is marked with <code>Network</code> tag.</p>
 </div>
-<div class="tabGroup" id="tabgroup_xsTwwwFj38-1">
-<ul role="tablist">
-<li role="presentation">
-<a href="#tabpanel_xsTwwwFj38-1_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+<h4 id="rpc-concepts">RPC concepts</h4>
+<ul>
+<li>Client RPC<ul>
+<li>Can be called only by server or host</li>
+<li>Is sent to all connected clients that have registered the RPC object instance and are matching custom <code>TargetIds</code> (if provided via <code>NetworkRpcParams</code>)</li>
+<li>Can be both sent and executed locally on host (both server and client)</li>
+</ul>
 </li>
-<li role="presentation">
-<a href="#tabpanel_xsTwwwFj38-1_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+<li>Server RPC<ul>
+<li>Can be called only by client or host</li>
+<li>Is sent to server only</li>
+<li>You can use <code>SenderId</code> field from <code>NetworkRpcParams</code> to detect which client send that RPC</li>
+</ul>
 </li>
 </ul>
-<section id="tabpanel_xsTwwwFj38-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<h4 id="rpc-examples">RPC examples</h4>
+<div class="tabGroup" id="tabgroup_xsTwwwFj38-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-2_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-2_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xsTwwwFj38-2_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-cs">// Example RPC invoked on server-only
 [NetworkRpc(Server = true)]
 public void SetSequenceIndex(ushort value)
@@ -357,7 +551,7 @@ public void CallClientRPC(string text, uint[] ids)
     Debug.Log(&quot;Got msg from server: &quot; + text);
 }
 </code></pre></section>
-<section id="tabpanel_xsTwwwFj38-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_xsTwwwFj38-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">// .h
 API_CLASS() class GAME_API MyScript : public Script
 {
@@ -398,6 +592,88 @@ void MyScript::CallClientRPC(const String&amp; text, Array&lt;uint32&gt;&amp; id
 // If you override virtual RPC method, then use `NETWORK_RPC_OVERRIDE_IMPL` macro before calling base method or overriden method body.
 </code></pre></section>
 </div>
+<h4 id="rpc-context-parameters">RPC context parameters</h4>
+<p>Network RPCs can use contextual parameters as input to detect who sends the message or as output to send a message to a specific set of clients. Those identifiers are based on <code>NetworkClient.ClientId</code>, you can use <code>NetworkManager.GetClient</code> to get the client for a specific id. Use <code>NetworkRpcParams</code> structure parameter as follows:</p>
+<div class="tabGroup" id="tabgroup_xsTwwwFj38-3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-3_code-csharp" role="tab" aria-controls="tabpanel_xsTwwwFj38-3_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_xsTwwwFj38-3_code-cpp" role="tab" aria-controls="tabpanel_xsTwwwFj38-3_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_xsTwwwFj38-3_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Example RPC invoked on server that logs the client who send this message
+[NetworkRpc(Server = true)]
+public void SetSequenceIndex(ushort value, NetworkRpcParams rpc = new NetworkRpcParams())
+{
+    Debug.Log(&quot;Got msg on server from clientId: &quot; + rpc.SenderId);
+}
+
+// Example RPC invoked on clients
+[NetworkRpc(Client = true)]
+public void CallClientRPC(string text, NetworkRpcParams rpc = new NetworkRpcParams())
+{
+    Debug.Log(&quot;Got msg from server: &quot; + text);
+}
+
+// Server method that invokes CallClientRPC only on specific list of clients
+public void CallSpecificClients()
+{
+    var rpc = new NetworkRpcParams
+    {
+        TargetIds = new uint[] { 1, 3 }, // NetworkClient.ClientId
+    };
+    CallClientRPC(&quot;hello&quot;, rpc);
+}
+</code></pre></section>
+<section id="tabpanel_xsTwwwFj38-3_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// .h
+#include &quot;Engine/Networking/NetworkRpc.h&quot;
+API_CLASS() class GAME_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(MyScript);
+
+    // Example RPC invoked on server that logs the client who send this message
+    API_FUNCTION(NetworkRpc=Server)
+    void SetSequenceIndex(ushort value, NetworkRpcParams rpc = NetworkRpcParams());
+
+    // Example RPC invoked on clients
+    API_FUNCTION(NetworkRpc=Client)
+    void CallClientRPC(const String&amp; text, NetworkRpcParams rpc = NetworkRpcParams());
+
+    // Server method that invokes CallClientRPC only on specific list of clients
+    API_FUNCTION()
+    void CallSpecificClients();
+};
+
+// .cpp
+void MyScript::SetSequenceIndex(ushort value, NetworkRpcParams rpc)
+{
+    NETWORK_RPC_IMPL(MyScript, SetSequenceIndex, value, rpc);
+
+    // then method body..
+    LOG(Info, &quot;Got msg on server from clientId: {0}&quot;, rpc.SenderId);
+}
+
+void MyScript::CallClientRPC(const String&amp; text, NetworkRpcParams rpc)
+{
+    NETWORK_RPC_IMPL(MyScript, CallClientRPC, text, rpc);
+
+    LOG(Info, &quot;Got msg from server: {0}&quot;, text);
+}
+
+void MyScript::CallSpecificClients()
+{
+    NetworkRpcParams rpc;
+    uint32 ids[2] = { 1, 3 }; // NetworkClient::ClientId
+    rpc.TargetIds = ToSpan(ids, ARRAY_COUNT(ids));
+    CallClientRPC(TEXT(&quot;hello&quot;), rpc);
+}
+</code></pre></section>
+</div>
 <h3 id="extending-network-objects">Extending network objects</h3>
 <p>To extend networking for more custom case you can use <code>INetworkObject</code> interfaces on networked objects:</p>
 <ul>
@@ -415,7 +691,7 @@ To quickly profile networking with lag simulation (eg. due to bad network ocnnec
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/networking/high-level.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/networking/high-level.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

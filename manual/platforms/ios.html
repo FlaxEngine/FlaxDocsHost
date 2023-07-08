@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>iOS | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="iOS | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="iOS | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ios">iOS</h1>
+
+<p><img src="media/ios.jpg" alt="iOS"></p>
+<h2 id="technical-information">Technical information</h2>
+<p>Flax supports <strong>iOS 14 or newer</strong>. For graphics rendering Vulkan is used via MoltenVK to run on Metal.</p>
+<p>iOS doesn&#39;t allow dynamic code execution thus Flax uses <a href="../scripting/restrictions.html">AOT</a> in order to precompile C# code into native.</p>
+<h2 id="ios-setup">iOS Setup</h2>
+<p>Follow these steps to setup your development PC for building game for iOS platform. In case of problems, please follow official documentation of iOS platform.</p>
+<ul>
+<li>Setup <a href="https://developer.apple.com/">Apple Developer</a> account (including certificates and provision profiles for a game)</li>
+<li>Install <strong>XCode</strong></li>
+<li>Install <strong>.Net iOS Workload</strong><ul>
+<li>Run <code>dotnet workload install ios</code> via command line</li>
+<li>More info: <a href="https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install">https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install</a></li>
+</ul>
+</li>
+<li>Build and run Flax Editor on Mac (<a href="https://github.com/FlaxEngine/FlaxEngine#mac">https://github.com/FlaxEngine/FlaxEngine</a>)</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li>If you&#39;re getting the error <code>Missing NET SDK runtime for iOS ARM64.</code> then install iOS workload for dotnet (as mentioned above). It contains .Net libs, tools and runtime for iOS required to run C#.</li>
+<li>To access game logs you can easily run the app from XCode project and insect the process output (from <code>NSLog</code>).</li>
+<li>iOS doesn&#39;t allow dynamic code execution thus Flax uses AOT in order to precompile C# code into native.</li>
+</ul>
+<h2 id="xcode-project">XCode Project</h2>
+<p><img src="media/xcode-project.png" alt="XCode Project Flax"></p>
+<p>When building a game for iOS, Flax will compile game code and cook content files into the XCode project that can be used to deploy and test on iOS devices. If <em>Skip Packaging</em> option is disabled in <a href="../editor/game-settings/build-settings.html">Build Settings</a>, then the Editor will also archive and export the game into a <code>.ipa</code> package which can be uploaded to the App Store for distribution.</p>
+<p><img src="media/xcode-files.png" alt="XCode Output Build Files"></p>
+<p>To learn how to set up Apple Developer for the app building, testing, and distributing see the <a href="https://developer.apple.com/documentation/">official documentation</a>.</p>
+<h2 id="build-options">Build options</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Output</strong></td>
+<td>The built game output folder (relative to the project).</td>
+</tr>
+<tr>
+<td><strong>Show Output</strong></td>
+<td>If checked, after building the output folder will be shown in an Explorer.</td>
+</tr>
+<tr>
+<td><strong>Configuration Mode</strong></td>
+<td>Game building mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Release</strong></td><td>The release build ready for shipment.</td></tr><tr><td><strong>Debug</strong></td><td>The debug build for testing and profiling. Most of the code optimizations are disabled for the best debugging experience.</td></tr><tr><td><strong>Development</strong></td><td>The development build for testing and profiling but is more optimized for runtime than Debug build.</td></tr></tbody></table></td>
+</tr>
+</tbody>
+</table>
+<h2 id="platform-settings">Platform settings</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>App Identifier</strong></td>
+<td>The app identifier (reversed DNS, eg. com.company.product). Custom tokens: <code>${PROJECT_NAME}</code>, <code>${COMPANY_NAME}</code>.</td>
+</tr>
+<tr>
+<td><strong>App Team Id</strong></td>
+<td>The app developer name - App Store Team ID. For example: <code>VG6K6HT8B</code>.</td>
+</tr>
+<tr>
+<td><strong>App Version</strong></td>
+<td>The app version number (matches <code>CURRENT_PROJECT_VERSION</code> in XCode).</td>
+</tr>
+<tr>
+<td><strong>Export Method</strong></td>
+<td>The app export mode (if automatic packaging is not disabled via Build Settings, otherwise export app manually via XCode project).</td>
+</tr>
+<tr>
+<td><strong>Supported Interface Orientations (iPhone)</strong></td>
+<td>The UI interface orientation modes supported on iPhone devices.</td>
+</tr>
+<tr>
+<td><strong>Supported Interface Orientations (iPad)</strong></td>
+<td>The UI interface orientation modes supported on iPad devices.</td>
+</tr>
+<tr>
+<td><strong>Override Icon</strong></td>
+<td>Custom icon texture to use for the application (overrides the default one).</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/platforms/ios.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

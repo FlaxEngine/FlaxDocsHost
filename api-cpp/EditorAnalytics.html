@@ -123,7 +123,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_EndSession__.md&amp;value=---%0Auid%3A%20EditorAnalytics.EndSession()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L28" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L26" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EditorAnalytics_EndSession_" data-uid="EditorAnalytics.EndSession*"></a>
@@ -157,7 +157,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_IsSessionActive__.md&amp;value=---%0Auid%3A%20EditorAnalytics.IsSessionActive()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L18" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L16" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EditorAnalytics_IsSessionActive_" data-uid="EditorAnalytics.IsSessionActive*"></a>
@@ -179,8 +179,7 @@
     <tr>
       <td>
         <span class="xref">bool</span>
-        <p><p>
-  <code>true</code> if there is active analytics session running; otherwise, <code>false</code>.</p></p>
+        <p>
       </td>
     </tr>
   </table>
@@ -198,34 +197,27 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_SendEvent_const_char___const_char___const_Char___.md&amp;value=---%0Auid%3A%20EditorAnalytics.SendEvent(const%20char%20*%2Cconst%20char%20*%2Cconst%20Char%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_SendEvent_const_char___Span_Pair_const_char____const_char_____.md&amp;value=---%0Auid%3A%20EditorAnalytics.SendEvent(const%20char%20*%2CSpan%3CPair%3Cconst%20char%20*%2C%20const%20char%20*%3E%3E)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L52" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L33" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EditorAnalytics_SendEvent_" data-uid="EditorAnalytics.SendEvent*"></a>
   
-  <h4 id="EditorAnalytics_SendEvent_const_char___const_char___const_Char___" data-uid="EditorAnalytics.SendEvent(const char *,const char *,const Char *)"><a href="#collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_Char___" class="expander" data-toggle="collapse">SendEvent(const char* category, const char* name, const Char* label)</a></h4>
+  <h4 id="EditorAnalytics_SendEvent_const_char___Span_Pair_const_char____const_char_____" data-uid="EditorAnalytics.SendEvent(const char *,Span&lt;Pair&lt;const char *, const char *&gt;&gt;)"><a href="#collapsible-EditorAnalytics_SendEvent_const_char___Span_Pair_const_char____const_char_____" class="expander" data-toggle="collapse">SendEvent(const char* name, Span&lt;Pair&lt;const char* , const char* &gt;&gt; parameters)</a></h4>
   
-  <div id="collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_Char___" class="collapse in">
+  <div id="collapsible-EditorAnalytics_SendEvent_const_char___Span_Pair_const_char____const_char_____" class="collapse in">
   <div class="markdown level1 summary"><p>Sends the custom event. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static void SendEvent(const char* category, const char* name, const Char* label)</code></pre>
+    <pre><code class="lang-cpp hljs">public static void SendEvent(const char* name, Span&lt;Pair&lt;const char* , const char* &gt;&gt; parameters)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">category</span>
-        <p><p>The event category name.</p></p>
-      </td>
-    </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">char</span></span>
@@ -235,125 +227,9 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">Char</span></span>
-        <span class="parametername">label</span>
-        <p><p>The event label.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_SendEvent_const_char___const_char___const_char___.md&amp;value=---%0Auid%3A%20EditorAnalytics.SendEvent(const%20char%20*%2Cconst%20char%20*%2Cconst%20char%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="EditorAnalytics_SendEvent_" data-uid="EditorAnalytics.SendEvent*"></a>
-  
-  <h4 id="EditorAnalytics_SendEvent_const_char___const_char___const_char___" data-uid="EditorAnalytics.SendEvent(const char *,const char *,const char *)"><a href="#collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_char___" class="expander" data-toggle="collapse">SendEvent(const char* category, const char* name, const char* label=nullptr)</a></h4>
-  
-  <div id="collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_char___" class="collapse in">
-  <div class="markdown level1 summary"><p>Sends the custom event. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static void SendEvent(const char* category, const char* name, const char* label=nullptr)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">category</span>
-        <p><p>The event category name.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">name</span>
-        <p><p>The event name.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">label</span>
-        <p><p>The event label.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_SendEvent_const_char___const_char___const_StringView___.md&amp;value=---%0Auid%3A%20EditorAnalytics.SendEvent(const%20char%20*%2Cconst%20char%20*%2Cconst%20StringView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="EditorAnalytics_SendEvent_" data-uid="EditorAnalytics.SendEvent*"></a>
-  
-  <h4 id="EditorAnalytics_SendEvent_const_char___const_char___const_StringView___" data-uid="EditorAnalytics.SendEvent(const char *,const char *,const StringView &amp;)"><a href="#collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_StringView___" class="expander" data-toggle="collapse">SendEvent(const char* category, const char* name, const StringView&amp; label)</a></h4>
-  
-  <div id="collapsible-EditorAnalytics_SendEvent_const_char___const_char___const_StringView___" class="collapse in">
-  <div class="markdown level1 summary"><p>Sends the custom event. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static void SendEvent(const char* category, const char* name, const StringView&amp; label)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">category</span>
-        <p><p>The event category name.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">char</span></span>
-        <span class="parametername">name</span>
-        <p><p>The event name.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
-        <span class="parametername">label</span>
-        <p><p>The event label.</p></p>
+        <span class="pull-right"><span class="xref">Span&lt;Pair&lt;char , char &gt;&gt;</span></span>
+        <span class="parametername">parameters</span>
+        <p><p>The event parameters (key and value pairs).</p></p>
       </td>
     </tr>
   </table>
@@ -375,7 +251,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=EditorAnalytics_StartSession__.md&amp;value=---%0Auid%3A%20EditorAnalytics.StartSession()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Editor/Analytics/EditorAnalytics.h/#L21" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="EditorAnalytics_StartSession_" data-uid="EditorAnalytics.StartSession*"></a>

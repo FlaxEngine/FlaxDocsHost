@@ -96,7 +96,6 @@
 <p>Programming gameplay for Flax game in VS Code requries a set of extensions:</p>
 <ul>
 <li><strong>C#</strong> - <code>ms-dotnettools.csharp</code></li>
-<li><strong>Mono Debug</strong> - <code>ms-vscode.mono-debug</code></li>
 <li><strong>C/C++</strong> - <code>ms-vscode.cpptools</code> (optional - useful if you code in C++)</li>
 </ul>
 <h3 id="2-change-source-code-editor">2. Change source code editor</h3>
@@ -113,23 +112,8 @@ Simply drag and drop it into the selected actor properties area.</p>
 <p>Click on a left side of the code editor to assign a breakpoint to the line. Red dot should be added as shown in the picture below.</p>
 <p><img src="media/vscode-breakpoint.png" alt="Add a breakpoint"></p>
 <h3 id="6-attach-to-flax">6. Attach to Flax</h3>
-<p>To attach with C# debugger to Flax you will need to know the <strong>debugger port</strong>. This can be checked in the log file of the engine from <code>&lt;project&gt;\Logs</code> - see the latest file and find the line similar to the following:</p>
-<pre><code>...
-[ 00:00:02.667 ]: [Info] Initialize Scripting...
-[ 00:00:02.667 ]: [Info] Mono debugger server at 127.0.0.1:41816
-...
-</code></pre><p>This informs about the Mono debugger server running on a local machine and the given port. It&#39;s calculated from expression <code>41000 + process_id % 1000</code>. You can also run Flax Editor with specified ip and port with a command-line argument such as <code>-debug 127.0.0.1:55555</code>.</p>
-<p>Once you know the port you can set it in the <code>launch.json</code> file that contains a debugger configurations for VS Code. Find the chunk similar to the following and set the port property to the one your Flax editor is using right now.</p>
-<pre><code class="lang-json">...
-{
-    &quot;type&quot;: &quot;mono&quot;,
-    &quot;name&quot;: &quot;MyProject (C# attach)|Editor.Windows.Development|x64&quot;,
-    &quot;request&quot;: &quot;attach&quot;,
-    &quot;address&quot;: &quot;localhost&quot;,
-    &quot;port&quot;: 55555
-},
-...
-</code></pre><p>If you set the port property to the proper port you can launch this task and attach with debugger. Visual Studio Code should enter a debugging mode and the bottom of the IDE will remain orange. This signifies IDE is ready for debugging.</p>
+<p>Now, attach with .NET Core debugger to Flax Editor (or cooked Flax Game). You can also select other configurations (eg. <code>MyProject|Editor.Windows.Development|x64 (C#)</code>) to run editor with C# debugger from the very beginning.</p>
+<p><img src="media/vscode-attach.png" alt="VS Code Attach to Flax Engine"></p>
 <h3 id="7-start-a-game">7. Start a game</h3>
 <p>Go back to the Flax Editor and press the <code>Play</code> button to start a game. Then script <em>OnUpdate()</em> function will be called and assigned breakpoint hit.</p>
 <p><img src="media/debug-vs-4.jpg" alt="Script in Visual Studio Code"></p>
@@ -137,6 +121,25 @@ Simply drag and drop it into the selected actor properties area.</p>
 <p>Now you can use all Visual Studio Code debugging features to verify state of the variables and test your code.</p>
 <p><img src="media/vscode-debugging.png" alt="Script in Visual Studio"></p>
 <p>For more information about C# in Visual Studio Code, see the <a href="https://code.visualstudio.com/docs/languages/csharp">VS Code documentation</a>.</p>
+<h2 id="mono-debugging">Mono debugging</h2>
+<p>In past, Flax used mono for C# runtime (version 1.5 and older) which required <code>ms-vscode.mono-debug</code> extension in VS Code. Mobile and Console platforms still use mono for .NET hosting (including Mono AOT feature). To debug such builds use <strong>Mono Debug</strong> extension.</p>
+<p>To attach with C# debugger to Flax you will need to know the <strong>debugger port</strong>. This can be checked in the log and find the line similar to the following:</p>
+<pre><code>...
+[ 00:00:02.667 ]: [Info] Initialize Scripting...
+[ 00:00:02.667 ]: [Info] Mono debugger server at 127.0.0.1:41816
+...
+</code></pre><p>This informs about the Mono debugger server running on a local machine and the given port. It&#39;s calculated from expression <code>41000 + process_id % 1000</code>. You can also run Flax with specified ip and port with a command-line argument such as <code>-debug 127.0.0.1:55555</code>.</p>
+<p>Once you know the port you can set it in the <code>launch.json</code> file that contains a debugger configuration for VS Code. Find the chunk similar to the following and set the port property to the one your Flax is using right now.</p>
+<pre><code class="lang-json">...
+{
+    &quot;type&quot;: &quot;mono&quot;,
+    &quot;name&quot;: &quot;MyProject (C# attach)|Game.Windows.Development|x64&quot;,
+    &quot;request&quot;: &quot;attach&quot;,
+    &quot;address&quot;: &quot;localhost&quot;,
+    &quot;port&quot;: 55555
+},
+...
+</code></pre><p>If you set the port property to the proper port you can launch this task and attach with debugger. Visual Studio Code should enter a debugging mode and the bottom of the IDE will remain orange. This signifies IDE is ready for debugging.</p>
 </article>
           </div>
           
@@ -145,7 +148,7 @@ Simply drag and drop it into the selected actor properties area.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/scripting/debugging/visual-studio-code.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/scripting/debugging/visual-studio-code.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

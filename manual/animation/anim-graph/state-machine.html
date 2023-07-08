@@ -128,8 +128,12 @@
 <td>Transition blend duration (in seconds).</td>
 </tr>
 <tr>
-<td><strong>BlendMode</strong></td>
+<td><strong>Blend Mode</strong></td>
 <td>Transition blending mode for blend alpha.</td>
+</tr>
+<tr>
+<td><strong>Interruption</strong></td>
+<td>Transition interruption options (flags). Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>None</strong></td><td>Nothing.</td></tr><tr><td><strong>Rule Rechecking</strong></td><td>Transition rule will be rechecked during active transition with option to interrupt transition.</td></tr><tr><td><strong>Instant</strong></td><td>Interrupted transition is immediately stopped without blending out.</td></tr></tbody></table></td>
 </tr>
 </tbody>
 </table>
@@ -139,6 +143,12 @@
 Then the transition graph will show. Again, it works like a State Machine graph. This sub-graph contains a single output node that samples the boolean value which determinates whenever trigger the transition.</p>
 <p>Also, remember about using special <strong>Transition Source State Anim</strong> node that can be added to the transition graph to access the source state animation playback information. It can be used to trigger the animation in a specific moment, for instance when the source state animation is about to end.</p>
 <p><img src="../tutorials/media/transition-source-state-anim.png" alt="Transition Source State Anim"></p>
+<h2 id="entry-state">Entry State</h2>
+<p><img src="media/entry-state.png" alt="Entry State in State Machine"></p>
+<p><strong>Entry</strong> state is a special node (always created) that can have a single transition (instant) to the initial state inside the state machine. It points to the state that should be selected when the state machine becomes relevant.</p>
+<h2 id="any-state">Any State</h2>
+<p><img src="media/any-state.png" alt="Any State in State Machine"></p>
+<p><strong>Any</strong> state is a special node that can define transitions to states that will be always checked during state machine updates. It can be used to improve the workflow when creating more complex character animations.</p>
 </article>
           </div>
           
@@ -147,7 +157,7 @@ Then the transition graph will show. Again, it works like a State Machine graph.
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/5400acd9a83ce9f2c17a03f5cee0b219333ec0b2/manual/animation/anim-graph/state-machine.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/59cc3fae75914837f9748b42ffee0ab49bc5f69c/manual/animation/anim-graph/state-machine.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

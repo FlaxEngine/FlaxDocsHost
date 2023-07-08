@@ -115,6 +115,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object___internalId">Object.__internalId</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Finalize">Object.Finalize()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_As__1">Object.As&lt;T&gt;()</a>
     </div>
     <div>
@@ -148,6 +151,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetUnmanagedPtr_FlaxEngine_Object_">Object.GetUnmanagedPtr(Object)</a>
     </div>
     <div>
@@ -157,6 +163,12 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_FromUnmanagedPtr_System_IntPtr_">Object.FromUnmanagedPtr(IntPtr)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_MapObjectID_System_Guid__">Object.MapObjectID(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_RemapObjectID_System_Guid__">Object.RemapObjectID(Guid)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
@@ -164,24 +176,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TypeName">Object.TypeName</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   </div>
@@ -485,6 +479,44 @@ public Vector3 Origin { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PhysicsScene_Statistics_" data-uid="FlaxEngine.PhysicsScene.Statistics*"></a>
+  
+  <h4 id="FlaxEngine_PhysicsScene_Statistics" data-uid="FlaxEngine.PhysicsScene.Statistics"><a href="#collapsible-FlaxEngine_PhysicsScene_Statistics" class="expander" data-toggle="collapse">Statistics</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PhysicsScene_Statistics" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the physics simulation statistics for the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public PhysicsStatistics Statistics { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.PhysicsStatistics.html">PhysicsStatistics</a>
         <p>
       </td>
     </tr>
@@ -1827,6 +1859,244 @@ public bool ConvexCastAll(Vector3 center, CollisionData convexMesh, Vector3 scal
       <td>
         <span class="xref">System.Boolean</span>
         <p><p>True if convex mesh hits an matching object, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PhysicsScene_LineCast_" data-uid="FlaxEngine.PhysicsScene.LineCast*"></a>
+  
+  <h4 id="FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit__System_UInt32_System_Boolean_" data-uid="FlaxEngine.PhysicsScene.LineCast(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.RayCastHit@,System.UInt32,System.Boolean)"><a href="#collapsible-FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit__System_UInt32_System_Boolean_" class="expander" data-toggle="collapse">LineCast(Vector3, Vector3, out RayCastHit, UInt32, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit__System_UInt32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a line between two points in the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool LineCast(Vector3 start, Vector3 end, out RayCastHit hitInfo, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">start</span>
+        <p><p>The start position of the line.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">end</span>
+        <p><p>The end position of the line.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a></span>
+        <span class="parametername">hitInfo</span>
+        <p><p>The result hit information. Valid only when method returns true.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">layerMask</span>
+        <p><p>The layer mask used to filter the results.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">hitTriggers</span>
+        <p><p>If set to <code>true</code> triggers will be hit, otherwise will skip them.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if ray hits an matching object, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PhysicsScene_LineCast_" data-uid="FlaxEngine.PhysicsScene.LineCast*"></a>
+  
+  <h4 id="FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_System_UInt32_System_Boolean_" data-uid="FlaxEngine.PhysicsScene.LineCast(FlaxEngine.Vector3,FlaxEngine.Vector3,System.UInt32,System.Boolean)"><a href="#collapsible-FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_System_UInt32_System_Boolean_" class="expander" data-toggle="collapse">LineCast(Vector3, Vector3, UInt32, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PhysicsScene_LineCast_FlaxEngine_Vector3_FlaxEngine_Vector3_System_UInt32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a line between two points in the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool LineCast(Vector3 start, Vector3 end, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">start</span>
+        <p><p>The start position of the line.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">end</span>
+        <p><p>The end position of the line.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">layerMask</span>
+        <p><p>The layer mask used to filter the results.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">hitTriggers</span>
+        <p><p>If set to <code>true</code> triggers will be hit, otherwise will skip them.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if ray hits an matching object, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_PhysicsScene_LineCastAll_" data-uid="FlaxEngine.PhysicsScene.LineCastAll*"></a>
+  
+  <h4 id="FlaxEngine_PhysicsScene_LineCastAll_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit____System_UInt32_System_Boolean_" data-uid="FlaxEngine.PhysicsScene.LineCastAll(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.RayCastHit[]@,System.UInt32,System.Boolean)"><a href="#collapsible-FlaxEngine_PhysicsScene_LineCastAll_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit____System_UInt32_System_Boolean_" class="expander" data-toggle="collapse">LineCastAll(Vector3, Vector3, out RayCastHit[], UInt32, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_PhysicsScene_LineCastAll_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit____System_UInt32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a line between two points in the scene, returns all hitpoints infos.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool LineCastAll(Vector3 start, Vector3 end, out RayCastHit[] results, uint layerMask = 4294967295U, bool hitTriggers = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">start</span>
+        <p><p>The origin of the ray.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">end</span>
+        <p><p>The normalized direction of the ray.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a>[]</span>
+        <span class="parametername">results</span>
+        <p><p>The result hits. Valid only when method returns true.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="parametername">layerMask</span>
+        <p><p>The layer mask used to filter the results.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">hitTriggers</span>
+        <p><p>If set to <code>true</code> triggers will be hit, otherwise will skip them.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if ray hits an matching object, otherwise false.</p>
 </p>
       </td>
     </tr>
