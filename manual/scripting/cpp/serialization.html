@@ -106,10 +106,23 @@ private:
 <p>Flax uses <a href="https://rapidjson.org">RapidJSON</a> library to serialize data into <em>json</em> format.</p>
 <p>Example:</p>
 <pre><code class="lang-cpp">#include &quot;Engine/Serialization/JsonWriters.h&quot;
+#include &quot;Engine/Serialization/JsonSerializer.h&quot;
+#include &quot;Engine/Platform/File.h&quot;
 
 rapidjson_flax::StringBuffer buffer;
+// PrettyJsonWriter can be also used here for better JSON formatting
 CompactJsonWriter writer(buffer);
-writer.SceneObject(this);
+writer.StartObject();
+object-&gt;Serialize(writer, nullptr);
+writer.EndObject();
+File::WriteAllBytes(TEXT(&quot;Output.json&quot;), (byte*)buffer.GetString(), (int32)buffer.GetSize());
+
+BytesContainer data;
+File::ReadAllBytes(TEXT(&quot;Output.json&quot;), data);
+ISerializable::SerializeDocument document;
+document.Parse(data.Get&lt;char&gt;(), data.Length());
+if (!document.HasParseError())
+    object-&gt;Deserialize(document, nullptr);
 </code></pre><h3 id="custom-types">Custom types</h3>
 <p>To implement data serialization for custom native type or custom data container add 3 methods in <code>Serialization</code> namespace as in an example shown below. It can be used for defining specialization implementation for template types too.</p>
 <pre><code class="lang-cpp">struct MyCustomNativeData
@@ -159,7 +172,7 @@ namespace Serialization
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/c8d26bc70962ea9bdc52d12043d84f1cff1df19d/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/13826ec307970fcff591e65388b2d901c48e74d2/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
