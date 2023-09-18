@@ -104,10 +104,10 @@
 <h2 id="worlds-coordinates-precision">Worlds Coordinates Precision</h2>
 <p>Flax Engine by default uses <code>32-bit</code> precision (single precision, <code>float</code> type) to represent object coordinates in the world. This gives enough quality for most games and yields solid performance. However, for games with larger worlds, we recommend using <code>64-bit</code> precision (double precision, <code>double</code> type) and enabling Large Worlds features in the engine. This allows the game scenes to be as large as the whole Solar System while still maintaining good quality and precision.</p>
 <h3 id="enabling-large-worlds">Enabling Large Worlds</h3>
-<p>Use <a href="../advanced/custom-engine.html">Custom Engine build</a> and modify <code>Flax.flaxproj</code> file by setting <code>&quot;UseLargeWorlds&quot;: true</code>. Then build the engine. It will overlap all Vector2/3/4 components from <code>float</code> into <code>double</code> and store object coordinates with higher precision.</p>
-<p>The engine supports loading and saving projects with both <code>UseLargeWorlds</code> enabled and disabled without any compatibility issues. Which means that you can still open project with default engine version, even if it was edited with Large Worlds support enabled.</p>
+<p>Use <a href="../advanced/custom-engine.html">Custom Engine build</a> and modify the <code>Flax.flaxproj</code> file by setting <code>&quot;UseLargeWorlds&quot;: true</code>. Then build the engine. It will overlap all Vector2/3/4 components from <code>float</code> into <code>double</code> and store object coordinates with higher precision.</p>
+<p>The engine supports loading and saving projects with both <code>UseLargeWorlds</code> enabled and disabled without any compatibility issues. Which means that you can still open your project with the default engine version, even if it was edited with Large Worlds support enabled.</p>
 <h3 id="real-type">Real type</h3>
-<p>When using large worlds various in-built types get converted into higher precision format, such as:</p>
+<p>When using large worlds, various in-built types get converted into higher precision format, such as:</p>
 <ul>
 <li><code>Vector2</code>, <code>Vector3</code>, <code>Vector4</code></li>
 <li><code>BoundingBox</code></li>
@@ -143,10 +143,10 @@ Real coordinate = Actor.Position.X;
 </div>
 <h2 id="render-view-origin">Render View origin</h2>
 <p>Flax contains relative-to-camera rendering which allows to shift the <code>Origin</code> of the whole scene when rendering. It&#39;s automatically calculated when rendering a scene with <code>LargeWorlds.UpdateOrigin</code> based on the current camera location. It can be disabled with <code>LargeWorlds.Enable</code>.</p>
-<div class="TIP"><h5>Tip</h5><p>Even when using 64-bit precision, the whole rendering still uses 32-bits as using larger data has high-performance impact.</p>
+<div class="TIP"><h5>Tip</h5><p>Even when using 64-bit precision, the whole rendering still uses 32-bits as using larger data has a high performance impact.</p>
 </div>
 <h2 id="physics-origin">Physics origin</h2>
-<p>A physical simulation system supports adjusting the origin of the simulation world. This can be used to improve collisions and forces simulation because the underlying PhysX library uses 32-bit precision and won&#39;t achieve high-quality simulation in large worlds scenario.</p>
+<p>A physical simulation system supports adjusting the origin of the simulation world. This can be used to improve the simulation of collisions and forces, because the underlying PhysX library uses 32-bit precision and won&#39;t achieve high-quality simulation in a large worlds scenario.</p>
 <p>You can easily synchronize the current main game view origin with physics origin (or manually calculate it with <code>LargeWorlds.UpdateOrigin</code>):</p>
 <div class="tabGroup" id="tabgroup_aM6HBZOc5y-1">
 <ul role="tablist">
@@ -173,7 +173,7 @@ Real coordinate = Actor.Position.X;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/13826ec307970fcff591e65388b2d901c48e74d2/manual/editor/large-worlds/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/editor/large-worlds/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

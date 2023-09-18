@@ -100,6 +100,8 @@
 <p>To add a reference to prebuild .Net DLL file in your game scripts simply modify the build script file (eg. <code>Source/GameModule/GameModule.Build.cs</code>) by adding the file reference in overridden <code>Setup</code> method:</p>
 <pre><code class="lang-cs">// Reference C# DLL placed Content folder
 options.ScriptingAPI.FileReferences.Add(Path.Combine(FolderPath, &quot;..&quot;, &quot;..&quot;, &quot;Content&quot;, &quot;JetBrains.Annotations.dll&quot;));
+</code></pre><p>Additionally, if the DLL is going to be used by an editor module, the same dll needs to be added as an external dependency:</p>
+<pre><code class="lang-cs">options.ExternalModules.Add(new BuildOptions.ExternalModule(BuildOptions.ExternalModule.Types.CSharp, path));
 </code></pre><p>Then generate scripts projects solution to use types from imported C# module inside game code.
 This will work for scripts build for the editor and cooked game as the referenced assembly will be packaged. Build system will also copy relevant <code>.pdb</code> and <code>.xml</code> files if provided.</p>
 <p>Remember that engine uses .NET 7.</p>
@@ -180,7 +182,7 @@ public class Steam : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/13826ec307970fcff591e65388b2d901c48e74d2/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/scripting/tutorials/use-third-party-library.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
