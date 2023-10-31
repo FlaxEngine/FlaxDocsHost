@@ -133,8 +133,8 @@ public class CrowdSystem : GamePlugin
         }
 
         // Add agent to the crowd
-        agent.ID = _crowd.AddAgent(agent.Actor.Position, agent.Properties);
-        if (agent.ID == -1)
+        agent.AgentID = _crowd.AddAgent(agent.Actor.Position, agent.Properties);
+        if (agent.AgentID == -1)
             throw new Exception(&quot;Failed to add agent to the crowd&quot;);
         agent.Crowd = _crowd;
     }
@@ -142,9 +142,9 @@ public class CrowdSystem : GamePlugin
     internal void RemoveAgent(Agent007 agent)
     {
         // Remove agent from the crowd
-        _crowd.RemoveAgent(agent.ID);
+        _crowd.RemoveAgent(agent.AgentID);
         agent.Crowd = null;
-        agent.ID = -1;
+        agent.AgentID = -1;
     }
 
     /// &lt;inheritdoc /&gt;
@@ -159,7 +159,7 @@ public class CrowdSystem : GamePlugin
     }
 
     /// &lt;summary&gt;
-    /// Custom Task Graph System that updates crowd durign async job.
+    /// Custom Task Graph System that updates crowd during async job.
     /// &lt;/summary&gt;
     private sealed class CrowdTaskGraphSystem : TaskGraphSystem
     {
@@ -183,7 +183,7 @@ public class CrowdSystem : GamePlugin
 <pre><code class="lang-cs">public class Agent007 : Script
 {
     internal NavCrowd Crowd = null;
-    internal int ID = -1;
+    internal int AgentID = -1;
     private Vector3 _targetPos;
 
     /// &lt;summary&gt;
@@ -252,7 +252,7 @@ public class CrowdSystem : GamePlugin
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/navigation/nav-crowd.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/navigation/nav-crowd.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

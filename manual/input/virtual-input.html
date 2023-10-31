@@ -110,7 +110,7 @@ public InputAxis MouseX = new InputAxis(&quot;MouseX&quot;);
 public MyScript()
 {
     // Register for input action event
-    FireEvent.Triggered += ShootBall;
+    FireEvent.Pressed += ShootBall;
 }
 
 public override void OnUpdate()
@@ -124,6 +124,7 @@ public override void OnDestroy()
 {
     // Remember to dispose the action object (it holds reference to your methods)
     FireEvent.Dispose();
+    MouseX.Dispose();
 }
 </code></pre><p>Then if you select the object with this script in Editor you can modify the <code>FireEvent</code> and <code>MouseX</code> mapping&#39;s names so they can be modified without editing the code.</p>
 <p><img src="media/virtual-input-script-example.jpg" alt="Virtual Input Script"></p>
@@ -135,7 +136,7 @@ public override void OnDestroy()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

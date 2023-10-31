@@ -115,8 +115,11 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_StaticModel" data-uid="FlaxEngine.ModelInstanceActor.SetMaterial(System.Int32,FlaxEngine.MaterialBase)"><a href="#collapsible-inheritedMembers-FlaxEngine_StaticModel" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_StaticModel" data-uid="FlaxEngine.ModelInstanceActor.GetMaterial(System.Int32)"><a href="#collapsible-inheritedMembers-FlaxEngine_StaticModel" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_StaticModel" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.ModelInstanceActor.html#FlaxEngine_ModelInstanceActor_GetMaterial_System_Int32_">ModelInstanceActor.GetMaterial(Int32)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.ModelInstanceActor.html#FlaxEngine_ModelInstanceActor_SetMaterial_System_Int32_FlaxEngine_MaterialBase_">ModelInstanceActor.SetMaterial(Int32, MaterialBase)</a>
     </div>
@@ -133,6 +136,15 @@
       <a class="xref" href="FlaxEngine.ModelInstanceActor.html#FlaxEngine_ModelInstanceActor_Entries">ModelInstanceActor.Entries</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.ModelInstanceActor.html#FlaxEngine_ModelInstanceActor_MaterialSlots">ModelInstanceActor.MaterialSlots</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerRecursive_System_Int32_">Actor.SetLayerRecursive(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerNameRecursive_System_String_">Actor.SetLayerNameRecursive(String)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag">Actor.HasTag()</a>
     </div>
     <div>
@@ -143,6 +155,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTag_FlaxEngine_Tag_">Actor.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTagRecursive_FlaxEngine_Tag_">Actor.AddTagRecursive(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveTag_FlaxEngine_Tag_">Actor.RemoveTag(Tag)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
@@ -319,7 +337,7 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts__1">Actor.GetScripts&lt;T&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_System_Boolean_">Actor.RotateAround(Vector3, Vector3, Single, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -448,6 +466,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_DestroyNow_FlaxEngine_Object_">Object.DestroyNow(Object)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
     </div>
     <div>
@@ -486,6 +507,7 @@
   <h5 id="FlaxEngine_StaticModel_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ActorContextMenu(&quot;New/Model&quot;)]
+[ActorToolbox(&quot;Visuals&quot;)]
 [Unmanaged]
 public class StaticModel : ModelInstanceActor, ISerializable</code></pre>
   </div>
@@ -902,7 +924,7 @@ public int SortOrder { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public MaterialBase GetMaterial(int meshIndex, int lodIndex = 0)</code></pre>
+public MaterialBase GetMaterial(int meshIndex, int lodIndex)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>

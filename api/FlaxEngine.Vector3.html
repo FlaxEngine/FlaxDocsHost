@@ -4581,6 +4581,71 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
   </div>
   
   
+  <a id="FlaxEngine_Vector3_MoveTowards_" data-uid="FlaxEngine.Vector3.MoveTowards*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_MoveTowards_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_" data-uid="FlaxEngine.Vector3.MoveTowards(FlaxEngine.Vector3,FlaxEngine.Vector3,System.Single)"><a href="#collapsible-FlaxEngine_Vector3_MoveTowards_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_" class="expander" data-toggle="collapse">MoveTowards(Vector3, Vector3, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_MoveTowards_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Moves a value current towards target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 MoveTowards(Vector3 current, Vector3 target, float maxDistanceDelta)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">current</span>
+        <p><p>The position to move from.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">target</span>
+        <p><p>The position to move towards.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">maxDistanceDelta</span>
+        <p><p>The maximum distance that can be applied to the value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p><p>The new position.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Vector3_Multiply_" data-uid="FlaxEngine.Vector3.Multiply*"></a>
   
   <h4 id="FlaxEngine_Vector3_Multiply_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Vector3.Multiply(FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Vector3_Multiply_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">Multiply(Vector3, Vector3)</a></h4>
@@ -5589,6 +5654,246 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
   <h5 id="FlaxEngine_Vector3_Reflect_FlaxEngine_Vector3__FlaxEngine_Vector3__FlaxEngine_Vector3___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Reflect only gives the direction of a reflection off a surface, it does not determine whether the original vector was close enough to the surface to hit it.</p>
 </div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector3_SmoothDamp_" data-uid="FlaxEngine.Vector3.SmoothDamp*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_" data-uid="FlaxEngine.Vector3.SmoothDamp(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3@,System.Single)"><a href="#collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_" class="expander" data-toggle="collapse">SmoothDamp(Vector3, Vector3, ref Vector3, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a gradual change of a vector towards a specified target over time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">current</span>
+        <p><p>Current vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">target</span>
+        <p><p>Target vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">currentVelocity</span>
+        <p><p>Used to store the current velocity.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">smoothTime</span>
+        <p><p>Determines the approximate time it should take to reach the target vector.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector3_SmoothDamp_" data-uid="FlaxEngine.Vector3.SmoothDamp*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_" data-uid="FlaxEngine.Vector3.SmoothDamp(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3@,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_" class="expander" data-toggle="collapse">SmoothDamp(Vector3, Vector3, ref Vector3, Single, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a gradual change of a vector towards a specified target over time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime, float maxSpeed)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">current</span>
+        <p><p>Current vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">target</span>
+        <p><p>Target vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">currentVelocity</span>
+        <p><p>Used to store the current velocity.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">smoothTime</span>
+        <p><p>Determines the approximate time it should take to reach the target vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">maxSpeed</span>
+        <p><p>Defines the upper limit on the speed of the Smooth Damp.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector3_SmoothDamp_" data-uid="FlaxEngine.Vector3.SmoothDamp*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_System_Single_" data-uid="FlaxEngine.Vector3.SmoothDamp(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3@,System.Single,System.Single,System.Single)"><a href="#collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_System_Single_" class="expander" data-toggle="collapse">SmoothDamp(Vector3, Vector3, ref Vector3, Single, Single, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_System_Single_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a gradual change of a vector towards a specified target over time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime, float maxSpeed, float deltaTime)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">current</span>
+        <p><p>Current vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">target</span>
+        <p><p>Target vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">currentVelocity</span>
+        <p><p>Used to store the current velocity.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">smoothTime</span>
+        <p><p>Determines the approximate time it should take to reach the target vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">maxSpeed</span>
+        <p><p>Defines the upper limit on the speed of the Smooth Damp.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">deltaTime</span>
+        <p><p>Delta Time, represents the time elapsed since last frame.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
   
   
   

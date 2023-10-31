@@ -131,6 +131,7 @@
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.ProgressBar.html">ProgressBar</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.RenderToTextureControl.html">RenderToTextureControl</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.RootControl.html">RootControl</a></div>
+      <div class="level3"><a class="xref" href="FlaxEngine.GUI.Slider.html">Slider</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.Spacer.html">Spacer</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.TextBoxBase.html">TextBoxBase</a></div>
       <div class="level3"><a class="xref" href="FlaxEngine.GUI.TilesPanel.html">TilesPanel</a></div>
@@ -1853,16 +1854,16 @@ public void LockChildrenRecursive()</code></pre>
   
   <a id="FlaxEngine_GUI_ContainerControl_NavigationWrap_" data-uid="FlaxEngine.GUI.ContainerControl.NavigationWrap*"></a>
   
-  <h4 id="FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" data-uid="FlaxEngine.GUI.ContainerControl.NavigationWrap(FlaxEngine.GUI.NavDirection,FlaxEngine.Float2,System.Collections.Generic.List{FlaxEngine.GUI.Control})"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="expander" data-toggle="collapse">NavigationWrap(NavDirection, Float2, List&lt;Control&gt;)</a></h4>
+  <h4 id="FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__" data-uid="FlaxEngine.GUI.ContainerControl.NavigationWrap(FlaxEngine.GUI.NavDirection,FlaxEngine.Float2,System.Collections.Generic.List{FlaxEngine.GUI.Control},FlaxEngine.Float2@)"><a href="#collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__" class="expander" data-toggle="collapse">NavigationWrap(NavDirection, Float2, List&lt;Control&gt;, out Float2)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__" class="collapse in">
+  <div id="collapsible-FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__" class="collapse in">
   <div class="markdown level1 summary"><p>Wraps the navigation over the layout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Control NavigationWrap(NavDirection direction, Float2 location, List&lt;Control&gt; visited)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual Control NavigationWrap(NavDirection direction, Float2 location, List&lt;Control&gt; visited, out Float2 rightMostLocation)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1888,6 +1889,14 @@ public void LockChildrenRecursive()</code></pre>
         <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FlaxEngine.GUI.Control.html">Control</a>&gt;</span>
         <span class="parametername">visited</span>
         <p><p>The list with visited controls. Used to skip recursive navigation calls when doing traversal across the UI hierarchy.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">rightMostLocation</span>
+        <p><p>Returns the rightmost location of the parent container for the raycast used by the child container</p>
 </p>
       </td>
     </tr>

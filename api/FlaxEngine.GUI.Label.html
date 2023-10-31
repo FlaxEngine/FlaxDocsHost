@@ -195,7 +195,7 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;)</a>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;, Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -216,7 +216,7 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_ClearState">ContainerControl.ClearState()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawSelf">ContainerControl.DrawSelf()</a>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_Draw">ContainerControl.Draw()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawChildren">ContainerControl.DrawChildren()</a>
@@ -902,6 +902,47 @@ public bool AutoWidth { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_GUI_Label_BaseLinesGapScale_" data-uid="FlaxEngine.GUI.Label.BaseLinesGapScale*"></a>
+  
+  <h4 id="FlaxEngine_GUI_Label_BaseLinesGapScale" data-uid="FlaxEngine.GUI.Label.BaseLinesGapScale"><a href="#collapsible-FlaxEngine_GUI_Label_BaseLinesGapScale" class="expander" data-toggle="collapse">BaseLinesGapScale</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_Label_BaseLinesGapScale" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the text wrapping within the control bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Text Style&quot;, null)]
+[EditorOrder(2023)]
+[Tooltip(&quot;The gap between lines when wrapping and more than a single line is displayed.&quot;)]
+[Limit(0F, 3.40282347E+38F, 1F)]
+public float BaseLinesGapScale { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GUI_Label_ClipText_" data-uid="FlaxEngine.GUI.Label.ClipText*"></a>
   
   <h4 id="FlaxEngine_GUI_Label_ClipText" data-uid="FlaxEngine.GUI.Label.ClipText"><a href="#collapsible-FlaxEngine_GUI_Label_ClipText" class="expander" data-toggle="collapse">ClipText</a></h4>
@@ -953,7 +994,7 @@ public bool ClipText { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Text Style&quot;, null)]
-[EditorOrder(2023)]
+[EditorOrder(2024)]
 public FontReference Font { get; set; }</code></pre>
   </div>
 
@@ -1071,7 +1112,7 @@ public Margin Margin { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Text Style&quot;, null)]
-[EditorOrder(2024)]
+[EditorOrder(2025)]
 public MaterialBase Material { get; set; }</code></pre>
   </div>
 
@@ -1301,18 +1342,18 @@ public TextWrapping Wrapping { get; set; }</code></pre>
   </h3>
   
   
-  <a id="FlaxEngine_GUI_Label_Draw_" data-uid="FlaxEngine.GUI.Label.Draw*"></a>
+  <a id="FlaxEngine_GUI_Label_DrawSelf_" data-uid="FlaxEngine.GUI.Label.DrawSelf*"></a>
   
-  <h4 id="FlaxEngine_GUI_Label_Draw" data-uid="FlaxEngine.GUI.Label.Draw"><a href="#collapsible-FlaxEngine_GUI_Label_Draw" class="expander" data-toggle="collapse">Draw()</a></h4>
+  <h4 id="FlaxEngine_GUI_Label_DrawSelf" data-uid="FlaxEngine.GUI.Label.DrawSelf"><a href="#collapsible-FlaxEngine_GUI_Label_DrawSelf" class="expander" data-toggle="collapse">DrawSelf()</a></h4>
   
-  <div id="collapsible-FlaxEngine_GUI_Label_Draw" class="collapse in">
-  <div class="markdown level1 summary"><p>Draw the control and the children.</p>
+  <div id="collapsible-FlaxEngine_GUI_Label_DrawSelf" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Draw()</code></pre>
+    <pre><code class="lang-csharp hljs">public override void DrawSelf()</code></pre>
   </div>
 
   
@@ -1322,7 +1363,7 @@ public TextWrapping Wrapping { get; set; }</code></pre>
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_Draw">ContainerControl.Draw()</a></div>
+  <div><a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawSelf">ContainerControl.DrawSelf()</a></div>
   
   
   

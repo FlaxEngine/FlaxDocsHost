@@ -117,8 +117,14 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_ModelInstanceActor" data-uid="FlaxEngine.Actor.HasTag"><a href="#collapsible-inheritedMembers-FlaxEngine_ModelInstanceActor" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_ModelInstanceActor" data-uid="FlaxEngine.Actor.SetLayerRecursive(System.Int32)"><a href="#collapsible-inheritedMembers-FlaxEngine_ModelInstanceActor" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_ModelInstanceActor" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerRecursive_System_Int32_">Actor.SetLayerRecursive(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerNameRecursive_System_String_">Actor.SetLayerNameRecursive(String)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag">Actor.HasTag()</a>
     </div>
@@ -130,6 +136,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTag_FlaxEngine_Tag_">Actor.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTagRecursive_FlaxEngine_Tag_">Actor.AddTagRecursive(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveTag_FlaxEngine_Tag_">Actor.RemoveTag(Tag)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
@@ -306,7 +318,7 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts__1">Actor.GetScripts&lt;T&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_System_Boolean_">Actor.RotateAround(Vector3, Vector3, Single, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -435,6 +447,9 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_DestroyNow_FlaxEngine_Object_">Object.DestroyNow(Object)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
     </div>
     <div>
@@ -554,6 +569,44 @@ public ModelInstanceEntry[] Entries { get; set; }</code></pre>
   
   
   </div>
+  
+  
+  <a id="FlaxEngine_ModelInstanceActor_MaterialSlots_" data-uid="FlaxEngine.ModelInstanceActor.MaterialSlots*"></a>
+  
+  <h4 id="FlaxEngine_ModelInstanceActor_MaterialSlots" data-uid="FlaxEngine.ModelInstanceActor.MaterialSlots"><a href="#collapsible-FlaxEngine_ModelInstanceActor_MaterialSlots" class="expander" data-toggle="collapse">MaterialSlots</a></h4>
+  
+  <div id="collapsible-FlaxEngine_ModelInstanceActor_MaterialSlots" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the material slots array set on the asset (eg. model or skinned model asset).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public MaterialSlot[] MaterialSlots { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.MaterialSlot.html">MaterialSlot</a>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -592,6 +645,55 @@ public MaterialInstance CreateAndSetVirtualMaterialInstance(int entryIndex)</cod
         <a class="xref" href="FlaxEngine.MaterialInstance.html">MaterialInstance</a>
         <p><p>The created virtual material instance.</p>
 </p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_ModelInstanceActor_GetMaterial_" data-uid="FlaxEngine.ModelInstanceActor.GetMaterial*"></a>
+  
+  <h4 id="FlaxEngine_ModelInstanceActor_GetMaterial_System_Int32_" data-uid="FlaxEngine.ModelInstanceActor.GetMaterial(System.Int32)"><a href="#collapsible-FlaxEngine_ModelInstanceActor_GetMaterial_System_Int32_" class="expander" data-toggle="collapse">GetMaterial(Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_ModelInstanceActor_GetMaterial_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the material used to draw the meshes which are assigned to that slot (set in Entries or model&apos;s default).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public MaterialBase GetMaterial(int entryIndex)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">entryIndex</span>
+        <p><p>The material slot entry index.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.MaterialBase.html">MaterialBase</a>
+        <p>
       </td>
     </tr>
   </table>

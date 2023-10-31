@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Behavior Knowledge | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Behavior Knowledge | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Behavior Knowledge | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="behavior-knowledge">Behavior Knowledge</h1>
+
+<p>Every <code>Behavior</code> in order to perform logical action needs to contain a certain knowledge about the environment, enemies, goals, and sensors. <strong>Behavior Knowledge</strong> is data-only container to store all data related to behavior.</p>
+<p>Knowledge consists of:</p>
+<ul>
+<li><strong>Blackboard</strong> - instance of the behaviour blackboard (custom data)</li>
+<li><strong>Goals</strong> - list of all active goals of the behaviour</li>
+<li>Tree <strong>nodes relevancy</strong> - information about active nodes</li>
+<li>Tree <strong>nodes state</strong> - data for all active nodes</li>
+</ul>
+<div class="TIP"><h5>Tip</h5><p>Blackboard or Goals values can be custom structures or objects (<code>FlaxEngine.Object</code>/<code>ScriptingObject</code>). Structures are recommended for small values, for larger data containers use object.</p>
+</div>
+<p><img src="media/behavior-root-node.png" alt="Behavior Tree node options"></p>
+<h2 id="blackboard">Blackboard</h2>
+<p><strong>Blackboard</strong> is used to store information for Behavior Tree logic. For example, it can contain current movement speed of the agent provided by gameplay code to be used for pathfollowing. A typical workflow would be to create a blackboard object class or structure and fill it will fields or properties. Blackboard type can be <strong>assigned on a Root node</strong> (see picture above) of the Behavior Tree.</p>
+<div class="tabGroup" id="tabgroup_v5V6Pbwc1J">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J_code-csharp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J_code-cpp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_v5V6Pbwc1J_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Blackboard for BT with object entries.
+/// &lt;/summary&gt;
+public class CSharpBlackboardObject : FlaxEngine.Object
+{
+    public float MoveSpeed;
+    public int AmmoLeft;
+    public Actor Target;
+
+    public bool HasTarget =&gt; Target != null;
+}
+
+/// &lt;summary&gt;
+/// Blackboard for BT with struct entries.
+/// &lt;/summary&gt;
+public struct CSharpBlackboardStruct
+{
+    public float MoveSpeed;
+    public int AmmoLeft;
+    public Actor Target;
+
+    public bool HasTarget =&gt; Target != null;
+}
+</code></pre></section>
+<section id="tabpanel_v5V6Pbwc1J_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+#include &quot;Engine/Level/Actor.h&quot;
+
+/// &lt;summary&gt;
+/// Blackboard for BT with object entries.
+/// &lt;/summary&gt;
+API_CLASS() class GAME_API CppBlackboardObject : public ScriptingObject
+{
+    DECLARE_SCRIPTING_TYPE(CppBlackboardObject);
+
+    API_FIELD() float MoveSpeed = 0.0f;
+    API_FIELD() int32 AmmoLeft = 30;
+    API_FIELD() ScriptingObjectReference&lt;Actor&gt; Target;
+
+    API_PROPERTY() bool HasTarget() const
+    {
+        return Target != nullptr;
+    }
+};
+
+/// &lt;summary&gt;
+/// Blackboard for BT with struct entries.
+/// &lt;/summary&gt;
+API_STRUCT() struct GAME_API CppBlackboardStruct
+{
+    DECLARE_SCRIPTING_TYPE_MINIMAL(CppBlackboardStruct);
+
+    API_FIELD() float MoveSpeed = 200.0f;
+    API_FIELD() int32 AmmoLeft = 30;
+    API_FIELD() ScriptingObjectReference&lt;Actor&gt; Target;
+};
+</code></pre></section>
+</div>
+<div class="TIP"><h5>Tip</h5><p>Blackboard or Goals types can have <a href="../../custom-editors/index.html">Custom Editor</a> defined for more complex editing experience or customizations.</p>
+</div>
+<h2 id="goals">Goals</h2>
+<p><strong>Goal</strong> is used to store information for Behavior Tree logic about a very specific action. For example, it can contain target character to attack by the NPC or target object to follow or go to. This data could be placed inside the Blackboard but having a separation of basic tasks for AI can help when creating a more complex system where BTs can be reused by different agent types (eg. via node decorator <code>Has Goal</code> and selectors to access goal data). Goal types used by tree can be <strong>assigned on a Root node</strong> (see picture above).</p>
+<div class="tabGroup" id="tabgroup_v5V6Pbwc1J-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J-1_code-csharp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J-1_code-cpp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_v5V6Pbwc1J-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Simple agent goal data.
+/// &lt;/summary&gt;
+public struct MoveToGoal
+{
+    public Actor Target;
+    public float MoveSpeed;
+}
+</code></pre></section>
+<section id="tabpanel_v5V6Pbwc1J-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+#include &quot;Engine/Level/Actor.h&quot;
+
+/// &lt;summary&gt;
+/// Simple agent goal data.
+/// &lt;/summary&gt;
+API_STRUCT() struct GAME_API MoveToGoal
+{
+    DECLARE_SCRIPTING_TYPE_MINIMAL(CppBlackboardStruct);
+
+    API_FIELD() ScriptingObjectReference&lt;Actor&gt; Target;
+    API_FIELD() float MoveSpeed;
+};
+</code></pre></section>
+</div>
+<h2 id="knowledge-selector">Knowledge Selector</h2>
+<p><strong>Selector</strong> provides unified access to Behavior Knowledge data via path (eg. <code>Blackboard/AmmoLeft</code> or <code>Goal/MoveToGoal/MoveSpeed</code>). It can be used to read or write to the knowledge field or property selected by the user in the node properties panel (via picker with a drop-down list and search field). Each serializer provides <code>Set</code>, <code>Get</code> and <code>TryGet</code> methods to access the knowledge data.</p>
+<div class="tabGroup" id="tabgroup_v5V6Pbwc1J-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J-2_code-csharp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_v5V6Pbwc1J-2_code-cpp" role="tab" aria-controls="tabpanel_v5V6Pbwc1J-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_v5V6Pbwc1J-2_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+// Types value selector (float value)
+BehaviorKnowledgeSelector&lt;float&gt; MovementSpeed;
+
+// Generic value selector
+BehaviorKnowledgeSelectorAny MovementSpeed;
+</code></pre></section>
+<section id="tabpanel_v5V6Pbwc1J-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/AI/BehaviorKnowledgeSelector.h&quot;
+
+// Types value selector (float value)
+BehaviorKnowledgeSelector&lt;float&gt; MovementSpeed;
+
+// Generic value selector
+BehaviorKnowledgeSelectorAny MovementSpeed;
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/ai/behavior-trees/knowledge.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

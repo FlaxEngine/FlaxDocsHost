@@ -117,6 +117,7 @@
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
     <div><a class="xref" href="FlaxEditor.IEditable.html">IEditable</a></div>
+    <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html">IPresenterOwner</a></div>
   </div>
   </div>
   
@@ -493,7 +494,7 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;)</a>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;, Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -842,7 +843,7 @@
   
   <h5 id="FlaxEditor_Windows_Assets_PrefabWindow_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PrefabWindow : AssetEditorWindowBase&lt;Prefab&gt;, IComparable, IDrawable, IEditable, IContentItemOwner</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PrefabWindow : AssetEditorWindowBase&lt;Prefab&gt;, IComparable, IDrawable, IEditable, IContentItemOwner, IPresenterOwner</code></pre>
   </div>
 
   
@@ -1040,6 +1041,82 @@
   
   
   
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_Presenter_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Presenter*"></a>
+  
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_Presenter" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Presenter"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Presenter" class="expander" data-toggle="collapse">Presenter</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Presenter" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the prefab objects properties editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CustomEditorPresenter Presenter { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">FlaxEditor.CustomEditors.CustomEditorPresenter</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_PresenterViewport_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.PresenterViewport*"></a>
+  
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_PresenterViewport" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.PresenterViewport"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_PresenterViewport" class="expander" data-toggle="collapse">PresenterViewport</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_PresenterViewport" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the viewport linked with properties presenter (optional, null if unused).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorViewport PresenterViewport { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html">EditorViewport</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_PresenterViewport">IPresenterOwner.PresenterViewport</a></div>
   
   
   
@@ -1920,6 +1997,8 @@
   
   
   
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__">IPresenterOwner.Select(List&lt;SceneGraphNode&gt;)</a></div>
   
   
   

@@ -121,7 +121,17 @@
 <p>Flax supports automatic collision mesh importing from a source model. To import it use a custom name prefix for collision meshes in the model file (eg. <code>COLL_</code> or <code>UCX_</code> prefix) and specify that prefix in the import option <strong>Collision Meshes Prefix</strong>. The engine will extract those collision meshes and create a separate collision data asset</p>
 <p>Example usage:</p>
 <p><img src="media/collision-mesh.png" alt="Model Collsion import engine"></p>
-<p>For ease of use after you add a model on a scene you can use <em>Right-click</em> and select option <strong>Add mesh collider</strong>. Then the editor will automatically pick up the imported collision mesh (or generate a new one) and add it to the model on a scene so it has a collision for physics.</p>
+<p>For ease of use after you add a model on a scene you can use <em>Right-click</em> and select option <strong>Add mesh collider</strong>. Then the editor will automatically pick up the imported collision mesh (or generate a new one) and add it to the model on a scene so it has a collision for physics. You can change <code>Collision Type</code> between convex and triangle mesh - convex is more optimized but less accurate.</p>
+<h2 id="reusing-material-when-importing-multiple-models">Reusing material when importing multiple models</h2>
+<p>When importing large set of models importer will create materials for each one of them which might not be efficent. To optimize it you can:</p>
+<ul>
+<li>select all models (eg. with <code>Ctrl+A</code>) to edit them in batch,</li>
+<li>check <code>Import Materials As Instances</code> to create material instances rather than materials,</li>
+<li>assign <code>Instance To Import As</code> material to be used as base (it can contain common parameters like <code>Color</code> to be overriden by importer in instances),</li>
+<li>set <code>Sub Asset Folder</code> to folder name where imported materials and textures will be placed for all of models (eg. <code>mat</code>)</li>
+<li>import.</li>
+</ul>
+<p><img src="media/import-models-with-shared-mat-instances.png" alt="Reusing material when importing multiple models"></p>
 <h2 id="model-import-settings">Model import settings</h2>
 <p><img src="media/imort-model-settigns.jpg" alt="Models"></p>
 <p>Flax uses the same import settings data scheme for <strong>models</strong>, <strong>skinned models</strong> and <strong>animations</strong> as they all can be imported from the same source files (eg. <code>.fbx</code> or <code>.dae</code>).</p>
@@ -188,6 +198,10 @@
 <tr>
 <td><strong>Collision Meshes Prefix</strong></td>
 <td>If specified, all meshes which name starts with this prefix will be imported as a separate collision data (excluded used for rendering).</td>
+</tr>
+<tr>
+<td><strong>Collision Type</strong></td>
+<td>The type of collision that should be generated if has collision prefix specified.</td>
 </tr>
 <tr>
 <td></td>
@@ -286,12 +300,20 @@
 <td>If checked, the importer will create materials for model meshes as specified in the file.</td>
 </tr>
 <tr>
+<td><strong>Import Materials As Instances</strong></td>
+<td>If checked, the importer will create the model&#39;s materials as instances of a base material.</td>
+</tr>
+<tr>
+<td><strong>Instance To Import As</strong></td>
+<td>The material to import the model&#39;s materials as an instance of.</td>
+</tr>
+<tr>
 <td><strong>Import Textures</strong></td>
 <td>If checked, the importer will import texture files used by the model and any embedded texture resources.</td>
 </tr>
 <tr>
-<td><strong>Restore Materials On Reimport</strong></td>
-<td>If checked, the importer will try to restore the assigned materials to the model slots.</td>
+<td><strong>Keep Material Slots on Reimport</strong></td>
+<td>If checked, the importer will try to keep the model&#39;s current material slots, instead of importing materials from the source file.</td>
 </tr>
 <tr>
 <td></td>
@@ -304,6 +326,14 @@
 <tr>
 <td><strong>Object Index</strong></td>
 <td>The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. The default <code>-1</code> imports all objects.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sub Asset Folder</strong></td>
+<td>If specified, will be used as sub-directory name for automatically imported sub assets such as textures and materials. Set to whitespace (single space) to import to the same directory.</td>
 </tr>
 
 </tbody></table>
@@ -318,7 +348,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

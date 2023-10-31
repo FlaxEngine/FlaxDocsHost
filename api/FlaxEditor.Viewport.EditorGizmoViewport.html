@@ -123,7 +123,13 @@
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_FpsCameraFilteringFrames">EditorViewport.FpsCameraFilteringFrames</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport__speedWidget">EditorViewport._speedWidget</a>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport__cameraWidget">EditorViewport._cameraWidget</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport__cameraButton">EditorViewport._cameraButton</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport__orthographicModeButton">EditorViewport._orthographicModeButton</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport__prevInput">EditorViewport._prevInput</a>
@@ -160,6 +166,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OrientViewport_FlaxEngine_Quaternion__">EditorViewport.OrientViewport(Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_AdjustCameraMoveSpeed_System_Int32_">EditorViewport.AdjustCameraMoveSpeed(Int32)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_TakeScreenshot_System_String_">EditorViewport.TakeScreenshot(String)</a>
@@ -234,10 +243,16 @@
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OnLostFocus">EditorViewport.OnLostFocus()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OnDestroy">EditorViewport.OnDestroy()</a>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_MovementSpeed">EditorViewport.MovementSpeed</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_MovementSpeed">EditorViewport.MovementSpeed</a>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_MinMovementSpeed">EditorViewport.MinMovementSpeed</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_MaxMovementSpeed">EditorViewport.MaxMovementSpeed</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_UseCameraEasing">EditorViewport.UseCameraEasing</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_MousePositionDelta">EditorViewport.MousePositionDelta</a>
@@ -291,7 +306,13 @@
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_UseOrthographicProjection">EditorViewport.UseOrthographicProjection</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_RelativePanning">EditorViewport.RelativePanning</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_InvertPanning">EditorViewport.InvertPanning</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_PanningSpeed">EditorViewport.PanningSpeed</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_ShowFpsCounter">EditorViewport.ShowFpsCounter</a>
@@ -375,7 +396,7 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;)</a>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;, Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -727,7 +748,7 @@
   
   <h5 id="FlaxEditor_Viewport_EditorGizmoViewport_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EditorGizmoViewport : EditorViewport, IComparable, IDrawable, IGizmoOwner</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class EditorGizmoViewport : EditorViewport, IComparable, IDrawable, IGizmoOwner</code></pre>
   </div>
 
   
@@ -1300,6 +1321,42 @@
   
   
   </div>
+  
+  
+  <a id="FlaxEditor_Viewport_EditorGizmoViewport_Viewport_" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.Viewport*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_EditorGizmoViewport_Viewport" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.Viewport"><a href="#collapsible-FlaxEditor_Viewport_EditorGizmoViewport_Viewport" class="expander" data-toggle="collapse">Viewport</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_EditorGizmoViewport_Viewport" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorViewport Viewport { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html">EditorViewport</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -1345,6 +1402,35 @@
   </div>
   
   
+  <a id="FlaxEditor_Viewport_EditorGizmoViewport_OnDestroy_" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.OnDestroy*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_EditorGizmoViewport_OnDestroy" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.OnDestroy"><a href="#collapsible-FlaxEditor_Viewport_EditorGizmoViewport_OnDestroy" class="expander" data-toggle="collapse">OnDestroy()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_EditorGizmoViewport_OnDestroy" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDestroy()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.Viewport.EditorViewport.html#FlaxEditor_Viewport_EditorViewport_OnDestroy">EditorViewport.OnDestroy()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Viewport_EditorGizmoViewport_RemoveUpdateCallbacks_" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.RemoveUpdateCallbacks*"></a>
   
   <h4 id="FlaxEditor_Viewport_EditorGizmoViewport_RemoveUpdateCallbacks_FlaxEngine_GUI_RootControl_" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.RemoveUpdateCallbacks(FlaxEngine.GUI.RootControl)"><a href="#collapsible-FlaxEditor_Viewport_EditorGizmoViewport_RemoveUpdateCallbacks_FlaxEngine_GUI_RootControl_" class="expander" data-toggle="collapse">RemoveUpdateCallbacks(RootControl)</a></h4>
@@ -1378,6 +1464,43 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_RemoveUpdateCallbacks_FlaxEngine_GUI_RootControl_">Control.RemoveUpdateCallbacks(RootControl)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Viewport_EditorGizmoViewport_Select_" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.Select*"></a>
+  
+  <h4 id="FlaxEditor_Viewport_EditorGizmoViewport_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" data-uid="FlaxEditor.Viewport.EditorGizmoViewport.Select(System.Collections.Generic.List{FlaxEditor.SceneGraph.SceneGraphNode})"><a href="#collapsible-FlaxEditor_Viewport_EditorGizmoViewport_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" class="expander" data-toggle="collapse">Select(List&lt;SceneGraphNode&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Viewport_EditorGizmoViewport_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Select(List&lt;SceneGraphNode&gt; nodes)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">FlaxEditor.SceneGraph.SceneGraphNode</span>&gt;</span>
+        <span class="parametername">nodes</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
   
   
   

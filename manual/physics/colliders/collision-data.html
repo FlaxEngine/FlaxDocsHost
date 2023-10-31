@@ -93,7 +93,7 @@
 <p><strong>Collision Data</strong> asset contains a baked mesh collision data used at runtime by <a href="mesh-collider.html">Mesh Colliders</a>.
 It supports <strong>convex meshes</strong> and <strong>triangle meshes</strong> data.</p>
 <h2 id="create-a-collision-data">Create a collision data</h2>
-<p>To create a new collision data asset use the <em>Content</em> window. Right-click in the Content directory and select option <strong>New -&gt; Collision Data</strong>. Then specify the name and press <em>Enter</em> to confirm.</p>
+<p>To create a new collision data asset use the <em>Content</em> window. Right-click in the Content directory and select option <strong>New -&gt; Physics -&gt; Collision Data</strong>. Then specify the name and press <em>Enter</em> to confirm.</p>
 <p><img src="media/new-collision-data.jpg" alt="New Collision Data"></p>
 <p>Now open the asset (double-click on it) and assign the model to use for a collider shape (set the <strong>Model</strong> property). Then press <strong>Cook</strong> button.</p>
 <p><img src="media/collision-data2.jpg" alt="Collision Data"></p>
@@ -130,7 +130,8 @@ It supports <strong>convex meshes</strong> and <strong>triangle meshes</strong> 
 </table>
 <h2 id="create-collision-data-from-code">Create collision data from code</h2>
 <p>Flax supports creating most of the asset types in Editor using C# scripts (with editor plugins). The same applies to the collision data asset. Here is an example code that bakes the asset:</p>
-<pre><code class="lang-cs">var path = &quot;Content/MyModel&quot;;
+<pre><code class="lang-cs">// Cooks collision for existing model asset
+var path = &quot;Content/MyModel&quot;;
 var model = Content.LoadAsync&lt;Model&gt;(path);
 FlaxEditor.Editor.CookMeshCollision(path + &quot;_Collision&quot;, CollisionDataType.ConvexMesh, model);
 </code></pre><div class="TIP"><h5>Tip</h5><p>When invoking the collision data cooking, please ensure to invoke it on a separate thread or via async job to not block the game thread.</p>
@@ -146,7 +147,7 @@ collisionData.CookCollision(CollisionDataType.TriangleMesh, myModel);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/physics/colliders/collision-data.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/physics/colliders/collision-data.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -114,8 +114,14 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEngine_Camera" data-uid="FlaxEngine.Actor.HasTag"><a href="#collapsible-inheritedMembers-FlaxEngine_Camera" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEngine_Camera" data-uid="FlaxEngine.Actor.SetLayerRecursive(System.Int32)"><a href="#collapsible-inheritedMembers-FlaxEngine_Camera" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEngine_Camera" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerRecursive_System_Int32_">Actor.SetLayerRecursive(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetLayerNameRecursive_System_String_">Actor.SetLayerNameRecursive(String)</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_HasTag">Actor.HasTag()</a>
     </div>
@@ -127,6 +133,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTag_FlaxEngine_Tag_">Actor.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_AddTagRecursive_FlaxEngine_Tag_">Actor.AddTagRecursive(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RemoveTag_FlaxEngine_Tag_">Actor.RemoveTag(Tag)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_SetParent_FlaxEngine_Actor_System_Boolean_System_Boolean_">Actor.SetParent(Actor, Boolean, Boolean)</a>
@@ -303,7 +315,7 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetScripts__1">Actor.GetScripts&lt;T&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_">Actor.RotateAround(Vector3, Vector3, Single)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_RotateAround_FlaxEngine_Vector3_FlaxEngine_Vector3_System_Single_System_Boolean_">Actor.RotateAround(Vector3, Vector3, Single, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_ToString">Actor.ToString()</a>
@@ -430,6 +442,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy_FlaxEngine_Object_System_Single_">Object.Destroy(Object, Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_DestroyNow_FlaxEngine_Object_">Object.DestroyNow(Object)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Destroy__1___0__System_Single_">Object.Destroy&lt;T&gt;(T, Single)</a>
@@ -837,6 +852,46 @@ public static Camera OverrideMainCamera { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Camera_RenderFlags_" data-uid="FlaxEngine.Camera.RenderFlags*"></a>
+  
+  <h4 id="FlaxEngine_Camera_RenderFlags" data-uid="FlaxEngine.Camera.RenderFlags"><a href="#collapsible-FlaxEngine_Camera_RenderFlags" class="expander" data-toggle="collapse">RenderFlags</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Camera_RenderFlags" class="collapse in">
+  <div class="markdown level1 summary"><p>Frame rendering flags used to switch between graphics features for this camera.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(110)]
+[EditorDisplay(&quot;Camera&quot;, null)]
+[Unmanaged]
+public ViewFlags RenderFlags { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ViewFlags.html">ViewFlags</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Camera_RenderLayersMask_" data-uid="FlaxEngine.Camera.RenderLayersMask*"></a>
   
   <h4 id="FlaxEngine_Camera_RenderLayersMask" data-uid="FlaxEngine.Camera.RenderLayersMask"><a href="#collapsible-FlaxEngine_Camera_RenderLayersMask" class="expander" data-toggle="collapse">RenderLayersMask</a></h4>
@@ -863,6 +918,46 @@ public LayersMask RenderLayersMask { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.LayersMask.html">LayersMask</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Camera_RenderMode_" data-uid="FlaxEngine.Camera.RenderMode*"></a>
+  
+  <h4 id="FlaxEngine_Camera_RenderMode" data-uid="FlaxEngine.Camera.RenderMode"><a href="#collapsible-FlaxEngine_Camera_RenderMode" class="expander" data-toggle="collapse">RenderMode</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Camera_RenderMode" class="collapse in">
+  <div class="markdown level1 summary"><p>Describes frame rendering modes for this camera.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(120)]
+[EditorDisplay(&quot;Camera&quot;, null)]
+[Unmanaged]
+public ViewMode RenderMode { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.ViewMode.html">ViewMode</a>
         <p>
       </td>
     </tr>

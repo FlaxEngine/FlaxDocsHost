@@ -90,6 +90,25 @@
 <h1 id="plugin-project">Plugin Project</h1>
 
 <p>Flax supports the concept of plugin projects. A plugin project is a separate Flax project that can be referenced  from a game project and distributed as a plugin. Flax supports these references between nested projects. This concept is used by default in game projects by referencing the engine project. In this documentation section, you will learn how to reference and use the plugin project in your game project.</p>
+<h2 id="automated-creation">Automated Creation</h2>
+<div class="IMPORTANT"><h5>Important</h5><p>Internet access is required for the first plugin project created using this tool.</p>
+</div>
+<p>Open the Plugin Window <strong>Tools -&gt; Plugins</strong>.
+<img src="media/plugin-menu.png" alt="Plugin Menu"></p>
+<p>Click the create plugin project button and fill out the name, version, and company of the plugin project.
+<img src="media/plugin-create-menu.png" alt="Plugin Create Menu"></p>
+<p>Click the submit button.</p>
+<p>Restart the editor for the changes to take effect.</p>
+<h2 id="automated-git-cloning">Automated Git Cloning</h2>
+<div class="IMPORTANT"><h5>Important</h5><p>Internet access and Git are required for this tool.</p>
+</div>
+<p>Open the Plugin Window <strong>Tools -&gt; Plugins</strong>.
+<img src="media/plugin-menu.png" alt="Plugin Menu"></p>
+<p>Click the clone plugin project button and enter the Git address of the plugin project. Entering a name is optional and will only rename the folder that contains the plugin project, otherwise the repository name will be used.
+<img src="media/plugin-clone-menu.png" alt="Plugin Clone Menu"></p>
+<p>Click the submit button.</p>
+<p>Restart the editor for the changes to take effect.</p>
+<h2 id="manual-creation">Manual Creation</h2>
 <p>Create a new project and add it to your existing <strong>project workspace subdirectory</strong>. For instance, place it in the <code>Plugin/&lt;plugin_name&gt;</code> folder. You can also use an <a href="https://github.com/FlaxEngine/ExamplePlugin">example plugin</a> project to do this.</p>
 <p>It is imperitive that you rename plugin project files as the default name of &quot;Game&quot; cannot be used or it will conflict with the primary project name in global context during build (if left with default name of &quot;Game&quot;). To rename the plugin project, you will need to first open the .flaxproj in the editor and double-click a C# source file to generate the C# project files and necessary build scripts. Then rename the .flaxproj file, the .Net project files (.csproj), source files and class names replacing &quot;Game&quot; with your plugin name (e.g. &quot;MyPlugin&quot;). Once renaming is complete right-click the .flaxproj to &quot;generate project script files&quot; there should be no issues with generating script files, if there are then comb through the naming.</p>
 <p>Next, add a <strong>reference</strong> from your game project to the added plugin project. Open <strong>&lt;project_name&gt;.flaxproj</strong> with a text editor and add reference to the plugin project:</p>
@@ -102,6 +121,7 @@
         }
     ],
 </code></pre><p>As you can see, by using <code>$(ProjectPath)</code> followed by the local path you can reference the plugin project file directly. Then you can open the editor and use content and scripts from the plugin project in your game.</p>
+<h2 id="referencing-the-plugin">Referencing the plugin</h2>
 <p>If you want to reference the types from referenced project code modules add reference in your game code module build script (in <code>Setup</code> function):</p>
 <pre><code class="lang-cs">options.PrivateDependencies.Add(&quot;MyPlugin&quot;);
 </code></pre><p>Plugin projects can also reference other projects but cross-solution references are not supported.</p>
@@ -114,7 +134,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/810894a8f9af3a2b0ca6fe52f34f57c300d58875/manual/scripting/plugins/plugin-project.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/plugins/plugin-project.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

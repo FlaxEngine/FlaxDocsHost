@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Behavior Trees | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Behavior Trees | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Behavior Trees | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="behavior-trees">Behavior Trees</h1>
+
+<p><img src="media/behavior-tree-1.jpg" alt="Behavior Trees in Flax Engine"></p>
+<p><strong>Behavior trees</strong> (shortened as <strong>BT</strong>) are a popular AI technique used in many computer games to design and simulate intelligent characters, agents, or objects. A behavior tree is a combination of many different AI techniques: hierarchical state machines, planning, scheduling, and action execution. The key advantage of behavior trees is that they are quite easy to understand and can be created with visual editing tools rather than code-only.</p>
+<p>In this documentation section, you will learn how to create and use Behavior Trees.</p>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="knowledge.html">Behavior Knowledge</a></li>
+<li><a href="behavior.html">Behavior</a></li>
+<li><a href="nodes.html">Behavior Tree Nodes</a></li>
+<li><a href="decorators.html">Behavior Tree Decorators</a></li>
+<li><a href="custom-node.html">How to create a custom Behavior Tree node</a></li>
+<li><a href="custom-decorator.html">How to create a custom Behavior Tree decorator</a></li>
+<li><a href="custom-move-to.html">How to create a custom Move To node</a></li>
+</ul>
+<h2 id="create-behavior-tree">Create Behavior Tree</h2>
+<p><img src="media/new-behavior-tree.jpg" alt="Create New Behavior Tree"></p>
+<p>To create a new Behavior Trees asset, simply navigate to the Content directory in the <em>Content</em> window, then right-click and choose option <strong>New -&gt; AI -&gt; Behavior Tree</strong>. Specify its name and press <em>Enter</em>.</p>
+<h2 id="behavior-tree-editor-window">Behavior Tree editor window</h2>
+<p><img src="media/behavior-tree-window-layout.png" alt="Behavior Tree editor window"></p>
+<p>Behavior Tree editor window contains:</p>
+<ol>
+<li><strong>Toolstrip</strong> - utility buttons such as saving or undo control, contains picker with Behavior to debug</li>
+<li><strong>Visual Surface</strong> - the nodes graph editor</li>
+<li><strong>Selected node properties</strong> - shows properties of selected node(s)</li>
+<li><strong>Knowledge properties</strong> - shows Behavior Knowledge blackboard data with goals.</li>
+</ol>
+<h3 id="navigation-controls">Navigation controls</h3>
+<p>Controls in the Behavior Tree Editor generally match the controls of other tools in the Flax Editor.</p>
+<h4 id="mouse-controls">Mouse controls</h4>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RMB</strong> drag on background</td>
+<td>Pan nodes graph</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on background</td>
+<td>Show node creation menu</td>
+</tr>
+<tr>
+<td><strong>RMB</strong> on node</td>
+<td>Show node edit menu</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> drag on background</td>
+<td>Select nodes with rectangle tool</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node</td>
+<td>Select node</td>
+</tr>
+<tr>
+<td><strong>Ctrl + LMB</strong> on node</td>
+<td>Toggle selection of node</td>
+</tr>
+<tr>
+<td><strong>LMB</strong> on node header</td>
+<td>Move selected nodes</td>
+</tr>
+<tr>
+<td><strong>Mouse Wheel</strong></td>
+<td>Zoom in/out</td>
+</tr>
+</tbody>
+</table>
+<h4 id="keyboard-controls">Keyboard controls</h4>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl + S</strong></td>
+<td>Save the asset</td>
+</tr>
+<tr>
+<td><strong>Ctrl + A</strong></td>
+<td>Select all nodes</td>
+</tr>
+<tr>
+<td><strong>Ctrl + C</strong></td>
+<td>Copy selected nodes to the clipboard</td>
+</tr>
+<tr>
+<td><strong>Ctrl + V</strong></td>
+<td>Paste nodes from the clipboard</td>
+</tr>
+<tr>
+<td><strong>Ctrl + X</strong></td>
+<td>Cuts the selected nodes to the clipboard</td>
+</tr>
+<tr>
+<td><strong>Ctrl + D</strong></td>
+<td>Duplicate selected nodes</td>
+</tr>
+<tr>
+<td><strong>Delete</strong></td>
+<td>Delete selected nodes</td>
+</tr>
+<tr>
+<td><strong>Escape</strong></td>
+<td>Deselect nodes</td>
+</tr>
+<tr>
+<td><strong>Arrow keys</strong></td>
+<td>Move selected nodes</td>
+</tr>
+<tr>
+<td><strong>//</strong></td>
+<td>Create comment around selected nodes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adding-new-node">Adding new node</h3>
+<p>In order to add a new node <strong>right click</strong> on a surface background and select a node type from a popup or type its name to find it. Behavior Trees can use nodes from engine, plugins and game. Also, when hovering the items with a mouse cursor the tooltip will show the documentation comments with details of every node.</p>
+<p><img src="media/add-new-node.png" alt="Adding New Behavior Tree Node"></p>
+<h3 id="adding-new-decorator">Adding new decorator</h3>
+<p>Every node can have a list of decorators (in specific order) that are additional functionality to perform checks if the node can be executed or to modify it&#39;s logic flow (eg. loop node). To add a new node <strong>right click</strong> on a node header, choose submenu <strong>Add Decorator</strong> and select a decorator type from a list. Also, when hovering the items with a mouse cursor the tooltip will show the documentation comments with details.</p>
+<p><img src="media/add-decorator.png" alt="Adding New Behavior Tree Node Decorator"></p>
+<p>Decorators can be selected and edited just like regular nodes. You can change their order by dragging the icon next to the close button on each decorator.</p>
+<h3 id="connecting-nodes">Connecting nodes</h3>
+<p>There are 3 types of nodes: root, composite, leaf. <strong>Root</strong> can contain children but is always the first node that starts the tree execution. <strong>Composites</strong> can have an incoming connection and a list of children to run execution of them depending on node type (eg. sequence or selector). <strong>Leaf</strong> nodes are action-based and usually perform a single action (instant or recurring).</p>
+<p>Child <strong>nodes are always executed from left to right</strong>. Which means that placement of the nodes matters and helps to keep tree graph more readable.</p>
+<h3 id="debugging">Debugging</h3>
+<p>Behavior Tree contains debugger functionality that can be used <strong>during Play Mode</strong> in Editor. Simply <strong>select the target Behavior</strong> with object picker on toolstrip.</p>
+<p><img src="media/behavior-debug-picker.png" alt="Behavior debugger"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/ai/behavior-trees/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

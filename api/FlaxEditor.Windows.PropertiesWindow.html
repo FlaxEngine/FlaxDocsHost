@@ -115,6 +115,7 @@
   <div id="collapsible-implements-FlaxEditor_Windows_PropertiesWindow" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html">IPresenterOwner</a></div>
   </div>
   </div>
   
@@ -428,7 +429,7 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_CanNavigateChild_FlaxEngine_GUI_Control_">ContainerControl.CanNavigateChild(Control)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;)</a>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_NavigationWrap_FlaxEngine_GUI_NavDirection_FlaxEngine_Float2_System_Collections_Generic_List_FlaxEngine_GUI_Control__FlaxEngine_Float2__">ContainerControl.NavigationWrap(NavDirection, Float2, List&lt;Control&gt;, Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateContainsFocus">ContainerControl.UpdateContainsFocus()</a>
@@ -783,7 +784,7 @@
   
   <h5 id="FlaxEditor_Windows_PropertiesWindow_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PropertiesWindow : SceneEditorWindow, IComparable, IDrawable</code></pre>
+    <pre><code class="lang-csharp hljs">public class PropertiesWindow : SceneEditorWindow, IComparable, IDrawable, IPresenterOwner</code></pre>
   </div>
 
   
@@ -945,6 +946,45 @@
   </h3>
   
   
+  <a id="FlaxEditor_Windows_PropertiesWindow_PresenterViewport_" data-uid="FlaxEditor.Windows.PropertiesWindow.PresenterViewport*"></a>
+  
+  <h4 id="FlaxEditor_Windows_PropertiesWindow_PresenterViewport" data-uid="FlaxEditor.Windows.PropertiesWindow.PresenterViewport"><a href="#collapsible-FlaxEditor_Windows_PropertiesWindow_PresenterViewport" class="expander" data-toggle="collapse">PresenterViewport</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_PropertiesWindow_PresenterViewport" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the viewport linked with properties presenter (optional, null if unused).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorViewport PresenterViewport { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html">EditorViewport</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_PresenterViewport">IPresenterOwner.PresenterViewport</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Windows_PropertiesWindow_UseLayoutData_" data-uid="FlaxEditor.Windows.PropertiesWindow.UseLayoutData*"></a>
   
   <h4 id="FlaxEditor_Windows_PropertiesWindow_UseLayoutData" data-uid="FlaxEditor.Windows.PropertiesWindow.UseLayoutData"><a href="#collapsible-FlaxEditor_Windows_PropertiesWindow_UseLayoutData" class="expander" data-toggle="collapse">UseLayoutData</a></h4>
@@ -1061,6 +1101,47 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEditor.GUI.Docking.DockWindow.html#FlaxEditor_GUI_Docking_DockWindow_OnLayoutSerialize_System_Xml_XmlWriter_">DockWindow.OnLayoutSerialize(XmlWriter)</a></div>
   
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_PropertiesWindow_Select_" data-uid="FlaxEditor.Windows.PropertiesWindow.Select*"></a>
+  
+  <h4 id="FlaxEditor_Windows_PropertiesWindow_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" data-uid="FlaxEditor.Windows.PropertiesWindow.Select(System.Collections.Generic.List{FlaxEditor.SceneGraph.SceneGraphNode})"><a href="#collapsible-FlaxEditor_Windows_PropertiesWindow_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" class="expander" data-toggle="collapse">Select(List&lt;SceneGraphNode&gt;)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_PropertiesWindow_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__" class="collapse in">
+  <div class="markdown level1 summary"><p>Selects the scene objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Select(List&lt;SceneGraphNode&gt; nodes)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">FlaxEditor.SceneGraph.SceneGraphNode</span>&gt;</span>
+        <span class="parametername">nodes</span>
+        <p><p>The nodes to select</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_Select_System_Collections_Generic_List_FlaxEditor_SceneGraph_SceneGraphNode__">IPresenterOwner.Select(List&lt;SceneGraphNode&gt;)</a></div>
   
   
   

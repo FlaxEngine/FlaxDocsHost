@@ -192,6 +192,9 @@
       <a class="xref" href="Actor.html#Actor_AddTag_const_Tag___">Actor::AddTag(const Tag&amp; tag)</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_AddTagRecursive_const_Tag___">Actor::AddTagRecursive(const Tag&amp; tag)</a>
+    </div>
+    <div>
       <span class="xref">SplineModel</span>
     </div>
     <div>
@@ -376,6 +379,12 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetManagedInstance__">ScriptingObject::GetManagedInstance()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___">ModelInstanceActor::GetMeshData(const MeshReference&amp; mesh, MeshBufferType type, BytesContainer&amp; result, int32&amp; count)</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMeshDeformation__">ModelInstanceActor::GetMeshDeformation()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetName__">Actor::GetName()</a>
@@ -603,10 +612,16 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_OnScriptingDispose__">ScriptingObject::OnScriptingDispose()</a>
     </div>
     <div>
+      <a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_OnTransformChanged__">ModelInstanceActor::OnTransformChanged()</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_RemoveStaticFlags_StaticFlags_">Actor::RemoveStaticFlags(StaticFlags flags)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_RemoveTag_const_Tag___">Actor::RemoveTag(const Tag&amp; tag)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_ResetLocalTransform__">Actor::ResetLocalTransform()</a>
@@ -640,6 +655,12 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLayerName_const_StringView___">Actor::SetLayerName(const StringView&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLayerNameRecursive_const_StringView___">Actor::SetLayerNameRecursive(const StringView&amp; value)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_SetLayerRecursive_int32_">Actor::SetLayerRecursive(int32 layerIndex)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetLocalOrientation_const_Quaternion___">Actor::SetLocalOrientation(const Quaternion&amp; value)</a>
@@ -1131,6 +1152,106 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_GetMaterial_int32_.md&amp;value=---%0Auid%3A%20SplineModel.GetMaterial(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="SplineModel_GetMaterial_" data-uid="SplineModel.GetMaterial*"></a>
+  
+  <h4 id="SplineModel_GetMaterial_int32_" data-uid="SplineModel.GetMaterial(int32)"><a href="#collapsible-SplineModel_GetMaterial_int32_" class="expander" data-toggle="collapse">GetMaterial(int32 entryIndex)</a></h4>
+  
+  <div id="collapsible-SplineModel_GetMaterial_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the material used to draw the meshes which are assigned to that slot (set in Entries or model&#39;s default). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual MaterialBase* GetMaterial(int32 entryIndex) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">entryIndex</span>
+        <p><p>The material slot entry index.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="MaterialBase.html">MaterialBase</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMaterial_int32_">ModelInstanceActor::GetMaterial(int32 entryIndex)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_GetMaterialSlots__.md&amp;value=---%0Auid%3A%20SplineModel.GetMaterialSlots()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="SplineModel_GetMaterialSlots_" data-uid="SplineModel.GetMaterialSlots*"></a>
+  
+  <h4 id="SplineModel_GetMaterialSlots__" data-uid="SplineModel.GetMaterialSlots()"><a href="#collapsible-SplineModel_GetMaterialSlots__" class="expander" data-toggle="collapse">GetMaterialSlots()</a></h4>
+  
+  <div id="collapsible-SplineModel_GetMaterialSlots__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the material slots array set on the asset (eg. model or skinned model asset). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual Span&lt;MaterialSlot&gt; GetMaterialSlots() const override</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">Span&lt;MaterialSlot&gt;</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMaterialSlots__">ModelInstanceActor::GetMaterialSlots()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_GetPreTransform__.md&amp;value=---%0Auid%3A%20SplineModel.GetPreTransform()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1334,7 +1455,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_OnActiveInTreeChanged__.md&amp;value=---%0Auid%3A%20SplineModel.OnActiveInTreeChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L115" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L117" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SplineModel_OnActiveInTreeChanged_" data-uid="SplineModel.OnActiveInTreeChanged*"></a>
@@ -1394,42 +1515,6 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Actor.html#Actor_OnParentChanged__">Actor::OnParentChanged()</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_OnTransformChanged__.md&amp;value=---%0Auid%3A%20SplineModel.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SplineModel_OnTransformChanged_" data-uid="SplineModel.OnTransformChanged*"></a>
-  
-  <h4 id="SplineModel_OnTransformChanged__" data-uid="SplineModel.OnTransformChanged()"><a href="#collapsible-SplineModel_OnTransformChanged__" class="expander" data-toggle="collapse">OnTransformChanged()</a></h4>
-  
-  <div id="collapsible-SplineModel_OnTransformChanged__" class="collapse in">
-  <div class="markdown level1 summary"><p>Called when actor transform gets changed. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected virtual void OnTransformChanged() override</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_OnTransformChanged__">Actor::OnTransformChanged()</a></div>
   
   
   
@@ -1703,6 +1788,42 @@
   
   
   
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SplineModel_UpdateBounds__.md&amp;value=---%0Auid%3A%20SplineModel.UpdateBounds()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/SplineModel.h/#L113" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="SplineModel_UpdateBounds_" data-uid="SplineModel.UpdateBounds*"></a>
+  
+  <h4 id="SplineModel_UpdateBounds__" data-uid="SplineModel.UpdateBounds()"><a href="#collapsible-SplineModel_UpdateBounds__" class="expander" data-toggle="collapse">UpdateBounds()</a></h4>
+  
+  <div id="collapsible-SplineModel_UpdateBounds__" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the model bounds (eg. when mesh has applied significant deformation). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void UpdateBounds() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_UpdateBounds__">ModelInstanceActor::UpdateBounds()</a></div>
   
   
   

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create a custom Behavior Tree decorator | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create a custom Behavior Tree decorator | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Create a custom Behavior Tree decorator | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-a-custom-behavior-tree-decorator">HOWTO: Create a custom Behavior Tree decorator</h1>
+
+<p><img src="media/custom-decorator.png" alt="Custom Behavior Tree Decorator"></p>
+<p>Behavior Trees are very extensible meaning you can create own node types in your game project or use the ones from engine and plugins. Each node can define custom logic, contain properties and store runtime state (per-instance).</p>
+<div class="WARNING"><h5>Warning</h5><p>Please keep in mind that Behavior execution is done in async via Job System (<code>Behavior.System</code>).</p>
+</div>
+<h2 id="custom-decorator-node">Custom decorator node</h2>
+<p>Below is an example of a custom decorator that checks if a specific gameplay conditions are met. This showcase how Behavior Tree can interact with gameplay code.</p>
+<div class="tabGroup" id="tabgroup_JMPwKbhFEW">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_JMPwKbhFEW_code-csharp" role="tab" aria-controls="tabpanel_JMPwKbhFEW_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_JMPwKbhFEW_code-cpp" role="tab" aria-controls="tabpanel_JMPwKbhFEW_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_JMPwKbhFEW_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Simple node decorator.
+/// &lt;/summary&gt;
+public class MyHasTagDecorator : BehaviorTreeDecorator
+{
+    /// &lt;summary&gt;
+    /// Checks if behavior agent running this BT has a specific actor tag assigned. Used only if TagSelector is unused.
+    /// &lt;/summary&gt;
+    public Tag ActorTag;
+
+    /// &lt;summary&gt;
+    /// Checks if behavior agent running this BT has a specific actor tag assigned. If set Tag is unused.
+    /// &lt;/summary&gt;
+    public BehaviorKnowledgeSelector&lt;Tag&gt; TagSelector;
+
+    /// &lt;inheritdoc /&gt;
+    public override bool CanUpdate(BehaviorUpdateContext context)
+    {
+        if (!TagSelector.TryGet(context.Knowledge, out var tag))
+            tag = ActorTag;
+        var agent = context.Behavior.Actor;
+        // Here you can interact with level or gameplay objects (be aware that this code runs in async by default)
+        return agent.HasTag(tag);
+    }
+
+#if FLAX_EDITOR
+    /// &lt;inheritdoc /&gt;
+    public override string GetDebugInfo(BehaviorUpdateContext context)
+    {
+        if (!TagSelector.TryGet(context.Knowledge, out var tag))
+            tag = ActorTag;
+        return string.Format(&quot;Has tag: {0}&quot;, tag);
+    }
+#endif
+}
+</code></pre></section>
+<section id="tabpanel_JMPwKbhFEW_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/AI/BehaviorTreeNode.h&quot;
+#include &quot;Engine/AI/BehaviorKnowledgeSelector.h&quot;
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+
+/// &lt;summary&gt;
+/// Simple node decorator.
+/// &lt;/summary&gt;
+API_CLASS() class GAME_API MyHasTagDecorator : public BehaviorTreeDecorator
+{
+    DECLARE_SCRIPTING_TYPE(MyHasTagDecorator);
+    API_AUTO_SERIALIZATION();
+
+    /// &lt;summary&gt;
+    /// Checks if behavior agent running this BT has a specific actor tag assigned. Used only if TagSelector is unused.
+    /// &lt;/summary&gt;
+    API_FIELD() Tag ActorTag;
+
+    /// &lt;summary&gt;
+    /// Checks if behavior agent running this BT has a specific actor tag assigned. If set Tag is unused.
+    /// &lt;/summary&gt;
+    API_FIELD() BehaviorKnowledgeSelectorAny TagSelector;
+
+public:
+    // [BehaviorTreeNode]
+    bool CanUpdate(const BehaviorUpdateContext&amp; context) override
+    {
+        Tag tag = ActorTag;
+        Variant value;
+        if (TagSelector.TryGet(context.Knowledge, value))
+        {
+            if (auto* e = value.AsStructure&lt;Tag&gt;())
+                tag = *e;
+        }
+        auto agent = context.Behavior-&gt;GetActor();
+        // Here you can interact with level or gameplay objects (be aware that this code runs in async by default)
+        return agent-&gt;HasTag(tag);
+    }
+#if USE_EDITOR
+    String GetDebugInfo(const BehaviorUpdateContext&amp; context) const override
+    {
+        Tag tag = ActorTag;
+        Variant value;
+        if (TagSelector.TryGet(context.Knowledge, value))
+        {
+            if (auto* e = value.AsStructure&lt;Tag&gt;())
+                tag = *e;
+        }
+        return String::Format(TEXT(&quot;Has tag: {0}&quot;), tag.ToString());
+    }
+#endif
+};
+
+inline MyHasTagDecorator::MyHasTagDecorator(const SpawnParams&amp; params)
+    : BehaviorTreeDecorator(params)
+{
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/ai/behavior-trees/custom-decorator.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Create a custom Behavior Tree node | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Create a custom Behavior Tree node | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Create a custom Behavior Tree node | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-create-a-custom-behavior-tree-node">HOWTO: Create a custom Behavior Tree node</h1>
+
+<p><img src="media/custom-delay-node.png" alt="Custom Behavior Tree Delay Node"></p>
+<p>Behavior Trees are very extensible meaning you can create own node types in your game project or use the ones from engine and plugins. Each node can define custom logic, contain properties and store runtime state (per-instance).</p>
+<div class="WARNING"><h5>Warning</h5><p>Please keep in mind that Behavior execution is done in async via Job System (<code>Behavior.System</code>).</p>
+</div>
+<div class="WARNING"><h5>Warning</h5><p>Don&#39;t store any Behavior state in node properties but custom Node State data container (nodes are not instanced per behavior).</p>
+</div>
+<h2 id="custom-delay-node">Custom delay node</h2>
+<p>Below is an example of a custom node that waits a specific amount of time before graph execution can continue to another node. It stores the time left value per-instance (data cached for each node, for each behavior using it).</p>
+<div class="tabGroup" id="tabgroup_PX0IOzREwy">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_PX0IOzREwy_code-csharp" role="tab" aria-controls="tabpanel_PX0IOzREwy_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_PX0IOzREwy_code-cpp" role="tab" aria-controls="tabpanel_PX0IOzREwy_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_PX0IOzREwy_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using System.Runtime.InteropServices;
+using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Simple delay node.
+/// &lt;/summary&gt;
+public class MyDelayNode : BehaviorTreeNode
+{
+    // Node state container (allocated per active node, see InitState/ReleaseState)
+    [StructLayout(LayoutKind.Sequential)]
+    private struct State
+    {
+        public float TimeLeft;
+        public Actor ObjectRef;
+    }
+
+    /// &lt;summary&gt;
+    /// Delay duration (in seconds). Used only if DurationSelector is unused.
+    /// &lt;/summary&gt;
+    public float Duration = 5.0f;
+
+    /// &lt;summary&gt;
+    /// Delay duration selector. If set Duration is unused.
+    /// &lt;/summary&gt;
+    public BehaviorKnowledgeSelector&lt;float&gt; DurationSelector;
+
+    /// &lt;inheritdoc /&gt;
+    public override int GetStateSize()
+    {
+        // Return size of the per-instance node memory to allocate
+        return GetStateSize&lt;State&gt;();
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void InitState(BehaviorUpdateContext context)
+    {
+        // Initialize state and assign it
+        var state = new State
+        {
+            TimeLeft = Duration,
+            ObjectRef = context.Behavior.Actor, // State can contain object references
+        };
+        if (DurationSelector.TryGet(context.Knowledge, out var duration))
+            state.TimeLeft = duration;
+        NewState(context.Memory, state);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void ReleaseState(BehaviorUpdateContext context)
+    {
+        // Free node state (eg. object references)
+        ref var state = ref GetState&lt;State&gt;(context.Memory);
+        state.ObjectRef = null;
+        FreeState(context.Memory);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override BehaviorUpdateResult Update(BehaviorUpdateContext context)
+    {
+        // Decrement timer by the current update delta and keep running until it&#39;s above 0
+        ref var state = ref GetState&lt;State&gt;(context.Memory);
+        state.TimeLeft -= context.DeltaTime;
+        return state.TimeLeft &lt;= 0.0f ? BehaviorUpdateResult.Success : BehaviorUpdateResult.Running;
+    }
+
+#if FLAX_EDITOR
+    /// &lt;inheritdoc /&gt;
+    public override string GetDebugInfo(BehaviorUpdateContext context)
+    {
+        // Editor-only debug text (shown under node title, can be multiline)
+        if (context.Knowledge)
+        {
+            ref var state = ref GetState&lt;State&gt;(context.Memory);
+            return string.Format(&quot;Time left: {0}s&quot;, state.TimeLeft);
+        }
+
+        // Context might not contain state at edit-time so display defaults
+        if (!string.IsNullOrEmpty(DurationSelector.Path))
+            return string.Format(&quot;Duration: {0}&quot;, DurationSelector);
+        return string.Format(&quot;Duration: {0}s&quot;, Duration);
+    }
+#endif
+}
+</code></pre></section>
+<section id="tabpanel_PX0IOzREwy_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#pragma once
+
+#include &quot;Engine/AI/BehaviorTreeNode.h&quot;
+#include &quot;Engine/AI/BehaviorKnowledgeSelector.h&quot;
+#include &quot;Engine/Scripting/ScriptingObjectReference.h&quot;
+
+/// &lt;summary&gt;
+/// Simple delay node.
+/// &lt;/summary&gt;
+API_CLASS() class GAME_API MyDelayNode : public BehaviorTreeNode
+{
+    DECLARE_SCRIPTING_TYPE(MyDelayNode);
+    API_AUTO_SERIALIZATION();
+
+    /// &lt;summary&gt;
+    /// Delay duration (in seconds). Used only if DurationSelector is unused.
+    /// &lt;/summary&gt;
+    API_FIELD() float Duration = 5.0f;
+
+    /// &lt;summary&gt;
+    /// Delay duration selector. If set Duration is unused.
+    /// &lt;/summary&gt;
+    API_FIELD() BehaviorKnowledgeSelector&lt;float&gt; DurationSelector;
+
+public:
+    // [BehaviorTreeNode]
+    int32 GetStateSize() const override
+    {
+        // Return size of the per-instance node memory to allocate
+        return sizeof(State);
+    }
+    void InitState(const BehaviorUpdateContext&amp; context) override
+    {
+        // Initialize state and assign it
+        auto state = GetState&lt;State&gt;(context.Memory);
+        new(state)State();
+        state-&gt;TimeLeft = Duration;
+        state-&gt;ObjectRef = context.Behavior-&gt;GetActor(); // State can contain object references
+        DurationSelector.TryGet(context.Knowledge, state-&gt;TimeLeft);
+    }
+    void ReleaseState(const BehaviorUpdateContext&amp; context) override
+    {
+        // Free node state (eg. object references)
+        auto state = GetState&lt;State&gt;(context.Memory);
+        state-&gt;~State();
+    }
+    BehaviorUpdateResult Update(const BehaviorUpdateContext&amp; context) override
+    {
+        // Decrement timer by the current update delta and keep running until it&#39;s above 0
+        auto state = GetState&lt;State&gt;(context.Memory);
+        state-&gt;TimeLeft -= context.DeltaTime;
+        return state-&gt;TimeLeft &lt;= 0.0f ? BehaviorUpdateResult::Success : BehaviorUpdateResult::Running;
+    }
+#if USE_EDITOR
+    String GetDebugInfo(const BehaviorUpdateContext&amp; context) const override
+    {
+        // Editor-only debug text (shown under node title, can be multiline)
+        if (context.Knowledge)
+        {
+            auto state = GetState&lt;State&gt;(context.Memory);
+            return String::Format(TEXT(&quot;Time left: {0}s&quot;), state-&gt;TimeLeft);
+        }
+        // Context might not contain state at edit-time so display defaults
+        if (DurationSelector.Path.HasChars())
+            return String::Format(TEXT(&quot;Duration: {0}&quot;), DurationSelector.ToString());
+        return String::Format(TEXT(&quot;Duration: {0}s&quot;), Duration);
+    }
+#endif
+
+private:
+    struct State
+    {
+        float TimeLeft;
+        ScriptingObjectReference&lt;Actor&gt; ObjectRef;
+    };
+};
+
+inline MyDelayNode::MyDelayNode(const SpawnParams&amp; params)
+    : BehaviorTreeNode(params)
+{
+}
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/ai/behavior-trees/custom-node.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>
