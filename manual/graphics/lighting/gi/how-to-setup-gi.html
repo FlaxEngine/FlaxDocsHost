@@ -91,33 +91,33 @@
 
 <p><img src="media/ddgi.png" alt="Realtime Global Illumination"></p>
 <p>In this tutorial you will learn how to setup Realtime Global Illumination in your project and use it to have realistic lighting in your scenes.</p>
-<p>See <a href="realtime.html">Realtime Global Illumination</a> page to learn basics about GI in Flax.</p>
+<p>See the <a href="realtime.html">Realtime Global Illumination</a> page to learn basics about GI in Flax.</p>
 <h2 id="1-enable-ddgi">1. Enable DDGI</h2>
-<p>Firstly open <a href="../../../editor/game-settings/graphics-settings.html">Graphics Settings</a> and in <em>Global Illumination</em> section, under <em>Post Process Settings</em>, set <strong>Mode</strong> to <strong>DDGI</strong>. This will enable realtime GI rendering globally.</p>
+<p>First, open the <a href="../../../editor/game-settings/graphics-settings.html">Graphics Settings</a> and in the <em>Global Illumination</em> section, under <em>Post Process Settings</em>, set <strong>Mode</strong> to <strong>DDGI</strong>. This will enable realtime GI rendering globally.</p>
 <p><img src="media/ddgi-enabled-settings.png" alt="Enable DDGI in Graphics Settings"></p>
 <h2 id="2-enable-ray-traced-reflections">2. Enable Ray Traced Reflections</h2>
-<p>The next step is to enable using <strong>Software Tracing</strong> for <strong>Trace Mode</strong> in <em>Screen Space Reflections</em> settings (inside Graphics Settings). This will enable using Global Surface Atlas raytracing as a fallback to normal screen-space tracing which will enhance reflective surfaces look by adding off-screen reflections of the whole scene.</p>
+<p>The next step is to enable using <strong>Software Tracing</strong> for <strong>Trace Mode</strong> in <em>Screen Space Reflections</em> settings (inside Graphics Settings). This will enable using the Global Surface Atlas raytracing as a fallback to normal screen-space tracing which will enhance the look of reflective surfaces by adding off-screen reflections of the whole scene.</p>
 <p><img src="media/ddgi-software-tracing-reflections.png" alt="Enable Software Tracing in Graphics Settings"></p>
 <h3 id="3-setup-sdf">3. Setup SDF</h3>
-<p>Now, you need to ensure that all your scene meshes have proper <a href="../../models/sdf.html">Signed Distance Fields</a> setup in order to be visible in Global SDF.</p>
-<p>It&#39;s recommended to enable  <strong>Generate SDF On Model Import</strong> option in Graphics Settings which will change the default model import value to always generate SDFs on model import.</p>
+<p>Now you need to ensure that all your scene meshes have proper <a href="../../models/sdf.html">Signed Distance Fields</a> setup in order to be visible in Global SDF.</p>
+<p>It&#39;s recommended to enable the <strong>Generate SDF On Model Import</strong> option in Graphics Settings which will change the default model import value to always generate SDFs on model import.</p>
 <p><img src="../../models/media/model-sdf-option-setting.png" alt="Model SDF option in Game Settings"></p>
-<p>Next time, you import model to the project it will be selected by default:</p>
+<p>The next time a model is imported to the project, the Generate SDF option will be selected by default:</p>
 <p><img src="../../models/media/model-sdf-import-settings.png" alt="Model Import SDF Generate Option"></p>
-<p>You can also manually generate SDF for all your models in project by using Model Window <em>SDF</em> section or use small utility in Editor under <strong>Tools -&gt; Build all meshes SDF</strong> which will compute SDF for all meshes on the scene. It might take some time and freeze your computer due to large amount of data needed to process.</p>
+<p>You can also manually generate SDFs for all your models in a project by using the Model Window&#39;s <em>SDF</em> section, or use the small utility in Editor under <strong>Tools -&gt; Build all meshes SDF</strong> which will compute the SDF for all meshes on the scene. It might take some time and freeze your computer due to large amounts of data needing to be processed.</p>
 <p><img src="../../models/media/build-all-meshes-sdf.png" alt="Model SDF utility"></p>
-<p>Use <strong>View -&gt; Debug View -&gt; Global SDF</strong> to insect your scene and ensure that it has good representation in SDF. It doen&#39;t need to be exact but should roughly represent major scene objects - especially walls, floor and ceiling of the structures.</p>
+<p>Use <strong>View -&gt; Debug View -&gt; Global SDF</strong> to inspect your scene and ensure that it has a good representation in SDF. It doesn&#39;t need to be exact but should roughly represent major scene objects - especially walls, floors and ceilings of structures.</p>
 <p><img src="../../models/media/global-sdf-preview.png" alt="Global SDF Preview"></p>
 <h3 id="3-setup-surface-atlas">3. Setup Surface Atlas</h3>
-<p>Now, use <strong>View -&gt; Debug View -&gt; Global Surface Atlas</strong> to debug the surface cache rendering that uses DDGI algorithm to calculate lighting inside the level. Global Surface Atlas is low-resolution representation of the scene, and combined with Global SDF has can roughly represent the scene which is used by DDGI raytracer (this shows <em>what GI alrothim sees</em>). Follow <em>Software Ray Tracing</em> amd <em>Debugging Surface Atlas</em> sections in <a href="realtime.html">DDGI</a> docs to learn more.</p>
+<p>Now use <strong>View -&gt; Debug View -&gt; Global Surface Atlas</strong> to debug the surface cache rendering that uses the DDGI algorithm to calculate lighting inside the level. The Global Surface Atlas is a low-resolution representation of the scene, and combined with Global SDF can roughly represent the scene which is used by the DDGI raytracer (this shows <em>what the GI alrothim sees</em>). Follow the <em>Software Ray Tracing</em> and <em>Debugging Surface Atlas</em> sections in <a href="realtime.html">DDGI</a> docs to learn more.</p>
 <p><img src="media/ddgi-surface-atlas-debug.png" alt="Global Surface Atlas Debug Preview"></p>
-<p>The important thing during this step is to split large objects with interiors into smaller chunks thus the Surface Atlas can represent these object surfaces and have bounce on them. Common problem is using interior meshes of the whole house or other building wheras to have proper GI lighting inside it, the structure should be divided into 2 or 3 parts (eg. separate walls and separate floor). By using Global Surface Atlas debug view you can spot pink areas of the level that have missing representation in the atlas. If the area is large (eg. covers significant part of the screen) then you should optimize the content to work better with the algorrithm (eg. splitting meshes). Also, adding model LODs is a good practise as it greatly improves the performance.</p>
-<p>Below you can see an example of non-ideal scene where walls and some props are largly covered in pink color which indicates missing coverage on Global Surface Atlas.</p>
+<p>The important thing during this step is to split large objects with interiors into smaller chunks thus the Surface Atlas can represent these object surfaces and have bounces on them. A common problem is using interior meshes of the whole house or other buildings, wheras to have proper GI lighting inside, the structure should be divided into 2 or 3 parts (eg. separate walls and separate floor). By using the Global Surface Atlas debug view you can spot pink areas of the level that have missing representations in the atlas. If the area is large (eg. covers a significant part of the screen) then you should optimize the content to work better with the algorithm (eg. splitting meshes). Also, adding model LODs is a good practice as it greatly improves performance.</p>
+<p>Below you can see an example of a non-ideal scene where the walls and some props are largly covered in a pink color which indicates missing coverage on the Global Surface Atlas.</p>
 <p><img src="media/ddgi-surface-atlas-gaps.png" alt="Global Surface Atlas Gaps"></p>
 <h3 id="4-test-results-and-iterate">4. Test results and iterate</h3>
 <p><img src="media/realtime-gi.gif" alt="Realtiem GI in Flax Engine with DDGI"></p>
-<p>Finally, you can test and validate GI in your scenes. It should work fine after initial setup but might require some minor adjustments depending on your Content and gameplay in the world.</p>
-<p>For further adusting, aside from things mentions above, use <em>Temporal Response</em> to improve responsivness of GI for lighting changes (eg. if set to <code>0.8</code>) or increase it to make it more stable with less indirect lighting micro-flickering (eg. to <code>0.95</code>). You can also manually boost or reduce GI <em>Intensity</em> and <em>Bounce Intensity</em> to control the artistic look of the lighting (eg. globally or per-scene with Post Fx Volume).</p>
+<p>Finally, you can test and validate GI in your scene. It should work fine after initial setup but might require some minor adjustments depending on your content and gameplay in the world.</p>
+<p>For further adusting, aside from the things mentions above, use the <em>Temporal Response</em> to improve responsivness of GI for lighting changes (eg. if set to <code>0.8</code>) or increase it to make it more stable with less indirect lighting micro-flickering (eg. to <code>0.95</code>). You can also manually boost or reduce the GI <em>Intensity</em> and <em>Bounce Intensity</em> to control the artistic look of the lighting (eg. globally or per-scene with a Post Fx Volume).</p>
 </article>
           </div>
           
@@ -126,7 +126,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/lighting/gi/how-to-setup-gi.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/lighting/gi/how-to-setup-gi.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

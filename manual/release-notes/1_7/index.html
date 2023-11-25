@@ -143,7 +143,7 @@
 <p><img src="media/editor-splines.png" alt="Splines Editing Tools"></p>
 <h3 id="improved-editor-for-macos">Improved Editor for macOS</h3>
 <p><img src="../1_6/media/mac-arm64.png" alt="Editor for macOS"></p>
-<p>Flax userbase on macOS is growing fast!  In order to smooth the usability on that platform we&#39;ve fixed many bugs related to .NET SDK detection, input, dockable windows usage, and much more. Starting from now <strong>we will provide code signed Flax Editor for macOS amr64</strong> (<code>.dmg</code> binary). It will include an engine built for macOS and iOS to easily cook games for those platforms.</p>
+<p>Flax userbase on macOS is growing fast!  In order to smooth the usability on that platform we&#39;ve fixed many bugs related to .NET SDK detection, input, dockable windows usage, and much more. Starting from now <strong>we will provide code signed Flax Editor for macOS arm64</strong> (<code>.dmg</code> binary). It will include an engine built for macOS and iOS to easily cook games for those platforms.</p>
 <p>We&#39;ve added file watcher support to handle the hot-reloading of scripts and shaders. The graphics backend will handle proper MoltenVK runtime with the latest Vulkan SDK.</p>
 <h3 id="onboarding-experience-improvements">Onboarding Experience Improvements</h3>
 <p>Due to the recent rapid growth of Flax users we&#39;ve worked on improving the onboarding experience. This includes:</p>
@@ -192,6 +192,133 @@
 </li>
 </ul>
 <h2 id="changelog">Changelog</h2>
+<h3 id="version-1764061---25-november-2023">Version 1.7.6406.1 - 25 November 2023</h3>
+<p>Contributors: mafiesto4, Tryibion, GoaLitiuM, mrunion, MineBill, RuanLucasGD, Tryibion, Chikinsupu, NoriteSC, Menotdan, SinnersSum, Radiangames, schmidt-florian, HydrogenC, nothingTVatYT</p>
+<p>PRs merged: 43</p>
+<ul>
+<li>Add SetThreadAffinityMask and SetThreadPriority and thread name for Apple platforms</li>
+<li>Add storing shader asset includes paths in compact format for portability</li>
+<li>Add unit test for <code>HashSet</code> and <code>Dictionary</code> collection types</li>
+<li>Add debug drawing contact offset for selected collider</li>
+<li>Add <strong>custom model picker in material preview</strong></li>
+<li>Add <code>CustomScenes</code> feature to draw a fixed set of scenes within <code>SceneRenderTask</code></li>
+<li>Add minor improvements to reference properties</li>
+<li>Add more alternative titles to Surface nodes</li>
+<li>Add order and ordering options to comments in Surface graph</li>
+<li>Add <code>SortScore</code> to Visject node archetypes and use it to favor method overrides in Visual Script</li>
+<li>Add <strong>Convert to Parameter</strong> for Surface constant nodes</li>
+<li>Add support for unlimited window size if <code>MaximumSize</code> is set to zero</li>
+<li>Add spawning UI Canvas Scaler when adding new UI Canvas</li>
+<li>Add handling <code>ViewLayersMask</code> from camera when rendering UI Canvas</li>
+<li>Add copying old UI Control data to new UI Control when changing type</li>
+<li>Add option to limit number of items in Dropdown popup</li>
+<li>Add optional scrollbar to Dropdown popup list</li>
+<li>Add immediate game viewport sync after aspect ratio change in Editor</li>
+<li>Add new <strong>light theme to Editor UI</strong></li>
+<li>Add better formatting for automatic tooltips in Editor from xml comments</li>
+<li>Add input bindings for game window mouse unlock and toggle fullscreen</li>
+<li>Add button to reload scenes via Editor menu</li>
+<li>Add short delay before auto-selecting editor tab on drag over header</li>
+<li>Add rebuilding navigation mesh after apply changes in Navigation asset</li>
+<li>Add dragging items support into lists and arrays in the Properties window</li>
+<li>Add <code>CalculateBoneOffsetMatrices</code> option to fix some animated model skeletons rendering</li>
+<li>Add <code>GetRotationFromTo</code> and <code>FindBetween</code> utilities to C# <code>Quaternion</code> API</li>
+<li>Add <code>GetSplineSegmentLength</code> to get spline segment length</li>
+<li>Add new material nodes: <code>Rectangle Mask</code>, <code>FWidth</code>, and <code>AA Step</code></li>
+<li>Add default value for material <code>Sphere Mask</code> node to create blob gradient around UV center</li>
+<li>Add <code>SetNodeTransform</code> to Animated Model</li>
+<li>Add waking up rigidbodies when changing kinematic state</li>
+<li>Add name to Android main thread</li>
+<li>Add limits to cloth brush values</li>
+<li>Add support for including global configs in engine configuration options</li>
+<li>Add .NET SDK version <code>7</code> as forced to be used during game cooking (dotnet8 can be sued with Editor)</li>
+<li>Add clearing BT memory in non-release builds to make issues spotting easier</li>
+<li>Add better errors logging to BT nodes in case of issues</li>
+<li>Add soft check for null managed object value for unboxing</li>
+<li>Add <code>Style</code> property getter to <code>FontAsset</code> to access its style flags</li>
+<li>Add engine version in Editor main window title</li>
+<li>Add security lockers for managed typeinfo access</li>
+<li>Add git submodule init to git project cloning</li>
+<li>Add support for getter-only properties in blackboard selector access</li>
+<li>Add automatic show of skeleton when entering skeleton tab in skinned model editor </li>
+<li>Add extended buttons support for Linux</li>
+<li>Add <code>XDG_DATA_HOME</code> env var usage the approved default as per specification on Linux</li>
+<li>Add <code>GetStackFrames</code> and <code>IsDebuggerPresent</code> on Linux</li>
+<li>Add <code>GetStackFrames</code> on Android</li>
+<li>Add decoding stack trace function names on Apple platforms</li>
+<li>Add always logging unhandled C# exception</li>
+<li>Add better support for .NET SDK and .NET 8</li>
+<li>Add <code>-dotnet=ver</code> command arg to <code>Flax.Build</code> to specify .NET SDK version to use for build</li>
+<li>Add better project files generation for Rider</li>
+<li>Optimize <code>Control.UpdateTransform</code> for faster UI math</li>
+<li>Improve Cloth usage</li>
+<li>Use soft asset ref to graphics settings</li>
+<li>Update Tracy Profiler to <code>0.10</code></li>
+<li>Continue <code>Delegate</code> refactor to use single memory allocation and atomic operations for data access</li>
+<li>Remove <code>SHADOW_MAPS_FORMAT</code> and support fallback formats for shadow maps</li>
+<li>Remove actor layer auto apply via message box dialog during Play Mode</li>
+<li>Remove unsupported material parameter types <code>Quaternion</code> and <code>Transform</code></li>
+<li>Reduce <code>LargeWorlds::ChunkSize</code> to <code>8192</code></li>
+<li>Refactor <code>GPUResourceProperty</code> to cleanup code</li>
+<li>Refactor main editor viewport and prefab viewport to share dragging handling code</li>
+<li>Refactor default <code>ContactOffset</code> for <code>Collider</code> to be <code>2</code> (keep <code>10</code> for <code>CharacterController</code>)</li>
+<li>Refactor <code>HashSet</code> and <code>Dictionary</code> collections capacity to handle rehashing when too many elements were deleted</li>
+<li>Fix <code>DeepClone()</code> when used on object of different runtime type</li>
+<li>Fix CultureInfo to handle missing country code and fallback to outer language code</li>
+<li>Fix various typos and wording in docs</li>
+<li>Fix incorrect tabs selection handling when tab gets removed</li>
+<li>Fix various cases of closing window tabs when using Dock Windows in Editor</li>
+<li>Fix color picker dialog not staying inside the current screen</li>
+<li>Fix custom editor layout rebuilding when it has more editors in use</li>
+<li>Fix error during new json asset creation via <code>ContentContextMenu</code> if the class is missing empty constructor</li>
+<li>Fix various cases of closing window tabs when using Dock Windows in Editor</li>
+<li>Fix Output Log window to scroll log on startup properly</li>
+<li>Fix <code>CollectionEditor</code> to properly support editing multiple arrays</li>
+<li>Fix Dropdown popup to properly scale when using Canvas Scaler</li>
+<li>Fix common Editor tooltips with hardcoded keybindings</li>
+<li>Fix color editing control to properly handle mouse event</li>
+<li>Fix anim slot from playing animations more than 1 time based on speed</li>
+<li>Fix <code>NetworkTransform</code> to properly reject local simulation deltas on incoming authoritative transform data</li>
+<li>Fix BehaviorTree node UI after adding decorator that was already there</li>
+<li>Fix <code>BitArray::SetAll()</code> when the item is not multiple of <code>8</code></li>
+<li>Fix some Center geometry import issues and add option to be able to shift mesh to local origin</li>
+<li>Fix generic types including to be recursive in C++ bindings codegen</li>
+<li>Fix content storage usage with relative paths</li>
+<li>Fix issue involving stale scripting assemblies in <code>FlaxEngine.Json</code> dynamic type resolution</li>
+<li>Fix incorrect directional light shadows influence on secondary render views</li>
+<li>Fix incorrect spline length calculation if first point is not at spline origin</li>
+<li>Fix missing interfaces support in <code>Actor::FindScript</code></li>
+<li>Fix missing initialization of scene objects added from prefab</li>
+<li>Fix marking scene as dirty when creating prefab from existing actor</li>
+<li>Fix unpacking <code>Float3</code> and other inbuilt <code>Variant</code> types via Unpack node in Visual Script</li>
+<li>Fix issue with asset loading to be properly canceled when reimporting file</li>
+<li>Fix loading delay-loaded-dll on Windows when using project plugin with native dependencies</li>
+<li>Fix bug when spawning new prefab objects during scene load due to regression in async scene init</li>
+<li>Fix memory leak while doing drag&amp;drop with Debug Draw in use</li>
+<li>Fix Visual Script parameter setter node to accept multiple input flows</li>
+<li>Fix scenes reload feature to check if can do it, properly use async in play mode and ask for save if scene is modified</li>
+<li>Fix missing script replacement if data has object id that doesn&#39;t match current parent</li>
+<li>Fix Mono GC threads suspend to not deadlock when attaching native threads to managed runtime</li>
+<li>Fix Steam AppId if settings asset is missing and force keep it in sync with <code>steam_appid.txt</code> file (Steam Online Platform)</li>
+<li>Fix PostFx settings in Graphics Settings to be only used when checked as override</li>
+<li>Fix BT logic flow when start/stopping behavior</li>
+<li>Fix deadlock regression when saving Visual Script in Editor with active instance objects</li>
+<li>Fix deadlock in editor when using snap to the group with actor that has empty bounds</li>
+<li>Fix <code>Win32CriticalSection</code> to use spin count of <code>4000</code> instead of just <code>100</code></li>
+<li>Fix crashes in various dictionary usages caused by duplicated keys</li>
+<li>Fix crash when creating empty cloth</li>
+<li>Fix crash when trying to build navmesh with null scene</li>
+<li>Fix crash on negative collection capacity due to <code>int32</code> maximum value limit</li>
+<li>Fix crash when not clearing Online Platform in Editor before hot-reload</li>
+<li>Fix crash when rigidbody gets deleted during physical collision</li>
+<li>Fix crash on editor startup without code editor selected</li>
+<li>Fix crash on hot-reload in Editor due to leftover scripting events in <code>ScriptingEvents::EventsTable</code></li>
+<li>Fix crash in Global Surface Atlas when dirty object is missing</li>
+<li>Fix crash in Multi Blend 2D node in Anim Graph when using single animation on a triangle</li>
+<li>Fix crash during asset loading due to potential threading issue when 2 threads load the same asset</li>
+<li>Fix crash when debugging BT node state while tree is not running</li>
+<li>Fix crash when reading<code>BehaviorKnowledgeSelector</code> value in C# when type doesn&#39;t match exactly</li>
+</ul>
 <h3 id="version-176404---31-october-2023">Version 1.7.6404 - 31 October 2023</h3>
 <p>Contributors: mafiesto4, Tryibion, Withaust, GoaLitiuM, Rayumie, mtszkarbowiak, NoriteSC, envision3d, RuanLucasGD, wackoisgod, Walrusking16, eLeSTRaGo-Dev, FREEZX, M-3-H, MineBill, Crawcik, dector, Chikinsupu, Radiangames, stefnotch, solnem, AndrejStojkovic, Zode, davevanegdom, Arcnor, RedTheKitsune, Swiggies, Menotdan, nothingTVatYT, GasimoCodes, ontrigger, Muzz, meabefir, Vizepi</p>
 <p>PRs merged: 233</p>
@@ -595,7 +722,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/release-notes/1_7/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/release-notes/1_7/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -90,9 +90,9 @@
 <h1 id="textures">Textures</h1>
 
 <p><img src="media/parallax-texture.png" alt="Textures"></p>
-<p><strong>Textures</strong> are assets that contain an image made of pixel-data. They are mainly used in materials to cover the surfaces.</p>
-<p>For example, texture can contain color information or material roughness variation so using it in material shader adds more realism.</p>
-<p>Textures can be also used outside the materials. For instance in UI or via direct CPU calculations. For more information about the C# scripting see <a href="http://docs.flaxengine.com/api/FlaxEngine.Texture.html">Texture</a> class page in the C# API documentation.</p>
+<p><strong>Textures</strong> are assets that contain an image made of pixel-data. They are mainly used in materials to cover surfaces.</p>
+<p>For example, a texture can contain color information or material roughness variation so using it in a material shader adds more realism.</p>
+<p>Textures can also be used outside of materials. For instance in the UI or via direct CPU calculations. For more information about C# scripting see the <a href="http://docs.flaxengine.com/api/FlaxEngine.Texture.html">Texture</a> class page in the C# API documentation.</p>
 <h2 id="supported-file-types">Supported file types</h2>
 <p>Flax Engine supports importing the following list of file types as textures:</p>
 <ul>
@@ -112,30 +112,30 @@
 </div>
 <div class="NOTE"><h5>Note</h5><p>For documentation related to cube textures check out <a href="cube-textures.html">this page</a>.</p>
 </div>
-<div class="NOTE"><h5>Note</h5><p>Files of type <code>.RAW</code> are assumed to contain 16-bit grayscale raw unsigned normalized values in little-endian byte order (it must be a square, width equals height). You can use them to import heightmaps for your terrain to minimalize quality loss during generating terrain from asset exported by the external tool (choose suggested <code>HdrRGBA</code> format with <code>no compression</code>).</p>
+<div class="NOTE"><h5>Note</h5><p>Files of type <code>.RAW</code> are assumed to contain 16-bit grayscale raw unsigned normalized values in little-endian byte order (it must be a square, width equals height). You can use them to import heightmaps for your terrain to minimize quality loss during generating terrain from asset exported by an external tool (choose suggested <code>HdrRGBA</code> format with <code>no compression</code>).</p>
 </div>
 <h2 id="importing-a-texture">Importing a texture</h2>
-<p>The easiest way to import one or more textures is to drag them from <em>Explorer</em> to the <em>Content</em> window.</p>
+<p>The easiest way to import one or more textures is to drag them from a file <em>Explorer</em> window (<em>Finder</em> on MacOS) to the <em>Content</em> window.</p>
 <p><img src="media/import-texture.jpg" alt="Importing Textures"></p>
-<p>Alternatively, you can use <strong>Import</strong> button in a <em>Content</em> window toolbar and then select files to import.</p>
-<p>After choosing the files <strong>Import file settings</strong> dialog shows up. It&#39;s used to specify import options per texture. In most cases the default values are fine and you can just press the <strong>Import</strong> button.</p>
+<p>Alternatively, you can use the <strong>Import</strong> button in a <em>Content</em> window toolbar and then select the files to import.</p>
+<p>After choosing the files the <strong>Import file settings</strong> dialog is shown. It&#39;s used to specify import options per texture. In most cases the default values are fine and you can just press the <strong>Import</strong> button.</p>
 <p><img src="media/import-settings-textures.jpg" alt="Importing Textures"></p>
 <div class="NOTE"><h5>Note</h5><ul>
-<li>Flax automaticly detects imported texture type based on it&#39;s name. For instance: <em>Chair_Normal.png</em> will be detected as a normal map and <em>Chair_AO.png</em> will be detected as a grayscale texture (as it contains single channel ambient occlusion data).</li>
-<li>Using <strong>Import file settings</strong> dialog you can select more than one texture at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</li>
+<li>Flax automatically detects the imported texture type based on its name. For instance: <em>Chair_Normal.png</em> will be detected as a normal map and <em>Chair_AO.png</em> will be detected as a grayscale texture (as it contains single channel ambient occlusion data).</li>
+<li>Using the <strong>Import file settings</strong> dialog you can select more than one texture at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</li>
 </ul>
 </div>
-<p>Every texture can be reimport (relative path to the source file is cached) and import settings modified using <a href="texture-window.html">Texture Window</a>.</p>
-<p>For more information about textures import settings read dedicated documenation page <a href="import-settings.html">Textures Import Settings</a>.</p>
+<p>Every texture can be re-imported (the relative path to the source file is cached) and the import settings modified using the <a href="texture-window.html">Texture Window</a>.</p>
+<p>For more information about texture import settings read the dedicated documentation page <a href="import-settings.html">Textures Import Settings</a>.</p>
 <h2 id="using-textures">Using textures</h2>
-<p>To use your texture asset in a material simply drag and drop it into the material surface graph and use <em>Texture</em> node for sampling it.</p>
+<p>To use your texture asset in a material simply drag and drop it into the material surface graph and use a <em>Texture</em> node for sampling it.</p>
 <p><img src="../materials/media/texture-node.png" alt="Using Textures"></p>
-<p>To learn more about materials and using textures for rendering go to <a href="../materials/basics/index.html">Materials Basics</a> page.</p>
+<p>To learn more about materials and using textures for rendering go to the <a href="../materials/basics/index.html">Materials Basics</a> page.</p>
 <h2 id="procedural-textures">Procedural textures</h2>
 <p><img src="media/cubeResult.png" alt="Procedural texture"></p>
-<p>Flax API exposes several methods that enable you to create and use procedural textures from your code. To learn how to use it see the related tutorial here: <a href="generate-texture.html">How to create a procedural texture</a>.</p>
+<p>Flax API exposes several methods that enable you to create and use procedural textures from your code. To learn how to use these features see the related tutorial here: <a href="generate-texture.html">How to create a procedural texture</a>.</p>
 <h2 id="texture-groups">Texture Groups</h2>
-<p>Flax supports groupping textures inside Streaming settings for easier textures streaming configuration and quality options. Soo dedicated documentation page to learn more about <a href="texture-groups.html">Texture Groups</a>.</p>
+<p>Flax supports grouping textures inside Streaming settings for easier texture streaming configuration and quality options. See the dedicated documentation page to learn more about <a href="texture-groups.html">Texture Groups</a>.</p>
 </article>
           </div>
           
@@ -144,7 +144,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/textures/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/textures/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -89,26 +89,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h2 id="howto-render-a-camera-to-a-texture">HOWTO: Render a camera to a texture</h2>
 
-<p>Flax Engine offers very wide range of customization that can be made to extend the rendering pipeline. One of them is rendering scene using the custom camera right to the render target. Then presenting it on an object surface.</p>
-<p>In this tutorial you will learn how to achieve picture-in-picture effect:</p>
+<p>Flax Engine offers a very wide range of customization that can be made to extend the rendering pipeline. One of them is rendering a scene using a custom camera right to the render target. Then presenting it on an object surface.</p>
+<p>In this tutorial you will learn how to achieve the picture-in-picture effect:</p>
 <p><img src="media/picture-in-picture.png" alt="Render to Texture"></p>
-<h2 id="creating-material">Creating material</h2>
-<p>The first step is to create a dedicated material for the TV object. It will be used to show rendered scane picture on a surface so player could see it. To do that follow these simple steps:</p>
+<h2 id="creating-the-material">Creating the material</h2>
+<p>The first step is to create a dedicated material for the TV object. It will be used to show the rendered scene picture on a surface so the player can see it. To do that follow these simple steps:</p>
 <ol>
-<li><p>Create new empty material, and name it <code>TV Material</code> (see <a href="../materials/basics/index.html">Materials Basics</a> page to learn how to do it)</p>
+<li><p>Create a new empty material and name it <code>TV Material</code> (see the <a href="../materials/basics/index.html">Materials Basics</a> page to learn how to do it)</p>
 </li>
-<li><p>Open it in Material Editor (double-click on an asset)
+<li><p>Open it in the Material Editor (double-click on the asset)
 <img src="media/picture-in-picture-2.jpg" alt="Material Editor"></p>
 </li>
-<li><p>Scroll down the <em>Properties Panel</em>, select <strong>GPU Texture</strong> option from the bottom drop down menu and press <strong>Add parameter</strong> button
+<li><p>Scroll down in the <em>Properties Panel</em>, select the <strong>GPU Texture</strong> option from the bottom drop down menu and press the <strong>Add parameter</strong> button
 <br><img src="media/picture-in-picture-3.jpg" alt="Material Parameter"></p>
 </li>
-<li><p>Right-click on created <em>New parameter</em>, select option <strong>Rename</strong> and set its name to <strong>Image</strong></p>
+<li><p>Right-click on the newly created <em>New parameter</em>, select the option <strong>Rename</strong> and set its name to <strong>Image</strong></p>
 </li>
-<li><p>Right-click on a Surface background and create <strong>Get Parameter</strong> node (to learn more about creating nodes see <a href="../materials/material-editor/index.html">Material Editor</a> page)
+<li><p>Right-click on a Surface background and create a <strong>Get Parameter</strong> node (to learn more about creating nodes see the <a href="../materials/material-editor/index.html">Material Editor</a> page)
 <img src="media/picture-in-picture-4.jpg" alt="Material Get Parameter"></p>
 </li>
-<li><p>Select <strong>Image</strong> parameter from the dropdown menu of that node and connect it&#39;s <strong>Color</strong> box with Material <strong>Emissive</strong> input.
+<li><p>Select the <strong>Image</strong> parameter from the dropdown menu of that node and connect its <strong>Color</strong> box with the Material <strong>Emissive</strong> input.
 <br><img src="media/picture-in-picture-5.jpg" alt="Material Parameter Usage"></p>
 </li>
 <li><p><strong>Save</strong> the material asset</p>
@@ -117,7 +117,7 @@
 <h2 id="creating-a-script">Creating a script</h2>
 <p>Now it&#39;s time to write a simple script that will use a camera and render it to the texture (which is also called a <em>render target</em>).</p>
 <ol>
-<li><p>Navigate to <em>Source/Game</em> directory of your project and create new C# script with name <strong>CameraTV</strong>
+<li><p>Navigate to the <em>Source/Game</em> directory of your project and create new C# script named <strong>CameraTV</strong>
 <img src="media/picture-in-picture-6.jpg" alt="Creating new Script"></p>
 </li>
 <li><p>Open the script</p>
@@ -240,14 +240,14 @@ public class CameraTV : Script
 </code></pre><h2 id="preparing-objects">Preparing objects</h2>
 <p>The final step is to set up a scene and link all this stuff together.</p>
 <ol>
-<li>Create new <strong>Camera</strong> object and place it in your scene</li>
-<li><p>Add object that will present a camera image. You can use <strong>Cube</strong> model from the <em>Toolbox</em> window
+<li>Create a new <strong>Camera</strong> object and place it in your scene</li>
+<li><p>Add an object that will present a camera image. You can use a <strong>Cube</strong> model from the <em>Toolbox</em> window
 <img src="media/picture-in-picture-7.jpg" alt="Tutorial"></p>
 </li>
-<li><p>Select spawned object and add <strong>CameraTV</strong> script to it by simply draging it
+<li><p>Select the spawned object and add the <strong>CameraTV</strong> script to it by simply draging it
 <img src="media/picture-in-picture-8.jpg" alt="Tutorial"></p>
 </li>
-<li><p>Set reference to the camera and material for script properties <strong>Cam</strong> and <strong>Material</strong>. You can also adjust the resolution (in pixels).
+<li><p>Set a reference to the camera and material for the script properties <strong>Cam</strong> and <strong>Material</strong>. You can also adjust the resolution (in pixels).
 <br><img src="media/picture-in-picture-9.jpg" alt="Tutorial "></p>
 </li>
 <li><p>Hit <strong>Play</strong> and see the results!
@@ -262,7 +262,7 @@ public class CameraTV : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/cameras/render-camera-to-texture.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/cameras/render-camera-to-texture.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -90,12 +90,12 @@
 <h1 id="environment-probe">Environment Probe</h1>
 
 <p><img src="media/env-probe.png" alt="Environment Probe"></p>
-<p><a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html">Environment Probe</a> actor uses cube texture and applies it onto the objects as reflection source. This technique is called reflection mapping and comes very handy to reproduce reflective surfaces like metals, marbles or shiny plastics.</p>
+<p>The <a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html">Environment Probe</a> actor uses a cube texture and applies it onto the objects as a reflection source. This technique is called reflection mapping and comes in very handy to reproduce reflective surfaces like metals, marble or shiny plastics.</p>
 <h2 id="creating-a-new-reflection-probe">Creating a new reflection probe</h2>
-<p>Creating reflection probes is done similar to other actor types. Simply right click on a actor node in the <em>Scene</em> window, and select option <strong>New -&gt; Visuals -&gt; Environment Probe</strong>.</p>
+<p>Creating a reflection probe is done similar to creating other actor types. Simply right click on an actor node in the <em>Scene</em> window, and select the option <strong>New -&gt; Visuals -&gt; Environment Probe</strong>.</p>
 <p><img src="media/env-probe-create.jpg" alt="New Environment Probe"></p>
-<p>Creating probes at runtime via script is also possible but not recommended. It&#39;s better to toggle existing probes visibility or modify <strong>Brightness</strong> property to fade in or out.</p>
-<p>Alternatively you can use a <em>Toolbox</em> window and drag and drop environment probe actor from group <strong>Visuals</strong> into a scene.</p>
+<p>Creating probes at runtime via script is also possible but not recommended. It&#39;s better to toggle an existing probes visibility or modify its <strong>Brightness</strong> property to fade in or out.</p>
+<p>Alternatively, you can use the <em>Toolbox</em> window and drag and drop the environment probe actor from the <strong>Visuals</strong> group into a scene.</p>
 <h2 id="properties">Properties</h2>
 <p><img src="media/env-probe-properties.jpg" alt="Properties"></p>
 <table>
@@ -108,11 +108,11 @@
 <tbody>
 <tr>
 <td><strong>Cubemap Resolution</strong></td>
-<td>The reflections texture resolution. Can use graphics settings or custom resolution.</td>
+<td>The reflection texture resolution. Can use graphics settings or a custom resolution.</td>
 </tr>
 <tr>
 <td><strong>Brightness</strong></td>
-<td>Controls intensity of the reflection color from the probe. Can be used to fade in or out reflection.</td>
+<td>Controls the intensity of the reflection color from the probe. Can be used to fade in or out reflections.</td>
 </tr>
 <tr>
 <td><strong>Radius</strong></td>
@@ -120,28 +120,28 @@
 </tr>
 <tr>
 <td><strong>Update Mode</strong></td>
-<td>The probe update mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Manual</strong></td><td>Probe can be updated manually (eg. in Editor or from script).</td></tr><tr><td><strong>When Moved</strong></td><td>Probe will be automatically updated when is moved.</td></tr><tr><td><strong>Realtime</strong></td><td>Probe will be automatically updated in real-time (only if in view and frequency depending on distance to the camera).</td></tr></tbody></table></td>
+<td>The probe update mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Manual</strong></td><td>Probe can be updated manually (eg. in Editor or from script).</td></tr><tr><td><strong>When Moved</strong></td><td>Probe will be automatically updated when it is moved.</td></tr><tr><td><strong>Realtime</strong></td><td>Probe will be automatically updated in real-time (only if in view and frequency depending on distance to the camera).</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Capture Near Plane</strong></td>
-<td>Defines a near clipping plane used for rendering probe. Use higher value to clip geometry near the probe.</td>
+<td>Defines a near clipping plane used for rendering the probe. Use a higher value to clip geometry near the probe.</td>
 </tr>
 <tr>
 <td><strong>Custom Probe</strong></td>
-<td>If specified, environment probe will use custom <a href="http://docs.flaxengine.com/api/FlaxEngine.CubeTexture.html">CubeTexture</a> as a reflections source.</td>
+<td>If specified, the environment probe will use a custom <a href="http://docs.flaxengine.com/api/FlaxEngine.CubeTexture.html">CubeTexture</a> as a reflection source.</td>
 </tr>
 </tbody>
 </table>
-<p>To capture the scene around the reflection probe press the <strong>Bake</strong> button. It will render the scene in each 6 directions into a cube map and filter it. During reflection probes rendering only actors with <a href="http://docs.flaxengine.com/api/FlaxEngine.StaticFlags.html">StaticFlags.ReflectionProbe</a> enabled will be visible.</p>
-<p>Updated environment probe cube textures are stored in a <em>SceneData</em> folder. To read more about see the <code>Scene Data storage</code> section down below.</p>
+<p>To capture the scene around the reflection probe press the <strong>Bake</strong> button. It will render the scene in each of 6 directions into a cube map and filter it. During reflection probe rendering only actors with <a href="http://docs.flaxengine.com/api/FlaxEngine.StaticFlags.html">StaticFlags.ReflectionProbe</a> enabled will be visible.</p>
+<p>Updated environment probe cube textures are stored in a <em>SceneData</em> folder. To read more about scene data, see the <code>Scene Data storage</code> section down below.</p>
 <h2 id="blending">Blending</h2>
 <p><img src="media/env-probe-blending.png" alt="Reflections Blending"></p>
-<p>Flax Engine renders reflection probes using a dedicated pass using screen space shader into a dedicated buffer. Then mixes final reflection color into the light buffer. This gives opportunity to perform high quality <strong>per-pixel relfections color blending</strong>. Rendering starts from drawing probes with the highest radius and then the smaller ones (<strong>probes are sorted by radius</strong>). Also reflection color is being faded on the edges of the probe bounds. This results in a smooth transition and reduces any flickering. Especially for dynamic objects that move quickly through the scene.</p>
+<p>Flax Engine renders reflection probes into a dedicated buffer using a dedicated pass using a screen space shader. It then mixes the final reflection color into the light buffer. This provides the opportunity to perform high quality <strong>per-pixel relfections color blending</strong>. Rendering starts from drawing probes with the highest radius and then moces to the smaller ones (<strong>probes are sorted by radius</strong>). Reflection color is also being faded on the edges of the probe bounds. This results in a smooth transition and reduces any flickering -- especially for dynamic objects that move quickly through the scene.</p>
 <h2 id="scene-data-storage">Scene Data storage</h2>
-<p>By default Flax uses a dedicated content directory for <strong>scene data assets</strong>. It&#39;s used by the lightmaps, CSG meshes and also Environment Probes. Reflection probes cube textures are located in: <strong>Content/SceneData/&#39;scene_name&#39;/EnvProbes</strong>. If you want to reuse baked reflection probe or modify it you can access textures in there. Also Environment Probe actor contains a dedicated public property <a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html#FlaxEngine_EnvironmentProbe_Probe">EnvironmentProbe.Probe</a> which can be used to access the cube texture being in use.</p>
-<p>To learn more about the scene assets see <a href="../../../get-started/scenes/scene-data.html">Scene Data Storage</a> page.</p>
+<p>By default, Flax uses a dedicated content directory for <strong>scene data assets</strong>. It&#39;s used by the lightmaps, CSG meshes and also Environment Probes. Reflection probes&#39; cube textures are located in: <strong>Content/SceneData/&#39;scene_name&#39;/EnvProbes</strong>. If you want to reuse a baked reflection probe or modify it you can access textures in that location. Also, the Environment Probe actor contains a dedicated public property <a href="http://docs.flaxengine.com/api/FlaxEngine.EnvironmentProbe.html#FlaxEngine_EnvironmentProbe_Probe">EnvironmentProbe.Probe</a> which can be used to access the cube texture in use.</p>
+<p>To learn more about scene assets see the <a href="../../../get-started/scenes/scene-data.html">Scene Data Storage</a> page.</p>
 <h2 id="realtime-probes">Realtime probes</h2>
-<p>Probes can be used at runtime from a script or automatically every frame. This can be used to implement dynamic environment reflections at cost of performance. Ensure to limit the amount of probes that are updated frequently and adjust the resolution to keep stable performance.</p>
+<p>Probes can be used at runtime from a script or automatically every frame. This can be used to implement dynamic environment reflections at the cost of performance. Make sure to limit the amount of probes that are updated frequently and adjust the resolution to keep stable performance.</p>
 </article>
           </div>
           
@@ -150,7 +150,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/lighting/reflections/env-probe.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/lighting/reflections/env-probe.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

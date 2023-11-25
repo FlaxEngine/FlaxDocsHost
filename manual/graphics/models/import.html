@@ -89,12 +89,12 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="importing-models">Importing models</h1>
 
-<p>Importing model files works in the same way as for other asset types. Simply drag and drop the model files from <em>Explorer</em> into the <em>Content</em> window or use the <em>Import</em> button.</p>
+<p>Importing model files works in the same way as importing other asset types. Simply drag and drop model files from a file <em>Explorer</em> window (<em>Finder</em> on MacOS) into the <em>Content</em> window or use the <em>Import</em> button.</p>
 <p><img src="media/import-model.jpg" alt="Importing Model"></p>
-<p>After choosing the files <strong>Import file settings</strong> dialog shows up. It&#39;s used to specify import options per model. In most cases the default values are fine and you can just press the <strong>Import</strong> button.</p>
-<div class="NOTE"><h5>Note</h5><p>Using <strong>Import file settings</strong> dialog you can select more than one model at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</p>
+<p>After choosing the files an <strong>Import file settings</strong> dialog is displayed. It&#39;s used to specify import options per model. In most cases the default values are acceptable and you can just press the <strong>Import</strong> button.</p>
+<div class="NOTE"><h5>Note</h5><p>Using the <strong>Import file settings</strong> dialog you can select more than one model at once (or use <strong>Ctrl+A</strong> to select all) and specify import options at once.</p>
 </div>
-<p>Every model can be reimported (relative path to the source file is cached) and import settings modified using <a href="model-window.html">Model Window</a>.</p>
+<p>Every model can be re-imported (the relative path to the source file is cached) and import settings modified using the <a href="model-window.html">Model Window</a>.</p>
 <h2 id="supported-file-types">Supported file types</h2>
 <p>Flax Engine supports importing the following list of file types as models:</p>
 <ul>
@@ -114,27 +114,27 @@
 <li><code>.stl</code></li>
 </ul>
 <h2 id="importing-model-lods">Importing model LODs</h2>
-<p>Flax supports up to 6 model level of details. To import them use <code>LODx</code> (where <code>x</code> is a LOD index, zero-based) postfix for object nodes in model file. Also when importing model ensure to check the <strong>Import LODs</strong> option.</p>
+<p>Flax supports up to 6 model levels of detail. To import them use <code>LODx</code> (where <code>x</code> is an LOD index, zero-based) postfix for object nodes in the model file. Also when importing a model ensure to check the <strong>Import LODs</strong> option.</p>
 <p>Example usage (from Blender):</p>
 <p><img src="media/model-lods-example.jpg" alt="Model LODs import example"></p>
 <h2 id="importing-collision-mesh">Importing collision mesh</h2>
-<p>Flax supports automatic collision mesh importing from a source model. To import it use a custom name prefix for collision meshes in the model file (eg. <code>COLL_</code> or <code>UCX_</code> prefix) and specify that prefix in the import option <strong>Collision Meshes Prefix</strong>. The engine will extract those collision meshes and create a separate collision data asset</p>
+<p>Flax supports automatic collision mesh importing from a source model. To import a collision mesh use a custom name prefix for collision meshes in the model file (eg. <code>COLL_</code> or <code>UCX_</code> prefix) and specify that prefix in the import option <strong>Collision Meshes Prefix</strong>. The engine will extract those collision meshes and create a separate collision data asset</p>
 <p>Example usage:</p>
 <p><img src="media/collision-mesh.png" alt="Model Collsion import engine"></p>
-<p>For ease of use after you add a model on a scene you can use <em>Right-click</em> and select option <strong>Add mesh collider</strong>. Then the editor will automatically pick up the imported collision mesh (or generate a new one) and add it to the model on a scene so it has a collision for physics. You can change <code>Collision Type</code> between convex and triangle mesh - convex is more optimized but less accurate.</p>
-<h2 id="reusing-material-when-importing-multiple-models">Reusing material when importing multiple models</h2>
-<p>When importing large set of models importer will create materials for each one of them which might not be efficent. To optimize it you can:</p>
+<p>For ease of use after you add a model to a scene you can use <em>Right-click</em> and select the option <strong>Add mesh collider</strong>. The editor will automatically pick up the imported collision mesh (or generate a new one) and add it to the model in the scene so it has a collision for physics. You can change the <code>Collision Type</code> between convex and triangle mesh - convex is more optimized but less accurate.</p>
+<h2 id="reusing-materials-when-importing-multiple-models">Reusing materials when importing multiple models</h2>
+<p>When importing a large set of models importer will create materials for each one of them which might not be efficent. To optimize it you can:</p>
 <ul>
 <li>select all models (eg. with <code>Ctrl+A</code>) to edit them in batch,</li>
 <li>check <code>Import Materials As Instances</code> to create material instances rather than materials,</li>
-<li>assign <code>Instance To Import As</code> material to be used as base (it can contain common parameters like <code>Color</code> to be overriden by importer in instances),</li>
-<li>set <code>Sub Asset Folder</code> to folder name where imported materials and textures will be placed for all of models (eg. <code>mat</code>)</li>
+<li>assign the <code>Instance To Import As</code> material to be used as a base (it can contain common parameters like <code>Color</code> to be overriden by the importer in instances),</li>
+<li>set <code>Sub Asset Folder</code> to the folder name where imported materials and textures will be placed for all of the models (eg. <code>mat</code>)</li>
 <li>import.</li>
 </ul>
-<p><img src="media/import-models-with-shared-mat-instances.png" alt="Reusing material when importing multiple models"></p>
+<p><img src="media/import-models-with-shared-mat-instances.png" alt="Reusing materials when importing multiple models"></p>
 <h2 id="model-import-settings">Model import settings</h2>
 <p><img src="media/imort-model-settigns.jpg" alt="Models"></p>
-<p>Flax uses the same import settings data scheme for <strong>models</strong>, <strong>skinned models</strong> and <strong>animations</strong> as they all can be imported from the same source files (eg. <code>.fbx</code> or <code>.dae</code>).</p>
+<p>Flax uses the same import settings data schemes for <strong>models</strong>, <strong>skinned models</strong> and <strong>animations</strong> because they can all be imported from the same source files (eg. <code>.fbx</code> or <code>.dae</code>).</p>
 <table>
 <thead>
 <tr>
@@ -161,19 +161,19 @@
 </tr>
 <tr>
 <td><strong>Smoothing Normals Angle</strong></td>
-<td>Specifies the maximum angle (in degrees) that may be between two face normals at the same vertex position that their are smoothed together. Used only if <em>Calculate Normals</em> is checked. The default value is 175.</td>
+<td>Specifies the maximum angle (in degrees) that may be between two face normals at the same vertex position before they are smoothed together. Used only if <em>Calculate Normals</em> is checked. The default value is 175.</td>
 </tr>
 <tr>
 <td><strong>Calculate Tangents</strong></td>
-<td>If checked, model tangent vectors will be recalculated.</td>
+<td>If checked, model tangent vectors will be re-calculated.</td>
 </tr>
 <tr>
 <td><strong>Smoothing Tangents Angle</strong></td>
-<td>Specifies the maximum angle (in degrees) that may be between two vertex tangents that their tangents and bi-tangents are smoothed. Used only if <em>Calculate Tangents</em> is checked. The default value is 45.</td>
+<td>Specifies the maximum angle (in degrees) that may be between two vertex tangents before their tangents and bi-tangents are smoothed. Used only if <em>Calculate Tangents</em> is checked. The default value is 45.</td>
 </tr>
 <tr>
 <td><strong>Optimize Meshes</strong></td>
-<td>If checked, model meshes geometry will be optimized. Duplicated or invalid vertices will be removed. Index buffer will be reordered to improve performance and other modification will be applied. However, importing time will be increased.</td>
+<td>If checked, model meshes geometry will be optimized. Duplicated or invalid vertices will be removed. Index buffer will be reordered to improve performance and other modifications will be applied. However, importing time will be increased.</td>
 </tr>
 <tr>
 <td><strong>Merge Meshes</strong></td>
@@ -181,7 +181,7 @@
 </tr>
 <tr>
 <td><strong>Import LODs</strong></td>
-<td>If checked, model importer will try to find LODs and import them. See <em>Importing model LODs</em> section to learn more.</td>
+<td>If checked, the model importer will try to find LODs and import them. See the <em>Importing model LODs</em> section to learn more.</td>
 </tr>
 <tr>
 <td><strong>Import Vertex Colors</strong></td>
@@ -192,16 +192,20 @@
 <td>If checked, blend shapes will be imported (morph targets).</td>
 </tr>
 <tr>
+<td><strong>Calculate Bone Offset Matrices</strong></td>
+<td>Enable skeleton bones offset matrices recalculating.</td>
+</tr>
+<tr>
 <td><strong>Lightmap UVs Source</strong></td>
-<td>Specifies model lightmap texture coordinates source. Can import them from the source model or generate them with in-build tool. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Disable</strong></td><td>Don&#39;t use lightmap UVs.</td></tr><tr><td><strong>Generate</strong></td><td>Generate lightmap UVs from model geometry. Requires proper normal/tangent vectors. Highly increases the importing time.</td></tr><tr><td><strong>Channel 0</strong></td><td>Use input mesh texture coordinates channel 0.</td></tr><tr><td><strong>Channel 1</strong></td><td>Use input mesh texture coordinates channel 1.</td></tr><tr><td><strong>Channel 2</strong></td><td>Use input mesh texture coordinates channel 2.</td></tr><tr><td><strong>Channel 3</strong></td><td>Use input mesh texture coordinates channel 3.</td></tr></tbody></table></td>
+<td>Specifies model lightmap texture coordinates source. Can import them from the source model or generate them with built-in tool. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Disable</strong></td><td>Don&#39;t use lightmap UVs.</td></tr><tr><td><strong>Generate</strong></td><td>Generate lightmap UVs from model geometry. Requires proper normal/tangent vectors. Highly increases the importing time.</td></tr><tr><td><strong>Channel 0</strong></td><td>Use input mesh texture coordinates channel 0.</td></tr><tr><td><strong>Channel 1</strong></td><td>Use input mesh texture coordinates channel 1.</td></tr><tr><td><strong>Channel 2</strong></td><td>Use input mesh texture coordinates channel 2.</td></tr><tr><td><strong>Channel 3</strong></td><td>Use input mesh texture coordinates channel 3.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Collision Meshes Prefix</strong></td>
-<td>If specified, all meshes which name starts with this prefix will be imported as a separate collision data (excluded used for rendering).</td>
+<td>If specified, all meshes that starts with this prefix in the name will be imported as a separate collision data asset (excluded used for rendering).</td>
 </tr>
 <tr>
 <td><strong>Collision Type</strong></td>
-<td>The type of collision that should be generated if has collision prefix specified.</td>
+<td>The type of collision that should be generated if the mesh has a collision prefix specified.</td>
 </tr>
 <tr>
 <td></td>
@@ -224,6 +228,10 @@
 <td>Custom import geometry offset applied to the imported model data.</td>
 </tr>
 <tr>
+<td><strong>Use Local Origin</strong></td>
+<td>If checked, the imported geometry will be shifted to its local transform origin.</td>
+</tr>
+<tr>
 <td><strong>Center Geometry</strong></td>
 <td>If checked, the imported geometry will be shifted to the center of mass.</td>
 </tr>
@@ -237,7 +245,7 @@
 </tr>
 <tr>
 <td><strong>Duration</strong></td>
-<td>Specifies the imported animation duration mode. Can use the original value or overriden by settings. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Imported</strong></td><td>The imported duration.</td></tr><tr><td><strong>Custom</strong></td><td>The custom duration specified via keyframes range.</td></tr></tbody></table></td>
+<td>Specifies the imported animation duration mode. Can use the original value or be overriden by settings. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Imported</strong></td><td>The imported duration.</td></tr><tr><td><strong>Custom</strong></td><td>The custom duration specified via keyframes range.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Frames Range Start</strong></td>
@@ -249,7 +257,7 @@
 </tr>
 <tr>
 <td><strong>Default Frame Rate</strong></td>
-<td>The imported animation default frame rate. Can specify the default frames per second amount for imported animation. If value is 0 then the original animation frame rate will be used.</td>
+<td>The imported animation default frame rate. Can specify the default frames per second amount for imported animations. If the value is 0 then the original animation frame rate will be used.</td>
 </tr>
 <tr>
 <td><strong>Sampling Rate</strong></td>
@@ -257,7 +265,7 @@
 </tr>
 <tr>
 <td><strong>Skip Empty Curves</strong></td>
-<td>If checked, the imported animation will have removed tracks with no keyframes or unspecified data. Disable it to leave the data as it is.</td>
+<td>If checked, the imported animation will have tracks with no keyframes or unspecified data removed. Disable it to leave the data as it is.</td>
 </tr>
 <tr>
 <td><strong>Optimize Keyframes</strong></td>
@@ -305,7 +313,7 @@
 </tr>
 <tr>
 <td><strong>Instance To Import As</strong></td>
-<td>The material to import the model&#39;s materials as an instance of.</td>
+<td>The material used as the base material that will be instanced as the imported model&#39;s material.</td>
 </tr>
 <tr>
 <td><strong>Import Textures</strong></td>
@@ -321,11 +329,11 @@
 </tr>
 <tr>
 <td><strong>Split Objects</strong></td>
-<td>If checked, the imported mesh/animations are splitted into separate assets. Used if <em>Object Index</em> is set to -1.</td>
+<td>If checked, the imported mesh/animations are split into separate assets. Used if <em>Object Index</em> is set to -1.</td>
 </tr>
 <tr>
 <td><strong>Object Index</strong></td>
-<td>The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desire object. The default <code>-1</code> imports all objects.</td>
+<td>The zero-based index for the mesh/animation clip to import. If the source file has more than one mesh/animation it can be used to pick a desired object. The default <code>-1</code> imports all objects.</td>
 </tr>
 <tr>
 <td></td>
@@ -333,13 +341,13 @@
 </tr>
 <tr>
 <td><strong>Sub Asset Folder</strong></td>
-<td>If specified, will be used as sub-directory name for automatically imported sub assets such as textures and materials. Set to whitespace (single space) to import to the same directory.</td>
+<td>If specified, the specified folder will be used as a sub-directory name for automatically imported sub assets such as textures and materials. Set to whitespace (single space) to import to the same directory.</td>
 </tr>
 
 </tbody></table>
 <h2 id="tips">Tips</h2>
-<p>If the model appears to be missing something or there is more than you expected make sure the model you imported is in fact what you believe it is. For example Blender defaults to export everything unless you tick the &quot;selection only&quot; box. An easy way to check that is to import the file back in your modeller.</p>
-<p>If you want to import all animation clips from the source file or import all model meshes as separate assets use <strong>Split Objects</strong> option. It will split the source objects from the model file and import them as separate assets. It will support reimporting them easily with as each splited object gets own <strong>Object Index</strong> auto-assigned.</p>
+<p>If the model appears to be missing something or there is more than you expected, make sure the model you imported is in fact what you believe it is. For example Blender defaults to export everything unless you tick the &quot;selection only&quot; box. An easy way to check that is to import the file back in your modeller.</p>
+<p>If you want to import all animation clips from the source file or import all model meshes as separate assets use the <strong>Split Objects</strong> option. It will split the source objects from the model file and import them as separate assets. It will support reimporting them easily because each split object gets own <strong>Object Index</strong> auto-assigned.</p>
 </article>
           </div>
           
@@ -348,7 +356,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

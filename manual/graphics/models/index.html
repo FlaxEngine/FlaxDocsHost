@@ -90,10 +90,10 @@
 <h1 id="models">Models</h1>
 
 <p><img src="media/title.png" alt="Models"></p>
-<p><strong>Models</strong> are one of the most important parts of the games. Player character and whole environment can be created using them. Flax supports importing model files created by using the most common 3D modeling software (e.g. Maya, 3dsMax, Blender) or generating procedural geometry.</p>
-<p>A Model asset contains a collection of <strong>Level Of Details</strong> (shorten as <em>LOD</em>) and <strong>Material Slots</strong>. Each LOD contains a collection meshes to draw. During model rendering, each mesh uses a specific material slot which can hold the default value or be overridden by the <a href="static-model.html">Static Model</a>.</p>
+<p><strong>Models</strong> are one of the most important parts of games. Player characters and whole environments can be created using them. Flax supports importing model files created by using the most common 3D modeling software (e.g. Maya, 3dsMax, Blender) or generating procedural geometry.</p>
+<p>A Model asset contains a collection of <strong>Level Of Details</strong> (shorten as <em>LOD</em>) and <strong>Material Slots</strong>. Each LOD contains a collection of meshes to draw. During model rendering, each mesh uses a specific material slot which can hold the default value or be overridden by a <a href="static-model.html">Static Model</a>.</p>
 <p><img src="media/ModelDesign.png" alt="Model Design"></p>
-<div class="NOTE"><h5>Note</h5><p>The maximum amount of levels of details for the model is <code>6</code>. Also, each LOD can contain up to <code>4096</code> meshes.</p>
+<div class="NOTE"><h5>Note</h5><p>The maximum amount of levels of details for a model is <code>6</code>. Also, each LOD can contain up to <code>4096</code> meshes.</p>
 </div>
 <p>A <strong>mesh</strong> consists of triangles arranged in 3D space to create the impression of a solid object. A triangle is defined by its three corner points (called vertices). In the <a href="http://docs.flaxengine.com/api/FlaxEngine.Mesh.html">Mesh</a> class, the vertices are all stored in a single array and each triangle is specified using three integers that correspond to indices of the vertex array. The triangles are also collected together into a single array of integers; the integers are taken in groups of three from the start of this array, so elements 0, 1 and 2 define the first triangle, 3, 4 and 5 define the second, and so on. Any given vertex can be reused in as many triangles as desired.</p>
 <h2 id="model-lod-switching">Model LOD switching</h2>
@@ -101,26 +101,26 @@
 <p><img src="media/model_lods_switching.gif" alt="Model LOD switching"></p>
 <p>By enabling <strong>Use Dithered LOD Transition</strong> option on model materials you can use smooth LOD transitions that reduce popping artifacts and produce a seamless way to reduce geometry complexity in the scene.</p>
 <p><img src="media/lod_transition.gif" alt="Smooth Model LOD switching"></p>
-<p>In some cases, eg. during the cut-scenes it may be required to bump the visual quality of the scene and ignore the lower LODs. To achieve this you can apply the Model LOD Bias per view using the following C# code:</p>
+<p>In some cases, eg. during cut-scenes it may be required to increase the visual quality of the scene and ignore the lower LODs. To achieve this you can apply the Model LOD Bias per view using the following C# code:</p>
 <p><code>MainRenderTask.Instance.View.ModelLODBias = 2;</code></p>
 <p>or adjusting it per model instance using <strong>LOD Bias</strong> and <strong>Forced LOD</strong> properties.</p>
 <h2 id="importing-models">Importing models</h2>
 <p>To learn about importing model assets and adjusting import settings read the dedicated <a href="import.html">page here</a>.</p>
-<p>Flax supports <strong>generating LODs automatically</strong> during source asset importing. When importing model file simply check <strong>Generate LODs</strong> property (under <em>Level Of Detail</em> group) and adjust the settings.</p>
+<p>Flax supports <strong>generating LODs automatically</strong> during source asset importing. When importing model file simply check the <strong>Generate LODs</strong> property (under the <em>Level Of Detail</em> group) and adjust the settings.</p>
 <p><img src="media/automatic-model-lod.gif" alt="Automatic Model LOD"></p>
 <h2 id="using-models">Using models</h2>
-<p>Model assets are used by the many parts of the engine. The most common case is by creating a <strong>Static Model</strong>. That actor type renders a model and allows to override some of its properties like shadows casting or material slots collection. To learn more about it see a dedicated <a href="static-model.html">page here</a>.</p>
+<p>Model assets are used by many parts of the engine. The most common case is by creating a <strong>Static Model</strong>. That actor type renders a model and allows overriding some of its properties like shadow casting or the material slots collection. To learn more about it see the dedicated <a href="static-model.html">page here</a>.</p>
 <h2 id="procedural-geometry">Procedural geometry</h2>
 <p>Flax provides a C# scripting API to generate procedural mesh geometry offline or at runtime.
-Model created from code can have all the properties as the imported one. Although there are some limitations like no baking lightmaps or reduced amount of LODs. However procedural models can be saved to the asset file in the editor and then used in a game. This feature can be highly used by the Editor Plugins.</p>
+A model created from code can have all the properties as an imported one, although there are some limitations like no baking lightmaps or reduced amount of LODs. However, procedural models can be saved to an asset file in the editor and then used in a game. This feature can be used by Editor Plugins.</p>
 <p>To learn more about creating procedural meshes see the <a href="generate-model.html">tutorial here</a>.</p>
 <h2 id="geometry-instancing">Geometry instancing</h2>
-<p>Flax supports hardware geometry instancing out of the box. During scene rendering all model instances that use the same model and materials are batched and rendered at once to provide ultra-high performance. Flax can merge thousands of mesh instances into just a single draw call as long as they are using the same material. Instancing and draw calls batching is enabled by default on platforms that support it.</p>
+<p>Flax supports hardware geometry instancing out of the box. During scene rendering all model instances that use the same model and materials are batched and rendered at once to provide ultra-high performance. Flax can merge thousands of mesh instances into just a single draw call as long as they are using the same material. Instancing and draw call batching is enabled by default on platforms that support it.</p>
 <h2 id="vertex-painting">Vertex Painting</h2>
-<p>Another important topic related to models is <strong>Vertex Painting</strong>. It is a process of applying custom colors to the model geometry represented by the vertices of the mesh. This technique can be used to customize model instance in the level. For instance, wall material can use red channel of the vertex color to display the wet areas. Then level designer can paint wall vertices to make a certaing part of the model appear wet. To learn more about this process see the related documentation <a href="vertex-painting.html">here</a>.</p>
+<p>Another important topic related to models is <strong>Vertex Painting</strong>. It is a process of applying custom colors to the model geometry represented by the vertices of the mesh. This technique can be used to customize a model instance in the level. For instance, a wall material can use the red channel of the vertex color to display wet areas. Then a level designer can paint wall vertices to make a certain part of the model appear wet. To learn more about this process see the related documentation <a href="vertex-painting.html">here</a>.</p>
 <h2 id="vertex-properties">Vertex properties</h2>
-<p>Flax uses fixed model data format. Although index buffer can use 16 or 32-bit format layout vertex buffers layout is strictly defined. Vertex Buffers data is highly compressed to reduce memory usage and optimize the rendering performance.</p>
-<p>Here are listed vertex structures used by the engine:</p>
+<p>Flax uses fixed model data format. Although an index buffer can use 16 or 32-bit format layout, vertex buffers layout is strictly defined. Vertex Buffer data is highly compressed to reduce memory usage and optimize the rendering performance.</p>
+<p>Here is a list of vertex structures used by the engine:</p>
 <p><strong>Vertex Buffer 0</strong>:</p>
 <ul>
 <li>Float3 Position</li>
@@ -144,7 +144,7 @@ Model created from code can have all the properties as the imported one. Althoug
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/models/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/models/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

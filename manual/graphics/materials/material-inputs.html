@@ -90,22 +90,22 @@
 <h1 id="material-inputs">Material Inputs</h1>
 
 <p>This page explains all the material inputs. By connecting values to these inputs (e.g. constants, textures, and parameters), you can define almost any physical surface.</p>
-<p>Not all material inputs are used all the time. For instance, <em>Unlit</em> material uses only Emissive, Mask and Position Offset, since rest of the inputs is not applicable. It&#39;s important to keep know this during creating new materials.</p>
+<p>Not all material inputs are used all the time. For instance, An <em>Unlit</em> material uses only Emissive, Mask and Position Offset, since rest of the inputs are not applicable. It&#39;s important to remember this during creating new materials.</p>
 <p><img src="media/main_node.png" alt="Graphics"></p>
 <h2 id="color">Color</h2>
-<p>The <strong>Color</strong> input defines material surface base color. It&#39;s a <code>Float3</code> value (<em>RGB</em> format).
-For non-metal materials it defines diffuse color. For metals, it&#39;s used as a specular color of the surface.</p>
+<p>The <strong>Color</strong> input defines the material surface base color. It&#39;s a <code>Float3</code> value (<em>RGB</em> format).
+For non-metal materials it defines diffuse color. For metals, it&#39;s used as the specular color of the surface.</p>
 <p><img src="media/material-color.png" alt="Material Color"></p>
 <h2 id="mask">Mask</h2>
-<p>The <strong>Mask</strong> input allows to clip material pixels that are under certain value (see <em>Mask Threshold</em> in <a href="material-properties/index.html">Material Properties</a>). Unlike <em>Opacity</em>, mask can be used also for opaque materials which makes it a perfect solution when you need materials that define complex solid surfaces such as wire mesh, chain link fences, and so on. The opaque portions will still respect lighting.
+<p>The <strong>Mask</strong> input allows clipping material pixels that are under a certain value (see <em>Mask Threshold</em> in <a href="material-properties/index.html">Material Properties</a>). Unlike <em>Opacity</em>, a mask can also be used for opaque materials which makes it a perfect solution when you need materials that define complex solid surfaces such as wire mesh, chain link fences, and so on. The opaque portions will still respect lighting.
 The default value is 1.</p>
 <p><img src="media/material-mask.png" alt="Material Mask"></p>
 <h2 id="emissive">Emissive</h2>
-<p>The <strong>Emissive</strong> input defines material surface light emission. It&#39;s a HDR <code>Float3</code> value (<em>RGB</em> format) so values greater  than 1 are allowed as HDR lighting is supported.
-Materials using this property may appear to glow because they are emitting light. Also if object using emissive material is marked as static (see <a href="http://docs.flaxengine.com/api/FlaxEngine.StaticFlags.html">StaticFlags</a>) then light emission will be handled properly in static lighting.</p>
+<p>The <strong>Emissive</strong> input defines the material surface light emission. It&#39;s an HDR <code>Float3</code> value (<em>RGB</em> format) so values greater than 1 are allowed as HDR lighting is supported.
+Materials using this property may appear to glow because they are emitting light. Also if an object using an emissive material is marked as static (see <a href="http://docs.flaxengine.com/api/FlaxEngine.StaticFlags.html">StaticFlags</a>) then light emission will be handled properly in static lighting.</p>
 <p><img src="media/material-emissive.png" alt="Material Emissive"></p>
 <h2 id="metalness">Metalness</h2>
-<p>The <strong>Metalness</strong> input simply controls how <em>&quot;metal-like&quot;</em> surface is. Non-metals use values of 0, metals have metalness values of 1. For pure surfaces, such as pure metal, pure stone, pure plastic, etc. this value will be 0 or 1, not anything in between. When creating hybrid surfaces like corroded, dusty, or rusty metals, you may find that you need some value between 0 and 1.
+<p>The <strong>Metalness</strong> input simply controls how <em>&quot;metal-like&quot;</em> a surface is. Non-metals use values of 0, metals have metalness values of 1. For pure surfaces, such as pure metal, pure stone, pure plastic, etc. this value will be 0 or 1, not anything in between. When creating hybrid surfaces like corroded, dusty, or rusty metals, you may find that you need some value between 0 and 1.
 The default value is 0.</p>
 <p><img src="media/material-metalness.png" alt="Material Metalness"></p>
 <h2 id="specular">Specular</h2>
@@ -113,7 +113,7 @@ The default value is 0.</p>
 The default value is 0.5.</p>
 <p><img src="media/material-specular.png" alt="Material Specular"></p>
 <h2 id="roughness">Roughness</h2>
-<p>The <strong>Roughness</strong> input controls how <em>&quot;rough&quot;</em> surface is. More glossy materials (roughness near 0) will reflect more light, while rough materials (roughness near 1) will appear completely matte or diffuse.
+<p>The <strong>Roughness</strong> input controls how <em>&quot;rough&quot;</em> a surface is. More glossy materials (roughness near 0) will reflect more light, while rough materials (roughness near 1) will appear completely matte or diffuse.
 The default value is 0.4.</p>
 <p><img src="media/material-roughness.png" alt="Material Roughness"></p>
 <h2 id="ambient-occlusion">Ambient Occlusion</h2>
@@ -124,15 +124,15 @@ The default value is 1.0.</p>
 <p>The <strong>Normal</strong> input defines macro surface normals. It takes the <em>normal map</em> to provide per-pixel normal perturbation of the normal vector of the mesh. Normal maps create the appearance of bumps and indents in the surface.</p>
 <p><img src="media/material-normal.png" alt="Material Normal"></p>
 <h2 id="opacity">Opacity</h2>
-<p>The <strong>Opacity</strong> input controls the transparency of the surface. Value 0 defines a completely transparent object, while value 1 represents the fully opaque surface. The higher value, the more visible object will be.
+<p>The <strong>Opacity</strong> input controls the transparency of the surface. A value of 0 defines a completely transparent object, while a value of 1 represents the fully opaque surface. The higher the value, the more visible object will be.
 The default value is 1.</p>
 <p><img src="media/material-opacity.png" alt="Material Opacity"></p>
 <h2 id="refraction">Refraction</h2>
-<p>The <strong>Refraction</strong> input controls simulation of the light refraction of the surface. This is useful for creating glass and water materials which refract light that passes through them. One of the most common examples is to use material node <em>Fresnel</em> and lerp between two values (for e.g. 1 and 1.4) to create realistic glass effect on a transparent material.
+<p>The <strong>Refraction</strong> input controls simulation of the light refraction of the surface. This is useful for creating glass and water materials which refract light that passes through them. One of the most common examples is to use the material node <em>Fresnel</em> and lerp between two values (for e.g. 1 and 1.4) to create a realistic glass effect on a transparent material.
 The default value is 1.</p>
 <p><img src="media/material-refraction.png" alt="Material Refraction"></p>
 <h2 id="position-offset">Position Offset</h2>
-<p>The <strong>Position Offset</strong> input allows moving rendered geometry vertices in world space. This is especially useful for making objects move, change shape, rotate or morph. It can be also used for ambient animation.</p>
+<p>The <strong>Position Offset</strong> input allows moving rendered geometry vertices in world space. This is especially useful for making objects move, change shape, rotate or morph. It can also be used for ambient animation.</p>
 <p><img src="media/material-vertex-offset.png" alt="Material Position Offset"></p>
 <h2 id="tessellation-multiplier">Tessellation Multiplier</h2>
 <p>The <strong>Tessellation Multiplier</strong> input controls the amount of tessellation along the surface geometry. It allows more detail to be added where needed. As with World Displacement, for this to be enabled, the Tessellation Mode property must be set to something other than None.</p>
@@ -141,7 +141,7 @@ The default value is 1.</p>
 <p>The <strong>World Displacement</strong> input works very much like Position Offset, but it uses Tessellation vertices rather than the base vertices of the mesh. In order for this to be enabled, the Tessellation Mode property must be set to something other than None.</p>
 <p><img src="media/material-world-displacement.png" alt="Material World Displacement"></p>
 <h2 id="subsurface-color">Subsurface Color</h2>
-<p><strong>Subsurface</strong> shading model tries to simulate the light scattering effect through the material. <strong>Subsurface Color</strong> input defines the color of volume inside the material. Use the <strong>Opacity</strong> to define the thickness of the material.</p>
+<p>The <strong>Subsurface</strong> shading model tries to simulate the light scattering effect through the material. <strong>Subsurface Color</strong> input defines the color of the volume inside the material. Use <strong>Opacity</strong> to define the thickness of the material.</p>
 <p><img src="media/material-subsurface.png" alt="Material Subsurface Color"></p>
 </article>
           </div>
@@ -151,7 +151,7 @@ The default value is 1.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/materials/material-inputs.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/materials/material-inputs.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

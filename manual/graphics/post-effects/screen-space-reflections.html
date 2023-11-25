@@ -90,15 +90,15 @@
 <h1 id="screen-space-reflections">Screen Space Reflections</h1>
 
 <p><img src="media/screen-space-reflections.png" alt="Screen Space Reflections"></p>
-<p><strong>Screen Space Reflections</strong> (shorten as <strong>SSR</strong>) effect adds local reflections to the objects pushing forward the realism of scenes. This effect is rendered in <em>screen space</em>, which means reflected can be only objects that are already on the screen (it doesn&#39;t work for offscreen or obscured objects).</p>
+<p>The <strong>Screen Space Reflections</strong> effect (shortened as <strong>SSR</strong>) adds local reflections to the objects increasing the realism of scenes. This effect is rendered in <em>screen space</em>, which means only objects that are already on the screen can be reflected (it doesn&#39;t work for offscreen or obscured objects).</p>
 <p>This means SSR works well in enclosed areas such as corridors and rooms, but less well in open spaces, where you&#39;d expect more of the world to be reflected. They also work best on bumpy surfaces, which hide imperfections in reflections, and less well on very glossy, mirror-like surfaces. Missing reflections are noticeable in mirrors, for example.
-As a fallback value is used reflection color from placed Environment Probes.</p>
+As a fallback, values use reflection colors from any placed Environment Probes.</p>
 <h2 id="algorithm">Algorithm</h2>
 <p>Flax Engine renders SSR in several passes:</p>
 <ol>
 <li>The <strong>raycast</strong> pass performs screen space ray tracing over the depth buffer to find geometry intersections.</li>
 <li>The <strong>resolve</strong> pass resolves the rays and calculates the reflection color.</li>
-<li>The <strong>temporal</strong> pass uses the history buffer to blur constantly between the current and the previous frames. This reduces noise in the reflection, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. You can adjust or disable this step to create the effect you want.</li>
+<li>The <strong>temporal</strong> pass uses the history buffer to constantly blur between the current and previous frames. This reduces noise in the reflection, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. You can adjust or disable this step to create the effect you want.</li>
 <li>The <strong>combine</strong> pass mixes the results of the effect with the rendered image.</li>
 </ol>
 <h2 id="properties">Properties</h2>
@@ -113,7 +113,7 @@ As a fallback value is used reflection color from placed Environment Probes.</p>
 <tbody>
 <tr>
 <td><strong>Intensity</strong></td>
-<td>Reflections intensity scale (in range from 0 to 1).</td>
+<td>Reflections intensity scale (in the range of 0 to 1).</td>
 </tr>
 <tr>
 <td><strong>Depth Resolution</strong></td>
@@ -125,19 +125,19 @@ As a fallback value is used reflection color from placed Environment Probes.</p>
 </tr>
 <tr>
 <td><strong>BRDF Bias</strong></td>
-<td>The reflection spread parameter. This value controls source roughness effect on reflections blur. Smaller values produce wider reflections spread but also introduce more noise. Higher values provide more mirror-like reflections. Default value is <code>0.82</code>.</td>
+<td>The reflection spread parameter. This value controls the source roughness effect on a reflections blur. Smaller values produce wider reflection spread but also introduce more noise. Higher values provide more mirror-like reflections. Default value is <code>0.82</code>.</td>
 </tr>
 <tr>
 <td><strong>Roughness Threshold</strong></td>
-<td>The maximum amount of roughness a material can have to reflect the scene. For example, if this value is set to <code>0.4</code>, only materials with a roughness value of <code>0.4</code> below above reflect the scene. The default value is <code>0.45</code>.</td>
+<td>The maximum amount of roughness a material can have to reflect the scene. For example, if this value is set to <code>0.4</code>, only materials with a roughness value of <code>0.4</code> or below reflect the scene. The default value is <code>0.45</code>.</td>
 </tr>
 <tr>
-<td><strong>Wolrd Anti Self Occlusion Bias</strong></td>
+<td><strong>World Anti Self Occlusion Bias</strong></td>
 <td>The offset of the raycast origin. Lower values produce more correct reflection placement, but produce minor artifacts. We recommend values of <code>0.3</code> or lower. The default value is <code>0.1</code>.</td>
 </tr>
 <tr>
 <td><strong>Resolve Resolution</strong></td>
-<td>Calculates reflection color using raycast results. There are two options: <em>full</em> and <em>half</em>. Full gives the best results, but half improves performance. The default value is full.</td>
+<td>Calculates the reflection color using raycast results. There are two options: <em>full</em> and <em>half</em>. Full gives the best results, but half improves performance. The default value is full.</td>
 </tr>
 <tr>
 <td><strong>Resolve Samples</strong></td>
@@ -149,7 +149,7 @@ As a fallback value is used reflection color from placed Environment Probes.</p>
 </tr>
 <tr>
 <td><strong>Use Color Buffer Mips</strong></td>
-<td>If checked, downscales the input color buffer and uses blurred mipmaps chain when resolving the reflection color. This produces more realistic results by blurring distant parts of reflections in rough (high-roughness) materials. It also improves performance on most platforms. However, it uses more memory, so you might want to disable it on (for example) mobile platforms.</td>
+<td>If checked, downscales the input color buffer and uses a blurred mipmaps chain when resolving the reflection color. This produces more realistic results by blurring distant parts of the reflections in rough (high-roughness) materials. It also improves performance on most platforms. However, it uses more memory, so you might want to disable it on mobile platforms (for example).</td>
 </tr>
 <tr>
 <td><strong>Enable Temporal Effect</strong></td>
@@ -157,11 +157,11 @@ As a fallback value is used reflection color from placed Environment Probes.</p>
 </tr>
 <tr>
 <td><strong>Temporal Scale</strong></td>
-<td>Controls intensity of the temporal effect. Lower values produce reflections faster, but with more noise. The default value is <code>8</code>.</td>
+<td>Controls the intensity of the temporal effect. Lower values produce reflections faster, but with more noise. The default value is <code>8</code>.</td>
 </tr>
 <tr>
 <td><strong>Temporal Response</strong></td>
-<td>Defines how quickly reflections blend between the reflection in the current frame and the history buffer. Lower values produce reflections faster, but with more jittering. Note the jittering in the reflection below. If the camera in your game doesn&#39;t move much, we recommend values closer to <code>1</code>. The default value is <code>0.8</code>.</td>
+<td>Defines how quickly reflections blend between the reflection in the current frame and the history buffer. Lower values produce reflections faster, but with more jittering. If the camera in your game doesn&#39;t move much, we recommend values closer to <code>1</code>. The default value is <code>0.8</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -175,7 +175,7 @@ As a fallback value is used reflection color from placed Environment Probes.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/post-effects/screen-space-reflections.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/post-effects/screen-space-reflections.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

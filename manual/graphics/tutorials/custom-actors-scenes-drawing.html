@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Draw custom set of actors or scenes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Draw custom set of actors or scenes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Draw custom set of actors or scenes | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-draw-custom-set-of-actors-or-scenes">HOWTO: Draw custom set of actors or scenes</h1>
+
+<p>By default Flax draws all loaded scenes into the game viewport. There are several ways to incldue or exclude specific objects from being visible such as:</p>
+<ul>
+<li>Actor enable state (<code>IsActiveInHierarchy</code>) - only active actors are visible.</li>
+<li>Actor layer mask - only actors matching camera&#39;s (<code>RenderLayersMask</code>) or view&#39;s layers mask are visible.</li>
+<li>Custom actor or scenes set on Scene Render Task (<code>MainRenderTask.Instance.ActorsSource</code>).</li>
+</ul>
+<p>In this tutorial we will cover example of the last one.</p>
+<p>The game viewport uses <code>SceneRenderTask</code> API to draw the game. It can be accessed via <code>MainRenderTask.Instance</code> by the game or plugins to customize the rendering. By using <code>ActorsSource</code> property the source of the actors for drawing can be customized. It&#39;s related to an enum <code>ActorsSources</code> which is an enum thus allows one to draw from multiple sources (eg. draw default scenes plus some additional actors that don&#39;t exist in the game).</p>
+<h3 id="custom-scenes">Custom Scenes</h3>
+<p>Example script that loads and draws only a specific scene in the game viewport:</p>
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Loads and draws only a specific scene in the game viewport:
+/// &lt;/summary&gt;
+public class CustomScenesRendering : Script
+{
+    /// &lt;summary&gt;
+    /// The scene to load and draw.
+    /// &lt;/summary&gt;
+    public SceneReference CustomScene;
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnEnable()
+    {
+        Level.LoadScene(CustomScene);
+        var scene = FlaxEngine.Object.Find&lt;Scene&gt;(ref CustomScene.ID);
+        if (scene)
+        {
+            // Override game drawing for a specific scene
+            MainRenderTask.Instance.ActorsSource = ActorsSources.CustomScenes;
+            MainRenderTask.Instance.CustomScenes = new[] { scene };
+        }
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        // Restore state
+        MainRenderTask.Instance.ActorsSource = ActorsSources.Scenes;
+        MainRenderTask.Instance.CustomScenes = Array.Empty&lt;Scene&gt;();
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/tutorials/custom-actors-scenes-drawing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2023 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

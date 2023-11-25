@@ -605,7 +605,7 @@ public Vector3 Center { get; set; }</code></pre>
   <h4 id="FlaxEngine_Collider_ContactOffset" data-uid="FlaxEngine.Collider.ContactOffset"><a href="#collapsible-FlaxEngine_Collider_ContactOffset" class="expander" data-toggle="collapse">ContactOffset</a></h4>
   
   <div id="collapsible-FlaxEngine_Collider_ContactOffset" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the contact offset.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the contact offset. Colliders whose distance is less than the sum of their ContactOffset values will generate contacts. The contact offset must be positive. Contact offset allows the collision detection system to predictively enforce the contact constraint even when the objects are slightly separated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -635,9 +635,6 @@ public float ContactOffset { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_Collider_ContactOffset_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Colliders whose distance is less than the sum of their ContactOffset values will generate contacts. The contact offset must be positive. Contact offset allows the collision detection system to predictively enforce the contact constraint even when the objects are slightly separated.</p>
-</div>
   
   
   
@@ -649,7 +646,7 @@ public float ContactOffset { get; set; }</code></pre>
   <h4 id="FlaxEngine_Collider_IsTrigger" data-uid="FlaxEngine.Collider.IsTrigger"><a href="#collapsible-FlaxEngine_Collider_IsTrigger" class="expander" data-toggle="collapse">IsTrigger</a></h4>
   
   <div id="collapsible-FlaxEngine_Collider_IsTrigger" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the &apos;IsTrigger&apos; flag.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the &apos;IsTrigger&apos; flag. A trigger doesn&apos;t register a collision with an incoming Rigidbody. Instead, it sends OnTriggerEnter and OnTriggerExit message when a rigidbody enters or exits the trigger volume.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -678,9 +675,6 @@ public bool IsTrigger { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_Collider_IsTrigger_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A trigger doesn&apos;t register a collision with an incoming Rigidbody. Instead, it sends OnTriggerEnter, OnTriggerExit and OnTriggerStay message when a rigidbody enters or exits the trigger volume.</p>
-</div>
   
   
   

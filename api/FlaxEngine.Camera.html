@@ -542,7 +542,7 @@ public sealed class Camera : Actor, ISerializable</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [Limit(0F, 10F, 0.01F)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[Tooltip(&quot;Custom aspect ratio to use. Set to 0 to disable.&quot;)]
+[VisibleIf(&quot;UsePerspective&quot;, false)]
 [Unmanaged]
 public float CustomAspectRatio { get; set; }</code></pre>
   </div>
@@ -584,7 +584,6 @@ public float CustomAspectRatio { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(40)]
 [Limit(0F, 3.40282347E+38F, 5F)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[Tooltip(&quot;Far clipping plane distance&quot;)]
 [Unmanaged]
 public float FarPlane { get; set; }</code></pre>
   </div>
@@ -623,10 +622,10 @@ public float FarPlane { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(10)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [Limit(0F, 179F, 1F)]
 [EditorDisplay(&quot;Camera&quot;, &quot;Field Of View&quot;)]
-[Tooltip(&quot;Field of view angle in degrees.&quot;)]
+[VisibleIf(&quot;UsePerspective&quot;, false)]
 [Unmanaged]
 public float FieldOfView { get; set; }</code></pre>
   </div>
@@ -744,7 +743,6 @@ public static Camera MainCamera { get; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(30)]
 [Limit(0F, 1000F, 0.05F)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[Tooltip(&quot;Near clipping plane distance&quot;)]
 [Unmanaged]
 public float NearPlane { get; set; }</code></pre>
   </div>
@@ -786,7 +784,7 @@ public float NearPlane { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(60)]
 [Limit(0.0001F, 1000F, 0.01F)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[Tooltip(&quot;Orthographic projection scale&quot;)]
+[VisibleIf(&quot;UsePerspective&quot;, true)]
 [Unmanaged]
 public float OrthographicScale { get; set; }</code></pre>
   </div>
@@ -983,9 +981,8 @@ public ViewMode RenderMode { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(10)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[Tooltip(&quot;Enables perspective projection mode, otherwise uses orthographic.&quot;)]
 [Unmanaged]
 public bool UsePerspective { get; set; }</code></pre>
   </div>

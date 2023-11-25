@@ -91,6 +91,13 @@
 
 <p>Plugins are collection of source code added to your Flax project that can be used to implement persistent game or utility classes, custom engine features, or to extend the editor by adding custom tools with UI representation. This documentation section explains the basics of creating and using plugins. Follow these notes to learn more about the plugin system in Flax.</p>
 <p>Example plugin project can be found <a href="https://github.com/FlaxEngine/ExamplePlugin">here</a>, use this as a reference.</p>
+<h2 id="in-this-section">In this section</h2>
+<ul>
+<li><a href="plugins-window.html">Plugins Window</a></li>
+<li><a href="plugin-project.html">Plugin Project</a></li>
+<li><a href="../tutorials/custom-plugin.html">How to create a custom editor plugin</a></li>
+<li><a href="../tutorials/custom-settings.html">How to use custom settings</a></li>
+</ul>
 <h2 id="introduction">Introduction</h2>
 <p>Flax supports loading native .dll files, C# libraries from <em>.dll</em> files and adding references to game projects for use in scripts. Many Flax Engine systems are designed to be extensible, enabling developers to add new features and to modify built-in functionality without modifying engine source code directly.</p>
 <p>Using plugins allows the use of external .Net libraries to be used within a game. For instance, the developer can use custom game classes, custom networking libraries, or a social media plugin. To reference .Net module in your game scripts modify the build script file (eg. <code>Source/GameModule/MyGame.Build.cs</code>) by adding a file reference in overridden <code>Setup</code> method:</p>
@@ -274,14 +281,10 @@ public override Guid[] GetReferences()
 <p><strong>Editor Plugins</strong> can extend the Flax Editor by adding new tools or functionalities. Editor plugin can add new buttons to the Editor GUI and/or override the Custom Editors pipeline or create custom windows to be used for game content creation. The amount of possibilities is very large. To learn more how to create and use editor plugin see the related tutorial <a href="../tutorials/custom-plugin.html">here</a>.</p>
 <div class="NOTE"><h5>Note</h5><p>Note: if your plugin uses both <strong>Game Plugin</strong> and <strong>Editor Plugin</strong> types the remember to implement <code>EditorPlugin.GamePluginType</code> to point the type of the game plugin.</p>
 </div>
-<h2 id="in-this-section">In this section</h2>
-<ul>
-<li><a href="plugins-window.html">Plugins Window</a></li>
-<li><a href="plugin-project.html">Plugin Project</a></li>
-<li><a href="../tutorials/custom-plugin.html">How to create a custom editor plugin</a></li>
-<li><a href="../tutorials/custom-settings.html">How to use custom settings</a></li>
-</ul>
-</article>
+<h2 id="plugins-order">Plugins Order</h2>
+<p><code>PluginLoadOrder</code> attribute allows for specifying the order of the plugin initialization:</p>
+<pre><code>[PluginLoadOrder(InitializeAfter = typeof(TestPlugin4), DeinitializeBefore = typeof(TestPlugin4))]
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -289,7 +292,7 @@ public override Guid[] GetReferences()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

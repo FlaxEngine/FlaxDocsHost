@@ -90,19 +90,19 @@
 <h1 id="lightmapping">Lightmapping</h1>
 
 <p><img src="media/bake_lightmaps.gif" alt="Baking Lightmaps in Flax"></p>
-<p>Flax supports baking lightmap texture using the custom algorithm that <strong>runs fully on a GPU</strong>. In this way, it is highly efficient and does not stall your computer during baking.</p>
-<p>During Global Illumination baking all the static scene geometry and lights are processed to estimate the light transfer through the scene. The light emitted by the lights and emissive objects are bouncing though the scene as in the real world. GI baking calculates the final light passing to every lightmap texel and uses this information later to apply the indirect lighting into the scene rendering.</p>
+<p>Flax supports baking lightmap textures using a custom algorithm that <strong>runs fully on a GPU</strong>. In this way, it is highly efficient and does not stall your computer during baking.</p>
+<p>During Global Illumination baking, all the static scene geometry and lights are processed to estimate the light transfer through the scene. The light emitted by the lights and emissive objects are bouncing though the scene as in the real world. GI baking calculates the final light passing to every lightmap texel and uses this information later to apply the indirect lighting into the scene rendering.</p>
 <h2 id="how-to-use-it">How to use it</h2>
-<p>To bake lighting in your scene simply:</p>
+<p>To bake the lighting in your scene simply:</p>
 <ul>
-<li>ensure that objects and lights for baking are marked with <strong>Lightmap static flag</strong></li>
-<li>ensure that your models have valid <a href="lightmap-uvs.html">lightmap UVs</a> (engine warns if the object has missing UVs)</li>
+<li>ensure that objects and lights for baking are marked with the <strong>Lightmap static flag</strong></li>
+<li>ensure that your models have valid <a href="lightmap-uvs.html">lightmap UVs</a> (the engine warns if the object has missing UVs)</li>
 <li>adjust the <a href="settings.html">scene lightmap options</a></li>
 <li>use <strong>Tools -&gt; Bake Lightmaps</strong> from the main menu</li>
 </ul>
-<p>Lightmaps baking uses GPU and can take from few seconds up to several hours depending on the scene size.
-Output lightmap textures are always located in the <a href="../../../get-started/scenes/scene-data.html">Scene Data folder</a>.</p>
-<p>In case of a crash, the baking tool creates a progress snapshot every 5 minutes. If the engine crashes during baking (eg. due to GPU driver hang) you can reopen the project and the editor will ask if you want to restore the baking and continue from the last snapshot. This can help to reduce stress and problems when encountering problems with GPU stability.</p>
+<p>Lightmap baking uses the GPU and can take from few seconds up to several hours depending on the scene size.
+The lightmap output textures are always located in the <a href="../../../get-started/scenes/scene-data.html">Scene Data folder</a>.</p>
+<p>In case of a crash, the baking tool creates a progress snapshot every 5 minutes. If the engine crashes during baking (eg. due to GPU driver hang) you can reopen the project and the editor will ask if you want to restore the baking process and continue from the last snapshot. This can help reduce stress and problems when encountering problems with GPU stability.</p>
 </article>
           </div>
           
@@ -111,7 +111,7 @@ Output lightmap textures are always located in the <a href="../../../get-started
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/lighting/gi/lightmapping.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/lighting/gi/lightmapping.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

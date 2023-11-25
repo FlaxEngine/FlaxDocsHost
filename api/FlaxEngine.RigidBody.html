@@ -534,7 +534,7 @@ public class RigidBody : Actor, ISerializable</code></pre>
   <h4 id="FlaxEngine_RigidBody_AngularDamping" data-uid="FlaxEngine.RigidBody.AngularDamping"><a href="#collapsible-FlaxEngine_RigidBody_AngularDamping" class="expander" data-toggle="collapse">AngularDamping</a></h4>
   
   <div id="collapsible-FlaxEngine_RigidBody_AngularDamping" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the &apos;drag&apos; force added to reduce angular movement.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the &apos;drag&apos; force added to reduce angular movement. Angular damping can be used to slow down the rotation of an object. The higher the drag the more the rotation slows down.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -564,9 +564,6 @@ public float AngularDamping { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_RigidBody_AngularDamping_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Angular damping can be used to slow down the rotation of an object. The higher the drag the more the rotation slows down.</p>
-</div>
   
   
   
@@ -776,7 +773,7 @@ public bool EnableSimulation { get; set; }</code></pre>
   <h4 id="FlaxEngine_RigidBody_IsKinematic" data-uid="FlaxEngine.RigidBody.IsKinematic"><a href="#collapsible-FlaxEngine_RigidBody_IsKinematic" class="expander" data-toggle="collapse">IsKinematic</a></h4>
   
   <div id="collapsible-FlaxEngine_RigidBody_IsKinematic" class="collapse in">
-  <div class="markdown level1 summary"><p>Enables kinematic mode for the rigidbody.</p>
+  <div class="markdown level1 summary"><p>Enables kinematic mode for the rigidbody. Kinematic rigidbodies are special dynamic actors that are not influenced by forces(such as gravity), and have no momentum. They are considered to have infinite mass and can push regular dynamic actors out of the way. Kinematics will not collide with static or other kinematic objects but are great for moving platforms or characters, where direct motion control is desired.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -805,17 +802,6 @@ public bool IsKinematic { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_RigidBody_IsKinematic_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Kinematic rigidbodies are special dynamic actors that are not influenced by forces(such as gravity), and have no momentum.
-They are considered to have infinite mass and can push regular dynamic actors out of the way.
-Kinematics will not collide with static or other kinematic objects.
-<p>
-Kinematic rigidbodies are great for moving platforms or characters, where direct motion control is desired.
-</p>
-<p>
-Kinematic rigidbodies are incompatible with CCD.
-</p></p>
-</div>
   
   
   
@@ -865,7 +851,7 @@ public bool IsSleeping { get; }</code></pre>
   <h4 id="FlaxEngine_RigidBody_LinearDamping" data-uid="FlaxEngine.RigidBody.LinearDamping"><a href="#collapsible-FlaxEngine_RigidBody_LinearDamping" class="expander" data-toggle="collapse">LinearDamping</a></h4>
   
   <div id="collapsible-FlaxEngine_RigidBody_LinearDamping" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the &apos;drag&apos; force added to reduce linear movement.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the &apos;drag&apos; force added to reduce linear movement. Linear damping can be used to slow down an object. The higher the drag the more the object slows down.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -895,9 +881,6 @@ public float LinearDamping { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_RigidBody_LinearDamping_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Linear damping can be used to slow down an object. The higher the drag the more the object slows down.</p>
-</div>
   
   
   
@@ -991,7 +974,7 @@ public float MassScale { get; set; }</code></pre>
   <h4 id="FlaxEngine_RigidBody_MaxAngularVelocity" data-uid="FlaxEngine.RigidBody.MaxAngularVelocity"><a href="#collapsible-FlaxEngine_RigidBody_MaxAngularVelocity" class="expander" data-toggle="collapse">MaxAngularVelocity</a></h4>
   
   <div id="collapsible-FlaxEngine_RigidBody_MaxAngularVelocity" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the maximum angular velocity that a simulated object can achieve.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the maximum angular velocity that a simulated object can achieve. The angular velocity of rigidbodies is clamped to MaxAngularVelocity to avoid numerical instability with fast rotating bodies. Because this may prevent intentional fast rotations on objects such as wheels, you can override this value per rigidbody.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1021,10 +1004,6 @@ public float MaxAngularVelocity { get; set; }</code></pre>
   
   
   
-  <h5 id="FlaxEngine_RigidBody_MaxAngularVelocity_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The angular velocity of rigidbodies is clamped to MaxAngularVelocity to avoid numerical instability with fast rotating bodies.
-Because this may prevent intentional fast rotations on objects such as wheels, you can override this value per rigidbody.</p>
-</div>
   
   
   

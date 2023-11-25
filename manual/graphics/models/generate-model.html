@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>HOWTO: Generate procedural model | Flax Documentation </title>
+    <title>HOWTO: Generate procedural models | Flax Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="HOWTO: Generate procedural model | Flax Documentation ">
+    <meta name="title" content="HOWTO: Generate procedural models | Flax Documentation ">
     <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
@@ -20,7 +20,7 @@
     <meta property="docfx:newtab" content="true">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@flaxengine">
-    <meta name="og:title" content="HOWTO: Generate procedural model | Flax Documentation ">
+    <meta name="og:title" content="HOWTO: Generate procedural models | Flax Documentation ">
     <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
   
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
@@ -87,14 +87,14 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="howto-generate-procedural-model">HOWTO: Generate procedural model</h1>
+<h1 id="howto-generate-procedural-models">HOWTO: Generate procedural models</h1>
 
 <p><img src="media/sample-model-1.jpg" alt="Model"></p>
 <p>In this tutorial you will learn how to create a simple icosahedron mesh.</p>
-<p>This sample uses C# API method <a href="http://docs.flaxengine.com/api/FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">Content.CreateVirtualAsset<t></t></a> to generate procedural model resource which can be modified at runtime from code.</p>
+<p>This sample uses the C# API method <a href="http://docs.flaxengine.com/api/FlaxEngine.Content.html#FlaxEngine_Content_CreateVirtualAsset__1">Content.CreateVirtualAsset<t></t></a> to generate a procedural model resource which can be modified at runtime from code.</p>
 <h2 id="tutorial">Tutorial</h2>
 <h3 id="1-create-new-c-script-modelgenerator">1. Create new C# script <code>ModelGenerator</code></h3>
-<h3 id="2-write-mesh-data-generating-function">2. Write mesh data generating function</h3>
+<h3 id="2-write-a-mesh-data-generating-function">2. Write a mesh data generating function</h3>
 <pre><code class="lang-cs">private void UpdateMesh(Mesh mesh)
 {
     const float X = 0.525731112119133606f;
@@ -125,7 +125,7 @@
     };
     mesh.UpdateMesh(vertices, triangles, vertices);
 }
-</code></pre><h3 id="3-create-model-asset-and-model-actor-in-onstart-function">3. Create model asset and model actor in <code>OnStart</code> function</h3>
+</code></pre><h3 id="3-create-a-model-asset-and-model-actor-in-the-onstart-function">3. Create a model asset and model actor in the <code>OnStart</code> function</h3>
 <pre><code class="lang-cs">private Model _tempModel;
 
 public MaterialBase Material;
@@ -149,7 +149,7 @@ public override void OnDestroy()
 {
     FlaxEngine.Object.Destroy(ref _tempModel);
 }
-</code></pre><p>Remember to dispose all the created at runtime resources to prevent memory leaks.</p>
+</code></pre><p>Remember to dispose of all of the resources created at runtime to prevent memory leaks.</p>
 <h3 id="4-add-the-script-and-set-the-material">4. Add the script and set the material</h3>
 <p><img src="media/sample-model-2.jpg" alt="Model"></p>
 <h3 id="5-see-the-result">5. See the result</h3>
@@ -162,7 +162,7 @@ public override void OnDestroy()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/models/generate-model.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/models/generate-model.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

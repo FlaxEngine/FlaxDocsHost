@@ -91,9 +91,9 @@
 
 <p>When working in a team using Flax Engine, it&#39;s very common to use a <strong>version control system</strong>.
 Using a version control system makes it easier for users to manage their code and assets. It is a repository of files with monitored access, which in the case of Flax, will be all the files associated with a Flax project. With version control it is possible to follow every change to the source along with information on who made the change, why they made it and what they changed/added. This makes it easy to revert back to an earlier version of the code or to compare differences in versions. It also becomes easier to locate when a bug first occurred along with what code might have caused it.</p>
-<p>By default, all Flax projects data is split into two parts: <strong>Content</strong> and <strong>Source</strong>. This means that all C# script files are organized in a single directory (including subdirectories). Asset files are in a separate directory making the use of an external storage solution easier (OwnCloud, Dropbox, etc.) This is especially useful when dealing with large file sizes.</p>
+<p>By default, all Flax project data is split into two parts: <strong>Content</strong> and <strong>Source</strong>. This means that all C# script files are organized in a single directory (including subdirectories). Asset files are in a separate directory making the use of an external storage solution easier (OwnCloud, Dropbox, etc.) This is especially useful when dealing with large file sizes.</p>
 <h2 id="example-gitignore">Example .gitignore</h2>
-<p>Here is an example <code>.gitignore</code> file for the <strong>Git</strong> repository with Flax project (<a href="https://github.com/FlaxEngine/FlaxSamples/blob/master/.gitignore">download link</a>).</p>
+<p>Here is an example <code>.gitignore</code> file for a <strong>Git</strong> repository with a Flax project (<a href="https://github.com/FlaxEngine/FlaxSamples/blob/master/.gitignore">download link</a>).</p>
 <pre><code># Ignore Flax project files
 /Binaries/
 /Cache/
@@ -108,15 +108,16 @@ Source/*.Gen.*
 *.sln
 launchSettings.json
 
-# Ignore Visual Code project files (generated locally)
+# Ignore Visual Studio Code project files (generated locally)
 *.code-workspace
 *.vscode/
 
 # Ignore Rider project files (generated locally)
 *.idea/
 
-# Ignore thumbnails created by Windows
+# Ignore thumbnails created by Windows and MacOS
 Thumbs.db
+.DS_Store
 
 # Ignore files built by Visual Studio
 *.obj
@@ -147,7 +148,7 @@ _ReSharper*/
 # Ignore Nuget packages folder
 packages/
 </code></pre><h2 id="example-gitattributes">Example .gitattributes</h2>
-<p>Here is an example <code>.gitattributes</code> file for the <strong>Git LFS</strong> repository with Flax project. By using <a href="https://github.com/git-lfs/git-lfs/wiki/Tutorial">Large Files Storage</a> you can improve repository performance for asset files that are using binary format and tend to be big (models, textures, etc.).</p>
+<p>Here is an example <code>.gitattributes</code> file for the <strong>Git LFS</strong> repository with a Flax project. By using <a href="https://github.com/git-lfs/git-lfs/wiki/Tutorial">Large Files Storage</a> you can improve repository performance for asset files that are using binary format and tend to be big (models, textures, etc.).</p>
 <pre><code># Flax Engine files
 *.flax filter=lfs diff=lfs merge=lfs -text
 
@@ -170,7 +171,7 @@ packages/
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/get-started/version-control.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/get-started/version-control.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

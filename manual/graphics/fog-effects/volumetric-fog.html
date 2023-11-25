@@ -90,19 +90,19 @@
 <h1 id="volumetric-fog">Volumetric Fog</h1>
 
 <p><img src="media/volumetric-fog.png" alt="Volumetric Fog"></p>
-<p><strong>Volumetric Fog</strong> is a rendering feature that simulates the light transmission through the scene that contains fog (dust, smoke, particles, steam, etc.). The effect itself is implemented using a set of 3D textures (volume textures) that are <em>attached</em> to the camera and are used to compute the per-cell fog particle density, albedo, and lighting. This information is used to estimate the amount of light scattering through the volume to the camera. This results in realistic-looking fog and gives the very good performance-quality ratio.</p>
+<p><strong>Volumetric Fog</strong> is a rendering feature that simulates light transmission through a scene that contains fog (dust, smoke, particles, steam, etc.). The effect itself is implemented using a set of 3D textures (volume textures) that are <em>attached</em> to the camera and are used to compute the per-cell fog particle density, albedo, and lighting. This information is used to estimate the amount of light scattering through the volume to the camera. This results in realistic-looking fog and gives a very good performance-quality ratio.</p>
 <h2 id="technical-aspects">Technical aspects</h2>
 <ul>
 <li>Target PC + Consoles</li>
 <li>Requires 3D Textures + Compute Shaders</li>
-<li>~1.1ms (on GTX 840M - Witcher 3 runs stable 21 FPS on it)</li>
+<li>~1.1ms (on GTX 840M - Witcher 3 runs at a stable 21 FPS on it)</li>
 <li>Low-res sampling + Temporal filtering</li>
 <li>Local fog particles density and color</li>
 <li>Volumetric shadows</li>
 </ul>
 <h2 id="algorithm">Algorithm</h2>
 <ul>
-<li>3D texture aligned to camera frustum</li>
+<li>3D texture aligned to camera the frustum</li>
 <li>Voxels (3d texels) store data per world-space cell</li>
 <li>Supports hardware filtering</li>
 <li>Low resolution 3D texture (e.g. 150x80x64)</li>
@@ -112,13 +112,13 @@
 <p>Algorithm steps:</p>
 <ol>
 <li>Initialize volume properties<ul>
-<li>Writes fog attributes into the set of two 3D textures:</li>
+<li>Write fog attributes into the set of two 3D textures:</li>
 <li>Scattering.rgb, Absorption.a – R16G16B16A16</li>
 <li>Emissive.rgb – R11G11B10</li>
 <li>Use volume particles to modify fog locally (eg. steam coming out of pipe)</li>
 </ul>
 </li>
-<li>Lights Injection<ul>
+<li>Light Injection<ul>
 <li>Calculate per-cell diffuse lighting (use HDR format R11G11B10, can use shadow maps)</li>
 </ul>
 </li>
@@ -133,15 +133,15 @@
 </li>
 </ol>
 <h2 id="how-to-use-it">How to use it</h2>
-<p>Use <a href="exponential-height-fog.html">Exponential Height Fog</a> actor and enable <strong>Volumetric Fog</strong> option. Then you can adjust its density and other parameters. Also, every light can affect the fog by adjusting the <strong>Volumetric Scattering Intensity</strong> value and <strong>Cast Volumetric Shadow</strong> option.</p>
+<p>Use the <a href="exponential-height-fog.html">Exponential Height Fog</a> actor and enable the <strong>Volumetric Fog</strong> option. Then you can adjust its density and other parameters. Also, every light can affect the fog by adjusting the <strong>Volumetric Scattering Intensity</strong> value and <strong>Cast Volumetric Shadow</strong> option.</p>
 <h2 id="showcase">Showcase</h2>
 <p><img src="media/volumetric_fog_2.gif" alt="Volumetric Fog Flax Engine"></p>
 <h2 id="local-fog-via-volumetric-fog-particles">Local Fog via Volumetric Fog Particles</h2>
-<p>Exponential Height Fog actor controls the global properties of the fog on the scene such as <em>Albedo</em>, <em>Density</em>, and <em>Emission</em>. To create local-fogging effects such as smoke, dust or mist use particles with  <strong>Volumetric Fog Rendering</strong> module.</p>
+<p>The Exponential Height Fog actor controls the global properties of the fog on the scene such as <em>Albedo</em>, <em>Density</em>, and <em>Emission</em>. To create local-fogging effects such as smoke, dust or mist use particles with the  <strong>Volumetric Fog Rendering</strong> module.</p>
 <p><img src="media/particles-fog-render-module.png" alt="Particle Volumetric Fog Rendering Module"></p>
-<p>Ensure to assign the material shader to the material created with <strong>Volume Particle</strong> domain. Then use <strong>Color</strong> input to define th albedo color of the fog, <strong>Emissive</strong> input for light emission and <strong>Mask</strong> with <strong>Opacity</strong> to define the fog particle shape (eg. use world-aligned noise texture to add more realistic look to the fog).</p>
+<p>Make sure to assign the material shader to the material created with a <strong>Volume Particle</strong> domain. Then use a <strong>Color</strong> input to define the albedo color of the fog, <strong>Emissive</strong> input for light emission and <strong>Mask</strong> with <strong>Opacity</strong> to define the fog particle shape (eg. use a world-aligned noise texture to add a more realistic look to the fog).</p>
 <p><img src="media/particle-volumetric-fog-material.jpg" alt="Particle Material Volume Shader"></p>
-<p>Volumetric Fog Particles are rendered using <strong>Sphere</strong> shape so use per-particle <strong>Radius</strong> property to control the size of the particles.</p>
+<p>Volumetric Fog Particles are rendered using a <strong>Sphere</strong> shape, so use the per-particle <strong>Radius</strong> property to control the size of the particles.</p>
 <p><img src="media/volumetric-fog-particles.gif" alt="Volumetric Fog Particles Showcase"></p>
 </article>
           </div>
@@ -151,7 +151,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/fog-effects/volumetric-fog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/fog-effects/volumetric-fog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

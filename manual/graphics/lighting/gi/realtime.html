@@ -89,15 +89,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="realtime-global-illumination">Realtime Global Illumination</h1>
 
-<p><img src="media/realtime-gi.png" alt="Realtime Gi in Flax Engine"></p>
-<p>When creating large worlds or dynamic environment where lighting conditions are constantly changing (eg. time of the day) you can use <strong>Realtime Global Illumination</strong> to render indirect light passing though the scene. This documentation page explains how to use GI in your projects.</p>
+<p><img src="media/realtime-gi.png" alt="Realtime GI in Flax Engine"></p>
+<p>When creating large worlds or dynamic environments where lighting conditions are constantly changing (eg. the time of day) you can use <strong>Realtime Global Illumination</strong> to render indirect light passing though the scene. This documentation page explains how to use GI in your projects.</p>
 <h2 id="tutorial">Tutorial</h2>
-<p>To learn how to quickly setup Realtime Global Illumination see <a href="how-to-setup-gi.html">this tutorial</a>.</p>
+<p>To learn how to quickly set up Realtime Global Illumination see <a href="how-to-setup-gi.html">this tutorial</a>.</p>
 <h2 id="dynamic-diffuse-global-illumination">Dynamic Diffuse Global Illumination</h2>
 <p><img src="media/ddgi.png" alt="DDGI in Flax Engine"></p>
-<p><a href="https://morgan3d.github.io/articles/2019-04-01-ddgi/">Dynamic Diffuse Global Illumination</a> (<strong>DDGI</strong>) is an algorithm implemented in Flax to render dynamic global illumination with indirect lighting. It uses light probes (world-space, automatically placed) to gather indirect lighting at a fixed location and sample it later in materials (opaque, transparent and volumetric). To prevent light leaking, which is cammon problem of light probe-based solutions, DDGI algorithm renders low-resolution depth buffer around each probe and applies <em>Chebyshev</em> visibility weight. DDGI probes are placed around the camera and are split into series of cascades to cover whole scene. When camera moves though the scene, the probes are scrolled to maintain GI coverage.</p>
+<p><a href="https://morgan3d.github.io/articles/2019-04-01-ddgi/">Dynamic Diffuse Global Illumination</a> (<strong>DDGI</strong>) is an algorithm implemented in Flax to render dynamic global illumination with indirect lighting. It uses light probes (world-space, automatically placed) to gather indirect lighting at a fixed location and sample it later in materials (opaque, transparent and volumetric). To prevent light leaking, which is a common problem of light probe-based solutions, the DDGI algorithm renders a low-resolution depth buffer around each probe and applies <em>Chebyshev</em> visibility weight. DDGI probes are placed around the camera and are split into a series of cascades to cover the whole scene. When the camera moves though the scene, the probes are scrolled to maintain GI coverage.</p>
 <h3 id="ddgi-algorithm">DDGI Algorithm</h3>
-<p>Flax implementation of DDGI algorithm uses custom <strong>Software Ray Tracing</strong> and automatically <strong>scrolled probes volume</strong> with up to <strong>4 cascades</strong>. Watch video below to learn more about technical and artistic aspects of this rendering feature:</p>
+<p>Flax&#39;s implementation of the DDGI algorithm uses custom <strong>Software Ray Tracing</strong> and an automatically <strong>scrolled probes volume</strong> with up to <strong>4 cascades</strong>. Watch the video below to learn more about the technical and artistic aspects of this rendering feature:</p>
 <center><a href="https://www.gdcvault.com/play/1026182/" target="_blank"><img src="media/ddgi-video-icon.jpg" style="width:80%; border:4px solid #000"></a></center>
 
 <p>Implementation is based on following papers:</p>
@@ -108,7 +108,7 @@
 </ul>
 <h3 id="using-ddgi">Using DDGI</h3>
 <p><img src="media/ddgi-enabled-settings.png" alt="Enable DDGI in Graphics Settings"></p>
-<p>Use Post Process Settings in <a href="../../../editor/game-settings/graphics-settings.html">Graphics Settings</a> or <a href="../../post-effects/post-fx-volumes.html">PostFX Volume</a> settings to and set <strong>Mode</strong> to <strong>DDGI</strong> (under <em>Global Illumination</em> category). Then you can adjust options:</p>
+<p>Use Post Process Settings in <a href="../../../editor/game-settings/graphics-settings.html">Graphics Settings</a> or <a href="../../post-effects/post-fx-volumes.html">PostFX Volume</a> settings and set the <strong>Mode</strong> to <strong>DDGI</strong> (under the <em>Global Illumination</em> category). Then you can adjust options:</p>
 <table>
 <thead>
 <tr>
@@ -119,11 +119,11 @@
 <tbody>
 <tr>
 <td><strong>Intensity</strong></td>
-<td>Global Illumination indirect lighting intensity scale. Can be used to boost or reduce GI effect.</td>
+<td>Global Illumination indirect lighting intensity scale. Can be used to boost or reduce the GI effect.</td>
 </tr>
 <tr>
 <td><strong>BounceIntensity</strong></td>
-<td>Global Illumination infinite indirect lighting bounce intensity scale. Can be used to boost or reduce GI effect for the light bouncing on the surfaces.</td>
+<td>Global Illumination infinite indirect lighting bounce intensity scale. Can be used to boost or reduce the GI effect for light bouncing on the surfaces.</td>
 </tr>
 <tr>
 <td><strong>Temporal Response</strong></td>
@@ -131,11 +131,11 @@
 </tr>
 <tr>
 <td><strong>Distance</strong></td>
-<td>Draw distance of the Global Illumination effect. Scene outside the range will use fallback irradiance.</td>
+<td>Draw distance of the Global Illumination effect. Scenes outside the range will use fallback irradiance.</td>
 </tr>
 <tr>
 <td><strong>Fallback Irradiance</strong></td>
-<td>The irradiance lighting outside the GI range used as a fallback to prevent pure-black scene outside the Global Illumination range.</td>
+<td>The irradiance lighting outside the GI range used as a fallback to prevent a pure-black scene outside the Global Illumination range.</td>
 </tr>
 </tbody>
 </table>
@@ -158,37 +158,37 @@
 </tr>
 <tr>
 <td><strong>Global Surface Atlas Resolution</strong></td>
-<td>The Global Surface Atlas resolution. Adjust it if atlas <code>flickers</code> due to overflow (eg. to 4096).</td>
+<td>The Global Surface Atlas resolution. Adjust it if the atlas <code>flickers</code> due to overflow (eg. to 4096).</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ray-traced-reflections">Ray Traced Reflections</h3>
 <p><img src="media/ddgi-reflections.png" alt="DDGI Ray Traced Reflections"></p>
-<p>Additionally to diffuse lighting the specular lighting can be improved with Global Illumination by changing <strong>Trace Mode</strong> to <strong>Software Tracing</strong> in Screen Space Reflections settings (in Graphics Settings or in PostFx Volume). This uses our custom Software Tracing of Global Surface Atlas as a fallback to the default <em>Screen Tracing</em> which is screen-space depth buffer tracing with scene color sampling. Only visible on-screen pixels can be used in reflections. With software raytracing using Global SDF and Global Surface Atlas  full-scene raytracing is used  that provides reflections of the objects off-screen. Using this feature can have significant performance impact (between 0.5-1ms of GPU time) but drastically enhances the look of the scenes by making the lighting more realistic and complete.</p>
+<p>In additiona to diffuse lighting, the specular lighting can be improved with Global Illumination by changing the <strong>Trace Mode</strong> to <strong>Software Tracing</strong> in the Screen Space Reflections settings (in Graphics Settings or in PostFx Volume). This uses our custom Software Tracing of Global Surface Atlas as a fallback to the default <em>Screen Tracing</em> which is a screen-space depth buffer tracing with scene color sampling. Only visible, on-screen pixels can be used in reflections. With software raytracing using Global SDF and Global Surface Atlas, full-scene raytracing is used which  provides reflections of off-screen objects. Using this feature can have a significant performance impact (between 0.5-1ms of GPU time) but drastically enhances the look of the scenes by making the lighting more realistic and complete.</p>
 <h3 id="software-ray-tracing">Software Ray Tracing</h3>
 <p><img src="media/ddgi-global-surface-atlas.png" alt="Global Surface Atlas Debug Preview"></p>
-<p>The key difference between the original DDGI algorithm implementation and the Flax implementation is use of custom <strong>software raytracing instead of hardware raytracing</strong>. That&#39;s because we wanted to support using realtime GI on older hardware that doesn&#39;t support RTX-features. Our implementation uses <em>Signed Distance Fields</em> rasterized into <a href="../../models/sdf.html">Global SDF</a> to perform ray tracing though the scene. However, this returns only point of intersection between ray and scene geometry while the GI needs also to evaluate the direct lighting (and bounced indirect lighting as well). To solve this we implemented <strong>Global Surface Atlas</strong> which is a render pass that renders surfaces of the scene objects nearby camera into a one giant atlas texture with projections of the object sides. This works similar to GBuffer rendering where materials output low-resolution color, emissive, roughness, normal, depth, etc. Then we light those pixels to evaluate direct and indirect lighting on the material surfaces. Global Surface Atlas allows sampling these surfaces at an arbitrary location in the world, which makes it possible to evaluate lighting at the Global SDF trace hit location.</p>
-<p>Above you can see the Debug view of Global Surface Atlas (opened via <strong>View -&gt; Debug View Global Surface Atlas</strong>). Main part of the view contains the debug view of the scene viewport rasterized using Global SDF tracing from camera and then sampling atlas lighting. <strong>That&#39;s what Software Raytracer sees</strong> and what is used for evaluating Global Illumination thus <strong>it&#39;s essential to use this viewport to inspect the scene</strong> when working on GI in your levels. On the right, starting from the top you can see the Diffuse color of the Atlas surfaces, Normal vectors and packed other properties (AO, roughness, metalness).</p>
-<p>As you can see, the Global Surface Atlas is low-resolution representation of the scene, and combined with Global SDF has <strong>precision between 10-20cm nearby camera</strong>. It can efficently cover scene up to 500m to have global lighting far from camera. You can adjust the maximum atlas resolution in Graphics Settings by controlling <em>Global Surface Atlas Resolution</em> property. Scenes with large amount of content should use bigger atlas size to contain all objects inside it.</p>
-<h3 id="debugging-surface-atlas">Debugging Surface Atlas</h3>
+<p>The key difference between the original DDGI algorithm implementation and the Flax implementation is the use of custom <strong>software raytracing instead of hardware raytracing</strong>. That&#39;s because we wanted to support using realtime GI on older hardware that doesn&#39;t support RTX-features. Our implementation uses <em>Signed Distance Fields</em> rasterized into <a href="../../models/sdf.html">Global SDF</a> to perform ray tracing though the scene. However, this returns only the point of intersection between ray and scene geometry while the GI also needs to evaluate the direct lighting (and bounced indirect lighting as well). To solve this we implemented the <strong>Global Surface Atlas</strong>, which is a render pass that renders surfaces of the scene objects nearby the camera into one giant atlas texture with projections of the object sides. This works similar to GBuffer rendering where materials output low-resolution color, emissive, roughness, normal, depth, etc. Then we light those pixels to evaluate direct and indirect lighting on the material surfaces. Global Surface Atlas allows sampling these surfaces at an arbitrary location in the world, which makes it possible to evaluate lighting at the Global SDF trace hit location.</p>
+<p>In the image above, you can see the Debug view of the Global Surface Atlas (opened via <strong>View -&gt; Debug View Global Surface Atlas</strong>). The main part of the view contains the debug view of the scene viewport rasterized using Global SDF tracing from the camera and then sampling the atlas lighting. <strong>That&#39;s what the Software Raytracer sees</strong> and what is used for evaluating Global Illumination, thus <strong>it&#39;s essential to use this viewport to inspect the scene</strong> when working on GI in your levels. On the right, starting from the top, you can see the Diffuse color of the Atlas surfaces, Normal vectors and packed other properties (AO, roughness, metalness).</p>
+<p>As you can see, the Global Surface Atlas is a low-resolution representation of the scene, and combined with Global SDF has a <strong>precision between 10-20cm nearby camera</strong>. It can efficently cover a scene up to 500m to have global lighting far from the camera. You can adjust the maximum atlas resolution in Graphics Settings by controlling the <em>Global Surface Atlas Resolution</em> property. Scenes with a large amount of content should use a bigger atlas size to contain all objects inside it.</p>
+<h3 id="debugging-the-surface-atlas">Debugging the Surface Atlas</h3>
 <p><img src="media/ddgi-surface-atlas-debug.png" alt="Debug Global Surface Atlas"></p>
-<p>Common problem when working with DDGI in Flax is inefficient representation of the object surfaces in the Global Surface Atlas. In many cases that&#39;s caused by inaccurate SDF mesh representation but also missing surface coverage in atlas. Debug viewport for Surface Atlas highlights <strong>missing surface pixels with pink color</strong> inside the Diffuse viewport (upper right corner). This is usually caused by using large meshes with interiors because the object projections are performed from 6 object sides (top, bottom, left, right, front and back). In most cases, minimal pink color can appear but should be minimized in order to have good indirect lighting quality. There are several ways to improve this in your scenes:</p>
+<p>A common problem when working with DDGI in Flax is the inefficient representation of object surfaces in the Global Surface Atlas. In many cases that&#39;s caused by inaccurate SDF mesh representation, but also missing surface coverage in the atlas. The debug viewport for Surface Atlas highlights <strong>missing surface pixels with a pink color</strong> inside the Diffuse viewport (upper right corner). This is usually caused by using large meshes with interiors because the object projections are performed from 6 object sides (top, bottom, left, right, front and back). In most cases, minimal pink color can appear but should be minimized in order to have good indirect lighting quality. There are several ways to improve this in your scenes:</p>
 <ul>
 <li>try splitting large objects into smaller parts (eg. house building walls split into 4 parts with separate roof and floor),</li>
-<li>setup LODs for meshes (Surface Atlas uses always the lowest LOD for rasterization).</li>
+<li>setup LODs for meshes (Surface Atlas always uses the lowest LOD for rasterization).</li>
 </ul>
 <h3 id="debugging-ddgi-probes">Debugging DDGI Probes</h3>
 <p><img src="media/ddgi-probes.png" alt="Debug DDGI Probes"></p>
-<p>Use <strong>View -&gt; Debug View -&gt; Global Illumination</strong> to preview DDGI probes in a viewport. This can be useful to analyze problems with GI in your scene. Probes are using automatic relocation in the local neighborhood to prevent intersecting with the scene geometry thus it might be essential to debug this view.</p>
+<p>Use <strong>View -&gt; Debug View -&gt; Global Illumination</strong> to preview DDGI probes in a viewport. This can be useful to analyze problems with GI in your scene. Probes use automatic relocation in the local neighborhood to prevent intersecting with the scene geometry, thus it might be essential to debug this view.</p>
 <h3 id="ddgi-tips--tricks">DDGI Tips &amp; Tricks</h3>
 <ul>
 <li>Setup proper <a href="../../models/sdf.html">Global SDF</a> for a scene.</li>
-<li>Use <code>StaticFlags</code> on static scene object to optimize rendering.</li>
-<li>If object surface changes color/emissive frequently (eg. animated or toggled at runtime) remove <code>StaticFlgas.Lightmap</code> for it to be updated frequently instead of cached.</li>
+<li>Use <code>StaticFlags</code> on static scene objects to optimize rendering.</li>
+<li>If an object surface changes color/emissive frequently (eg. animated or toggled at runtime) remove <code>StaticFlgas.Lightmap</code> for it to be updated frequently instead of cached.</li>
 <li>Use LOD for complex meshes (Global Surface Atlas rasterization is faster for lower tris meshes).</li>
-<li>Material <strong>Position Offset is not supported</strong> and might cause lighting issues.</li>
+<li>A material&#39;s <strong>Position Offset is not supported</strong> and might cause lighting issues.</li>
 <li><strong>Meshes need to have simple interiors</strong> (eg. house model with separate walls) - use Global Surface Atlas debug view to analyze your content.</li>
-<li>Large emissive surface like TV screen might need additional light source to correctly cover specular lighting.</li>
+<li>Large emissive surfaces like a TV screen might need additional light sources to correctly cover specular lighting.</li>
 <li>Small emissive objects might flicker due to imperfections caused by reduced rendering resources resolution.</li>
 </ul>
 <h3 id="ddgi-cost">DDGI Cost</h3>
@@ -207,7 +207,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/lighting/gi/realtime.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/lighting/gi/realtime.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

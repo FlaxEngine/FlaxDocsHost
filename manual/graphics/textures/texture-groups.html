@@ -90,14 +90,14 @@
 <h1 id="texture-groups">Texture Groups</h1>
 
 <p><img src="media/texture-groups.png" alt="Texture Group Options"></p>
-<p><strong>Texture Groups</strong> are engine feature that allows to group a set of texture resources together and use shared configuration for them. For example, textures used for terrain (diffuse maps, normal maps, etc.) can be grouped togather to use custom configuration for streaming, sampling and quality reduction. This help to organize the game content in larger projects.</p>
-<p>Texture Groups can be used to control textures quality streaming speed and quality reduction for invisible textures. You can also define the textures resoltuion stripping per-platform to reduce game build size and increase performance for mobile or low-end platforms. Finally, texture groups can be used to control dynamic textures quality for PC games to match game performance to GPU performance and memory avaliable (textures quality and sampling options).</p>
+<p><strong>Texture Groups</strong> are an engine feature that allows grouping a set of texture resources together and using a shared configuration for them. For example, textures used for terrain (diffuse maps, normal maps, etc.) can be grouped together to use custom configuration for streaming, sampling and quality reduction. This helps organize the game content in larger projects.</p>
+<p>Texture Groups can be used to control textures quality, streaming speed and quality reduction for invisible textures. You can also define the textures resolution stripping per-platform to reduce game build size and increase performance for mobile or low-end platforms. Finally, texture groups can be used to control dynamic textures quality for PC games to match game performance to GPU performance and memory avaliable (textures quality and sampling options).</p>
 <p>Follow this documentation section to learn how to use Texture Groups.</p>
 <h2 id="texture-group-setup">Texture Group Setup</h2>
-<p>The first step is to create new <em>Streaming Settings</em> asset (or use existing one). To learn how to do it see this <a href="../../editor/game-settings/index.html">tutorial</a>.
+<p>The first step is to create a new <em>Streaming Settings</em> asset (or use an existing one). To learn how to do it see this <a href="../../editor/game-settings/index.html">tutorial</a>.
 Ensure the Streaming settings asset is set in <em>Game Settings</em>.</p>
-<p>Then, add first texture group to the list. Each texture group contains several properties that can be modified at runtime (eg. from game scripts). Ensure to <strong>preserve order of groups</strong> as assets reference groups by index (rather than by <em>Name</em>).</p>
-<p>To assign texture to a particual Texture Group use <a href="texture-window.html">Texture Window</a> editor (<em>Properties</em> group) or assign it when <a href="import-settings.html">importing new textures</a>. Use a texture group picker for this that shows the list of texture groups in a project. For very specific scenarios you can also change the texture group from script at runtime.</p>
+<p>Then, add the first texture group to the list. Each texture group contains several properties that can be modified at runtime (eg. from game scripts). Ensure to <strong>preserve the order of groups</strong> as assets reference groups by index (rather than by <em>Name</em>).</p>
+<p>To assign a texture to a particual Texture Group use the <a href="texture-window.html">Texture Window</a> editor (<em>Properties</em> group) or assign it when <a href="import-settings.html">importing new textures</a>. Use a texture group picker that shows the list of texture groups in a project. For very specific scenarios you can also change the texture group from scripts at runtime.</p>
 <h2 id="properties">Properties</h2>
 <table>
 <thead>
@@ -113,7 +113,7 @@ Ensure the Streaming settings asset is set in <em>Game Settings</em>.</p>
 </tr>
 <tr>
 <td><strong>Sampler Filter</strong></td>
-<td>The default filtering method for samplers using this texture group. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Point</strong></td><td>Filter using the nearest found pixel. Texture appears pixelated.</td></tr><tr><td><strong>Bilinear</strong></td><td>Filter using the linear average of the nearby pixels. Texture appears blurry.</td></tr><tr><td><strong>Trilinear</strong></td><td>Filter using the linear average of the nearby pixels and nearby mipmaps. Texture appears blurry.</td></tr><tr><td><strong>Anisotropic</strong></td><td>Filter using the anisotropic filtering that improves quality when viewing textures at a steep angles. Texture appears sharp at extreme viewing angles.</td></tr></tbody></table></td>
+<td>The default filtering method for samplers using this texture group. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Point</strong></td><td>Filter using the nearest found pixel. The texture appears pixelated.</td></tr><tr><td><strong>Bilinear</strong></td><td>Filter using the linear average of the nearby pixels. The texture appears blurry.</td></tr><tr><td><strong>Trilinear</strong></td><td>Filter using the linear average of the nearby pixels and nearby mipmaps. The texture appears blurry.</td></tr><tr><td><strong>Anisotropic</strong></td><td>Filter using the anisotropic filtering that improves quality when viewing textures at steep angles. The texture appears sharp at extreme viewing angles.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Max Anisotropy</strong></td>
@@ -121,15 +121,15 @@ Ensure the Streaming settings asset is set in <em>Game Settings</em>.</p>
 </tr>
 <tr>
 <td><strong>Quality</strong></td>
-<td>The quality scale factor applied to textures in this group. Can be used to increase or decrease textures resolution. In range 0-1 where 0 means lowest quality, 1 means full quality.</td>
+<td>The quality scale factor applied to textures in this group. Can be used to increase or decrease textures resolution. In the range 0-1 where 0 means lowest quality, 1 means full quality.</td>
 </tr>
 <tr>
 <td><strong>Quality If Invisible</strong></td>
-<td>The quality scale factor applied when texture is invisible for some time (defined by TimeToInvisible). Used to decrease texture quality when it&#39;s not rendered.</td>
+<td>The quality scale factor applied when the texture is invisible for some time (defined by TimeToInvisible). Used to decrease texture quality when it&#39;s not rendered.</td>
 </tr>
 <tr>
 <td><strong>Time To Invisible</strong></td>
-<td>The time (in seconds) after which texture is considered to be invisible (if it&#39;s not rendered by a certain amount of time).</td>
+<td>The time (in seconds) after which the texture is considered to be invisible (if it&#39;s not rendered by a certain amount of time).</td>
 </tr>
 <tr>
 <td><strong>Mip Levels Min</strong></td>
@@ -137,27 +137,27 @@ Ensure the Streaming settings asset is set in <em>Game Settings</em>.</p>
 </tr>
 <tr>
 <td><strong>Mip Levels Max</strong></td>
-<td>The maximum amount of loaded mip levels for textures in this group. Defines the maximum amount of the mips that can be loaded. Overriden per-platform. Lower values reduce textures quality and improve performance.</td>
+<td>The maximum amount of loaded mip levels for textures in this group. Defines the maximum amount of mips that can be loaded. Overriden per-platform. Lower values reduce texture quality and improve performance.</td>
 </tr>
 <tr>
 <td><strong>Mip Levels Bias</strong></td>
-<td>The loaded mip levels bias for textures in this group. Can be used to increase or decrease quality of the streaming for textures in this group (eg. bump up the quality during cinematic sequence).</td>
+<td>The loaded mip levels bias for textures in this group. Can be used to increase or decrease the quality of streaming for textures in this group (eg. bump up the quality during cinematic sequence).</td>
 </tr>
 <tr>
 <td><strong>Mip Levels Max Per Platform</strong></td>
-<td>The per-platform maximum amount of mip levels for textures in this group. Can be used to strip textures quality when cooking game for a target platform (editor-only).</td>
+<td>The per-platform maximum amount of mip levels for textures in this group. Can be used to strip textures quality when cooking the game for a target platform (editor-only).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="textures-streaming-quality">Textures Streaming Quality</h2>
-<p>Flax by default streams all loaded textures to the highest available quality. However, larger scenes require move advanced configuration and streaming budget. By using Texture Groups settings and assigning certain textures to a specific group you can control global textures quality and define quality when texture is not rendered (invisible).</p>
-<p>You can preview Texture Group settings live in Editor via <strong>Graphics Quality window</strong>. The example gif below shows the dynamic textures quality change.</p>
+<p>Flax by default streams all loaded textures to the highest available quality. However, larger scenes require move advanced configuration and streaming budget. By using Texture Group settings and assigning certain textures to a specific group you can control global textures quality and define quality when a texture is not rendered (invisible).</p>
+<p>You can preview Texture Group settings live in the Editor via <strong>Graphics Quality window</strong>. The example gif below shows the dynamic textures quality change.</p>
 <p><img src="media/textures-streaming.gif" alt="Textures Streaming in Flax"></p>
 <h2 id="textures-sampling">Textures Sampling</h2>
 <p><img src="media/sample-texture-group.png" alt="Texture Sample node with Texture Group Sampler"></p>
-<p>By default materials use <strong>Trilinear Wrap</strong> sampler when texturing objects. For custom sampler use <strong>Sample Texture</strong> node in material that contains option to select other sampler or use <strong>sampler from texture gropup</strong> (select Texture Group as sampler and pick a texture group to use). Then <em>Sampler Filter</em> and <em>Anisotropy</em> properties will be used to pass the sampler to the GPU shader. Those properties can be changed at runtime too (eg. to increase texture quality during cutscenes or manually from game main menu).</p>
+<p>By default, materials use the <strong>Trilinear Wrap</strong> sampler when texturing objects. For a custom sampler use the <strong>Sample Texture</strong> node in a material that contains an option to select another sampler or use <strong>sampler from texture gropup</strong> (select Texture Group as sampler and pick a texture group to use). Then the <em>Sampler Filter</em> and <em>Anisotropy</em> properties will be used to pass the sampler to the GPU shader. Those properties can be changed at runtime too (eg. to increase texture quality during cutscenes or manually from game main menu).</p>
 <h2 id="textures-quality-per-platform">Textures Quality Per-Platform</h2>
-<p>When creating cross-platform game you might want to reduce textures quality for a certain platform such as: Android or Switch. To do that use <em>Mip Levels Max Per Platform</em> property that allows to define maximum amount of mip levels for a target platform (per texture group). For instance, adding entry for <em>Android</em> with value of <em>10</em> will limit textures quality of a given group to 10 mips which limits textures resoltuion to 1024 pixels (width or height). This will be applied when cooking game so the final build will be smaller and run faster.</p>
+<p>When creating a cross-platform game you might want to reduce texture quality for a certain platform such as: Android or Switch. To do that use the <em>Mip Levels Max Per Platform</em> property that allows defining a maximum amount of mip levels for a target platform (per texture group). For instance, adding an entry for <em>Android</em> with a value of <em>10</em> will limit texture quality of a given group to 10 mips, which limits textures resoltuion to 1024 pixels (width or height). This will be applied when cooking the game so the final build will be smaller and run faster.</p>
 </article>
           </div>
           
@@ -166,7 +166,7 @@ Ensure the Streaming settings asset is set in <em>Game Settings</em>.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/textures/texture-groups.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/textures/texture-groups.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

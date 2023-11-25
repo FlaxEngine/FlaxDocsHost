@@ -90,14 +90,14 @@
 <h1 id="cameras">Cameras</h1>
 
 <p><img src="media/camera.png" alt="Camera"></p>
-<p><strong>Camera</strong> captures the scene and displays it to the user. It defines a view in screen space. Camera&#39;s position and rotaton define the <em>viewport</em> and <em>view direction</em>. Those properties are used to render scene objects and preent them to the user.</p>
-<p>Flax Engine allows to create unlimited amount of cameras in scene while the <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html#FlaxEngine_Camera_MainCamera">main one</a> is used for the final frame rendering.</p>
-<h2 id="creating-camera-in-editor">Creating camera in editor</h2>
+<p><strong>Camera</strong> captures the scene and displays it to the user. It defines a view in screen space. A camera&#39;s position and rotaton define the <em>viewport</em> and <em>view direction</em>. Those properties are used to render scene objects and present them to the user.</p>
+<p>Flax Engine allows to create an unlimited amount of cameras in scenes while the <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html#FlaxEngine_Camera_MainCamera">main one</a> is used for the final frame rendering.</p>
+<h2 id="creating-a-camera-in-the-editor">Creating a camera in the editor</h2>
 <p>In the <em>Scene</em> tree window, right-click and select <strong>New -&gt; Camera</strong>.
-Editor will create new Camera actor with default properties.</p>
+The Editor will create new Camera actor with default properties.</p>
 <p><img src="media/new-cam.jpg" alt="New Camera"></p>
-<h2 id="creating-camera-in-script">Creating camera in script</h2>
-<p>The following sample code can be used to instantiate new camera object in a scene.</p>
+<h2 id="creating-a-camera-in-script">Creating a camera in script</h2>
+<p>The following sample code can be used to instantiate a new camera object in a scene.</p>
 <pre><code class="lang-cs">public class MyScript : Script
 {
     public override void OnStart()
@@ -107,7 +107,7 @@ Editor will create new Camera actor with default properties.</p>
         camera.Position = new Vector3(0, 100, 0);
     }
 }
-</code></pre><p>To learn more about the C# scripting API see <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html">Camera</a> class.</p>
+</code></pre><p>To learn more about the C# scripting API see the <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html">Camera</a> class.</p>
 <h2 id="camera-properties">Camera properties</h2>
 <p><img src="media/camera-properties.png" alt="Camera Propertiess"></p>
 <table>
@@ -150,17 +150,17 @@ Editor will create new Camera actor with default properties.</p>
 </table>
 <h2 id="masking-object-layers">Masking object layers</h2>
 <p><img src="media/render-layers-masking.gif" alt="Camera Render Layers Masking"></p>
-<p>Every actor on a scene has <strong>Layer</strong> property assigned. Cameras can use per-layer masking for rendering to include or exclude certain objects from drawing.</p>
+<p>Every actor on a scene has a <strong>Layer</strong> property assigned. Cameras can use per-layer masking for rendering to include or exclude certain objects from being drawn.</p>
 <h2 id="perspective-and-orthographic-cameras">Perspective and orthographic cameras</h2>
-<p>Camera objects can work in two modes: perspective and orthographic. Each mode uses different projection mapping method affect how rendered scene looks.</p>
+<p>Camera objects can work in two modes: perspective and orthographic. Each mode uses a different projection mapping method to affect how the rendered scene looks.</p>
 <ul>
-<li><p><strong>Perspective</strong> camera provides a &quot;real-world&quot; perspective of the objects in your scene. In this view, objects close to the camera appear larger, and lines of identical lengths appear different due to foreshortening, as in reality. Perspective cameras are most used for games that require a realistic perspective, such as third-person and first-person shooters.</p>
+<li><p>The <strong>Perspective</strong> camera provides a &quot;real-world&quot; perspective of the objects in your scene. In this view, objects close to the camera appear larger, and lines of identical lengths appear different due to foreshortening, as in reality. Perspective cameras are most used for games that require a realistic perspective, such as third-person and first-person shooters.</p>
 </li>
-<li><p><strong>Orthographic</strong> camera renders objects always in the same size, no matter their distance from the camera. Parallel lines never touch, and there&#39;s no vanishing point. Orthographic cameras are most used for games with isometric perspectives, such as some strategy or role-playing games.</p>
+<li><p>The <strong>Orthographic</strong> camera always renders objects in the same size, no matter their distance from the camera. Parallel lines never touch, and there&#39;s no vanishing point. Orthographic cameras are most used for games with isometric perspectives, such as some strategy or role-playing games.</p>
 </li>
 </ul>
 <h2 id="field-of-view-perspective-mode-only">Field of view (perspective mode only)</h2>
-<p>If camera has checked value <strong>Use Perspective</strong>, then it will use perspective projection. The <strong>field of view</strong> changes the camera frustum, and has effect of zooming in or out of the scene. When using high value (90 or above), the field of view results in stretched &quot;fish-eye lens&#39; views.</p>
+<p>If a camera has the <strong>Use Perspective</strong> value checked, then it will use perspective projection. The <strong>field of view</strong> changes the camera&#39;s frustum, and has the effect of zooming in or out of the scene. When using a high value (90 or above), the field of view results in stretched &quot;fish-eye lens&#39; views.</p>
 <table>
 <thead>
 <tr>
@@ -176,7 +176,7 @@ Editor will create new Camera actor with default properties.</p>
 </tbody>
 </table>
 <h2 id="orthographic-scale-orthographic-mode-only">Orthographic scale (orthographic mode only)</h2>
-<p>If camera has unchecked value <strong>Use Perspective</strong>, then it will use orthographic projection. The <strong>orthographic scale</strong> changes the camera frustum size, and has effect of zooming in or out of the scene.</p>
+<p>If a camera has the <strong>Use Perspective</strong> value unchecked, then it will use orthographic projection. The <strong>orthographic scale</strong> changes the camera frustum size, and has the effect of zooming in or out of the scene.</p>
 <table>
 <thead>
 <tr>
@@ -193,9 +193,9 @@ Editor will create new Camera actor with default properties.</p>
 </table>
 <h2 id="near-and-far-planes">Near and far planes</h2>
 <p>The near and far clipping planes are used to define the camera frustum begin and end points.
-The near plane is the closest point the camera can see. All geometry that it in front of it won&#39;t be rendered.
-The far plane is the furthest point the camera can see. It&#39;s also known as a draw distance or a view distance. All geometry that it beyond of it won&#39;t be rendered.</p>
-<p>Adjusting near and far planes affects rendering precision and scene depth quality. Using too small near plane value (lower than 1) or very high far plane (higher than 100000) may result in depth precision issues as well as <a href="https://en.wikipedia.org/wiki/Z-fighting">Z-fighting</a>.</p>
+The near plane is the closest point the camera can see. All geometry that is in front of it won&#39;t be rendered.
+The far plane is the furthest point the camera can see. It&#39;s also known as a draw distance or a view distance. All geometry that is beyond it won&#39;t be rendered.</p>
+<p>Adjusting the near and far planes affect rendering precision and scene depth quality. Using too small of a near plane value (lower than 1) or a very high far plane (higher than 100000) may result in depth precision issues as well as <a href="https://en.wikipedia.org/wiki/Z-fighting">Z-fighting</a>.</p>
 <table>
 <thead>
 <tr>
@@ -211,13 +211,13 @@ The far plane is the furthest point the camera can see. It&#39;s also known as a
 </tbody>
 </table>
 <h2 id="render-a-camera-to-a-texture">Render a camera to a texture</h2>
-<p>Flax Engine offers very wide range of customization that can be made to extend the rendering pipeline. One of them is rendering scene using the custom camera right to the render target. Then presenting it on an object surface. To create such effect check out the tutorial: <a href="render-camera-to-texture.html">How to render a camera to a texture</a>.</p>
+<p>Flax Engine offers a very wide range of customization that can be made to extend the rendering pipeline. One of them is rendering a scene using the custom camera right to the render target, then presenting it on an object surface. To create such an effect check out the tutorial: <a href="render-camera-to-texture.html">How to render a camera to a texture</a>.</p>
 <h2 id="alpha-output">Alpha output</h2>
-<p>Renderer supports including an alpha channel in the output image. It might be required for games that want to composite draw output over other images (eg. minimap or game character preview over game UI). It can be enabled per-SceneRenderTask by setting <code>UseAlpha</code> property on the render buffers used by that task:</p>
+<p>The renderer supports including an alpha channel in the output image. It might be required for games that want to composite draw output over other images (eg. a minimap or a game character preview over the game UI). It can be enabled per-SceneRenderTask by setting the <code>UseAlpha</code> property on the render buffers used by that task:</p>
 <pre><code class="lang-cs">MainRenderTask.Instance.Buffers.UseAlpha = true;
 </code></pre><p>Then, the renderer will use <code>R16G16B16A16</code> format for the image textures and passthrough the alpha channel. This affects game performance, as the default <code>R11G11B10</code> format is more optimized for lower memory bandwidth. When using alpha in output try to disable unused PostFx features to reduce memory pressure and improve performance.</p>
 <h2 id="override-view">Override view</h2>
-<p>Flax uses extensible RenderTask system for high-level rendering achitecture. By default game uses <code>MainRenderTask.Instance</code> to drive the scene rendering into the main game viewport. You can use it to plug into rendering pipeline for custom effects, rendering or view override.</p>
+<p>Flax uses an extensible RenderTask system for high-level rendering achitecture. By default a game uses the <code>MainRenderTask.Instance</code> to drive the scene rendering into the main game viewport. You can use it to plug into the rendering pipeline for custom effects, rendering or view override.</p>
 <div class="tabGroup" id="tabgroup_xJdqemeYyZ">
 <ul role="tablist">
 <li role="presentation">
@@ -304,7 +304,7 @@ inline MyScript::MyScript(const SpawnParams&amp; params)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/42eb161fbc4518703c5b8ff913013b359485a475/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
