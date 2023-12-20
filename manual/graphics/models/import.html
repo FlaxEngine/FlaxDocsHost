@@ -117,6 +117,10 @@
 <p>Flax supports up to 6 model levels of detail. To import them use <code>LODx</code> (where <code>x</code> is an LOD index, zero-based) postfix for object nodes in the model file. Also when importing a model ensure to check the <strong>Import LODs</strong> option.</p>
 <p>Example usage (from Blender):</p>
 <p><img src="media/model-lods-example.jpg" alt="Model LODs import example"></p>
+<h2 id="importing-into-prefab">Importing into Prefab</h2>
+<p>The models importing system supports importing all source file contents (meshes, nodes, animations, materials, textures, etc.) into a prefab scene inside the engine. This allows to customize the imported objects easily and is especially useful for more complex scenes. When importing a file select type to <strong>Prefab</strong>, then you can customize other import options (each mesh can override settings after import).</p>
+<p><img src="media/model-prefab.png" alt="Model Prefab Importing"></p>
+<p>Imported prefab can be opened and customized. After adding it to a scene any changes in the prefab will be synced in all instances across the whole project. The root object of the created prefab contains <code>ModelPrefab</code> script that stores saved import options and source file path (relative to the project folder or absolute). You can use it to reimport the source asset (eg. to sync with the source file or with different import options).</p>
 <h2 id="importing-collision-mesh">Importing collision mesh</h2>
 <p>Flax supports automatic collision mesh importing from a source model. To import a collision mesh use a custom name prefix for collision meshes in the model file (eg. <code>COLL_</code> or <code>UCX_</code> prefix) and specify that prefix in the import option <strong>Collision Meshes Prefix</strong>. The engine will extract those collision meshes and create a separate collision data asset</p>
 <p>Example usage:</p>
@@ -145,7 +149,7 @@
 <tbody>
 <tr>
 <td><strong>Type</strong></td>
-<td>The type of the imported asset. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Model</strong></td><td>The model asset.</td></tr><tr><td><strong>Skinned Model</strong></td><td>The skinned model asset.</td></tr><tr><td><strong>Animation</strong></td><td>The animation asset.</td></tr></tbody></table></td>
+<td>The type of the imported asset. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Model</strong></td><td>The model asset.</td></tr><tr><td><strong>Skinned Model</strong></td><td>The skinned model asset.</td></tr><tr><td><strong>Animation</strong></td><td>The animation asset.</td></tr><tr><td><strong>Prefab</strong></td><td>The prefab scene.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td></td>
@@ -356,7 +360,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/graphics/models/import.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

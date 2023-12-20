@@ -97,7 +97,8 @@
 <li><code>AnimContinuousEvent</code> - animation notification event (with duration) triggered during animation playback that contains begin and end (event notification is received as a tick). It differs from a single event in that it is updated during every animation tick and is guaranteed to receive start before any ticking and end after all ticks occurred.</li>
 </ul>
 <h3 id="multithreading">Multithreading</h3>
-<p>By default Animation System uses the Job System to update all animated models asynchronously during game updates. This allows to greatly improve performance for scenes with a large number of objects. As a result, the animation event callbacks are invoked on job threads (the main thread is sleeping). Thus it&#39;s important to safely access other gameplay data during events to ensure it doesn&#39;t result in race conditions. In general, accessing a single Animated Model object or its scripts/children is safe as every model instance is updating its own animation only once during this async routing (you can spawn or edit objects belonging to that animated model within an event).</p>
+<p><strong>By default, events are invoked on a main thread</strong> which makes it safe to access scene objects and modify gameplay.</p>
+<p>Animation System uses the Job System to update all animated models asynchronously during game updates. This allows to greatly improve performance for scenes with a large number of objects. As a result, the animation event callbacks can be invoked on job threads (the main thread is sleeping) if you set <code>Async</code> property of the event (eg. in constructor). Then it&#39;s important to safely access other gameplay data during events to ensure it doesn&#39;t result in race conditions. In general, accessing a single Animated Model object or its scripts/children is safe as every model instance is updating its own animation only once during this async routing (you can spawn or edit objects belonging to that animated model within an event).</p>
 <p>To learn more about multithreading see <a href="../../scripting/advanced/multithreading.html">this documentation</a>.</p>
 <h3 id="data-and-cache">Data and cache</h3>
 <p>Engine creates <code>AnimEvent</code> object instances within <code>Animation</code> asset during loading. Those are reused by animated models when playing the animation thus caching any data or state within a custom animation event needs to be done with caution. For example, <code>AnimContinuousEvent</code> can store data in <code>OnBegin</code> and clear in <code>OnEnd</code> (guaranteed to be always called). But keep in mind that a single <code>AnimEvent</code> object can receive multiple different callbacks from different animated objects at the same time - literally at the same time because Animation System schedules Anim Graph updates with async Job System. This means that data stored in Anim Event or reused globally (eg. character state accessed via <code>AnimatedModel</code>) needs to be accessed cautiously (see Multithreading section above).</p>
@@ -240,7 +241,7 @@ DECLARE_SCRIPTING_TYPE(PlaySoundAnimEvent);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/animation/animation/anim-events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/animation/animation/anim-events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

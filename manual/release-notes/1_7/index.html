@@ -192,6 +192,98 @@
 </li>
 </ul>
 <h2 id="changelog">Changelog</h2>
+<h3 id="version-1764072---20-december-2023">Version 1.7.6407.2 - 20 December 2023</h3>
+<p>Contributors: mafiesto4, Tryibion, GoaLitiuM, Withaust, Menotdan, NoriteSC, mtszkarbowiak, Just-Feeshy, MineBill, nothingTVatYT</p>
+<p>PRs merged: 29</p>
+<ul>
+<li>Add invert green channel option to texture tool</li>
+<li>Add various .NET and VSCode intellisense fixes</li>
+<li>Add new icon for macOS</li>
+<li>Add automatic code modules references adding when cloning plugin project</li>
+<li>Add <strong>saved colors to color picker</strong></li>
+<li>Add infinite loop to behavior tree <code>Loop</code> decorator</li>
+<li>Add <strong>option to import model file as Prefab</strong></li>
+<li>Add <code>ModelPrefab</code> to imported model prefab for reimporting functionality</li>
+<li>Add various improvements to models importing code</li>
+<li>Add support for loading prefab instance if the root was changed or deleted</li>
+<li>Add support for displaying and reverting array values to prefab value in properties panel</li>
+<li>Add removing thumbnails for deleted assets</li>
+<li>Add <code>Half</code> to <code>Vector2</code>/<code>Vector4</code></li>
+<li>Add <code>Where</code>, <code>Select</code> and <code>RemoveAll</code> to <code>ArrayExtensions</code></li>
+<li>Add <code>SloppyOptimization</code> disabledby default and lower default <code>LOD Target Error</code> value for model auto-LOD</li>
+<li>Add better <code>ScaleWithResolution</code>defaults in Canvas Scaler</li>
+<li>Add <code>Async</code> to anim events (<code>false</code> by default) to delay events execution into main thread and prevent multi-threading issues by default</li>
+<li>Add <code>PixelFormatExtensions::ComputeBlockSize</code></li>
+<li>Add ability to change default Android screen orientation</li>
+<li>Add better Visual Script debugger tooltips display</li>
+<li>Add mouse tracking on Linux</li>
+<li>Add context menu to load additional scenes quickly</li>
+<li>Add auto-sizing for box colliders when they are added to the scene</li>
+<li>Update <code>meshoptimizer</code> to <code>v0.20</code></li>
+<li>Optimize time service update math code</li>
+<li>Remove old warnings about invalid model instance buffer</li>
+<li>Replace <code>ImportedModelData</code> with <code>ModelData</code> for model importing</li>
+<li>Refactor <code>INetworkDriver::PopEvent</code> to use network event as output parameter rather than raw pointer</li>
+<li>Refactor objects splitting in models importing to be handled by <code>ModelTool</code> not the importer code itself</li>
+<li>Refactor prefab&#39;s <code>objectsCache</code> to be explicitly <code>SceneObject</code> values</li>
+<li>Refactor memory allocators to use dedicated path when moving collection data that is not blittable</li>
+<li>Refactor Visual Script debugger apis to use bindings generator</li>
+<li>Refactor Physics Colliders to use auto serialization</li>
+<li>Fix ability in editor to delete content and source folders</li>
+<li>Fix tooltip location check when wraps over the screen</li>
+<li>Fix UI Dropdown size issue with large font</li>
+<li>Fix selecting prefab object when object from prefab is already selected</li>
+<li>Fix constant value sliders in material graphs to not be used due to shader compilations</li>
+<li>Fix deadlock in <code>NetworkManager</code> when network peer returns invalid event type</li>
+<li>Fix zero clamp on hinge velocity to allow negative values</li>
+<li>Fix <code>__cplusplus</code> macro on MSVC and add logging C++ version used during compilation</li>
+<li>Fix missing channel masking in material Scene Texture node</li>
+<li>Fix missing surface graph edited flag after removing anim graph state transition</li>
+<li>Fix missing output parameters conversion when calling interface implementation in scripting</li>
+<li>Fix selecting objects/gizmos with high far plane</li>
+<li>Fix blending additive animations</li>
+<li>Fix <code>MissingScript</code> to be added only when object type exists (skip for prefab instances)</li>
+<li>Fix not showing primary context menu on Visject surface if child control handled input event</li>
+<li>Fix layout of editor updating when adding a script to multiple actors in a scene</li>
+<li>Fix incorrect empty meshes/LODs removal after auto-lod generation</li>
+<li>Fix invalid codegen for array reference passed as output parameter in scripting interface method</li>
+<li>Fix incorrect pointer marshalling from <code>Variant</code> to managed runtime</li>
+<li>Fix model asset thumbnail if mesh is not centered around origin</li>
+<li>Fix prefab window performance with large hierarchies</li>
+<li>Fix not supported dragging prefab actors between windows</li>
+<li>Fix spawned prefab name after drag&amp;drop into prefab window</li>
+<li>Fix invalid BT node decorator linkage after removing it</li>
+<li>Fix invalid tracy events from C# profiling api when profiler gets connected mid-event</li>
+<li>Fix .NET runtime packaging with installed .NET 8 SDK</li>
+<li>Fix Visual Studio build issues with C# projects when engine path has spaces</li>
+<li>Fix Json serialzier regression after hot-reload</li>
+<li>Fix <code>Swap</code> for non-copyable types</li>
+<li>Fix swapping core collections</li>
+<li>Fix project initialization with <code>-new</code> if it already exists</li>
+<li>Fix calling script <code>OnDestroy</code> when removing actors or scripts from the scene</li>
+<li>Fix several actor types performing default spawn behavior when spawning from a prefab</li>
+<li>Fix docking windows on Linux</li>
+<li>Fix importing <code>.dds</code> files <code>as-is</code>if the compressed image is too small for the engine (block size validation)</li>
+<li>Fix dark outline around Screen Space Reflections alpha blending area</li>
+<li>Fix default prefab instance not taking into account root position</li>
+<li>Fix plugin clone and loading to wait for <code>git</code> process end properly</li>
+<li>Fix managed method delegate creation to be thread-safe</li>
+<li>Fix typo in <code>Tag</code> comparison function</li>
+<li>Fix render target pool over-allocation when changing render resolution frequently</li>
+<li>Fix deadlock in <code>Asset.WaitForLoaded</code> when loading task hangs in the loading queue for a main thread sync</li>
+<li>Fix deadlock when loading block-compressed texture that is smaller than block size</li>
+<li>Fix deadlock in asset thumbnails rendering queue when texture streaming fails</li>
+<li>Fix various crashes</li>
+<li>Fix crash in UI prefab changes apply when reparenting controls</li>
+<li>Fix crash when boxing native non-POD structure into managed format</li>
+<li>Fix crash when updating prefabs from async thread</li>
+<li>Fix crash when spawning actor from asyc thread into the SceneObject</li>
+<li>Fix crash when unloading texture that has active streaming tasks</li>
+<li>Fix crash when resizing navmesh capacity with crowd created for that navmesh</li>
+<li>Fix crash when drawing terrain without cached neighbor chunks</li>
+<li>Fix crash in mesh LOD generator if generated mesh has more indices</li>
+<li>Fix crash in Content Storage async job when someone is using file storage and access cannot be freed</li>
+</ul>
 <h3 id="version-1764061---25-november-2023">Version 1.7.6406.1 - 25 November 2023</h3>
 <p>Contributors: mafiesto4, Tryibion, GoaLitiuM, mrunion, MineBill, RuanLucasGD, Tryibion, Chikinsupu, NoriteSC, Menotdan, SinnersSum, Radiangames, schmidt-florian, HydrogenC, nothingTVatYT</p>
 <p>PRs merged: 43</p>
@@ -722,7 +814,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/release-notes/1_7/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/release-notes/1_7/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -128,6 +128,19 @@ It supports <strong>convex meshes</strong> and <strong>triangle meshes</strong> 
 </tr>
 </tbody>
 </table>
+<h3 id="collision-data-type">Collision data type</h3>
+<p>Flax allows you to generate a convex or a triangle mesh for your collision data.</p>
+<h4 id="convex">Convex</h4>
+<p>A convex mesh is a simplified representation of a 3D object in which all internal angles are less than <code>180</code> degrees. This simplification results in a mesh with a uniform shape, and it&#39;s particularly well-suited for certain collision scenarios.</p>
+<p><img src="media/convex.png" alt="Convex Collider"></p>
+<h4 id="triangle-mesh">Triangle mesh</h4>
+<p>A triangle mesh is a more detailed representation of a 3D object, consisting of interconnected triangles. This mesh type is capable of accurately representing complex and concave shapes, making it valuable for accurate collisions (at cost of performance).</p>
+<p><img src="media/triangle-mesh.png" alt="Triangle Mesh Collider"></p>
+<p>A triangle mesh offers much more granularity and better represents the mesh but it comes at a cost:</p>
+<ul>
+<li>More expensive both in terms of memory and calculations.</li>
+<li><strong>Triangle Mesh cannot be used with a Rigidbody</strong>. This means they can only be used to collide against them.</li>
+</ul>
 <h2 id="create-collision-data-from-code">Create collision data from code</h2>
 <p>Flax supports creating most of the asset types in Editor using C# scripts (with editor plugins). The same applies to the collision data asset. Here is an example code that bakes the asset:</p>
 <pre><code class="lang-cs">// Cooks collision for existing model asset
@@ -147,7 +160,7 @@ collisionData.CookCollision(CollisionDataType.TriangleMesh, myModel);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/fc122e71d4a56dd8386eb30d6ca3abe927813261/manual/physics/colliders/collision-data.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/physics/colliders/collision-data.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
