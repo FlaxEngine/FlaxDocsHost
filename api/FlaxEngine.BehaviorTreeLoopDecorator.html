@@ -281,19 +281,59 @@ public sealed class BehaviorTreeLoopDecorator : BehaviorTreeDecorator, ISerializ
   </h3>
   
   
-  <a id="FlaxEngine_BehaviorTreeLoopDecorator_LoopCount_" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.LoopCount*"></a>
+  <a id="FlaxEngine_BehaviorTreeLoopDecorator_InfiniteLoop_" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.InfiniteLoop*"></a>
   
-  <h4 id="FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.LoopCount"><a href="#collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" class="expander" data-toggle="collapse">LoopCount</a></h4>
+  <h4 id="FlaxEngine_BehaviorTreeLoopDecorator_InfiniteLoop" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.InfiniteLoop"><a href="#collapsible-FlaxEngine_BehaviorTreeLoopDecorator_InfiniteLoop" class="expander" data-toggle="collapse">InfiniteLoop</a></h4>
   
-  <div id="collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" class="collapse in">
-  <div class="markdown level1 summary"><p>Amount of times to execute the node. Unused if LoopCountSelector is used.</p>
+  <div id="collapsible-FlaxEngine_BehaviorTreeLoopDecorator_InfiniteLoop" class="collapse in">
+  <div class="markdown level1 summary"><p>Is the loop infinite (until failed)?</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(10)]
+[Unmanaged]
+public bool InfiniteLoop { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_BehaviorTreeLoopDecorator_LoopCount_" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.LoopCount*"></a>
+  
+  <h4 id="FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.LoopCount"><a href="#collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" class="expander" data-toggle="collapse">LoopCount</a></h4>
+  
+  <div id="collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCount" class="collapse in">
+  <div class="markdown level1 summary"><p>Amount of times to execute the node. Unused if LoopCountSelector is used or if InfiniteLoop is used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [Limit(0F, 3.40282347E+38F, 1F)]
+[VisibleIf(&quot;InfiniteLoop&quot;, true)]
 [Unmanaged]
 public int LoopCount { get; set; }</code></pre>
   </div>
@@ -326,13 +366,14 @@ public int LoopCount { get; set; }</code></pre>
   <h4 id="FlaxEngine_BehaviorTreeLoopDecorator_LoopCountSelector" data-uid="FlaxEngine.BehaviorTreeLoopDecorator.LoopCountSelector"><a href="#collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCountSelector" class="expander" data-toggle="collapse">LoopCountSelector</a></h4>
   
   <div id="collapsible-FlaxEngine_BehaviorTreeLoopDecorator_LoopCountSelector" class="collapse in">
-  <div class="markdown level1 summary"><p>Amount of times to execute the node from behavior&apos;s knowledge (blackboard, goal or sensor). If set, overrides LoopCount.</p>
+  <div class="markdown level1 summary"><p>Amount of times to execute the node from behavior&apos;s knowledge (blackboard, goal or sensor). If set, overrides LoopCount. Unused if InfiniteLoop is used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(30)]
+[VisibleIf(&quot;InfiniteLoop&quot;, true)]
 [Unmanaged]
 public BehaviorKnowledgeSelector&lt;int&gt; LoopCountSelector { get; set; }</code></pre>
   </div>
@@ -395,7 +436,7 @@ public BehaviorKnowledgeSelector&lt;int&gt; LoopCountSelector { get; set; }</cod
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

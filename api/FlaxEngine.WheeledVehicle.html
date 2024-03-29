@@ -274,16 +274,19 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDebugDrawSelected">Actor.OnDebugDrawSelected()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetPrefabRoot">Actor.GetPrefabRoot()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_String_">Actor.FindActor(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_Type_">Actor.FindActor(Type)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_Type_System_Boolean_">Actor.FindActor(Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_Type_System_String_">Actor.FindActor(Type, String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_">Actor.FindActor(Type, Tag)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_System_Boolean_">Actor.FindActor(Type, Tag, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript_System_Type_">Actor.FindScript(Type)</a>
@@ -388,13 +391,13 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindScript__1">Actor.FindScript&lt;T&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1">Actor.FindActor&lt;T&gt;()</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1_System_Boolean_">Actor.FindActor&lt;T&gt;(Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1_System_String_">Actor.FindActor&lt;T&gt;(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_">Actor.FindActor&lt;T&gt;(Tag)</a>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_System_Boolean_">Actor.FindActor&lt;T&gt;(Tag, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_GetChildren__1">Actor.GetChildren&lt;T&gt;()</a>
@@ -616,6 +619,44 @@ public class WheeledVehicle : RigidBody, ISerializable</code></pre>
   </h3>
   
   
+  <a id="FlaxEngine_WheeledVehicle_AntiRollBars_" data-uid="FlaxEngine.WheeledVehicle.AntiRollBars*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_AntiRollBars" data-uid="FlaxEngine.WheeledVehicle.AntiRollBars"><a href="#collapsible-FlaxEngine_WheeledVehicle_AntiRollBars" class="expander" data-toggle="collapse">AntiRollBars</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_AntiRollBars" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets axles anti roll bars to increase vehicle stability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public WheeledVehicle.AntiRollBar[] AntiRollBars { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.WheeledVehicle.AntiRollBar.html">WheeledVehicle.AntiRollBar</a>[]
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_WheeledVehicle_Differential_" data-uid="FlaxEngine.WheeledVehicle.Differential*"></a>
   
   <h4 id="FlaxEngine_WheeledVehicle_Differential" data-uid="FlaxEngine.WheeledVehicle.Differential"><a href="#collapsible-FlaxEngine_WheeledVehicle_Differential" class="expander" data-toggle="collapse">Differential</a></h4>
@@ -627,7 +668,7 @@ public class WheeledVehicle : RigidBody, ISerializable</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(4)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(7)]
 [EditorDisplay(&quot;Vehicle&quot;, null)]
 [Unmanaged]
 public WheeledVehicle.DifferentialSettings Differential { get; set; }</code></pre>
@@ -656,6 +697,46 @@ public WheeledVehicle.DifferentialSettings Differential { get; set; }</code></pr
   </div>
   
   
+  <a id="FlaxEngine_WheeledVehicle_DriveControl_" data-uid="FlaxEngine.WheeledVehicle.DriveControl*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_DriveControl" data-uid="FlaxEngine.WheeledVehicle.DriveControl"><a href="#collapsible-FlaxEngine_WheeledVehicle_DriveControl" class="expander" data-toggle="collapse">DriveControl</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_DriveControl" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the vehicle drive control settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(5)]
+[EditorDisplay(&quot;Vehicle&quot;, null)]
+[Unmanaged]
+public WheeledVehicle.DriveControlSettings DriveControl { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.WheeledVehicle.DriveControlSettings.html">WheeledVehicle.DriveControlSettings</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_WheeledVehicle_DriveType_" data-uid="FlaxEngine.WheeledVehicle.DriveType*"></a>
   
   <h4 id="FlaxEngine_WheeledVehicle_DriveType" data-uid="FlaxEngine.WheeledVehicle.DriveType"><a href="#collapsible-FlaxEngine_WheeledVehicle_DriveType" class="expander" data-toggle="collapse">DriveType</a></h4>
@@ -667,7 +748,7 @@ public WheeledVehicle.DifferentialSettings Differential { get; set; }</code></pr
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(1)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(2)]
 [EditorDisplay(&quot;Vehicle&quot;, null)]
 [Unmanaged]
 public WheeledVehicle.DriveTypes DriveType { get; set; }</code></pre>
@@ -707,7 +788,7 @@ public WheeledVehicle.DriveTypes DriveType { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(3)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(6)]
 [EditorDisplay(&quot;Vehicle&quot;, null)]
 [Unmanaged]
 public WheeledVehicle.EngineSettings Engine { get; set; }</code></pre>
@@ -823,7 +904,7 @@ public float ForwardSpeed { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(5)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(8)]
 [EditorDisplay(&quot;Vehicle&quot;, null)]
 [Unmanaged]
 public WheeledVehicle.GearboxSettings Gearbox { get; set; }</code></pre>
@@ -981,7 +1062,7 @@ public bool UseReverseAsBrake { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(2)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(4)]
 [EditorDisplay(&quot;Vehicle&quot;, null)]
 [Unmanaged]
 public WheeledVehicle.Wheel[] Wheels { get; set; }</code></pre>
@@ -1209,6 +1290,168 @@ public void SetSteering(float value)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_WheeledVehicle_SetTankLeftBrake_" data-uid="FlaxEngine.WheeledVehicle.SetTankLeftBrake*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_SetTankLeftBrake_System_Single_" data-uid="FlaxEngine.WheeledVehicle.SetTankLeftBrake(System.Single)"><a href="#collapsible-FlaxEngine_WheeledVehicle_SetTankLeftBrake_System_Single_" class="expander" data-toggle="collapse">SetTankLeftBrake(Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_SetTankLeftBrake_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the input for tank brakes the left track. Brake is the analog brake pedal value in range (0,1) where 1 represents the pedal fully pressed and 0 represents the pedal in its rest state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetTankLeftBrake(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value (0,1 range).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_WheeledVehicle_SetTankLeftThrottle_" data-uid="FlaxEngine.WheeledVehicle.SetTankLeftThrottle*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_SetTankLeftThrottle_System_Single_" data-uid="FlaxEngine.WheeledVehicle.SetTankLeftThrottle(System.Single)"><a href="#collapsible-FlaxEngine_WheeledVehicle_SetTankLeftThrottle_System_Single_" class="expander" data-toggle="collapse">SetTankLeftThrottle(Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_SetTankLeftThrottle_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the input for tank left track throttle. It is the analog accelerator pedal value in range (-1,1) where 1 represents the pedal fully pressed to move to forward, 0 to represents the
+pedal in its rest state and -1 represents the pedal fully pressed to move to backward. The track direction will be inverted if the vehicle current gear is rear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetTankLeftThrottle(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value (-1,1 range).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_WheeledVehicle_SetTankRightBrake_" data-uid="FlaxEngine.WheeledVehicle.SetTankRightBrake*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_SetTankRightBrake_System_Single_" data-uid="FlaxEngine.WheeledVehicle.SetTankRightBrake(System.Single)"><a href="#collapsible-FlaxEngine_WheeledVehicle_SetTankRightBrake_System_Single_" class="expander" data-toggle="collapse">SetTankRightBrake(Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_SetTankRightBrake_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the input for tank brakes the right track. Brake is the analog brake pedal value in range (0,1) where 1 represents the pedal fully pressed and 0 represents the pedal in its rest state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetTankRightBrake(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value (0,1 range).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_WheeledVehicle_SetTankRightThrottle_" data-uid="FlaxEngine.WheeledVehicle.SetTankRightThrottle*"></a>
+  
+  <h4 id="FlaxEngine_WheeledVehicle_SetTankRightThrottle_System_Single_" data-uid="FlaxEngine.WheeledVehicle.SetTankRightThrottle(System.Single)"><a href="#collapsible-FlaxEngine_WheeledVehicle_SetTankRightThrottle_System_Single_" class="expander" data-toggle="collapse">SetTankRightThrottle(Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_SetTankRightThrottle_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the input for tank right track throttle. It is the analog accelerator pedal value in range (-1,1) where 1 represents the pedal fully pressed to move to forward, 0 to represents the
+pedal in its rest state and -1 represents the pedal fully pressed to move to backward. The track direction will be inverted if the vehicle current gear is rear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetTankRightThrottle(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value (-1,1 range).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_WheeledVehicle_SetThrottle_" data-uid="FlaxEngine.WheeledVehicle.SetThrottle*"></a>
   
   <h4 id="FlaxEngine_WheeledVehicle_SetThrottle_System_Single_" data-uid="FlaxEngine.WheeledVehicle.SetThrottle(System.Single)"><a href="#collapsible-FlaxEngine_WheeledVehicle_SetThrottle_System_Single_" class="expander" data-toggle="collapse">SetThrottle(Single)</a></h4>
@@ -1317,7 +1560,7 @@ public void Setup()</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

@@ -131,6 +131,45 @@ public sealed class Matrix : ValueType, IEquatable&lt;Matrix&gt;, IFormattable</
   
   <a id="FlaxEngine_Matrix__ctor_" data-uid="FlaxEngine.Matrix.#ctor*"></a>
   
+  <h4 id="FlaxEngine_Matrix__ctor_FlaxEngine_Matrix3x3_" data-uid="FlaxEngine.Matrix.#ctor(FlaxEngine.Matrix3x3)"><a href="#collapsible-FlaxEngine_Matrix__ctor_FlaxEngine_Matrix3x3_" class="expander" data-toggle="collapse">Matrix(Matrix3x3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Matrix__ctor_FlaxEngine_Matrix3x3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEngine.Matrix.html">Matrix</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix(Matrix3x3 m)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix3x3.html">Matrix3x3</a></span>
+        <span class="parametername">m</span>
+        <p><p>The rotation/scale matrix.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Matrix__ctor_" data-uid="FlaxEngine.Matrix.#ctor*"></a>
+  
   <h4 id="FlaxEngine_Matrix__ctor_System_Single_" data-uid="FlaxEngine.Matrix.#ctor(System.Single)"><a href="#collapsible-FlaxEngine_Matrix__ctor_System_Single_" class="expander" data-toggle="collapse">Matrix(Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Matrix__ctor_System_Single_" class="collapse in">
@@ -2912,7 +2951,8 @@ elements.</p>
   <h4 id="FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix__FlaxEngine_Float3__" data-uid="FlaxEngine.Matrix.Decompose(FlaxEngine.Float3@,FlaxEngine.Matrix@,FlaxEngine.Float3@)"><a href="#collapsible-FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix__FlaxEngine_Float3__" class="expander" data-toggle="collapse">Decompose(out Float3, out Matrix, out Float3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix__FlaxEngine_Float3__" class="collapse in">
-  <div class="markdown level1 summary"><p>Decomposes a matrix into a scale, rotation, and translation.</p>
+  <div class="markdown level1 summary"><p>Decomposes a matrix into a scale, rotation, and translation.
+[Deprecated on 20.02.2024, expires on 20.02.2026]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2957,6 +2997,64 @@ elements.</p>
   
   
   <h5 id="FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix__FlaxEngine_Float3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is designed to decompose an SRT transformation matrix only.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Matrix_Decompose_" data-uid="FlaxEngine.Matrix.Decompose*"></a>
+  
+  <h4 id="FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix3x3__FlaxEngine_Float3__" data-uid="FlaxEngine.Matrix.Decompose(FlaxEngine.Float3@,FlaxEngine.Matrix3x3@,FlaxEngine.Float3@)"><a href="#collapsible-FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix3x3__FlaxEngine_Float3__" class="expander" data-toggle="collapse">Decompose(out Float3, out Matrix3x3, out Float3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix3x3__FlaxEngine_Float3__" class="collapse in">
+  <div class="markdown level1 summary"><p>Decomposes a matrix into a scale, rotation, and translation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Decompose(out Float3 scale, out Matrix3x3 rotation, out Float3 translation)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a></span>
+        <span class="parametername">scale</span>
+        <p><p>When the method completes, contains the scaling component of the decomposed matrix.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix3x3.html">Matrix3x3</a></span>
+        <span class="parametername">rotation</span>
+        <p><p>When the method completes, contains the rotation component of the decomposed matrix.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a></span>
+        <span class="parametername">translation</span>
+        <p><p>When the method completes, contains the translation component of the decomposed matrix.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Matrix_Decompose_FlaxEngine_Float3__FlaxEngine_Matrix3x3__FlaxEngine_Float3___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is designed to decompose an SRT transformation matrix only.</p>
 </div>
   
@@ -9137,7 +9235,7 @@ number of solutions exist.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

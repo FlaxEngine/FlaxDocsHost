@@ -125,11 +125,18 @@ if (!document.HasParseError())
     object-&gt;Deserialize(document, nullptr);
 </code></pre><h3 id="custom-types">Custom types</h3>
 <p>To implement data serialization for custom native type or custom data container add 3 methods in <code>Serialization</code> namespace as in an example shown below. It can be used for defining specialization implementation for template types too.</p>
-<pre><code class="lang-cpp">struct MyCustomNativeData
+<pre><code class="lang-cpp">API_STRUCT(NoDefault) struct MyCustomNativeData
 {
-    Vector3 Direction;
-    float Length;
+    // This, combined with API_STRUCT(NoDefault) allows this type
+    // to be used in scripting environment (C#, Visual Script, etc)
+    DECLARE_SCRIPTING_TYPE_STRUCTURE(MyCustomNativeData);
+    // Expose all the fields to the scripting api with API_FIELD()
+    API_FIELD() Vector3 Direction;
+    API_FIELD() float Length;
 };
+
+// C++ doesnt allow us to implement automatic serialization for structs with something convenient like API_AUTO_SERIALIZATION();,
+// so in this case we have to manually tell it how to serialize and deserialize our data.
 
 #include &quot;Engine/Serialization/Serialization.h&quot;
 namespace Serialization
@@ -141,6 +148,7 @@ namespace Serialization
     }
     inline void Serialize(ISerializable::SerializeStream&amp; stream, const MyCustomNativeData&amp; v, const void* otherObj)
     {
+        // Populate stream with the struct data
         stream.JKEY(&quot;Direction&quot;);
         Serialize(stream, v.Direction, nullptr);
         stream.JKEY(&quot;Length&quot;);
@@ -153,6 +161,16 @@ namespace Serialization
         DESERIALIZE_MEMBER(Length, v.Length);
     }
 }
+
+// If you want your struct to be compatible with automatic binary serialization (you would need that if you are planning
+// to mark your struct with NetworkReplicated tag, as an example), then you should also add this template. This helps
+// Read/WriteStream in deducting which binary serialization strategy to use for your struct (in our case we would want it as a POD struct).
+
+template&lt;&gt;
+struct TIsPODType&lt;MyCustomNativeData&gt;
+{
+    enum { Value = true };
+};
 </code></pre><p>If your code needs to auto-serialize the custom data type field or property but it should be not exposed to scripting (as it can be C++-only) use <code>Hidden</code> attribute.</p>
 <pre><code class="lang-cpp">API_FIELD(Hidden) float NativeOnlyVar;
 </code></pre><h2 id="streams">Streams</h2>
@@ -172,7 +190,7 @@ namespace Serialization
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -192,7 +210,7 @@ namespace Serialization
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

@@ -237,6 +237,9 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a>
+    </div>
+    <div>
       <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -258,13 +261,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -406,6 +409,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -618,6 +624,9 @@
       <a class="xref" href="Actor.html#Actor_Scripts">Actor::Scripts</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Serialize_SerializeStream___const_void___">Actor::Serialize(SerializeStream&amp; stream, const void* otherObj)</a>
+    </div>
+    <div>
       <span class="xref">Collider</span>
     </div>
     <div>
@@ -784,7 +793,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__cachedLocalPosePos.md&amp;value=---%0Auid%3A%20Collider._cachedLocalPosePos%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L28" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L29" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -826,7 +835,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__cachedLocalPoseRot.md&amp;value=---%0Auid%3A%20Collider._cachedLocalPoseRot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L29" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -868,7 +877,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__cachedScale.md&amp;value=---%0Auid%3A%20Collider._cachedScale%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L26" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L27" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -910,7 +919,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__center.md&amp;value=---%0Auid%3A%20Collider._center%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L22" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -952,7 +961,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__contactOffset.md&amp;value=---%0Auid%3A%20Collider._contactOffset%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L27" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L28" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -994,7 +1003,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__isTrigger.md&amp;value=---%0Auid%3A%20Collider._isTrigger%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1036,7 +1045,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__shape.md&amp;value=---%0Auid%3A%20Collider._shape%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1078,7 +1087,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider__staticActor.md&amp;value=---%0Auid%3A%20Collider._staticActor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L26" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1120,7 +1129,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_Material.md&amp;value=---%0Auid%3A%20Collider.Material%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -1132,7 +1141,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public AssetReference&lt;JsonAsset&gt; Material</code></pre>
+    <pre><code class="lang-cpp hljs">public JsonAssetReference&lt;PhysicalMaterial&gt; Material</code></pre>
   </div>
 
   
@@ -1142,7 +1151,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">AssetReference&lt;JsonAsset&gt;</span>
+        <span class="xref">JsonAssetReference&lt;PhysicalMaterial&gt;</span>
         <p>
       </td>
     </tr>
@@ -1164,7 +1173,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_Attach_RigidBody___.md&amp;value=---%0Auid%3A%20Collider.Attach(RigidBody%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_Attach_" data-uid="Collider.Attach*"></a>
@@ -1208,7 +1217,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20Collider.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L205" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_BeginPlay_" data-uid="Collider.BeginPlay*"></a>
@@ -1254,7 +1263,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_CanAttach_RigidBody___.md&amp;value=---%0Auid%3A%20Collider.CanAttach(RigidBody%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L102" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_CanAttach_" data-uid="Collider.CanAttach*"></a>
@@ -1308,7 +1317,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_CanBeTrigger__.md&amp;value=---%0Auid%3A%20Collider.CanBeTrigger()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L108" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_CanBeTrigger_" data-uid="Collider.CanBeTrigger*"></a>
@@ -1352,7 +1361,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_ClosestPoint_const_Vector3___Vector3___.md&amp;value=---%0Auid%3A%20Collider.ClosestPoint(const%20Vector3%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L107" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_ClosestPoint_" data-uid="Collider.ClosestPoint*"></a>
@@ -1365,7 +1374,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void ClosestPoint(const Vector3&amp; point, Vector3&amp; result) const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void ClosestPoint(const Vector3&amp; point, Vector3&amp; result) const final</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1391,6 +1400,8 @@
   
   
   
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="PhysicsColliderActor.html#PhysicsColliderActor_ClosestPoint_const_Vector3___Vector3___">PhysicsColliderActor::ClosestPoint(const Vector3&amp; point, Vector3&amp; result)</a></div>
   
   
   
@@ -1403,7 +1414,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_ComputePenetration_const_Collider___const_Collider___Vector3___float___.md&amp;value=---%0Auid%3A%20Collider.ComputePenetration(const%20Collider%20*%2Cconst%20Collider%20*%2CVector3%20%26%2Cfloat%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_ComputePenetration_" data-uid="Collider.ComputePenetration*"></a>
@@ -1477,7 +1488,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_ContainsPoint_const_Vector3___.md&amp;value=---%0Auid%3A%20Collider.ContainsPoint(const%20Vector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_ContainsPoint_" data-uid="Collider.ContainsPoint*"></a>
@@ -1490,7 +1501,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool ContainsPoint(const Vector3&amp; point) const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool ContainsPoint(const Vector3&amp; point) const final</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1518,6 +1529,8 @@
   
   
   
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="PhysicsColliderActor.html#PhysicsColliderActor_ContainsPoint_const_Vector3___">PhysicsColliderActor::ContainsPoint(const Vector3&amp; point)</a></div>
   
   
   
@@ -1530,7 +1543,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_CreateShape__.md&amp;value=---%0Auid%3A%20Collider.CreateShape()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L169" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L136" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_CreateShape_" data-uid="Collider.CreateShape*"></a>
@@ -1564,7 +1577,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_CreateStaticActor__.md&amp;value=---%0Auid%3A%20Collider.CreateStaticActor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L146" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_CreateStaticActor_" data-uid="Collider.CreateStaticActor*"></a>
@@ -1595,63 +1608,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20Collider.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L196" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="Collider_Deserialize_" data-uid="Collider.Deserialize*"></a>
-  
-  <h4 id="Collider_Deserialize_DeserializeStream___ISerializeModifier___" data-uid="Collider.Deserialize(DeserializeStream &amp;,ISerializeModifier *)"><a href="#collapsible-Collider_Deserialize_DeserializeStream___ISerializeModifier___" class="expander" data-toggle="collapse">Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></h4>
-  
-  <div id="collapsible-Collider_Deserialize_DeserializeStream___ISerializeModifier___" class="collapse in">
-  <div class="markdown level1 summary"><p>Deserializes object from the input stream. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">DeserializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The input stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="ISerializeModifier.html">ISerializeModifier</a></span>
-        <span class="parametername">modifier</span>
-        <p><p>The deserialization modifier object. Always valid.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_DrawPhysicsDebug_RenderView___.md&amp;value=---%0Auid%3A%20Collider.DrawPhysicsDebug(RenderView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L187" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L154" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_DrawPhysicsDebug_" data-uid="Collider.DrawPhysicsDebug*"></a>
@@ -1695,7 +1655,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_EndPlay__.md&amp;value=---%0Auid%3A%20Collider.EndPlay()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L206" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L175" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_EndPlay_" data-uid="Collider.EndPlay*"></a>
@@ -1731,7 +1691,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetAttachedRigidBody__.md&amp;value=---%0Auid%3A%20Collider.GetAttachedRigidBody()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L197" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetAttachedRigidBody_" data-uid="Collider.GetAttachedRigidBody*"></a>
@@ -1776,7 +1736,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetCenter__.md&amp;value=---%0Auid%3A%20Collider.GetCenter()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L54" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetCenter_" data-uid="Collider.GetCenter*"></a>
@@ -1819,7 +1779,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetContactOffset__.md&amp;value=---%0Auid%3A%20Collider.GetContactOffset()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L67" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetContactOffset_" data-uid="Collider.GetContactOffset*"></a>
@@ -1862,7 +1822,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetGeometry_CollisionShape___.md&amp;value=---%0Auid%3A%20Collider.GetGeometry(CollisionShape%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L131" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetGeometry_" data-uid="Collider.GetGeometry*"></a>
@@ -1906,7 +1866,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetIsTrigger__.md&amp;value=---%0Auid%3A%20Collider.GetIsTrigger()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L41" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetIsTrigger_" data-uid="Collider.GetIsTrigger*"></a>
@@ -1949,7 +1909,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetPhysicsShape__.md&amp;value=---%0Auid%3A%20Collider.GetPhysicsShape()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetPhysicsShape_" data-uid="Collider.GetPhysicsShape*"></a>
@@ -1992,7 +1952,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnActiveInTreeChanged__.md&amp;value=---%0Auid%3A%20Collider.OnActiveInTreeChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L207" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L176" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnActiveInTreeChanged_" data-uid="Collider.OnActiveInTreeChanged*"></a>
@@ -2028,7 +1988,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnDisable__.md&amp;value=---%0Auid%3A%20Collider.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L203" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L172" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnDisable_" data-uid="Collider.OnDisable*"></a>
@@ -2064,7 +2024,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnEnable__.md&amp;value=---%0Auid%3A%20Collider.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L202" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnEnable_" data-uid="Collider.OnEnable*"></a>
@@ -2100,7 +2060,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnLayerChanged__.md&amp;value=---%0Auid%3A%20Collider.OnLayerChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L210" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnLayerChanged_" data-uid="Collider.OnLayerChanged*"></a>
@@ -2136,7 +2096,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnParentChanged__.md&amp;value=---%0Auid%3A%20Collider.OnParentChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L208" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnParentChanged_" data-uid="Collider.OnParentChanged*"></a>
@@ -2172,7 +2132,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnPhysicsSceneChanged_PhysicsScene___.md&amp;value=---%0Auid%3A%20Collider.OnPhysicsSceneChanged(PhysicsScene%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L211" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L180" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnPhysicsSceneChanged_" data-uid="Collider.OnPhysicsSceneChanged*"></a>
@@ -2218,7 +2178,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_OnTransformChanged__.md&amp;value=---%0Auid%3A%20Collider.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L209" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L178" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_OnTransformChanged_" data-uid="Collider.OnTransformChanged*"></a>
@@ -2254,7 +2214,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_RayCast_const_Vector3___const_Vector3___float___float_.md&amp;value=---%0Auid%3A%20Collider.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2Cfloat%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_RayCast_" data-uid="Collider.RayCast*"></a>
@@ -2267,7 +2227,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, float&amp; resultHitDistance, float maxDistance=MAX_float) const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, float&amp; resultHitDistance, float maxDistance=MAX_float) const final</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2316,6 +2276,8 @@
   
   
   
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="PhysicsColliderActor.html#PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___float___float_">PhysicsColliderActor::RayCast(const Vector3&amp; origin, const Vector3&amp; direction, float&amp; resultHitDistance, float maxDistance=MAX_float)</a></div>
   
   
   
@@ -2328,7 +2290,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_RayCast_const_Vector3___const_Vector3___RayCastHit___float_.md&amp;value=---%0Auid%3A%20Collider.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2CRayCastHit%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_RayCast_" data-uid="Collider.RayCast*"></a>
@@ -2341,7 +2303,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, RayCastHit&amp; hitInfo, float maxDistance=MAX_float) const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, RayCastHit&amp; hitInfo, float maxDistance=MAX_float) const final</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2390,6 +2352,8 @@
   
   
   
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="PhysicsColliderActor.html#PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___RayCastHit___float_">PhysicsColliderActor::RayCast(const Vector3&amp; origin, const Vector3&amp; direction, RayCastHit&amp; hitInfo, float maxDistance=MAX_float)</a></div>
   
   
   
@@ -2402,7 +2366,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_RemoveStaticActor__.md&amp;value=---%0Auid%3A%20Collider.RemoveStaticActor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L184" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L151" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_RemoveStaticActor_" data-uid="Collider.RemoveStaticActor*"></a>
@@ -2433,63 +2397,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20Collider.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L195" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="Collider_Serialize_" data-uid="Collider.Serialize*"></a>
-  
-  <h4 id="Collider_Serialize_SerializeStream___const_void___" data-uid="Collider.Serialize(SerializeStream &amp;,const void *)"><a href="#collapsible-Collider_Serialize_SerializeStream___const_void___" class="expander" data-toggle="collapse">Serialize(SerializeStream&amp; stream, const void* otherObj)</a></h4>
-  
-  <div id="collapsible-Collider_Serialize_SerializeStream___const_void___" class="collapse in">
-  <div class="markdown level1 summary"><p>Serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Serialize(SerializeStream&amp; stream, const void* otherObj) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SerializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The output stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">void</span></span>
-        <span class="parametername">otherObj</span>
-        <p><p>The instance of the object to compare with and serialize only the modified properties. If null, then serialize all properties.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_Serialize_SerializeStream___const_void___">Actor::Serialize(SerializeStream&amp; stream, const void* otherObj)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_SetCenter_const_Vector3___.md&amp;value=---%0Auid%3A%20Collider.SetCenter(const%20Vector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L61" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L62" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_SetCenter_" data-uid="Collider.SetCenter*"></a>
@@ -2533,7 +2444,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_SetContactOffset_float_.md&amp;value=---%0Auid%3A%20Collider.SetContactOffset(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L74" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_SetContactOffset_" data-uid="Collider.SetContactOffset*"></a>
@@ -2577,7 +2488,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_SetIsTrigger_bool_.md&amp;value=---%0Auid%3A%20Collider.SetIsTrigger(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L49" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_SetIsTrigger_" data-uid="Collider.SetIsTrigger*"></a>
@@ -2621,7 +2532,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_UpdateBounds__.md&amp;value=---%0Auid%3A%20Collider.UpdateBounds()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L125" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_UpdateBounds_" data-uid="Collider.UpdateBounds*"></a>
@@ -2655,7 +2566,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_UpdateGeometry__.md&amp;value=---%0Auid%3A%20Collider.UpdateGeometry()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_UpdateGeometry_" data-uid="Collider.UpdateGeometry*"></a>
@@ -2689,7 +2600,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_UpdateLayerBits__.md&amp;value=---%0Auid%3A%20Collider.UpdateLayerBits()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L153" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L120" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_UpdateLayerBits_" data-uid="Collider.UpdateLayerBits*"></a>
@@ -2754,7 +2665,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

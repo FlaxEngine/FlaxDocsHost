@@ -1732,16 +1732,16 @@ public bool Visible { get; set; }</code></pre>
   
   <a id="FlaxEngine_GUI_Control_ContainsPoint_" data-uid="FlaxEngine.GUI.Control.ContainsPoint*"></a>
   
-  <h4 id="FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__" data-uid="FlaxEngine.GUI.Control.ContainsPoint(FlaxEngine.Float2@)"><a href="#collapsible-FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__" class="expander" data-toggle="collapse">ContainsPoint(ref Float2)</a></h4>
+  <h4 id="FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__System_Boolean_" data-uid="FlaxEngine.GUI.Control.ContainsPoint(FlaxEngine.Float2@,System.Boolean)"><a href="#collapsible-FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__System_Boolean_" class="expander" data-toggle="collapse">ContainsPoint(ref Float2, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__" class="collapse in">
-  <div class="markdown level1 summary"><p>Checks if control contains given point in local Control Space.</p>
+  <div id="collapsible-FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if this control contains given point in local Control Space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool ContainsPoint(ref Float2 location)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual bool ContainsPoint(ref Float2 location, bool precise = false)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1751,6 +1751,14 @@ public bool Visible { get; set; }</code></pre>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
         <span class="parametername">location</span>
         <p><p>Point location in Control Space to check</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">precise</span>
+        <p><p>True if perform precise intersection test against the control content (eg. with hit mask or transparency threshold). Otherwise, only simple bounds-check will be performed.</p>
 </p>
       </td>
     </tr>
@@ -4384,6 +4392,63 @@ public virtual void PerformLayout(bool force = false)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_GUI_Control_RayCast_" data-uid="FlaxEngine.GUI.Control.RayCast*"></a>
+  
+  <h4 id="FlaxEngine_GUI_Control_RayCast_FlaxEngine_Float2__FlaxEngine_GUI_Control__" data-uid="FlaxEngine.GUI.Control.RayCast(FlaxEngine.Float2@,FlaxEngine.GUI.Control@)"><a href="#collapsible-FlaxEngine_GUI_Control_RayCast_FlaxEngine_Float2__FlaxEngine_GUI_Control__" class="expander" data-toggle="collapse">RayCast(ref Float2, out Control)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_Control_RayCast_FlaxEngine_Float2__FlaxEngine_GUI_Control__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a raycast against UI controls hierarchy to find any intersecting control content. Uses <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__System_Boolean_">ContainsPoint(ref Float2, Boolean)</a> with precise check (skips transparent surfaces and empty panels).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool RayCast(ref Float2 location, out Control hit)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">location</span>
+        <p><p>The position to intersect UI with.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.Control.html">Control</a></span>
+        <span class="parametername">hit</span>
+        <p><p>The result control that intersects with the raycast.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if ray hits any matching control, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GUI_Control_RemoveUpdateCallbacks_" data-uid="FlaxEngine.GUI.Control.RemoveUpdateCallbacks*"></a>
   
   <h4 id="FlaxEngine_GUI_Control_RemoveUpdateCallbacks_FlaxEngine_GUI_RootControl_" data-uid="FlaxEngine.GUI.Control.RemoveUpdateCallbacks(FlaxEngine.GUI.RootControl)"><a href="#collapsible-FlaxEngine_GUI_Control_RemoveUpdateCallbacks_FlaxEngine_GUI_RootControl_" class="expander" data-toggle="collapse">RemoveUpdateCallbacks(RootControl)</a></h4>
@@ -5029,7 +5094,7 @@ public void UpdateTransform()</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

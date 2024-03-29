@@ -176,9 +176,6 @@
       <a class="xref" href="Actor.html#Actor_AddMovement_const_Vector3___">Actor::AddMovement(const Vector3&amp; translation)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_AddMovement_const_Vector3___const_Quaternion___">Actor::AddMovement(const Vector3&amp; translation, const Quaternion&amp; rotation)</a>
-    </div>
-    <div>
       <a class="xref" href="Actor.html#Actor_AddScript__">Actor::AddScript()</a>
     </div>
     <div>
@@ -251,13 +248,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -399,6 +396,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -1770,6 +1770,59 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_AddMovement_const_Vector3___const_Quaternion___.md&amp;value=---%0Auid%3A%20RigidBody.AddMovement(const%20Vector3%20%26%2Cconst%20Quaternion%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L470" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="RigidBody_AddMovement_" data-uid="RigidBody.AddMovement*"></a>
+  
+  <h4 id="RigidBody_AddMovement_const_Vector3___const_Quaternion___" data-uid="RigidBody.AddMovement(const Vector3 &amp;,const Quaternion &amp;)"><a href="#collapsible-RigidBody_AddMovement_const_Vector3___const_Quaternion___" class="expander" data-toggle="collapse">AddMovement(const Vector3&amp; translation, const Quaternion&amp; rotation)</a></h4>
+  
+  <div id="collapsible-RigidBody_AddMovement_const_Vector3___const_Quaternion___" class="collapse in">
+  <div class="markdown level1 summary"><p>Moves the actor (also can rotate it) in world space. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void AddMovement(const Vector3&amp; translation, const Quaternion&amp; rotation) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">translation</span>
+        <p><p>The translation vector.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Quaternion.html">Quaternion</a></span>
+        <span class="parametername">rotation</span>
+        <p><p>The rotation quaternion.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_AddMovement_const_Vector3___const_Quaternion___">Actor::AddMovement(const Vector3&amp; translation, const Quaternion&amp; rotation)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_AddRelativeForce_const_Vector3___ForceMode_.md&amp;value=---%0Auid%3A%20RigidBody.AddRelativeForce(const%20Vector3%20%26%2CForceMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1933,7 +1986,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20RigidBody.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L477" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L478" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_BeginPlay_" data-uid="RigidBody.BeginPlay*"></a>
@@ -2083,7 +2136,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_EndPlay__.md&amp;value=---%0Auid%3A%20RigidBody.EndPlay()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L478" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L479" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_EndPlay_" data-uid="RigidBody.EndPlay*"></a>
@@ -2824,7 +2877,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_GetPhysicsActor__.md&amp;value=---%0Auid%3A%20RigidBody.GetPhysicsActor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L472" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L473" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_GetPhysicsActor_" data-uid="RigidBody.GetPhysicsActor*"></a>
@@ -3085,7 +3138,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_OnActiveInTreeChanged__.md&amp;value=---%0Auid%3A%20RigidBody.OnActiveInTreeChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L479" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L480" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_OnActiveInTreeChanged_" data-uid="RigidBody.OnActiveInTreeChanged*"></a>
@@ -3121,7 +3174,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_OnActiveTransformChanged__.md&amp;value=---%0Auid%3A%20RigidBody.OnActiveTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L473" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L474" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_OnActiveTransformChanged_" data-uid="RigidBody.OnActiveTransformChanged*"></a>
@@ -3289,7 +3342,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_OnPhysicsSceneChanged_PhysicsScene___.md&amp;value=---%0Auid%3A%20RigidBody.OnPhysicsSceneChanged(PhysicsScene%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L481" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L482" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_OnPhysicsSceneChanged_" data-uid="RigidBody.OnPhysicsSceneChanged*"></a>
@@ -3335,7 +3388,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RigidBody_OnTransformChanged__.md&amp;value=---%0Auid%3A%20RigidBody.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L480" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/RigidBody.h/#L481" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RigidBody_OnTransformChanged_" data-uid="RigidBody.OnTransformChanged*"></a>
@@ -4563,7 +4616,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

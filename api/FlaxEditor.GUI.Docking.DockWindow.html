@@ -153,6 +153,9 @@
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_Draw">Panel.Draw()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_ContainsPoint_FlaxEngine_Float2__System_Boolean_">Panel.ContainsPoint(Float2, Boolean)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_IntersectsChildContent_FlaxEngine_GUI_Control_FlaxEngine_Float2_FlaxEngine_Float2__">Panel.IntersectsChildContent(Control, Float2, Float2)</a>
     </div>
     <div>
@@ -274,6 +277,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawChildren">ContainerControl.DrawChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_RayCast_FlaxEngine_Float2__FlaxEngine_GUI_Control__">ContainerControl.RayCast(Float2, Control)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_OnMouseEnter_FlaxEngine_Float2_">ContainerControl.OnMouseEnter(Float2)</a>
@@ -421,9 +427,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IntersectsContent_FlaxEngine_Float2__FlaxEngine_Float2__">Control.IntersectsContent(Float2, Float2)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__">Control.ContainsPoint(Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointToParent_FlaxEngine_GUI_ContainerControl_FlaxEngine_Float2_">Control.PointToParent(ContainerControl, Float2)</a>
@@ -790,7 +793,7 @@
   <h4 id="FlaxEditor_GUI_Docking_DockWindow_DefaultSize" data-uid="FlaxEditor.GUI.Docking.DockWindow.DefaultSize"><a href="#collapsible-FlaxEditor_GUI_Docking_DockWindow_DefaultSize" class="expander" data-toggle="collapse">DefaultSize</a></h4>
   
   <div id="collapsible-FlaxEditor_GUI_Docking_DockWindow_DefaultSize" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the default window size.</p>
+  <div class="markdown level1 summary"><p>Gets the default window size (in UI units, unscaled by DPI which is handled by windowing system).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -816,9 +819,6 @@
   
   
   
-  <h5 id="FlaxEditor_GUI_Docking_DockWindow_DefaultSize_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Scaled by the DPI, because the window should be large enough for its content on every monitor</p>
-</div>
   
   
   
@@ -1976,16 +1976,16 @@
   
   <a id="FlaxEditor_GUI_Docking_DockWindow_Show_" data-uid="FlaxEditor.GUI.Docking.DockWindow.Show*"></a>
   
-  <h4 id="FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_" data-uid="FlaxEditor.GUI.Docking.DockWindow.Show(FlaxEditor.GUI.Docking.DockState,FlaxEditor.GUI.Docking.DockPanel)"><a href="#collapsible-FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_" class="expander" data-toggle="collapse">Show(DockState, DockPanel)</a></h4>
+  <h4 id="FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_System_Boolean_System_Nullable_System_Single__" data-uid="FlaxEditor.GUI.Docking.DockWindow.Show(FlaxEditor.GUI.Docking.DockState,FlaxEditor.GUI.Docking.DockPanel,System.Boolean,System.Nullable{System.Single})"><a href="#collapsible-FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_System_Boolean_System_Nullable_System_Single__" class="expander" data-toggle="collapse">Show(DockState, DockPanel, Boolean, Nullable&lt;Single&gt;)</a></h4>
   
-  <div id="collapsible-FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_" class="collapse in">
+  <div id="collapsible-FlaxEditor_GUI_Docking_DockWindow_Show_FlaxEditor_GUI_Docking_DockState_FlaxEditor_GUI_Docking_DockPanel_System_Boolean_System_Nullable_System_Single__" class="collapse in">
   <div class="markdown level1 summary"><p>Shows the window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Show(DockState state, DockPanel toDock = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Show(DockState state, DockPanel toDock = null, bool autoSelect = true, Nullable&lt;float&gt; splitterValue = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2003,6 +2003,22 @@
         <span class="pull-right"><a class="xref" href="FlaxEditor.GUI.Docking.DockPanel.html">DockPanel</a></span>
         <span class="parametername">toDock</span>
         <p><p>Panel to dock to it.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">autoSelect</span>
+        <p><p>Only used if <code data-dev-comment-type="paramref" class="paramref">toDock</code> is set. If true the window will be selected after docking it.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</span>
+        <span class="parametername">splitterValue</span>
+        <p><p>Only used if <code data-dev-comment-type="paramref" class="paramref">toDock</code> is set. The splitter value to use. If not specified, a default value will be used.</p>
 </p>
       </td>
     </tr>
@@ -2301,7 +2317,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

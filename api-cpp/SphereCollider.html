@@ -289,6 +289,9 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a>
+    </div>
+    <div>
       <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -313,13 +316,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -476,6 +479,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -715,6 +721,9 @@
       <a class="xref" href="Actor.html#Actor_Scripts">Actor::Scripts</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Serialize_SerializeStream___const_void___">Actor::Serialize(SerializeStream&amp; stream, const void* otherObj)</a>
+    </div>
+    <div>
       <span class="xref">SphereCollider</span>
     </div>
     <div>
@@ -893,63 +902,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20SphereCollider.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SphereCollider_Deserialize_" data-uid="SphereCollider.Deserialize*"></a>
-  
-  <h4 id="SphereCollider_Deserialize_DeserializeStream___ISerializeModifier___" data-uid="SphereCollider.Deserialize(DeserializeStream &amp;,ISerializeModifier *)"><a href="#collapsible-SphereCollider_Deserialize_DeserializeStream___ISerializeModifier___" class="expander" data-toggle="collapse">Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></h4>
-  
-  <div id="collapsible-SphereCollider_Deserialize_DeserializeStream___ISerializeModifier___" class="collapse in">
-  <div class="markdown level1 summary"><p>Deserializes object from the input stream. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">DeserializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The input stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="ISerializeModifier.html">ISerializeModifier</a></span>
-        <span class="parametername">modifier</span>
-        <p><p>The deserialization modifier object. Always valid.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Collider.html#Collider_Deserialize_DeserializeStream___ISerializeModifier___">Collider::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_DrawPhysicsDebug_RenderView___.md&amp;value=---%0Auid%3A%20SphereCollider.DrawPhysicsDebug(RenderView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L45" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_DrawPhysicsDebug_" data-uid="SphereCollider.DrawPhysicsDebug*"></a>
@@ -995,7 +951,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_GetGeometry_CollisionShape___.md&amp;value=---%0Auid%3A%20SphereCollider.GetGeometry(CollisionShape%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_GetGeometry_" data-uid="SphereCollider.GetGeometry*"></a>
@@ -1041,7 +997,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_GetRadius__.md&amp;value=---%0Auid%3A%20SphereCollider.GetRadius()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L22" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_GetRadius_" data-uid="SphereCollider.GetRadius*"></a>
@@ -1084,7 +1040,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_IntersectsItself_const_Ray___Real___Vector3___.md&amp;value=---%0Auid%3A%20SphereCollider.IntersectsItself(const%20Ray%20%26%2CReal%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L39" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_IntersectsItself_" data-uid="SphereCollider.IntersectsItself*"></a>
@@ -1153,7 +1109,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_OnDebugDrawSelected__.md&amp;value=---%0Auid%3A%20SphereCollider.OnDebugDrawSelected()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_OnDebugDrawSelected_" data-uid="SphereCollider.OnDebugDrawSelected*"></a>
@@ -1186,63 +1142,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20SphereCollider.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L39" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SphereCollider_Serialize_" data-uid="SphereCollider.Serialize*"></a>
-  
-  <h4 id="SphereCollider_Serialize_SerializeStream___const_void___" data-uid="SphereCollider.Serialize(SerializeStream &amp;,const void *)"><a href="#collapsible-SphereCollider_Serialize_SerializeStream___const_void___" class="expander" data-toggle="collapse">Serialize(SerializeStream&amp; stream, const void* otherObj)</a></h4>
-  
-  <div id="collapsible-SphereCollider_Serialize_SerializeStream___const_void___" class="collapse in">
-  <div class="markdown level1 summary"><p>Serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Serialize(SerializeStream&amp; stream, const void* otherObj) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SerializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The output stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">void</span></span>
-        <span class="parametername">otherObj</span>
-        <p><p>The instance of the object to compare with and serialize only the modified properties. If null, then serialize all properties.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Collider.html#Collider_Serialize_SerializeStream___const_void___">Collider::Serialize(SerializeStream&amp; stream, const void* otherObj)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_SetRadius_float_.md&amp;value=---%0Auid%3A%20SphereCollider.SetRadius(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L31" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_SetRadius_" data-uid="SphereCollider.SetRadius*"></a>
@@ -1286,7 +1189,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SphereCollider_UpdateBounds__.md&amp;value=---%0Auid%3A%20SphereCollider.UpdateBounds()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/SphereCollider.h/#L46" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SphereCollider_UpdateBounds_" data-uid="SphereCollider.UpdateBounds*"></a>
@@ -1353,7 +1256,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

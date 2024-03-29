@@ -254,13 +254,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -399,6 +399,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -765,7 +768,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Clip.md&amp;value=---%0Auid%3A%20AudioSource.Clip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L74" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -807,7 +810,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SourceIDs.md&amp;value=---%0Auid%3A%20AudioSource.SourceIDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L69" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L70" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -851,7 +854,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_BeginPlay_SceneBeginData___.md&amp;value=---%0Auid%3A%20AudioSource.BeginPlay(SceneBeginData%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L308" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L322" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_BeginPlay_" data-uid="AudioSource.BeginPlay*"></a>
@@ -897,7 +900,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Cleanup__.md&amp;value=---%0Auid%3A%20AudioSource.Cleanup()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L268" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L282" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Cleanup_" data-uid="AudioSource.Cleanup*"></a>
@@ -931,7 +934,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20AudioSource.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L299" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L313" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Deserialize_" data-uid="AudioSource.Deserialize*"></a>
@@ -984,7 +987,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetAllowSpatialization__.md&amp;value=---%0Auid%3A%20AudioSource.GetAllowSpatialization()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L191" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L205" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetAllowSpatialization_" data-uid="AudioSource.GetAllowSpatialization*"></a>
@@ -1027,7 +1030,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetAttenuation__.md&amp;value=---%0Auid%3A%20AudioSource.GetAttenuation()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetAttenuation_" data-uid="AudioSource.GetAttenuation*"></a>
@@ -1070,7 +1073,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetDopplerFactor__.md&amp;value=---%0Auid%3A%20AudioSource.GetDopplerFactor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L178" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetDopplerFactor_" data-uid="AudioSource.GetDopplerFactor*"></a>
@@ -1113,7 +1116,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetEditorBox__.md&amp;value=---%0Auid%3A%20AudioSource.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L289" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L303" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetEditorBox_" data-uid="AudioSource.GetEditorBox*"></a>
@@ -1158,7 +1161,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetIsLooping__.md&amp;value=---%0Auid%3A%20AudioSource.GetIsLooping()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L126" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetIsLooping_" data-uid="AudioSource.GetIsLooping*"></a>
@@ -1201,7 +1204,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetMinDistance__.md&amp;value=---%0Auid%3A%20AudioSource.GetMinDistance()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L152" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetMinDistance_" data-uid="AudioSource.GetMinDistance*"></a>
@@ -1244,7 +1247,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetPan__.md&amp;value=---%0Auid%3A%20AudioSource.GetPan()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L113" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetPan_" data-uid="AudioSource.GetPan*"></a>
@@ -1287,7 +1290,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetPitch__.md&amp;value=---%0Auid%3A%20AudioSource.GetPitch()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetPitch_" data-uid="AudioSource.GetPitch*"></a>
@@ -1330,7 +1333,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetPlayOnStart__.md&amp;value=---%0Auid%3A%20AudioSource.GetPlayOnStart()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetPlayOnStart_" data-uid="AudioSource.GetPlayOnStart*"></a>
@@ -1370,10 +1373,53 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetStartTime__.md&amp;value=---%0Auid%3A%20AudioSource.GetStartTime()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_GetStartTime_" data-uid="AudioSource.GetStartTime*"></a>
+  
+  <h4 id="AudioSource_GetStartTime__" data-uid="AudioSource.GetStartTime()"><a href="#collapsible-AudioSource_GetStartTime__" class="expander" data-toggle="collapse">GetStartTime()</a></h4>
+  
+  <div id="collapsible-AudioSource_GetStartTime__" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the time (in seconds) at which the audio clip starts playing if Play On Start is enabled. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public float GetStartTime() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">float</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetState__.md&amp;value=---%0Auid%3A%20AudioSource.GetState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L220" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L234" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetState_" data-uid="AudioSource.GetState*"></a>
@@ -1416,7 +1462,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetTime__.md&amp;value=---%0Auid%3A%20AudioSource.GetTime()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L228" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L242" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetTime_" data-uid="AudioSource.GetTime*"></a>
@@ -1459,7 +1505,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetVelocity__.md&amp;value=---%0Auid%3A%20AudioSource.GetVelocity()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetVelocity_" data-uid="AudioSource.GetVelocity*"></a>
@@ -1502,7 +1548,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_GetVolume__.md&amp;value=---%0Auid%3A%20AudioSource.GetVolume()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L87" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L88" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_GetVolume_" data-uid="AudioSource.GetVolume*"></a>
@@ -1545,7 +1591,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_HasContentLoaded__.md&amp;value=---%0Auid%3A%20AudioSource.HasContentLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L300" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L314" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_HasContentLoaded_" data-uid="AudioSource.HasContentLoaded*"></a>
@@ -1590,7 +1636,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_IntersectsItself_const_Ray___Real___Vector3___.md&amp;value=---%0Auid%3A%20AudioSource.IntersectsItself(const%20Ray%20%26%2CReal%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L301" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L315" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_IntersectsItself_" data-uid="AudioSource.IntersectsItself*"></a>
@@ -1659,7 +1705,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Is3D__.md&amp;value=---%0Auid%3A%20AudioSource.Is3D()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L239" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L253" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Is3D_" data-uid="AudioSource.Is3D*"></a>
@@ -1702,7 +1748,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_IsActuallyPlayingSth__.md&amp;value=---%0Auid%3A%20AudioSource.IsActuallyPlayingSth()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L255" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L269" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_IsActuallyPlayingSth_" data-uid="AudioSource.IsActuallyPlayingSth*"></a>
@@ -1745,7 +1791,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnDebugDrawSelected__.md&amp;value=---%0Auid%3A%20AudioSource.OnDebugDrawSelected()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L296" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L310" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_OnDebugDrawSelected_" data-uid="AudioSource.OnDebugDrawSelected*"></a>
@@ -1781,7 +1827,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnDisable__.md&amp;value=---%0Auid%3A%20AudioSource.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L306" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L320" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_OnDisable_" data-uid="AudioSource.OnDisable*"></a>
@@ -1817,7 +1863,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnEnable__.md&amp;value=---%0Auid%3A%20AudioSource.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L305" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L319" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_OnEnable_" data-uid="AudioSource.OnEnable*"></a>
@@ -1853,7 +1899,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_OnTransformChanged__.md&amp;value=---%0Auid%3A%20AudioSource.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L307" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L321" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_OnTransformChanged_" data-uid="AudioSource.OnTransformChanged*"></a>
@@ -1889,7 +1935,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Pause__.md&amp;value=---%0Auid%3A%20AudioSource.Pause()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L210" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L224" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Pause_" data-uid="AudioSource.Pause*"></a>
@@ -1923,7 +1969,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Play__.md&amp;value=---%0Auid%3A%20AudioSource.Play()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L205" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L219" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Play_" data-uid="AudioSource.Play*"></a>
@@ -1957,7 +2003,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_RequestStreamingBuffersUpdate__.md&amp;value=---%0Auid%3A%20AudioSource.RequestStreamingBuffersUpdate()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L263" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L277" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_RequestStreamingBuffersUpdate_" data-uid="AudioSource.RequestStreamingBuffersUpdate*"></a>
@@ -1991,7 +2037,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Restore__.md&amp;value=---%0Auid%3A%20AudioSource.Restore()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L249" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L263" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Restore_" data-uid="AudioSource.Restore*"></a>
@@ -2025,7 +2071,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20AudioSource.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L298" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L312" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Serialize_" data-uid="AudioSource.Serialize*"></a>
@@ -2078,7 +2124,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetAllowSpatialization_bool_.md&amp;value=---%0Auid%3A%20AudioSource.SetAllowSpatialization(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L199" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L213" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetAllowSpatialization_" data-uid="AudioSource.SetAllowSpatialization*"></a>
@@ -2122,7 +2168,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetAttenuation_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetAttenuation(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L173" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L187" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetAttenuation_" data-uid="AudioSource.SetAttenuation*"></a>
@@ -2166,7 +2212,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetDopplerFactor_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetDopplerFactor(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L186" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L200" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetDopplerFactor_" data-uid="AudioSource.SetDopplerFactor*"></a>
@@ -2210,7 +2256,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetIsLooping_bool_.md&amp;value=---%0Auid%3A%20AudioSource.SetIsLooping(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L134" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetIsLooping_" data-uid="AudioSource.SetIsLooping*"></a>
@@ -2254,7 +2300,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetMinDistance_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetMinDistance(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L160" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetMinDistance_" data-uid="AudioSource.SetMinDistance*"></a>
@@ -2298,7 +2344,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetPan_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetPan(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L122" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetPan_" data-uid="AudioSource.SetPan*"></a>
@@ -2342,7 +2388,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetPitch_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetPitch(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L108" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L109" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetPitch_" data-uid="AudioSource.SetPitch*"></a>
@@ -2386,7 +2432,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetPlayOnStart_bool_.md&amp;value=---%0Auid%3A%20AudioSource.SetPlayOnStart(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L156" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetPlayOnStart_" data-uid="AudioSource.SetPlayOnStart*"></a>
@@ -2427,10 +2473,54 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetStartTime_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetStartTime(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AudioSource_SetStartTime_" data-uid="AudioSource.SetStartTime*"></a>
+  
+  <h4 id="AudioSource_SetStartTime_float_" data-uid="AudioSource.SetStartTime(float)"><a href="#collapsible-AudioSource_SetStartTime_float_" class="expander" data-toggle="collapse">SetStartTime(float value)</a></h4>
+  
+  <div id="collapsible-AudioSource_SetStartTime_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines the time (in seconds) at which the audio clip starts playing if Play On Start is enabled. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetStartTime(float value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetTime_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetTime(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L234" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L248" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetTime_" data-uid="AudioSource.SetTime*"></a>
@@ -2474,7 +2564,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_SetVolume_float_.md&amp;value=---%0Auid%3A%20AudioSource.SetVolume(float)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L96" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_SetVolume_" data-uid="AudioSource.SetVolume*"></a>
@@ -2518,7 +2608,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_Stop__.md&amp;value=---%0Auid%3A%20AudioSource.Stop()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L215" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L229" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_Stop_" data-uid="AudioSource.Stop*"></a>
@@ -2552,7 +2642,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AudioSource_UseStreaming__.md&amp;value=---%0Auid%3A%20AudioSource.UseStreaming()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L244" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Audio/AudioSource.h/#L258" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AudioSource_UseStreaming_" data-uid="AudioSource.UseStreaming*"></a>
@@ -2622,7 +2712,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

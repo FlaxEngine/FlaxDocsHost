@@ -727,6 +727,7 @@ public int Layer { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Rotation&quot;)]
+[VisibleIf(&quot;ShowTransform&quot;, false)]
 [EditorOrder(-20)]
 [NoSerialize]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+OrientationEditor&quot;)]
@@ -769,6 +770,7 @@ public Quaternion LocalOrientation { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Position&quot;)]
+[VisibleIf(&quot;ShowTransform&quot;, false)]
 [EditorOrder(-30)]
 [NoSerialize]
 [CustomEditorAlias(&quot;FlaxEditor.CustomEditors.Editors.ActorTransformEditor+PositionEditor&quot;)]
@@ -811,6 +813,7 @@ public Vector3 LocalPosition { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Transform&quot;, &quot;Scale&quot;)]
+[VisibleIf(&quot;ShowTransform&quot;, false)]
 [Limit(-3.40282347E+38F, 3.40282347E+38F, 0.01F)]
 [EditorOrder(-10)]
 [NoSerialize]
@@ -1616,17 +1619,17 @@ public Actor FindActor(string name)</code></pre>
   
   <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
   
-  <h4 id="FlaxEngine_Actor_FindActor_System_Type_" data-uid="FlaxEngine.Actor.FindActor(System.Type)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_" class="expander" data-toggle="collapse">FindActor(Type)</a></h4>
+  <h4 id="FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_System_Boolean_" data-uid="FlaxEngine.Actor.FindActor(System.Type,FlaxEngine.Tag,System.Boolean)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_System_Boolean_" class="expander" data-toggle="collapse">FindActor(Type, Tag, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries to find the actor of the given type in this actor hierarchy (checks this actor and all children hierarchy).</p>
+  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type and tag in this actor hierarchy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor FindActor([TypeReference] Type type)</code></pre>
+public Actor FindActor([TypeReference] Type type, Tag tag, bool activeOnly = false)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1636,6 +1639,22 @@ public Actor FindActor([TypeReference] Type type)</code></pre>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
         <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>The tag of the actor to search for.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">activeOnly</span>
+        <p><p>Finds only an active actor.</p>
 </p>
       </td>
     </tr>
@@ -1666,17 +1685,17 @@ public Actor FindActor([TypeReference] Type type)</code></pre>
   
   <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
   
-  <h4 id="FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.FindActor(System.Type,FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" class="expander" data-toggle="collapse">FindActor(Type, Tag)</a></h4>
+  <h4 id="FlaxEngine_Actor_FindActor_System_Type_System_Boolean_" data-uid="FlaxEngine.Actor.FindActor(System.Type,System.Boolean)"><a href="#collapsible-FlaxEngine_Actor_FindActor_System_Type_System_Boolean_" class="expander" data-toggle="collapse">FindActor(Type, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_FlaxEngine_Tag_" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries to find the actor of the given type and tag in this actor hierarchy.</p>
+  <div id="collapsible-FlaxEngine_Actor_FindActor_System_Type_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type in this actor hierarchy (checks this actor and all children hierarchy).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public Actor FindActor([TypeReference] Type type, Tag tag)</code></pre>
+public Actor FindActor([TypeReference] Type type, bool activeOnly = false)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1691,9 +1710,9 @@ public Actor FindActor([TypeReference] Type type, Tag tag)</code></pre>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
-        <span class="parametername">tag</span>
-        <p><p>The tag of the actor to search for.</p>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">activeOnly</span>
+        <p><p>Finds only a active actor.</p>
 </p>
       </td>
     </tr>
@@ -1782,19 +1801,38 @@ public Actor FindActor([TypeReference] Type type, string name)</code></pre>
   
   <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
   
-  <h4 id="FlaxEngine_Actor_FindActor__1" data-uid="FlaxEngine.Actor.FindActor``1"><a href="#collapsible-FlaxEngine_Actor_FindActor__1" class="expander" data-toggle="collapse">FindActor&lt;T&gt;()</a></h4>
+  <h4 id="FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_System_Boolean_" data-uid="FlaxEngine.Actor.FindActor``1(FlaxEngine.Tag,System.Boolean)"><a href="#collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_System_Boolean_" class="expander" data-toggle="collapse">FindActor&lt;T&gt;(Tag, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Actor_FindActor__1" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries to find the actor of the given type in this actor hierarchy (checks this actor and all children hierarchy).</p>
+  <div id="collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find actor of the given type and tag in this actor hierarchy (checks this actor and all children hierarchy).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;()
+    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;(Tag tag, bool activeOnly = false)
     where T : Actor</code></pre>
   </div>
 
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
+        <span class="parametername">tag</span>
+        <p><p>A tag on the object.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">activeOnly</span>
+        <p><p>Finds only an active actor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   <h5 class="returns">Returns</h5>
   <table>
@@ -1831,16 +1869,16 @@ public Actor FindActor([TypeReference] Type type, string name)</code></pre>
   
   <a id="FlaxEngine_Actor_FindActor_" data-uid="FlaxEngine.Actor.FindActor*"></a>
   
-  <h4 id="FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" data-uid="FlaxEngine.Actor.FindActor``1(FlaxEngine.Tag)"><a href="#collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" class="expander" data-toggle="collapse">FindActor&lt;T&gt;(Tag)</a></h4>
+  <h4 id="FlaxEngine_Actor_FindActor__1_System_Boolean_" data-uid="FlaxEngine.Actor.FindActor``1(System.Boolean)"><a href="#collapsible-FlaxEngine_Actor_FindActor__1_System_Boolean_" class="expander" data-toggle="collapse">FindActor&lt;T&gt;(Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Actor_FindActor__1_FlaxEngine_Tag_" class="collapse in">
-  <div class="markdown level1 summary"><p>Tries to find actor of the given type and tag in this actor hierarchy (checks this actor and all children hierarchy).</p>
+  <div id="collapsible-FlaxEngine_Actor_FindActor__1_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to find the actor of the given type in this actor hierarchy (checks this actor and all children hierarchy).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;(Tag tag)
+    <pre><code class="lang-csharp hljs">public T FindActor&lt;T&gt;(bool activeOnly = false)
     where T : Actor</code></pre>
   </div>
 
@@ -1848,9 +1886,9 @@ public Actor FindActor([TypeReference] Type type, string name)</code></pre>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="FlaxEngine.Tag.html">Tag</a></span>
-        <span class="parametername">tag</span>
-        <p><p>A tag on the object.</p>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">activeOnly</span>
+        <p><p>Finds only a active actor.</p>
 </p>
       </td>
     </tr>
@@ -2571,6 +2609,45 @@ public void GetLocalToWorldMatrix(out Matrix localToWorld)</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_GetPrefabRoot_" data-uid="FlaxEngine.Actor.GetPrefabRoot*"></a>
+  
+  <h4 id="FlaxEngine_Actor_GetPrefabRoot" data-uid="FlaxEngine.Actor.GetPrefabRoot"><a href="#collapsible-FlaxEngine_Actor_GetPrefabRoot" class="expander" data-toggle="collapse">GetPrefabRoot()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_GetPrefabRoot" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the root of the prefab this actor is attached to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public Actor GetPrefabRoot()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Actor.html">Actor</a>
+        <p><p>The root prefab object, or null if this actor is not a prefab.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   
@@ -4346,7 +4423,7 @@ public static Guid[] TryGetSerializedObjectsIds(byte[] data)</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

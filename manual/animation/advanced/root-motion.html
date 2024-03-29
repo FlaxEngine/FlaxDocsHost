@@ -107,13 +107,72 @@
 <h2 id="usage">Usage</h2>
 <p>In order to use root motion you need to:</p>
 <ol>
-<li><p>Enable root motion when importing an animation</p>
+<li><p>Enable root motion when importing an animation (it can be extracted from a specific node or generated from whole skeleton pose movement)</p>
 <p> <img src="media/root-motion-setup-1.jpg" alt="Root Motion Setup"></p>
 </li>
 <li><p>Enable root motion extraction and apply in Anim Graph</p>
 <p> <img src="media/root-motion-setup-2.jpg" alt="Root Motion Setup"></p>
 </li>
 </ol>
+<h2 id="root-motion-mode">Root Motion Mode</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>None</strong></td>
+<td>Root Motion feature is disabled.</td>
+</tr>
+<tr>
+<td><strong>Extract Node</strong></td>
+<td>Motion is extracted from the root node (or node specified by name).</td>
+</tr>
+<tr>
+<td><strong>Extract Center Of Mass</strong></td>
+<td>Motion is extracted from the center of mass movement (estimated based on the skeleton pose animation).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="root-motion-flags">Root Motion Flags</h2>
+<p>Use <strong>Root Motion Flags</strong> to specify which components of the motion should be extracted from the animation onto the target.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>None</strong></td>
+<td>No root motion.</td>
+</tr>
+<tr>
+<td><strong>Root Position XZ</strong></td>
+<td>Root node position along XZ plane. Applies horizontal movement. Good for stationary animations (eg. idle).</td>
+</tr>
+<tr>
+<td><strong>Root Position Y</strong></td>
+<td>Root node position along Y axis (up). Applies vertical movement. Good for all &#39;grounded&#39; animations unless jumping is handled from code.</td>
+</tr>
+<tr>
+<td><strong>Root Rotation</strong></td>
+<td>Root node rotation. Applies orientation changes. Good for animations that have baked-in root rotation (eg. turn animations).</td>
+</tr>
+<tr>
+<td><strong>Root Position</strong></td>
+<td>Root node position.</td>
+</tr>
+<tr>
+<td><strong>Root Transform</strong></td>
+<td>Root node position and rotation.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tips">Tips</h2>
 <p>You can manually specify the root node for the motion extracting when importing the animation. Use <strong>Root Node Name</strong> field (more info <a href="../../graphics/models/import.html">here</a>).</p>
 <p>If your character uses <a href="../../physics/character-controller.html">Character Controller</a> or kinematic <a href="../../physics/rigid-bodies.html">rigidbody</a> you may want to apply the root motion to it instead of to animated model. To do this simply assign the target object to <a href="https://docs.flaxengine.com/api/FlaxEngine.AnimatedModel.html#FlaxEngine_AnimatedModel_RootMotionTarget">AnimatedModel.RootMotionTarget</a>.</p>
@@ -125,7 +184,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/animation/advanced/root-motion.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/animation/advanced/root-motion.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -145,7 +204,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

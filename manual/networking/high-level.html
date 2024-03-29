@@ -165,7 +165,7 @@ public override void Setup(BuildOptions options)
 <h3 id="clients">Clients</h3>
 <p>Network Manager running as server or host receives new client connections which can be validated/rejected with <code>NetworkManager.ClientConnecting</code> event. For example, game client can send version, player info or local game files checksum to perform server-side verification for competitive multiplayer gaming.</p>
 <p>After performing initial handshake with a new client it&#39;s added to <code>NetworkManager.Clients</code> list and <code>NetworkManager.ClientConnected</code> event is being called (as opposted to <code>NetworkManager.ClientDisconnected</code> event upon connection end or timeout). Network state can be checked with <code>State</code> property (<code>NetworkConnectionState</code> enum) and responsed to changes on <code>NetworkManager.StateChanged</code> event.</p>
-<p>Each client has own unique <code>uint32 ClientId</code> used to identify it within a newtowkr session. Network manager in mode Server or Host always uses <code>NetworkManager.ServerClientId = 0</code> to distinguish from other peers.</p>
+<p>Each client has own unique <code>uint32 ClientId</code> used to identify it within a network session. Network manager in mode Server or Host always uses <code>NetworkManager.ServerClientId = 0</code> to distinguish from other peers.</p>
 <h2 id="network-settings">Network Settings</h2>
 <p>To control network system use <strong>Network Settings</strong> asset (linked into <a href="../editor/game-settings/index.html">Game Settings</a>). You can adjust those options from code at runtime (eg. to set server address or port) with the following code:</p>
 <pre><code class="lang-cs">// Setup network connection settings
@@ -212,7 +212,7 @@ GameSettings.LoadAsset&lt;NetworkSettings&gt;().SetInstance(networkSettings);
 </tbody>
 </table>
 <h2 id="network-replicator">Network Replicator</h2>
-<p><code>NetworkReplicator</code> is system responsible for replicating networked objects and sending/receiving RPCs. It supports objects network role and ownership concepts but also cotains API to spawn/despawn objects at runtime.</p>
+<p><code>NetworkReplicator</code> is system responsible for replicating networked objects and sending/receiving RPCs. It supports network role and ownership concepts for objects but also cotains API to spawn/despawn objects at runtime.</p>
 <p>To register object (script or actor) for network call <code>NetworkReplicator.AddObject</code> (eg. in <code>OnEnable</code> method). It will be automatically added to replication and will be able to invoke or execute RPCs. If you want to register dynamically spawned scene object (eg. player prefab) then call <code>NetworkReplicator.SpawnObject</code> (<code>DespawnObject</code> to remove it).</p>
 <p>Statically placed objects on a level (eg. door actor) can register themselves (eg. in <code>OnEnable</code>/<code>BeginPlay</code> method) so when the network is online those objects will be properly replicated with RPCs support since they exist on server and clients (assuming all of them loaded that level).</p>
 <div class="TIP"><h5>Tip</h5><p><code>NetworkReplicator</code> APIs are ignored when <code>NetworkManager</code> is offline.</p>
@@ -249,7 +249,7 @@ public class MyGameManager : Script
 <h2 id="replication-hierarchy">Replication Hierarchy</h2>
 <p><code>NetworkReplicationHierarchy</code> is a feature that allows the game to configure objects replication mechanism. It&#39;s an optional extension to <code>NetworkReplicator</code> accessible via <code>Hierarchy</code> property and can be set by game to a custom nodes hierarchy. It&#39;s used to store objects for replication in a more optimized structure (eg. grid or hierarchical tree) and it can be used to control the replication rate and target clients for each object individually.</p>
 <p><code>NetworkReplicationHierarchy</code> runs on both server and client but contains only objects that are <em>owned locally</em> - no need to manage objects that should not be replicated by remote clients.</p>
-<p>For example, when a large game level contains 10k networked objects (eg. POIs) then replicating all of them to all connected clients would kill the performance. To solve this problem a simple replication hierarchy can be created that would control Replication FPS for each object and skip unnecessary replications for clients that are too far away. Below is the sample code:</p>
+<p>For example, when a large game level contains 10k networked objects (eg. POIs) then replicating all of them to all connected clients would sacrifice the performance. To solve this problem a simple replication hierarchy can be created that would control Replication FPS for each object and skip unnecessary replications for clients that are too far away. Below is the sample code:</p>
 <div class="TIP"><h5>Tip</h5><p>Use <code>NetworkReplicator.DirtyObject(obj)</code> to mark object as modified for immediate replication (eg. when an object has low Replication FPS but needs to replicate state quickly). You can also set <code>ReplicationFPS</code> of an object to be less than <code>0</code> if you only want it to be replicated on spawn.</p>
 </div>
 <div class="tabGroup" id="tabgroup_xsTwwwFj38">
@@ -317,7 +317,7 @@ public class MyReplicationHierarchy : NetworkReplicationHierarchy
 }
 
 // Then in your game code before starting the multiplayer:
-NetworkReplicator.SetHierarchy(new MyReplicationHierarchy());
+NetworkReplicator.Hierarchy = new MyReplicationHierarchy();
 </code></pre></section>
 <section id="tabpanel_xsTwwwFj38_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp">
@@ -708,7 +708,7 @@ To quickly profile networking with lag simulation (eg. due to bad network ocnnec
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/networking/high-level.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/networking/high-level.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -728,7 +728,7 @@ To quickly profile networking with lag simulation (eg. due to bad network ocnnec
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

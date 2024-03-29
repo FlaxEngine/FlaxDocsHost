@@ -260,13 +260,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -408,6 +408,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -792,7 +795,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_CollisionEnter.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.CollisionEnter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L21" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L22" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -834,7 +837,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_CollisionExit.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.CollisionExit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L26" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L27" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -876,7 +879,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_TriggerEnter.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.TriggerEnter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L31" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -918,7 +921,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_TriggerExit.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.TriggerExit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -959,10 +962,114 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_ClosestPoint_const_Vector3___Vector3___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.ClosestPoint(const%20Vector3%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L71" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="PhysicsColliderActor_ClosestPoint_" data-uid="PhysicsColliderActor.ClosestPoint*"></a>
+  
+  <h4 id="PhysicsColliderActor_ClosestPoint_const_Vector3___Vector3___" data-uid="PhysicsColliderActor.ClosestPoint(const Vector3 &amp;,Vector3 &amp;)"><a href="#collapsible-PhysicsColliderActor_ClosestPoint_const_Vector3___Vector3___" class="expander" data-toggle="collapse">ClosestPoint(const Vector3&amp; point, Vector3&amp; result)</a></h4>
+  
+  <div id="collapsible-PhysicsColliderActor_ClosestPoint_const_Vector3___Vector3___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a point on the collider that is closest to a given location. Can be used to find a hit location or position to apply explosion force or any other special effects. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void ClosestPoint(const Vector3&amp; point, Vector3&amp; result) const = 0</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">point</span>
+        <p><p>The position to find the closest point to it.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">result</span>
+        <p><p>The result point on the collider that is closest to the specified location.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_ContainsPoint_const_Vector3___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.ContainsPoint(const%20Vector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L78" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="PhysicsColliderActor_ContainsPoint_" data-uid="PhysicsColliderActor.ContainsPoint*"></a>
+  
+  <h4 id="PhysicsColliderActor_ContainsPoint_const_Vector3___" data-uid="PhysicsColliderActor.ContainsPoint(const Vector3 &amp;)"><a href="#collapsible-PhysicsColliderActor_ContainsPoint_const_Vector3___" class="expander" data-toggle="collapse">ContainsPoint(const Vector3&amp; point)</a></h4>
+  
+  <div id="collapsible-PhysicsColliderActor_ContainsPoint_const_Vector3___" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if a point is inside the collider. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool ContainsPoint(const Vector3&amp; point) const = 0</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">point</span>
+        <p><p>The point to check if is contained by the collider shape (in world-space).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if collider shape contains a given point, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_GetAttachedRigidBody__.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.GetAttachedRigidBody()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PhysicsColliderActor_GetAttachedRigidBody_" data-uid="PhysicsColliderActor.GetAttachedRigidBody*"></a>
@@ -1005,7 +1112,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_OnCollisionEnter_const_Collision___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.OnCollisionEnter(const%20Collision%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PhysicsColliderActor_OnCollisionEnter_" data-uid="PhysicsColliderActor.OnCollisionEnter*"></a>
@@ -1049,7 +1156,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_OnCollisionExit_const_Collision___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.OnCollisionExit(const%20Collision%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L56" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L91" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PhysicsColliderActor_OnCollisionExit_" data-uid="PhysicsColliderActor.OnCollisionExit*"></a>
@@ -1093,7 +1200,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_OnTriggerEnter_PhysicsColliderActor___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.OnTriggerEnter(PhysicsColliderActor%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L62" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L97" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PhysicsColliderActor_OnTriggerEnter_" data-uid="PhysicsColliderActor.OnTriggerEnter*"></a>
@@ -1137,7 +1244,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_OnTriggerExit_PhysicsColliderActor___.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.OnTriggerExit(PhysicsColliderActor%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="PhysicsColliderActor_OnTriggerExit_" data-uid="PhysicsColliderActor.OnTriggerExit*"></a>
@@ -1176,6 +1283,154 @@
   
   </div>
   
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___float___float_.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2Cfloat%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L54" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="PhysicsColliderActor_RayCast_" data-uid="PhysicsColliderActor.RayCast*"></a>
+  
+  <h4 id="PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___float___float_" data-uid="PhysicsColliderActor.RayCast(const Vector3 &amp;,const Vector3 &amp;,float &amp;,float)"><a href="#collapsible-PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___float___float_" class="expander" data-toggle="collapse">RayCast(const Vector3&amp; origin, const Vector3&amp; direction, float&amp; resultHitDistance, float maxDistance=MAX_float)</a></h4>
+  
+  <div id="collapsible-PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___float___float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a raycast against this collider shape. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, float&amp; resultHitDistance, float maxDistance=MAX_float) const = 0</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">origin</span>
+        <p><p>The origin of the ray.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">direction</span>
+        <p><p>The normalized direction of the ray.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">resultHitDistance</span>
+        <p><p>The raycast result hit position distance from the ray origin. Valid only if raycast hits anything.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">maxDistance</span>
+        <p><p>The maximum distance the ray should check for collisions.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if ray hits an object, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___RayCastHit___float_.md&amp;value=---%0Auid%3A%20PhysicsColliderActor.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2CRayCastHit%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L64" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="PhysicsColliderActor_RayCast_" data-uid="PhysicsColliderActor.RayCast*"></a>
+  
+  <h4 id="PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___RayCastHit___float_" data-uid="PhysicsColliderActor.RayCast(const Vector3 &amp;,const Vector3 &amp;,RayCastHit &amp;,float)"><a href="#collapsible-PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___RayCastHit___float_" class="expander" data-toggle="collapse">RayCast(const Vector3&amp; origin, const Vector3&amp; direction, RayCastHit&amp; hitInfo, float maxDistance=MAX_float)</a></h4>
+  
+  <div id="collapsible-PhysicsColliderActor_RayCast_const_Vector3___const_Vector3___RayCastHit___float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a raycast against this collider, returns results in a RaycastHit structure. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool RayCast(const Vector3&amp; origin, const Vector3&amp; direction, RayCastHit&amp; hitInfo, float maxDistance=MAX_float) const = 0</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">origin</span>
+        <p><p>The origin of the ray.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Vector3</span></span>
+        <span class="parametername">direction</span>
+        <p><p>The normalized direction of the ray.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="RayCastHit.html">RayCastHit</a></span>
+        <span class="parametername">hitInfo</span>
+        <p><p>The result hit information. Valid only when method returns true.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">maxDistance</span>
+        <p><p>The maximum distance the ray should check for collisions.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if ray hits an object, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
   
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -1192,7 +1447,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=PhysicsColliderActor.md&amp;value=---%0Auid%3A%20PhysicsColliderActor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Actors/PhysicsColliderActor.h/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -1212,7 +1467,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

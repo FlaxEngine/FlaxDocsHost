@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 1.8 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 1.8 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Flax 1.8 release notes | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-18-release-notes">Flax 1.8 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="new-ui-editor">New UI Editor</h3>
+<p><img src="media/ui_editor_resizing_widget.gif" alt="New UI Editor Widget"></p>
+<p>We finally made it! New editing tools are coming to Flax. Now you can easily <strong>view and modify user interface layout right in the Prefab or Game window</strong>. This will improve UI development iterations time.</p>
+<h3 id="net-8-support">.NET 8 support</h3>
+<p><img src="media/dotnet8.jpg" alt=".NET 8 support in Flax Engine"></p>
+<p><strong>.NET SDK 8 is now used as a base version</strong> (instead of <code>7</code>) with <strong>C# 12</strong> and the latest performance improvements. It&#39;s a Long Term Support version (<code>LTS</code>), meaning it will be maintained by Microsoft until <code>November 2026</code>. We plan to use the <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">official .NET release cycle</a> and maintain active .NET versions in Flax tools ecosystem. Both Editor and Launcher will check for the proper .NET version on the system upon starting Editor. When building your game ensure to have the <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">latest .NET SDK installed</a> (especially when cooking games for Android or iOS).</p>
+<h3 id="astc-texture-compression">ASTC texture compression</h3>
+<p>Every update brings new improvements for mobile platforms. This time we&#39;ve added <strong>ASTC texture compression</strong> support for iOS and Android devices. This results in <strong>up to 80% less texture memory usage</strong>. Texture compression improves rendering performance because less texture data must be read from GPU memory when texturing objects. Also, game load time is faster as there is less data to read from the device memory into the GPU.</p>
+<p>Flax supports ASTC <code>4x4</code>, <code>6x6</code>, and <code>8x8</code> block compression formats that can be set in platform build settings (<code>TexturesQuality</code> property in <code>AndroidPlatformSettings</code>/<code>iOSPlatformSettings</code>).</p>
+<h3 id="importing-model-files-into-prefabs">Importing model files into prefabs</h3>
+<p><img src="media/model-prefab.png" alt="Importing model files into prefabs"></p>
+<p>Now, when importing model files (such as <code>.fbx</code>) you can select the option <code>Prefab</code>. It will import all meshes, materials, textures, and animations from the source file (into a subdirectory) and create a prefab asset with the whole structure of the source file. This workflow addition allows to work with larger assets that contain multiple subobjects and improves iteration time due to reimport functionality (new <em>Model Prefab</em> script).</p>
+<p>We plan to continue improving this feature by adding support for importing lights, cameras, and object animations as well as streamlining workflow.</p>
+<h3 id="new-vehicle-features">New vehicle features</h3>
+<p><img src="media/truck-vehicle.gif" alt="Truck Vehicles"></p>
+<p>Physics simulation always has been an important topic during Flax development. This time we&#39;ve adding lots of new options for better vehicles driving control such as <code>Steer vs Speed</code>/<code>Anti Roll Bars</code> configs and <strong>tank vehicles support</strong>. (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2192">GH-2192</a>)</p>
+<p><img src="media/tank-vehicle.gif" alt="Tank Vehicles"></p>
+<h3 id="anim-graph-debugging">Anim Graph debugging</h3>
+<p><img src="media/anim-graph-debug-playback.gif" alt="Anim Graph debugging"></p>
+<p>Anim Graph editor will showcase the <strong>current playback position of the animations and state machine insights</strong> to empower debugging experience. Additionally, the new <code>AnimatedModel.GetTraceEvents</code> allows to gather animation playback information in the game code.</p>
+<p>New <strong>Root Motion feature</strong> allows to specify which components of the motion should be applied to the movement of the object (position XZ, position Y, rotation) - this fixes root motion for Mixamo characters. Also, there is a new option to calculate root motion based on the skeleton&#39;s Center Of Mass movement.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/root-motion-mixamo.gif" alt="Root Motion Mixamo"></td>
+<td><img src="media/root-motion-fixed.gif" alt="Root Motion"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="spline-improvements">Spline improvements</h3>
+<p><img src="media/spline.gif" alt="Spline improvements"></p>
+<p>Spline editor allows adding new points based on mouse screen position when holding <code>Ctrl</code> and clicking the right mouse button. It can also snap spline points to other spline points when moving point while holding <code>Shift</code> key (including other nearby splines). (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/1482">GH-1482</a>)</p>
+<h3 id="fallback-font-rendering">Fallback font rendering</h3>
+<p><img src="media/fallback-font.png" alt="Fallback font rendering"></p>
+<p>We&#39;ve added font fallback for text rendering, enabling <strong>better support for CJK characters</strong> (Chinese/Japanese/Korean characters). It handles any missing characters in the font used for rendering by picking up characters from the fallback font that contains those characters (such as CJK fonts). This feature works both in the Editor and the Game thus helping with localization and internalization of the Flax projects. (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2019">GH-2019</a>)</p>
+<h3 id="editor-features">Editor features</h3>
+<p><img src="media/world-units.gif" alt="World Units"></p>
+<p>Every update brings more features and improvements to the Editor. This time we added functionalities such as:</p>
+<ul>
+<li>Saving collapsing panels state for subgroups in the Properties panel,</li>
+<li>Refreshed collection editor interface to be more streamlined (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2208">GH-2208</a>),</li>
+<li>SI units, such as meters, kilograms, in input fields for both displaying and parsing (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2213">GH-2213</a>),</li>
+<li>Quick script creation right from <em>Add script</em> button (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/1827">GH-1827</a>).</li>
+</ul>
+<p><img src="media/new-collection-editor-ui.png" alt="New Collection Editor UI"></p>
+<h2 id="migration-guide">Migration Guide</h2>
+<ul>
+<li><strong>.NET SDK 8 is now used as a base version</strong> (instead of <code>7</code>). It&#39;s a Long Term Support (<code>LTS</code>) version, meaning it will be maintained by Microsoft until <code>November 10, 2026</code>. We plan to use the <a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">official .NET release cycle</a> and maintain active .NET versions in Flax tools ecosystem. Both Editor and Launcher will check for the proper .NET version on the system upon starting Editor.</li>
+<li>Objects rendering matrices are now using proper propagation of the parent transformations instead of a single <code>TRS</code>-style transform which properly handles nesting transformations. Existing scenes might have visual difference.</li>
+<li>Changed <code>DebugDraw.DrawWireArrow</code> and <code>DEBUG_DRAW_WIRE_ARROW</code> accept additional <code>capScale</code> parameter that controls arrow cap size.</li>
+<li>Added <code>DebugDraw::DrawRay</code> with <code>Ray</code> structure, <code>DEBUG_DRAW_RAY</code> changed to use <code>Ray</code> structure</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-1865100---29-march-2024">Version 1.8.6510.0 - 29 March 2024</h3>
+<p>Contributors: mafiesto4, Tryibion, stefnotch, abrasivetroop, Withaust, MineBill, z1dev, GoaLitiuM, NoriteSC, Menotdan, nothingTVatYT, plemsoft, GasimoCodes, whocares77, RuanLucasGD, envision3d, Tesla-J, Chikinsupu, rkrahn, dustytrailsdev, cNori, lifeformed</p>
+<p>PRs merged: 108</p>
+<ul>
+<li>Add red tint highlight for CPU profiler table entries based on event duration</li>
+<li>Add selecting actor spawned in the prefab window</li>
+<li>Add color box to <code>ColorTrackBall</code></li>
+<li>Add events tracing feature to Animated Model for animation playback insights</li>
+<li>Add displaying playback position of animation in Anim Graph window</li>
+<li>Add SourceState and DestinationState modes to State Machine interruption modes in Anim Graph</li>
+<li>Add <strong>new collection editing UI</strong></li>
+<li>Add option to enable Depth Test on cloth painting debug preview (enabled by default)</li>
+<li>Add sub-groups expanded state restoring in Properties window</li>
+<li>Add directions to Slider control</li>
+<li>Add <code>IsValidIndex</code> to Array</li>
+<li>Add <strong>Vehicle Physics Improvements</strong> (new options, tank vehicles)</li>
+<li>Add <code>Create parent for selected actors</code> context menu button</li>
+<li>Add hiding Actor&#39;s Transform for <code>UIControl</code>Actor</li>
+<li>Add RayCast utility to UI controls</li>
+<li>Add <code>MinCount</code> and <code>MaxCount</code> to <code>Collection</code> attribute</li>
+<li>Add require script and actor attributes</li>
+<li>Add option to toggle focus game window on play inside context menu</li>
+<li>Add reload project menu button</li>
+<li>Add support for <strong>multiple physical materials in terrain</strong> - one for each painted layer</li>
+<li>Add <code>Material</code> to <code>RayCastHit</code> for surface detection logic</li>
+<li>Add API for runtime Terrain editing and expose Terrain patch and chunk to API</li>
+<li>Add support for structure and script types in <code>JsonAsset</code></li>
+<li>Add improved Visject context menu items search</li>
+<li>Add <strong>vertex snapping</strong> (gizmo with <code>V</code> key pressed)</li>
+<li>Add support for importing material emissive and roughness from <code>fbx</code> file</li>
+<li>Add support for using pointer in <code>MarshalAs</code> in scripting types</li>
+<li>Add quick creation of scripts via <code>* Add script</code> button on Actor</li>
+<li>Add <code>ScriptingEnum::ToStringFlags</code> for printing flag enums into readable text</li>
+<li>Add <strong>font fallback for text rendering</strong></li>
+<li>Add spline editing improvements</li>
+<li>Add focus selection lock input to scene tree window</li>
+<li>Add <code>SnapToGrid</code> to vectors</li>
+<li>Add <code>NextUnitCircleVector2</code> extension method</li>
+<li>Add the option to deselect all in Editor</li>
+<li>Add rubberband-style selection in a Content View</li>
+<li>Add the ability to quickly change window modes for the game window</li>
+<li>Add improved category drop panel to look similar to other panels in scripts adding popup</li>
+<li>Add parameter to change arrow cap size for Debug Draw</li>
+<li>Add <code>DrawAxisFromDirection</code> and <code>DrawRay</code> with <code>Ray</code> structure for Debug Draw</li>
+<li>Add <code>Actor.GetPrefabRoot()</code></li>
+<li>Add prefab link breaking to preserve nested prefabs links</li>
+<li>Add skipping showing and applying changes to prefab root actor transform via Level</li>
+<li>Add <code>activeOnly</code> parameter to <code>Level::GetActors</code></li>
+<li>Add parameter to finds only an active actor from the scenes</li>
+<li>Add breaking node connection under mouse with middle button click</li>
+<li>Add <code>MoveFileToRecycleBin</code> on Linux</li>
+<li>Add support for VS 2022 v17.10 / MSVC 14.4x toolset</li>
+<li>Add check to prevent incorrect <code>NavCrowd::RemoveAgent</code> usage</li>
+<li>Add clamping multiblend value to the range set </li>
+<li>Add partition mode and cascade spacing for Directional Light shadows</li>
+<li>Add saving docking state for custom editor windows</li>
+<li>Add Guid picker to support asset refs</li>
+<li>Add <code>AnimationRootMotionFlags</code> to configure <strong>root motion component extraction</strong></li>
+<li>Add <code>RootMotionMode</code> to support <strong>extracting root motion from animated skeleton pose center of mass</strong></li>
+<li>Add skeleton mask asset parameter to Blend With Mask anim node</li>
+<li>Add remaining clang options for Apple and Unix toolchains</li>
+<li>Add initial ASTC pixel format support</li>
+<li>Add ‘astc’ encoder lib</li>
+<li>Add <code>BehaviorTreeKnowledgeBooleanDecorator</code></li>
+<li>Add automatic last dangling separator removal in context menu</li>
+<li>Add better grid gizmo rendering in Editor viewport</li>
+<li>Add save input and undo redo in Editor Options</li>
+<li>Add support for animating <code>LocalizedString</code> value in Scene Animation</li>
+<li>Add <strong>UI Control gizmo for editing UIs</strong> (in Prefab and Game windows)</li>
+<li>Add resizing UI Control via widgets</li>
+<li>Add cursor change and showing timeline edge duration when moving it</li>
+<li>Add <code>UI Widget</code> to new asset creation for quick UI setup</li>
+<li>Add <strong>physical units support to input fields</strong> in Editor</li>
+<li>Add <code>InputAxis</code> and <code>InputEvent</code> integration with stdlib features</li>
+<li>Add manual chunks loading before Binary Asset load in case content streaming flushed them out</li>
+<li>Add changes to default post process settings</li>
+<li>Add focusing search bar in content view and output textbox</li>
+<li>Add normal logs for deps build subcommands</li>
+<li>Add support for storing custom platform tools data in Game Cooker cache</li>
+<li>Add auto focus to Editor Window when nothing clicked inside it</li>
+<li>Add initial support for Precompiled Header Files (PCH) in MSVC compilation</li>
+<li>Add support for building engine target as shared library on all platforms</li>
+<li>Add <code>Stopwatch</code> for accurate duration measuring</li>
+<li>Add <code>OutputName</code> to Build Settings for <strong>game output exe/package renaming</strong></li>
+<li>Add better win32 resource file injection to be done during linker call</li>
+<li>Add printing stack trace even when not using log file</li>
+<li>Add better stack trace reporting in crashes when running on non-Windows platforms</li>
+<li>Add support for using Tracy profiler on Switch</li>
+<li>Add removing dotnet libs for iterative rebuilds when AOT cache gets cleared</li>
+<li>Add custom editor for buttons that allow listening for them inside the editor</li>
+<li>Add support for multiple <code>VisibleIf</code> attributes</li>
+<li>Add hold arrow key in tree to continuously scroll actors</li>
+<li>Add drag drop for actor script items into scenes and prefabs</li>
+<li>Add ability to use custom file proxy in Editor plugin for file type</li>
+<li>Add an option to skip existing materials when reimporting</li>
+<li>Add <code>Start Time</code> option for Audio Source actor</li>
+<li>Add support for manually dirtying objects that use <code>ReplicationFPS &lt; 0</code> for manual-only replication</li>
+<li>Add sanity check to prevent crashes when Animated Model has NaN in skeleton pose</li>
+<li>Add support for stencil buffer on Vulkan and D3D11/D3D12</li>
+<li>Add clickable parsing errors in build tool</li>
+<li>Optimize <code>Matrix</code> decomposition to use <code>Matrix3x3</code> for rotation</li>
+<li>Optimize render targets freeing on the start of the game</li>
+<li>Optimize UI Control serialization</li>
+<li>Update Nintendo Switch support to he latest .NET 8 with Mono SGen</li>
+<li>Update <code>dotnet</code> fork to the latest .NET <code>8.0.1</code></li>
+<li>Refactor win32 exe icon updating</li>
+<li>Refactor <code>ThreadLocal</code> when running on hardware with more cores than <code>PLATFORM_THREADS_LIMIT</code></li>
+<li>Refactor UI Control actor active state mirroring in UI via <code>Visible</code> properties rather than unlinked from parent</li>
+<li>Refactor UI Control linkage in the prefab previews to prevent bugs</li>
+<li>Refactor undo logic for actors reparenting in Editor</li>
+<li>Refactor Editor UI style for selection and drag drop interactions</li>
+<li>Refactor collider shape raycasting utilities to the <code>PhysicsColliderActor</code> class</li>
+<li>Refactor <code>PhysicalMaterial</code> usage to utilize <code>JsonAssetReference</code> struct</li>
+<li>Refactor 3D audio implementation in XAudio2 backend to match OpenAL</li>
+<li>Refactor Visject Surface attributes data storage to use <code>JsonSerializer</code> instead of deprecated <code>BinaryFormatter</code></li>
+<li>Refactor engine systems to use platform time seconds rather than date time</li>
+<li>Remove unused <code>SaveTime</code>/<code>LoadTime</code> from <code>Scene</code></li>
+<li>Remove unused &#39;PixelFormatExtensions::ComputeScanlineCount&#39;</li>
+<li>Rename <code>Navigation.ProjectPoint</code> into <code>Navigation.FindClosestPoint</code> to have consistent API naming</li>
+<li>Fix Animated Model slot animations clearing on start</li>
+<li>Fix fog to be usable for transparent materials (if enabled)</li>
+<li>Fix auto-docking windows on open when system DPI scale is not <code>1</code></li>
+<li>Fix missing asset update when dependant asset gets saved in Editor</li>
+<li>Fix <code>unlink</code> usag on Unix systems to properly use returned value</li>
+<li>Fix PostFx Materials blending for duplicated entries</li>
+<li>Fix stopping slot animations and playing the same frame</li>
+<li>Fix unpacking <code>Variant</code> structure if input value is a scalar</li>
+<li>Fix missing default value for new Visject method parameter if method uses Vector param</li>
+<li>Fix shader source code preview in editor</li>
+<li>Fix <code>FileSystem::CopyDirectory</code> not failing when source folder is missing</li>
+<li>Fix mouse events handling over window title bar on Windows</li>
+<li>Fix <code>HeaderAttribute</code> usage with default values</li>
+<li>Fix invalid log timing when log file is disabled in cooked build</li>
+<li>Fix unreliable RPC calls to silently drop if we failed to find an object</li>
+<li>Fix for editor view&#39;s cached <code>CameraNearPlaneValue</code> getting overwritten</li>
+<li>Fix <code>Dropdown</code> panel to scale correctly</li>
+<li>Fix <code>ContextMenu</code> short keys as needed to accommodate for scrollbar when visible</li>
+<li>Fix combobox window position based on what direction it opens</li>
+<li>Fix <code>AlwaysShowScrollbars</code> to update visibility state of the scroll bars</li>
+<li>Fix drop location of multiple nodes to be vertical in Visject</li>
+<li>Fix profiling hotkeys not working while profiler window is closed</li>
+<li>Fix GPU profiler event percentage calculation and * Add tint highlight to spot slow entries</li>
+<li>Fix opening projects with PostFx material assigned in Graphics Settings</li>
+<li>Fix Plugins Window layout in UI</li>
+<li>Fix Plugin Project creation when the user types in symbols</li>
+<li>Fix new asset naming to always validate filename</li>
+<li>Fix sprite atlas limit on <code>4096</code></li>
+<li>Fix invalid shader codegen when using <code>ddx</code>/<code>ddy</code> in material vertex shader</li>
+<li>Fix terrain painting when using multiple layers</li>
+<li>Fix issue with CharacterController initialization when using Center offset</li>
+<li>Fix copy/paste for UI brushes</li>
+<li>Fix UI Control selection bounds drawing to handle rotations</li>
+<li>Fix <code>NextUnitVector2</code> to properly produce a vector within a unit circle</li>
+<li>Fix asset thumbnails refresh to support multi-selection</li>
+<li>Fix focusing editor camera on very large objects</li>
+<li>Fix duplicating array values in Editor</li>
+<li>Fix various Editor input shortcuts binding</li>
+<li>Fix Slider deserialization if value range is invalid</li>
+<li>Fix <code>Transform</code> diff serialization to properly handle prefab changes to a single component of transform</li>
+<li>Fix model prefab issue with scaling and rotation</li>
+<li>Fix differences between Assimp and OpenFBX imports in units scaling</li>
+<li>Fix prefab transform on drag drop with parent</li>
+<li>Fix Missing Script replacing in prefab</li>
+<li>Fix for resetting local transform of newly created prefab child</li>
+<li>Fix nested prefabs instance building logic</li>
+<li>Fix creating prefab out of actor to reset local transform of it for better instancing</li>
+<li>Fix cloth editing undo in Prefab viewport</li>
+<li>Fix incorrect vehicle wheels collisions inside trigger volumes</li>
+<li>Fix editor inputs processing in Game window to interferer with game inputs</li>
+<li>Fix no available getter/setter node and item for private parameters in Visual Script</li>
+<li>Fix Temporal Anti Aliasing ghosting and improve quality of blending</li>
+<li>Fix marshaling custom type array to C# with <code>MarshalAs</code> used</li>
+<li>Fix missing file error in <code>Content::GetAssetInfo</code></li>
+<li>Fix bug with saving Missing Script into file</li>
+<li>Fix transform scaling applying to nested objects when drawing</li>
+<li>Fix uninitialized value of <code>NetworkConfig::NetworkDriver</code> field</li>
+<li>Fix networked objects dirtying for replication</li>
+<li>Fix bug in <code>NetworkReplicator::RemoveObject</code></li>
+<li>Fix C++ Intellisense not working with latest version of Rider</li>
+<li>Fix incorrect including editor modules in <code>Game.Build.cs</code> when git plugin pulling</li>
+<li>Fix incorrect rigidbody rotation in <code>AddMovement</code> when using locked axis</li>
+<li>Fix codegen skipping <code>if</code> and writing <code>else if</code> first</li>
+<li>Fix codegen for nested enums</li>
+<li>Fix missing networked object ID resolving</li>
+<li>Fix <code>JsonAsset::GetInstance</code> to properly check base class</li>
+<li>Fix problem with Procedural Texture Sample flicker if using scaled UVs</li>
+<li>Fix getting file access time for Apple, Android and Linux</li>
+<li>Fix <code>DateTime::GetDate</code> calculations</li>
+<li>Fix render view panning when bug when no camera is active</li>
+<li>Fix Json serializer for CSharp data to use UTF-8 text encoding</li>
+<li>Fix editor exit with error code when game cooking CL fails</li>
+<li>Fix sorting directories in build tool</li>
+<li>Fix building macOS with the latest Vulkan SDK</li>
+<li>Fix anim graph debugging to include nodes path for nested graphs</li>
+<li>Fix root motion preview in animation window</li>
+<li>Fix invalid Visual Studio solution folder nesting</li>
+<li>Fix color grading issue with LUT texture used</li>
+<li>Fix spatial audio playback in OpenAL with Large Worlds enabled</li>
+<li>Fix terrain smoothing brush separation issue</li>
+<li>Fix going into windowed mode on Windows</li>
+<li>Fix <code>rpath</code> on Linux to handle plugins libraries loading in Editor</li>
+<li>Fix error loggig in headless mode on platforms that use <code>char16</code></li>
+<li>Fix support for utf8 character in path on unix systems</li>
+<li>Fix deadlock when stack overflows in the Anim Graph update</li>
+<li>Fix timeline tracks dragging like recent improvements to tree UI</li>
+<li>Fix Bone Socket transform when Animated Model pose is not yet evaluated</li>
+<li>Fix error in Editor when Audio Clip duration is very small</li>
+<li>Fix vehicle center of mass rotation used in wheels setup</li>
+<li>Fix loading <code>BehaviorKnowledgeSelectorAny</code> from json object</li>
+<li>Fix incorrect mouse cursor hiding on Windows when window is not focused</li>
+<li>Fix preserving actors hierarchy order when performing undo of actor removal</li>
+<li>Fix UI size changes when saving scenes or prefabs in Editor with different layout</li>
+<li>Fix UI coordinate convertion in <code>CanvasScaler</code></li>
+<li>Fix split dragging not working in some cases</li>
+<li>Fix carrot and selection height based on dpi scale to correctly scale with interface options</li>
+<li>Fix missing debug shapes in prefab window</li>
+<li>Fix loading shader cache when opened with different engine version</li>
+<li>Fix d3d12 warning on initial gpu buffer state</li>
+<li>Fix small GPU buffer update on Vulkan if data size align up overflows buffer size</li>
+<li>Fix potential issues with shader resources bindings when using custom post processing effect</li>
+<li>Fix TAA jitter in post-resolve passes such as editor primitives and debug gizmos</li>
+<li>Fix Z-fighting issues in Debug Draw when using TAA</li>
+<li>Fix bug in actors duplicate action due to incorrect actors list setup</li>
+<li>Fix snapping to the ground actor when viewport is not focused</li>
+<li>Fix drag and drop regression issue on tree UI</li>
+<li>Fix <code>Revert to Default</code> option when property is marked as <code>ReadOnly</code></li>
+<li>Fix timeline playback control buttons visibility during seeking-only mode</li>
+<li>Fix game ui inputs to UI when game is paused in Editor</li>
+<li>Fix <code>Mono.Cecil</code> error in <code>NetworkingPlugin</code> when using external libraries</li>
+<li>Fix duplicate generation of native variant conversion helpers</li>
+<li>Fix <code>PhysicsScene</code> change not working in physics actors</li>
+<li>Fix crash when scene graph node gets somehow duplicated by internal error in Editor</li>
+<li>Fix crash in <code>StaticModel::GetMaterial</code> when model is not loaded or has invalid entries count</li>
+<li>Fix crash on incorrect object destruction event</li>
+<li>Fix crash on invalid string converted to managed string</li>
+<li>Fix crash due to incorrect PhysX usage for vehicle setup</li>
+<li>Fix crash while moving simulation disabled kinematic actors</li>
+<li>Fix crash when adding physics scene with auto simulation</li>
+<li>Fix crash when setting maanaged structure data via <code>Variant</code></li>
+<li>Fix crash when storage file gets deleted due to missing ref from async thread which failed to load it</li>
+<li>Fix crash when finding actor or level with empty name text</li>
+<li>Fix crash when using multi-threaded objects spawn and caching scripting VTables</li>
+<li>Fix crash when replicating C# object with <code>NetworkReplicated</code> attribute on derived generic class</li>
+<li>Fix crash when using degenerated triangle in Multi Blend 2D to properly sample animation</li>
+<li>Fix crash when loading level with abstract script class</li>
+<li>Fix crash when using generic interface in C#</li>
+<li>Fix crash when using network replication or rpc after hot-reload in Editor</li>
+<li>Fix crash when using invalid <code>GPUTextureDescription</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/release-notes/1_8/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

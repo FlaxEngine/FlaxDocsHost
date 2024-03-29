@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="ThreadLocal">
   <h1 id="ThreadLocal" data-uid="ThreadLocal">Class ThreadLocal
   </h1>
-  <div class="markdown level0 summary"><p>Per-thread local variable storage. Implemented using atomic with per-thread storage indexed via thread id hashing. ForConsider using &#39;THREADLOCAL&#39; define before the variable instead. </p></div>
+  <div class="markdown level0 summary"><p>Per-thread local variable storage for basic types (POD). Implemented using atomic with per-thread storage indexed via thread id hashing. Consider using &#39;THREADLOCAL&#39; define before the variable instead. </p></div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="inheritance">
@@ -108,7 +108,7 @@
   
   <h5 id="ThreadLocal_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public class ThreadLocal&lt;T, MaxThreads, ClearMemory&gt;</code></pre>
+    <pre><code class="lang-cpp hljs">public class ThreadLocal&lt;T, MaxThreads&gt;</code></pre>
   </div>
 
   
@@ -127,12 +127,6 @@
         <p>
       </td>
     </tr>
-    <tr>
-      <td>
-        <span class="parametername">ClearMemory</span>
-        <p>
-      </td>
-    </tr>
   </table>
   
   
@@ -144,7 +138,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_ThreadLocal__.md&amp;value=---%0Auid%3A%20ThreadLocal.ThreadLocal()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L28" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ThreadLocal_ThreadLocal_" data-uid="ThreadLocal.ThreadLocal*"></a>
@@ -177,22 +171,22 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal__buckets.md&amp;value=---%0Auid%3A%20ThreadLocal._buckets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal__staticBuckets.md&amp;value=---%0Auid%3A%20ThreadLocal._staticBuckets%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
-  <h4 id="ThreadLocal__buckets" data-uid="ThreadLocal._buckets"><a href="#collapsible-ThreadLocal__buckets" class="expander" data-toggle="collapse">_buckets</a></h4>
+  <h4 id="ThreadLocal__staticBuckets" data-uid="ThreadLocal._staticBuckets"><a href="#collapsible-ThreadLocal__staticBuckets" class="expander" data-toggle="collapse">_staticBuckets</a></h4>
   
-  <div id="collapsible-ThreadLocal__buckets" class="collapse in">
+  <div id="collapsible-ThreadLocal__staticBuckets" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected Bucket _buckets[MaxThreads]</code></pre>
+    <pre><code class="lang-cpp hljs">protected Bucket _staticBuckets[MaxThreads]</code></pre>
   </div>
 
   
@@ -221,10 +215,44 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_Clear__.md&amp;value=---%0Auid%3A%20ThreadLocal.Clear()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L96" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ThreadLocal_Clear_" data-uid="ThreadLocal.Clear*"></a>
+  
+  <h4 id="ThreadLocal_Clear__" data-uid="ThreadLocal.Clear()"><a href="#collapsible-ThreadLocal_Clear__" class="expander" data-toggle="collapse">Clear()</a></h4>
+  
+  <div id="collapsible-ThreadLocal_Clear__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Clear()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_Count__.md&amp;value=---%0Auid%3A%20ThreadLocal.Count()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L54" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ThreadLocal_Count_" data-uid="ThreadLocal.Count*"></a>
@@ -267,7 +295,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_Get__.md&amp;value=---%0Auid%3A%20ThreadLocal.Get()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L45" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ThreadLocal_Get_" data-uid="ThreadLocal.Get*"></a>
@@ -307,23 +335,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_GetIndex__.md&amp;value=---%0Auid%3A%20ThreadLocal.GetIndex()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_GetBucket__.md&amp;value=---%0Auid%3A%20ThreadLocal.GetBucket()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L82" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L106" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="ThreadLocal_GetIndex_" data-uid="ThreadLocal.GetIndex*"></a>
+  <a id="ThreadLocal_GetBucket_" data-uid="ThreadLocal.GetBucket*"></a>
   
-  <h4 id="ThreadLocal_GetIndex__" data-uid="ThreadLocal.GetIndex()"><a href="#collapsible-ThreadLocal_GetIndex__" class="expander" data-toggle="collapse">GetIndex()</a></h4>
+  <h4 id="ThreadLocal_GetBucket__" data-uid="ThreadLocal.GetBucket()"><a href="#collapsible-ThreadLocal_GetBucket__" class="expander" data-toggle="collapse">GetBucket()</a></h4>
   
-  <div id="collapsible-ThreadLocal_GetIndex__" class="collapse in">
+  <div id="collapsible-ThreadLocal_GetBucket__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected int32 GetIndex()</code></pre>
+    <pre><code class="lang-cpp hljs">protected Bucket GetBucket()</code></pre>
   </div>
 
   
@@ -331,7 +359,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">int32</span>
+        <span class="xref">Bucket</span>
         <p>
       </td>
     </tr>
@@ -353,7 +381,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_GetValues_Array_T__AllocationType____.md&amp;value=---%0Auid%3A%20ThreadLocal.GetValues(Array%3CT%2C%20AllocationType%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ThreadLocal_GetValues_" data-uid="ThreadLocal.GetValues*"></a>
@@ -403,63 +431,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_Hash_const_int64_.md&amp;value=---%0Auid%3A%20ThreadLocal.Hash(const%20int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="ThreadLocal_Hash_" data-uid="ThreadLocal.Hash*"></a>
-  
-  <h4 id="ThreadLocal_Hash_const_int64_" data-uid="ThreadLocal.Hash(const int64)"><a href="#collapsible-ThreadLocal_Hash_const_int64_" class="expander" data-toggle="collapse">Hash(const int64 value)</a></h4>
-  
-  <div id="collapsible-ThreadLocal_Hash_const_int64_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected static int32 Hash(const int64 value)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">int64</span></span>
-        <span class="parametername">value</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ThreadLocal_Set_const_T___.md&amp;value=---%0Auid%3A%20ThreadLocal.Set(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L49" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ThreadLocal.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ThreadLocal_Set_" data-uid="ThreadLocal.Set*"></a>
@@ -486,6 +461,15 @@
     </tr>
   </table>
   
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   
@@ -530,7 +514,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

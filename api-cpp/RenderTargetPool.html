@@ -120,23 +120,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderTargetPool_Flush_bool_.md&amp;value=---%0Auid%3A%20RenderTargetPool.Flush(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderTargetPool_Flush_bool_int32_.md&amp;value=---%0Auid%3A%20RenderTargetPool.Flush(bool%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L18" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L19" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RenderTargetPool_Flush_" data-uid="RenderTargetPool.Flush*"></a>
   
-  <h4 id="RenderTargetPool_Flush_bool_" data-uid="RenderTargetPool.Flush(bool)"><a href="#collapsible-RenderTargetPool_Flush_bool_" class="expander" data-toggle="collapse">Flush(bool force=false)</a></h4>
+  <h4 id="RenderTargetPool_Flush_bool_int32_" data-uid="RenderTargetPool.Flush(bool,int32)"><a href="#collapsible-RenderTargetPool_Flush_bool_int32_" class="expander" data-toggle="collapse">Flush(bool force=false, int32 framesOffset=-1)</a></h4>
   
-  <div id="collapsible-RenderTargetPool_Flush_bool_" class="collapse in">
+  <div id="collapsible-RenderTargetPool_Flush_bool_int32_" class="collapse in">
   <div class="markdown level1 summary"><p>Flushes the temporary render targets. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static void Flush(bool force=false)</code></pre>
+    <pre><code class="lang-cpp hljs">public static void Flush(bool force=false, int32 framesOffset=-1)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -146,6 +146,13 @@
         <span class="pull-right"><span class="xref">bool</span></span>
         <span class="parametername">force</span>
         <p><p>True if release unused render targets by force, otherwise will use a few frames of delay.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">framesOffset</span>
+        <p><p>Amount of previous frames that should persist in the pool after flush. Resources used more than given value wil be freed. Use value of -1 to auto pick default duration.</p></p>
       </td>
     </tr>
   </table>
@@ -167,7 +174,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderTargetPool_Get_const_GPUTextureDescription___.md&amp;value=---%0Auid%3A%20RenderTargetPool.Get(const%20GPUTextureDescription%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L26" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RenderTargetPool_Get_" data-uid="RenderTargetPool.Get*"></a>
@@ -220,7 +227,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=RenderTargetPool_Release_GPUTexture___.md&amp;value=---%0Auid%3A%20RenderTargetPool.Release(GPUTexture%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L31" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/RenderTargetPool.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="RenderTargetPool_Release_" data-uid="RenderTargetPool.Release*"></a>
@@ -291,7 +298,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

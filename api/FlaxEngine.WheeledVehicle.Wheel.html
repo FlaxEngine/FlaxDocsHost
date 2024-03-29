@@ -317,13 +317,13 @@ public float MaxHandBrakeTorque</code></pre>
   <h4 id="FlaxEngine_WheeledVehicle_Wheel_MaxSteerAngle" data-uid="FlaxEngine.WheeledVehicle.Wheel.MaxSteerAngle"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_MaxSteerAngle" class="expander" data-toggle="collapse">MaxSteerAngle</a></h4>
   
   <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_MaxSteerAngle" class="collapse in">
-  <div class="markdown level1 summary"><p>Max steer angle that can be achieved by the wheel (in degrees).</p>
+  <div class="markdown level1 summary"><p>Max steer angle that can be achieved by the wheel (in degrees, -180 to 180).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 3.40282347E+38F, 1F)]
+    <pre><code class="lang-csharp hljs">[Limit(-180F, 180F, 1F)]
 [EditorDisplay(&quot;Steering&quot;, null)]
 [EditorOrder(10)]
 public float MaxSteerAngle</code></pre>
@@ -364,6 +364,45 @@ public float MaxSteerAngle</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(2)]
 public float Radius</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_WheeledVehicle_Wheel_SprungMassMultiplier" data-uid="FlaxEngine.WheeledVehicle.Wheel.SprungMassMultiplier"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_SprungMassMultiplier" class="expander" data-toggle="collapse">SprungMassMultiplier</a></h4>
+  
+  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_SprungMassMultiplier" class="collapse in">
+  <div class="markdown level1 summary"><p>Spring sprung mass force multiplier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0.01F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Suspension&quot;, null)]
+[EditorOrder(19)]
+public float SprungMassMultiplier</code></pre>
   </div>
 
   
@@ -697,43 +736,6 @@ public float TireLongitudinalStiffness</code></pre>
   
   
   
-  <h4 id="FlaxEngine_WheeledVehicle_Wheel_Type" data-uid="FlaxEngine.WheeledVehicle.Wheel.Type"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_Type" class="expander" data-toggle="collapse">Type</a></h4>
-  
-  <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_Type" class="collapse in">
-  <div class="markdown level1 summary"><p>Wheel placement type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-public WheeledVehicle.WheelTypes Type</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="FlaxEngine.WheeledVehicle.WheelTypes.html">WheeledVehicle.WheelTypes</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  
   <h4 id="FlaxEngine_WheeledVehicle_Wheel_Width" data-uid="FlaxEngine.WheeledVehicle.Wheel.Width"><a href="#collapsible-FlaxEngine_WheeledVehicle_Wheel_Width" class="expander" data-toggle="collapse">Width</a></h4>
   
   <div id="collapsible-FlaxEngine_WheeledVehicle_Wheel_Width" class="collapse in">
@@ -841,7 +843,7 @@ public float Width</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

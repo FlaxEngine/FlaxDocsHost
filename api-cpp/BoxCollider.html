@@ -289,6 +289,9 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a>
+    </div>
+    <div>
       <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -313,13 +316,13 @@
       <a class="xref" href="Actor.html#Actor_FindActor_const_StringView___">Actor::FindActor(const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___">Actor::FindActor(const MClass* type)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___bool_">Actor::FindActor(const MClass* type, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_StringView___">Actor::FindActor(const MClass* type, const StringView&amp; name)</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___">Actor::FindActor(const MClass* type, const Tag&amp; tag)</a>
+      <a class="xref" href="Actor.html#Actor_FindActor_const_MClass___const_Tag___bool_">Actor::FindActor(const MClass* type, const Tag&amp; tag, bool activeOnly=false)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_FindActor__">Actor::FindActor()</a>
@@ -476,6 +479,9 @@
     </div>
     <div>
       <a class="xref" href="SceneObject.html#SceneObject_GetPrefabObjectID__">SceneObject::GetPrefabObjectID()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetPrefabRoot__">Actor::GetPrefabRoot()</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetRotation__">Actor::GetRotation()</a>
@@ -712,6 +718,9 @@
       <a class="xref" href="Actor.html#Actor_Scripts">Actor::Scripts</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_Serialize_SerializeStream___const_void___">Actor::Serialize(SerializeStream&amp; stream, const void* otherObj)</a>
+    </div>
+    <div>
       <span class="xref">BoxCollider</span>
     </div>
     <div>
@@ -890,39 +899,32 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20BoxCollider.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_AutoResize_bool_.md&amp;value=---%0Auid%3A%20BoxCollider.AutoResize(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L51" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="BoxCollider_Deserialize_" data-uid="BoxCollider.Deserialize*"></a>
+  <a id="BoxCollider_AutoResize_" data-uid="BoxCollider.AutoResize*"></a>
   
-  <h4 id="BoxCollider_Deserialize_DeserializeStream___ISerializeModifier___" data-uid="BoxCollider.Deserialize(DeserializeStream &amp;,ISerializeModifier *)"><a href="#collapsible-BoxCollider_Deserialize_DeserializeStream___ISerializeModifier___" class="expander" data-toggle="collapse">Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></h4>
+  <h4 id="BoxCollider_AutoResize_bool_" data-uid="BoxCollider.AutoResize(bool)"><a href="#collapsible-BoxCollider_AutoResize_bool_" class="expander" data-toggle="collapse">AutoResize(bool globalOrientation)</a></h4>
   
-  <div id="collapsible-BoxCollider_Deserialize_DeserializeStream___ISerializeModifier___" class="collapse in">
-  <div class="markdown level1 summary"><p>Deserializes object from the input stream. </p></div>
+  <div id="collapsible-BoxCollider_AutoResize_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Resizes the collider based on the bounds of it&#39;s parent to contain it whole (including any siblings). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier) override</code></pre>
+    <pre><code class="lang-cpp hljs">public void AutoResize(bool globalOrientation)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">DeserializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The input stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="ISerializeModifier.html">ISerializeModifier</a></span>
-        <span class="parametername">modifier</span>
-        <p><p>The deserialization modifier object. Always valid.</p></p>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">globalOrientation</span>
+        <p>
       </td>
     </tr>
   </table>
@@ -932,8 +934,6 @@
   
   
   
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a></div>
   
   
   
@@ -946,7 +946,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_DrawPhysicsDebug_RenderView___.md&amp;value=---%0Auid%3A%20BoxCollider.DrawPhysicsDebug(RenderView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L62" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_DrawPhysicsDebug_" data-uid="BoxCollider.DrawPhysicsDebug*"></a>
@@ -992,7 +992,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_GetGeometry_CollisionShape___.md&amp;value=---%0Auid%3A%20BoxCollider.GetGeometry(CollisionShape%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L56" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L60" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_GetGeometry_" data-uid="BoxCollider.GetGeometry*"></a>
@@ -1038,7 +1038,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_GetOrientedBox__.md&amp;value=---%0Auid%3A%20BoxCollider.GetOrientedBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L39" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_GetOrientedBox_" data-uid="BoxCollider.GetOrientedBox*"></a>
@@ -1081,7 +1081,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_GetSize__.md&amp;value=---%0Auid%3A%20BoxCollider.GetSize()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_GetSize_" data-uid="BoxCollider.GetSize*"></a>
@@ -1124,7 +1124,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_IntersectsItself_const_Ray___Real___Vector3___.md&amp;value=---%0Auid%3A%20BoxCollider.IntersectsItself(const%20Ray%20%26%2CReal%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L49" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_IntersectsItself_" data-uid="BoxCollider.IntersectsItself*"></a>
@@ -1193,7 +1193,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_OnDebugDraw__.md&amp;value=---%0Auid%3A%20BoxCollider.OnDebugDraw()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L46" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L52" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_OnDebugDraw_" data-uid="BoxCollider.OnDebugDraw*"></a>
@@ -1229,7 +1229,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_OnDebugDrawSelected__.md&amp;value=---%0Auid%3A%20BoxCollider.OnDebugDrawSelected()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_OnDebugDrawSelected_" data-uid="BoxCollider.OnDebugDrawSelected*"></a>
@@ -1262,63 +1262,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20BoxCollider.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="BoxCollider_Serialize_" data-uid="BoxCollider.Serialize*"></a>
-  
-  <h4 id="BoxCollider_Serialize_SerializeStream___const_void___" data-uid="BoxCollider.Serialize(SerializeStream &amp;,const void *)"><a href="#collapsible-BoxCollider_Serialize_SerializeStream___const_void___" class="expander" data-toggle="collapse">Serialize(SerializeStream&amp; stream, const void* otherObj)</a></h4>
-  
-  <div id="collapsible-BoxCollider_Serialize_SerializeStream___const_void___" class="collapse in">
-  <div class="markdown level1 summary"><p>Serializes object to the output stream compared to the values of the other object instance (eg. default class object). If other object is null then serialize all properties. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void Serialize(SerializeStream&amp; stream, const void* otherObj) override</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SerializeStream</span></span>
-        <span class="parametername">stream</span>
-        <p><p>The output stream.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">void</span></span>
-        <span class="parametername">otherObj</span>
-        <p><p>The instance of the object to compare with and serialize only the modified properties. If null, then serialize all properties.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Actor.html#Actor_Serialize_SerializeStream___const_void___">Actor::Serialize(SerializeStream&amp; stream, const void* otherObj)</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_SetSize_const_Float3___.md&amp;value=---%0Auid%3A%20BoxCollider.SetSize(const%20Float3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L33" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L34" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_SetSize_" data-uid="BoxCollider.SetSize*"></a>
@@ -1362,7 +1309,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BoxCollider_UpdateBounds__.md&amp;value=---%0Auid%3A%20BoxCollider.UpdateBounds()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/BoxCollider.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BoxCollider_UpdateBounds_" data-uid="BoxCollider.UpdateBounds*"></a>
@@ -1429,7 +1376,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

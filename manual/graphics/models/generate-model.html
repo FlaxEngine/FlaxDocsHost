@@ -126,28 +126,27 @@
     mesh.UpdateMesh(vertices, triangles, vertices);
 }
 </code></pre><h3 id="3-create-a-model-asset-and-model-actor-in-the-onstart-function">3. Create a model asset and model actor in the <code>OnStart</code> function</h3>
-<pre><code class="lang-cs">private Model _tempModel;
+<pre><code class="lang-cs">private Model _model;
 
 public MaterialBase Material;
 
 public override void OnStart()
 {
     // Create dynamic model with a single LOD with one mesh
-    var model = Content.CreateVirtualAsset&lt;Model&gt;();
-    _tempModel = model;
-    model.SetupLODs(new[] { 1 });
-    UpdateMesh(model.LODs[0].Meshes[0]);
+    _model = Content.CreateVirtualAsset&lt;Model&gt;();
+    _model.SetupLODs(new[] { 1 });
+    UpdateMesh(_model.LODs[0].Meshes[0]);
 
     // Create or reuse child model
     var childModel = Actor.GetOrAddChild&lt;StaticModel&gt;();
-    childModel.Model = model;
+    childModel.Model = _model;
     childModel.LocalScale = new Float3(100);
     childModel.SetMaterial(0, Material);
 }
 
 public override void OnDestroy()
 {
-    FlaxEngine.Object.Destroy(ref _tempModel);
+    FlaxEngine.Object.Destroy(ref _model);
 }
 </code></pre><p>Remember to dispose of all of the resources created at runtime to prevent memory leaks.</p>
 <h3 id="4-add-the-script-and-set-the-material">4. Add the script and set the material</h3>
@@ -162,7 +161,7 @@ public override void OnDestroy()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/graphics/models/generate-model.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/graphics/models/generate-model.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -182,7 +181,7 @@ public override void OnDestroy()
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>

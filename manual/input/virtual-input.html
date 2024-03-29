@@ -92,10 +92,10 @@
 <p><strong>Virtual input</strong> is a Flax feature used to unify the input data across different input devices and runtime platforms. It helps with cross-platform development and adds a convenient abstraction layer between raw input devices and the game scripts. It&#39;s highly configurable and can be used in all games made with Flax.</p>
 <p>This documentation covers the usage and important parts of the virtual input interface.</p>
 <h2 id="settings-and-usage">Settings and usage</h2>
-<p>The first step to use the virtual input is preparing a proper configuration. This is done via the <strong>Input Settings</strong> asset. You can learn more about creating and using these settings on the <a href="input-settings.html">Input Settings</a> page. If you&#39;re using one of the <em>Flax Templates</em> it should already contain a proper configuration file in <code>Content/Settings/Input Settings.json</code>. Open this asset in the Editor.</p>
+<p>The first step to using the virtual input is preparing a proper configuration. This is done via the <strong>Input Settings</strong> asset. You can learn more about creating and using these settings on the <a href="input-settings.html">Input Settings</a> page. If you&#39;re using one of the <em>Flax Templates</em> it should already contain a proper configuration file in <code>Content/Settings/Input Settings.json</code>. Open this asset in the Editor.</p>
 <p><img src="media/virtual-input-config.jpg" alt="Virtual Input Config"></p>
-<p>As you can see in the above image there are several configurations in that file. For instance, <code>Left Mouse Button</code> and <code>Gamepad button A</code> are configured to trigger the input action named <code>Fire</code> (even triggered on <code>Press</code>).</p>
-<p>Then in your C# script you can handle this action:</p>
+<p>As you can see in the image above, there can be many virtual inputs, and there can be multiple inputs bound to each one. For instance, the <code>Fire</code> Action is set to trigger on both <code>Left Mouse Button</code> and <code>Gamepad Button A</code>. This Action is set to <code>Press</code> mode, which means it will trigger an event when the action is activated.</p>
+<p>In your C# script you can read the state of the action directly:</p>
 <pre><code class="lang-cs">public override void OnUpdate()
 {
     if (Input.GetAction(&quot;Fire&quot;))
@@ -103,7 +103,7 @@
         ShootBall();
     }
 }
-</code></pre><p>Also you can use <a href="https://docs.flaxengine.com/api/FlaxEngine.InputEvent.html">InputEvent</a> and <a href="https://docs.flaxengine.com/api/FlaxEngine.InputEvent.html">InputAxis</a> classes to configure it further:</p>
+</code></pre><p>You can also use the <a href="https://docs.flaxengine.com/api/FlaxEngine.InputEvent.html">InputEvent</a> and <a href="https://docs.flaxengine.com/api/FlaxEngine.InputEvent.html">InputAxis</a> classes to configure your script further, directly subscribing a method to the <code>Pressed</code> Event:</p>
 <pre><code class="lang-cs">public InputEvent FireEvent = new InputEvent(&quot;Fire&quot;);
 public InputAxis MouseX = new InputAxis(&quot;MouseX&quot;);
 
@@ -126,7 +126,7 @@ public override void OnDestroy()
     FireEvent.Dispose();
     MouseX.Dispose();
 }
-</code></pre><p>Then if you select the object with this script in Editor you can modify the <code>FireEvent</code> and <code>MouseX</code> mapping&#39;s names so they can be modified without editing the code.</p>
+</code></pre><p>If you select the Actor with this script in the Editor, you can modify the <code>FireEvent</code> and <code>MouseX</code> names without editing the code.</p>
 <p><img src="media/virtual-input-script-example.jpg" alt="Virtual Input Script"></p>
 </article>
           </div>
@@ -136,7 +136,7 @@ public override void OnDestroy()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/73789b69fb189ad48b3f18835f6992f127156853/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -156,7 +156,7 @@ public override void OnDestroy()
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2012-2023 Wojciech Figat
+            Copyright © 2012-2024 Wojciech Figat
             
           </div>
         </div>
