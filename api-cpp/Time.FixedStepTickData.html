@@ -125,13 +125,13 @@
       <a class="xref" href="Time.TickData.html#Time_TickData_NextBegin">TickData::NextBegin</a>
     </div>
     <div>
-      <a class="xref" href="Time.TickData.html#Time_TickData_OnBeforeRun_float_double_">TickData::OnBeforeRun(float targetFps, double currentTime)</a>
-    </div>
-    <div>
       <a class="xref" href="Time.TickData.html#Time_TickData_OnReset_float_double_">TickData::OnReset(float targetFps, double currentTime)</a>
     </div>
     <div>
       <a class="xref" href="Time.TickData.html#Time_TickData_OnTickEnd__">TickData::OnTickEnd()</a>
+    </div>
+    <div>
+      <a class="xref" href="Time.TickData.html#Time_TickData_Synchronize_float_double_">TickData::Synchronize(float targetFps, double currentTime)</a>
     </div>
     <div>
       <a class="xref" href="Time.TickData.html#Time_TickData_TicksCount">TickData::TicksCount</a>
@@ -172,7 +172,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Time_FixedStepTickData_Samples.md&amp;value=---%0Auid%3A%20Time.FixedStepTickData.Samples%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L99" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -213,27 +213,34 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Time_FixedStepTickData_OnTickBegin_float_float_.md&amp;value=---%0Auid%3A%20Time.FixedStepTickData.OnTickBegin(float%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Time_FixedStepTickData_OnTickBegin_double_float_float_.md&amp;value=---%0Auid%3A%20Time.FixedStepTickData.OnTickBegin(double%2Cfloat%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L104" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L99" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Time_FixedStepTickData_OnTickBegin_" data-uid="Time.FixedStepTickData.OnTickBegin*"></a>
   
-  <h4 id="Time_FixedStepTickData_OnTickBegin_float_float_" data-uid="Time.FixedStepTickData.OnTickBegin(float,float)"><a href="#collapsible-Time_FixedStepTickData_OnTickBegin_float_float_" class="expander" data-toggle="collapse">OnTickBegin(float targetFps, float maxDeltaTime)</a></h4>
+  <h4 id="Time_FixedStepTickData_OnTickBegin_double_float_float_" data-uid="Time.FixedStepTickData.OnTickBegin(double,float,float)"><a href="#collapsible-Time_FixedStepTickData_OnTickBegin_double_float_float_" class="expander" data-toggle="collapse">OnTickBegin(double time, float targetFps, float maxDeltaTime)</a></h4>
   
-  <div id="collapsible-Time_FixedStepTickData_OnTickBegin_float_float_" class="collapse in">
+  <div id="collapsible-Time_FixedStepTickData_OnTickBegin_double_float_float_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual bool OnTickBegin(float targetFps, float maxDeltaTime) override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool OnTickBegin(double time, float targetFps, float maxDeltaTime) override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">double</span></span>
+        <span class="parametername">time</span>
+        <p>
+      </td>
+    </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">float</span></span>
@@ -265,7 +272,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Time.TickData.html#Time_TickData_OnTickBegin_float_float_">TickData::OnTickBegin(float targetFps, float maxDeltaTime)</a></div>
+  <div><a class="xref" href="Time.TickData.html#Time_TickData_OnTickBegin_double_float_float_">TickData::OnTickBegin(double time, float targetFps, float maxDeltaTime)</a></div>
   
   
   
@@ -285,7 +292,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Time_FixedStepTickData.md&amp;value=---%0Auid%3A%20Time.FixedStepTickData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L92" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Engine/Time.h/#L89" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

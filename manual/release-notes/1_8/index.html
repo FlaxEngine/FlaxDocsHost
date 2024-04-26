@@ -136,6 +136,7 @@
 <p>Every update brings more features and improvements to the Editor. This time we added functionalities such as:</p>
 <ul>
 <li>Saving collapsing panels state for subgroups in the Properties panel,</li>
+<li>Vertex Snapping (move gizmo with V key pressed),</li>
 <li>Refreshed collection editor interface to be more streamlined (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2208">GH-2208</a>),</li>
 <li>SI units, such as meters, kilograms, in input fields for both displaying and parsing (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/2213">GH-2213</a>),</li>
 <li>Quick script creation right from <em>Add script</em> button (<a href="https://github.com/FlaxEngine/FlaxEngine/pull/1827">GH-1827</a>).</li>
@@ -149,6 +150,96 @@
 <li>Added <code>DebugDraw::DrawRay</code> with <code>Ray</code> structure, <code>DEBUG_DRAW_RAY</code> changed to use <code>Ray</code> structure</li>
 </ul>
 <h2 id="changelog">Changelog</h2>
+<h3 id="version-1865111---27-april-2024">Version 1.8.6511.1 - 27 April 2024</h3>
+<p>Contributors: mafiesto4, GoaLitiuM, Tryibion, rkrahn, Zode, xxSeys1, Menotdan, Muzz, duarteroso</p>
+<p>PRs merged: 25</p>
+<ul>
+<li>Add support for importing <code>.exr</code> textures</li>
+<li>Add logging and cleaning up leaked scene objects after play mode in Editor</li>
+<li>Add trading minor optimizations in MSVC Development builds for compile speed</li>
+<li>Add automatic restoring Anim Event tracks when reimporting animation asset</li>
+<li>Add <code>ShowDebugDrawSkeleton</code> to preview Animated Model skeleton via Debug Draw</li>
+<li>Add toggle orthographic view hotkey (<code>Numpad Decimal</code>)</li>
+<li>Add locking actor selection in properties and prefab windows</li>
+<li>Add displaying all actors in Actor toolbox search tab when no filter is applied</li>
+<li>Add better anim events visuals in timeline editor</li>
+<li>Add sorting search actor toolbox</li>
+<li>Add <code>Tags.Find</code> utility</li>
+<li>Add statically disabled tessellation on macOS/iOS</li>
+<li>Add statically disabled geometry shaders on mobile</li>
+<li>Add CPU profiler events for UI drawing</li>
+<li>Add setter for crword agent position and velocity</li>
+<li>Add option for using Address and Thread sanitizers</li>
+<li>Add hiding TAA settings if TAA isn&#39;t enabled</li>
+<li>Add <code>Time.Synchronize</code> to stabilize engine loop</li>
+<li>Add <code>Engine::UpdateCount</code> to sync gameplay logic updates with game loop rather than draw frames</li>
+<li>Add improved size of Multi Blend nodes</li>
+<li>Add undo for Multi Blend points moving</li>
+<li>Add context menu to Multi Blend node points</li>
+<li>Add tooltips to Multi Blend points</li>
+<li>Add <code>Ctrl</code> to snap points to grid in Multi Blend editor</li>
+<li>Add improved visuals of points in Multi Blend</li>
+<li>Add grid labels drawing to Multi Blend</li>
+<li>Add live debugging of blend position in Multi Blend</li>
+<li>Add add/remove buttons to Multi Blend</li>
+<li>Add better <code>const</code> correctness in <code>Mesh</code> and <code>SkinnedMesh</code> api</li>
+<li>Add <code>Write</code>/<code>Read</code> methods to <code>NetworkStream</code> for <code>INetworkSerializable</code> sending in C# api</li>
+<li>Add more useful orientation settings to Android</li>
+<li>Add exported property to activity element in <code>AndroidManifest.xml</code> template</li>
+<li>Add basic Android version settings to editor</li>
+<li>Optimize <code>DrawBatch</code> for faster sorting</li>
+<li>Optimize draw calls sorting in opaque passes</li>
+<li>Optimize TreeNode rendering</li>
+<li>Optimize ActorTreeNode reparent when it&#39;s not collapsed but one of the parents is</li>
+<li>Optimize Anim Graph node size and remove limit of max <code>64</code> state transitions</li>
+<li>Refactor engine loop to have better sync between game update, physics and drawing</li>
+<li>Refactor <code>UpdateGraph</code> to run after engine services and game scripts</li>
+<li>Refactor Visject Graph nodes data for unlimited size</li>
+<li>Refactor Multi Blend nodes to support up to <code>255</code> blend points</li>
+<li>Update <code>DirectXTex</code> to <code>mar2024</code></li>
+<li>Change default collision type to <code>ConvexMesh</code> from <code>TriangleMesh</code></li>
+<li>Fix default diffuse color value when importing material</li>
+<li>Fix Editor viewport aspect ratio scaling to be removed from camera mouse movement</li>
+<li>Fix numpad enter to normal enter on Linux</li>
+<li>Fix Two Bone IK to have correct bone roll</li>
+<li>Fix blend shapes transformation applying</li>
+<li>Fix blend shapes normals usage</li>
+<li>Fix blending nested animations to properly handle it per-node</li>
+<li>Fix nested animations sampling</li>
+<li>Fix animated model skinning precision issues</li>
+<li>Fix errors on using spline editor in Prefab window</li>
+<li>Fix error when applying prefab changes with Spline</li>
+<li>Fix deselecting actors when using camera orbiting in viewport after releasing LMB when Alt is up</li>
+<li>Fix text underline being in wrong spot on different DPIs</li>
+<li>Fix particle emitter creation from templates</li>
+<li>Fix various bugs in code detected with address/thread sanitizers</li>
+<li>Fix <code>EyeAdaptation</code> bug to flash on play mode start in Editor when time gets reset</li>
+<li>Fix heightfield not saved when editing splatmap of terrain with physical materials in use</li>
+<li>Fix editor toolstrip by moving game cooking and building to the right for less missclicks</li>
+<li>Fix panning Visject Surface with middle mouse button (right button does it) to prevent missed connections removals</li>
+<li>Fix Debug Log scrolling when many entries are added at once</li>
+<li>Fix cloning value utility for object references</li>
+<li>Fix missing UI Control preview when changing UI Widget type</li>
+<li>Fix surface node context menu to not show when moving surface</li>
+<li>Fix margins issues in context menus</li>
+<li>Fix <code>FindRandomPointAroundCircle</code> to always find a valid point on a NavMesh in the radius</li>
+<li>Fix NavMesh to initialize earlier and prevent issues with crowd agents on a scene</li>
+<li>Fix .NET runtime validity checks with daily runtime builds</li>
+<li>Fix <code>CachedAttributeGetter</code> holding references to collectible types</li>
+<li>Fix to release Prefab assets when unloading Scripting service</li>
+<li>Fix freeze when selecting ModelPrefab referencing a removed asset</li>
+<li>Fix terrain heightmap to use higher range format when decompressed</li>
+<li>Fix bug in <code>ValueContainer.HasDifferentTypes</code> causing incorrect editor setup</li>
+<li>Fix model tool importing to use temp file only for Assimp</li>
+<li>Fix deadlock when parsing invalid HTML text in <code>RichTextBox</code></li>
+<li>Fix crash on prefab preview with lightmap in use</li>
+<li>Fix crash when accessing physics objects state in <code>OnLateFixedUpdate</code></li>
+<li>Fix crash when resizing window on Vulkan</li>
+<li>Fix crash when removing Anim Event visual script that is used in opened Animation timeline</li>
+<li>Fix crash when using old <code>Blend with Mask</code> node in Anim Graph</li>
+<li>Fix crash when playing uninitialized audio source</li>
+<li>Fix crash when reimporting animation with translation set</li>
+</ul>
 <h3 id="version-1865100---29-march-2024">Version 1.8.6510.0 - 29 March 2024</h3>
 <p>Contributors: mafiesto4, Tryibion, stefnotch, abrasivetroop, Withaust, MineBill, z1dev, GoaLitiuM, NoriteSC, Menotdan, nothingTVatYT, plemsoft, GasimoCodes, whocares77, RuanLucasGD, envision3d, Tesla-J, Chikinsupu, rkrahn, dustytrailsdev, cNori, lifeformed</p>
 <p>PRs merged: 108</p>
@@ -406,7 +497,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/e43a09ca3623b26a8ef6682fa6eb07fd2cd2e221/manual/release-notes/1_8/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0ac60094d0312b8ef089dcbd32668cbe6cbb765c/manual/release-notes/1_8/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
