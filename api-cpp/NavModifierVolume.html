@@ -594,12 +594,6 @@
       <a class="xref" href="Actor.html#Actor_OnDeleteObject__">Actor::OnDeleteObject()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_OnDisable__">Actor::OnDisable()</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_OnEnable__">Actor::OnEnable()</a>
-    </div>
-    <div>
       <a class="xref" href="Actor.html#Actor_OnEndPlay__">Actor::OnEndPlay()</a>
     </div>
     <div>
@@ -619,6 +613,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_OnScriptingDispose__">ScriptingObject::OnScriptingDispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_OnStaticFlagsChanged__">Actor::OnStaticFlagsChanged()</a>
     </div>
     <div>
       <a class="xref" href="BoxVolume.html#BoxVolume_OnTransformChanged__">BoxVolume::OnTransformChanged()</a>
@@ -750,7 +747,7 @@
       <a class="xref" href="Actor.html#Actor_ToJson__">Actor::ToJson()</a>
     </div>
     <div>
-      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToManaged_ScriptingObject___">ScriptingObject::ToManaged(ScriptingObject* obj)</a>
+      <a class="xref" href="ScriptingObject.html#ScriptingObject_ToManaged_const_ScriptingObject___">ScriptingObject::ToManaged(const ScriptingObject* obj)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ToNative_MObject___">ScriptingObject::ToNative(MObject* obj)</a>
@@ -990,7 +987,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=NavModifierVolume_GetWiresColor__.md&amp;value=---%0Auid%3A%20NavModifierVolume.GetWiresColor()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L42" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="NavModifierVolume_GetWiresColor_" data-uid="NavModifierVolume.GetWiresColor*"></a>
@@ -1035,7 +1032,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=NavModifierVolume_OnBoundsChanged_const_BoundingBox___.md&amp;value=---%0Auid%3A%20NavModifierVolume.OnBoundsChanged(const%20BoundingBox%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="NavModifierVolume_OnBoundsChanged_" data-uid="NavModifierVolume.OnBoundsChanged*"></a>
@@ -1069,6 +1066,78 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="BoxVolume.html#BoxVolume_OnBoundsChanged_const_BoundingBox___">BoxVolume::OnBoundsChanged(const BoundingBox&amp; prevBounds)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=NavModifierVolume_OnDisable__.md&amp;value=---%0Auid%3A%20NavModifierVolume.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="NavModifierVolume_OnDisable_" data-uid="NavModifierVolume.OnDisable*"></a>
+  
+  <h4 id="NavModifierVolume_OnDisable__" data-uid="NavModifierVolume.OnDisable()"><a href="#collapsible-NavModifierVolume_OnDisable__" class="expander" data-toggle="collapse">OnDisable()</a></h4>
+  
+  <div id="collapsible-NavModifierVolume_OnDisable__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets removed from game systems. Occurs on EndPlay event or when actor gets inactivated in hierarchy. Use this event to unregister object from other game system (eg. audio). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void OnDisable() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_OnDisable__">Actor::OnDisable()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=NavModifierVolume_OnEnable__.md&amp;value=---%0Auid%3A%20NavModifierVolume.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Navigation/NavModifierVolume.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="NavModifierVolume_OnEnable_" data-uid="NavModifierVolume.OnEnable*"></a>
+  
+  <h4 id="NavModifierVolume_OnEnable__" data-uid="NavModifierVolume.OnEnable()"><a href="#collapsible-NavModifierVolume_OnEnable__" class="expander" data-toggle="collapse">OnEnable()</a></h4>
+  
+  <div id="collapsible-NavModifierVolume_OnEnable__" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor gets added to game systems. Occurs on BeginPlay event or when actor gets activated in hierarchy. Use this event to register object to other game system (eg. audio). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void OnEnable() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Actor.html#Actor_OnEnable__">Actor::OnEnable()</a></div>
   
   
   

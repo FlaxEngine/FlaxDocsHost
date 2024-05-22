@@ -100,14 +100,14 @@
 </ul>
 <p><a href="../game-settings/build-settings.html">Build Settings</a> allows to configure the packaging process by adjusting maximum package size and amount of assets packed into a single file.</p>
 <h3 id="binary-assets">Binary Assets</h3>
-<p>Binary assets (<code>BinaryAsset</code>) in most cases are packaged as-it-is after processing. This depends on the asset type, for instance:</p>
+<p>Binary assets (<code>BinaryAsset</code>) are usually packaged as-it-is after processing. This depends on the asset type, for instance:</p>
 <ul>
 <li><strong>textures</strong> can be converted into the other format for some platforms (eg. Android) or down-scaled based on the <a href="../../graphics/textures/texture-groups.html">texture groups settings</a>,</li>
 <li><strong>shaders</strong> are pre-compiled thus no shader source code is even deployed (no runtime shaders compilation),</li>
 <li><strong>materials, particle emitters</strong> are precompiled into destination platform shader bytecode (shader source code is removed).</li>
 </ul>
 <h3 id="json-assets">Json Assets</h3>
-<p>Json assets (<code>JsonAssetBase</code>) by default are compressed using <em>LZ4</em> algorithm (internally) and stored in compressed format. At runtime content system automatically decompressed data and parsed the Json for further processing (eg. settings loading or scene deserialization). This reduces built game size (compressed text weights far less) and improves gaming performance (fewer data to read from a drive, data is decompressed in memory).</p>
+<p>Json assets (<code>JsonAssetBase</code>) are compressed using <em>LZ4</em> algorithm (internally) and stored in compressed format. At runtime data is automatically decompressed and parsed into the Json for further processing (eg. settings loading or scene deserialization). This reduces the built game size (compressed text weights far less) and improves game performance (less data to read from a drive, data is compressed in memory).</p>
 <h3 id="custom-assets">Custom Assets</h3>
 <p>Custom assets can be processed for game cooking with <code>CookAssetsStep::AssetProcessors</code>.</p>
 <h2 id="code">Code</h2>
@@ -133,7 +133,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0ac60094d0312b8ef089dcbd32668cbe6cbb765c/manual/editor/game-cooker/security.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/editor/game-cooker/security.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -114,7 +114,6 @@ public class TerrainFromCode : Script
         _terrain.HideFlags = HideFlags.DontSave;
         _terrain.Name = &quot;My Terrain&quot;;
         _terrain.Setup();
-        _terrain.Parent = Actor;
 
         // Generate terrain using the async task to prevent game stalls
         // You can also use C# thread to perform this work
@@ -148,6 +147,9 @@ public class TerrainFromCode : Script
                 _terrain.SetupPatchHeightMap(ref patchCoord, heightmap, null, true);
             }
         }
+
+        // Spawn terrain to the scene on a main-thread (safe)
+        Scripting.InvokeOnUpdate(() =&gt; _terrain.Parent = Actor);
     }
 }
 </code></pre><h2 id="3-add-script-to-scene">3. Add script to scene</h2>
@@ -164,7 +166,7 @@ public class TerrainFromCode : Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0ac60094d0312b8ef089dcbd32668cbe6cbb765c/manual/terrain/tutorials/terrain-from-code.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/terrain/tutorials/terrain-from-code.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
