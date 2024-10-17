@@ -163,7 +163,7 @@
       <a class="xref" href="GPUContext.html#GPUContext_Draw_GPUTextureView___">GPUContext::Draw(GPUTextureView* rt)</a>
     </div>
     <div>
-      <a class="xref" href="GPUContext.html#GPUContext_Draw_uint32_uint32_">GPUContext::Draw(uint32 startVertex, uint32 verticesCount)</a>
+      <a class="xref" href="GPUContext.html#GPUContext_Draw_int32_uint32_">GPUContext::Draw(int32 startVertex, uint32 verticesCount)</a>
     </div>
     <div>
       <a class="xref" href="GPUContext.html#GPUContext_DrawFullscreenTriangle_int32_">GPUContext::DrawFullscreenTriangle(int32 instanceCount=1)</a>
@@ -730,7 +730,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextNull_ClearDepth_GPUTextureView___float_.md&amp;value=---%0Auid%3A%20GPUContextNull.ClearDepth(GPUTextureView%20*%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextNull_ClearDepth_GPUTextureView___float_uint8_.md&amp;value=---%0Auid%3A%20GPUContextNull.ClearDepth(GPUTextureView%20*%2Cfloat%2Cuint8)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Null/GPUContextNull.h/#L51" title="View Source"><i class="fa fa-code"></i></a>
@@ -738,15 +738,15 @@
   
   <a id="GPUContextNull_ClearDepth_" data-uid="GPUContextNull.ClearDepth*"></a>
   
-  <h4 id="GPUContextNull_ClearDepth_GPUTextureView___float_" data-uid="GPUContextNull.ClearDepth(GPUTextureView *,float)"><a href="#collapsible-GPUContextNull_ClearDepth_GPUTextureView___float_" class="expander" data-toggle="collapse">ClearDepth(GPUTextureView* depthBuffer, float depthValue)</a></h4>
+  <h4 id="GPUContextNull_ClearDepth_GPUTextureView___float_uint8_" data-uid="GPUContextNull.ClearDepth(GPUTextureView *,float,uint8)"><a href="#collapsible-GPUContextNull_ClearDepth_GPUTextureView___float_uint8_" class="expander" data-toggle="collapse">ClearDepth(GPUTextureView* depthBuffer, float depthValue, uint8 stencilValue)</a></h4>
   
-  <div id="collapsible-GPUContextNull_ClearDepth_GPUTextureView___float_" class="collapse in">
+  <div id="collapsible-GPUContextNull_ClearDepth_GPUTextureView___float_uint8_" class="collapse in">
   <div class="markdown level1 summary"><p>Clears depth buffer. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void ClearDepth(GPUTextureView* depthBuffer, float depthValue) override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void ClearDepth(GPUTextureView* depthBuffer, float depthValue, uint8 stencilValue) override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -765,6 +765,13 @@
         <p><p>The clear depth value.</p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint8</span></span>
+        <span class="parametername">stencilValue</span>
+        <p><p>The clear stencil value.</p></p>
+      </td>
+    </tr>
   </table>
   
   
@@ -773,7 +780,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="GPUContext.html#GPUContext_ClearDepth_GPUTextureView___float_">GPUContext::ClearDepth(GPUTextureView* depthBuffer, float depthValue=1.0f)</a></div>
+  <div><a class="xref" href="GPUContext.html#GPUContext_ClearDepth_GPUTextureView___float_uint8_">GPUContext::ClearDepth(GPUTextureView* depthBuffer, float depthValue=1.0f, uint8 stencilValue = 0)</a></div>
   
   
   
@@ -883,7 +890,7 @@
   <h4 id="GPUContextNull_ClearUA_GPUBuffer___const_uint32_" data-uid="GPUContextNull.ClearUA(GPUBuffer *,const uint32)"><a href="#collapsible-GPUContextNull_ClearUA_GPUBuffer___const_uint32_" class="expander" data-toggle="collapse">ClearUA(GPUBuffer* buf, const uint32 value[4])</a></h4>
   
   <div id="collapsible-GPUContextNull_ClearUA_GPUBuffer___const_uint32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Clears an unordered access buffer with a unsigned value. </p></div>
+  <div class="markdown level1 summary"><p>Clears an unordered access buffer with an unsigned value. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -989,7 +996,7 @@
   <h4 id="GPUContextNull_ClearUA_GPUTexture___const_uint32_" data-uid="GPUContextNull.ClearUA(GPUTexture *,const uint32)"><a href="#collapsible-GPUContextNull_ClearUA_GPUTexture___const_uint32_" class="expander" data-toggle="collapse">ClearUA(GPUTexture* texture, const uint32 value[4])</a></h4>
   
   <div id="collapsible-GPUContextNull_ClearUA_GPUTexture___const_uint32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Clears an unordered access texture with a unsigned value. </p></div>
+  <div class="markdown level1 summary"><p>Clears an unordered access texture with an unsigned value. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 

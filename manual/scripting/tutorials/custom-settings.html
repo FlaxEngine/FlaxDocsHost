@@ -143,7 +143,7 @@ API_CLASS() class GAME_API MySettings : public SettingsBase
 {
     API_AUTO_SERIALIZATION();
     DECLARE_SCRIPTING_TYPE_NO_SPAWN(SettingsBase);
-    DECLARE_SETTINGS_GETTER(SettingsBase);
+    DECLARE_SETTINGS_GETTER(MySettings);
 public:
     // The custom option.
     API_FIELD() String Text;
@@ -151,6 +151,9 @@ public:
 
 // .cpp
 #include &quot;MySettings.h&quot;
+#include &quot;Engine/Core/Config/GameSettings.h&quot;
+#include &quot;Engine/Content/Content.h&quot;
+#include &quot;Engine/Content/JsonAsset.h&quot;
 
 IMPLEMENT_GAME_SETTINGS_GETTER(MySettings, &quot;MySettings&quot;);
 </code></pre><p>Then you can use them in C#/Visual just like any other settings, in C++ code this can be accessed via getter:</p>
@@ -164,7 +167,7 @@ IMPLEMENT_GAME_SETTINGS_GETTER(MySettings, &quot;MySettings&quot;);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/tutorials/custom-settings.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

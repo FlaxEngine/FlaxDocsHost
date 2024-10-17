@@ -484,6 +484,43 @@ public sealed class Quaternion : ValueType, IEquatable&lt;Quaternion&gt;, IForma
   
   
   
+  <h4 id="FlaxEngine_Quaternion_Tolerance" data-uid="FlaxEngine.Quaternion.Tolerance"><a href="#collapsible-FlaxEngine_Quaternion_Tolerance" class="expander" data-toggle="collapse">Tolerance</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Quaternion_Tolerance" class="collapse in">
+  <div class="markdown level1 summary"><p>Equality tolerance factor used when comparing quaternions via dot operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public const float Tolerance = 0.9999999F</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEngine_Quaternion_W" data-uid="FlaxEngine.Quaternion.W"><a href="#collapsible-FlaxEngine_Quaternion_W" class="expander" data-toggle="collapse">W</a></h4>
   
   <div id="collapsible-FlaxEngine_Quaternion_W" class="collapse in">
@@ -2427,6 +2464,84 @@ public sealed class Quaternion : ValueType, IEquatable&lt;Quaternion&gt;, IForma
       <td>
         <span class="xref">System.Int32</span>
         <p><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Quaternion_GetRotationFromNormal_" data-uid="FlaxEngine.Quaternion.GetRotationFromNormal*"></a>
+  
+  <h4 id="FlaxEngine_Quaternion_GetRotationFromNormal_FlaxEngine_Vector3_FlaxEngine_Transform_" data-uid="FlaxEngine.Quaternion.GetRotationFromNormal(FlaxEngine.Vector3,FlaxEngine.Transform)"><a href="#collapsible-FlaxEngine_Quaternion_GetRotationFromNormal_FlaxEngine_Vector3_FlaxEngine_Transform_" class="expander" data-toggle="collapse">GetRotationFromNormal(Vector3, Transform)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Quaternion_GetRotationFromNormal_FlaxEngine_Vector3_FlaxEngine_Transform_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets rotation from a normal in relation to a transform.<br>
+This function is especially useful for axis aligned faces,
+and with <a class="xref" href="FlaxEngine.Physics.html#FlaxEngine_Physics_RayCast_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_RayCastHit__System_Single_System_UInt32_System_Boolean_">RayCast(Vector3, Vector3, out RayCastHit, Single, UInt32, Boolean)</a>.</p>
+<example><p><strong>Example code:</strong></p>
+<pre><code><span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_class</span> GetRotationFromNormalExample : <a class="xref" href="FlaxEngine.Script.html">Script</a><br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> RayOrigin;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> SomeObject;<br>
+<span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_override</span> <span class="xref">langword_csharp_void</span> <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnFixedUpdate">OnFixedUpdate()</a><br>
+{<br>
+<span class="xref">langword_csharp_if</span> (<a class="xref" href="FlaxEngine.Physics.html">Physics</a>.RayCast(RayOrigin.Position, RayOrigin.Transform.Forward, out <a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a> hit)
+{<br>
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> position = hit.Collider.Position;
+<a class="xref" href="FlaxEngine.Transform.html">Transform</a> transform = hit.Collider.Transform;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> point = hit.Point;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> normal = hit.Normal;
+<a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rot = <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a>.GetRotationFromNormal(normal,transform);
+SomeObject.Position = point;
+SomeObject.Orientation = rot;
+}
+}
+}</code></pre>
+</example>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion GetRotationFromNormal(Vector3 normal, Transform reference)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">normal</span>
+        <p><p>The normal vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">reference</span>
+        <p><p>The reference transform.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a>
+        <p><p>The rotation from the normal vector.</p>
 </p>
       </td>
     </tr>

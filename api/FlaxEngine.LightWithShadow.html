@@ -274,6 +274,27 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDisable">Actor.OnDisable()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnParentChanged">Actor.OnParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnTransformChanged">Actor.OnTransformChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveChanged">Actor.OnActiveChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveInTreeChanged">Actor.OnActiveInTreeChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnOrderInParentChanged">Actor.OnOrderInParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnStaticFlagsChanged">Actor.OnStaticFlagsChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnLayerChanged">Actor.OnLayerChanged()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnBeginPlay">Actor.OnBeginPlay()</a>
     </div>
     <div>
@@ -454,10 +475,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -837,6 +858,46 @@ public float ShadowsNormalOffsetScale { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_LightWithShadow_ShadowsResolution_" data-uid="FlaxEngine.LightWithShadow.ShadowsResolution*"></a>
+  
+  <h4 id="FlaxEngine_LightWithShadow_ShadowsResolution" data-uid="FlaxEngine.LightWithShadow.ShadowsResolution"><a href="#collapsible-FlaxEngine_LightWithShadow_ShadowsResolution" class="expander" data-toggle="collapse">ShadowsResolution</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LightWithShadow_ShadowsResolution" class="collapse in">
+  <div class="markdown level1 summary"><p>Defines the resolution of the shadow map texture used to draw objects projection from light-point-of-view. Higher values increase shadow quality at cost of performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(105)]
+[EditorDisplay(&quot;Shadow&quot;, &quot;Resolution&quot;)]
+[Unmanaged]
+public LightWithShadow.ShadowMapResolution ShadowsResolution { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.LightWithShadow.ShadowMapResolution.html">LightWithShadow.ShadowMapResolution</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_LightWithShadow_ShadowsSharpness_" data-uid="FlaxEngine.LightWithShadow.ShadowsSharpness*"></a>
   
   <h4 id="FlaxEngine_LightWithShadow_ShadowsSharpness" data-uid="FlaxEngine.LightWithShadow.ShadowsSharpness"><a href="#collapsible-FlaxEngine_LightWithShadow_ShadowsSharpness" class="expander" data-toggle="collapse">ShadowsSharpness</a></h4>
@@ -909,6 +970,119 @@ public float ShadowsStrength { get; set; }</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_LightWithShadow_ShadowsUpdateRate_" data-uid="FlaxEngine.LightWithShadow.ShadowsUpdateRate*"></a>
+  
+  <h4 id="FlaxEngine_LightWithShadow_ShadowsUpdateRate" data-uid="FlaxEngine.LightWithShadow.ShadowsUpdateRate"><a href="#collapsible-FlaxEngine_LightWithShadow_ShadowsUpdateRate" class="expander" data-toggle="collapse">ShadowsUpdateRate</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LightWithShadow_ShadowsUpdateRate" class="collapse in">
+  <div class="markdown level1 summary"><p>Frequency of shadow updates. 1 - every frame, 0.5 - every second frame, 0 - on start or change. It&apos;s the inverse value of how many frames should happen in-between shadow map updates (eg. inverse of 0.5 is 2 thus shadow will update every 2nd frame).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(100)]
+[EditorDisplay(&quot;Shadow&quot;, &quot;Update Rate&quot;)]
+[Limit(0F, 1F, 1F)]
+[Unmanaged]
+public float ShadowsUpdateRate { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_LightWithShadow_ShadowsUpdateRateAtDistance_" data-uid="FlaxEngine.LightWithShadow.ShadowsUpdateRateAtDistance*"></a>
+  
+  <h4 id="FlaxEngine_LightWithShadow_ShadowsUpdateRateAtDistance" data-uid="FlaxEngine.LightWithShadow.ShadowsUpdateRateAtDistance"><a href="#collapsible-FlaxEngine_LightWithShadow_ShadowsUpdateRateAtDistance" class="expander" data-toggle="collapse">ShadowsUpdateRateAtDistance</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LightWithShadow_ShadowsUpdateRateAtDistance" class="collapse in">
+  <div class="markdown level1 summary"><p>Frequency of shadow updates at the maximum distance from the view at which shadows are still rendered. This value is multiplied by ShadowsUpdateRate and allows scaling the update rate in-between the shadow range. For example, if light is near view, it will get normal shadow updates but will reduce this rate when far from view. See ShadowsUpdateRate to learn more.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(101)]
+[EditorDisplay(&quot;Shadow&quot;, &quot;Update Rate At Distance&quot;)]
+[Limit(0F, 1F, 1F)]
+[Unmanaged]
+public float ShadowsUpdateRateAtDistance { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEngine_LightWithShadow_InvalidateShadow_" data-uid="FlaxEngine.LightWithShadow.InvalidateShadow*"></a>
+  
+  <h4 id="FlaxEngine_LightWithShadow_InvalidateShadow" data-uid="FlaxEngine.LightWithShadow.InvalidateShadow"><a href="#collapsible-FlaxEngine_LightWithShadow_InvalidateShadow" class="expander" data-toggle="collapse">InvalidateShadow()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_LightWithShadow_InvalidateShadow" class="collapse in">
+  <div class="markdown level1 summary"><p>Marks the light shadow to be refreshes during next drawing. Invalidates any cached shadow map and redraws static shadows of the object (if any in use).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void InvalidateShadow()</code></pre>
+  </div>
+
+  
+  
+  
+  
   
   
   

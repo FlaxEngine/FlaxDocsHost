@@ -239,9 +239,6 @@
       <a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_SetSelection_System_Int32_System_Boolean_">TextBoxBase.SetSelection(Int32, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_SetSelection_System_Int32_System_Int32_System_Boolean_">TextBoxBase.SetSelection(Int32, Int32, Boolean)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_OnIsMultilineChanged">TextBoxBase.OnIsMultilineChanged()</a>
     </div>
     <div>
@@ -755,6 +752,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_BackgroundColor">Control.BackgroundColor</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_BackgroundBrush">Control.BackgroundBrush</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Enabled">Control.Enabled</a>
     </div>
     <div>
@@ -985,6 +985,71 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_GetCharPosition_System_Int32_System_Single__">TextBoxBase.GetCharPosition(Int32, out Single)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_RichTextBoxBase_GetNearestTextBlock_" data-uid="FlaxEngine.GUI.RichTextBoxBase.GetNearestTextBlock*"></a>
+  
+  <h4 id="FlaxEngine_GUI_RichTextBoxBase_GetNearestTextBlock_System_Int32_FlaxEngine_GUI_TextBlock__System_Boolean_" data-uid="FlaxEngine.GUI.RichTextBoxBase.GetNearestTextBlock(System.Int32,FlaxEngine.GUI.TextBlock@,System.Boolean)"><a href="#collapsible-FlaxEngine_GUI_RichTextBoxBase_GetNearestTextBlock_System_Int32_FlaxEngine_GUI_TextBlock__System_Boolean_" class="expander" data-toggle="collapse">GetNearestTextBlock(Int32, out TextBlock, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_RichTextBoxBase_GetNearestTextBlock_System_Int32_FlaxEngine_GUI_TextBlock__System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the text block or the nearest text block of the character at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetNearestTextBlock(int index, out TextBlock result, bool snapToNext = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>The character index.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GUI.TextBlock.html">TextBlock</a></span>
+        <span class="parametername">result</span>
+        <p><p>The result text block descriptor.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">snapToNext</span>
+        <p><p>If true, the when the index is between two text blocks, it will return the next block.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if a text block is found, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
   
   
   
@@ -1280,6 +1345,63 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_OnTextChanged">TextBoxBase.OnTextChanged()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_RichTextBoxBase_SetSelection_" data-uid="FlaxEngine.GUI.RichTextBoxBase.SetSelection*"></a>
+  
+  <h4 id="FlaxEngine_GUI_RichTextBoxBase_SetSelection_System_Int32_System_Int32_System_Boolean_" data-uid="FlaxEngine.GUI.RichTextBoxBase.SetSelection(System.Int32,System.Int32,System.Boolean)"><a href="#collapsible-FlaxEngine_GUI_RichTextBoxBase_SetSelection_System_Int32_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">SetSelection(Int32, Int32, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_RichTextBoxBase_SetSelection_System_Int32_System_Int32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetSelection(int start, int end, bool withScroll = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">start</span>
+        <p><p>The selection start character.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">end</span>
+        <p><p>The selection end character.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">withScroll</span>
+        <p><p>If set to <code>true</code> with auto-scroll.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEngine.GUI.TextBoxBase.html#FlaxEngine_GUI_TextBoxBase_SetSelection_System_Int32_System_Int32_System_Boolean_">TextBoxBase.SetSelection(Int32, Int32, Boolean)</a></div>
   
   
   

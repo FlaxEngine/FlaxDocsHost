@@ -6033,7 +6033,7 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
   <h4 id="FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Vector3.SnapToGrid(FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">SnapToGrid(Vector3, Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="collapse in">
-  <div class="markdown level1 summary"><p>Snaps the input position into the grid.</p>
+  <div class="markdown level1 summary"><p>Snaps the input position onto the grid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -6057,6 +6057,109 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
         <span class="parametername">gridSize</span>
         <p><p>The size of the grid.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>
+        <p><p>The position snapped to the grid.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector3_SnapToGrid_" data-uid="FlaxEngine.Vector3.SnapToGrid*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Quaternion_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Vector3.SnapToGrid(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Quaternion,FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Quaternion_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">SnapToGrid(Vector3, Vector3, Quaternion, Vector3, Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Quaternion_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Snaps the <code data-dev-comment-type="paramref" class="paramref">point</code> onto the rotated grid.<br>
+For world aligned grid snapping use <strong><a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_">SnapToGrid(Vector3, Vector3)</a></strong> instead.
+<example><p><strong>Example code:</strong></p><p>
+<pre><code><span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_class</span> SnapToGridExample : <a class="xref" href="FlaxEngine.Script.html">Script</a><br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> GridSize = <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_One">One</a> * 20.0f;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> RayOrigin;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> SomeObject;<br>
+<span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_override</span> <span class="xref">langword_csharp_void</span> <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnFixedUpdate">OnFixedUpdate()</a><br>
+{<br>
+<span class="xref">langword_csharp_if</span> (<a class="xref" href="FlaxEngine.Physics.html">Physics</a>.RayCast(RayOrigin.Position, RayOrigin.Transform.Forward, out <a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a> hit)
+{<br>
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> position = hit.Collider.Position;
+<a class="xref" href="FlaxEngine.Transform.html">Transform</a> transform = hit.Collider.Transform;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> point = hit.Point;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> normal = hit.Normal;
+//Get rotation from normal relative to collider transform
+<a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a> rot = <a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a>.GetRotationFromNormal(normal, transform);
+point = <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a>.SnapToGrid(point, GridSize, rot, position);
+SomeObject.Position = point;
+}
+}
+}</code></pre>
+<p></example></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 SnapToGrid(Vector3 point, Vector3 gridSize, Quaternion gridOrientation, Vector3 gridOrigin, Vector3 offset)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The position to snap.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">gridSize</span>
+        <p><p>The size of the grid.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">gridOrientation</span>
+        <p><p>The rotation of the grid.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">gridOrigin</span>
+        <p><p>The center point of the grid.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">offset</span>
+        <p><p>The local position offset applied to the snapped position before grid rotation.</p>
 </p>
       </td>
     </tr>

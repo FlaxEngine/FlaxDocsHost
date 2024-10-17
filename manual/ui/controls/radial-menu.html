@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Radial Menu | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Radial Menu | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Radial Menu | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="radial-menu">Radial Menu</h1>
+
+<p><img src="media/radial-menu.png" alt="Radial Menu"></p>
+<p>Radial menus are useful when making a quick select menu and normal menu types just do not fit. The radial menu has two modes:</p>
+<ul>
+<li>Layout Controller</li>
+<li>Material Controller</li>
+</ul>
+<div class="WARNING"><h5>Warning</h5><p>Radial Menu supports only <code>Image</code> controls as children now.</p>
+</div>
+<h3 id="layout-controller">Layout Controller</h3>
+<p>Any child control added to the radial menu will be automatically layout around its center.</p>
+<h3 id="material-controller">Material Controller</h3>
+<p>Material assigned to the Radial Menu control can be used to draw the background to display selected and highlighted controls. You can clone the default engine material used on the Radial Menu to create a custom UI style. Simply ensure to set and use the following parameters controlled by the control logic:</p>
+<p><img src="media/radial-menu-material-params.png" alt="Radial Menu Material Parameters"></p>
+<h3 id="sample-script">Sample script</h3>
+<pre><code class="lang-cs">public class RadialMenuUsageExample : Script
+{
+    public Actor ActorRadialMenu;
+    private RadialMenu _radialMenu;
+
+    public override void OnStart()
+    {
+        _radialMenu = ActorRadialMenu.As&lt;UIControl&gt;().Control as RadialMenu;
+        _radialMenu.Selected += OnOptionSelected;
+    }
+
+    public override void OnDestroy()
+    {
+        _radialMenu.Selected -= OnOptionSelected;
+    }
+
+    private void OnOptionSelected(int selectedOption)
+    {
+        if (!Enabled)
+            return;
+        if (_radialMenu.CenterAsButton)
+        {
+            if (selectedOption == 0)
+            {
+                Debug.Log(&quot;[Radial Menu] Center has been clicked&quot;);
+            }
+            else
+            {
+                if (selectedOption == -1)
+                {
+                    Debug.Log(&quot;[Radial Menu] Selection has been lost&quot;);
+                }
+                else
+                {
+                    Debug.Log($&quot;[Radial Menu] Option {selectedOption} has been selected&quot;);
+                }
+            }
+        }
+        else
+        {
+            if (selectedOption == -1)
+            {
+                Debug.Log(&quot;[Radial Menu] Selection has been lost&quot;);
+            }
+            else
+            {
+                Debug.Log($&quot;[Radial Menu] Option {selectedOption} has been selected&quot;);
+            }
+        }
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/ui/controls/radial-menu.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

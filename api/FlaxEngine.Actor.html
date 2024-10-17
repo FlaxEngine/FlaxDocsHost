@@ -134,6 +134,7 @@
       <div class="level4"><a class="xref" href="FlaxEngine.TextRender.html">TextRender</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.UICanvas.html">UICanvas</a></div>
       <div class="level4"><a class="xref" href="FlaxEngine.UIControl.html">UIControl</a></div>
+      <div class="level4"><a class="xref" href="FlaxEngine.VideoPlayer.html">VideoPlayer</a></div>
     </div>
   </div>
   <div classs="implements">
@@ -192,10 +193,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -887,7 +888,7 @@ public Float3 LocalScale { get; set; }</code></pre>
   <h4 id="FlaxEngine_Actor_Name" data-uid="FlaxEngine.Actor.Name"><a href="#collapsible-FlaxEngine_Actor_Name" class="expander" data-toggle="collapse">Name</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_Name" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the actor name.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the actor name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3306,7 +3307,7 @@ public Actor Intersects(Ray ray, out float distance, out Vector3 normal)</code><
   <h4 id="FlaxEngine_Actor_IntersectsItself_FlaxEngine_Ray_System_Single__FlaxEngine_Vector3__" data-uid="FlaxEngine.Actor.IntersectsItself(FlaxEngine.Ray,System.Single@,FlaxEngine.Vector3@)"><a href="#collapsible-FlaxEngine_Actor_IntersectsItself_FlaxEngine_Ray_System_Single__FlaxEngine_Vector3__" class="expander" data-toggle="collapse">IntersectsItself(Ray, out Single, out Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Actor_IntersectsItself_FlaxEngine_Ray_System_Single__FlaxEngine_Vector3__" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a Ray.</p>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a ray.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -3436,7 +3437,7 @@ public void LookAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
         <span class="parametername">worldUp</span>
-        <p><p>The up direction that Constrains y axis orientation to a plane this vector lies on. This rule might be broken if forward and up direction are nearly parallel.</p>
+        <p><p>The up direction that constrains up axis orientation to a plane this vector lies on. This rule might be broken if forward and up direction are nearly parallel.</p>
 </p>
       </td>
     </tr>
@@ -3548,6 +3549,64 @@ public Quaternion LookingAt(Vector3 worldPos, Vector3 worldUp)</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnActiveChanged_" data-uid="FlaxEngine.Actor.OnActiveChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnActiveChanged" data-uid="FlaxEngine.Actor.OnActiveChanged"><a href="#collapsible-FlaxEngine_Actor_OnActiveChanged" class="expander" data-toggle="collapse">OnActiveChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnActiveChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor active state gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnActiveChanged()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnActiveInTreeChanged_" data-uid="FlaxEngine.Actor.OnActiveInTreeChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnActiveInTreeChanged" data-uid="FlaxEngine.Actor.OnActiveInTreeChanged"><a href="#collapsible-FlaxEngine_Actor_OnActiveInTreeChanged" class="expander" data-toggle="collapse">OnActiveInTreeChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnActiveInTreeChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor active in tree state gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnActiveInTreeChanged()</code></pre>
+  </div>
+
+  
   
   
   
@@ -3721,6 +3780,151 @@ public virtual void OnEnable()</code></pre>
     <pre><code class="lang-csharp hljs">[NoAnimate]
 [Unmanaged]
 public virtual void OnEndPlay()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnLayerChanged_" data-uid="FlaxEngine.Actor.OnLayerChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnLayerChanged" data-uid="FlaxEngine.Actor.OnLayerChanged"><a href="#collapsible-FlaxEngine_Actor_OnLayerChanged" class="expander" data-toggle="collapse">OnLayerChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnLayerChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when layer gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnLayerChanged()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnOrderInParentChanged_" data-uid="FlaxEngine.Actor.OnOrderInParentChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnOrderInParentChanged" data-uid="FlaxEngine.Actor.OnOrderInParentChanged"><a href="#collapsible-FlaxEngine_Actor_OnOrderInParentChanged" class="expander" data-toggle="collapse">OnOrderInParentChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnOrderInParentChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when order in parent children array gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnOrderInParentChanged()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnParentChanged_" data-uid="FlaxEngine.Actor.OnParentChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnParentChanged" data-uid="FlaxEngine.Actor.OnParentChanged"><a href="#collapsible-FlaxEngine_Actor_OnParentChanged" class="expander" data-toggle="collapse">OnParentChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnParentChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor parent gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnParentChanged()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnStaticFlagsChanged_" data-uid="FlaxEngine.Actor.OnStaticFlagsChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnStaticFlagsChanged" data-uid="FlaxEngine.Actor.OnStaticFlagsChanged"><a href="#collapsible-FlaxEngine_Actor_OnStaticFlagsChanged" class="expander" data-toggle="collapse">OnStaticFlagsChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnStaticFlagsChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor static flag gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnStaticFlagsChanged()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Actor_OnTransformChanged_" data-uid="FlaxEngine.Actor.OnTransformChanged*"></a>
+  
+  <h4 id="FlaxEngine_Actor_OnTransformChanged" data-uid="FlaxEngine.Actor.OnTransformChanged"><a href="#collapsible-FlaxEngine_Actor_OnTransformChanged" class="expander" data-toggle="collapse">OnTransformChanged()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Actor_OnTransformChanged" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when actor transform gets changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public virtual void OnTransformChanged()</code></pre>
   </div>
 
   

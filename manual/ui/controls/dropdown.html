@@ -91,7 +91,41 @@
 
 <p><img src="media/dropdown.png" alt="Dropdown"></p>
 <p>The <strong>Dropdown</strong> control lets user to pick one option from the list of options. Control shows the currently selected option.</p>
-</article>
+<h3 id="custom-popup-style">Custom popup style</h3>
+<p>By default dropdown popup uses Dropdown control properties such as Background Color, Border Color, etc. to display a list of items to select from. But in many cases, games might want to customize this popup. To do so you can override one or more of the following functions in custom Dropdown implementation:</p>
+<ul>
+<li><code>CreatePopup</code></li>
+<li><code>CreatePopupRoot</code></li>
+<li><code>CreatePopupBackground</code></li>
+<li><code>CreatePopupItem</code></li>
+</ul>
+<p>Here is an example dropdown implementation that adds the blur panel to the dropdown popup background: </p>
+<pre><code class="lang-cs">public class DropdownWithBlur : Dropdown
+{
+    [EditorOrder(0), Limit(0, 100, 0.1f)]
+    public float BlurStrength = 10.0f;
+
+    public DropdownWithBlur()
+    {
+        // Remove background
+        BackgroundColor = Color.Transparent;
+    }
+
+    protected override void CreatePopupBackground(DropdownRoot popup)
+    {
+        // Insert blur panel that will smooth background
+        var blur = new BlurPanel
+        {
+            BlurStrength = BlurStrength,
+            AnchorPreset = AnchorPresets.StretchAll,
+            Offsets = Margin.Zero,
+            Parent = popup.MainPanel,
+        };
+
+        base.CreatePopupBackground(popup);
+    }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -99,7 +133,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/ui/controls/dropdown.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/ui/controls/dropdown.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -104,19 +104,16 @@
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-BufferedQueryPoolVulkan" data-uid="QueryPoolVulkan._capacity"><a href="#collapsible-inheritedMembers-BufferedQueryPoolVulkan" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-BufferedQueryPoolVulkan" data-uid="QueryPoolVulkan._device"><a href="#collapsible-inheritedMembers-BufferedQueryPoolVulkan" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-BufferedQueryPoolVulkan" class="collapse">
-    <div>
-      <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__capacity">QueryPoolVulkan::_capacity</a>
-    </div>
-    <div>
-      <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__count">QueryPoolVulkan::_count</a>
-    </div>
     <div>
       <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__device">QueryPoolVulkan::_device</a>
     </div>
     <div>
       <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__handle">QueryPoolVulkan::_handle</a>
+    </div>
+    <div>
+      <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__resetRanges">QueryPoolVulkan::_resetRanges</a>
     </div>
     <div>
       <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__type">QueryPoolVulkan::_type</a>
@@ -126,6 +123,12 @@
     </div>
     <div>
       <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan_QueryPoolVulkan_GPUDeviceVulkan___int32_VkQueryType_">QueryPoolVulkan::QueryPoolVulkan(GPUDeviceVulkan* device, int32 capacity, VkQueryType type)</a>
+    </div>
+    <div>
+      <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan_Reset_CmdBufferVulkan___">QueryPoolVulkan::Reset(CmdBufferVulkan* cmdBuffer)</a>
+    </div>
+    <div>
+      <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan_ResetBeforeUse">QueryPoolVulkan::ResetBeforeUse</a>
     </div>
     <div>
       <a class="xref" href="QueryPoolVulkan.html#QueryPoolVulkan__QueryPoolVulkan__">QueryPoolVulkan::~QueryPoolVulkan()</a>
@@ -153,7 +156,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_BufferedQueryPoolVulkan_GPUDeviceVulkan___int32_VkQueryType_.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.BufferedQueryPoolVulkan(GPUDeviceVulkan%20*%2Cint32%2CVkQueryType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L294" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L295" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_BufferedQueryPoolVulkan_" data-uid="BufferedQueryPoolVulkan.BufferedQueryPoolVulkan*"></a>
@@ -210,27 +213,34 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_AcquireQuery_uint32___.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.AcquireQuery(uint32%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_AcquireQuery_CmdBufferVulkan___uint32___.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.AcquireQuery(CmdBufferVulkan%20*%2Cuint32%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L295" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L296" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_AcquireQuery_" data-uid="BufferedQueryPoolVulkan.AcquireQuery*"></a>
   
-  <h4 id="BufferedQueryPoolVulkan_AcquireQuery_uint32___" data-uid="BufferedQueryPoolVulkan.AcquireQuery(uint32 &amp;)"><a href="#collapsible-BufferedQueryPoolVulkan_AcquireQuery_uint32___" class="expander" data-toggle="collapse">AcquireQuery(uint32&amp; resultIndex)</a></h4>
+  <h4 id="BufferedQueryPoolVulkan_AcquireQuery_CmdBufferVulkan___uint32___" data-uid="BufferedQueryPoolVulkan.AcquireQuery(CmdBufferVulkan *,uint32 &amp;)"><a href="#collapsible-BufferedQueryPoolVulkan_AcquireQuery_CmdBufferVulkan___uint32___" class="expander" data-toggle="collapse">AcquireQuery(CmdBufferVulkan* cmdBuffer, uint32&amp; resultIndex)</a></h4>
   
-  <div id="collapsible-BufferedQueryPoolVulkan_AcquireQuery_uint32___" class="collapse in">
+  <div id="collapsible-BufferedQueryPoolVulkan_AcquireQuery_CmdBufferVulkan___uint32___" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool AcquireQuery(uint32&amp; resultIndex)</code></pre>
+    <pre><code class="lang-cpp hljs">public bool AcquireQuery(CmdBufferVulkan* cmdBuffer, uint32&amp; resultIndex)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="CmdBufferVulkan.html">CmdBufferVulkan</a></span>
+        <span class="parametername">cmdBuffer</span>
+        <p>
+      </td>
+    </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">uint32</span></span>
@@ -266,7 +276,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_GetResults_GPUContextVulkan___uint32_uint64___.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.GetResults(GPUContextVulkan%20*%2Cuint32%2Cuint64%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L298" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L299" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_GetResults_" data-uid="BufferedQueryPoolVulkan.GetResults*"></a>
@@ -333,7 +343,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_HasRoom__.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.HasRoom()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L299" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L300" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_HasRoom_" data-uid="BufferedQueryPoolVulkan.HasRoom*"></a>
@@ -376,7 +386,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_MarkQueryAsStarted_uint32_.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.MarkQueryAsStarted(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L297" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L298" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_MarkQueryAsStarted_" data-uid="BufferedQueryPoolVulkan.MarkQueryAsStarted*"></a>
@@ -420,7 +430,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan_ReleaseQuery_uint32_.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan.ReleaseQuery(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L296" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L297" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BufferedQueryPoolVulkan_ReleaseQuery_" data-uid="BufferedQueryPoolVulkan.ReleaseQuery*"></a>
@@ -471,7 +481,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BufferedQueryPoolVulkan.md&amp;value=---%0Auid%3A%20BufferedQueryPoolVulkan%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L282" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUDeviceVulkan.h/#L283" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

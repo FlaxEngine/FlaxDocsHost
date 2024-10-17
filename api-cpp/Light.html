@@ -233,6 +233,12 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_HasTag_instead__">Actor::DEPRECATED(&quot;Use HasTag instead&quot;) const String&amp; GetTag()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_AddTag_instead__">Actor::DEPRECATED(&quot;Use AddTag instead&quot;) void SetTag(const StringView&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -449,9 +455,6 @@
       <a class="xref" href="Actor.html#Actor_GetStaticFlags__">Actor::GetStaticFlags()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_GetTag__">Actor::GetTag()</a>
-    </div>
-    <div>
       <a class="xref" href="Actor.html#Actor_GetTransform__">Actor::GetTransform()</a>
     </div>
     <div>
@@ -665,6 +668,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_SetManagedInstance_MObject___">ScriptingObject::SetManagedInstance(MObject* instance)</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_SetName_String____">Actor::SetName(String&amp;&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor_SetName_const_StringView___">Actor::SetName(const StringView&amp; value)</a>
     </div>
     <div>
@@ -699,9 +705,6 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlags_StaticFlags_">Actor::SetStaticFlags(StaticFlags value)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_SetTag_const_StringView___">Actor::SetTag(const StringView&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetTransform_const_Transform___">Actor::SetTransform(const Transform&amp; value)</a>
@@ -1003,7 +1006,7 @@
   <h4 id="Light_ViewDistance" data-uid="Light.ViewDistance"><a href="#collapsible-Light_ViewDistance" class="expander" data-toggle="collapse">ViewDistance</a></h4>
   
   <div id="collapsible-Light_ViewDistance" class="collapse in">
-  <div class="markdown level1 summary"><p>Controls light visibility range. The distance at which the light becomes completely faded. Use a value of 0 to always draw light. </p></div>
+  <div class="markdown level1 summary"><p>Controls light visibility range. The distance at which the light becomes completely faded (blend happens on the last 10% of that range). Use a value of 0 to always draw light. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -1130,10 +1133,84 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_CheckViewDistance_const_Float3___const_Float3___Float3___float___.md&amp;value=---%0Auid%3A%20Light.CheckViewDistance(const%20Float3%20%26%2Cconst%20Float3%20%26%2CFloat3%20%26%2Cfloat%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Light_CheckViewDistance_" data-uid="Light.CheckViewDistance*"></a>
+  
+  <h4 id="Light_CheckViewDistance_const_Float3___const_Float3___Float3___float___" data-uid="Light.CheckViewDistance(const Float3 &amp;,const Float3 &amp;,Float3 &amp;,float &amp;)"><a href="#collapsible-Light_CheckViewDistance_const_Float3___const_Float3___Float3___float___" class="expander" data-toggle="collapse">CheckViewDistance(const Float3&amp; viewPosition, const Float3&amp; viewOrigin, Float3&amp; position, float&amp; brightness)</a></h4>
+  
+  <div id="collapsible-Light_CheckViewDistance_const_Float3___const_Float3___Float3___float___" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected bool CheckViewDistance(const Float3&amp; viewPosition, const Float3&amp; viewOrigin, Float3&amp; position, float&amp; brightness) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Float3</span></span>
+        <span class="parametername">viewPosition</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Float3</span></span>
+        <span class="parametername">viewOrigin</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Float3</span></span>
+        <span class="parametername">position</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">brightness</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20Light.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L67" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_Deserialize_" data-uid="Light.Deserialize*"></a>
@@ -1186,7 +1263,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_DrawLightsDebug_RenderView___.md&amp;value=---%0Auid%3A%20Light.DrawLightsDebug(RenderView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L64" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_DrawLightsDebug_" data-uid="Light.DrawLightsDebug*"></a>
@@ -1230,7 +1307,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_GetEditorBox__.md&amp;value=---%0Auid%3A%20Light.GetEditorBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L71" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_GetEditorBox_" data-uid="Light.GetEditorBox*"></a>
@@ -1275,7 +1352,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_OnDisable__.md&amp;value=---%0Auid%3A%20Light.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L56" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L69" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_OnDisable_" data-uid="Light.OnDisable*"></a>
@@ -1311,7 +1388,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_OnEnable__.md&amp;value=---%0Auid%3A%20Light.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L68" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_OnEnable_" data-uid="Light.OnEnable*"></a>
@@ -1347,7 +1424,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Light_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20Light.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/Light.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Light_Serialize_" data-uid="Light.Serialize*"></a>

@@ -107,6 +107,16 @@
 </table>
 <h2 id="shadow-mapping">Shadow mapping</h2>
 <p>Flax Engine uses the classical <strong>shadow mapping</strong> technique to render light shadows. Basically, it renders a <strong>shadow map</strong> from the light source. If the light can see the pixel, the light is illuminated. If it can not, the pixel is in shadow. Learning by using various shadow sampling techniques may be smoothened to simulate a shadow penumbra.</p>
+<h3 id="shadow-atlas">Shadow Atlas</h3>
+<p><img src="media/shadow-map-atlas.gif" alt="Shadow Atlas"></p>
+<p>Engine <strong>draws shadow projections into a single shadow map atlas</strong> to optimize performance, allow variable update rate and shadows caching. Each light can allocate the slots in the atlas. Spot lights use 1 projection, point lights 6, directional lights equal to CSM Count. Slot <strong>resolution is calculated based on the screen size of the light</strong>. This allows for reduction of shadows quality for lights that are small or are far away from the camera.</p>
+<h3 id="static-shadows">Static Shadows</h3>
+<p><img src="media/static-shadow-map.png" alt="Static Shadow Maps"></p>
+<p>Shadow Map Atlas will support automatic shadow caching for static lights and static geometry. Lights marked with <em>Static Flag</em> <code>Shadows</code> can prerender static geometry into the intermediate shadow map. Then when updating the shadow, cached static shadow can be copied and only dynamic objects are rendered. This drastically improves both GPU and CPU performance in complex scenes with point/spot lights that are casting shadows.</p>
+<h3 id="update-rate">Update Rate</h3>
+<p>Lights can define the update rate for shadow updates. Value <code>1</code> means that the shadow will be updated every frame, value <code>0.5</code> defines every 2nd frame update, and so on. The inverted update rate equals the difference in frame in-between updates. This frame gap can be non-integer and a fractional part is accumulated thus while updates can happen only at sequential frames the total update average statistics will be close to the specified value.</p>
+<p>Lowering the update rate for the shadow improves the performance as the shadowmap rendering is called less often thus CPU and GPU performance increases.</p>
+<p>This rate can be additionally lowered when light is far away from the view via <em>Update Rate At Distance</em> property. For example, if light is near view, it will get normal frequent shadow updates but this rate will be scaled down linearly once camera start to move away from the light.</p>
 <h2 id="contact-shadows">Contact Shadows</h2>
 <p><img src="media/contact-shadows.gif" alt="Contact Shadows"></p>
 <p><strong>Contact Shadows</strong> are local-shadows, ray-traced in screen-space, and customizable per light. They can enrich the scene lighting by adding more details to the geometry. This feature can be controlled via the <strong>Contact Shadows Length</strong> value which defines the length of the rays for contact shadows computed via screen-space tracing. Set this to values higher than 0 to enable screen-space shadow rendering per-light. This improves the shadowing details. The actual ray distance is based on the pixel distance from the camera.</p>
@@ -121,7 +131,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/graphics/lighting/shadows.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/lighting/shadows.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

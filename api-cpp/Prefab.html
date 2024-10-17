@@ -162,6 +162,9 @@
       <a class="xref" href="Asset.html#Asset_ChangeID_const_Guid___">Asset::ChangeID(const Guid&amp; newId)</a>
     </div>
     <div>
+      <a class="xref" href="Asset.html#Asset_const">Asset::const</a>
+    </div>
+    <div>
       <a class="xref" href="Asset.html#Asset_createLoadingTask__">Asset::createLoadingTask()</a>
     </div>
     <div>
@@ -193,6 +196,9 @@
     </div>
     <div>
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_DEPRECATED__Use_GetReferences_with_assets_and_files_parameter_instead__">Asset::DEPRECATED(&quot;Use GetReferences with assets and files parameter instead&quot;)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_DestroyManaged__">Asset::DestroyManaged()</a>
@@ -234,10 +240,10 @@
       <a class="xref" href="JsonAssetBase.html#JsonAssetBase_GetPath__">JsonAssetBase::GetPath()</a>
     </div>
     <div>
-      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____">JsonAssetBase::GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; output)</a>
+      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____">JsonAssetBase::GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; assets)</a>
     </div>
     <div>
-      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____">JsonAssetBase::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output)</a>
+      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____">JsonAssetBase::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_GetReferences__">Asset::GetReferences()</a>
@@ -315,10 +321,10 @@
       <a class="xref" href="Asset.html#Asset_onLoad_LoadAssetTask___">Asset::onLoad(LoadAssetTask* task)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
+      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
+      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_onLoaded_MainThread__">Asset::onLoaded_MainThread()</a>
@@ -469,7 +475,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_ObjectsCache.md&amp;value=---%0Auid%3A%20Prefab.ObjectsCache%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L52" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -592,6 +598,48 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_ObjectsHierarchyCache.md&amp;value=---%0Auid%3A%20Prefab.ObjectsHierarchyCache%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="Prefab_ObjectsHierarchyCache" data-uid="Prefab.ObjectsHierarchyCache"><a href="#collapsible-Prefab_ObjectsHierarchyCache" class="expander" data-toggle="collapse">ObjectsHierarchyCache</a></h4>
+  
+  <div id="collapsible-Prefab_ObjectsHierarchyCache" class="collapse in">
+  <div class="markdown level1 summary"><p>The object hierarchy cache that maps the PrefabObjectID into the list of children (identified also by PrefabObjectID). Objects without any children are not included for sake of optimization. Used for quick validation of the structure of loaded prefab instances. Valid only if asset is loaded. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Dictionary&lt;Guid, Array&lt;Guid&gt;&gt; ObjectsHierarchyCache</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">Dictionary&lt;Guid, Array&lt;Guid&gt;&gt;</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_ObjectsIds.md&amp;value=---%0Auid%3A%20Prefab.ObjectsIds%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -639,7 +687,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_ApplyAll_Actor___.md&amp;value=---%0Auid%3A%20Prefab.ApplyAll(Actor%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L76" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L81" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_ApplyAll_" data-uid="Prefab.ApplyAll*"></a>
@@ -693,7 +741,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_GetDefaultInstance__.md&amp;value=---%0Auid%3A%20Prefab.GetDefaultInstance()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L64" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_GetDefaultInstance_" data-uid="Prefab.GetDefaultInstance*"></a>
@@ -736,7 +784,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_GetDefaultInstance_const_Guid___.md&amp;value=---%0Auid%3A%20Prefab.GetDefaultInstance(const%20Guid%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L71" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_GetDefaultInstance_" data-uid="Prefab.GetDefaultInstance*"></a>
@@ -789,7 +837,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_GetRootObjectId__.md&amp;value=---%0Auid%3A%20Prefab.GetRootObjectId()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_GetRootObjectId_" data-uid="Prefab.GetRootObjectId*"></a>
@@ -832,7 +880,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_loadAsset__.md&amp;value=---%0Auid%3A%20Prefab.loadAsset()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L97" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_loadAsset_" data-uid="Prefab.loadAsset*"></a>
@@ -877,7 +925,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_unload_bool_.md&amp;value=---%0Auid%3A%20Prefab.unload(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L98" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_unload_" data-uid="Prefab.unload*"></a>

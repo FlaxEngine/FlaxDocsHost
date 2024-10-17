@@ -233,6 +233,12 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_HasTag_instead__">Actor::DEPRECATED(&quot;Use HasTag instead&quot;) const String&amp; GetTag()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_AddTag_instead__">Actor::DEPRECATED(&quot;Use AddTag instead&quot;) void SetTag(const StringView&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="ISerializable.html#ISerializable_DeserializeIfExists_DeserializeStream___const_char___ISerializeModifier___">ISerializable::DeserializeIfExists(DeserializeStream&amp; stream, const char* memberName, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -449,9 +455,6 @@
       <a class="xref" href="Actor.html#Actor_GetStaticFlags__">Actor::GetStaticFlags()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_GetTag__">Actor::GetTag()</a>
-    </div>
-    <div>
       <a class="xref" href="Actor.html#Actor_GetTransform__">Actor::GetTransform()</a>
     </div>
     <div>
@@ -653,6 +656,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_SetManagedInstance_MObject___">ScriptingObject::SetManagedInstance(MObject* instance)</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_SetName_String____">Actor::SetName(String&amp;&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor_SetName_const_StringView___">Actor::SetName(const StringView&amp; value)</a>
     </div>
     <div>
@@ -687,9 +693,6 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlags_StaticFlags_">Actor::SetStaticFlags(StaticFlags value)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_SetTag_const_StringView___">Actor::SetTag(const StringView&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetTransform_const_Transform___">Actor::SetTransform(const Transform&amp; value)</a>
@@ -949,12 +952,12 @@
   <h4 id="SpriteRender_SortOrder" data-uid="SpriteRender.SortOrder"><a href="#collapsible-SpriteRender_SortOrder" class="expander" data-toggle="collapse">SortOrder</a></h4>
   
   <div id="collapsible-SpriteRender_SortOrder" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the object sort order key used when sorting drawable objects during rendering. Use lower values to draw object before others, higher values are rendered later (on top). Can be use to control transparency drawing. </p></div>
+  <div class="markdown level1 summary"><p>Gets the object sort order key used when sorting drawable objects during rendering. Use lower values to draw object before others, higher values are rendered later (on top). Can be used to control transparency drawing. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public int16 SortOrder = 0</code></pre>
+    <pre><code class="lang-cpp hljs">public int8 SortOrder = 0</code></pre>
   </div>
 
   
@@ -964,7 +967,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">int16</span>
+        <span class="xref">int8</span>
         <p>
       </td>
     </tr>
@@ -986,7 +989,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_Deserialize_DeserializeStream___ISerializeModifier___.md&amp;value=---%0Auid%3A%20SpriteRender.Deserialize(DeserializeStream%20%26%2CISerializeModifier%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_Deserialize_" data-uid="SpriteRender.Deserialize*"></a>
@@ -1039,7 +1042,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_Draw_RenderContext___.md&amp;value=---%0Auid%3A%20SpriteRender.Draw(RenderContext%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L91" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_Draw_" data-uid="SpriteRender.Draw*"></a>
@@ -1214,7 +1217,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_HasContentLoaded__.md&amp;value=---%0Auid%3A%20SpriteRender.HasContentLoaded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_HasContentLoaded_" data-uid="SpriteRender.HasContentLoaded*"></a>
@@ -1259,7 +1262,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_OnDisable__.md&amp;value=---%0Auid%3A%20SpriteRender.OnDisable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L99" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_OnDisable_" data-uid="SpriteRender.OnDisable*"></a>
@@ -1295,7 +1298,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_OnEnable__.md&amp;value=---%0Auid%3A%20SpriteRender.OnEnable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L98" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L99" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_OnEnable_" data-uid="SpriteRender.OnEnable*"></a>
@@ -1331,7 +1334,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_OnEndPlay__.md&amp;value=---%0Auid%3A%20SpriteRender.OnEndPlay()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_OnEndPlay_" data-uid="SpriteRender.OnEndPlay*"></a>
@@ -1367,7 +1370,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_OnLayerChanged__.md&amp;value=---%0Auid%3A%20SpriteRender.OnLayerChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_OnLayerChanged_" data-uid="SpriteRender.OnLayerChanged*"></a>
@@ -1403,7 +1406,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_OnTransformChanged__.md&amp;value=---%0Auid%3A%20SpriteRender.OnTransformChanged()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_OnTransformChanged_" data-uid="SpriteRender.OnTransformChanged*"></a>
@@ -1439,7 +1442,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SpriteRender_Serialize_SerializeStream___const_void___.md&amp;value=---%0Auid%3A%20SpriteRender.Serialize(SerializeStream%20%26%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L91" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/UI/SpriteRender.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SpriteRender_Serialize_" data-uid="SpriteRender.Serialize*"></a>

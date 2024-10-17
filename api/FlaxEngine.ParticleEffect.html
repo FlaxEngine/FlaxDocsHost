@@ -252,6 +252,27 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDisable">Actor.OnDisable()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnParentChanged">Actor.OnParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnTransformChanged">Actor.OnTransformChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveChanged">Actor.OnActiveChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveInTreeChanged">Actor.OnActiveInTreeChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnOrderInParentChanged">Actor.OnOrderInParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnStaticFlagsChanged">Actor.OnStaticFlagsChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnLayerChanged">Actor.OnLayerChanged()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnBeginPlay">Actor.OnBeginPlay()</a>
     </div>
     <div>
@@ -432,10 +453,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -891,7 +912,7 @@ public float SimulationSpeed { get; set; }</code></pre>
   <h4 id="FlaxEngine_ParticleEffect_SortOrder" data-uid="FlaxEngine.ParticleEffect.SortOrder"><a href="#collapsible-FlaxEngine_ParticleEffect_SortOrder" class="expander" data-toggle="collapse">SortOrder</a></h4>
   
   <div id="collapsible-FlaxEngine_ParticleEffect_SortOrder" class="collapse in">
-  <div class="markdown level1 summary"><p>The object sort order key used when sorting drawable objects during rendering. Use lower values to draw object before others, higher values are rendered later (on top). Can be use to control transparency drawing.</p>
+  <div class="markdown level1 summary"><p>The object sort order key used when sorting drawable objects during rendering. Use lower values to draw object before others, higher values are rendered later (on top). Can be used to control transparency drawing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -900,7 +921,7 @@ public float SimulationSpeed { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">[EditorDisplay(&quot;Particle Effect&quot;, null)]
 [EditorOrder(80)]
 [Unmanaged]
-public short SortOrder { get; set; }</code></pre>
+public sbyte SortOrder { get; set; }</code></pre>
   </div>
 
   
@@ -911,7 +932,7 @@ public short SortOrder { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Int16</span>
+        <span class="xref">System.SByte</span>
         <p>
       </td>
     </tr>
@@ -1376,6 +1397,54 @@ public void SetParameterValue(string emitterTrackName, string paramName, object 
         <span class="pull-right"><span class="xref">System.Object</span></span>
         <span class="parametername">value</span>
         <p><p>The value to set.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_ParticleEffect_SpawnParticles_" data-uid="FlaxEngine.ParticleEffect.SpawnParticles*"></a>
+  
+  <h4 id="FlaxEngine_ParticleEffect_SpawnParticles_System_Int32_System_String_" data-uid="FlaxEngine.ParticleEffect.SpawnParticles(System.Int32,System.String)"><a href="#collapsible-FlaxEngine_ParticleEffect_SpawnParticles_System_Int32_System_String_" class="expander" data-toggle="collapse">SpawnParticles(Int32, String)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_ParticleEffect_SpawnParticles_System_Int32_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Manually spawns additional particles into the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SpawnParticles(int count, string emitterTrackName = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">count</span>
+        <p><p>Amount of particles to spawn.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">emitterTrackName</span>
+        <p><p>Name of the emitter track to spawn particles in. Empty if spawn particles into all tracks.</p>
 </p>
       </td>
     </tr>

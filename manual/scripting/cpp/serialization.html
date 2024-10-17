@@ -149,10 +149,12 @@ namespace Serialization
     inline void Serialize(ISerializable::SerializeStream&amp; stream, const MyCustomNativeData&amp; v, const void* otherObj)
     {
         // Populate stream with the struct data
+        stream.StartObject();
         stream.JKEY(&quot;Direction&quot;);
         Serialize(stream, v.Direction, nullptr);
         stream.JKEY(&quot;Length&quot;);
         Serialize(stream, v.Length, nullptr);
+        stream.EndObject();
     }
     inline void Deserialize(ISerializable::DeserializeStream&amp; stream, MyCustomNativeData&amp; v, ISerializeModifier* modifier)
     {
@@ -190,7 +192,7 @@ struct TIsPODType&lt;MyCustomNativeData&gt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

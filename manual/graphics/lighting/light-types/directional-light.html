@@ -134,6 +134,10 @@
 <td>Describes how a visual element casts shadows. Possible options: <br><table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>None</strong></td><td>Never render shadows.</td></tr><tr><td><strong>Static Only</strong></td><td>Render shadows only in static views (env probes, lightmaps, etc.).</td></tr><tr><td><strong>Dynamic Only</strong></td><td>Render shadows only in dynamic views (game, editor, etc.).</td></tr><tr><td><strong>All</strong></td><td>Always render shadows.</td></tr></tbody></table></td>
 </tr>
 <tr>
+<td><strong>Partition Mode</strong></td>
+<td>The partitioning mode for the shadow cascades. Possible options: <br><table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Manual</strong></td><td>Internally defined cascade splits.</td></tr><tr><td><strong>Logarithmic</strong></td><td>Logarithmic cascade splits.</td></tr><tr><td><strong>PSSM</strong></td><td>Parallel-Split Shadow Maps cascade splits.</td></tr></tbody></table></td>
+</tr>
+<tr>
 <td><strong>Cascade Count</strong></td>
 <td>The number of cascades used for slicing the range of depth covered by the light during shadow rendering. Values are 1, 2 or 4 cascades; a typical scene uses 4 cascades.</td>
 </tr>
@@ -164,6 +168,18 @@
 <tr>
 <td><strong>Contact Shadows Length</strong></td>
 <td>The length of the rays for contact shadows computed via screen-space tracing. Set this to values higher than 0 to enable screen-space shadow rendering for this light. This improves the shadowing details. Actual ray distance is based on the pixel distance from the camera.</td>
+</tr>
+<tr>
+<td><strong>Update Rate</strong></td>
+<td>Frequency of shadow updates. 1 - every frame, 0.5 - every second frame, 0 - on start or change. It&#39;s the inverse value of how many frames should happen in-between shadow map updates (eg. inverse of 0.5 is 2 thus shadow will update every 2nd frame).</td>
+</tr>
+<tr>
+<td><strong>Update Rate At Distance</strong></td>
+<td>Frequency of shadow updates at the maximum distance from the view at which shadows are still rendered. This value is multiplied by <em>Shadows Update Rate</em> and allows scaling the update rate in-between the shadow range. For example, if light is near view, it will get normal shadow updates but will reduce this rate when far from view.</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>Defines the resolution of the shadow map texture used to draw objects projection from light-point-of-view. Higher values increase shadow quality at cost of performance.</td>
 </tr>
 </tbody>
 </table>
@@ -199,7 +215,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/graphics/lighting/light-types/directional-light.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/lighting/light-types/directional-light.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

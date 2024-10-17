@@ -237,6 +237,12 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_HasTag_instead__">Actor::DEPRECATED(&quot;Use HasTag instead&quot;) const String&amp; GetTag()</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_DEPRECATED__Use_AddTag_instead__">Actor::DEPRECATED(&quot;Use AddTag instead&quot;) void SetTag(const StringView&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor_Deserialize_DeserializeStream___ISerializeModifier___">Actor::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modifier)</a>
     </div>
     <div>
@@ -456,9 +462,6 @@
       <a class="xref" href="Actor.html#Actor_GetStaticFlags__">Actor::GetStaticFlags()</a>
     </div>
     <div>
-      <a class="xref" href="Actor.html#Actor_GetTag__">Actor::GetTag()</a>
-    </div>
-    <div>
       <a class="xref" href="Actor.html#Actor_GetTransform__">Actor::GetTransform()</a>
     </div>
     <div>
@@ -669,6 +672,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_SetManagedInstance_MObject___">ScriptingObject::SetManagedInstance(MObject* instance)</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_SetName_String____">Actor::SetName(String&amp;&amp; value)</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor_SetName_const_StringView___">Actor::SetName(const StringView&amp; value)</a>
     </div>
     <div>
@@ -703,9 +709,6 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetStaticFlags_StaticFlags_">Actor::SetStaticFlags(StaticFlags value)</a>
-    </div>
-    <div>
-      <a class="xref" href="Actor.html#Actor_SetTag_const_StringView___">Actor::SetTag(const StringView&amp; value)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_SetTransform_const_Transform___">Actor::SetTransform(const Transform&amp; value)</a>
@@ -1364,7 +1367,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_ClosestPoint_const_Vector3___Vector3___.md&amp;value=---%0Auid%3A%20Collider.ClosestPoint(const%20Vector3%20%26%2CVector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_ClosestPoint_" data-uid="Collider.ClosestPoint*"></a>
@@ -1491,7 +1494,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_ContainsPoint_const_Vector3___.md&amp;value=---%0Auid%3A%20Collider.ContainsPoint(const%20Vector3%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_ContainsPoint_" data-uid="Collider.ContainsPoint*"></a>
@@ -1614,7 +1617,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_DrawPhysicsDebug_RenderView___.md&amp;value=---%0Auid%3A%20Collider.DrawPhysicsDebug(RenderView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L154" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_DrawPhysicsDebug_" data-uid="Collider.DrawPhysicsDebug*"></a>
@@ -1627,7 +1630,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">protected virtual void DrawPhysicsDebug(RenderView&amp; view)</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void DrawPhysicsDebug(RenderView&amp; view)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1694,7 +1697,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_GetAttachedRigidBody__.md&amp;value=---%0Auid%3A%20Collider.GetAttachedRigidBody()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_GetAttachedRigidBody_" data-uid="Collider.GetAttachedRigidBody*"></a>
@@ -2253,7 +2256,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_RayCast_const_Vector3___const_Vector3___float___float_.md&amp;value=---%0Auid%3A%20Collider.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2Cfloat%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L159" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_RayCast_" data-uid="Collider.RayCast*"></a>
@@ -2329,7 +2332,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Collider_RayCast_const_Vector3___const_Vector3___RayCastHit___float_.md&amp;value=---%0Auid%3A%20Collider.RayCast(const%20Vector3%20%26%2Cconst%20Vector3%20%26%2CRayCastHit%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Physics/Colliders/Collider.h/#L160" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Collider_RayCast_" data-uid="Collider.RayCast*"></a>

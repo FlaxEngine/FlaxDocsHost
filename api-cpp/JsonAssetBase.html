@@ -155,6 +155,9 @@
       <a class="xref" href="Asset.html#Asset_ChangeID_const_Guid___">Asset::ChangeID(const Guid&amp; newId)</a>
     </div>
     <div>
+      <a class="xref" href="Asset.html#Asset_const">Asset::const</a>
+    </div>
+    <div>
       <a class="xref" href="Asset.html#Asset_createLoadingTask__">Asset::createLoadingTask()</a>
     </div>
     <div>
@@ -177,6 +180,9 @@
     </div>
     <div>
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_DEPRECATED__Use_GetReferences_with_assets_and_files_parameter_instead__">Asset::DEPRECATED(&quot;Use GetReferences with assets and files parameter instead&quot;)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_DestroyManaged__">Asset::DestroyManaged()</a>
@@ -272,10 +278,10 @@
       <a class="xref" href="Asset.html#Asset_onLoad_LoadAssetTask___">Asset::onLoad(LoadAssetTask* task)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
+      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
+      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_onLoaded_MainThread__">Asset::onLoaded_MainThread()</a>
@@ -809,7 +815,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____.md&amp;value=---%0Auid%3A%20JsonAssetBase.GetReferences(Array%3CGuid%2C%20HeapAllocation%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____.md&amp;value=---%0Auid%3A%20JsonAssetBase.GetReferences(Array%3CGuid%2C%20HeapAllocation%3E%20%26%2CArray%3CString%2C%20HeapAllocation%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/JsonAsset.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
@@ -817,16 +823,16 @@
   
   <a id="JsonAssetBase_GetReferences_" data-uid="JsonAssetBase.GetReferences*"></a>
   
-  <h4 id="JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____" data-uid="JsonAssetBase.GetReferences(Array&lt;Guid, HeapAllocation&gt; &amp;)"><a href="#collapsible-JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____" class="expander" data-toggle="collapse">GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output)</a></h4>
+  <h4 id="JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____" data-uid="JsonAssetBase.GetReferences(Array&lt;Guid, HeapAllocation&gt; &amp;,Array&lt;String, HeapAllocation&gt; &amp;)"><a href="#collapsible-JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____" class="expander" data-toggle="collapse">GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files)</a></h4>
   
-  <div id="collapsible-JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the asset references. Supported only in Editor. </p><p>For some asset types (e.g. scene or prefab) it may contain invalid asset ids due to not perfect gather method, which is optimized to perform scan very quickly. Before using those ids perform simple validation via Content cache API. The result collection contains only 1-level-deep references (only direct ones) and is invalid if asset is not loaded. Also the output data may have duplicated asset ids or even invalid ids (Guid::Empty). </p>
+  <div id="collapsible-JsonAssetBase_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the asset references. Supported only in Editor. </p><p>For some asset types (e.g. scene or prefab) it may contain invalid asset ids due to not perfect gather method, which is optimized to perform scan very quickly. Before using those ids perform simple validation via Content cache API. The result collection contains only 1-level-deep references (only direct ones) and is invalid if asset is not loaded. Also, the output data may have duplicated asset ids or even invalid ids (Guid::Empty). </p>
 <p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output) const override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files) const override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -834,8 +840,15 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">Array&lt;Guid, HeapAllocation&gt;</span></span>
-        <span class="parametername">output</span>
+        <span class="parametername">assets</span>
         <p><p>The output collection of the asset ids referenced by this asset.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;String, HeapAllocation&gt;</span></span>
+        <span class="parametername">files</span>
+        <p><p>The output list of file paths referenced by this asset. Files might come from project Content folder (relative path is preserved in cooked game), or external location (copied into Content root folder of cooked game).</p></p>
       </td>
     </tr>
   </table>
@@ -846,7 +859,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output)</a></div>
+  <div><a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files)</a></div>
   
   
   
@@ -864,7 +877,7 @@
   
   <a id="JsonAssetBase_GetReferences_" data-uid="JsonAssetBase.GetReferences*"></a>
   
-  <h4 id="JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____" data-uid="JsonAssetBase.GetReferences(const StringAnsiView &amp;,Array&lt;Guid, HeapAllocation&gt; &amp;)"><a href="#collapsible-JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____" class="expander" data-toggle="collapse">GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; output)</a></h4>
+  <h4 id="JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____" data-uid="JsonAssetBase.GetReferences(const StringAnsiView &amp;,Array&lt;Guid, HeapAllocation&gt; &amp;)"><a href="#collapsible-JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____" class="expander" data-toggle="collapse">GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; assets)</a></h4>
   
   <div id="collapsible-JsonAssetBase_GetReferences_const_StringAnsiView___Array_Guid__HeapAllocation____" class="collapse in">
   <div class="markdown level1 summary"><p>Parses Json string to find any object references inside it. It can produce list of references to assets and/or scene objects. Supported only in Editor. </p></div>
@@ -872,7 +885,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static void GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; output)</code></pre>
+    <pre><code class="lang-cpp hljs">public static void GetReferences(const StringAnsiView&amp; json, Array&lt;Guid, HeapAllocation&gt;&amp; assets)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -887,7 +900,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">Array&lt;Guid, HeapAllocation&gt;</span></span>
-        <span class="parametername">output</span>
+        <span class="parametername">assets</span>
         <p><p>The output list of object IDs references by the asset (appended, not cleared).</p></p>
       </td>
     </tr>

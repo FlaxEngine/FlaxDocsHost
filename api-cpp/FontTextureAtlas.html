@@ -188,6 +188,9 @@
       <a class="xref" href="BinaryAsset.html#BinaryAsset_ClearDependencies__">BinaryAsset::ClearDependencies()</a>
     </div>
     <div>
+      <a class="xref" href="Asset.html#Asset_const">Asset::const</a>
+    </div>
+    <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_createLoadingTask__">BinaryAsset::createLoadingTask()</a>
     </div>
     <div>
@@ -213,6 +216,9 @@
     </div>
     <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_Dependencies">BinaryAsset::Dependencies</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_DEPRECATED__Use_GetReferences_with_assets_and_files_parameter_instead__">Asset::DEPRECATED(&quot;Use GetReferences with assets and files parameter instead&quot;)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_DestroyManaged__">Asset::DestroyManaged()</a>
@@ -308,7 +314,7 @@
       <a class="xref" href="TextureBase.html#TextureBase_GetPixels_Array_Color____int32_int32_">TextureBase::GetPixels(Array&lt;Color&gt;&amp; pixels, int32 mipIndex = 0, int32 arrayIndex = 0)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output)</a>
+      <a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_GetReferences__">Asset::GetReferences()</a>
@@ -458,10 +464,10 @@
       <a class="xref" href="Asset.html#Asset_onLoad_LoadAssetTask___">Asset::onLoad(LoadAssetTask* task)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
+      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
+      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_onLoaded_MainThread__">Asset::onLoaded_MainThread()</a>
@@ -689,7 +695,7 @@
   
   <a id="FontTextureAtlas_AddEntry_" data-uid="FontTextureAtlas.AddEntry*"></a>
   
-  <h4 id="FontTextureAtlas_AddEntry_uint32_uint32_const_Array_byte____" data-uid="FontTextureAtlas.AddEntry(uint32,uint32,const Array&lt;byte&gt; &amp;)"><a href="#collapsible-FontTextureAtlas_AddEntry_uint32_uint32_const_Array_byte____" class="expander" data-toggle="collapse">AddEntry(uint32 targetWidth, uint32 targetHeight, const Array&lt;byte&gt;&amp; data)</a></h4>
+  <h4 id="FontTextureAtlas_AddEntry_uint32_uint32_const_Array_byte____" data-uid="FontTextureAtlas.AddEntry(uint32,uint32,const Array&lt;byte&gt; &amp;)"><a href="#collapsible-FontTextureAtlas_AddEntry_uint32_uint32_const_Array_byte____" class="expander" data-toggle="collapse">AddEntry(uint32 width, uint32 height, const Array&lt;byte&gt;&amp; data)</a></h4>
   
   <div id="collapsible-FontTextureAtlas_AddEntry_uint32_uint32_const_Array_byte____" class="collapse in">
   <div class="markdown level1 summary"><p>Adds the new entry to the atlas </p></div>
@@ -697,7 +703,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public FontTextureAtlasSlot* AddEntry(uint32 targetWidth, uint32 targetHeight, const Array&lt;byte&gt;&amp; data)</code></pre>
+    <pre><code class="lang-cpp hljs">public FontTextureAtlasSlot* AddEntry(uint32 width, uint32 height, const Array&lt;byte&gt;&amp; data)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -705,14 +711,14 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">uint32</span></span>
-        <span class="parametername">targetWidth</span>
+        <span class="parametername">width</span>
         <p><p>Width of the entry.</p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">uint32</span></span>
-        <span class="parametername">targetHeight</span>
+        <span class="parametername">height</span>
         <p><p>Height of the entry.</p></p>
       </td>
     </tr>
@@ -751,7 +757,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_Clear__.md&amp;value=---%0Auid%3A%20FontTextureAtlas.Clear()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L199" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_Clear_" data-uid="FontTextureAtlas.Clear*"></a>
@@ -785,7 +791,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_CopyDataIntoSlot_const_FontTextureAtlasSlot___const_Array_byte____.md&amp;value=---%0Auid%3A%20FontTextureAtlas.CopyDataIntoSlot(const%20FontTextureAtlasSlot%20*%2Cconst%20Array%3Cbyte%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L184" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_CopyDataIntoSlot_" data-uid="FontTextureAtlas.CopyDataIntoSlot*"></a>
@@ -833,44 +839,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_Dispose__.md&amp;value=---%0Auid%3A%20FontTextureAtlas.Dispose()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L197" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="FontTextureAtlas_Dispose_" data-uid="FontTextureAtlas.Dispose*"></a>
-  
-  <h4 id="FontTextureAtlas_Dispose__" data-uid="FontTextureAtlas.Dispose()"><a href="#collapsible-FontTextureAtlas_Dispose__" class="expander" data-toggle="collapse">Dispose()</a></h4>
-  
-  <div id="collapsible-FontTextureAtlas_Dispose__" class="collapse in">
-  <div class="markdown level1 summary"><p>Disposed whole atlas data (texture, nodes etc.). </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Dispose()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_EnsureTextureCreated__.md&amp;value=---%0Auid%3A%20FontTextureAtlas.EnsureTextureCreated()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L207" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L209" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_EnsureTextureCreated_" data-uid="FontTextureAtlas.EnsureTextureCreated*"></a>
@@ -904,7 +876,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_Flush__.md&amp;value=---%0Auid%3A%20FontTextureAtlas.Flush()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L202" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L204" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_Flush_" data-uid="FontTextureAtlas.Flush*"></a>
@@ -1110,7 +1082,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_GetSlotData_const_FontTextureAtlasSlot___uint32___uint32___uint32___.md&amp;value=---%0Auid%3A%20FontTextureAtlas.GetSlotData(const%20FontTextureAtlasSlot%20*%2Cuint32%20%26%2Cuint32%20%26%2Cuint32%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L187" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L194" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_GetSlotData_" data-uid="FontTextureAtlas.GetSlotData*"></a>
@@ -1227,7 +1199,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_HasDataSyncWithGPU__.md&amp;value=---%0Auid%3A%20FontTextureAtlas.HasDataSyncWithGPU()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L213" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L215" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_HasDataSyncWithGPU_" data-uid="FontTextureAtlas.HasDataSyncWithGPU*"></a>
@@ -1319,10 +1291,63 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_Invalidate_const_FontTextureAtlasSlot___.md&amp;value=---%0Auid%3A%20FontTextureAtlas.Invalidate(const%20FontTextureAtlasSlot%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L167" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="FontTextureAtlas_Invalidate_" data-uid="FontTextureAtlas.Invalidate*"></a>
+  
+  <h4 id="FontTextureAtlas_Invalidate_const_FontTextureAtlasSlot___" data-uid="FontTextureAtlas.Invalidate(const FontTextureAtlasSlot *)"><a href="#collapsible-FontTextureAtlas_Invalidate_const_FontTextureAtlasSlot___" class="expander" data-toggle="collapse">Invalidate(const FontTextureAtlasSlot* slot)</a></h4>
+  
+  <div id="collapsible-FontTextureAtlas_Invalidate_const_FontTextureAtlasSlot___" class="collapse in">
+  <div class="markdown level1 summary"><p>Invalidates the cached dynamic entry from the atlas. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool Invalidate(const FontTextureAtlasSlot* slot)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FontTextureAtlasSlot.html">FontTextureAtlasSlot</a></span>
+        <span class="parametername">slot</span>
+        <p><p>The slot to invalidate.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if slot has been freed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_Invalidate_uint32_uint32_uint32_uint32_.md&amp;value=---%0Auid%3A%20FontTextureAtlas.Invalidate(uint32%2Cuint32%2Cuint32%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L170" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_Invalidate_" data-uid="FontTextureAtlas.Invalidate*"></a>
@@ -1490,7 +1515,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FontTextureAtlas_unload_bool_.md&amp;value=---%0Auid%3A%20FontTextureAtlas.unload(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L225" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Render2D/FontTextureAtlas.h/#L226" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FontTextureAtlas_unload_" data-uid="FontTextureAtlas.unload*"></a>

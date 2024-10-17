@@ -127,10 +127,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -642,9 +642,9 @@ public void Clear(GPUTextureView rt, Color color)</code></pre>
   
   <a id="FlaxEngine_GPUContext_ClearDepth_" data-uid="FlaxEngine.GPUContext.ClearDepth*"></a>
   
-  <h4 id="FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_" data-uid="FlaxEngine.GPUContext.ClearDepth(FlaxEngine.GPUTextureView,System.Single)"><a href="#collapsible-FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_" class="expander" data-toggle="collapse">ClearDepth(GPUTextureView, Single)</a></h4>
+  <h4 id="FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_System_Byte_" data-uid="FlaxEngine.GPUContext.ClearDepth(FlaxEngine.GPUTextureView,System.Single,System.Byte)"><a href="#collapsible-FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_System_Byte_" class="expander" data-toggle="collapse">ClearDepth(GPUTextureView, Single, Byte)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_" class="collapse in">
+  <div id="collapsible-FlaxEngine_GPUContext_ClearDepth_FlaxEngine_GPUTextureView_System_Single_System_Byte_" class="collapse in">
   <div class="markdown level1 summary"><p>Clears depth buffer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -652,7 +652,7 @@ public void Clear(GPUTextureView rt, Color color)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public void ClearDepth(GPUTextureView depthBuffer, float depthValue = 1F)</code></pre>
+public void ClearDepth(GPUTextureView depthBuffer, float depthValue = 1F, byte stencilValue = 0)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -670,6 +670,14 @@ public void ClearDepth(GPUTextureView depthBuffer, float depthValue = 1F)</code>
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">depthValue</span>
         <p><p>The clear depth value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Byte</span></span>
+        <span class="parametername">stencilValue</span>
+        <p><p>The clear stencil value.</p>
 </p>
       </td>
     </tr>
@@ -1343,9 +1351,9 @@ public void Draw(GPUTextureView rt)</code></pre>
   
   <a id="FlaxEngine_GPUContext_Draw_" data-uid="FlaxEngine.GPUContext.Draw*"></a>
   
-  <h4 id="FlaxEngine_GPUContext_Draw_System_UInt32_System_UInt32_" data-uid="FlaxEngine.GPUContext.Draw(System.UInt32,System.UInt32)"><a href="#collapsible-FlaxEngine_GPUContext_Draw_System_UInt32_System_UInt32_" class="expander" data-toggle="collapse">Draw(UInt32, UInt32)</a></h4>
+  <h4 id="FlaxEngine_GPUContext_Draw_System_Int32_System_UInt32_" data-uid="FlaxEngine.GPUContext.Draw(System.Int32,System.UInt32)"><a href="#collapsible-FlaxEngine_GPUContext_Draw_System_Int32_System_UInt32_" class="expander" data-toggle="collapse">Draw(Int32, UInt32)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GPUContext_Draw_System_UInt32_System_UInt32_" class="collapse in">
+  <div id="collapsible-FlaxEngine_GPUContext_Draw_System_Int32_System_UInt32_" class="collapse in">
   <div class="markdown level1 summary"><p>Draws non-indexed, non-instanced primitives.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1353,14 +1361,14 @@ public void Draw(GPUTextureView rt)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public void Draw(uint startVertex, uint verticesCount)</code></pre>
+public void Draw(int startVertex, uint verticesCount)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.UInt32</span></span>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">startVertex</span>
         <p><p>A value added to each index before reading a vertex from the vertex buffer.</p>
 </p>

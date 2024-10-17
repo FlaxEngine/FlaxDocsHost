@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Video | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Video | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Video | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="video">Video</h1>
+
+<p><img src="media/video.gif" alt="Video"></p>
+<p>Video player allows to load <code>.mp4</code> files and play them with video and audio. This documentation describes how to import and use videos in your project.</p>
+<h2 id="importing-video-files">Importing video files</h2>
+<p>Use Content window import functionality or <strong>drag&amp;drop video files into the Content window</strong> to copy source file into the project. Video files are identified by path in the project folder (relative to the root folder) and engine doesn&#39;t use any asset IDs nor meta files for them.</p>
+<p><img src="media/video-preview.png" alt="Video File Preview"></p>
+<p>Then you can <strong>double-click the asset item to open window</strong> that can play video to preview it.</p>
+<h2 id="video-player">Video Player</h2>
+<p><img src="media/video-player.png" alt="Video Player"></p>
+<p><code>VideoPlayer</code> is an actor used to play videos. It can be added on a scene, to prefab, attached to UI, or spawned dynamically from code. <code>Url</code> property defines the path of the video to play. It can be a local file, an absolute path, or HTTP URL. The editor offers a small dropdown button next to the URL text field, which shows the list of video files in the project to select from.</p>
+<p>When cooking game video files (referenced by scenes/prefabs) are copied into the output <code>Content</code> directory (including sub-path preserving).</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Url</strong></td>
+<td>The video clip Url path used as a source of the media. Can be local file (absolute or relative path), or streamed resource (<code>http://</code>).</td>
+</tr>
+<tr>
+<td><strong>Is Looping</strong></td>
+<td>Determines whether the video clip should loop when it finishes playing.</td>
+</tr>
+<tr>
+<td><strong>Play On Start</strong></td>
+<td>Determines whether the video clip should autoplay on level start.</td>
+</tr>
+<tr>
+<td><strong>Start Time</strong></td>
+<td>Determines the time (in seconds) at which the video clip starts playing if <em>Play On Start</em> is enabled.</td>
+</tr>
+<tr>
+<td><strong>Is Audio Spatial</strong></td>
+<td>If checked, video player us using spatialization to play 3d audio, otherwise will always play as 2d sound.</td>
+</tr>
+<tr>
+<td><strong>Audio Volume</strong></td>
+<td>The volume of the audio played from this video, in <code>[0, 1]</code> range.</td>
+</tr>
+<tr>
+<td><strong>Audio Pan</strong></td>
+<td>The stereo pan of the played audio (<code>-1</code> is left speaker, <code>1</code> is right speaker, <code>0</code> is balanced). The default is 0. Used by non-spatial audio only.</td>
+</tr>
+<tr>
+<td><strong>Audio Min Distance</strong></td>
+<td>The minimum distance at which audio attenuation starts. When the listener is closer to the video player than this value, audio is heard at full volume. Once farther away the audio starts attenuating. Used by spatial audio only.</td>
+</tr>
+<tr>
+<td><strong>Audio Attenuation</strong></td>
+<td>The attenuation that controls how quickly does audio volume drop off as the listener moves further from the video player. At 0, no distance attenuation ever occurs. Used by spatial audio only.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scripting">Scripting</h4>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Play</strong></td>
+<td>Starts playing the currently assigned video Url.</td>
+</tr>
+<tr>
+<td><strong>Pause</strong></td>
+<td>Pauses the video playback.</td>
+</tr>
+<tr>
+<td><strong>Stop</strong></td>
+<td>Stops video playback, rewinding it to the start.</td>
+</tr>
+<tr>
+<td><strong>GetState</strong></td>
+<td>Gets the current state of the video playback (playing/paused/stopped).</td>
+</tr>
+<tr>
+<td><strong>GetTime</strong></td>
+<td>Gets the current time of playback. The time is in seconds, in range <code>[0, Duration]</code>.</td>
+</tr>
+<tr>
+<td><strong>SetTime</strong></td>
+<td>Sets the current time of playback. The time is in seconds, in range <code>[0, Duration]</code>.</td>
+</tr>
+<tr>
+<td><strong>GetDuration</strong></td>
+<td>Gets the media duration of playback (in seconds). Valid only when media was loaded by the video backend.</td>
+</tr>
+<tr>
+<td><strong>GetFrameRate</strong></td>
+<td>Gets the media frame rate of playback (amount of frames to be played per second). Valid only when media was loaded by the video backend.</td>
+</tr>
+<tr>
+<td><strong>GetSize</strong></td>
+<td>the video frame dimensions (in pixels). Valid only when media was loaded by the video backend.</td>
+</tr>
+<tr>
+<td><strong>GetFrame</strong></td>
+<td>Gets the video frame texture (GPU resource). Created on the playback start. Can be binded to materials and shaders to display the video image.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="video-brush">Video Brush</h2>
+<p><img src="media/video-brush-new.png" alt="New Video Brush"></p>
+<p><code>VideoBrush</code> implements <code>IBrush</code> interface to display VideoPlayer&#39;s image inside UI. This can be used on <code>Image</code> control (or any other one using brushes) to display a video-based loading screen, game studio intro, pre-rendered cutscenes, or endgame subtitles. Video Brush needs a reference to the Video Player to access GPU Texture - assign it via <code>Player</code> property.</p>
+<p><img src="media/video-brush-edit.png" alt="Edit Video Brush"></p>
+<h2 id="materials">Materials</h2>
+<p>To display a video frame on a mesh in the world add <code>GPUTexture</code> parameter to the material and set it to the <code>VideoPlayer.Frame</code> from the script. See below for the example script:</p>
+<pre><code class="lang-cs">using System;
+using System.Collections.Generic;
+using FlaxEngine;
+
+public class MyVideoMesh : Script
+{
+    public VideoPlayer Player;
+    public StaticModel Model;
+    public string VideoFrameParamName = &quot;VideoFrame&quot;;
+
+    private List&lt;MaterialInstance&gt; _materials = new List&lt;MaterialInstance&gt;();
+
+    public override void OnEnable()
+    {
+        // Play video
+        // Note: Player.Frame might be missing if video has not started playback yet
+        Player.Play();
+
+        // Create dynamic materials for the meshes that use material with a param
+        var slots = Model.MaterialSlots;
+        for (int i = 0; i &lt; slots.Length; i++)
+        {
+            var material = Model.GetMaterial(i);
+            if (material.GetParameter(VideoFrameParamName) != null)
+            {
+                // Create virtual material with custom parameter value
+                material = material.CreateVirtualInstance();
+                material.SetParameterValue(VideoFrameParamName, Player.Frame);
+                slots[i].Material = material;
+                _materials.Add(material);
+            }
+        }
+    }
+
+    public override void OnDisable()
+    {
+        // Remove dynamic materials
+        var slots = Model.MaterialSlots;
+        foreach (var slot in slots)
+        {
+            if (_materials.Contains(slot.Material as MaterialInstance))
+            {
+                // Unlink virtual material (mesh will use default one)
+                slot.Material = null;
+            }
+        }
+        _materials.Clear();
+    }
+}
+</code></pre><h2 id="naming">Naming</h2>
+<ul>
+<li><code>H.264</code> or <code>AVC</code> - common video format</li>
+<li><code>H.265</code> or <code>HEVC</code> - advanced video format</li>
+<li><code>HLC</code> - HTTP Live Streaming</li>
+</ul>
+<h2 id="supported-formats">Supported formats</h2>
+<p>Flax supports decoding and playing <code>.mp4</code> videos in format <code>H.264</code> across all platforms. Some platforms have additional restrictions (eg. max frame rate or max resolution), while others support more formats. Use the following table to learn about platforms support (approximation, follow platform docs to learn more):</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Backend</th>
+<th>H.264</th>
+<th>H.265</th>
+<th>HLS</th>
+<th>Max Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Windows</strong></td>
+<td><a href="https://learn.microsoft.com/en-us/windows/win32/medfound/microsoft-media-foundation-sdk">Media Fundation</a></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>4K</td>
+</tr>
+<tr>
+<td><strong>Xbox</strong></td>
+<td><a href="https://learn.microsoft.com/en-us/windows/win32/medfound/microsoft-media-foundation-sdk">Media Fundation</a></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>FullHD</td>
+</tr>
+<tr>
+<td><strong>Android</strong></td>
+<td><a href="https://developer.android.com/ndk/reference/group/media">Android NDK Media</a></td>
+<td>X</td>
+<td></td>
+<td>X</td>
+<td>FullHD</td>
+</tr>
+<tr>
+<td><strong>Linux</strong></td>
+<td><em>not implemented</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>macOS</strong></td>
+<td><a href="https://developer.apple.com/av-foundation/">AVFoundation</a></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>4K</td>
+</tr>
+<tr>
+<td><strong>iOS</strong></td>
+<td><a href="https://developer.apple.com/av-foundation/">AVFoundation</a></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>4K</td>
+</tr>
+<tr>
+<td><strong>PS4</strong></td>
+<td><em>AvPlayer</em></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>FullHD</td>
+</tr>
+<tr>
+<td><strong>PS5</strong></td>
+<td><em>AvPlayer</em></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>FullHD</td>
+</tr>
+<tr>
+<td><strong>Switch</strong></td>
+<td><em>movie</em></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>FullHD</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/video/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

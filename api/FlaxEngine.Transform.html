@@ -895,6 +895,232 @@ public Vector3 Translation</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_" data-uid="FlaxEngine.Transform.AlignRotationToNormalAndSnapToGrid*"></a>
+  
+  <h4 id="FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_" data-uid="FlaxEngine.Transform.AlignRotationToNormalAndSnapToGrid(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Transform,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">AlignRotationToNormalAndSnapToGrid(Vector3, Vector3, Vector3, Transform, Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Combines the functions:<br>
+<a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_">SnapToGrid(Vector3, Vector3)</a>,<br>
+<a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_GetRotationFromNormal_FlaxEngine_Vector3_FlaxEngine_Transform_">GetRotationFromNormal(Vector3, Transform)</a>.
+<example><p><strong>Example code:</strong></p><p>
+<pre><code><span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_class</span> AlignRotationToObjectAndSnapToGridExample : <a class="xref" href="FlaxEngine.Script.html">Script</a><br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> Offset = new Vector3(0, 0, 50f);<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> GridSize = <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_One">One</a> * 20.0f;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> RayOrigin;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> SomeObject;<br>
+<span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_override</span> <span class="xref">langword_csharp_void</span> <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnFixedUpdate">OnFixedUpdate()</a><br>
+{<br>
+<span class="xref">langword_csharp_if</span> (<a class="xref" href="FlaxEngine.Physics.html">Physics</a>.RayCast(RayOrigin.Position, RayOrigin.Transform.Forward, out <a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a> hit)
+{<br>
+<a class="xref" href="FlaxEngine.Transform.html">Transform</a> transform = hit.Collider.Transform;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> point = hit.Point;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> normal = hit.Normal;
+SomeObject.Transform = <a class="xref" href="FlaxEngine.Transform.html">Transform</a>.AlignRotationToNormalAndSnapToGrid
+                        (
+                            point,
+                            normal,
+                            Offset,
+                            transform,
+                            GridSize
+                        );
+}
+}
+}</code></pre>
+<p></example></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform AlignRotationToNormalAndSnapToGrid(Vector3 point, Vector3 normal, Vector3 normalOffset, Transform relativeTo, Vector3 gridSize)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The position to snap.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">normal</span>
+        <p><p>The normal vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">normalOffset</span>
+        <p><p>The local grid offset to apply after snapping.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">relativeTo</span>
+        <p><p>The relative transform.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">gridSize</span>
+        <p><p>The size of the grid.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Transform.html">Transform</a>
+        <p><p>The rotated and snapped transform with scale <a class="xref" href="FlaxEngine.Float3.html#FlaxEngine_Float3_One">One</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_" data-uid="FlaxEngine.Transform.AlignRotationToNormalAndSnapToGrid*"></a>
+  
+  <h4 id="FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_FlaxEngine_Float3_" data-uid="FlaxEngine.Transform.AlignRotationToNormalAndSnapToGrid(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Transform,FlaxEngine.Vector3,FlaxEngine.Float3)"><a href="#collapsible-FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_FlaxEngine_Float3_" class="expander" data-toggle="collapse">AlignRotationToNormalAndSnapToGrid(Vector3, Vector3, Vector3, Transform, Vector3, Float3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Transform_AlignRotationToNormalAndSnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Transform_FlaxEngine_Vector3_FlaxEngine_Float3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Combines the functions:<br>
+<a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_SnapToGrid_FlaxEngine_Vector3_FlaxEngine_Vector3_">SnapToGrid(Vector3, Vector3)</a>,<br>
+<a class="xref" href="FlaxEngine.Quaternion.html#FlaxEngine_Quaternion_GetRotationFromNormal_FlaxEngine_Vector3_FlaxEngine_Transform_">GetRotationFromNormal(Vector3, Transform)</a>.
+<example><p><strong>Example code:</strong></p><p>
+<pre><code><span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_class</span> AlignRotationToObjectAndSnapToGridExample : <a class="xref" href="FlaxEngine.Script.html">Script</a><br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> Offset = new Vector3(0, 0, 50f);<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> GridSize = <a class="xref" href="FlaxEngine.Vector3.html#FlaxEngine_Vector3_One">One</a> * 20.0f;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> RayOrigin;<br>
+<span class="xref">langword_csharp_public</span> <a class="xref" href="FlaxEngine.Actor.html">Actor</a> SomeObject;<br>
+<span class="xref">langword_csharp_public</span> <span class="xref">langword_csharp_override</span> <span class="xref">langword_csharp_void</span> <a class="xref" href="FlaxEngine.Script.html#FlaxEngine_Script_OnFixedUpdate">OnFixedUpdate()</a><br>
+{<br>
+<span class="xref">langword_csharp_if</span> (<a class="xref" href="FlaxEngine.Physics.html">Physics</a>.RayCast(RayOrigin.Position, RayOrigin.Transform.Forward, out <a class="xref" href="FlaxEngine.RayCastHit.html">RayCastHit</a> hit)
+{<br>
+<a class="xref" href="FlaxEngine.Transform.html">Transform</a> transform = hit.Collider.Transform;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> point = hit.Point;
+<a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> normal = hit.Normal;
+SomeObject.Transform = <a class="xref" href="FlaxEngine.Transform.html">Transform</a>.AlignRotationToNormalAndSnapToGrid
+                        (
+                            point,
+                            normal,
+                            Offset,
+                            transform,
+                            SomeObject.Scale,
+                            GridSize,
+                            Float3.One
+                        );
+}
+}
+}</code></pre>
+<p></example></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform AlignRotationToNormalAndSnapToGrid(Vector3 point, Vector3 normal, Vector3 normalOffset, Transform relativeTo, Vector3 gridSize, Float3 scale)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">point</span>
+        <p><p>The position to snap.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">normal</span>
+        <p><p>The normal vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">normalOffset</span>
+        <p><p>The local grid offset to apply after snapping.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Transform.html">Transform</a></span>
+        <span class="parametername">relativeTo</span>
+        <p><p>The relative transform.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">gridSize</span>
+        <p><p>The size of the grid.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float3.html">Float3</a></span>
+        <span class="parametername">scale</span>
+        <p><p>The scale to apply to the transform.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Transform.html">Transform</a>
+        <p><p>The rotated and snapped transform.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Transform_Equals_" data-uid="FlaxEngine.Transform.Equals*"></a>
   
   <h4 id="FlaxEngine_Transform_Equals_FlaxEngine_Transform_" data-uid="FlaxEngine.Transform.Equals(FlaxEngine.Transform)"><a href="#collapsible-FlaxEngine_Transform_Equals_FlaxEngine_Transform_" class="expander" data-toggle="collapse">Equals(Transform)</a></h4>

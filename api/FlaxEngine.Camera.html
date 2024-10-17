@@ -252,6 +252,27 @@
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDisable">Actor.OnDisable()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnParentChanged">Actor.OnParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnTransformChanged">Actor.OnTransformChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveChanged">Actor.OnActiveChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveInTreeChanged">Actor.OnActiveInTreeChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnOrderInParentChanged">Actor.OnOrderInParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnStaticFlagsChanged">Actor.OnStaticFlagsChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnLayerChanged">Actor.OnLayerChanged()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnBeginPlay">Actor.OnBeginPlay()</a>
     </div>
     <div>
@@ -432,10 +453,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -545,7 +566,6 @@ public sealed class Camera : Actor, ISerializable</code></pre>
     <pre><code class="lang-csharp hljs">[EditorOrder(50)]
 [Limit(0F, 10F, 0.01F)]
 [EditorDisplay(&quot;Camera&quot;, null)]
-[VisibleIf(&quot;UsePerspective&quot;, false)]
 [Unmanaged]
 public float CustomAspectRatio { get; set; }</code></pre>
   </div>
@@ -793,6 +813,48 @@ public float NearPlane { get; set; }</code></pre>
 [VisibleIf(&quot;UsePerspective&quot;, true)]
 [Unmanaged]
 public float OrthographicScale { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Camera_OrthographicSize_" data-uid="FlaxEngine.Camera.OrthographicSize*"></a>
+  
+  <h4 id="FlaxEngine_Camera_OrthographicSize" data-uid="FlaxEngine.Camera.OrthographicSize"><a href="#collapsible-FlaxEngine_Camera_OrthographicSize" class="expander" data-toggle="collapse">OrthographicSize</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Camera_OrthographicSize" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the orthographic projection view height (width is based on the aspect ratio). Use <code>0</code> for size to be based on the viewport size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(59)]
+[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Camera&quot;, null)]
+[VisibleIf(&quot;UsePerspective&quot;, true)]
+[Unmanaged]
+public float OrthographicSize { get; set; }</code></pre>
   </div>
 
   

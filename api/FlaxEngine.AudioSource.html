@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEngine.AudioSource">
   <h1 id="FlaxEngine_AudioSource" data-uid="FlaxEngine.AudioSource">Class AudioSource
   </h1>
-  <div class="markdown level0 summary"><p>Represents a source for emitting audio. Audio can be played spatially (gun shot), or normally (music). Each audio source must have an AudioClip to play - back, and it can also have a position in the case of spatial(3D) audio.</p>
+  <div class="markdown level0 summary"><p>Represents a source for emitting audio. Audio can be played spatially (gun shot), or normally (music). Each audio source must have an AudioClip to play - back, and it can also have a position in the case of spatial (3D) audio.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -250,6 +250,27 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnDisable">Actor.OnDisable()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnParentChanged">Actor.OnParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnTransformChanged">Actor.OnTransformChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveChanged">Actor.OnActiveChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnActiveInTreeChanged">Actor.OnActiveInTreeChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnOrderInParentChanged">Actor.OnOrderInParentChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnStaticFlagsChanged">Actor.OnStaticFlagsChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnLayerChanged">Actor.OnLayerChanged()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Actor.html#FlaxEngine_Actor_OnBeginPlay">Actor.OnBeginPlay()</a>
@@ -432,10 +453,10 @@
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_New_System_String_">Object.New(String)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__">Object.Find&lt;T&gt;(Guid)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find__1_System_Guid__System_Boolean_">Object.Find&lt;T&gt;(Guid, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_">Object.Find(Guid, Type)</a>
+      <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_Find_System_Guid__System_Type_System_Boolean_">Object.Find(Guid, Type, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Object.html#FlaxEngine_Object_TryFind__1_System_Guid__">Object.TryFind&lt;T&gt;(Guid)</a>
@@ -539,7 +560,7 @@ public class AudioSource : Actor, ISerializable</code></pre>
   <h4 id="FlaxEngine_AudioSource_AllowSpatialization" data-uid="FlaxEngine.AudioSource.AllowSpatialization"><a href="#collapsible-FlaxEngine_AudioSource_AllowSpatialization" class="expander" data-toggle="collapse">AllowSpatialization</a></h4>
   
   <div id="collapsible-FlaxEngine_AudioSource_AllowSpatialization" class="collapse in">
-  <div class="markdown level1 summary"><p>If checked, source can play spatial 3d audio (when audio clip supports it), otherwise will always play as 2d sound. At 0, no distance attenuation ever occurs.</p>
+  <div class="markdown level1 summary"><p>If checked, source can play spatial 3d audio (when audio clip supports it), otherwise will always play as 2d sound.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -701,7 +722,7 @@ public float DopplerFactor { get; set; }</code></pre>
   <h4 id="FlaxEngine_AudioSource_Is3D" data-uid="FlaxEngine.AudioSource.Is3D"><a href="#collapsible-FlaxEngine_AudioSource_Is3D" class="expander" data-toggle="collapse">Is3D</a></h4>
   
   <div id="collapsible-FlaxEngine_AudioSource_Is3D" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if the sound source is three dimensional (volume and pitch varies based on listener distance and velocity).</p>
+  <div class="markdown level1 summary"><p>Returns true if the sound source is three-dimensional (volume and pitch varies based on listener distance and velocity).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -734,12 +755,51 @@ public bool Is3D { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_AudioSource_IsActuallyPlaying_" data-uid="FlaxEngine.AudioSource.IsActuallyPlaying*"></a>
+  
+  <h4 id="FlaxEngine_AudioSource_IsActuallyPlaying" data-uid="FlaxEngine.AudioSource.IsActuallyPlaying"><a href="#collapsible-FlaxEngine_AudioSource_IsActuallyPlaying" class="expander" data-toggle="collapse">IsActuallyPlaying</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AudioSource_IsActuallyPlaying" class="collapse in">
+  <div class="markdown level1 summary"><p>Determines whether this audio source started playing audio via audio backend. After audio play it may wait for audio clip data to be loaded or streamed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool IsActuallyPlaying { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_AudioSource_IsActuallyPlayingSth_" data-uid="FlaxEngine.AudioSource.IsActuallyPlayingSth*"></a>
   
   <h4 id="FlaxEngine_AudioSource_IsActuallyPlayingSth" data-uid="FlaxEngine.AudioSource.IsActuallyPlayingSth"><a href="#collapsible-FlaxEngine_AudioSource_IsActuallyPlayingSth" class="expander" data-toggle="collapse">IsActuallyPlayingSth</a></h4>
   
   <div id="collapsible-FlaxEngine_AudioSource_IsActuallyPlayingSth" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether this audio source started playing audio via audio backend. After audio play it may wait for audio clip data to be loaded or streamed.</p>
+  <div class="markdown level1 summary"><p>Determines whether this audio source started playing audio via audio backend. After audio play it may wait for audio clip data to be loaded or streamed.
+[Deprecated in v1.9]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -940,7 +1000,7 @@ public float Pitch { get; set; }</code></pre>
   <h4 id="FlaxEngine_AudioSource_PlayOnStart" data-uid="FlaxEngine.AudioSource.PlayOnStart"><a href="#collapsible-FlaxEngine_AudioSource_PlayOnStart" class="expander" data-toggle="collapse">PlayOnStart</a></h4>
   
   <div id="collapsible-FlaxEngine_AudioSource_PlayOnStart" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether the audio clip should auto play on level start.</p>
+  <div class="markdown level1 summary"><p>Determines whether the audio clip should autoplay on level start.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

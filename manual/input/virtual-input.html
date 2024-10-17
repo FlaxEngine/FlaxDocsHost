@@ -107,10 +107,15 @@
 <pre><code class="lang-cs">public InputEvent FireEvent = new InputEvent(&quot;Fire&quot;);
 public InputAxis MouseX = new InputAxis(&quot;MouseX&quot;);
 
-public MyScript()
+public OnStart()
 {
     // Register for input action event
     FireEvent.Pressed += ShootBall;
+}
+
+private void ShootBall()
+{
+    Debug.Log(&quot;Shooting Ball&quot;);
 }
 
 public override void OnUpdate()
@@ -122,6 +127,9 @@ public override void OnUpdate()
 
 public override void OnDestroy()
 {
+    // Deregister from input action event
+    FireEvent.Pressed -= ShootBall;
+
     // Remember to dispose the action object (it holds reference to your methods)
     FireEvent.Dispose();
     MouseX.Dispose();
@@ -136,7 +144,7 @@ public override void OnDestroy()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/bbde54fb4e4aee6943fd75f32b7f3b87ed224f14/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/input/virtual-input.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

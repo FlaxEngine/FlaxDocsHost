@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: Write additional render pass | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: Write additional render pass | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: Write additional render pass | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-write-additional-render-pass">HOWTO: Write additional render pass</h1>
+
+<p>In this tutorial you will learn how to inject a custom render pass into the pipeline. This technique is widely adopted in a lot of custom effects. This tutorial will implement a Toon-style outline by the method of back face fattening, which requires an additional outline pass after the opaque object is rendered. </p>
+<h2 id="1-create-the-outline-material">1. Create the outline material</h2>
+<p>Firstly, create a new material as the toon outline material. You can do it manually or use Editor and <em>right-click</em> in Content window content folder <strong>New -&gt; Material -&gt; Material</strong>.</p>
+<p>To implement back face fattening, You have to expand the model by a little through moving the vertex a bit in the direction of the normal. Only back faces of the enlarged model is rendered so that the original model won&#39;t be occluded. Open the material and set the Blend Mode to <strong>Transparent</strong> and set the Cull Mode to <strong>Inverted</strong>, turn off Z Test and Z Write. Then setup the graph as the image below: </p>
+<p><img src="media/toon-outline-material.png" alt="Toon outline"></p>
+<h2 id="2-write-rendering-code">2. Write rendering code</h2>
+<p>Next step is to inject a custom render pass by the <code>PostProcessEffect</code> class and render it. 
+Create C# script and add it to the any actor on the scene. You can use <a href="../../scripting/new-script.html">this tutorial</a> to learn how to do it. Then, write the following code:</p>
+<pre><code class="lang-cs">using System.Runtime.InteropServices;
+using FlaxEngine;
+
+namespace Game;
+
+/// &lt;summary&gt;
+/// OutlineRenderer Script.
+/// &lt;/summary&gt;
+public class OutlineRenderer : PostProcessEffect
+{
+    private Material _material;
+    private Model _model;
+
+    public Material OutlineMaterial
+    {
+        get =&gt; _material;
+        set
+        {
+            if (_material != value)
+            {
+                _material = value;
+            }
+        }
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override unsafe void OnEnable()
+    {
+        // This postfx overdraws the input buffer without using output
+        UseSingleTarget = true; 
+
+        // Custom draw location in a pipeline, before forward pass so that the draw call could be executed together with other forward draw calls
+        Location = PostProcessEffectLocation.BeforeForwardPass; 
+
+        // Get the actor as a `StaticModel` (or `AnimatedModel` instead)
+        var modelInstance = Actor as StaticModel;
+        // Get the actual `Model`
+        _model = modelInstance.Model;
+
+        // Register postFx to all game views (including editor)
+        SceneRenderTask.AddGlobalCustomPostFx(this);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override void OnDisable()
+    {
+        // Remember to unregister from events and release created resources (it&#39;s gamedev, not webdev)
+        SceneRenderTask.RemoveGlobalCustomPostFx(this);
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override bool CanRender()
+    {
+        return base.CanRender() &amp;&amp; _material;
+    }
+
+    /// &lt;inheritdoc /&gt;
+    public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
+    {
+        // Second pass: draw the model with the outline material
+
+        // Get the transform of the actor
+        Actor.GetLocalToWorldMatrix(out var world);
+
+        // Submit the draw call to the render list, which will be handled later in the forward pass
+        _model.Draw(ref renderContext, _material, ref world, StaticFlags.None, false);
+    }
+}
+</code></pre><p>It overrides <strong>PostProcessEffect</strong> class which is used to inject custom rendering code into the in-build graphics pipeline.
+As you can see, the script registers in <code>OnEnable</code> and disposes in <code>OnDisable</code>. The actual rendering is performed in <code>Render</code> method that submits the draw call. </p>
+<p>Then <strong>add script</strong> to a model actor on scene and <strong>assign the Outline Material</strong> created in step 2 to <strong>Outline Material</strong> property. </p>
+<h2 id="4-see-results">4. See results</h2>
+<p>Once you setup material, script and add it to a scene model you should be able to see the outline pass working (under game mode). In case of problems see <em>Output Log</em> window in Editor as it may contain any compilation errors.</p>
+<p><img src="media/toon-outline-example.png" alt="Toon Outline Example"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/tutorials/additional-render-pass.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

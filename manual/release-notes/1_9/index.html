@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flax 1.9 release notes | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Flax 1.9 release notes | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Flax 1.9 release notes | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="flax-19-release-notes">Flax 1.9 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="video-playback">Video playback</h3>
+<p><img src="media/video.gif" alt="Video playback in Flax Engine"></p>
+<p>This release includes a video player to load <code>.mp4</code> files and play them with video and audio. New <code>VideoPlayer</code> actor can be added on a scene, to prefab, attached to UI, or spawned dynamically from code. It can play a local file or stream video via an HTTP URL.</p>
+<p>We&#39;ve prepared documentation and tutorials on how to use <a href="../../graphics/video/index.html">Video</a>.</p>
+<h3 id="rendering-performance-boost">Rendering performance boost</h3>
+<p><img src="media/job-system.png" alt="Rendering performance via async drawing"></p>
+<p>Every Flax update brings <strong>new performance improvements</strong> to the rendering. This time we&#39;ve enhanced:</p>
+<ul>
+<li>draw calls sorting (by optimizing draw key memory and using Merge Sort rather than Quick Sort),</li>
+<li>async drawing (by running draw calls sorting, shadows setup and DDGI setup on Job System),</li>
+<li>objects batching (by merging material constants setup for all meshes using this material),</li>
+<li>GPU objects data (by uploading all draw call instances at once in async for a whole scene),</li>
+<li>shadow maps draws reduction (by using material-sharing for opaque unmasked geometry).</li>
+</ul>
+<h3 id="bistro-scene-sample">Bistro scene sample</h3>
+<center>
+<iframe width="750" height="421" src="https://www.youtube-nocookie.com/embed/UR_yb1YWCz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</center>
+
+<p>To better showcase both quality and performance improvements of Dynamic Diffuse Global Illumination (<strong>DDGI</strong>) solution in Flax Engine we&#39;ve setup Amazon Lumberyard Bistro as a Flax project and released in on <a href="https://github.com/FlaxEngine/Bistro">Github</a>. Feel free to download it and use as a reference how to setup <a href="../../graphics/models/sdf.html">Global SDF</a> for a scene and use it for accurate DDGI.</p>
+<h3 id="ddgi-improvements">DDGI improvements</h3>
+<p><img src="media/bistro-lighting.png" alt="Bistro DDGI Rendering in Flax Engine"></p>
+<p><a href="../../graphics/lighting/gi/realtime.html">Dynamic Diffuse Global Illumination</a> (<strong>DDGI</strong>) is using our custom sorftware-raytracing solution used to draw dynamic lighting. Flax 1.9 adds substantial quality and performance upgrades to this visual. We&#39;ve added <strong>variable ray-count per-probe</strong> meaning the GI probes outside the view frustum or far from geometry or far from camera origin use less rays per frame. Probes <strong>relocation algorithm applies smooth probe movement</strong> to better adapt in dynamically changing scenes. Also, probes sampling supports fallback from other grid cells which reduces back artifacts. Overall, <strong>DDGI is ready for production</strong> and can be used to achieve <strong>realistic-looking lighting in large-scale games</strong>.</p>
+<p>To showcase those improvements we&#39;ve updated our Tech Demo from 2022 which can be downloaded on Steam:</p>
+<center><iframe src="https://store.steampowered.com/widget/2138130/" frameborder="0" width="646" height="190"></iframe></center>
+
+<h3 id="shadow-maps-atlas">Shadow Maps Atlas</h3>
+<p><img src="media/static-shadow-map.png" alt="Static Shadow Map Atlas Rendering"></p>
+<p>Shadow Maps are depth textures used to draw shadows for lights in real-time. Flax used to have a fixed-size render target to draw shadows based on the global shadows quality setting. We&#39;ve <strong>reimplemented shadow mapping to use shared atlas texture</strong> which comes with many benefits:</p>
+<ul>
+<li>variable shadow resolution (eg. based on the distance to light),</li>
+<li>variable update rate (eg. lower shadow map draw frequency for far lights),</li>
+<li>separate static atlas for static geometry (copied into dynamic atlas),</li>
+<li>shadowed lights in transparency (single atlas can be easily bound to shader),</li>
+<li>shadowed lights batching (eg. when rendering volumetric fog),</li>
+<li>better performance (depth drawing into a single texture).</li>
+</ul>
+<h3 id="gpu-based-mesh-sdf-generation">GPU-based mesh SDF generation</h3>
+<p><img src="media/mesh-sdf-generated-on-gpu.png" alt="GPU-based mesh SDF generation"></p>
+<p>Mesh <strong>SDF is now generated on a GPU</strong> by default. It cuts computation time (incl. model import time when SDF is enabled in a project). For example, a model with <em>3,700,000</em> vertices is generated in <em>~160ms</em>. For some meshes (eg. thin objects like foliage) new GPU-generation results in artifacts (the different algorithm used) thus old CPU-based algorithm can still be used if necessary.</p>
+<h3 id="missing-references-debug-improvements">Missing references debug improvements</h3>
+<p><img src="media/missing-ref.png" alt="Missing references debug log"></p>
+<p>When working on larger Flax projects, often asset or object reference gets missing. For example, if someone deleted texture or material that was used it might lead to gameplay or visual artifacts. Now, any missing asset or object will be logged with contextual info about source reference (eg. specific asset path, type, and id or specific actor/script info). This greatly improves devs ability to quickly solve broken references to be more successful. We plan to keep improving this feature and make it even easier to find missing references or data problems.</p>
+<h3 id="editor-hierarchy-guidelines">Editor hierarchy guidelines</h3>
+<p><img src="media/guidelines.png" alt="Editor hierarchy guidelines"></p>
+<p>We&#39;ve added showing guidelines to Editor tree hierarchy. This change greatly improves the readability of actors hierarchy or folders structure. This feature can be toggled off in editor interface options.</p>
+<h3 id="infinite-grid">Infinite grid</h3>
+<p><img src="media/new-grid.png" alt="Infinite grid"></p>
+<p>For this update, we&#39;ve enhanced the grid in Editor to look much nicer. It no longer uses debug lines but instead a shader on a large quad that follows the camera around and properly blends with the environment. Both color and distance are configurable in the Editor Options.</p>
+<h3 id="reordering-lists">Reordering lists</h3>
+<p><img src="media/reordering-lists.png" alt="Reordering lists"></p>
+<p>Flax 1.9 adds a highly requested feature to Editor for arrays and lists editing. Now, you can use a small icon on the left side to drag the item up or down and reorder list. This feature works across the Editor, including material and visual script parameter lists.</p>
+<h3 id="visject-improvements">Visject improvements</h3>
+<p>Visject is a name of system used for surface-based content creation such as: materials, visual scripts, particle emitters, animation graphs, and more. Over the past months we&#39;ve added multiple important updates to Visject to empower creators:</p>
+<h4 id="tooltip-and-description-panel">Tooltip and description panel</h4>
+<p><img src="media/visject-description.gif" alt="Tooltip and description panel"></p>
+<p>Added node documentation section to the context menu, allowing users to distinguish nodes in the context menu list quickly. This is especially useful for visual scripting as it displays visual parameters and return values types of functions.</p>
+<h4 id="search-and-filter-improvements">Search and filter improvements</h4>
+<p><img src="media/visject-filtering.gif" alt="Search and filter improvements"></p>
+<p>Improved UX of searching nodes in the context menu even more by adding 2 new features: <code>filtering by group</code> and <code>type sorting priority</code>.</p>
+<h4 id="straight-lines">Straight lines</h4>
+<p><img src="media/visject-lines.jpg" alt="Straight lines"></p>
+<p>Editor Options contain a setting for line curvature that can make them look straight.</p>
+<h3 id="radial-menu-control">Radial Menu control</h3>
+<p><img src="media/radial-menu.png" alt="Radial Menu control"></p>
+<p>New <code>RadialMenu</code> control can be used to build the interactive user interface, especially useful in games that allow users to pick items from the inventory or when porting games to consoles for gamepad controls.</p>
+<h3 id="general-improvements">General improvements</h3>
+<p>Flax Editor is under constant development towards making it the best game editor, this time we notably worked on:</p>
+<ul>
+<li>New content creation options (new prefab or widget root actor setup),</li>
+<li>UI Controls toolbox (toolbox section with UI Controls for drag&amp;drop spawning),</li>
+<li>New material gradient nodes (cone, cycle, linear, radial, and ring gradients),</li>
+<li>Scene animation timelines gizmos (viewport gizmos to edit camera track curve),</li>
+<li>Animation events UI.</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-196605---17-october-2024">Version 1.9.6605 - 17 October 2024</h3>
+<p>Contributors: mafiesto4, tecnessino, Tryibion, GoaLitiuM, z1dev, abrasivetroop, Chikinsupu, MrCapy0, xxSeys1, HydrogenC, Swiggies, Menotdan, cNori, tecnessino, envision3d, Zode, RuanLucasGD, Arcnor, mtszkarbowiak, RomanZhu, HydrogenC, Menotdan, GaryMcWhorter, lifeformed, amir9480, fibref, Muzz</p>
+<p>PRs merged: 169</p>
+<ul>
+<li>Add <strong>view playback support</strong></li>
+<li>Add shader cache invalidation when using debug shader option via cmd line in Editor</li>
+<li>Add frustum culling for editor preview camera mesh</li>
+<li>Add support for <strong>Windows on ARM</strong></li>
+<li>Add <code>JobSystem::Dispatch</code> that accepts dependent jobs that needs to be completed before</li>
+<li>Add improved Global SDF tracing when going over different cascades</li>
+<li>Add improved Global Surface Atlas lighting at far cascades and cascade borders</li>
+<li>Add more precise Global SDF raycasting nearby geometry (at cost of performance)</li>
+<li>Add improved Global SDF sampling at empty areas</li>
+<li>Add option to sample Global SDF from higher cascade</li>
+<li>Add nearby probes search to fill cells with missing GI data</li>
+<li>Add random per-probe rotation for rays tracing in DDGI</li>
+<li>Add option for smooth DDGI cascades blending</li>
+<li>Add smoother DDGI probe relocation when old position is visible from new position</li>
+<li>Add improved DDGI cascade selection by using biased world position and smooth the transition</li>
+<li>Add <code>Graphics::SpreadWorkload</code> to disable graphics workloads amortization over several frames when debugging graphics perf</li>
+<li>Add <code>SetStablePowerState</code> for D3D12 when doing shaders profiling</li>
+<li>Add <code>WinPixEventRuntime</code> for D3D12 to provide GPU profiler event names</li>
+<li>Add <code>timeBeginPeriod(1)</code> on <code>Win32</code> platforms to improve timer precision</li>
+<li>Add support for custom deprecation messages in bindings generator</li>
+<li>Add utility <code>Packing.hlsl</code> shader for colors and vectors packing</li>
+<li>Add SpawnParticles utility to Particle Effect</li>
+<li>Add <strong>variable rate update for shadow maps atlas based on distance to light</strong></li>
+<li>Add <code>stencilValue</code> for stencil buffer clearing</li>
+<li>Add <strong>shadows caching for static geometry</strong></li>
+<li>Add reducing shadows quality for smaller local lights</li>
+<li>Add <strong>better stability to Cascaded Shadow Maps</strong> projection</li>
+<li>Add new Static Flag <code>Shadow</code> for cached shadow maps</li>
+<li>Add constant buffers alignment for data structures (16-byte boundaries)</li>
+<li>Add <code>InvalidateShadow</code> for manual shadow cache refresh</li>
+<li>Add <code>ShadowsResolution</code> for manually specified shadowmap resolution for lights</li>
+<li>Add <code>METERS_TO_UNITS</code> and impl metric units in shadows rendering</li>
+<li>Add <code>GlobalSDFDistance</code> to graphics settings for default GlobalSDF range</li>
+<li>Add video texture formats <code>YUY2</code> and <code>NV12</code></li>
+<li>Add additional <code>StaticFlagsCompare</code> to Render View for dynamic or static only drawing</li>
+<li>Add grey out to obsolete/deprecated members in properties panel</li>
+<li>Add support for custom file proxies in Editor</li>
+<li>Add support for cooking raw files referenced by assets</li>
+<li>Add <code>FilePathEditor</code> custom editor for path-based editing asset/url refs with a file picker</li>
+<li>Add support for using <code>InputAction</code> editor on <code>string</code> variable</li>
+<li>Add <code>WindowsMinVer</code> config for minimum target Windows version switch</li>
+<li>Add <strong>Model SDF baking on GPU</strong> via Compute Shader</li>
+<li>Add option to SDF generation via GPU in Model Window</li>
+<li>Add half-texel margin to SDF around the mesh</li>
+<li>Add async SDF generation for all meshes in the scene</li>
+<li>Add improved Model SDF generation with sampling offset and min distance accumulation</li>
+<li>Add caching Model SDF options in the project cache</li>
+<li>Add increased by 1 mip sdf texture resolution for GlobalSDF building</li>
+<li>Add D3D11 shaders naming for profiling</li>
+<li>Add <code>IsDebugToolAttached</code> to GPUDevice for detecting gpu debugger tools attached and auto-enable GPU profiler in that case</li>
+<li>Add option to disable particles preview in scene view and play only looping effects</li>
+<li>Add alternative Rectangle function names for naming consistency</li>
+<li>Add support for log context and logging missing objects container info</li>
+<li>Add support for Windows SDK build 26100 (24H2)</li>
+<li>Add support for injecting scene children on scene loading</li>
+<li>Add <strong>new infinite grid rendering</strong> in Editor</li>
+<li>Add saving debug log collapse state</li>
+<li>Add Edit Prefab button for selected actor</li>
+<li>Add selecting all assets and scripts that are dropped in the tree panel</li>
+<li>Add separate import settings as new tab in texture window</li>
+<li>Add displaying file extension for scripts in content finder to distinguish C++ files</li>
+<li>Add more functionality and thumbnail to content items in finder for scripts</li>
+<li>Add utility <code>GetInstance</code> method to Json Asset refs in C#</li>
+<li>Add assertions for checking against un-normalized direction vectors</li>
+<li>Add <strong>reordering lists and Visject parameters</strong></li>
+<li>Add Editor update event</li>
+<li>Add type display to empty object ref in editor</li>
+<li>Add slot spacing to uniform grid panel</li>
+<li>Add displaying asset picker type</li>
+<li>Add cutting of content items</li>
+<li>Add ability to rename multiple actors using scene hierarchy</li>
+<li>Add improved Visject search and filter</li>
+<li>Add improved UX for disabled boxes  in Visject</li>
+<li>Add improved context menu search filtering in Visject</li>
+<li>Add improved comment renaming and visual fix</li>
+<li>Add connection curvature option to Visject</li>
+<li>Add impulse/execution lines slightly thicker than data ones in Visject</li>
+<li>Add minor QoL change for moving reroute nodes in Visject</li>
+<li>Add <strong>new material nodes: Cone, Cycle, Linear, Radial, Ring gradients</strong></li>
+<li>Add spawning parameter setter node when holding Alt` during drag and drop</li>
+<li>Add storing Debug Log view options in Editor options</li>
+<li>Add generated marshallers into separate <code>Interop</code> namespace</li>
+<li>Add new <strong>Radial Menu control</strong></li>
+<li>Add a warning when there is more than one audio listener enabled</li>
+<li>Add default audio listener to newly created scenes</li>
+<li>Add being able to * Add a thumbnail to a <code>SpawnableJsonProxy</code></li>
+<li>Add color picker option to accept changes on dismissal</li>
+<li>Add option for enabling enhanced determinism in Physics</li>
+<li>Add Lightmap UV material node</li>
+<li>Add text alignment options to Button</li>
+<li>Add support for customizing <code>Dropdown</code> popup visuals</li>
+<li>Add smooth light brightness fade out at last 10% of <code>ViewDistance</code> (if used)</li>
+<li>Add <code>MaterialInstance.ResetParameters</code></li>
+<li>Add <code>TextFormat</code>, <code>SelectedItemChanged</code>, and text alignment options to Dropdown</li>
+<li>Add <code>Graphics.ShadowUpdateRate</code> to control global shadows atlas update rate</li>
+<li>Add Git cloning plugin project inside Git repo as submodule</li>
+<li>Add clearing render target pool textures to pink during in Debug builds</li>
+<li>Add <code>IndirectLightingIntensity</code> to <code>Sky</code> for GI intensity control</li>
+<li>Add <strong>Contrast Adaptive Sharpening (CAS)</strong> filter pass</li>
+<li>Add improved default value detection for scripting object references in bindings generator</li>
+<li>Add improved material instance setup on model import with base material</li>
+<li>Add improved <code>FormatBytesCount</code> to print large sizes in more detailed way</li>
+<li>Add copy/paste for material instance parameters via context menu on <code>Parameters</code> group header</li>
+<li>Add more <code>move</code> value operation for various code places for better performance</li>
+<li>Add support for using C# stdlib api in Visual Scripts</li>
+<li>Add more contextual log printing on missing object/asset reference</li>
+<li>Add <code>Transfrom.AlignRotationToNormalAndSnapToGrid</code>, <code>Vector3.SnapToGrid</code></li>
+<li>Add ability to edit position curve in timeline with a gizmo in a viewport</li>
+<li>Add custom grid snapping value for translation</li>
+<li>Add software raytraced reflections to transparent material that have both GI and SSR enabled</li>
+<li>Add better engine responsiveness when not focused by ticking platform more frequently</li>
+<li>Add grid gizmo to prefab scene</li>
+<li>Add enlarging debug point of current blend value in Multi blend nodes in Anim Graph window</li>
+<li>Add options menu to json assets</li>
+<li>Add cleaning up modules from target files when deleted</li>
+<li>Add saving collection element groups</li>
+<li>Add copy/paste context actions to the sprite properties panel</li>
+<li>Add preserving local changes to model prefab objects when reimporting</li>
+<li>Add resizing foliage paint gizmo with shift scroll</li>
+<li>Add physics and lights debug drawing in prefabs when enabled</li>
+<li>Add check for not having right mouse button down for changing terrain gizmo sizes</li>
+<li>Add additional Actor virtual methods to C# and Visual Scripting to override</li>
+<li>Add attributes support for dotnet interop for methods, fields and properties</li>
+<li>Add automatic heightmap files removal on Editor shutdown for deleted terrains</li>
+<li>Add navigation focus support to <code>AssetPicker</code> control</li>
+<li>Add caching scroll values for actors in Properties window</li>
+<li>Add creating particle systems from particle emitters via context menu</li>
+<li>Add creating anim graph from skinned model via context menu</li>
+<li>Add prefab root actor option picking</li>
+<li>Add grid snapping option to Visject Surface editor</li>
+<li>Add option to reconstruct Z channel when importing OpenGL normal maps</li>
+<li>Add option to flip imported texture over X axis</li>
+<li>Add option to keep aspect ratio of texture when resizing</li>
+<li>Add <code>UpdateFlags</code> to <code>ISceneRenderingListener::UpdateActor</code> for more contextual control over dirtying actors state in renderer data</li>
+<li>Add <code>NetworkReplicationNode::SetObject</code> to customize object replication settings at runtime</li>
+<li>Add initial AGX tonemapping implementation</li>
+<li>Add widget UI root control type or canvas</li>
+<li>Add <strong>tooltip and description inside Visual Script finder menu</strong></li>
+<li>Add bindings for handling <code>MAX</code> C++ defines in enums and converting them to C#</li>
+<li>Add <code>Invert Mouse Y-axis</code> option to input options in Editor</li>
+<li>Add handling <code>.f</code> in C++ values by bindings generator</li>
+<li>Add code gen for FixedAllocation arrays to generate Collection attribute with allocation count</li>
+<li>Add using <code>nameof</code> for adding new Modules to build targets</li>
+<li>Add <code>NetworkReplicator::MapObjectId</code> for networked object identifies mapping</li>
+<li>Add <code>OrthographicSize</code> to Camera for fixed ortho projection size</li>
+<li>Add disabling decals from effecting editor camera model</li>
+<li>Add material instance override options to be in setting button</li>
+<li>Add generic <code>CSharpProxy</code> and Empty C# template</li>
+<li>Add opening file proxy via shell on Windows in Editor as fallback</li>
+<li>Add Shift+End and PageUp/PageDown for <code>TextBoxBase</code></li>
+<li>Add <code>ControlChildSize</code> option to disable auto resizing child controls in UI panel</li>
+<li>Add Background Brush to the control for more styling</li>
+<li>Add caching review model in Animation window</li>
+<li>Add <code>Foliage.RemoveAllInstances</code> to clear all instances of foliage</li>
+<li>Add gamepad buttons to Axis Config</li>
+<li>Add actor type and script type to search filters (<code>a:</code> for actors and <code>s:</code> for scripts, eg. <code>a:SkyLight, s:TestingMovement, MainLight</code>)</li>
+<li>Add improved anim slot blending between animation in the same slot</li>
+<li>Add picking the longest animation from the imported file instead of the first one as default</li>
+<li>Add <code>CHECK_DEBUG</code> and use it over over <code>ASSERT</code> in normalized direction checks</li>
+<li>Add requesting engine exit event. Expose Fatal error and requesting exit it to C#</li>
+<li>Optimize world matrix storage for drawable objects to use <code>Matrix3x4</code> instead of full matrix</li>
+<li>Optimize decals rendering</li>
+<li>Optimize depth pass rendering to batch simple materials together</li>
+<li>Optimize env probes data storage in renderer</li>
+<li>Optimize local lights sphere mesh rendering to match the area better</li>
+<li>Optimize <code>BoundingSphere.Intersects</code> to be inlined by the compiler</li>
+<li>Optimize <code>FileReadStream</code> seeking if new position is within the cached buffer</li>
+<li>Optimize draw calls batching sorting with Merge Sort</li>
+<li>Optimize win32 filesystem access via static buffer or unlimited path len</li>
+<li>Optimize Windows Development builds to use SSE2 by default on Windows and use SSE4.1 when targeting Windows 11</li>
+<li>Optimize <code>StaticModel</code> draw into SDF and SurfaceAtlas if SDF texture is unused</li>
+<li>Optimize <code>SceneObjectsFactory::SetupPrefabInstances</code> when loading large scenes</li>
+<li>Optimize <code>SceneObjectsFactory::SynchronizeNewPrefabInstances</code> when loading large scenes</li>
+<li>Optimize Global SDF drawing with async job system</li>
+<li>Optimize Global SDF to use 8-bit storage (50% less memory usage)</li>
+<li>Optimize Global Surface Atlas drawing when atlas is full</li>
+<li>Optimize Global Surface Atlas defragmenting to just reset tiles, not whole objects list</li>
+<li>Optimize Global Surface Atlas setup and objects buffer writing to be async</li>
+<li>Optimize Global Surface Atlas objects culling with shared thread group pre-cull</li>
+<li>Optimize GPU memory usage in Editor when viewport is inactive</li>
+<li>Optimize and refactor DDGI to use linear <code>attention</code> per-probe to dynamically control ray count and blend speed</li>
+<li>Optimize DDGI probes border pixels to be copied within probe update, rather than via separate dispatch</li>
+<li><strong>Optimize draw calls sorting and objects buffer building to be async</strong></li>
+<li>Optimize new rectangle packing to use binary search for faster inserting</li>
+<li>Optimize wait signal in Job System to wake waiting threads only when job batch ends</li>
+<li>Optimize <code>DynamicTypedBuffer</code> and <code>DynamicStructuredBuffer</code> to use GPU-memory for commonly used single-frame uploads</li>
+<li><strong>Refactor DDGI probe relocation algorithm to have smoother and more precise placement</strong></li>
+<li>Refactor draw calls rendering to use single objects buffer and better materials batching</li>
+<li>Refactor <code>RectPack</code> into new <code>RectPackNode</code> and <code>RectPackAtlas</code> that uses more optimized memory allocations</li>
+<li>Refactor <code>SortOrder</code> to use <code>int8</code> instead of <code>int16</code> due to performance reasons (more efficient sort keys packing in rendering)</li>
+<li>Refactor <code>Button</code> to inherit from <code>Label</code> and get all of its functionalities</li>
+<li>Refactor <code>WindowsFileSystemWatcher</code> to properly handle file modifications</li>
+<li>Refactor Audio Backend to support single listener only</li>
+<li>Refactor <code>Asset::GetReferences</code> to support file path references</li>
+<li>Refactor <strong>shadows rendering to use Shadow Map Atlas</strong></li>
+<li>Rename <code>ShadowSamplerPCF</code> to <code>ShadowSamplerLinear</code></li>
+<li>Reimplement cascaded shadow maps blending via dithering (optimized shader)</li>
+<li>Update GDK to <code>230305</code> and support <code>v143</code> MSVC toolset</li>
+<li>Update <code>VulkanMemoryAllocator</code> to  version<code>3.1.0</code></li>
+<li>Update Assimp to <code>v5.4.1</code></li>
+<li>Update <code>meshoptimizer</code> to version <code>v0.21</code></li>
+<li>Update OpenFBX to the latest version <code>Jun 22, 2024</code> (* Add new triangulation)</li>
+<li>Update various third party dependencies</li>
+<li>Fix various FBX importing issues (new triangulation, better format support)</li>
+<li>Fix drop down image on scripts to be hidden if no objects are in the group</li>
+<li>Fix xml tooltips processing to ignore excessive whitespaces</li>
+<li>Fix thumb of scrollbar not showing up until dragged by user</li>
+<li>Fix <code>Convert to Parameter</code> to check if can perform action</li>
+<li>Fix playing from first scene with invalid asset id</li>
+<li>Fix project cache in editor to use invariant culture when converting numbers</li>
+<li>Fix game build when using some missing debug draw methods</li>
+<li>Fix editor play state exceptions into errors to prevent locking editor state</li>
+<li>Fix <code>SliderControl</code> not being unfocused on value change</li>
+<li>Fix header height when using HeaderAttribute with multiline label</li>
+<li>Fix TAA jittering when rendering UI in world after TAA resolve</li>
+<li>Fix a few edge cases for cursor showing/not showing</li>
+<li>Fix progress bar normalized percentage drawing</li>
+<li>Fix tree nodes culling when using search in scene tree</li>
+<li>Fix UICanvas controls to update when cavnas skips input events</li>
+<li>Fix UI control borders not tinting</li>
+<li>Fix missing layout performing of splitter panel once splitter is done being dragged</li>
+<li>Fix asset to be soft when transformation is nan or inf</li>
+<li>Fix text wrapping to wrap only on underscores and not other special characters</li>
+<li>Fix timer queries reset before use on Vulkan</li>
+<li>Fix terrain SDF thickness to be fixed at <code>300</code> units</li>
+<li>Fix terrain rasterization into Global SDF to less blocky</li>
+<li>Fix Global SDF sampling in materials to properly read far cascades</li>
+<li>Fix Global SDF mip sampling artifacts on edges of distance limit</li>
+<li>Fix DDGI probes scrolling to properly handle bigger scroll deltas</li>
+<li>Fix single-frame DDGI black artifacts when Global Surface Atlas got defragmented</li>
+<li>Fix Global Surface Atlas flickering in scenes with lots of objects</li>
+<li>Fix missing GPU events when using shaders profiling/debugging or graphics dev tools are enabled</li>
+<li>Fix D3D11 to properly issue instanced draws even if instance count is <code>1</code></li>
+<li>Fix D3D11 to properly flush CB/SRVs when bindings new shaders after CB/SRV was set</li>
+<li>Fix <code>HashSet</code> adding item via move operation</li>
+<li>Fix playing 6-channel audio with XAudio2 backend</li>
+<li>Fix <code>MIN_int32</code> compilation on the latest Clang</li>
+<li>Fix model thumbnail for very large assets</li>
+<li>Fix Global Surface Atlas defragmentation flicker when atlas it nearly full</li>
+<li>Fix GlobalSDF for meshes intersections for negative distances inside the geometry </li>
+<li>Fix GPU Tasks queue to be executed on frame start, rather than end</li>
+<li>Fix <code>GPUTexture::GetData</code> to properly handle volume textures</li>
+<li>Fix texture copy into staging one on DX12 and Vulkan</li>
+<li>Fix missing DirectX resources naming in Development builds for profiling</li>
+<li>Fix SSAO flickering artifacts in cooked game (disable depth mips usage)</li>
+<li>Fix Model SDF texture streaming to properly mark highest loaded mip as resident</li>
+<li>Fix generating project files for VSCode on Mac without .NET x64 SDK installed</li>
+<li>Fix statically linked binary modules not getting compiled</li>
+<li>Fix the profiler charts in place and only scroll profiler info</li>
+<li>Fix prefab actor buttons to be invisible in Prefab Window</li>
+<li>Fix Variant getters returning already freed managed handles</li>
+<li>Fix <code>Delegate</code> invoke to copy arguments values to each call instead of passing as reference</li>
+<li>Fix <code>World Triplanar Texture</code> node to support displacement and float4 value</li>
+<li>Fix missing debug draw from prefabs</li>
+<li>Fix terrain modes to not be visible if no terrain panel is showing</li>
+<li>Fix incorrect zoom in viewport if shift key is clicked and window is not focused</li>
+<li>Fix not needed anymore zero clamping from HingeJointDrive in Editor</li>
+<li>Fix surface parameters sorting alphabetically only if script member order is set to <code>Alphabetical</code></li>
+<li>Fix  <code>Vector</code> <code>IsNormalized</code> checks to use larger epsilon</li>
+<li>Fix undo-redo for <code>JsonAssetReference</code> in Editor</li>
+<li>Fix <code>ConvertMouseToRay</code> for orthographic projection</li>
+<li>Fix drawing physics colliders in debug view mode</li>
+<li>Fix Content Finder input action binding in Output Log</li>
+<li>Fix editor viewport mouse control bug when using <code>Alt</code> key</li>
+<li>Fix editor log spam by rebuilding layout when Custom Editor throws exception on update</li>
+<li>Fix network profiler to properly calculate network usage statistics per second</li>
+<li>Fix animated model parameters to be hidden on end play</li>
+<li>Fix leftover bindings for <code>InputEvent</code> and <code>InputAxis</code> events on dispose</li>
+<li>Fix progress bar lerp jumping when first initialized</li>
+<li>Fix foliage shadows rendering when using cull distance</li>
+<li>Fix spline length calculations bug</li>
+<li>Fix SpriteRender all parameters override</li>
+<li>Fix terrain rendering to use the same LOD for main view and shadow passes</li>
+<li>Fix texture streaming reallocation task to ignore not-resident mips</li>
+<li>Fix Multi Blend 2D animation indices outside the blend space</li>
+<li>Fix missing parameters metadata on nested material layers</li>
+<li>Fix turbulence module in GPU particles far away from world origin</li>
+<li>Fix Flipbook node bug</li>
+<li>Fix Pre-Skinned Normal and Position when accessed in Pixel Shader</li>
+<li>Fix missing integer and double math node implementation in Visject</li>
+<li>Fix using <code>Tag</code> as key of serialized dictionary in cooked build</li>
+<li>Fix Visject parameter values restore after script is saved in editor by using original value diff</li>
+<li>Fix GPU particles issues with Global SDF far away from scene geometry</li>
+<li>Fix DDGI probes debug when using very large amount of probes</li>
+<li>Fix directional lights shadows jittering when using TAA</li>
+<li>Fix profiler window tabs layout for charts</li>
+<li>Fix draw calls sorting to favor distance over geometry and material</li>
+<li>Fix GlobalSDF tracing artifacts in reflections by using occlusion bias relative to each cascade voxel size</li>
+<li>Fix border placement in <code>Dropdown</code> control</li>
+<li>Fix importing compressed textures with <code>DirectXTex</code> with resizing</li>
+<li>Fix bug with missing baked SDF data on save when asset data chunk memory was freed by GC</li>
+<li>Fix interface bindings clashing namespace and class name if class has same name as namespace</li>
+<li>Fix properties editor labels positioning</li>
+<li>Fix sprite group name to be updated when sprite name is changed</li>
+<li>Fix <code>BehaviorTreeMoveToNode</code> when goal location changes every frame by less than tolerance</li>
+<li>Fix audio state for non-streaming audio</li>
+<li>Fix <code>HRTF</code> audio on start in cooked game if disabled in settings</li>
+<li>Fix C# structures memory packing to match C++ better</li>
+<li>Fix custom 2D clipping mask to properly inherit parent container clip mask</li>
+<li>Fix <code>HasBorder</code> and <code>BorderThickness</code> for Rich Text Box</li>
+<li>Fix <code>Label</code> auto sizing to be relative to pivot and sync layout when editing</li>
+<li>Fix Linux platform <code>CreateProcess</code> not working with whitespace in path</li>
+<li>Fix <code>Input::AxisValueChanged</code> event to properly handle value changes when using keyboard</li>
+<li>Fix incorrect network RPC sending when target client ids list is provided but is empty</li>
+<li>Fix lightmap uvs density view to handle <code>scale in lightmap</code> and outline non-static objects</li>
+<li>Fix <code>NetworkLagDriver</code> having wrong <code>ChannelType</code> and <code>Length</code></li>
+<li>Fix realtime environment probes updating</li>
+<li>Fix missing scenes saving when entering play mode in full game mode</li>
+<li>Fix <code>TextBox</code> caret and selection when using text alignment options</li>
+<li>Fix <code>RichTextBox</code> selection bug when using style tags</li>
+<li>Fix navigation focus path in <code>UIControl</code> transform editor</li>
+<li>Fix game crashes due to scene objects C# instances removal on <code>EndPlay</code> before all game logic ends</li>
+<li>Fix freeing managed Object references in marshalled arrays</li>
+<li>Fix graphical glitches in Vulkan backend with AMD GPUs</li>
+<li>Fix error when previewing animation timeline values after reimport</li>
+<li>Fix mesh collider not inverting correctly due to negative scale</li>
+<li>Fix Invariant culture for unknown LCID</li>
+<li>Fix layers array editing to block resizing it</li>
+<li>Fix Translate/Rotate/Scale/TransformSpace hotkeys to be ignored when holding RMB</li>
+<li>Fix warnings about upcoming C# reserved keywords</li>
+<li>Fix deserializing clipboard content in Custom Editor paste checks to avoid safety issues</li>
+<li>Fix <code>CharacterController::SimpleMove</code> gravity displacement handling</li>
+<li>Fix missing CCD detection flag in pair flags to properly handle physics simulation</li>
+<li>Fix vehicles simulation instability when physics substepping is enabled</li>
+<li>Fix redundant first tab on floating window to be removed</li>
+<li>Fix unpacking marshaled field value</li>
+<li>Fix various issues related to fbx files importing (better triangulation)</li>
+<li>Fix incorrect <code>JsonAssetReference&lt;T&gt;</code> serialization</li>
+<li>Fix not being able to drag a window tab all of the way to the right</li>
+<li>Fix <code>Quaternion.FromDirection</code> giving bogus output when fed a perfect down vector</li>
+<li>Fix <code>IsActuallyPlayingSth</code> to be deprecated and (add <code>IsActuallyPlaying</code> to <code>AudioSource</code>)</li>
+<li>Fix crash in CharacterController to not process hits against removed actors</li>
+<li>Fix crash in gpu memory profiler if resource name is missing</li>
+<li>Fix crash when loading large scenes in async by using <code>UnsafeAccessor</code> to initialize scripting object interop fields</li>
+<li>Fix crash in D3D12 when constant buffer was binded but not updated before the draw</li>
+<li>Fix crash in particle emitter load</li>
+<li>Fix crash in build tool when generating project files with incorrect target setup</li>
+<li>Fix crash in editor when opening Visual Script that uses array of visual script references</li>
+<li>Fix crash in audio clip if it&#39;s still streaming after unload</li>
+<li>Fix crash in <code>Level.GetScene</code> when index is invalid</li>
+<li>Fix crash on exit when GPU async task failed</li>
+<li>Fix crash when trying to import unsupported EXR-file</li>
+<li>Fix crash when removing Visual Script asset that&#39;s instance is selected in Properties window</li>
+<li>Fix crash when showing shader source that is empty</li>
+<li>Fix crash when using content search in Visject surface</li>
+<li>Fix crash when drawing particle effect where one of the emitter assets is not yet loaded</li>
+<li>Fix crash when using and saving scene with Visual Script object instance which asset was deleted</li>
+<li>Fix crash when reading invalid data from file</li>
+<li>Fix crash in Colliders when <code>PhysicsMaterial</code> asset is reloaded in editor</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/release-notes/1_9/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

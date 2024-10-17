@@ -174,6 +174,9 @@
       <a class="xref" href="BinaryAsset.html#BinaryAsset_ClearDependencies__">BinaryAsset::ClearDependencies()</a>
     </div>
     <div>
+      <a class="xref" href="Asset.html#Asset_const">Asset::const</a>
+    </div>
+    <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_createLoadingTask__">BinaryAsset::createLoadingTask()</a>
     </div>
     <div>
@@ -199,6 +202,9 @@
     </div>
     <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_Dependencies">BinaryAsset::Dependencies</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_DEPRECATED__Use_GetReferences_with_assets_and_files_parameter_instead__">Asset::DEPRECATED(&quot;Use GetReferences with assets and files parameter instead&quot;)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_DestroyManaged__">Asset::DestroyManaged()</a>
@@ -252,7 +258,7 @@
       <a class="xref" href="BinaryAsset.html#BinaryAsset_GetPath__">BinaryAsset::GetPath()</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; output)</a>
+      <a class="xref" href="Asset.html#Asset_GetReferences_Array_Guid__HeapAllocation____Array_String__HeapAllocation____">Asset::GetReferences(Array&lt;Guid, HeapAllocation&gt;&amp; assets, Array&lt;String, HeapAllocation&gt;&amp; files)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_GetReferences__">Asset::GetReferences()</a>
@@ -360,10 +366,10 @@
       <a class="xref" href="Asset.html#Asset_onLoad_LoadAssetTask___">Asset::onLoad(LoadAssetTask* task)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
+      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
+      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_onLoaded_MainThread__">Asset::onLoaded_MainThread()</a>
@@ -629,7 +635,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BehaviorTree_GetReferences_Array_Guid____.md&amp;value=---%0Auid%3A%20BehaviorTree.GetReferences(Array%3CGuid%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BehaviorTree_GetReferences_Array_Guid____Array_String____.md&amp;value=---%0Auid%3A%20BehaviorTree.GetReferences(Array%3CGuid%3E%20%26%2CArray%3CString%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/AI/BehaviorTree.h/#L101" title="View Source"><i class="fa fa-code"></i></a>
@@ -637,15 +643,15 @@
   
   <a id="BehaviorTree_GetReferences_" data-uid="BehaviorTree.GetReferences*"></a>
   
-  <h4 id="BehaviorTree_GetReferences_Array_Guid____" data-uid="BehaviorTree.GetReferences(Array&lt;Guid&gt; &amp;)"><a href="#collapsible-BehaviorTree_GetReferences_Array_Guid____" class="expander" data-toggle="collapse">GetReferences(Array&lt;Guid&gt;&amp; output)</a></h4>
+  <h4 id="BehaviorTree_GetReferences_Array_Guid____Array_String____" data-uid="BehaviorTree.GetReferences(Array&lt;Guid&gt; &amp;,Array&lt;String&gt; &amp;)"><a href="#collapsible-BehaviorTree_GetReferences_Array_Guid____Array_String____" class="expander" data-toggle="collapse">GetReferences(Array&lt;Guid&gt;&amp; assets, Array&lt;String&gt;&amp; files)</a></h4>
   
-  <div id="collapsible-BehaviorTree_GetReferences_Array_Guid____" class="collapse in">
+  <div id="collapsible-BehaviorTree_GetReferences_Array_Guid____Array_String____" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void GetReferences(Array&lt;Guid&gt;&amp; output) const override</code></pre>
+    <pre><code class="lang-cpp hljs">public void GetReferences(Array&lt;Guid&gt;&amp; assets, Array&lt;String&gt;&amp; files) const override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -653,7 +659,14 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">Array&lt;Guid&gt;</span></span>
-        <span class="parametername">output</span>
+        <span class="parametername">assets</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;String&gt;</span></span>
+        <span class="parametername">files</span>
         <p>
       </td>
     </tr>
