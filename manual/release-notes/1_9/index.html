@@ -112,7 +112,7 @@
 <p>To better showcase both quality and performance improvements of Dynamic Diffuse Global Illumination (<strong>DDGI</strong>) solution in Flax Engine we&#39;ve setup Amazon Lumberyard Bistro as a Flax project and released in on <a href="https://github.com/FlaxEngine/Bistro">Github</a>. Feel free to download it and use as a reference how to setup <a href="../../graphics/models/sdf.html">Global SDF</a> for a scene and use it for accurate DDGI.</p>
 <h3 id="ddgi-improvements">DDGI improvements</h3>
 <p><img src="media/bistro-lighting.png" alt="Bistro DDGI Rendering in Flax Engine"></p>
-<p><a href="../../graphics/lighting/gi/realtime.html">Dynamic Diffuse Global Illumination</a> (<strong>DDGI</strong>) is using our custom sorftware-raytracing solution used to draw dynamic lighting. Flax 1.9 adds substantial quality and performance upgrades to this visual. We&#39;ve added <strong>variable ray-count per-probe</strong> meaning the GI probes outside the view frustum or far from geometry or far from camera origin use less rays per frame. Probes <strong>relocation algorithm applies smooth probe movement</strong> to better adapt in dynamically changing scenes. Also, probes sampling supports fallback from other grid cells which reduces back artifacts. Overall, <strong>DDGI is ready for production</strong> and can be used to achieve <strong>realistic-looking lighting in large-scale games</strong>.</p>
+<p><a href="../../graphics/lighting/gi/realtime.html">Dynamic Diffuse Global Illumination</a> (<strong>DDGI</strong>) is using our custom software-raytracing solution used to draw dynamic lighting. Flax 1.9 adds substantial quality and performance upgrades to this visual. We&#39;ve added <strong>variable ray-count per-probe</strong> meaning the GI probes outside the view frustum or far from geometry or far from camera origin use less rays per frame. Probes <strong>relocation algorithm applies smooth probe movement</strong> to better adapt in dynamically changing scenes. Also, probes sampling supports fallback from other grid cells which reduces back artifacts. Overall, <strong>DDGI is ready for production</strong> and can be used to achieve <strong>realistic-looking lighting in large-scale games</strong>.</p>
 <p>To showcase those improvements we&#39;ve updated our Tech Demo from 2022 which can be downloaded on Steam:</p>
 <center><iframe src="https://store.steampowered.com/widget/2138130/" frameborder="0" width="646" height="190"></iframe></center>
 
@@ -165,9 +165,15 @@
 <li>Scene animation timelines gizmos (viewport gizmos to edit camera track curve),</li>
 <li>Animation events UI.</li>
 </ul>
+<h2 id="migration-guide">Migration Guide</h2>
+<ul>
+<li>Objects drawing has been refectored to use material batching for different meshes (aside from existing hardware instancing), all objects transformations and data is stored in a single large GPU buffer shared by the whole frame. New per-draw constant buffer is used at slot <code>2</code> - update your custom material shaders that were using additional constant buffers to use slot <code>3</code> instead. Materials and shaders using <code>WorldMatrix</code>, <code>LODDitherFactor</code>, <code>PerInstanceRandom</code> directly from <code>Data</code> constant buffer at slot <code>0</code> need to use <code>LoadObject</code> function to properly read data on a GPU.</li>
+<li>Sort Order has been reduced from <code>int16</code> to <code>int8</code> due to performance reason (more optimial sort key packing in rendering), this leaves range of <code>-[127; 127]</code>for transaprency sort reordering.</li>
+<li><code>DEPRECATED</code> has been changed to be a function that accepts custom deprecation message.</li>
+</ul>
 <h2 id="changelog">Changelog</h2>
 <h3 id="version-196605---17-october-2024">Version 1.9.6605 - 17 October 2024</h3>
-<p>Contributors: mafiesto4, tecnessino, Tryibion, GoaLitiuM, z1dev, abrasivetroop, Chikinsupu, MrCapy0, xxSeys1, HydrogenC, Swiggies, Menotdan, cNori, tecnessino, envision3d, Zode, RuanLucasGD, Arcnor, mtszkarbowiak, RomanZhu, HydrogenC, Menotdan, GaryMcWhorter, lifeformed, amir9480, fibref, Muzz</p>
+<p>Contributors: mafiesto4, Tryibion, GoaLitiuM, z1dev, abrasivetroop, Chikinsupu, MrCapy0, xxSeys1, HydrogenC, Swiggies, Menotdan, cNori, tecnessino, envision3d, Zode, RuanLucasGD, Arcnor, mtszkarbowiak, RomanZhu, GaryMcWhorter, lifeformed, amir9480, fibref, Muzz</p>
 <p>PRs merged: 169</p>
 <ul>
 <li>Add <strong>view playback support</strong></li>
@@ -528,7 +534,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/release-notes/1_9/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/release-notes/1_9/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

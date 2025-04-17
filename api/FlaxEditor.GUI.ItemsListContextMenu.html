@@ -233,6 +233,9 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawChildren">ContainerControl.DrawChildren()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_ContainsPoint_FlaxEngine_Float2__System_Boolean_">ContainerControl.ContainsPoint(Float2, Boolean)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_PerformLayout_System_Boolean_">ContainerControl.PerformLayout(Boolean)</a>
     </div>
     <div>
@@ -320,6 +323,9 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsTouchOver">ContainerControl.IsTouchOver</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Resize_FlaxEngine_Float2__">Control.Resize(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -396,9 +402,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IntersectsContent_FlaxEngine_Float2__FlaxEngine_Float2__">Control.IntersectsContent(Float2, Float2)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_ContainsPoint_FlaxEngine_Float2__System_Boolean_">Control.ContainsPoint(Float2, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointToParent_FlaxEngine_GUI_ContainerControl_FlaxEngine_Float2_">Control.PointToParent(ContainerControl, Float2)</a>
@@ -598,16 +601,16 @@
   
   <a id="FlaxEditor_GUI_ItemsListContextMenu__ctor_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.#ctor*"></a>
   
-  <h4 id="FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.#ctor(System.Single,System.Single)"><a href="#collapsible-FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_" class="expander" data-toggle="collapse">ItemsListContextMenu(Single, Single)</a></h4>
+  <h4 id="FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_System_Boolean_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.#ctor(System.Single,System.Single,System.Boolean)"><a href="#collapsible-FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_System_Boolean_" class="expander" data-toggle="collapse">ItemsListContextMenu(Single, Single, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_" class="collapse in">
+  <div id="collapsible-FlaxEditor_GUI_ItemsListContextMenu__ctor_System_Single_System_Single_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FlaxEditor.GUI.ItemsListContextMenu.html">ItemsListContextMenu</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ItemsListContextMenu(float width = 320F, float height = 220F)</code></pre>
+    <pre><code class="lang-csharp hljs">public ItemsListContextMenu(float width = 320F, float height = 220F, bool withSearch = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -625,6 +628,14 @@
         <span class="pull-right"><span class="xref">System.Single</span></span>
         <span class="parametername">height</span>
         <p><p>The control height.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">withSearch</span>
+        <p><p>Enables search field.</p>
 </p>
       </td>
     </tr>
@@ -708,6 +719,34 @@
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_ItemsListContextMenu_ClearItems_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.ClearItems*"></a>
+  
+  <h4 id="FlaxEditor_GUI_ItemsListContextMenu_ClearItems" data-uid="FlaxEditor.GUI.ItemsListContextMenu.ClearItems"><a href="#collapsible-FlaxEditor_GUI_ItemsListContextMenu_ClearItems" class="expander" data-toggle="collapse">ClearItems()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_ItemsListContextMenu_ClearItems" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes all added items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearItems()</code></pre>
+  </div>
+
   
   
   
@@ -955,6 +994,84 @@
         <span class="pull-right"><span class="xref">FlaxEditor.GUI.ItemsListContextMenu.Item</span></span>
         <span class="parametername">item</span>
         <p><p>The item to scroll to.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_ItemsListContextMenu_Search_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.Search*"></a>
+  
+  <h4 id="FlaxEditor_GUI_ItemsListContextMenu_Search_System_String_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.Search(System.String)"><a href="#collapsible-FlaxEditor_GUI_ItemsListContextMenu_Search_System_String_" class="expander" data-toggle="collapse">Search(String)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_ItemsListContextMenu_Search_System_String_" class="collapse in">
+  <div class="markdown level1 summary"><p>Applies custom search text query on the items list. Works even if search field is disabled</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Search(string text)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">text</span>
+        <p><p>The custom search text. Null to clear search.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_ItemsListContextMenu_SelectItem_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.SelectItem*"></a>
+  
+  <h4 id="FlaxEditor_GUI_ItemsListContextMenu_SelectItem_FlaxEditor_GUI_ItemsListContextMenu_Item_" data-uid="FlaxEditor.GUI.ItemsListContextMenu.SelectItem(FlaxEditor.GUI.ItemsListContextMenu.Item)"><a href="#collapsible-FlaxEditor_GUI_ItemsListContextMenu_SelectItem_FlaxEditor_GUI_ItemsListContextMenu_Item_" class="expander" data-toggle="collapse">SelectItem(ItemsListContextMenu.Item)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_ItemsListContextMenu_SelectItem_FlaxEditor_GUI_ItemsListContextMenu_Item_" class="collapse in">
+  <div class="markdown level1 summary"><p>Focuses and scroll to the given item to be selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectItem(ItemsListContextMenu.Item item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">FlaxEditor.GUI.ItemsListContextMenu.Item</span></span>
+        <span class="parametername">item</span>
+        <p><p>The item to select.</p>
 </p>
       </td>
     </tr>

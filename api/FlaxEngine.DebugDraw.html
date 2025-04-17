@@ -127,7 +127,7 @@ public static class DebugDraw : Object</code></pre>
   <h4 id="FlaxEngine_DebugDraw_AllocateContext" data-uid="FlaxEngine.DebugDraw.AllocateContext"><a href="#collapsible-FlaxEngine_DebugDraw_AllocateContext" class="expander" data-toggle="collapse">AllocateContext()</a></h4>
   
   <div id="collapsible-FlaxEngine_DebugDraw_AllocateContext" class="collapse in">
-  <div class="markdown level1 summary"><p>Allocates the context for Debug Drawing. Can be use to redirect debug shapes collecting to a separate container (instead of global state).</p>
+  <div class="markdown level1 summary"><p>Allocates the context for Debug Drawing. Can be used to redirect debug shapes collecting to a separate container (instead of global state).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -148,6 +148,96 @@ public static IntPtr AllocateContext()</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_CanClear_" data-uid="FlaxEngine.DebugDraw.CanClear*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_CanClear_System_IntPtr_" data-uid="FlaxEngine.DebugDraw.CanClear(System.IntPtr)"><a href="#collapsible-FlaxEngine_DebugDraw_CanClear_System_IntPtr_" class="expander" data-toggle="collapse">CanClear(IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_CanClear_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if can clear all debug shapes displayed on screen. Can be used to disable this functionality when not needed for the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static bool CanClear(IntPtr context = default(IntPtr))</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True fi context can be cleared (has any shapes), otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_Clear_" data-uid="FlaxEngine.DebugDraw.Clear*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_Clear_System_IntPtr_" data-uid="FlaxEngine.DebugDraw.Clear(System.IntPtr)"><a href="#collapsible-FlaxEngine_DebugDraw_Clear_System_IntPtr_" class="expander" data-toggle="collapse">Clear(IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_Clear_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Clears all debug shapes displayed on screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void Clear(IntPtr context = default(IntPtr))</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The context.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   
@@ -655,6 +745,94 @@ public static void DrawBox(OrientedBoundingBox box, Color color, float duration 
         <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
         <span class="parametername">box</span>
         <p><p>The box.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawCapsule_" data-uid="FlaxEngine.DebugDraw.DrawCapsule*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawCapsule(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawCapsule(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws a capsule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawCapsule(Vector3 position, Quaternion orientation, float radius, float length, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">length</span>
+        <p><p>The length.</p>
 </p>
       </td>
     </tr>
@@ -1391,6 +1569,70 @@ public static void DrawLines(Float3[] lines, Matrix transform, Color color, floa
         <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
         <span class="parametername">color</span>
         <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawLines_" data-uid="FlaxEngine.DebugDraw.DrawLines*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawLines_FlaxEngine_GPUBuffer_FlaxEngine_Matrix_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawLines(FlaxEngine.GPUBuffer,FlaxEngine.Matrix,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_GPUBuffer_FlaxEngine_Matrix_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawLines(GPUBuffer, Matrix, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawLines_FlaxEngine_GPUBuffer_FlaxEngine_Matrix_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the lines using the provided vertex buffer that contains pairs of Vertex elements. Line positions are located one after another (e.g. l0.start, l0.end, l1.start, l1.end,...).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawLines(GPUBuffer lines, Matrix transform, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUBuffer.html">GPUBuffer</a></span>
+        <span class="parametername">lines</span>
+        <p><p>The GPU buffer with vertices for lines (must have multiple of 2 elements).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a></span>
+        <span class="parametername">transform</span>
+        <p><p>The custom matrix used to transform all line vertices.</p>
 </p>
       </td>
     </tr>
@@ -2599,7 +2841,8 @@ public static void DrawTriangles(Float3[] vertices, int[] indices, Matrix transf
   <h4 id="FlaxEngine_DebugDraw_DrawTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawTube(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawTube(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
   
   <div id="collapsible-FlaxEngine_DebugDraw_DrawTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws the tube.</p>
+  <div class="markdown level1 summary"><p>Draws the tube.
+[Deprecated in v1.10]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2944,6 +3187,94 @@ public static void DrawWireBox(OrientedBoundingBox box, Color color, float durat
         <span class="pull-right"><a class="xref" href="FlaxEngine.OrientedBoundingBox.html">OrientedBoundingBox</a></span>
         <span class="parametername">box</span>
         <p><p>The box.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Color.html">Color</a></span>
+        <span class="parametername">color</span>
+        <p><p>The color.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">duration</span>
+        <p><p>The duration (in seconds). Use 0 to draw it only once.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">depthTest</span>
+        <p><p>If set to <code>true</code> depth test will be performed, otherwise depth will be ignored.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_DebugDraw_DrawWireCapsule_" data-uid="FlaxEngine.DebugDraw.DrawWireCapsule*"></a>
+  
+  <h4 id="FlaxEngine_DebugDraw_DrawWireCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireCapsule(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireCapsule(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_DebugDraw_DrawWireCapsule_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Draws the wireframe capsule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void DrawWireCapsule(Vector3 position, Quaternion orientation, float radius, float length, Color color, float duration = 0F, bool depthTest = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">position</span>
+        <p><p>The center position.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Quaternion.html">Quaternion</a></span>
+        <span class="parametername">orientation</span>
+        <p><p>The orientation.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">length</span>
+        <p><p>The length.</p>
 </p>
       </td>
     </tr>
@@ -3655,7 +3986,8 @@ public static void DrawWireTriangles(Float3[] vertices, int[] indices, Color col
   <h4 id="FlaxEngine_DebugDraw_DrawWireTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" data-uid="FlaxEngine.DebugDraw.DrawWireTube(FlaxEngine.Vector3,FlaxEngine.Quaternion,System.Single,System.Single,FlaxEngine.Color,System.Single,System.Boolean)"><a href="#collapsible-FlaxEngine_DebugDraw_DrawWireTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="expander" data-toggle="collapse">DrawWireTube(Vector3, Quaternion, Single, Single, Color, Single, Boolean)</a></h4>
   
   <div id="collapsible-FlaxEngine_DebugDraw_DrawWireTube_FlaxEngine_Vector3_FlaxEngine_Quaternion_System_Single_System_Single_FlaxEngine_Color_System_Single_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"><p>Draws the wireframe tube.</p>
+  <div class="markdown level1 summary"><p>Draws the wireframe tube.
+[Deprecated in v1.10]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

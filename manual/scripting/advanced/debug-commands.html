@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Debug Commands | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Debug Commands | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Debug Commands | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="debug-commands">Debug Commands</h1>
+
+<p><code>DebugCommand</code> is an attribute that can be placed on classes, fields, methods, and properties to expose them for configuration, modding, or tooling.</p>
+<div class="TIP"><h5>Tip</h5><p>Only <code>static</code> members can be used in debug commands.</p>
+</div>
+<h2 id="access">Access</h2>
+<h3 id="output-log">Output Log</h3>
+<p><img src="media/debug-commands-output-log.gif" alt="Debug Commands in Output Log"></p>
+<p><a href="../../editor/windows/output-log.html">Output Log</a> is Editor window that displays the full log. At the bottom of that window, there is an input command field that can be used to run commands. You can type commands with an automatic search popup that displays similar commands based on the entered value. Use arrow keys to navigate around that popup list. The tab key can be used to autocomplete commands based on the best-found match. Finally, when input is empty you can use the arrow up key to navigate around the command history and re-try one of them again.</p>
+<h3 id="in-game-console">In-game console</h3>
+<p><img src="media/debug-commands-in-game.png" alt="Debug Commands In Game"></p>
+<p>Debug Commands can appear within an in-game console or debug tooling. For example, <a href="https://github.com/FlaxEngine/ArizonaFramework">Arizona Framework</a> implements console via <a href="https://github.com/FlaxEngine/ImGui">ImGui</a>. Such tool can be useful when developing games for various platforms and devices such as consoles where game configurations can be tweaked at runtime.</p>
+<h3 id="debugcommands-api"><code>DebugCommands</code> API</h3>
+<p>Use <code>DebugCommands</code> class to execute or list debug commands within the project. It caches all commands for engine, game, and plugin projects.</p>
+<p>Example usage:</p>
+<div class="tabGroup" id="tabgroup_I67wnoa3fH">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_I67wnoa3fH_code-csharp" role="tab" aria-controls="tabpanel_I67wnoa3fH_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_I67wnoa3fH_code-cpp" role="tab" aria-controls="tabpanel_I67wnoa3fH_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_I67wnoa3fH_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">// Disable vsync
+DebugCommands.Execute(&quot;Graphics.UseVSync false&quot;);
+</code></pre></section>
+<section id="tabpanel_I67wnoa3fH_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// Disable vsync
+DebugCommands::Execute(TEXT(&quot;Graphics.UseVSync false&quot;));
+</code></pre></section>
+</div>
+<h2 id="example">Example</h2>
+<div class="tabGroup" id="tabgroup_I67wnoa3fH-1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_I67wnoa3fH-1_code-csharp" role="tab" aria-controls="tabpanel_I67wnoa3fH-1_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_I67wnoa3fH-1_code-cpp" role="tab" aria-controls="tabpanel_I67wnoa3fH-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_I67wnoa3fH-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using FlaxEngine;
+
+/// &lt;summary&gt;
+/// Global gameplay configs.
+/// &lt;/summary&gt;
+[DebugCommand]
+public static class GameGlobals
+{
+    /// &lt;summary&gt;
+    /// Disables player damage.
+    /// &lt;/summary&gt;
+    public static bool GodMode = false;
+}
+
+/// &lt;summary&gt;
+/// Player script.
+/// &lt;/summary&gt;
+public class PlayerLogic : Script
+{
+    /// &lt;summary&gt;
+    /// Player speed scale.
+    /// &lt;/summary&gt;
+    [DebugCommand]
+    public static float SpeedScale = 1.0f;
+
+    /// &lt;summary&gt;
+    /// Restores player HP to max.
+    /// &lt;/summary&gt;
+    [DebugCommand]
+    public static void HealPlayer()
+    {
+        //..
+    }
+}
+</code></pre></section>
+<section id="tabpanel_I67wnoa3fH-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// Global gameplay configs.
+API_CLASS(Static, Attributes=&quot;DebugCommand&quot;) class GAME_API GameGlobals
+{
+    DECLARE_SCRIPTING_TYPE_NO_SPAWN(GameGlobals);
+public:
+    // Disables player damage.
+    API_FIELD() static bool GodMode;
+};
+
+// Player script.
+API_CLASS() class GAME_API PlayerLogic : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCRIPTING_TYPE(PlayerLogic);
+public:
+    // Player speed scale.
+    API_FIELD(Attributes=&quot;DebugCommand&quot;) static float SpeedScale;
+
+    // Restores player HP to max.
+    API_FUNCTION(Attributes=&quot;DebugCommand&quot;) static void HealPlayer();
+};
+</code></pre></section>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/advanced/debug-commands.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

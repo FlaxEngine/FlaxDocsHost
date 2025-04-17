@@ -263,6 +263,426 @@ bool GetFriends(out OnlineUser[] friends, User localUser = null)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboard_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboard*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboard(System.String,FlaxEngine.Online.OnlineLeaderboard@,FlaxEngine.User)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" class="expander" data-toggle="collapse">GetLeaderboard(String, out OnlineLeaderboard, User)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetLeaderboard(string name, out OnlineLeaderboard value, User localUser = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>The leaderboard name.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">value</span>
+        <p><p>The result value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.User.html">User</a></span>
+        <span class="parametername">localUser</span>
+        <p><p>The local user (null if use default one).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntries_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntries*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntries_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntries(FlaxEngine.Online.OnlineLeaderboard,FlaxEngine.Online.OnlineLeaderboardEntry[]@,System.Int32,System.Int32)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntries_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" class="expander" data-toggle="collapse">GetLeaderboardEntries(OnlineLeaderboard, out OnlineLeaderboardEntry[], Int32, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntries_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries. Allows to specify the range for ranks to gather.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetLeaderboardEntries(OnlineLeaderboard leaderboard, out OnlineLeaderboardEntry[] entries, int start = 0, int count = 10)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardEntry.html">OnlineLeaderboardEntry</a>[]</span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">start</span>
+        <p><p>The zero-based index to start downloading entries from. For example, to display the top 10 on a leaderboard pass value of 0.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">count</span>
+        <p><p>The amount of entries to read, starting from the first entry at <code data-dev-comment-type="paramref" class="paramref">start</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesAroundUser_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesAroundUser*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesAroundUser_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesAroundUser(FlaxEngine.Online.OnlineLeaderboard,FlaxEngine.Online.OnlineLeaderboardEntry[]@,System.Int32,System.Int32)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesAroundUser_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" class="expander" data-toggle="collapse">GetLeaderboardEntriesAroundUser(OnlineLeaderboard, out OnlineLeaderboardEntry[], Int32, Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesAroundUser_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____System_Int32_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries around the player. Allows to specify the range for ranks to gather around the user rank. The current user&apos;s entry is always included.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetLeaderboardEntriesAroundUser(OnlineLeaderboard leaderboard, out OnlineLeaderboardEntry[] entries, int start = -4, int count = 10)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardEntry.html">OnlineLeaderboardEntry</a>[]</span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">start</span>
+        <p><p>The zero-based index to start downloading entries relative to the user. For example, to display the 4 higher scores on a leaderboard pass value of -4. Value 0 will return current user as the first one.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">count</span>
+        <p><p>The amount of entries to read, starting from the first entry at <code data-dev-comment-type="paramref" class="paramref">start</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForFriends_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesForFriends*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForFriends_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesForFriends(FlaxEngine.Online.OnlineLeaderboard,FlaxEngine.Online.OnlineLeaderboardEntry[]@)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForFriends_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____" class="expander" data-toggle="collapse">GetLeaderboardEntriesForFriends(OnlineLeaderboard, out OnlineLeaderboardEntry[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForFriends_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries for player friends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetLeaderboardEntriesForFriends(OnlineLeaderboard leaderboard, out OnlineLeaderboardEntry[] entries)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardEntry.html">OnlineLeaderboardEntry</a>[]</span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForUsers_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesForUsers*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForUsers_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____FlaxEngine_Online_OnlineUser___" data-uid="FlaxEngine.Online.IOnlinePlatform.GetLeaderboardEntriesForUsers(FlaxEngine.Online.OnlineLeaderboard,FlaxEngine.Online.OnlineLeaderboardEntry[]@,FlaxEngine.Online.OnlineUser[])"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForUsers_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____FlaxEngine_Online_OnlineUser___" class="expander" data-toggle="collapse">GetLeaderboardEntriesForUsers(OnlineLeaderboard, out OnlineLeaderboardEntry[], OnlineUser[])</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetLeaderboardEntriesForUsers_FlaxEngine_Online_OnlineLeaderboard_FlaxEngine_Online_OnlineLeaderboardEntry____FlaxEngine_Online_OnlineUser___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries for an arbitrary set of users.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetLeaderboardEntriesForUsers(OnlineLeaderboard leaderboard, out OnlineLeaderboardEntry[] entries, OnlineUser[] users)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardEntry.html">OnlineLeaderboardEntry</a>[]</span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineUser.html">OnlineUser</a>[]</span>
+        <span class="parametername">users</span>
+        <p><p>The list of users to read their ranks on the leaderboard.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_GetOrCreateLeaderboard_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetOrCreateLeaderboard*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_GetOrCreateLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboardSortModes_FlaxEngine_Online_OnlineLeaderboardValueFormats_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetOrCreateLeaderboard(System.String,FlaxEngine.Online.OnlineLeaderboardSortModes,FlaxEngine.Online.OnlineLeaderboardValueFormats,FlaxEngine.Online.OnlineLeaderboard@,FlaxEngine.User)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetOrCreateLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboardSortModes_FlaxEngine_Online_OnlineLeaderboardValueFormats_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" class="expander" data-toggle="collapse">GetOrCreateLeaderboard(String, OnlineLeaderboardSortModes, OnlineLeaderboardValueFormats, out OnlineLeaderboard, User)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_GetOrCreateLeaderboard_System_String_FlaxEngine_Online_OnlineLeaderboardSortModes_FlaxEngine_Online_OnlineLeaderboardValueFormats_FlaxEngine_Online_OnlineLeaderboard__FlaxEngine_User_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or creates the online leaderboard. It will not create it if already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool GetOrCreateLeaderboard(string name, OnlineLeaderboardSortModes sortMode, OnlineLeaderboardValueFormats valueFormat, out OnlineLeaderboard value, User localUser = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">name</span>
+        <p><p>The leaderboard name.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardSortModes.html">OnlineLeaderboardSortModes</a></span>
+        <span class="parametername">sortMode</span>
+        <p><p>The leaderboard sorting mode.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboardValueFormats.html">OnlineLeaderboardValueFormats</a></span>
+        <span class="parametername">valueFormat</span>
+        <p><p>The leaderboard values formatting.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">value</span>
+        <p><p>The result value.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.User.html">User</a></span>
+        <span class="parametername">localUser</span>
+        <p><p>The local user (null if use default one).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Online_IOnlinePlatform_GetSaveGame_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetSaveGame*"></a>
   
   <h4 id="FlaxEngine_Online_IOnlinePlatform_GetSaveGame_System_String_System_Byte____FlaxEngine_User_" data-uid="FlaxEngine.Online.IOnlinePlatform.GetSaveGame(System.String,System.Byte[]@,FlaxEngine.User)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_GetSaveGame_System_String_System_Byte____FlaxEngine_User_" class="expander" data-toggle="collapse">GetSaveGame(String, out Byte[], User)</a></h4>
@@ -567,6 +987,72 @@ bool ResetAchievements(User localUser = null)</code></pre>
         <span class="pull-right"><a class="xref" href="FlaxEngine.User.html">User</a></span>
         <span class="parametername">localUser</span>
         <p><p>The local user (null if use default one).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if failed, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Online_IOnlinePlatform_SetLeaderboardEntry_" data-uid="FlaxEngine.Online.IOnlinePlatform.SetLeaderboardEntry*"></a>
+  
+  <h4 id="FlaxEngine_Online_IOnlinePlatform_SetLeaderboardEntry_FlaxEngine_Online_OnlineLeaderboard_System_Int32_System_Boolean_" data-uid="FlaxEngine.Online.IOnlinePlatform.SetLeaderboardEntry(FlaxEngine.Online.OnlineLeaderboard,System.Int32,System.Boolean)"><a href="#collapsible-FlaxEngine_Online_IOnlinePlatform_SetLeaderboardEntry_FlaxEngine_Online_OnlineLeaderboard_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">SetLeaderboardEntry(OnlineLeaderboard, Int32, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Online_IOnlinePlatform_SetLeaderboardEntry_FlaxEngine_Online_OnlineLeaderboard_System_Int32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the online leaderboard entry for the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+bool SetLeaderboardEntry(OnlineLeaderboard leaderboard, int score, bool keepBest = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Online.OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">score</span>
+        <p><p>The score value to set.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">keepBest</span>
+        <p><p>True if store value only if it&apos;s better than existing value (if any), otherwise will override any existing score for that user.</p>
 </p>
       </td>
     </tr>

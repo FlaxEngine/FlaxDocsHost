@@ -117,6 +117,7 @@
   <div id="collapsible-implements-FlaxEditor_Windows_SceneEditorWindow" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html">ISceneEditingContext</a></div>
   </div>
   </div>
   
@@ -550,6 +551,9 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsTouchOver">ContainerControl.IsTouchOver</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Resize_FlaxEngine_Float2__">Control.Resize(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -809,7 +813,7 @@
   
   <h5 id="FlaxEditor_Windows_SceneEditorWindow_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class SceneEditorWindow : EditorWindow, IComparable, IDrawable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class SceneEditorWindow : EditorWindow, IComparable, IDrawable, ISceneEditingContext</code></pre>
   </div>
 
   
@@ -868,6 +872,238 @@
   
   
   
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_Selection_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Selection*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_Selection" data-uid="FlaxEditor.Windows.SceneEditorWindow.Selection"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_Selection" class="expander" data-toggle="collapse">Selection</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_Selection" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the list of selected scene graph nodes in the editor context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;SceneGraphNode&gt; Selection { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">FlaxEditor.SceneGraph.SceneGraphNode</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Selection">ISceneEditingContext.Selection</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_Viewport_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Viewport*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_Viewport" data-uid="FlaxEditor.Windows.SceneEditorWindow.Viewport"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_Viewport" class="expander" data-toggle="collapse">Viewport</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_Viewport" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the main or last editor viewport used for scene editing within this context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorViewport Viewport { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.Viewport.EditorViewport.html">EditorViewport</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Viewport">ISceneEditingContext.Viewport</a></div>
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_Deselect_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Deselect*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_Deselect_FlaxEditor_SceneGraph_SceneGraphNode_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Deselect(FlaxEditor.SceneGraph.SceneGraphNode)"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_Deselect_FlaxEditor_SceneGraph_SceneGraphNode_" class="expander" data-toggle="collapse">Deselect(SceneGraphNode)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_Deselect_FlaxEditor_SceneGraph_SceneGraphNode_" class="collapse in">
+  <div class="markdown level1 summary"><p>Deselects node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deselect(SceneGraphNode node)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">FlaxEditor.SceneGraph.SceneGraphNode</span></span>
+        <span class="parametername">node</span>
+        <p><p>The node to deselect.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Deselect_FlaxEditor_SceneGraph_SceneGraphNode_">ISceneEditingContext.Deselect(SceneGraphNode)</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_FocusSelection_" data-uid="FlaxEditor.Windows.SceneEditorWindow.FocusSelection*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_FocusSelection" data-uid="FlaxEditor.Windows.SceneEditorWindow.FocusSelection"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_FocusSelection" class="expander" data-toggle="collapse">FocusSelection()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_FocusSelection" class="collapse in">
+  <div class="markdown level1 summary"><p>Focuses selected objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FocusSelection()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_FocusSelection">ISceneEditingContext.FocusSelection()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_RenameSelection_" data-uid="FlaxEditor.Windows.SceneEditorWindow.RenameSelection*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_RenameSelection" data-uid="FlaxEditor.Windows.SceneEditorWindow.RenameSelection"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_RenameSelection" class="expander" data-toggle="collapse">RenameSelection()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_RenameSelection" class="collapse in">
+  <div class="markdown level1 summary"><p>Opends popup for renaming selected objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameSelection()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_RenameSelection">ISceneEditingContext.RenameSelection()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_SceneEditorWindow_Select_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Select*"></a>
+  
+  <h4 id="FlaxEditor_Windows_SceneEditorWindow_Select_FlaxEditor_SceneGraph_SceneGraphNode_System_Boolean_" data-uid="FlaxEditor.Windows.SceneEditorWindow.Select(FlaxEditor.SceneGraph.SceneGraphNode,System.Boolean)"><a href="#collapsible-FlaxEditor_Windows_SceneEditorWindow_Select_FlaxEditor_SceneGraph_SceneGraphNode_System_Boolean_" class="expander" data-toggle="collapse">Select(SceneGraphNode, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_SceneEditorWindow_Select_FlaxEditor_SceneGraph_SceneGraphNode_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Selects the specified node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Select(SceneGraphNode node, bool additive = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">FlaxEditor.SceneGraph.SceneGraphNode</span></span>
+        <span class="parametername">node</span>
+        <p><p>The node.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">additive</span>
+        <p><p>if set to <code>true</code> will use additive mode, otherwise will clear previous selection.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Select_FlaxEditor_SceneGraph_SceneGraphNode_System_Boolean_">ISceneEditingContext.Select(SceneGraphNode, Boolean)</a></div>
   
   
   

@@ -121,8 +121,66 @@ A model created from code can have all the properties as an imported one, althou
 <h2 id="vertex-painting">Vertex Painting</h2>
 <p>Another important topic related to models is <strong>Vertex Painting</strong>. It is a process of applying custom colors to the model geometry represented by the vertices of the mesh. This technique can be used to customize a model instance in the level. For instance, a wall material can use the red channel of the vertex color to display wet areas. Then a level designer can paint wall vertices to make a certain part of the model appear wet. To learn more about this process see the related documentation <a href="vertex-painting.html">here</a>.</p>
 <h2 id="vertex-properties">Vertex properties</h2>
-<p>Flax uses fixed model data format. Although an index buffer can use 16 or 32-bit format layout, vertex buffers layout is strictly defined. Vertex Buffer data is highly compressed to reduce memory usage and optimize the rendering performance.</p>
-<p>Here is a list of vertex structures used by the engine:</p>
+<p>Flax uses flexible model data format. Mesh can have up to 3 vertex buffers and one index buffer in 16-bit or 32-bit format layout. Each vertex buffer can defien own layout. By default, the first one contains position, the second one general components (texcoords, normals, tangents, skinning), the third one contains vertex colors (to easly swap it with painted instance buffer when drawing mesh). Vertex data is highly compressed to reduce memory usage and optimize the rendering performance.</p>
+<h3 id="model-vertex-layout">Model Vertex Layout</h3>
+<p><img src="media/vertex-layout.png" alt="Model Vertex Layout"></p>
+<p>You can inspect vertex format in the imported model under <em>Vertex layout</em> section in <em>Meshes</em> tab.</p>
+<h3 id="gpu-vertex-layout">GPU Vertex Layout</h3>
+<p>When creating custom vertex buffers or vertex data use <code>GPUVertexLayout</code> with array of <code>VertexElement</code>.</p>
+<p>Example code:</p>
+<div class="tabGroup" id="tabgroup_Z7zeyEnHMr">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_Z7zeyEnHMr_code-csharp" role="tab" aria-controls="tabpanel_Z7zeyEnHMr_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_Z7zeyEnHMr_code-cpp" role="tab" aria-controls="tabpanel_Z7zeyEnHMr_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_Z7zeyEnHMr_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">using System.Runtime.InteropServices;
+
+[StructLayout(LayoutKind.Sequential)]
+public struct MyVertex
+{
+    public Float3 Position;
+    public Half2 TexCoord;
+    public FloatR10G10B10A2 Normal;
+
+    // Gets the layout for this structure.
+    static GPUVertexLayout GetLayout()
+    {
+        return GPUVertexLayout.Get([
+            new VertexElement(VertexElement.Types.Position, 0, 0, false, PixelFormat.R32G32B32_Float),
+            new VertexElement(VertexElement.Types.TexCoord, 0, 0, false, PixelFormat.R16G16_Float),
+            new VertexElement(VertexElement.Types.Normal, 0, 0, false, PixelFormat.R10G10B10A2_UNorm)
+        ]);
+    }
+}
+</code></pre></section>
+<section id="tabpanel_Z7zeyEnHMr_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Graphics/Shaders/GPUVertexLayout.h&quot;
+
+PACK_STRUCT(struct MyVertex
+    {
+    Float3 Position;
+    Half2 TexCoord;
+    FloatR10G10B10A2 Normal;
+
+    // Gets the layout for this structure.
+    static GPUVertexLayout* GetLayout()
+    {
+        return GPUVertexLayout::Get({
+            { VertexElement::Types::Position, 0, 0, 0, PixelFormat::R32G32B32_Float },
+            { VertexElement::Types::TexCoord, 1, 0, 0, PixelFormat::R16G16_Float },
+            { VertexElement::Types::Normal, 1, 0, 0, PixelFormat::R10G10B10A2_UNorm },
+        });
+    }
+});
+</code></pre></section>
+</div>
+<h3 id="example-vertex-layout">Example Vertex Layout</h3>
+<p>Here is a list of common vertex format:</p>
 <p><strong>Vertex Buffer 0</strong>:</p>
 <ul>
 <li>Float3 Position</li>
@@ -130,9 +188,8 @@ A model created from code can have all the properties as an imported one, althou
 <p><strong>Vertex Buffer 1</strong>:</p>
 <ul>
 <li>Half2 TexCoord</li>
-<li>Float1010102 Normal</li>
-<li>Float1010102 Tangent</li>
-<li>Half2 LightmapUVs</li>
+<li>FloatR10G10B10A2 Normal</li>
+<li>FloatR10G10B10A2 Tangent</li>
 </ul>
 <p><strong>Vertex Buffer 2</strong> (<em>optional</em>):</p>
 <ul>
@@ -146,7 +203,7 @@ A model created from code can have all the properties as an imported one, althou
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/models/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/graphics/models/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

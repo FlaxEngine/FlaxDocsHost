@@ -115,13 +115,32 @@
   <div id="collapsible-implements-FlaxEditor_Windows_PropertiesWindow" class="collapse">
     <div><span class="xref">System.IComparable</span></div>
     <div><a class="xref" href="FlaxEngine.IDrawable.html">IDrawable</a></div>
+    <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html">ISceneEditingContext</a></div>
     <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html">IPresenterOwner</a></div>
   </div>
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-FlaxEditor_Windows_PropertiesWindow" data-uid="FlaxEditor.Windows.EditorWindow.Editor"><a href="#collapsible-inheritedMembers-FlaxEditor_Windows_PropertiesWindow" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-FlaxEditor_Windows_PropertiesWindow" data-uid="FlaxEditor.Windows.SceneEditorWindow.FocusSelection"><a href="#collapsible-inheritedMembers-FlaxEditor_Windows_PropertiesWindow" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-FlaxEditor_Windows_PropertiesWindow" class="collapse">
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_FocusSelection">SceneEditorWindow.FocusSelection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_Select_FlaxEditor_SceneGraph_SceneGraphNode_System_Boolean_">SceneEditorWindow.Select(SceneGraphNode, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_Deselect_FlaxEditor_SceneGraph_SceneGraphNode_">SceneEditorWindow.Deselect(SceneGraphNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_RenameSelection">SceneEditorWindow.RenameSelection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_Viewport">SceneEditorWindow.Viewport</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.SceneEditorWindow.html#FlaxEditor_Windows_SceneEditorWindow_Selection">SceneEditorWindow.Selection</a>
+    </div>
     <div>
       <a class="xref" href="FlaxEditor.Windows.EditorWindow.html#FlaxEditor_Windows_EditorWindow_Editor">EditorWindow.Editor</a>
     </div>
@@ -537,6 +556,9 @@
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_IsTouchOver">ContainerControl.IsTouchOver</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Resize_FlaxEngine_Float2__">Control.Resize(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_UpdateBounds">Control.UpdateBounds()</a>
     </div>
     <div>
@@ -796,7 +818,7 @@
   
   <h5 id="FlaxEditor_Windows_PropertiesWindow_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PropertiesWindow : SceneEditorWindow, IComparable, IDrawable, IPresenterOwner</code></pre>
+    <pre><code class="lang-csharp hljs">public class PropertiesWindow : SceneEditorWindow, IComparable, IDrawable, ISceneEditingContext, IPresenterOwner</code></pre>
   </div>
 
   
@@ -846,42 +868,6 @@
   </div>
   <h3 id="fields">Fields
   </h3>
-  
-  
-  
-  <h4 id="FlaxEditor_Windows_PropertiesWindow_LockObjects" data-uid="FlaxEditor.Windows.PropertiesWindow.LockObjects"><a href="#collapsible-FlaxEditor_Windows_PropertiesWindow_LockObjects" class="expander" data-toggle="collapse">LockObjects</a></h4>
-  
-  <div id="collapsible-FlaxEditor_Windows_PropertiesWindow_LockObjects" class="collapse in">
-  <div class="markdown level1 summary"><p>Indication of if the properties window is locked on specific objects.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool LockObjects</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   
   
   
@@ -992,6 +978,43 @@
   </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="FlaxEditor_Windows_PropertiesWindow_LockObjects_" data-uid="FlaxEditor.Windows.PropertiesWindow.LockObjects*"></a>
+  
+  <h4 id="FlaxEditor_Windows_PropertiesWindow_LockObjects" data-uid="FlaxEditor.Windows.PropertiesWindow.LockObjects"><a href="#collapsible-FlaxEditor_Windows_PropertiesWindow_LockObjects" class="expander" data-toggle="collapse">LockObjects</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_PropertiesWindow_LockObjects" class="collapse in">
+  <div class="markdown level1 summary"><p>Indication of if the properties window is locked on specific objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LockObjects { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   <a id="FlaxEditor_Windows_PropertiesWindow_PresenterViewport_" data-uid="FlaxEditor.Windows.PropertiesWindow.PresenterViewport*"></a>

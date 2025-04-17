@@ -100,7 +100,8 @@
     <div id="collapsible-inheritance-SkinnedModelLOD" class="collapse">
     <div class="level0"><a class="xref" href="Object.html">Object</a></div>
     <div class="level1"><a class="xref" href="ScriptingObject.html">ScriptingObject</a></div>
-    <div class="level2"><span class="xref">SkinnedModelLOD</span></div>
+    <div class="level2"><a class="xref" href="ModelLODBase.html">ModelLODBase</a></div>
+    <div class="level3"><span class="xref">SkinnedModelLOD</span></div>
     </div>
   </div>
   
@@ -112,6 +113,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__id">ScriptingObject::_id</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase__lodIndex">ModelLODBase::_lodIndex</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__type">ScriptingObject::_type</a>
@@ -156,10 +160,22 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_FromInterface_T___">ScriptingObject::FromInterface(T* interfaceObj)</a>
     </div>
     <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_GetBox__">ModelLODBase::GetBox()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_GetBox_const_Matrix___">ModelLODBase::GetBox(const Matrix&amp; world)</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_GetBox_const_Transform___const_class_MeshDeformation___">ModelLODBase::GetBox(const Transform&amp; transform, const class MeshDeformation* deformation=nullptr)</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetClass__">ScriptingObject::GetClass()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetID__">ScriptingObject::GetID()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_GetLODIndex__">ModelLODBase::GetLODIndex()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetManagedInstance__">ScriptingObject::GetManagedInstance()</a>
@@ -172,6 +188,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_GetTypeHandle__">ScriptingObject::GetTypeHandle()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_HasAnyMeshInitialized__">ModelLODBase::HasAnyMeshInitialized()</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_HasManagedInstance__">ScriptingObject::HasManagedInstance()</a>
@@ -187,6 +206,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_IsRegistered__">ScriptingObject::IsRegistered()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_ModelLODBase_const_SpawnParams___">ModelLODBase::ModelLODBase(const SpawnParams&amp; params)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_NewObject_const_ScriptingTypeHandle___">ScriptingObject::NewObject(const ScriptingTypeHandle&amp; typeHandle)</a>
@@ -205,6 +227,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_RegisterObject__">ScriptingObject::RegisterObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="ModelLODBase.html#ModelLODBase_ScreenSize">ModelLODBase::ScreenSize</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ScriptingObject_const_SpawnParams___">ScriptingObject::ScriptingObject(const SpawnParams&amp; params)</a>
@@ -243,11 +268,11 @@
   </div>
   
   <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
-  <h6><strong>File</strong>: Engine/Graphics/Models/SkinnedModelLOD.h</h6>
+  <h6><strong>File</strong>: Engine/Content/Assets/SkinnedModel.h</h6>
   
   <h5 id="SkinnedModelLOD_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public class SkinnedModelLOD : public ScriptingObject</code></pre>
+    <pre><code class="lang-cpp hljs">public class SkinnedModelLOD : public ModelLODBase</code></pre>
   </div>
 
   
@@ -262,7 +287,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Meshes.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Meshes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L24" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -298,91 +323,15 @@
   
   
   </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_ScreenSize.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.ScreenSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  
-  <h4 id="SkinnedModelLOD_ScreenSize" data-uid="SkinnedModelLOD.ScreenSize"><a href="#collapsible-SkinnedModelLOD_ScreenSize" class="expander" data-toggle="collapse">ScreenSize</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_ScreenSize" class="collapse in">
-  <div class="markdown level1 summary"><p>The screen size to switch LODs. Bottom limit of the model screen size to render this LOD. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public float ScreenSize = 1.0f</code></pre>
-  </div>
-
-  
-  
-  
-  <h5 class="fieldValue">Field Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">float</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Dispose__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Dispose()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L65" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_Dispose_" data-uid="SkinnedModelLOD.Dispose*"></a>
-  
-  <h4 id="SkinnedModelLOD_Dispose__" data-uid="SkinnedModelLOD.Dispose()"><a href="#collapsible-SkinnedModelLOD_Dispose__" class="expander" data-toggle="collapse">Dispose()</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_Dispose__" class="collapse in">
-  <div class="markdown level1 summary"><p>Cleanups the data. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Dispose()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Draw_const_RenderContext___const_SkinnedMesh__DrawInfo___float_.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Draw(const%20RenderContext%20%26%2Cconst%20SkinnedMesh%3A%3ADrawInfo%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L136" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L65" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SkinnedModelLOD_Draw_" data-uid="SkinnedModelLOD.Draw*"></a>
@@ -449,7 +398,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Draw_const_RenderContextBatch___const_SkinnedMesh__DrawInfo___float_.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Draw(const%20RenderContextBatch%20%26%2Cconst%20SkinnedMesh%3A%3ADrawInfo%20%26%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SkinnedModelLOD_Draw_" data-uid="SkinnedModelLOD.Draw*"></a>
@@ -513,31 +462,86 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetBox__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetBox()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetMesh_int32_.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetMesh(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L116" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L86" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="SkinnedModelLOD_GetBox_" data-uid="SkinnedModelLOD.GetBox*"></a>
+  <a id="SkinnedModelLOD_GetMesh_" data-uid="SkinnedModelLOD.GetMesh*"></a>
   
-  <h4 id="SkinnedModelLOD_GetBox__" data-uid="SkinnedModelLOD.GetBox()"><a href="#collapsible-SkinnedModelLOD_GetBox__" class="expander" data-toggle="collapse">GetBox()</a></h4>
+  <h4 id="SkinnedModelLOD_GetMesh_int32_" data-uid="SkinnedModelLOD.GetMesh(int32)"><a href="#collapsible-SkinnedModelLOD_GetMesh_int32_" class="expander" data-toggle="collapse">GetMesh(int32 index)</a></h4>
   
-  <div id="collapsible-SkinnedModelLOD_GetBox__" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the bounding box combined for all meshes in this model LOD. </p></div>
+  <div id="collapsible-SkinnedModelLOD_GetMesh_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the specific mesh in this LOD. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public BoundingBox GetBox() const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual MeshBase* GetMesh(int32 index) const override</code></pre>
   </div>
 
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">index</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <a class="xref" href="BoundingBox.html">BoundingBox</a>
+        <a class="xref" href="MeshBase.html">MeshBase</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelLODBase.html#ModelLODBase_GetMesh_int32_">ModelLODBase::GetMesh(int32 index)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetMeshes_Array_const_MeshBase______.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetMeshes(Array%3Cconst%20MeshBase%20*%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="SkinnedModelLOD_GetMeshes_" data-uid="SkinnedModelLOD.GetMeshes*"></a>
+  
+  <h4 id="SkinnedModelLOD_GetMeshes_Array_const_MeshBase______" data-uid="SkinnedModelLOD.GetMeshes(Array&lt;const MeshBase *&gt; &amp;)"><a href="#collapsible-SkinnedModelLOD_GetMeshes_Array_const_MeshBase______" class="expander" data-toggle="collapse">GetMeshes(Array&lt;const MeshBase* &gt;&amp; meshes)</a></h4>
+  
+  <div id="collapsible-SkinnedModelLOD_GetMeshes_Array_const_MeshBase______" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the meshes in this LOD. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void GetMeshes(Array&lt;const MeshBase* &gt;&amp; meshes) const override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;MeshBase &gt;</span></span>
+        <span class="parametername">meshes</span>
         <p>
       </td>
     </tr>
@@ -548,6 +552,9 @@
   
   
   
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelLODBase.html#ModelLODBase_GetMeshes_Array_const_MeshBase______">ModelLODBase::GetMeshes(Array&lt;const MeshBase* &gt;&amp; meshes)</a></div>
+  
   
   
   
@@ -556,42 +563,32 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetBox_const_Matrix___.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetBox(const%20Matrix%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetMeshes_Array_MeshBase______.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetMeshes(Array%3CMeshBase%20*%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L88" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="SkinnedModelLOD_GetBox_" data-uid="SkinnedModelLOD.GetBox*"></a>
+  <a id="SkinnedModelLOD_GetMeshes_" data-uid="SkinnedModelLOD.GetMeshes*"></a>
   
-  <h4 id="SkinnedModelLOD_GetBox_const_Matrix___" data-uid="SkinnedModelLOD.GetBox(const Matrix &amp;)"><a href="#collapsible-SkinnedModelLOD_GetBox_const_Matrix___" class="expander" data-toggle="collapse">GetBox(const Matrix&amp; world)</a></h4>
+  <h4 id="SkinnedModelLOD_GetMeshes_Array_MeshBase______" data-uid="SkinnedModelLOD.GetMeshes(Array&lt;MeshBase *&gt; &amp;)"><a href="#collapsible-SkinnedModelLOD_GetMeshes_Array_MeshBase______" class="expander" data-toggle="collapse">GetMeshes(Array&lt;MeshBase* &gt;&amp; meshes)</a></h4>
   
-  <div id="collapsible-SkinnedModelLOD_GetBox_const_Matrix___" class="collapse in">
-  <div class="markdown level1 summary"><p>Get model bounding box in transformed world for given instance buffer </p></div>
+  <div id="collapsible-SkinnedModelLOD_GetMeshes_Array_MeshBase______" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the meshes in this LOD. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public BoundingBox GetBox(const Matrix&amp; world) const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void GetMeshes(Array&lt;MeshBase* &gt;&amp; meshes) override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Matrix.html">Matrix</a></span>
-        <span class="parametername">world</span>
-        <p><p>World matrix</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="BoundingBox.html">BoundingBox</a>
-        <p><p>Bounding box</p></p>
+        <span class="pull-right"><span class="xref">Array&lt;MeshBase &gt;</span></span>
+        <span class="parametername">meshes</span>
+        <p>
       </td>
     </tr>
   </table>
@@ -600,6 +597,9 @@
   
   
   
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelLODBase.html#ModelLODBase_GetMeshes_Array_MeshBase______">ModelLODBase::GetMeshes(Array&lt;MeshBase* &gt;&amp; meshes)</a></div>
   
   
   
@@ -609,143 +609,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetBox_const_Matrix___int32_.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetBox(const%20Matrix%20%26%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetMeshesCount__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetMeshesCount()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="SkinnedModelLOD_GetBox_" data-uid="SkinnedModelLOD.GetBox*"></a>
+  <a id="SkinnedModelLOD_GetMeshesCount_" data-uid="SkinnedModelLOD.GetMeshesCount*"></a>
   
-  <h4 id="SkinnedModelLOD_GetBox_const_Matrix___int32_" data-uid="SkinnedModelLOD.GetBox(const Matrix &amp;,int32)"><a href="#collapsible-SkinnedModelLOD_GetBox_const_Matrix___int32_" class="expander" data-toggle="collapse">GetBox(const Matrix&amp; world, int32 meshIndex)</a></h4>
+  <h4 id="SkinnedModelLOD_GetMeshesCount__" data-uid="SkinnedModelLOD.GetMeshesCount()"><a href="#collapsible-SkinnedModelLOD_GetMeshesCount__" class="expander" data-toggle="collapse">GetMeshesCount()</a></h4>
   
-  <div id="collapsible-SkinnedModelLOD_GetBox_const_Matrix___int32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Get model bounding box in transformed world for given instance buffer for only one mesh </p></div>
+  <div id="collapsible-SkinnedModelLOD_GetMeshesCount__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the amount of meshes in this LOD. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public BoundingBox GetBox(const Matrix&amp; world, int32 meshIndex) const</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="Matrix.html">Matrix</a></span>
-        <span class="parametername">world</span>
-        <p><p>World matrix</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">int32</span></span>
-        <span class="parametername">meshIndex</span>
-        <p><p>esh index</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="BoundingBox.html">BoundingBox</a>
-        <p><p>Bounding box</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetBox_const_Transform___const_MeshDeformation___.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetBox(const%20Transform%20%26%2Cconst%20MeshDeformation%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_GetBox_" data-uid="SkinnedModelLOD.GetBox*"></a>
-  
-  <h4 id="SkinnedModelLOD_GetBox_const_Transform___const_MeshDeformation___" data-uid="SkinnedModelLOD.GetBox(const Transform &amp;,const MeshDeformation *)"><a href="#collapsible-SkinnedModelLOD_GetBox_const_Transform___const_MeshDeformation___" class="expander" data-toggle="collapse">GetBox(const Transform&amp; transform, const MeshDeformation* deformation=nullptr)</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_GetBox_const_Transform___const_MeshDeformation___" class="collapse in">
-  <div class="markdown level1 summary"><p>Get model bounding box in transformed world. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public BoundingBox GetBox(const Transform&amp; transform, const MeshDeformation* deformation=nullptr) const</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="Transform.html">Transform</a></span>
-        <span class="parametername">transform</span>
-        <p><p>The instance transformation.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="MeshDeformation.html">MeshDeformation</a></span>
-        <span class="parametername">deformation</span>
-        <p><p>The meshes deformation container (optional).</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="BoundingBox.html">BoundingBox</a>
-        <p><p>Bounding box</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_GetLODIndex__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.GetLODIndex()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_GetLODIndex_" data-uid="SkinnedModelLOD.GetLODIndex*"></a>
-  
-  <h4 id="SkinnedModelLOD_GetLODIndex__" data-uid="SkinnedModelLOD.GetLODIndex()"><a href="#collapsible-SkinnedModelLOD_GetLODIndex__" class="expander" data-toggle="collapse">GetLODIndex()</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_GetLODIndex__" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the model LOD index. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public int32 GetLODIndex() const</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual int32 GetMeshesCount() const override</code></pre>
   </div>
 
   
@@ -763,49 +643,8 @@
   
   
   
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_HasAnyMeshInitialized__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.HasAnyMeshInitialized()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_HasAnyMeshInitialized_" data-uid="SkinnedModelLOD.HasAnyMeshInitialized*"></a>
-  
-  <h4 id="SkinnedModelLOD_HasAnyMeshInitialized__" data-uid="SkinnedModelLOD.HasAnyMeshInitialized()"><a href="#collapsible-SkinnedModelLOD_HasAnyMeshInitialized__" class="expander" data-toggle="collapse">HasAnyMeshInitialized()</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_HasAnyMeshInitialized__" class="collapse in">
-  <div class="markdown level1 summary"><p>Determines whether any mesh has been initialized. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool HasAnyMeshInitialized() const</code></pre>
-  </div>
-
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">bool</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ModelLODBase.html#ModelLODBase_GetMeshesCount__">ModelLODBase::GetMeshesCount()</a></div>
   
   
   
@@ -818,7 +657,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Intersects_const_Ray___const_Matrix___Real___Vector3___SkinnedMesh____.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Intersects(const%20Ray%20%26%2Cconst%20Matrix%20%26%2CReal%20%26%2CVector3%20%26%2CSkinnedMesh%20**)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SkinnedModelLOD_Intersects_" data-uid="SkinnedModelLOD.Intersects*"></a>
@@ -899,7 +738,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Intersects_const_Ray___const_Transform___Real___Vector3___SkinnedMesh____.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Intersects(const%20Ray%20%26%2Cconst%20Transform%20%26%2CReal%20%26%2CVector3%20%26%2CSkinnedMesh%20**)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L88" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L47" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SkinnedModelLOD_Intersects_" data-uid="SkinnedModelLOD.Intersects*"></a>
@@ -977,63 +816,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Load_MemoryReadStream___.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Load(MemoryReadStream%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L55" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_Load_" data-uid="SkinnedModelLOD.Load*"></a>
-  
-  <h4 id="SkinnedModelLOD_Load_MemoryReadStream___" data-uid="SkinnedModelLOD.Load(MemoryReadStream &amp;)"><a href="#collapsible-SkinnedModelLOD_Load_MemoryReadStream___" class="expander" data-toggle="collapse">Load(MemoryReadStream&amp; stream)</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_Load_MemoryReadStream___" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes the LOD from the data stream. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool Load(MemoryReadStream&amp; stream)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="MemoryReadStream.html">MemoryReadStream</a></span>
-        <span class="parametername">stream</span>
-        <p><p>The stream.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">bool</span>
-        <p><p>True if fails, otherwise false.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Render_GPUContext___.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Render(GPUContext%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L122" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L53" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="SkinnedModelLOD_Render_" data-uid="SkinnedModelLOD.Render*"></a>
@@ -1081,40 +867,6 @@
   
   </div>
   
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD_Unload__.md&amp;value=---%0Auid%3A%20SkinnedModelLOD.Unload()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L60" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="SkinnedModelLOD_Unload_" data-uid="SkinnedModelLOD.Unload*"></a>
-  
-  <h4 id="SkinnedModelLOD_Unload__" data-uid="SkinnedModelLOD.Unload()"><a href="#collapsible-SkinnedModelLOD_Unload__" class="expander" data-toggle="collapse">Unload()</a></h4>
-  
-  <div id="collapsible-SkinnedModelLOD_Unload__" class="collapse in">
-  <div class="markdown level1 summary"><p>Unloads the LOD meshes data (vertex buffers and cache). It won&#39;t dispose the meshes collection. The opposite to Load. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Unload()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
   
 </article>
           </div>
@@ -1127,7 +879,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=SkinnedModelLOD.md&amp;value=---%0Auid%3A%20SkinnedModelLOD%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Models/SkinnedModelLOD.h/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/SkinnedModel.h/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -191,6 +191,10 @@ API_CLASS() class GAME_API MyScript : public Script
 <td>Called every fixed framerate frame if object is enabled (C++ scripts need to set <code>_tickFixedUpdate=true</code> in constructor).</td>
 </tr>
 <tr>
+<td><strong>void OnLateFixedUpdate()</strong></td>
+<td>Called every fixed framerate frame (after <em>FixedUpdate</em>) if object is enabled (C++ scripts need to set <code>_tickLateFixedUpdate=true</code> in constructor).</td>
+</tr>
+<tr>
 <td><strong>void OnDebugDraw()</strong></td>
 <td>Called during drawing debug shapes in editor. Use <a href="https://docs.flaxengine.com/api/FlaxEngine.DebugDraw.html">DebugDraw</a>.</td>
 </tr>
@@ -207,7 +211,7 @@ API_CLASS() class GAME_API MyScript : public Script
 <p>Every created and added to <em>Actor</em> script receives <strong>OnAwake</strong>. If Script and its parent are active in the hierarchy then <strong>OnStart</strong> and <strong>OnEnable</strong> are being called (on game start or object spawn). Otherwise, this call is postponed until someone enables that script.</p>
 <p>Events OnAwake and OnStart can be called only once on a script. OnStart is always called before the first OnEnable. All scripts receive OnAwake first, before BeginPlay-phrase starts that enables the scripts. In general, OnAwake should be used to initialize the object itself (eg. setup game system manager or pre-allocate memory). Then OnStart/OnEnable should be utilized for cross-object interactions (eg. register to a game manager, cache player scripts, etc.).</p>
 <h3 id="game-logic">Game Logic</h3>
-<p>Engine main loop update is highly configurable and supports performing the game update, physics update and drawing at different framerates. This means that update, fixed update, and a draw might be desynchronized and not called in the same order. Event <strong>OnUpdate</strong> is called during the game update, then is followed by <strong>OnLateUpdate</strong>. During physics update engine invokes <strong>OnFixedUpdate</strong>. During rendering engine can invoke <strong>OnDebugDraw</strong> and <strong>OnDebugDrawSelected</strong> (used by the editor).</p>
+<p>Engine main loop update is highly configurable and supports performing the game update, physics update and drawing at different framerates. This means that update, fixed update, and a draw might be desynchronized and not called in the same order. Event <strong>OnUpdate</strong> is called during the game update, then is followed by <strong>OnLateUpdate</strong>. During physics update engine invokes <strong>OnFixedUpdate</strong> and <strong>OnLateFixedUpdate</strong>. During rendering engine can invoke <strong>OnDebugDraw</strong> and <strong>OnDebugDrawSelected</strong> (used by the editor).</p>
 <h3 id="deinitialization">Deinitialization</h3>
 <p>On game end all scripts are disabled and <strong>OnDisable</strong> event is called when removing the object from gameplay. Then during actual object destruction, the <strong>OnDestroy</strong> is invoked. Also, if the script becomes inactive (eg. someone disables it or one of its parents in its hierarchy) then the engine invokes <strong>OnDisable</strong>. The disabled script can be activated again and receive <em>OnEnable</em> to begin being part of the gameplay logic.</p>
 <p>Event OnDestroy can be called only once on a script. Flax does not use the script anymore after OnDestroy event invocation.</p>
@@ -225,7 +229,7 @@ API_CLASS() class GAME_API MyScript : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/events.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -108,6 +108,8 @@
     var light = new PointLight();
     light.Color = Color.Blue;
     light.Parent = Actor;
+    // object will be part of the scene hierarhcy
+    // engine will destroy it on scene unload
 }
 </code></pre></section>
 <section id="tabpanel_giHrcroXqe_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
@@ -116,6 +118,8 @@
     auto light = New&lt;PointLight&gt;();
     light-&gt;Color = Color::Blue;
     light-&gt;SetParent(GetActor());
+    // object will be part of the scene hierarhcy
+    // engine will destroy it on scene unload
 }
 </code></pre></section>
 </div>
@@ -142,10 +146,12 @@
     auto script = New&lt;Player&gt;();
     script-&gt;SetParent(GetActor());
     script-&gt;HP = 100;
+    // object will be part of the scene hierarhcy
+    // engine will destroy it on scene unload
 }
 </code></pre></section>
 </div>
-<div class="NOTE"><h5>Note</h5><p>Scene objects (actors, scripts) should <strong>not use constructors</strong> to prevent issues.</p>
+<div class="NOTE"><h5>Note</h5><p>Scene objects (actors, scripts) should <strong>not use constructors</strong> other than initialize itself (defaults).</p>
 </div>
 <h2 id="removing-objects">Removing objects</h2>
 <p>Flax supports immediate and delayed objects removing system. This helps with cleanup up the scene from killed players or unused actors.</p>
@@ -256,6 +262,19 @@ API_CLASS() class GAME_API AutoRemoveObj : public Script
 <pre><code class="lang-cpp">GetActor()-&gt;GetScript&lt;ExampleScript&gt;()-&gt;DeleteObject();
 </code></pre></section>
 </div>
+<h2 id="language-specific">Language-specific</h2>
+<h3 id="c-1">C#</h3>
+<p>Various components and APIs that are specific to C# language use <code>Dispose()</code> pattern and implement <code>IDisposable</code> interface for convenience. For example:</p>
+<ul>
+<li><code>Control</code> - GUI controls use <code>Dispose</code> method to destroy UI element,</li>
+<li><code>InputAxis</code>/<code>InputEvent</code> - virtual input reading utility has to be released via <code>Dispose</code>,</li>
+</ul>
+<h3 id="c-2">C++</h3>
+<ul>
+<li>Use utility macros: <code>SAFE_DISPOSE</code>, <code>SAFE_RELEASE</code>, <code>SAFE_DELETE</code> to cleanup objects, depending on the method to call.</li>
+<li>Graphics objects such as <code>GPUTexture</code> or <code>GPUBuffer</code> can be cleared via <code>SAFE_DELETE_GPU_RESOURCE</code> macro. Those are normal scripting objects but invoking <code>ReleaseGPU</code> beforehand helps to reduce memory pressure when unused.</li>
+<li><code>Task</code> system uses automatic auto-destruction of past tasks. There is no need to manually destroy objects after use.</li>
+</ul>
 </article>
           </div>
           
@@ -264,7 +283,7 @@ API_CLASS() class GAME_API AutoRemoveObj : public Script
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/objects-lifetime.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -147,16 +147,16 @@
       <a class="xref" href="FlaxStorage.html#FlaxStorage_CloseFileHandles__">FlaxStorage::CloseFileHandles()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___const_AssetInitData___bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, const AssetInitData&amp; data, bool silentMode=false, const CustomData* customData=nullptr)</a>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___const_AssetInitData___bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, const AssetInitData&amp; asset, bool silentMode=false, const CustomData* customData=nullptr)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___const_Array_AssetInitData____bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, const Array&lt;AssetInitData&gt;&amp; data, bool silentMode=false, const CustomData* customData=nullptr)</a>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___const_Array_AssetInitData____bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, const Array&lt;AssetInitData&gt;&amp; assets, bool silentMode=false, const CustomData* customData=nullptr)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___const_AssetInitData___int32_bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, const AssetInitData* data, int32 dataCount, bool silentMode=false, const CustomData* customData=nullptr)</a>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_const_StringView___Span_AssetInitData__bool_const_CustomData___">FlaxStorage::Create(const StringView&amp; path, Span&lt;AssetInitData&gt; assets, bool silentMode=false, const CustomData* customData=nullptr)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_WriteStream___const_AssetInitData___int32_const_CustomData___">FlaxStorage::Create(WriteStream* stream, const AssetInitData* data, int32 dataCount, const CustomData* customData=nullptr)</a>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_Create_WriteStream___Span_AssetInitData__const_CustomData___">FlaxStorage::Create(WriteStream* stream, Span&lt;AssetInitData&gt; assets, const CustomData* customData=nullptr)</a>
     </div>
     <div>
       <a class="xref" href="Object.html#Object_DeleteObject_float_bool_">Object::DeleteObject(float timeToLive = 0.0f, bool useGameTime=false)</a>
@@ -237,7 +237,10 @@
       <a class="xref" href="FlaxStorage.html#FlaxStorage_Reload__">FlaxStorage::Reload()</a>
     </div>
     <div>
-      <a class="xref" href="FlaxStorage.html#FlaxStorage_Save_AssetInitData___bool_">FlaxStorage::Save(AssetInitData&amp; data, bool silentMode=false)</a>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_ReloadSilent__">FlaxStorage::ReloadSilent()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxStorage.html#FlaxStorage_Save_const_AssetInitData___bool_">FlaxStorage::Save(const AssetInitData&amp; data, bool silentMode=false)</a>
     </div>
     <div>
       <a class="xref" href="FlaxStorage.html#FlaxStorage_ShouldDispose__">FlaxStorage::ShouldDispose()</a>
@@ -367,7 +370,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FlaxPackage_AddEntry_Entry___.md&amp;value=---%0Auid%3A%20FlaxPackage.AddEntry(Entry%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L41" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FlaxPackage_AddEntry_" data-uid="FlaxPackage.AddEntry*"></a>
@@ -458,7 +461,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FlaxPackage_Dispose__.md&amp;value=---%0Auid%3A%20FlaxPackage.Dispose()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L33" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FlaxPackage_Dispose_" data-uid="FlaxPackage.Dispose*"></a>
@@ -494,7 +497,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FlaxPackage_GetEntries_Array_Entry____.md&amp;value=---%0Auid%3A%20FlaxPackage.GetEntries(Array%3CEntry%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L32" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FlaxPackage_GetEntries_" data-uid="FlaxPackage.GetEntries*"></a>
@@ -585,7 +588,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FlaxPackage_GetEntry_const_Guid___Entry___.md&amp;value=---%0Auid%3A%20FlaxPackage.GetEntry(const%20Guid%20%26%2CEntry%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="FlaxPackage_GetEntry_" data-uid="FlaxPackage.GetEntry*"></a>
@@ -652,7 +655,7 @@
   
   <a id="FlaxPackage_GetEntry_" data-uid="FlaxPackage.GetEntry*"></a>
   
-  <h4 id="FlaxPackage_GetEntry_int32_Entry___" data-uid="FlaxPackage.GetEntry(int32,Entry &amp;)"><a href="#collapsible-FlaxPackage_GetEntry_int32_Entry___" class="expander" data-toggle="collapse">GetEntry(int32 index, Entry&amp; output)</a></h4>
+  <h4 id="FlaxPackage_GetEntry_int32_Entry___" data-uid="FlaxPackage.GetEntry(int32,Entry &amp;)"><a href="#collapsible-FlaxPackage_GetEntry_int32_Entry___" class="expander" data-toggle="collapse">GetEntry(int32 index, Entry&amp; value)</a></h4>
   
   <div id="collapsible-FlaxPackage_GetEntry_int32_Entry___" class="collapse in">
   <div class="markdown level1 summary"><p>Gets the asset entry at given index. </p></div>
@@ -660,7 +663,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void GetEntry(int32 index, Entry&amp; output) const override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual void GetEntry(int32 index, Entry&amp; value) const override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -675,8 +678,8 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">Entry</span></span>
-        <span class="parametername">output</span>
-        <p><p>The output.</p></p>
+        <span class="parametername">value</span>
+        <p><p>The result.</p></p>
       </td>
     </tr>
   </table>
@@ -687,7 +690,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="FlaxStorage.html#FlaxStorage_GetEntry_int32_Entry___">FlaxStorage::GetEntry(int32 index, Entry&amp; output)</a></div>
+  <div><a class="xref" href="FlaxStorage.html#FlaxStorage_GetEntry_int32_Entry___">FlaxStorage::GetEntry(int32 index, Entry&amp; value)</a></div>
   
   
   
@@ -843,6 +846,59 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxStorage.html#FlaxStorage_IsPackage__">FlaxStorage::IsPackage()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=FlaxPackage_SetEntry_int32_const_Entry___.md&amp;value=---%0Auid%3A%20FlaxPackage.SetEntry(int32%2Cconst%20Entry%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Storage/FlaxPackage.h/#L33" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="FlaxPackage_SetEntry_" data-uid="FlaxPackage.SetEntry*"></a>
+  
+  <h4 id="FlaxPackage_SetEntry_int32_const_Entry___" data-uid="FlaxPackage.SetEntry(int32,const Entry &amp;)"><a href="#collapsible-FlaxPackage_SetEntry_int32_const_Entry___" class="expander" data-toggle="collapse">SetEntry(int32 index, const Entry&amp; value)</a></h4>
+  
+  <div id="collapsible-FlaxPackage_SetEntry_int32_const_Entry___" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the asset entry at given index. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void SetEntry(int32 index, const Entry&amp; value) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">index</span>
+        <p><p>The asset index.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Entry</span></span>
+        <span class="parametername">value</span>
+        <p><p>The input value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxStorage.html#FlaxStorage_SetEntry_int32_const_Entry___">FlaxStorage::SetEntry(int32 index, const Entry&amp; value)</a></div>
   
   
   

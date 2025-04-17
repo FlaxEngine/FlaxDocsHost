@@ -98,15 +98,76 @@
   <div class="inheritance">
     <h5 id="inheritance-HashSet" data-uid="HashSet"><a href="#collapsible-inheritance-HashSet" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
     <div id="collapsible-inheritance-HashSet" class="collapse">
-    <div class="level0"><span class="xref">HashSet</span></div>
+    <div class="level0"><a class="xref" href="HashSetBase.html">HashSetBase</a></div>
+    <div class="level1"><span class="xref">HashSet</span></div>
     </div>
   </div>
   
   <div class="inheritedMembers">
-    <h5 id="inheritedMembers-HashSet" data-uid="HashSet.AllocationData"><a href="#collapsible-inheritedMembers-HashSet" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+    <h5 id="inheritedMembers-HashSet" data-uid="HashSetBase._allocation"><a href="#collapsible-inheritedMembers-HashSet" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
   <div id="collapsible-inheritedMembers-HashSet" class="collapse">
     <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase__allocation">HashSetBase::_allocation</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase__deletedCount">HashSetBase::_deletedCount</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase__elementsCount">HashSetBase::_elementsCount</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase__size">HashSetBase::_size</a>
+    </div>
+    <div>
       <span class="xref">HashSet</span>
+    </div>
+    <div>
+      <span class="xref">HashSet</span>
+    </div>
+    <div>
+      <span class="xref">HashSet</span>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_Capacity__">HashSetBase::Capacity()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_Clear__">HashSetBase::Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_Compact__">HashSetBase::Compact()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_Count__">HashSetBase::Count()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_EnsureCapacity_int32_const_bool_">HashSetBase::EnsureCapacity(int32 minCapacity, const bool preserveContents=true)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_FindPosition_const_KeyComparableType___FindPositionResult___">HashSetBase::FindPosition(const KeyComparableType&amp; key, FindPositionResult&amp; result)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_HashSetBase__">HashSetBase::HashSetBase()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_HasItems__">HashSetBase::HasItems()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_IsEmpty__">HashSetBase::IsEmpty()</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_MoveToEmpty_HashSetBase____">HashSetBase::MoveToEmpty(HashSetBase&amp;&amp; other)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_OnAdd_const_KeyComparableType___bool_">HashSetBase::OnAdd(const KeyComparableType&amp; key, bool checkUnique=true)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_SetCapacity_int32_const_bool_">HashSetBase::SetCapacity(int32 capacity, const bool preserveContents=true)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase_Swap_HashSetBase___">HashSetBase::Swap(HashSetBase&amp; other)</a>
+    </div>
+    <div>
+      <a class="xref" href="HashSetBase.html#HashSetBase__HashSetBase__">HashSetBase::~HashSetBase()</a>
     </div>
   </div>
   </div>
@@ -116,7 +177,7 @@
   
   <h5 id="HashSet_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public class HashSet&lt;T, AllocationType&gt;</code></pre>
+    <pre><code class="lang-cpp hljs">public class HashSet&lt;T, AllocationType&gt; : public HashSetBase</code></pre>
   </div>
 
   
@@ -148,7 +209,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet__HashSet__.md&amp;value=---%0Auid%3A%20HashSet.~HashSet()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L199" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L201" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet__HashSet_" data-uid="HashSet.~HashSet*"></a>
@@ -179,10 +240,54 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_DEPRECATED__Use_Add_with_separate_Key_and_Value_from_iterator___.md&amp;value=---%0Auid%3A%20HashSet.DEPRECATED(%22Use%20Add%20with%20separate%20Key%20and%20Value%20from%20iterator.%22)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L434" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="HashSet_DEPRECATED_" data-uid="HashSet.DEPRECATED*"></a>
+  
+  <h4 id="HashSet_DEPRECATED__Use_Add_with_separate_Key_and_Value_from_iterator___" data-uid="HashSet.DEPRECATED(&quot;Use Add with separate Key and Value from iterator.&quot;)"><a href="#collapsible-HashSet_DEPRECATED__Use_Add_with_separate_Key_and_Value_from_iterator___" class="expander" data-toggle="collapse">DEPRECATED(&quot;Use Add with separate Key and Value from iterator.&quot;) void Add(const Iterator&amp; i)</a></h4>
+  
+  <div id="collapsible-HashSet_DEPRECATED__Use_Add_with_separate_Key_and_Value_from_iterator___" class="collapse in">
+  <div class="markdown level1 summary"><p>Add element at iterator to the collection </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public DEPRECATED(&quot;Use Add with separate Key and Value from iterator.&quot;) void Add(const Iterator&amp; i)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">&quot;Use Add with separate Key and Value from iterator.&quot;</span></span>
+        <span class="parametername">HashSet_DEPRECATED__Use_Add_with_separate_Key_and_Value_from_iterator___</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HashSet__.md&amp;value=---%0Auid%3A%20HashSet.HashSet()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L125" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_HashSet_" data-uid="HashSet.HashSet*"></a>
@@ -190,7 +295,7 @@
   <h4 id="HashSet_HashSet__" data-uid="HashSet.HashSet()"><a href="#collapsible-HashSet_HashSet__" class="expander" data-toggle="collapse">HashSet()</a></h4>
   
   <div id="collapsible-HashSet_HashSet__" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="HashSet.html">HashSet</a> class. </p></div>
+  <div class="markdown level1 summary"><p>Initializes an empty <a class="xref" href="HashSet.html">HashSet</a> without reserving any space. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -216,7 +321,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HashSet_const_HashSet___.md&amp;value=---%0Auid%3A%20HashSet.HashSet(const%20HashSet%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L157" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_HashSet_" data-uid="HashSet.HashSet*"></a>
@@ -224,7 +329,7 @@
   <h4 id="HashSet_HashSet_const_HashSet___" data-uid="HashSet.HashSet(const HashSet &amp;)"><a href="#collapsible-HashSet_HashSet_const_HashSet___" class="expander" data-toggle="collapse">HashSet(const HashSet&amp; other)</a></h4>
   
   <div id="collapsible-HashSet_HashSet_const_HashSet___" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="HashSet.html">HashSet</a> class. </p></div>
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="HashSet.html">HashSet</a> by copying the elements from the other collection. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -260,7 +365,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HashSet_HashSet____.md&amp;value=---%0Auid%3A%20HashSet.HashSet(HashSet%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L142" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L156" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_HashSet_" data-uid="HashSet.HashSet*"></a>
@@ -298,50 +403,6 @@
   
   
   </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HashSet_int32_.md&amp;value=---%0Auid%3A%20HashSet.HashSet(int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_HashSet_" data-uid="HashSet.HashSet*"></a>
-  
-  <h4 id="HashSet_HashSet_int32_" data-uid="HashSet.HashSet(int32)"><a href="#collapsible-HashSet_HashSet_int32_" class="expander" data-toggle="collapse">HashSet(int32 capacity)</a></h4>
-  
-  <div id="collapsible-HashSet_HashSet_int32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="HashSet.html">HashSet</a> class. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public HashSet(int32 capacity)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">int32</span></span>
-        <span class="parametername">capacity</span>
-        <p><p>The initial capacity.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -350,7 +411,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Add_const_ItemType___.md&amp;value=---%0Auid%3A%20HashSet.Add(const%20ItemType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L515" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L409" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Add_" data-uid="HashSet.Add*"></a>
@@ -409,54 +470,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Add_const_Iterator___.md&amp;value=---%0Auid%3A%20HashSet.Add(const%20Iterator%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L540" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_Add_" data-uid="HashSet.Add*"></a>
-  
-  <h4 id="HashSet_Add_const_Iterator___" data-uid="HashSet.Add(const Iterator &amp;)"><a href="#collapsible-HashSet_Add_const_Iterator___" class="expander" data-toggle="collapse">Add(const Iterator&amp; i)</a></h4>
-  
-  <div id="collapsible-HashSet_Add_const_Iterator___" class="collapse in">
-  <div class="markdown level1 summary"><p>Add element at iterator to the collection </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Add(const Iterator&amp; i)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">Iterator</span></span>
-        <span class="parametername">i</span>
-        <p><p>Iterator with item to add</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Add_T____.md&amp;value=---%0Auid%3A%20HashSet.Add(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L528" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L422" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Add_" data-uid="HashSet.Add*"></a>
@@ -509,7 +526,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Begin__.md&amp;value=---%0Auid%3A%20HashSet.Begin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L635" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L546" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Begin_" data-uid="HashSet.Begin*"></a>
@@ -522,7 +539,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public Iterator Begin() const</code></pre>
+    <pre><code class="lang-cpp hljs">public Iterator Begin()</code></pre>
   </div>
 
   
@@ -552,7 +569,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_begin__.md&amp;value=---%0Auid%3A%20HashSet.begin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L647" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L570" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_begin_" data-uid="HashSet.begin*"></a>
@@ -592,87 +609,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Capacity__.md&amp;value=---%0Auid%3A%20HashSet.Capacity()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L216" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_Capacity_" data-uid="HashSet.Capacity*"></a>
-  
-  <h4 id="HashSet_Capacity__" data-uid="HashSet.Capacity()"><a href="#collapsible-HashSet_Capacity__" class="expander" data-toggle="collapse">Capacity()</a></h4>
-  
-  <div id="collapsible-HashSet_Capacity__" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the amount of the elements that can be contained by the collection. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public int32 Capacity() const</code></pre>
-  </div>
-
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Clear__.md&amp;value=---%0Auid%3A%20HashSet.Clear()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L385" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_Clear_" data-uid="HashSet.Clear*"></a>
-  
-  <h4 id="HashSet_Clear__" data-uid="HashSet.Clear()"><a href="#collapsible-HashSet_Clear__" class="expander" data-toggle="collapse">Clear()</a></h4>
-  
-  <div id="collapsible-HashSet_Clear__" class="collapse in">
-  <div class="markdown level1 summary"><p>Removes all elements from the collection. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Clear()</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_ClearDelete__.md&amp;value=---%0Auid%3A%20HashSet.ClearDelete()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L403" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L392" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_ClearDelete_" data-uid="HashSet.ClearDelete*"></a>
@@ -706,7 +646,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Clone_const_HashSet___.md&amp;value=---%0Auid%3A%20HashSet.Clone(const%20HashSet%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L624" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L524" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Clone_" data-uid="HashSet.Clone*"></a>
@@ -714,7 +654,7 @@
   <h4 id="HashSet_Clone_const_HashSet___" data-uid="HashSet.Clone(const HashSet &amp;)"><a href="#collapsible-HashSet_Clone_const_HashSet___" class="expander" data-toggle="collapse">Clone(const HashSet&amp; other)</a></h4>
   
   <div id="collapsible-HashSet_Clone_const_HashSet___" class="collapse in">
-  <div class="markdown level1 summary"><p>Clones other collection into this </p></div>
+  <div class="markdown level1 summary"><p>Clones other collection into this. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -728,7 +668,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="HashSet.html">HashSet</a></span>
         <span class="parametername">other</span>
-        <p><p>Other collection to clone</p></p>
+        <p><p>The other collection to clone.</p></p>
       </td>
     </tr>
   </table>
@@ -750,7 +690,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Contains_const_ItemType___.md&amp;value=---%0Auid%3A%20HashSet.Contains(const%20ItemType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L610" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L512" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Contains_" data-uid="HashSet.Contains*"></a>
@@ -809,53 +749,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Count__.md&amp;value=---%0Auid%3A%20HashSet.Count()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L208" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_Count_" data-uid="HashSet.Count*"></a>
-  
-  <h4 id="HashSet_Count__" data-uid="HashSet.Count()"><a href="#collapsible-HashSet_Count__" class="expander" data-toggle="collapse">Count()</a></h4>
-  
-  <div id="collapsible-HashSet_Count__" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the amount of the elements in the collection. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public int32 Count() const</code></pre>
-  </div>
-
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">int32</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_End__.md&amp;value=---%0Auid%3A%20HashSet.End()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L642" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L553" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_End_" data-uid="HashSet.End*"></a>
@@ -868,7 +765,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public Iterator End() const</code></pre>
+    <pre><code class="lang-cpp hljs">public Iterator End()</code></pre>
   </div>
 
   
@@ -898,7 +795,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_end__.md&amp;value=---%0Auid%3A%20HashSet.end()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L654" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L577" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_end_" data-uid="HashSet.end*"></a>
@@ -938,61 +835,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_EnsureCapacity_int32_bool_.md&amp;value=---%0Auid%3A%20HashSet.EnsureCapacity(int32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L477" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_EnsureCapacity_" data-uid="HashSet.EnsureCapacity*"></a>
-  
-  <h4 id="HashSet_EnsureCapacity_int32_bool_" data-uid="HashSet.EnsureCapacity(int32,bool)"><a href="#collapsible-HashSet_EnsureCapacity_int32_bool_" class="expander" data-toggle="collapse">EnsureCapacity(int32 minCapacity, bool preserveContents=true)</a></h4>
-  
-  <div id="collapsible-HashSet_EnsureCapacity_int32_bool_" class="collapse in">
-  <div class="markdown level1 summary"><p>Ensures that collection has given capacity. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void EnsureCapacity(int32 minCapacity, bool preserveContents=true)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">int32</span></span>
-        <span class="parametername">minCapacity</span>
-        <p><p>The minimum required capacity.</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">bool</span></span>
-        <span class="parametername">preserveContents</span>
-        <p><p>True if preserve collection data when changing its size, otherwise collection after resize will be empty.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Find_const_ItemType___.md&amp;value=---%0Auid%3A%20HashSet.Find(const%20ItemType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L595" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L486" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Find_" data-uid="HashSet.Find*"></a>
@@ -1005,7 +851,7 @@
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public Iterator Find(const ItemType&amp; item) const</code></pre>
+    <pre><code class="lang-cpp hljs">public Iterator Find(const ItemType&amp; item)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1051,31 +897,42 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HasItems__.md&amp;value=---%0Auid%3A%20HashSet.HasItems()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_GetItems_Array_T__ArrayAllocation____.md&amp;value=---%0Auid%3A%20HashSet.GetItems(Array%3CT%2C%20ArrayAllocation%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L232" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L539" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="HashSet_HasItems_" data-uid="HashSet.HasItems*"></a>
+  <a id="HashSet_GetItems_" data-uid="HashSet.GetItems*"></a>
   
-  <h4 id="HashSet_HasItems__" data-uid="HashSet.HasItems()"><a href="#collapsible-HashSet_HasItems__" class="expander" data-toggle="collapse">HasItems()</a></h4>
+  <h4 id="HashSet_GetItems_Array_T__ArrayAllocation____" data-uid="HashSet.GetItems(Array&lt;T, ArrayAllocation&gt; &amp;)"><a href="#collapsible-HashSet_GetItems_Array_T__ArrayAllocation____" class="expander" data-toggle="collapse">GetItems(Array&lt;T, ArrayAllocation&gt;&amp; result)</a></h4>
   
-  <div id="collapsible-HashSet_HasItems__" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if collection has one or more elements. </p></div>
+  <div id="collapsible-HashSet_GetItems_Array_T__ArrayAllocation____" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the items collection to the output array (will contain unique items). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool HasItems() const</code></pre>
+    <pre><code class="lang-cpp hljs">public void GetItems(Array&lt;T, ArrayAllocation&gt;&amp; result) const</code></pre>
   </div>
 
-  
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">bool</span>
+        <span class="pull-right"><span class="xref">Array&lt;T, ArrayAllocation&gt;</span></span>
+        <span class="parametername">result</span>
+        <p><p>The result.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename ArrayAllocation</span>
         <p>
       </td>
     </tr>
@@ -1089,36 +946,45 @@
   
   
   
-  
   </div>
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_IsEmpty__.md&amp;value=---%0Auid%3A%20HashSet.IsEmpty()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_HashSet_const_int32_.md&amp;value=---%0Auid%3A%20HashSet.HashSet(const%20int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L224" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
-  <a id="HashSet_IsEmpty_" data-uid="HashSet.IsEmpty*"></a>
+  <a id="HashSet_HashSet_" data-uid="HashSet.HashSet*"></a>
   
-  <h4 id="HashSet_IsEmpty__" data-uid="HashSet.IsEmpty()"><a href="#collapsible-HashSet_IsEmpty__" class="expander" data-toggle="collapse">IsEmpty()</a></h4>
+  <h4 id="HashSet_HashSet_const_int32_" data-uid="HashSet.HashSet(const int32)"><a href="#collapsible-HashSet_HashSet_const_int32_" class="expander" data-toggle="collapse">HashSet(const int32 capacity)</a></h4>
   
-  <div id="collapsible-HashSet_IsEmpty__" class="collapse in">
-  <div class="markdown level1 summary"><p>Returns true if collection is empty. </p></div>
+  <div id="collapsible-HashSet_HashSet_const_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="HashSet.html">HashSet</a> by reserving space. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public bool IsEmpty() const</code></pre>
+    <pre><code class="lang-cpp hljs">public HashSet(const int32 capacity)</code></pre>
   </div>
 
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">capacity</span>
+        <p><p>The number of elements that can be added without a need to allocate more memory.</p></p>
+      </td>
+    </tr>
+  </table>
   
   <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">bool</span>
+        <span class="xref">FORCE_INLINE</span>
         <p>
       </td>
     </tr>
@@ -1140,7 +1006,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_operator__const_HashSet___.md&amp;value=---%0Auid%3A%20HashSet.operator%3D(const%20HashSet%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L167" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L175" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_operator__" data-uid="HashSet.operator=*"></a>
@@ -1193,7 +1059,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_operator__HashSet____.md&amp;value=---%0Auid%3A%20HashSet.operator%3D(HashSet%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L179" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L187" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_operator__" data-uid="HashSet.operator=*"></a>
@@ -1246,7 +1112,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Remove_const_ItemType___.md&amp;value=---%0Auid%3A%20HashSet.Remove(const%20ItemType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L553" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L447" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Remove_" data-uid="HashSet.Remove*"></a>
@@ -1308,7 +1174,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Remove_const_Iterator___.md&amp;value=---%0Auid%3A%20HashSet.Remove(const%20Iterator%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L574" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L466" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="HashSet_Remove_" data-uid="HashSet.Remove*"></a>
@@ -1356,101 +1222,6 @@
   
   </div>
   
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_SetCapacity_int32_bool_.md&amp;value=---%0Auid%3A%20HashSet.SetCapacity(int32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L418" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_SetCapacity_" data-uid="HashSet.SetCapacity*"></a>
-  
-  <h4 id="HashSet_SetCapacity_int32_bool_" data-uid="HashSet.SetCapacity(int32,bool)"><a href="#collapsible-HashSet_SetCapacity_int32_bool_" class="expander" data-toggle="collapse">SetCapacity(int32 capacity, bool preserveContents=true)</a></h4>
-  
-  <div id="collapsible-HashSet_SetCapacity_int32_bool_" class="collapse in">
-  <div class="markdown level1 summary"><p>Changes capacity of the collection </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void SetCapacity(int32 capacity, bool preserveContents=true)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">int32</span></span>
-        <span class="parametername">capacity</span>
-        <p><p>New capacity</p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">bool</span></span>
-        <span class="parametername">preserveContents</span>
-        <p><p>Enable/disable preserving collection contents during resizing</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet_Swap_HashSet___.md&amp;value=---%0Auid%3A%20HashSet.Swap(HashSet%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L491" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="HashSet_Swap_" data-uid="HashSet.Swap*"></a>
-  
-  <h4 id="HashSet_Swap_HashSet___" data-uid="HashSet.Swap(HashSet &amp;)"><a href="#collapsible-HashSet_Swap_HashSet___" class="expander" data-toggle="collapse">Swap(HashSet&amp; other)</a></h4>
-  
-  <div id="collapsible-HashSet_Swap_HashSet___" class="collapse in">
-  <div class="markdown level1 summary"><p>Swaps the contents of collection with the other object without copy operation. Performs fast internal data exchange. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public void Swap(HashSet&amp; other)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="HashSet.html">HashSet</a></span>
-        <span class="parametername">other</span>
-        <p><p>The other collection.</p></p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
   
 </article>
           </div>
@@ -1463,7 +1234,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=HashSet.md&amp;value=---%0Auid%3A%20HashSet%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/HashSet.h/#L128" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

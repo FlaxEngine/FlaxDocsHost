@@ -675,7 +675,7 @@ public static Actor FindActor([TypeReference] Type type, Tag tag, bool activeOnl
       <td>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
-        <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+        <p><p>Type of the actor to search for. Includes any actors derived from the type. Supports interface types.</p>
 </p>
       </td>
     </tr>
@@ -749,7 +749,7 @@ public static Actor FindActor([TypeReference] Type type, bool activeOnly = false
       <td>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
-        <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+        <p><p>Type of the actor to search for. Includes any actors derived from the type. Supports interface types.</p>
 </p>
       </td>
     </tr>
@@ -807,7 +807,7 @@ public static Actor FindActor([TypeReference] Type type, string name)</code></pr
       <td>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
-        <p><p>Type of the actor to search for. Includes any actors derived from the type.</p>
+        <p><p>Type of the actor to search for. Includes any actors derived from the type. Supports interface types.</p>
 </p>
       </td>
     </tr>
@@ -1284,7 +1284,7 @@ public static Script FindScript([TypeReference] Type type)</code></pre>
       <td>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
-        <p><p>Type of the script to search for. Includes any scripts derived from the type.</p>
+        <p><p>Type of the script to search for. Includes any scripts derived from the type. Supports interface types.</p>
 </p>
       </td>
     </tr>
@@ -1580,17 +1580,17 @@ public static Scene GetScene(int index)</code></pre>
   
   <a id="FlaxEngine_Level_GetScripts_" data-uid="FlaxEngine.Level.GetScripts*"></a>
   
-  <h4 id="FlaxEngine_Level_GetScripts_System_Type_" data-uid="FlaxEngine.Level.GetScripts(System.Type)"><a href="#collapsible-FlaxEngine_Level_GetScripts_System_Type_" class="expander" data-toggle="collapse">GetScripts(Type)</a></h4>
+  <h4 id="FlaxEngine_Level_GetScripts_System_Type_FlaxEngine_Actor_" data-uid="FlaxEngine.Level.GetScripts(System.Type,FlaxEngine.Actor)"><a href="#collapsible-FlaxEngine_Level_GetScripts_System_Type_FlaxEngine_Actor_" class="expander" data-toggle="collapse">GetScripts(Type, Actor)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Level_GetScripts_System_Type_" class="collapse in">
-  <div class="markdown level1 summary"><p>Finds all the scripts of the given type in all the loaded scenes.</p>
+  <div id="collapsible-FlaxEngine_Level_GetScripts_System_Type_FlaxEngine_Actor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds all the scripts of the given type in an actor or all the loaded scenes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static Script[] GetScripts([TypeReference] Type type)</code></pre>
+public static Script[] GetScripts([TypeReference] Type type, Actor root = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1600,6 +1600,14 @@ public static Script[] GetScripts([TypeReference] Type type)</code></pre>
         <span class="pull-right"><span class="xref">System.Type</span></span>
         <span class="parametername">type</span>
         <p><p>Type of the script to search for. Includes any scripts derived from the type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></span>
+        <span class="parametername">root</span>
+        <p><p>The root to find scripts. If null, will search in all scenes.</p>
 </p>
       </td>
     </tr>
@@ -1630,19 +1638,30 @@ public static Script[] GetScripts([TypeReference] Type type)</code></pre>
   
   <a id="FlaxEngine_Level_GetScripts_" data-uid="FlaxEngine.Level.GetScripts*"></a>
   
-  <h4 id="FlaxEngine_Level_GetScripts__1" data-uid="FlaxEngine.Level.GetScripts``1"><a href="#collapsible-FlaxEngine_Level_GetScripts__1" class="expander" data-toggle="collapse">GetScripts&lt;T&gt;()</a></h4>
+  <h4 id="FlaxEngine_Level_GetScripts__1_FlaxEngine_Actor_" data-uid="FlaxEngine.Level.GetScripts``1(FlaxEngine.Actor)"><a href="#collapsible-FlaxEngine_Level_GetScripts__1_FlaxEngine_Actor_" class="expander" data-toggle="collapse">GetScripts&lt;T&gt;(Actor)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Level_GetScripts__1" class="collapse in">
-  <div class="markdown level1 summary"><p>Finds all the scripts of the given type in all the loaded scenes.</p>
+  <div id="collapsible-FlaxEngine_Level_GetScripts__1_FlaxEngine_Actor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Finds all the scripts of the given type in an actor or all the loaded scenes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T[] GetScripts&lt;T&gt;()
+    <pre><code class="lang-csharp hljs">public static T[] GetScripts&lt;T&gt;(Actor root = null)
     where T : Script</code></pre>
   </div>
 
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Actor.html">Actor</a></span>
+        <span class="parametername">root</span>
+        <p><p>The root to find scripts. If null, will search in all scenes</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   <h5 class="returns">Returns</h5>
   <table>

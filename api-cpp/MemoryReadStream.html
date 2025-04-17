@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="MemoryReadStream">
   <h1 id="MemoryReadStream" data-uid="MemoryReadStream">Class MemoryReadStream
   </h1>
-  <div class="markdown level0 summary"><p>Super fast advanced data reading from raw bytes without any overhead at all </p></div>
+  <div class="markdown level0 summary"><p>Direct memory reading stream that uses a single allocation buffer. </p></div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="inheritance">
@@ -117,7 +117,16 @@
       <a class="xref" href="Stream.html#Stream_CanWrite__">Stream::CanWrite()</a>
     </div>
     <div>
+      <a class="xref" href="ReadStream.html#ReadStream_data">ReadStream::data</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_DEPRECATED__Use_Read_method__">ReadStream::DEPRECATED(&quot;Use Read method&quot;) void ReadStringAnsi(StringAnsi* data)</a>
+    </div>
+    <div>
       <a class="xref" href="Stream.html#Stream_HasError__">Stream::HasError()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_lock">ReadStream::lock</a>
     </div>
     <div>
       <a class="xref" href="ReadStream.html#ReadStream_Read_String___">ReadStream::Read(String&amp; data)</a>
@@ -168,16 +177,19 @@
       <a class="xref" href="ReadStream.html#ReadStream_Read_Dictionary_KeyType__ValueType__AllocationType____">ReadStream::Read(Dictionary&lt;KeyType, ValueType, AllocationType&gt;&amp; data)</a>
     </div>
     <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadArray_Array_T__AllocationType____">ReadStream::ReadArray(Array&lt;T, AllocationType&gt;* data)</a>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_BoundingBox___bool_">ReadStream::Read(BoundingBox&amp; box, bool useDouble=false)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_BoundingSphere___bool_">ReadStream::Read(BoundingSphere&amp; sphere, bool useDouble=false)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_Transform___bool_">ReadStream::Read(Transform&amp; transform, bool useDouble=false)</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_Read_Ray___bool_">ReadStream::Read(Ray&amp; ray, bool useDouble=false)</a>
     </div>
     <div>
       <a class="xref" href="ReadStream.html#ReadStream_ReadBool__">ReadStream::ReadBool()</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadBoundingBox_BoundingBox___bool_">ReadStream::ReadBoundingBox(BoundingBox* box, bool useDouble=false)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadBoundingSphere_BoundingSphere___bool_">ReadStream::ReadBoundingSphere(BoundingSphere* sphere, bool useDouble=false)</a>
     </div>
     <div>
       <a class="xref" href="ReadStream.html#ReadStream_ReadByte__">ReadStream::ReadByte()</a>
@@ -190,9 +202,6 @@
     </div>
     <div>
       <a class="xref" href="ReadStream.html#ReadStream_ReadChar_Char___">ReadStream::ReadChar(Char* data)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadCommonValue_CommonValue___">ReadStream::ReadCommonValue(CommonValue* data)</a>
     </div>
     <div>
       <a class="xref" href="ReadStream.html#ReadStream_ReadDouble_double___">ReadStream::ReadDouble(double* data)</a>
@@ -216,24 +225,6 @@
       <a class="xref" href="ReadStream.html#ReadStream_ReadJson_ISerializable___">ReadStream::ReadJson(ISerializable* obj)</a>
     </div>
     <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadRay_Ray___bool_">ReadStream::ReadRay(Ray* ray, bool useDouble=false)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadString_String___">ReadStream::ReadString(String* data)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadString_String___int16_">ReadStream::ReadString(String* data, int16 lock)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadStringAnsi_StringAnsi___">ReadStream::ReadStringAnsi(StringAnsi* data)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadStringAnsi_StringAnsi___int8_">ReadStream::ReadStringAnsi(StringAnsi* data, int8 lock)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadTransform_Transform___bool_">ReadStream::ReadTransform(Transform* transform, bool useDouble=false)</a>
-    </div>
-    <div>
       <a class="xref" href="ReadStream.html#ReadStream_ReadUint16_uint16___">ReadStream::ReadUint16(uint16* data)</a>
     </div>
     <div>
@@ -246,13 +237,10 @@
       <a class="xref" href="ReadStream.html#ReadStream_ReadUint8_uint8___">ReadStream::ReadUint8(uint8* data)</a>
     </div>
     <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadVariant_Variant___">ReadStream::ReadVariant(Variant* data)</a>
-    </div>
-    <div>
-      <a class="xref" href="ReadStream.html#ReadStream_ReadVariantType_VariantType___">ReadStream::ReadVariantType(VariantType* data)</a>
-    </div>
-    <div>
       <a class="xref" href="Stream.html#Stream_Stream__">Stream::Stream()</a>
+    </div>
+    <div>
+      <a class="xref" href="ReadStream.html#ReadStream_useDouble">ReadStream::useDouble</a>
     </div>
     <div>
       <a class="xref" href="Stream.html#Stream__Stream__">Stream::~Stream()</a>
@@ -288,7 +276,7 @@
   <h4 id="MemoryReadStream_MemoryReadStream__" data-uid="MemoryReadStream.MemoryReadStream()"><a href="#collapsible-MemoryReadStream_MemoryReadStream__" class="expander" data-toggle="collapse">MemoryReadStream()</a></h4>
   
   <div id="collapsible-MemoryReadStream_MemoryReadStream__" class="collapse in">
-  <div class="markdown level1 summary"><p>Init (empty, cannot access before Init()) </p></div>
+  <div class="markdown level1 summary"><p>Init (empty, cannot access before Init()) </p><p>Initializes a new instance of the <a class="xref" href="MemoryReadStream.html">MemoryReadStream</a> class. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -322,7 +310,7 @@
   <h4 id="MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" data-uid="MemoryReadStream.MemoryReadStream(const Array&lt;T, AllocationType&gt; &amp;)"><a href="#collapsible-MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" class="expander" data-toggle="collapse">MemoryReadStream(const Array&lt;T, AllocationType&gt;&amp; data)</a></h4>
   
   <div id="collapsible-MemoryReadStream_MemoryReadStream_const_Array_T__AllocationType____" class="collapse in">
-  <div class="markdown level1 summary"><p>Init </p></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MemoryReadStream.html">MemoryReadStream</a> class. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -336,7 +324,7 @@
       <td>
         <span class="pull-right"><span class="xref">Array&lt;T, AllocationType&gt;</span></span>
         <span class="parametername">data</span>
-        <p><p>Array with data to read from</p></p>
+        <p><p>Array with data to read from.</p></p>
       </td>
     </tr>
   </table>
@@ -381,7 +369,7 @@
   <h4 id="MemoryReadStream_MemoryReadStream_const_byte___uint32_" data-uid="MemoryReadStream.MemoryReadStream(const byte *,uint32)"><a href="#collapsible-MemoryReadStream_MemoryReadStream_const_byte___uint32_" class="expander" data-toggle="collapse">MemoryReadStream(const byte* bytes, uint32 length)</a></h4>
   
   <div id="collapsible-MemoryReadStream_MemoryReadStream_const_byte___uint32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Init </p></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MemoryReadStream.html">MemoryReadStream</a> class. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -395,7 +383,7 @@
       <td>
         <span class="pull-right"><span class="xref">byte</span></span>
         <span class="parametername">bytes</span>
-        <p><p>Bytes with data to read from it (no memory cloned, using input buffer)</p></p>
+        <p><p>Bytes with data to read from it (no memory cloned, using input buffer).</p></p>
       </td>
     </tr>
     <tr>
@@ -418,6 +406,59 @@
   
   
   </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_MemoryReadStream_const_Span_T____.md&amp;value=---%0Auid%3A%20MemoryReadStream.MemoryReadStream(const%20Span%3CT%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="MemoryReadStream_MemoryReadStream_" data-uid="MemoryReadStream.MemoryReadStream*"></a>
+  
+  <h4 id="MemoryReadStream_MemoryReadStream_const_Span_T____" data-uid="MemoryReadStream.MemoryReadStream(const Span&lt;T&gt; &amp;)"><a href="#collapsible-MemoryReadStream_MemoryReadStream_const_Span_T____" class="expander" data-toggle="collapse">MemoryReadStream(const Span&lt;T&gt;&amp; data)</a></h4>
+  
+  <div id="collapsible-MemoryReadStream_MemoryReadStream_const_Span_T____" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MemoryReadStream.html">MemoryReadStream</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public MemoryReadStream(const Span&lt;T&gt;&amp; data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Span&lt;T&gt;</span></span>
+        <span class="parametername">data</span>
+        <p><p>Span with data to read from.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -426,7 +467,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Close__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Close()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L110" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Close_" data-uid="MemoryReadStream.Close*"></a>
@@ -462,7 +503,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Flush__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Flush()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L109" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L110" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Flush_" data-uid="MemoryReadStream.Flush*"></a>
@@ -498,7 +539,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetLength__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetLength()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_GetLength_" data-uid="MemoryReadStream.GetLength*"></a>
@@ -543,7 +584,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetPosition__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetPosition()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L113" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_GetPosition_" data-uid="MemoryReadStream.GetPosition*"></a>
@@ -588,7 +629,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_GetPositionHandle__.md&amp;value=---%0Auid%3A%20MemoryReadStream.GetPositionHandle()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L74" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_GetPositionHandle_" data-uid="MemoryReadStream.GetPositionHandle*"></a>
@@ -610,7 +651,7 @@
     <tr>
       <td>
         <span class="xref">byte</span>
-        <p><p>The position of the buffer in memory.</p></p>
+        <p>
       </td>
     </tr>
   </table>
@@ -631,7 +672,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Init_const_Array_T__AllocationType____.md&amp;value=---%0Auid%3A%20MemoryReadStream.Init(const%20Array%3CT%2C%20AllocationType%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L57" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L66" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Init_" data-uid="MemoryReadStream.Init*"></a>
@@ -639,7 +680,7 @@
   <h4 id="MemoryReadStream_Init_const_Array_T__AllocationType____" data-uid="MemoryReadStream.Init(const Array&lt;T, AllocationType&gt; &amp;)"><a href="#collapsible-MemoryReadStream_Init_const_Array_T__AllocationType____" class="expander" data-toggle="collapse">Init(const Array&lt;T, AllocationType&gt;&amp; data)</a></h4>
   
   <div id="collapsible-MemoryReadStream_Init_const_Array_T__AllocationType____" class="collapse in">
-  <div class="markdown level1 summary"><p>Init stream to the custom buffer location </p></div>
+  <div class="markdown level1 summary"><p>Init stream to the custom buffer location. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -653,7 +694,7 @@
       <td>
         <span class="pull-right"><span class="xref">Array&lt;T, AllocationType&gt;</span></span>
         <span class="parametername">data</span>
-        <p><p>Array with data to read from</p></p>
+        <p><p>Array with data to read from.</p></p>
       </td>
     </tr>
   </table>
@@ -699,7 +740,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Init_const_byte___uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.Init(const%20byte%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L50" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L59" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Init_" data-uid="MemoryReadStream.Init*"></a>
@@ -707,7 +748,7 @@
   <h4 id="MemoryReadStream_Init_const_byte___uint32_" data-uid="MemoryReadStream.Init(const byte *,uint32)"><a href="#collapsible-MemoryReadStream_Init_const_byte___uint32_" class="expander" data-toggle="collapse">Init(const byte* bytes, uint32 length)</a></h4>
   
   <div id="collapsible-MemoryReadStream_Init_const_byte___uint32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Init stream to the custom buffer location </p></div>
+  <div class="markdown level1 summary"><p>Init stream to the custom buffer location. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -721,14 +762,14 @@
       <td>
         <span class="pull-right"><span class="xref">byte</span></span>
         <span class="parametername">bytes</span>
-        <p><p>Bytes with data to read from it (no memory cloned, using input buffer)</p></p>
+        <p><p>Bytes with data to read from it (no memory cloned, using input buffer).</p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">uint32</span></span>
         <span class="parametername">length</span>
-        <p><p>Amount of bytes</p></p>
+        <p><p>Amount of bytes.</p></p>
       </td>
     </tr>
   </table>
@@ -750,7 +791,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Move__.md&amp;value=---%0Auid%3A%20MemoryReadStream.Move()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Move_" data-uid="MemoryReadStream.Move*"></a>
@@ -802,7 +843,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_Move_uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.Move(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L85" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_Move_" data-uid="MemoryReadStream.Move*"></a>
@@ -855,7 +896,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_ReadBytes_void___uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.ReadBytes(void%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L115" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_ReadBytes_" data-uid="MemoryReadStream.ReadBytes*"></a>
@@ -908,7 +949,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream_SetPosition_uint32_.md&amp;value=---%0Auid%3A%20MemoryReadStream.SetPosition(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L113" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MemoryReadStream_SetPosition_" data-uid="MemoryReadStream.SetPosition*"></a>
@@ -961,7 +1002,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MemoryReadStream.md&amp;value=---%0Auid%3A%20MemoryReadStream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Serialization/MemoryReadStream.h/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

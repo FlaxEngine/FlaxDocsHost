@@ -128,7 +128,7 @@ Color ColorVal;
 <tbody>
 <tr>
 <td><strong>Serialize</strong></td>
-<td>Indicates that a field or a property should be be serialized.</td>
+<td>Indicates that a field or a property should be serialized.</td>
 </tr>
 <tr>
 <td><strong>NoSerialize</strong></td>
@@ -226,10 +226,14 @@ Color ColorVal;
 <td><strong>Watermark</strong></td>
 <td>Adds a watermark to a string textbox in the editor field.</td>
 </tr>
+<tr>
+<td><strong>Button</strong></td>
+<td>Adds a button in the properties panel which user can click and invoke a method.</td>
+</tr>
 </tbody>
 </table>
-<h2 id="script-execution-in-editor">Script execution in editor</h2>
-<p>By using <strong>ExecuteInEditMode</strong> you can enable your scripts to run in Editor. This is useful to generate procedural content for your game from code. Here is an example script that generates a grid of lights in Editor:</p>
+<h2 id="button-attribute">Button attribute</h2>
+<p>Button attributes can display methods as clickable buttons in the editor&#39;s properties panels. It works with both static and member methods in C++/C#/Visual Script.</p>
 <div class="tabGroup" id="tabgroup_Bi51EgM2CF-1">
 <ul role="tablist">
 <li role="presentation">
@@ -238,8 +242,57 @@ Color ColorVal;
 <li role="presentation">
 <a href="#tabpanel_Bi51EgM2CF-1_code-cpp" role="tab" aria-controls="tabpanel_Bi51EgM2CF-1_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
 </li>
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF-1_code-vs" role="tab" aria-controls="tabpanel_Bi51EgM2CF-1_code-vs" data-tab="code-vs" tabindex="-1">Visual Script</a>
+</li>
 </ul>
 <section id="tabpanel_Bi51EgM2CF-1_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Button tooltip comes from this comment.
+/// &lt;/summary&gt;
+[Button]
+private void CallMe()
+{
+    Debug.LogError(&quot;Ho!&quot;);
+}
+
+[Button(&quot;Another Button&quot;, &quot;Custom tooltip text&quot;)]
+public static void CallMeTest()
+{
+    Debug.LogError(&quot;Hello there!&quot;);
+}
+</code></pre></section>
+<section id="tabpanel_Bi51EgM2CF-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">// Button tooltip comes from this comment.
+API_FUNCTION(Attributes=&quot;Button&quot;)
+void CallMe()
+{
+    LOG(Error, &quot;Ho!&quot;);
+}
+
+API_FUNCTION(Attributes=&quot;Button(\&quot;Another Button\&quot;, \&quot;Custom tooltip text\&quot;)&quot;)
+static void CallMeTest()
+{
+    LOG(Error, &quot;Hello there!&quot;);
+}
+</code></pre></section>
+<section id="tabpanel_Bi51EgM2CF-1_code-vs" role="tabpanel" data-tab="code-vs" aria-hidden="true" hidden="hidden">
+<p>Right-click on a function node header, select <em>Edit attributes..</em>* menu. Then add new <code>Button Attribute</code> and hit <em>OK</em> button.</p>
+<p><img src="media/vs-button-attribute.png" alt="Button attribute in Visual Script"></p>
+</section>
+</div>
+<h2 id="script-execution-in-editor">Script execution in editor</h2>
+<p>By using <strong>ExecuteInEditMode</strong> you can enable your scripts to run in Editor. This is useful to generate procedural content for your game from code. Here is an example script that generates a grid of lights in Editor:</p>
+<div class="tabGroup" id="tabgroup_Bi51EgM2CF-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF-2_code-csharp" role="tab" aria-controls="tabpanel_Bi51EgM2CF-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_Bi51EgM2CF-2_code-cpp" role="tab" aria-controls="tabpanel_Bi51EgM2CF-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_Bi51EgM2CF-2_code-csharp" role="tabpanel" data-tab="code-csharp">
 <pre><code class="lang-csharp" name="Example1">using FlaxEngine;
 
 [ExecuteInEditMode]
@@ -264,7 +317,7 @@ public class MyGenerator : Script
     }
 }
 </code></pre></section>
-<section id="tabpanel_Bi51EgM2CF-1_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<section id="tabpanel_Bi51EgM2CF-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
 <pre><code class="lang-cpp" name="Example2">#pragma once
 
 #include &quot;Engine/Scripting/Script.h&quot;
@@ -302,7 +355,7 @@ API_CLASS(Attributes = &quot;ExecuteInEditMode&quot;) class GAME_API MyGenerator
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/attributes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

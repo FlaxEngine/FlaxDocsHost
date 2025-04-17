@@ -92,55 +92,17 @@
             <article class="content wrap" id="_content" data-uid="Nullable">
   <h1 id="Nullable" data-uid="Nullable">Struct Nullable
   </h1>
-  <div class="markdown level0 summary"><p>Represents a value type that can be assigned null. A nullable type can represent the correct range of values for its underlying value type, plus an additional null value. </p></div>
+  <div class="markdown level0 summary"><p>Wrapper for a value type that can be assigned null, controlling the lifetime of the wrapped value. </p></div>
   <div class="markdown level0 conceptual"></div>
 
   
-  <div class="inheritedMembers">
-    <h5 id="inheritedMembers-Nullable" data-uid="NullableBase._hasValue"><a href="#collapsible-inheritedMembers-Nullable" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
-  <div id="collapsible-inheritedMembers-Nullable" class="collapse">
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase__hasValue">NullableBase::_hasValue</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase__value">NullableBase::_value</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_GetValue__">NullableBase::GetValue()</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_HasValue__">NullableBase::HasValue()</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_NullableBase__">NullableBase::NullableBase()</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_NullableBase_const_T___">NullableBase::NullableBase(const T&amp; value)</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_NullableBase_const_NullableBase___">NullableBase::NullableBase(const NullableBase&amp; other)</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_operator___const_NullableBase___">NullableBase::operator!=(const NullableBase&amp; other)</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_operator___const_NullableBase___">NullableBase::operator==(const NullableBase&amp; other)</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_Reset__">NullableBase::Reset()</a>
-    </div>
-    <div>
-      <a class="xref" href="NullableBase.html#NullableBase_SetValue_const_T___">NullableBase::SetValue(const T&amp; value)</a>
-    </div>
-  </div>
-  </div>
   
   <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
   <h6><strong>File</strong>: Engine/Core/Types/Nullable.h</h6>
   
   <h5 id="Nullable_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public struct Nullable&lt;T&gt; : public NullableBase</code></pre>
+    <pre><code class="lang-cpp hljs">public struct Nullable&lt;T&gt;</code></pre>
   </div>
 
   
@@ -150,7 +112,8 @@
     <tr>
       <td>
         <span class="parametername">T</span>
-        <p>
+        <p><p>The type of the wrapped value. It must be move-constructible but does not have to be copy-constructible. Value is never reassigned. </p>
+</p>
       </td>
     </tr>
   </table>
@@ -161,10 +124,44 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable__Nullable__.md&amp;value=---%0Auid%3A%20Nullable.~Nullable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L37" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable__Nullable_" data-uid="Nullable.~Nullable*"></a>
+  
+  <h4 id="Nullable__Nullable__" data-uid="Nullable.~Nullable()"><a href="#collapsible-Nullable__Nullable__" class="expander" data-toggle="collapse">~Nullable()</a></h4>
+  
+  <div id="collapsible-Nullable__Nullable__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ~Nullable()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable__.md&amp;value=---%0Auid%3A%20Nullable.Nullable()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L131" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L31" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Nullable_Nullable_" data-uid="Nullable.Nullable*"></a>
@@ -172,7 +169,7 @@
   <h4 id="Nullable_Nullable__" data-uid="Nullable.Nullable()"><a href="#collapsible-Nullable_Nullable__" class="expander" data-toggle="collapse">Nullable()</a></h4>
   
   <div id="collapsible-Nullable_Nullable__" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> struct. </p></div>
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> by setting the wrapped value to null. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -198,7 +195,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable_const_Nullable___.md&amp;value=---%0Auid%3A%20Nullable.Nullable(const%20Nullable%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L149" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L69" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Nullable_Nullable_" data-uid="Nullable.Nullable*"></a>
@@ -206,7 +203,7 @@
   <h4 id="Nullable_Nullable_const_Nullable___" data-uid="Nullable.Nullable(const Nullable &amp;)"><a href="#collapsible-Nullable_Nullable_const_Nullable___" class="expander" data-toggle="collapse">Nullable(const Nullable&amp; other)</a></h4>
   
   <div id="collapsible-Nullable_Nullable_const_Nullable___" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> struct. </p></div>
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> by copying another <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a>. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -220,7 +217,125 @@
       <td>
         <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
         <span class="parametername">other</span>
-        <p><p>The other.</p></p>
+        <p><p>The wrapped value to be copied.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable_const_T___.md&amp;value=---%0Auid%3A%20Nullable.Nullable(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_Nullable_" data-uid="Nullable.Nullable*"></a>
+  
+  <h4 id="Nullable_Nullable_const_T___" data-uid="Nullable.Nullable(const T &amp;)"><a href="#collapsible-Nullable_Nullable_const_T___" class="expander" data-toggle="collapse">Nullable(const T&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_Nullable_const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> by copying the wrapped value. </p><p>&lt;NullableBase name=&quot;value&quot;&gt;The initial wrapped value to be copied.</p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable(const T&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable_Nullable____.md&amp;value=---%0Auid%3A%20Nullable.Nullable(Nullable%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L79" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_Nullable_" data-uid="Nullable.Nullable*"></a>
+  
+  <h4 id="Nullable_Nullable_Nullable____" data-uid="Nullable.Nullable(Nullable &amp;&amp;)"><a href="#collapsible-Nullable_Nullable_Nullable____" class="expander" data-toggle="collapse">Nullable(Nullable&amp;&amp; other)</a></h4>
+  
+  <div id="collapsible-Nullable_Nullable_Nullable____" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> by moving another <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a>. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable(Nullable&amp;&amp; other) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
+        <span class="parametername">other</span>
+        <p><p>The wrapped value to be moved.</p></p>
       </td>
     </tr>
   </table>
@@ -239,23 +354,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable_const_T___.md&amp;value=---%0Auid%3A%20Nullable.Nullable(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Nullable_T____.md&amp;value=---%0Auid%3A%20Nullable.Nullable(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L58" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Nullable_Nullable_" data-uid="Nullable.Nullable*"></a>
   
-  <h4 id="Nullable_Nullable_const_T___" data-uid="Nullable.Nullable(const T &amp;)"><a href="#collapsible-Nullable_Nullable_const_T___" class="expander" data-toggle="collapse">Nullable(const T&amp; value)</a></h4>
+  <h4 id="Nullable_Nullable_T____" data-uid="Nullable.Nullable(T &amp;&amp;)"><a href="#collapsible-Nullable_Nullable_T____" class="expander" data-toggle="collapse">Nullable(T&amp;&amp; value)</a></h4>
   
-  <div id="collapsible-Nullable_Nullable_const_T___" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> struct. </p><p>&lt;NullableBase name=&quot;value&quot;&gt;The initial value.</p></div>
+  <div id="collapsible-Nullable_Nullable_T____" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a> by moving the wrapped value. </p><p>&lt;NullableBase name=&quot;value&quot;&gt;The initial wrapped value to be moved.</p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public Nullable(const T&amp; value)</code></pre>
+    <pre><code class="lang-cpp hljs">public Nullable(T&amp;&amp; value) noexcept</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -280,6 +395,1094 @@
   
   
   </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable__dummy.md&amp;value=---%0Auid%3A%20Nullable._dummy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L23" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="Nullable__dummy" data-uid="Nullable._dummy"><a href="#collapsible-Nullable__dummy" class="expander" data-toggle="collapse">_dummy</a></h4>
+  
+  <div id="collapsible-Nullable__dummy" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Dummy _dummy</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">Dummy</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable__value.md&amp;value=---%0Auid%3A%20Nullable._value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L22" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="Nullable__value" data-uid="Nullable._value"><a href="#collapsible-Nullable__value" class="expander" data-toggle="collapse">_value</a></h4>
+  
+  <div id="collapsible-Nullable__value" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T _value</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_GetAndReset_T___.md&amp;value=---%0Auid%3A%20Nullable.GetAndReset(T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L273" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_GetAndReset_" data-uid="Nullable.GetAndReset*"></a>
+  
+  <h4 id="Nullable_GetAndReset_T___" data-uid="Nullable.GetAndReset(T &amp;)"><a href="#collapsible-Nullable_GetAndReset_T___" class="expander" data-toggle="collapse">GetAndReset(T&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_GetAndReset_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Moves the wrapped value to the output parameter and sets the wrapped value to null. If the wrapped value is not valid, the behavior is undefined. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void GetAndReset(T&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p><p>The output parameter that will receive the wrapped value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_GetValue__.md&amp;value=---%0Auid%3A%20Nullable.GetValue()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_GetValue_" data-uid="Nullable.GetValue*"></a>
+  
+  <h4 id="Nullable_GetValue__" data-uid="Nullable.GetValue()"><a href="#collapsible-Nullable_GetValue__" class="expander" data-toggle="collapse">GetValue()</a></h4>
+  
+  <div id="collapsible-Nullable_GetValue__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a const reference to the wrapped value. If the value is not valid, the behavior is undefined. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T GetValue() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Reference to the wrapped value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_GetValueOr_const_T___.md&amp;value=---%0Auid%3A%20Nullable.GetValueOr(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_GetValueOr_" data-uid="Nullable.GetValueOr*"></a>
+  
+  <h4 id="Nullable_GetValueOr_const_T___" data-uid="Nullable.GetValueOr(const T &amp;)"><a href="#collapsible-Nullable_GetValueOr_const_T___" class="expander" data-toggle="collapse">GetValueOr(const T&amp; defaultValue)</a></h4>
+  
+  <div id="collapsible-Nullable_GetValueOr_const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a const reference to the wrapped value or a default value if the value is not valid. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T GetValueOr(const T&amp; defaultValue) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">defaultValue</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Reference to the wrapped value or the default value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_GetValueOr_T___.md&amp;value=---%0Auid%3A%20Nullable.GetValueOr(T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L201" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_GetValueOr_" data-uid="Nullable.GetValueOr*"></a>
+  
+  <h4 id="Nullable_GetValueOr_T___" data-uid="Nullable.GetValueOr(T &amp;)"><a href="#collapsible-Nullable_GetValueOr_T___" class="expander" data-toggle="collapse">GetValueOr(T&amp; defaultValue)</a></h4>
+  
+  <div id="collapsible-Nullable_GetValueOr_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a mutable reference to the wrapped value or a default value if the value is not valid. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public T GetValueOr(T&amp; defaultValue) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">defaultValue</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p><p>Reference to the wrapped value or the default value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_HasValue__.md&amp;value=---%0Auid%3A%20Nullable.HasValue()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_HasValue_" data-uid="Nullable.HasValue*"></a>
+  
+  <h4 id="Nullable_HasValue__" data-uid="Nullable.HasValue()"><a href="#collapsible-Nullable_HasValue__" class="expander" data-toggle="collapse">HasValue()</a></h4>
+  
+  <div id="collapsible-Nullable_HasValue__" class="collapse in">
+  <div class="markdown level1 summary"><p>Checks if wrapped object has a valid value. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool HasValue() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>
+  <code>true</code> if this object has a valid value; otherwise, <code>false</code>.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Match_ValueVisitor_NullVisitor_.md&amp;value=---%0Auid%3A%20Nullable.Match(ValueVisitor%2CNullVisitor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L316" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_Match_" data-uid="Nullable.Match*"></a>
+  
+  <h4 id="Nullable_Match_ValueVisitor_NullVisitor_" data-uid="Nullable.Match(ValueVisitor,NullVisitor)"><a href="#collapsible-Nullable_Match_ValueVisitor_NullVisitor_" class="expander" data-toggle="collapse">Match(ValueVisitor valueHandler, NullVisitor nullHandler)</a></h4>
+  
+  <div id="collapsible-Nullable_Match_ValueVisitor_NullVisitor_" class="collapse in">
+  <div class="markdown level1 summary"><p>Matches the wrapped value with a handler for the value or a handler for the null value. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public auto Match(ValueVisitor valueHandler, NullVisitor nullHandler) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">ValueVisitor</span></span>
+        <span class="parametername">valueHandler</span>
+        <p><p>Value visitor handling valid nullable value.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">NullVisitor</span></span>
+        <span class="parametername">nullHandler</span>
+        <p><p>Null visitor handling invalid nullable value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">auto</span>
+        <p><p>Result of the call of one of handlers. Handlers must share the same result type.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename ValueVisitor</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename NullVisitor</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator_bool__.md&amp;value=---%0Auid%3A%20Nullable.operator%20bool()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L304" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator_bool_" data-uid="Nullable.operator bool*"></a>
+  
+  <h4 id="Nullable_operator_bool__" data-uid="Nullable.operator bool()"><a href="#collapsible-Nullable_operator_bool__" class="expander" data-toggle="collapse">operator bool()</a></h4>
+  
+  <div id="collapsible-Nullable_operator_bool__" class="collapse in">
+  <div class="markdown level1 summary"><p>Explicit conversion to boolean value. Allows to check if the wrapped value is valid in if-statements without casting. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public operator bool() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">FORCE_INLINE</span>
+        <p><p>
+  <code>true</code> if this object has a valid value, otherwise false</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator___const_Nullable___.md&amp;value=---%0Auid%3A%20Nullable.operator!%3D(const%20Nullable%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L295" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator___" data-uid="Nullable.operator!=*"></a>
+  
+  <h4 id="Nullable_operator___const_Nullable___" data-uid="Nullable.operator!=(const Nullable &amp;)"><a href="#collapsible-Nullable_operator___const_Nullable___" class="expander" data-toggle="collapse">operator!=(const Nullable&amp; other)</a></h4>
+  
+  <div id="collapsible-Nullable_operator___const_Nullable___" class="collapse in">
+  <div class="markdown level1 summary"><p>Indicates whether this instance is NOT equal to other one. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool operator!=(const Nullable&amp; other) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other object.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>
+  <code>true</code> if both values are not equal.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator__const_Nullable___.md&amp;value=---%0Auid%3A%20Nullable.operator%3D(const%20Nullable%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator__" data-uid="Nullable.operator=*"></a>
+  
+  <h4 id="Nullable_operator__const_Nullable___" data-uid="Nullable.operator=(const Nullable &amp;)"><a href="#collapsible-Nullable_operator__const_Nullable___" class="expander" data-toggle="collapse">operator=(const Nullable&amp; other)</a></h4>
+  
+  <div id="collapsible-Nullable_operator__const_Nullable___" class="collapse in">
+  <div class="markdown level1 summary"><p>Reassigns the wrapped value by copying another <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a>. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable operator=(const Nullable&amp; other)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
+        <span class="parametername">other</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Nullable.html">Nullable</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator__const_T___.md&amp;value=---%0Auid%3A%20Nullable.operator%3D(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator__" data-uid="Nullable.operator=*"></a>
+  
+  <h4 id="Nullable_operator__const_T___" data-uid="Nullable.operator=(const T &amp;)"><a href="#collapsible-Nullable_operator__const_T___" class="expander" data-toggle="collapse">operator=(const T&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_operator__const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Reassigns the wrapped value by copying. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable operator=(const T&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Nullable.html">Nullable</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator__Nullable____.md&amp;value=---%0Auid%3A%20Nullable.operator%3D(Nullable%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator__" data-uid="Nullable.operator=*"></a>
+  
+  <h4 id="Nullable_operator__Nullable____" data-uid="Nullable.operator=(Nullable &amp;&amp;)"><a href="#collapsible-Nullable_operator__Nullable____" class="expander" data-toggle="collapse">operator=(Nullable&amp;&amp; other)</a></h4>
+  
+  <div id="collapsible-Nullable_operator__Nullable____" class="collapse in">
+  <div class="markdown level1 summary"><p>Reassigns the wrapped value by moving another <a class="xref" href="Nullable.html#Nullable_Nullable__">Nullable()</a>. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable operator=(Nullable&amp;&amp; other) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
+        <span class="parametername">other</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Nullable.html">Nullable</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator__T____.md&amp;value=---%0Auid%3A%20Nullable.operator%3D(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L106" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator__" data-uid="Nullable.operator=*"></a>
+  
+  <h4 id="Nullable_operator__T____" data-uid="Nullable.operator=(T &amp;&amp;)"><a href="#collapsible-Nullable_operator__T____" class="expander" data-toggle="collapse">operator=(T&amp;&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_operator__T____" class="collapse in">
+  <div class="markdown level1 summary"><p>Reassigns the wrapped value by moving. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public Nullable operator=(T&amp;&amp; value) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Nullable.html">Nullable</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_operator___const_Nullable___.md&amp;value=---%0Auid%3A%20Nullable.operator%3D%3D(const%20Nullable%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L285" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_operator___" data-uid="Nullable.operator==*"></a>
+  
+  <h4 id="Nullable_operator___const_Nullable___" data-uid="Nullable.operator==(const Nullable &amp;)"><a href="#collapsible-Nullable_operator___const_Nullable___" class="expander" data-toggle="collapse">operator==(const Nullable&amp; other)</a></h4>
+  
+  <div id="collapsible-Nullable_operator___const_Nullable___" class="collapse in">
+  <div class="markdown level1 summary"><p>Indicates whether this instance is equal to other one. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool operator==(const Nullable&amp; other) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Nullable.html">Nullable</a></span>
+        <span class="parametername">other</span>
+        <p><p>The other object.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>
+  <code>true</code> if both values are equal.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_Reset__.md&amp;value=---%0Auid%3A%20Nullable.Reset()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L261" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_Reset_" data-uid="Nullable.Reset*"></a>
+  
+  <h4 id="Nullable_Reset__" data-uid="Nullable.Reset()"><a href="#collapsible-Nullable_Reset__" class="expander" data-toggle="collapse">Reset()</a></h4>
+  
+  <div id="collapsible-Nullable_Reset__" class="collapse in">
+  <div class="markdown level1 summary"><p>Disposes the wrapped value and sets the wrapped value to null. If the wrapped value is not valid, does nothing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Reset()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_SetValue_const_T___.md&amp;value=---%0Auid%3A%20Nullable.SetValue(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L211" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_SetValue_" data-uid="Nullable.SetValue*"></a>
+  
+  <h4 id="Nullable_SetValue_const_T___" data-uid="Nullable.SetValue(const T &amp;)"><a href="#collapsible-Nullable_SetValue_const_T___" class="expander" data-toggle="collapse">SetValue(const T&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_SetValue_const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the wrapped value by copying. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetValue(const T&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value to be copied.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_SetValue_T____.md&amp;value=---%0Auid%3A%20Nullable.SetValue(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L223" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_SetValue_" data-uid="Nullable.SetValue*"></a>
+  
+  <h4 id="Nullable_SetValue_T____" data-uid="Nullable.SetValue(T &amp;&amp;)"><a href="#collapsible-Nullable_SetValue_T____" class="expander" data-toggle="collapse">SetValue(T&amp;&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_SetValue_T____" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the wrapped value by moving. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void SetValue(T&amp;&amp; value) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value to be moved.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">void</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_TrySet_const_T___.md&amp;value=---%0Auid%3A%20Nullable.TrySet(const%20T%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L236" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_TrySet_" data-uid="Nullable.TrySet*"></a>
+  
+  <h4 id="Nullable_TrySet_const_T___" data-uid="Nullable.TrySet(const T &amp;)"><a href="#collapsible-Nullable_TrySet_const_T___" class="expander" data-toggle="collapse">TrySet(const T&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_TrySet_const_T___" class="collapse in">
+  <div class="markdown level1 summary"><p>If the wrapped value is not valid, sets it by copying. Otherwise, does nothing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool TrySet(const T&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if the wrapped value was changed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename U</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">typename</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable_TrySet_T____.md&amp;value=---%0Auid%3A%20Nullable.TrySet(T%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L249" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Nullable_TrySet_" data-uid="Nullable.TrySet*"></a>
+  
+  <h4 id="Nullable_TrySet_T____" data-uid="Nullable.TrySet(T &amp;&amp;)"><a href="#collapsible-Nullable_TrySet_T____" class="expander" data-toggle="collapse">TrySet(T&amp;&amp; value)</a></h4>
+  
+  <div id="collapsible-Nullable_TrySet_T____" class="collapse in">
+  <div class="markdown level1 summary"><p>If the wrapped value is not valid, sets it by moving. Otherwise, does nothing. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool TrySet(T&amp;&amp; value) noexcept</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">value</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if the wrapped value was changed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   
   
 </article>
@@ -293,7 +1496,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Nullable.md&amp;value=---%0Auid%3A%20Nullable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L125" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Types/Nullable.h/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

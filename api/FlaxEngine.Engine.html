@@ -160,6 +160,44 @@ public static string CommandLine { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Engine_FatalError_" data-uid="FlaxEngine.Engine.FatalError*"></a>
+  
+  <h4 id="FlaxEngine_Engine_FatalError" data-uid="FlaxEngine.Engine.FatalError"><a href="#collapsible-FlaxEngine_Engine_FatalError" class="expander" data-toggle="collapse">FatalError</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Engine_FatalError" class="collapse in">
+  <div class="markdown level1 summary"><p>The current state of the fatal error. Set to None if no error occurred yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static FatalErrorType FatalError { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.FatalErrorType.html">FatalErrorType</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Engine_FrameCount_" data-uid="FlaxEngine.Engine.FrameCount*"></a>
   
   <h4 id="FlaxEngine_Engine_FrameCount" data-uid="FlaxEngine.Engine.FrameCount"><a href="#collapsible-FlaxEngine_Engine_FrameCount" class="expander" data-toggle="collapse">FrameCount</a></h4>
@@ -388,6 +426,44 @@ public static bool IsHeadless { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Engine_IsRequestingExit_" data-uid="FlaxEngine.Engine.IsRequestingExit*"></a>
+  
+  <h4 id="FlaxEngine_Engine_IsRequestingExit" data-uid="FlaxEngine.Engine.IsRequestingExit"><a href="#collapsible-FlaxEngine_Engine_IsRequestingExit" class="expander" data-toggle="collapse">IsRequestingExit</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Engine_IsRequestingExit" class="collapse in">
+  <div class="markdown level1 summary"><p>Flags set to true if engine needs to be closed (exit is pending). Use FatalError to determinate the exit reason (specific error or normal shutdown).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static bool IsRequestingExit { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Engine_StartupTime_" data-uid="FlaxEngine.Engine.StartupTime*"></a>
   
   <h4 id="FlaxEngine_Engine_StartupTime" data-uid="FlaxEngine.Engine.StartupTime"><a href="#collapsible-FlaxEngine_Engine_StartupTime" class="expander" data-toggle="collapse">StartupTime</a></h4>
@@ -504,6 +580,55 @@ public static TaskGraph UpdateGraph { get; }</code></pre>
   </h3>
   
   
+  <a id="FlaxEngine_Engine_Exit_" data-uid="FlaxEngine.Engine.Exit*"></a>
+  
+  <h4 id="FlaxEngine_Engine_Exit_System_Int32_FlaxEngine_FatalErrorType_" data-uid="FlaxEngine.Engine.Exit(System.Int32,FlaxEngine.FatalErrorType)"><a href="#collapsible-FlaxEngine_Engine_Exit_System_Int32_FlaxEngine_FatalErrorType_" class="expander" data-toggle="collapse">Exit(Int32, FatalErrorType)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Engine_Exit_System_Int32_FlaxEngine_FatalErrorType_" class="collapse in">
+  <div class="markdown level1 summary"><p>Exits the engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DebugCommand]
+[Unmanaged]
+public static void Exit(int exitCode = -1, FatalErrorType error)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">exitCode</span>
+        <p><p>The exit code.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.FatalErrorType.html">FatalErrorType</a></span>
+        <span class="parametername">error</span>
+        <p><p>The fatal error type (or None on graceful exit).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Engine_FocusGameViewport_" data-uid="FlaxEngine.Engine.FocusGameViewport*"></a>
   
   <h4 id="FlaxEngine_Engine_FocusGameViewport" data-uid="FlaxEngine.Engine.FocusGameViewport"><a href="#collapsible-FlaxEngine_Engine_FocusGameViewport" class="expander" data-toggle="collapse">FocusGameViewport()</a></h4>
@@ -585,9 +710,9 @@ public static JsonAsset GetCustomSettings(string key)</code></pre>
   
   <a id="FlaxEngine_Engine_RequestExit_" data-uid="FlaxEngine.Engine.RequestExit*"></a>
   
-  <h4 id="FlaxEngine_Engine_RequestExit_System_Int32_" data-uid="FlaxEngine.Engine.RequestExit(System.Int32)"><a href="#collapsible-FlaxEngine_Engine_RequestExit_System_Int32_" class="expander" data-toggle="collapse">RequestExit(Int32)</a></h4>
+  <h4 id="FlaxEngine_Engine_RequestExit_System_Int32_FlaxEngine_FatalErrorType_" data-uid="FlaxEngine.Engine.RequestExit(System.Int32,FlaxEngine.FatalErrorType)"><a href="#collapsible-FlaxEngine_Engine_RequestExit_System_Int32_FlaxEngine_FatalErrorType_" class="expander" data-toggle="collapse">RequestExit(Int32, FatalErrorType)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Engine_RequestExit_System_Int32_" class="collapse in">
+  <div id="collapsible-FlaxEngine_Engine_RequestExit_System_Int32_FlaxEngine_FatalErrorType_" class="collapse in">
   <div class="markdown level1 summary"><p>Requests normal engine exit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -595,7 +720,7 @@ public static JsonAsset GetCustomSettings(string key)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void RequestExit(int exitCode = 0)</code></pre>
+public static void RequestExit(int exitCode = 0, FatalErrorType error)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -605,6 +730,14 @@ public static void RequestExit(int exitCode = 0)</code></pre>
         <span class="pull-right"><span class="xref">System.Int32</span></span>
         <span class="parametername">exitCode</span>
         <p><p>The exit code.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.FatalErrorType.html">FatalErrorType</a></span>
+        <span class="parametername">error</span>
+        <p><p>The fatal error type (or None on graceful exit).</p>
 </p>
       </td>
     </tr>
@@ -623,6 +756,43 @@ public static void RequestExit(int exitCode = 0)</code></pre>
   </div>
   <h3 id="events">Events
   </h3>
+  
+  
+  
+  <h4 id="FlaxEngine_Engine_ReportCrash" data-uid="FlaxEngine.Engine.ReportCrash"><a href="#collapsible-FlaxEngine_Engine_ReportCrash" class="expander" data-toggle="collapse">ReportCrash</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Engine_ReportCrash" class="collapse in">
+  <div class="markdown level1 summary"><p>The custom handler for engine crash handling and reporting. Can be used to override default message box with a custom one or send crash report to telemetry service. Args are: error message and context pointer (for stack-trace access).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;string, IntPtr&gt; ReportCrash</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.IntPtr</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   

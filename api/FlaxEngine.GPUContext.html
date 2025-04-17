@@ -546,9 +546,9 @@ public void BindUA(int slot, GPUResourceView view)</code></pre>
   
   <a id="FlaxEngine_GPUContext_BindVB_" data-uid="FlaxEngine.GPUContext.BindVB*"></a>
   
-  <h4 id="FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__" data-uid="FlaxEngine.GPUContext.BindVB(FlaxEngine.GPUBuffer[],System.UInt32*)"><a href="#collapsible-FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__" class="expander" data-toggle="collapse">BindVB(GPUBuffer[], UInt32*)</a></h4>
+  <h4 id="FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__FlaxEngine_GPUVertexLayout_" data-uid="FlaxEngine.GPUContext.BindVB(FlaxEngine.GPUBuffer[],System.UInt32*,FlaxEngine.GPUVertexLayout)"><a href="#collapsible-FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__FlaxEngine_GPUVertexLayout_" class="expander" data-toggle="collapse">BindVB(GPUBuffer[], UInt32*, GPUVertexLayout)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__" class="collapse in">
+  <div id="collapsible-FlaxEngine_GPUContext_BindVB_FlaxEngine_GPUBuffer___System_UInt32__FlaxEngine_GPUVertexLayout_" class="collapse in">
   <div class="markdown level1 summary"><p>Binds the vertex buffers to the pipeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -556,7 +556,7 @@ public void BindUA(int slot, GPUResourceView view)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public void BindVB(GPUBuffer[] vertexBuffers, uint *vertexBuffersOffsets = default(uint *))</code></pre>
+public void BindVB(GPUBuffer[] vertexBuffers, uint *vertexBuffersOffsets = default(uint *), GPUVertexLayout vertexLayout = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -574,6 +574,14 @@ public void BindVB(GPUBuffer[] vertexBuffers, uint *vertexBuffersOffsets = defau
         <span class="pull-right"><span class="xref">System.UInt32</span>*</span>
         <span class="parametername">vertexBuffersOffsets</span>
         <p><p>The optional array of byte offsets from the vertex buffers begins. Can be used to offset the vertex data when reusing the same buffer allocation for multiple geometry objects.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">vertexLayout</span>
+        <p><p>The optional vertex layout to use when passing data from vertex buffers to the vertex shader. If null, layout will be automatically extracted from vertex buffers combined.</p>
 </p>
       </td>
     </tr>

@@ -342,6 +342,42 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   
   
   </div>
+  
+  
+  
+  <h4 id="FlaxEngine_GPUBufferDescription_VertexLayout" data-uid="FlaxEngine.GPUBufferDescription.VertexLayout"><a href="#collapsible-FlaxEngine_GPUBufferDescription_VertexLayout" class="expander" data-toggle="collapse">VertexLayout</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_VertexLayout" class="collapse in">
+  <div class="markdown level1 summary"><p>The vertex elements layout used by vertex buffers only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GPUVertexLayout VertexLayout</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="properties">Properties
   </h3>
   
@@ -1408,12 +1444,50 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   </div>
   
   
+  <a id="FlaxEngine_GPUBufferDescription_ToStaging_" data-uid="FlaxEngine.GPUBufferDescription.ToStaging*"></a>
+  
+  <h4 id="FlaxEngine_GPUBufferDescription_ToStaging" data-uid="FlaxEngine.GPUBufferDescription.ToStaging"><a href="#collapsible-FlaxEngine_GPUBufferDescription_ToStaging" class="expander" data-toggle="collapse">ToStaging()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_ToStaging" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the staging (CPU read/write) description for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GPUBufferDescription ToStaging()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GPUBufferDescription.html">GPUBufferDescription</a>
+        <p><p>A staging buffer description</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GPUBufferDescription_ToStagingReadback_" data-uid="FlaxEngine.GPUBufferDescription.ToStagingReadback*"></a>
   
   <h4 id="FlaxEngine_GPUBufferDescription_ToStagingReadback" data-uid="FlaxEngine.GPUBufferDescription.ToStagingReadback"><a href="#collapsible-FlaxEngine_GPUBufferDescription_ToStagingReadback" class="expander" data-toggle="collapse">ToStagingReadback()</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUBufferDescription_ToStagingReadback" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the staging readback description for this instance.</p>
+  <div class="markdown level1 summary"><p>Gets the staging readback (CPU read) description for this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1451,7 +1525,7 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   <h4 id="FlaxEngine_GPUBufferDescription_ToStagingUpload" data-uid="FlaxEngine.GPUBufferDescription.ToStagingUpload"><a href="#collapsible-FlaxEngine_GPUBufferDescription_ToStagingUpload" class="expander" data-toggle="collapse">ToStagingUpload()</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUBufferDescription_ToStagingUpload" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the staging upload description for this instance.</p>
+  <div class="markdown level1 summary"><p>Gets the staging upload (CPU write) description for this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1646,10 +1720,157 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   
   <a id="FlaxEngine_GPUBufferDescription_Vertex_" data-uid="FlaxEngine.GPUBufferDescription.Vertex*"></a>
   
+  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(FlaxEngine.GPUVertexLayout,System.Int32,System.Int32,FlaxEngine.GPUResourceUsage)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" class="expander" data-toggle="collapse">Vertex(GPUVertexLayout, Int32, Int32, GPUResourceUsage)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates vertex buffer description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(GPUVertexLayout layout, int elementStride, int elementsCount, GPUResourceUsage usage)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">layout</span>
+        <p><p>The vertex buffer layout.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">elementStride</span>
+        <p><p>The element stride.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">elementsCount</span>
+        <p><p>The elements count.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUResourceUsage.html">GPUResourceUsage</a></span>
+        <span class="parametername">usage</span>
+        <p><p>The usage mode.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GPUBufferDescription.html">GPUBufferDescription</a>
+        <p><p>The buffer description.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GPUBufferDescription_Vertex_" data-uid="FlaxEngine.GPUBufferDescription.Vertex*"></a>
+  
+  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_System_IntPtr_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(FlaxEngine.GPUVertexLayout,System.Int32,System.Int32,System.IntPtr)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_System_IntPtr_" class="expander" data-toggle="collapse">Vertex(GPUVertexLayout, Int32, Int32, IntPtr)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_FlaxEngine_GPUVertexLayout_System_Int32_System_Int32_System_IntPtr_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates vertex buffer description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(GPUVertexLayout layout, int elementStride, int elementsCount, IntPtr data)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">layout</span>
+        <p><p>The vertex buffer layout.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">elementStride</span>
+        <p><p>The element stride.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">elementsCount</span>
+        <p><p>The elements count.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">data</span>
+        <p><p>The data.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GPUBufferDescription.html">GPUBufferDescription</a>
+        <p><p>The buffer description.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GPUBufferDescription_Vertex_" data-uid="FlaxEngine.GPUBufferDescription.Vertex*"></a>
+  
   <h4 id="FlaxEngine_GPUBufferDescription_Vertex_System_Int32_FlaxEngine_GPUResourceUsage_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(System.Int32,FlaxEngine.GPUResourceUsage)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_FlaxEngine_GPUResourceUsage_" class="expander" data-toggle="collapse">Vertex(Int32, GPUResourceUsage)</a></h4>
   
   <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_FlaxEngine_GPUResourceUsage_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates vertex buffer description.</p>
+  <div class="markdown level1 summary"><p>Creates vertex buffer description.
+[Deprecated in v1.10]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1703,16 +1924,16 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   
   <a id="FlaxEngine_GPUBufferDescription_Vertex_" data-uid="FlaxEngine.GPUBufferDescription.Vertex*"></a>
   
-  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(System.Int32,System.Int32,FlaxEngine.GPUResourceUsage)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" class="expander" data-toggle="collapse">Vertex(Int32, Int32, GPUResourceUsage)</a></h4>
+  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_FlaxEngine_GPUVertexLayout_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(System.Int32,System.Int32,FlaxEngine.GPUResourceUsage,FlaxEngine.GPUVertexLayout)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_FlaxEngine_GPUVertexLayout_" class="expander" data-toggle="collapse">Vertex(Int32, Int32, GPUResourceUsage, GPUVertexLayout)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_" class="collapse in">
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_FlaxEngine_GPUResourceUsage_FlaxEngine_GPUVertexLayout_" class="collapse in">
   <div class="markdown level1 summary"><p>Creates vertex buffer description.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(int elementStride, int elementsCount, GPUResourceUsage usage)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(int elementStride, int elementsCount, GPUResourceUsage usage, GPUVertexLayout layout = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1738,6 +1959,14 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
         <span class="pull-right"><a class="xref" href="FlaxEngine.GPUResourceUsage.html">GPUResourceUsage</a></span>
         <span class="parametername">usage</span>
         <p><p>The usage mode.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">layout</span>
+        <p><p>The vertex buffer layout.</p>
 </p>
       </td>
     </tr>
@@ -1768,16 +1997,16 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
   
   <a id="FlaxEngine_GPUBufferDescription_Vertex_" data-uid="FlaxEngine.GPUBufferDescription.Vertex*"></a>
   
-  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(System.Int32,System.Int32,System.IntPtr)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_" class="expander" data-toggle="collapse">Vertex(Int32, Int32, IntPtr)</a></h4>
+  <h4 id="FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_FlaxEngine_GPUVertexLayout_" data-uid="FlaxEngine.GPUBufferDescription.Vertex(System.Int32,System.Int32,System.IntPtr,FlaxEngine.GPUVertexLayout)"><a href="#collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_FlaxEngine_GPUVertexLayout_" class="expander" data-toggle="collapse">Vertex(Int32, Int32, IntPtr, GPUVertexLayout)</a></h4>
   
-  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_" class="collapse in">
+  <div id="collapsible-FlaxEngine_GPUBufferDescription_Vertex_System_Int32_System_Int32_System_IntPtr_FlaxEngine_GPUVertexLayout_" class="collapse in">
   <div class="markdown level1 summary"><p>Creates vertex buffer description.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(int elementStride, int elementsCount, IntPtr data)</code></pre>
+    <pre><code class="lang-csharp hljs">public static GPUBufferDescription Vertex(int elementStride, int elementsCount, IntPtr data, GPUVertexLayout layout = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1803,6 +2032,14 @@ public sealed class GPUBufferDescription : ValueType, IEquatable&lt;GPUBufferDes
         <span class="pull-right"><span class="xref">System.IntPtr</span></span>
         <span class="parametername">data</span>
         <p><p>The data.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">layout</span>
+        <p><p>The vertex buffer layout.</p>
 </p>
       </td>
     </tr>

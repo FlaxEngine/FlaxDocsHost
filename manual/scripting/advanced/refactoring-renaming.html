@@ -101,7 +101,7 @@ public float PlayerSpeed;
 [JsonProperty(&quot;PlayerSpeed&quot;)]
 public float Speed;
 </code></pre><h2 id="moving-fields-or-properties-when-refactoring-code">Moving fields or properties when refactoring code</h2>
-<p>In this example, asset had field named <code>WalkableRadius</code> but it was removed and refactored into structure <code>SurfaceOptions</code>. By adding property you can use its setter method to perform data upgrade on deserialization. Make it <code>private</code>, add <code>Serialize</code> attribute so it will be using serialization and mark as <code>Obsolete</code> so it won&#39;t be saved anymore.</p>
+<p>In this example, asset had field named <code>WalkableRadius</code> but it was removed and refactored into structure <code>SurfaceOptions</code>. By adding property you can use its setter method to perform data upgrade on deserialization. Make it <code>private</code>, add <code>Serialize</code> attribute so it will be using serialization and mark as <code>Obsolete</code> so it won&#39;t be saved anymore. <code>ContentDeprecated.Mark</code> can be used to indicate that object upgraded its data from the old format which wil cause source asset saving in Editor.</p>
 <div class="tabGroup" id="tabgroup_fFxQYdsBko">
 <ul role="tablist">
 <li role="presentation">
@@ -130,11 +130,18 @@ private float WalkableRadius
     {
         // Upgrade value
         Surface.WalkRadius = value;
+
+#if FLAX_EDITOR
+        // Mark content as deprecated (engine will resave asset)
+        ContentDeprecated.Mark();
+#endif
     }
 }
 </code></pre></section>
 <section id="tabpanel_fFxQYdsBko_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
-<pre><code class="lang-cpp">// If your type is using API_AUTO_SERIALIZATION() then add deprecated property upgrader:
+<pre><code class="lang-cpp">#include &quot;Engine/Content/Deprecated.h&quot;
+
+// If your type is using API_AUTO_SERIALIZATION() then add deprecated property upgrader:
 private:
 API_PROPERTY(Attributes=&quot;Serialize, Obsolete, NoUndo&quot;) float GetWalkableRadius() const
 {
@@ -145,6 +152,9 @@ API_PROPERTY(Attributes=&quot;Serialize, Obsolete, NoUndo&quot;) void SetWalkabl
 {
     // Upgrade value
     Surface.WalkRadius = value;
+
+    // Mark content as deprecated (engine will resave asset)
+    MARK_CONTENT_DEPRECATED();
 }
 
 // If you manually serialize your type, then read the old json entry during deserialization:
@@ -165,7 +175,7 @@ void MyType::Deserialize(DeserializeStream&amp; stream, ISerializeModifier* modi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/advanced/refactoring-renaming.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/advanced/refactoring-renaming.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

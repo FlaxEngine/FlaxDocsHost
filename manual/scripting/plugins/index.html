@@ -256,7 +256,14 @@ void MyPlugin::Deinitialize()
 </code></pre></section>
 </div>
 <p>Your game can also use a Game Plugins within a code to implement various gameplay features because plugins don&#39;t rely on loaded scenes or scene objects and are created before the scenes loading (compared to the normal scripts).</p>
-<h3 id="game-plugin-settings">Game Plugin Settings</h3>
+<h3 id="how-to-get-your-game-plugin">How to get your Game Plugin</h3>
+<p>You can now get a reference to your Game Plugin with:</p>
+<pre><code class="lang-cs">MyPlugin gamePlugin = PluginManager.GetPlugin&lt;MyPlugin&gt;();
+</code></pre><p>To make access to the plugin easier, you can define an Instance property in your MyPlugin class like this:</p>
+<pre><code class="lang-cs">public static MyPlugin Instance { get =&gt; PluginManager.GetPlugin&lt;MyPlugin&gt;(); }
+</code></pre><p>Now you can access the Game Plugin like this:</p>
+<pre><code class="lang-cs">MyPlugin gamePlugin  = MyPlugin.Instance;
+</code></pre><h3 id="game-plugin-settings">Game Plugin Settings</h3>
 <p>If you need to include custom settings for your plugin see <a href="../tutorials/custom-settings.html">this tutorial</a> to learn more.</p>
 <h3 id="game-plugin-assets">Game Plugin Assets</h3>
 <p>If you want to bundle custom assets used in code-only plugin (eg. shader or debug model) override <code>GetReferences</code> method as follows and provide IDs of the assets to include:</p>
@@ -292,7 +299,7 @@ public override Guid[] GetReferences()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/scripting/plugins/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

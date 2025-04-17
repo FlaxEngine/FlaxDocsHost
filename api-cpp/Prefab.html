@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="Prefab">
   <h1 id="Prefab" data-uid="Prefab">Class Prefab
   </h1>
-  <div class="markdown level0 summary"><p>Json asset that stores the collection of scene objects including actors and scripts. In general it can serve as any grouping of scene objects (for example a level) or be used as a form of a template instantiated and reused throughout the scene. </p></div>
+  <div class="markdown level0 summary"><p>Json asset that stores the collection of scene objects including actors and scripts. In general, it can serve as any grouping of scene objects (for example a level) or be used as a form of a template instantiated and reused throughout the scene. </p></div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="inheritance">
@@ -118,6 +118,9 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject__id">ScriptingObject::_id</a>
+    </div>
+    <div>
+      <a class="xref" href="JsonAssetBase.html#JsonAssetBase__isResaving">JsonAssetBase::_isResaving</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset__isVirtual">Asset::_isVirtual</a>
@@ -312,6 +315,9 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_NewObject__">ScriptingObject::NewObject()</a>
     </div>
     <div>
+      <a class="xref" href="Asset.html#Asset_OnCheckSave_const_StringView___">Asset::OnCheckSave(const StringView&amp; path=StringView::Empty)</a>
+    </div>
+    <div>
       <a class="xref" href="Asset.html#Asset_OnDeleteObject__">Asset::OnDeleteObject()</a>
     </div>
     <div>
@@ -360,10 +366,13 @@
       <a class="xref" href="Asset.html#Asset_RemoveReference__">Asset::RemoveReference()</a>
     </div>
     <div>
+      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_Save_JsonWriter___">JsonAssetBase::Save(JsonWriter&amp; writer)</a>
+    </div>
+    <div>
       <a class="xref" href="JsonAssetBase.html#JsonAssetBase_Save_const_StringView___">JsonAssetBase::Save(const StringView&amp; path=StringView::Empty)</a>
     </div>
     <div>
-      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_Save_JsonWriter___">JsonAssetBase::Save(JsonWriter&amp; writer)</a>
+      <a class="xref" href="JsonAssetBase.html#JsonAssetBase_saveInternal_JsonWriter___">JsonAssetBase::saveInternal(JsonWriter&amp; writer)</a>
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_ScriptingObject_const_SpawnParams___">ScriptingObject::ScriptingObject(const SpawnParams&amp; params)</a>
@@ -687,7 +696,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_ApplyAll_Actor___.md&amp;value=---%0Auid%3A%20Prefab.ApplyAll(Actor%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L81" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_ApplyAll_" data-uid="Prefab.ApplyAll*"></a>
@@ -695,7 +704,7 @@
   <h4 id="Prefab_ApplyAll_Actor___" data-uid="Prefab.ApplyAll(Actor *)"><a href="#collapsible-Prefab_ApplyAll_Actor___" class="expander" data-toggle="collapse">ApplyAll(Actor* targetActor)</a></h4>
   
   <div id="collapsible-Prefab_ApplyAll_Actor___" class="collapse in">
-  <div class="markdown level1 summary"><p>Applies the difference from the prefab object instance, saves the changes and synchronizes them with the active instances of the prefab asset. </p><p>Applies all the changes from not only the given actor instance but all actors created within that prefab instance. </p>
+  <div class="markdown level1 summary"><p>Applies the difference from the prefab object instance, saves the changes and synchronizes them with the active instances of the prefab asset. </p><p>Applies all the changes from not only the given actor instance but all actors created within that prefab instance.</p>
 <p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -720,7 +729,7 @@
     <tr>
       <td>
         <span class="xref">bool</span>
-        <p>
+        <p><p>True if failed, otherwise false.</p></p>
       </td>
     </tr>
   </table>
@@ -834,6 +843,73 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_GetNestedObject_const_Guid___Guid___Guid___.md&amp;value=---%0Auid%3A%20Prefab.GetNestedObject(const%20Guid%20%26%2CGuid%20%26%2CGuid%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Prefab_GetNestedObject_" data-uid="Prefab.GetNestedObject*"></a>
+  
+  <h4 id="Prefab_GetNestedObject_const_Guid___Guid___Guid___" data-uid="Prefab.GetNestedObject(const Guid &amp;,Guid &amp;,Guid &amp;)"><a href="#collapsible-Prefab_GetNestedObject_const_Guid___Guid___Guid___" class="expander" data-toggle="collapse">GetNestedObject(const Guid&amp; objectId, Guid&amp; outPrefabId, Guid&amp; outObjectId)</a></h4>
+  
+  <div id="collapsible-Prefab_GetNestedObject_const_Guid___Guid___Guid___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the reference to the other nested prefab for a specific prefab object. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool GetNestedObject(const Guid&amp; objectId, Guid&amp; outPrefabId, Guid&amp; outObjectId) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Guid.html">Guid</a></span>
+        <span class="parametername">objectId</span>
+        <p><p>The ID of the object in this prefab.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Guid.html">Guid</a></span>
+        <span class="parametername">outPrefabId</span>
+        <p><p>Result ID of the prefab asset referenced by the given object.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Guid.html">Guid</a></span>
+        <span class="parametername">outObjectId</span>
+        <p><p>Result ID of the prefab object referenced by the given object.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if got valid reference, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_GetRootObjectId__.md&amp;value=---%0Auid%3A%20Prefab.GetRootObjectId()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -880,7 +956,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_loadAsset__.md&amp;value=---%0Auid%3A%20Prefab.loadAsset()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L97" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L111" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_loadAsset_" data-uid="Prefab.loadAsset*"></a>
@@ -922,10 +998,53 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_Resave__.md&amp;value=---%0Auid%3A%20Prefab.Resave()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="Prefab_Resave_" data-uid="Prefab.Resave*"></a>
+  
+  <h4 id="Prefab_Resave__" data-uid="Prefab.Resave()"><a href="#collapsible-Prefab_Resave__" class="expander" data-toggle="collapse">Resave()</a></h4>
+  
+  <div id="collapsible-Prefab_Resave__" class="collapse in">
+  <div class="markdown level1 summary"><p>Resaves the prefab asset to the file by serializing default instance in the latest format and defaults. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool Resave()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=Prefab_unload_bool_.md&amp;value=---%0Auid%3A%20Prefab.unload(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L98" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Prefabs/Prefab.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="Prefab_unload_" data-uid="Prefab.unload*"></a>

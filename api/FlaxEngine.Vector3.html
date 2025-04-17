@@ -1902,7 +1902,7 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
   <h4 id="FlaxEngine_Vector3_Angle_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Vector3.Angle(FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Vector3_Angle_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">Angle(Vector3, Vector3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector3_Angle_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="collapse in">
-  <div class="markdown level1 summary"><p>Calculates the angle (in degrees) between <code data-dev-comment-type="paramref" class="paramref">from</code> and <code data-dev-comment-type="paramref" class="paramref">to</code>. This is always the smallest value.</p>
+  <div class="markdown level1 summary"><p>Calculates the angle (in degrees) between <code data-dev-comment-type="paramref" class="paramref">from</code> and <code data-dev-comment-type="paramref" class="paramref">to</code> vectors. This is always the smallest value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -5660,6 +5660,71 @@ public sealed class Vector3 : ValueType, IEquatable&lt;Vector3&gt;, IFormattable
   </div>
   
   
+  <a id="FlaxEngine_Vector3_SignedAngle_" data-uid="FlaxEngine.Vector3.SignedAngle*"></a>
+  
+  <h4 id="FlaxEngine_Vector3_SignedAngle_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_" data-uid="FlaxEngine.Vector3.SignedAngle(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3)"><a href="#collapsible-FlaxEngine_Vector3_SignedAngle_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="expander" data-toggle="collapse">SignedAngle(Vector3, Vector3, Vector3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_SignedAngle_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3_" class="collapse in">
+  <div class="markdown level1 summary"><p>Calculates the signed angle (in degrees) between <code data-dev-comment-type="paramref" class="paramref">from</code> and <code data-dev-comment-type="paramref" class="paramref">to</code> vectors. This is always the smallest value. The sign of the result depends on: the order of input vectors, and the direction of the <code data-dev-comment-type="paramref" class="paramref">axis</code> vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SignedAngle(Vector3 from, Vector3 to, Vector3 axis)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">from</span>
+        <p><p>The first vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">to</span>
+        <p><p>The second vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">axis</span>
+        <p><p>The axis around which the vectors are rotated.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p><p>The angle (in degrees).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Vector3_SmoothDamp_" data-uid="FlaxEngine.Vector3.SmoothDamp*"></a>
   
   <h4 id="FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_" data-uid="FlaxEngine.Vector3.SmoothDamp(FlaxEngine.Vector3,FlaxEngine.Vector3,FlaxEngine.Vector3@,System.Single)"><a href="#collapsible-FlaxEngine_Vector3_SmoothDamp_FlaxEngine_Vector3_FlaxEngine_Vector3_FlaxEngine_Vector3__System_Single_" class="expander" data-toggle="collapse">SmoothDamp(Vector3, Vector3, ref Vector3, Single)</a></h4>
@@ -8235,6 +8300,55 @@ rather than location because normal vectors should not be translated.</p>
   
   <a id="FlaxEngine_Vector3_op_Explicit_" data-uid="FlaxEngine.Vector3.op_Explicit*"></a>
   
+  <h4 id="FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Int3" data-uid="FlaxEngine.Vector3.op_Explicit(FlaxEngine.Vector3)~FlaxEngine.Int3"><a href="#collapsible-FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Int3" class="expander" data-toggle="collapse">Explicit(Vector3 to Int3)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Int3" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> to <a class="xref" href="FlaxEngine.Int3.html">Int3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Int3(Vector3 value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector3.html">Vector3</a></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Int3.html">Int3</a>
+        <p><p>The result of the conversion.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector3_op_Explicit_" data-uid="FlaxEngine.Vector3.op_Explicit*"></a>
+  
   <h4 id="FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Vector2" data-uid="FlaxEngine.Vector3.op_Explicit(FlaxEngine.Vector3)~FlaxEngine.Vector2"><a href="#collapsible-FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Vector2" class="expander" data-toggle="collapse">Explicit(Vector3 to Vector2)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector3_op_Explicit_FlaxEngine_Vector3__FlaxEngine_Vector2" class="collapse in">
@@ -8336,7 +8450,7 @@ rather than location because normal vectors should not be translated.</p>
   <h4 id="FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Double3" data-uid="FlaxEngine.Vector3.op_Implicit(FlaxEngine.Vector3)~FlaxEngine.Double3"><a href="#collapsible-FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Double3" class="expander" data-toggle="collapse">Implicit(Vector3 to Double3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Double3" class="collapse in">
-  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> to <a class="xref" href="FlaxEngine.Double3.html">Double3</a>.</p>
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> to <a class="xref" href="FlaxEngine.Double3.html">Double3</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -8385,7 +8499,7 @@ rather than location because normal vectors should not be translated.</p>
   <h4 id="FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Float3" data-uid="FlaxEngine.Vector3.op_Implicit(FlaxEngine.Vector3)~FlaxEngine.Float3"><a href="#collapsible-FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Float3" class="expander" data-toggle="collapse">Implicit(Vector3 to Float3)</a></h4>
   
   <div id="collapsible-FlaxEngine_Vector3_op_Implicit_FlaxEngine_Vector3__FlaxEngine_Float3" class="collapse in">
-  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> to <a class="xref" href="FlaxEngine.Float3.html">Float3</a>.</p>
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="FlaxEngine.Vector3.html">Vector3</a> to <a class="xref" href="FlaxEngine.Float3.html">Float3</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

@@ -118,6 +118,18 @@
       <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_GetSlot_System_String_">ModelBase.GetSlot(String)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_GetLOD_System_Int32_">ModelBase.GetLOD(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_GetMesh_System_Int32_System_Int32_">ModelBase.GetMesh(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_GetMeshes_FlaxEngine_MeshBase____System_Int32_">ModelBase.GetMeshes(MeshBase[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_Save_System_Boolean_System_String_">ModelBase.Save(Boolean, String)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_MinScreenSize">ModelBase.MinScreenSize</a>
     </div>
     <div>
@@ -125,6 +137,12 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_MaterialSlotsCount">ModelBase.MaterialSlotsCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_LoadedLODs">ModelBase.LoadedLODs</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.ModelBase.html#FlaxEngine_ModelBase_LODsCount">ModelBase.LODsCount</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.BinaryAsset.html#FlaxEngine_BinaryAsset_Reimport">BinaryAsset.Reimport()</a>
@@ -140,6 +158,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_GetReferences">Asset.GetReferences()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_Save_System_String_">Asset.Save(String)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.Asset.html#FlaxEngine_Asset_ToString">Asset.ToString()</a>
@@ -381,44 +402,6 @@ public SkeletonBone[] Bones { get; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.SkeletonBone.html">SkeletonBone</a>[]
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_SkinnedModel_LoadedLODs_" data-uid="FlaxEngine.SkinnedModel.LoadedLODs*"></a>
-  
-  <h4 id="FlaxEngine_SkinnedModel_LoadedLODs" data-uid="FlaxEngine.SkinnedModel.LoadedLODs"><a href="#collapsible-FlaxEngine_SkinnedModel_LoadedLODs" class="expander" data-toggle="collapse">LoadedLODs</a></h4>
-  
-  <div id="collapsible-FlaxEngine_SkinnedModel_LoadedLODs" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the amount of loaded model LODs.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public int LoadedLODs { get; }</code></pre>
-  </div>
-
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Int32</span>
         <p>
       </td>
     </tr>
@@ -801,67 +784,6 @@ public BoundingBox GetBox(int lodIndex = 0)</code></pre>
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="FlaxEngine_SkinnedModel_Save_" data-uid="FlaxEngine.SkinnedModel.Save*"></a>
-  
-  <h4 id="FlaxEngine_SkinnedModel_Save_System_Boolean_System_String_" data-uid="FlaxEngine.SkinnedModel.Save(System.Boolean,System.String)"><a href="#collapsible-FlaxEngine_SkinnedModel_Save_System_Boolean_System_String_" class="expander" data-toggle="collapse">Save(Boolean, String)</a></h4>
-  
-  <div id="collapsible-FlaxEngine_SkinnedModel_Save_System_Boolean_System_String_" class="collapse in">
-  <div class="markdown level1 summary"><p>Saves this asset to the file. Supported only in Editor.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public bool Save(bool withMeshDataFromGpu = false, string path = null)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">withMeshDataFromGpu</span>
-        <p><p>True if save also GPU mesh buffers, otherwise will keep data in storage unmodified. Valid only if saving the same asset to the same location and it&apos;s loaded.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">path</span>
-        <p><p>The custom asset path to use for the saving. Use empty value to save this asset to its own storage location. Can be used to duplicate asset. Must be specified when saving virtual asset.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Boolean</span>
-        <p><p>True if cannot save data, otherwise false.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="FlaxEngine_SkinnedModel_Save_System_Boolean_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If you use saving with the GPU mesh data then the call has to be provided from the thread other than the main game thread.</p>
-</div>
   
   
   

@@ -123,18 +123,56 @@ public sealed class BloomSettings : ValueType</code></pre>
   
   
   
-  <h4 id="FlaxEngine_BloomSettings_BlurSigma" data-uid="FlaxEngine.BloomSettings.BlurSigma"><a href="#collapsible-FlaxEngine_BloomSettings_BlurSigma" class="expander" data-toggle="collapse">BlurSigma</a></h4>
+  <h4 id="FlaxEngine_BloomSettings_BaseMix" data-uid="FlaxEngine.BloomSettings.BaseMix"><a href="#collapsible-FlaxEngine_BloomSettings_BaseMix" class="expander" data-toggle="collapse">BaseMix</a></h4>
   
-  <div id="collapsible-FlaxEngine_BloomSettings_BlurSigma" class="collapse in">
-  <div class="markdown level1 summary"><p>This affects the fall-off of the bloom. It&apos;s the standard deviation (sigma) used in the Gaussian blur formula when calculating the kernel of the bloom.</p>
+  <div id="collapsible-FlaxEngine_BloomSettings_BaseMix" class="collapse in">
+  <div class="markdown level1 summary"><p>Base mip contribution for wider, softer bloom.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 20F, 0.01F)]
-[EditorOrder(3)]
-public float BlurSigma</code></pre>
+    <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.01F)]
+[EditorOrder(5)]
+public float BaseMix</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_BloomSettings_Clamp" data-uid="FlaxEngine.BloomSettings.Clamp"><a href="#collapsible-FlaxEngine_BloomSettings_Clamp" class="expander" data-toggle="collapse">Clamp</a></h4>
+  
+  <div id="collapsible-FlaxEngine_BloomSettings_Clamp" class="collapse in">
+  <div class="markdown level1 summary"><p>Maximum brightness limit for bloom highlights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.1F)]
+[EditorOrder(4)]
+public float Clamp</code></pre>
   </div>
 
   
@@ -198,18 +236,18 @@ public bool Enabled</code></pre>
   
   
   
-  <h4 id="FlaxEngine_BloomSettings_Intensity" data-uid="FlaxEngine.BloomSettings.Intensity"><a href="#collapsible-FlaxEngine_BloomSettings_Intensity" class="expander" data-toggle="collapse">Intensity</a></h4>
+  <h4 id="FlaxEngine_BloomSettings_HighMix" data-uid="FlaxEngine.BloomSettings.HighMix"><a href="#collapsible-FlaxEngine_BloomSettings_HighMix" class="expander" data-toggle="collapse">HighMix</a></h4>
   
-  <div id="collapsible-FlaxEngine_BloomSettings_Intensity" class="collapse in">
-  <div class="markdown level1 summary"><p>Bloom effect strength. Set a value of 0 to disabled it, while higher values increase the effect.</p>
+  <div id="collapsible-FlaxEngine_BloomSettings_HighMix" class="collapse in">
+  <div class="markdown level1 summary"><p>High mip contribution for tighter, core bloom.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 20F, 0.01F)]
-[EditorOrder(1)]
-public float Intensity</code></pre>
+    <pre><code class="lang-csharp hljs">[Limit(0F, 1F, 0.01F)]
+[EditorOrder(6)]
+public float HighMix</code></pre>
   </div>
 
   
@@ -236,18 +274,18 @@ public float Intensity</code></pre>
   
   
   
-  <h4 id="FlaxEngine_BloomSettings_Limit" data-uid="FlaxEngine.BloomSettings.Limit"><a href="#collapsible-FlaxEngine_BloomSettings_Limit" class="expander" data-toggle="collapse">Limit</a></h4>
+  <h4 id="FlaxEngine_BloomSettings_Intensity" data-uid="FlaxEngine.BloomSettings.Intensity"><a href="#collapsible-FlaxEngine_BloomSettings_Intensity" class="expander" data-toggle="collapse">Intensity</a></h4>
   
-  <div id="collapsible-FlaxEngine_BloomSettings_Limit" class="collapse in">
-  <div class="markdown level1 summary"><p>Bloom effect brightness limit. Pixels with higher luminance will be capped to this brightness level.</p>
+  <div id="collapsible-FlaxEngine_BloomSettings_Intensity" class="collapse in">
+  <div class="markdown level1 summary"><p>Overall bloom effect strength. Higher values create a stronger glow effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.01F)]
-[EditorOrder(4)]
-public float Limit</code></pre>
+    <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.001F)]
+[EditorOrder(1)]
+public float Intensity</code></pre>
   </div>
 
   
@@ -277,15 +315,53 @@ public float Limit</code></pre>
   <h4 id="FlaxEngine_BloomSettings_Threshold" data-uid="FlaxEngine.BloomSettings.Threshold"><a href="#collapsible-FlaxEngine_BloomSettings_Threshold" class="expander" data-toggle="collapse">Threshold</a></h4>
   
   <div id="collapsible-FlaxEngine_BloomSettings_Threshold" class="collapse in">
-  <div class="markdown level1 summary"><p>Minimum pixel brightness value to start blooming. Values below this threshold are skipped.</p>
+  <div class="markdown level1 summary"><p>Luminance threshold where bloom begins.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Limit(0F, 15F, 0.01F)]
+    <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.1F)]
 [EditorOrder(2)]
 public float Threshold</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <h4 id="FlaxEngine_BloomSettings_ThresholdKnee" data-uid="FlaxEngine.BloomSettings.ThresholdKnee"><a href="#collapsible-FlaxEngine_BloomSettings_ThresholdKnee" class="expander" data-toggle="collapse">ThresholdKnee</a></h4>
+  
+  <div id="collapsible-FlaxEngine_BloomSettings_ThresholdKnee" class="collapse in">
+  <div class="markdown level1 summary"><p>Controls the threshold rolloff curve. Higher values create a softer transition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Limit(0F, 100F, 0.01F)]
+[EditorOrder(3)]
+public float ThresholdKnee</code></pre>
   </div>
 
   

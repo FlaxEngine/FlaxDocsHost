@@ -135,6 +135,9 @@
       <a class="xref" href="Actor.html#Actor__isEnabled">Actor::_isEnabled</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor__isHierarchyDirty">Actor::_isHierarchyDirty</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor__isPrefabRoot">Actor::_isPrefabRoot</a>
     </div>
     <div>
@@ -217,6 +220,9 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_Children">Actor::Children</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_Clone__">Actor::Clone()</a>
     </div>
     <div>
       <a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_CreateAndSetVirtualMaterialInstance_int32_">ModelInstanceActor::CreateAndSetVirtualMaterialInstance(int32 entryIndex)</a>
@@ -369,6 +375,9 @@
       <a class="xref" href="Actor.html#Actor_GetLocalToWorldMatrix_Matrix___">Actor::GetLocalToWorldMatrix(Matrix&amp; localToWorld)</a>
     </div>
     <div>
+      <a class="xref" href="Actor.html#Actor_GetLocalToWorldMatrix_Double4x4___">Actor::GetLocalToWorldMatrix(Double4x4&amp; localToWorld)</a>
+    </div>
+    <div>
       <a class="xref" href="Actor.html#Actor_GetLocalTransform__">Actor::GetLocalTransform()</a>
     </div>
     <div>
@@ -466,6 +475,9 @@
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_GetWorldToLocalMatrix_Matrix___">Actor::GetWorldToLocalMatrix(Matrix&amp; worldToLocal)</a>
+    </div>
+    <div>
+      <a class="xref" href="Actor.html#Actor_GetWorldToLocalMatrix_Double4x4___">Actor::GetWorldToLocalMatrix(Double4x4&amp; worldToLocal)</a>
     </div>
     <div>
       <a class="xref" href="Actor.html#Actor_HasActorInChildren_Actor___">Actor::HasActorInChildren(Actor* a)</a>
@@ -2174,7 +2186,7 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___.md&amp;value=---%0Auid%3A%20AnimatedModel.GetMeshData(const%20MeshReference%20%26%2CMeshBufferType%2CBytesContainer%20%26%2Cint32%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___GPUVertexLayout____.md&amp;value=---%0Auid%3A%20AnimatedModel.GetMeshData(const%20MeshReference%20%26%2CMeshBufferType%2CBytesContainer%20%26%2Cint32%20%26%2CGPUVertexLayout%20**)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Level/Actors/AnimatedModel.h/#L420" title="View Source"><i class="fa fa-code"></i></a>
@@ -2182,15 +2194,15 @@
   
   <a id="AnimatedModel_GetMeshData_" data-uid="AnimatedModel.GetMeshData*"></a>
   
-  <h4 id="AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___" data-uid="AnimatedModel.GetMeshData(const MeshReference &amp;,MeshBufferType,BytesContainer &amp;,int32 &amp;)"><a href="#collapsible-AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___" class="expander" data-toggle="collapse">GetMeshData(const MeshReference&amp; mesh, MeshBufferType type, BytesContainer&amp; result, int32&amp; count)</a></h4>
+  <h4 id="AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___GPUVertexLayout____" data-uid="AnimatedModel.GetMeshData(const MeshReference &amp;,MeshBufferType,BytesContainer &amp;,int32 &amp;,GPUVertexLayout **)"><a href="#collapsible-AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___GPUVertexLayout____" class="expander" data-toggle="collapse">GetMeshData(const MeshReference&amp; ref, MeshBufferType type, BytesContainer&amp; result, int32&amp; count, GPUVertexLayout* *layout)</a></h4>
   
-  <div id="collapsible-AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___" class="collapse in">
+  <div id="collapsible-AnimatedModel_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___GPUVertexLayout____" class="collapse in">
   <div class="markdown level1 summary"><p>Extracts mesh buffer data from CPU. Might be cached internally (eg. by Model/SkinnedModel). </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual bool GetMeshData(const MeshReference&amp; mesh, MeshBufferType type, BytesContainer&amp; result, int32&amp; count) const override</code></pre>
+    <pre><code class="lang-cpp hljs">public virtual bool GetMeshData(const MeshReference&amp; ref, MeshBufferType type, BytesContainer&amp; result, int32&amp; count, GPUVertexLayout* *layout) const override</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2198,7 +2210,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">MeshReference</span></span>
-        <span class="parametername">mesh</span>
+        <span class="parametername">ref</span>
         <p><p>Mesh reference.</p></p>
       </td>
     </tr>
@@ -2223,6 +2235,13 @@
         <p><p>The amount of items inside the result buffer.</p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="GPUVertexLayout.html">GPUVertexLayout</a></span>
+        <span class="parametername">layout</span>
+        <p><p>The result layout of the result buffer (for vertex buffers). Optional, pass null to ignore it.</p></p>
+      </td>
+    </tr>
   </table>
   
   <h5 class="returns">Returns</h5>
@@ -2240,7 +2259,7 @@
   
   
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___">ModelInstanceActor::GetMeshData(const MeshReference&amp; mesh, MeshBufferType type, BytesContainer&amp; result, int32&amp; count)</a></div>
+  <div><a class="xref" href="ModelInstanceActor.html#ModelInstanceActor_GetMeshData_const_MeshReference___MeshBufferType_BytesContainer___int32___GPUVertexLayout____">ModelInstanceActor::GetMeshData(const MeshReference&amp; ref, MeshBufferType type, BytesContainer&amp; result, int32&amp; count, GPUVertexLayout* *layout=nullptr)</a></div>
   
   
   

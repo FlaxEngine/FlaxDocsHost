@@ -117,30 +117,31 @@ namespace Game
         public float Health { get; set; } = 100.0f;
 
         [Tooltip(&quot;Reference to the player health progress bar control&quot;)]
-        public UIControl HealthBar { get; set; }
+        public ControlReference&lt;ProgressBar&gt; HealthBar { get; set; }
 
         private ProgressBar _healthBar;
 
         public override void OnStart()
         {
-            if (HealthBar == null || !HealthBar.Is&lt;ProgressBar&gt;())
+            // Cache health bar control
+            _healthBar = HealthBar.Control;
+            if (_healthBar == null)
             {
-                Debug.LogError(&quot;Missing or invalid health bar control&quot;);
+                Debug.LogError(&quot;Missing health bar control&quot;);
                 return;
             }
-
-            _healthBar = HealthBar.Get&lt;ProgressBar&gt;();
         }
 
         public override void OnUpdate()
         {
+            // Control the health value with keys
             if (Input.GetKey(KeyboardKeys.Q))
                 Health -= 5;
-
             if (Input.GetKey(KeyboardKeys.E))
                 Health += 5;
-
             Health = Mathf.Clamp(Health, 0, 100);
+
+            // Update the progress bar
             _healthBar.Value = Health;
         }
     }
@@ -162,7 +163,7 @@ namespace Game
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/ui/tutorials/create-ui.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/ui/tutorials/create-ui.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

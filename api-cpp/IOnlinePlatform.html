@@ -123,7 +123,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetAchievements_Array_OnlineAchievement__HeapAllocation____User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetAchievements(Array%3COnlineAchievement%2C%20HeapAllocation%3E%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L172" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L275" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetAchievements_" data-uid="IOnlinePlatform.GetAchievements*"></a>
@@ -183,7 +183,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetFriends_Array_OnlineUser__HeapAllocation____User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetFriends(Array%3COnlineUser%2C%20HeapAllocation%3E%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L266" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetFriends_" data-uid="IOnlinePlatform.GetFriends*"></a>
@@ -240,10 +240,433 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetLeaderboard_const_StringView___OnlineLeaderboard___User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetLeaderboard(const%20StringView%20%26%2COnlineLeaderboard%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L330" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetLeaderboard_" data-uid="IOnlinePlatform.GetLeaderboard*"></a>
+  
+  <h4 id="IOnlinePlatform_GetLeaderboard_const_StringView___OnlineLeaderboard___User___" data-uid="IOnlinePlatform.GetLeaderboard(const StringView &amp;,OnlineLeaderboard &amp;,User *)"><a href="#collapsible-IOnlinePlatform_GetLeaderboard_const_StringView___OnlineLeaderboard___User___" class="expander" data-toggle="collapse">GetLeaderboard(const StringView&amp; name, OnlineLeaderboard&amp; value, User* localUser=nullptr)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetLeaderboard_const_StringView___OnlineLeaderboard___User___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetLeaderboard(const StringView&amp; name, OnlineLeaderboard&amp; value, User* localUser=nullptr)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
+        <span class="parametername">name</span>
+        <p><p>The leaderboard name.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">value</span>
+        <p><p>The result value.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">User</span></span>
+        <span class="parametername">localUser</span>
+        <p><p>The local user (null if use default one).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetLeaderboardEntries_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetLeaderboardEntries(const%20OnlineLeaderboard%20%26%2CArray%3COnlineLeaderboardEntry%2C%20HeapAllocation%3E%20%26%2Cint32%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L351" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetLeaderboardEntries_" data-uid="IOnlinePlatform.GetLeaderboardEntries*"></a>
+  
+  <h4 id="IOnlinePlatform_GetLeaderboardEntries_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" data-uid="IOnlinePlatform.GetLeaderboardEntries(const OnlineLeaderboard &amp;,Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt; &amp;,int32,int32)"><a href="#collapsible-IOnlinePlatform_GetLeaderboardEntries_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" class="expander" data-toggle="collapse">GetLeaderboardEntries(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, int32 start = 0, int32 count=10)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetLeaderboardEntries_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries. Allows to specify the range for ranks to gather. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetLeaderboardEntries(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, int32 start = 0, int32 count=10)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;</span></span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">start</span>
+        <p><p>The zero-based index to start downloading entries from. For example, to display the top 10 on a leaderboard pass value of 0.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">count</span>
+        <p><p>The amount of entries to read, starting from the first entry at <em>start</em> .</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetLeaderboardEntriesAroundUser_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetLeaderboardEntriesAroundUser(const%20OnlineLeaderboard%20%26%2CArray%3COnlineLeaderboardEntry%2C%20HeapAllocation%3E%20%26%2Cint32%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L361" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetLeaderboardEntriesAroundUser_" data-uid="IOnlinePlatform.GetLeaderboardEntriesAroundUser*"></a>
+  
+  <h4 id="IOnlinePlatform_GetLeaderboardEntriesAroundUser_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" data-uid="IOnlinePlatform.GetLeaderboardEntriesAroundUser(const OnlineLeaderboard &amp;,Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt; &amp;,int32,int32)"><a href="#collapsible-IOnlinePlatform_GetLeaderboardEntriesAroundUser_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" class="expander" data-toggle="collapse">GetLeaderboardEntriesAroundUser(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, int32 start=-4, int32 count=10)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetLeaderboardEntriesAroundUser_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____int32_int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries around the player. Allows to specify the range for ranks to gather around the user rank. The current user&#39;s entry is always included. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetLeaderboardEntriesAroundUser(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, int32 start=-4, int32 count=10)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;</span></span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">start</span>
+        <p><p>The zero-based index to start downloading entries relative to the user. For example, to display the 4 higher scores on a leaderboard pass value of -4. Value 0 will return current user as the first one.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">count</span>
+        <p><p>The amount of entries to read, starting from the first entry at <em>start</em> .</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetLeaderboardEntriesForFriends_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetLeaderboardEntriesForFriends(const%20OnlineLeaderboard%20%26%2CArray%3COnlineLeaderboardEntry%2C%20HeapAllocation%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L369" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetLeaderboardEntriesForFriends_" data-uid="IOnlinePlatform.GetLeaderboardEntriesForFriends*"></a>
+  
+  <h4 id="IOnlinePlatform_GetLeaderboardEntriesForFriends_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____" data-uid="IOnlinePlatform.GetLeaderboardEntriesForFriends(const OnlineLeaderboard &amp;,Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt; &amp;)"><a href="#collapsible-IOnlinePlatform_GetLeaderboardEntriesForFriends_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____" class="expander" data-toggle="collapse">GetLeaderboardEntriesForFriends(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetLeaderboardEntriesForFriends_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries for player friends. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetLeaderboardEntriesForFriends(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;</span></span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetLeaderboardEntriesForUsers_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____const_Array_OnlineUser__HeapAllocation____.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetLeaderboardEntriesForUsers(const%20OnlineLeaderboard%20%26%2CArray%3COnlineLeaderboardEntry%2C%20HeapAllocation%3E%20%26%2Cconst%20Array%3COnlineUser%2C%20HeapAllocation%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L378" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetLeaderboardEntriesForUsers_" data-uid="IOnlinePlatform.GetLeaderboardEntriesForUsers*"></a>
+  
+  <h4 id="IOnlinePlatform_GetLeaderboardEntriesForUsers_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____const_Array_OnlineUser__HeapAllocation____" data-uid="IOnlinePlatform.GetLeaderboardEntriesForUsers(const OnlineLeaderboard &amp;,Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt; &amp;,const Array&lt;OnlineUser, HeapAllocation&gt; &amp;)"><a href="#collapsible-IOnlinePlatform_GetLeaderboardEntriesForUsers_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____const_Array_OnlineUser__HeapAllocation____" class="expander" data-toggle="collapse">GetLeaderboardEntriesForUsers(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, const Array&lt;OnlineUser, HeapAllocation&gt;&amp; users)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetLeaderboardEntriesForUsers_const_OnlineLeaderboard___Array_OnlineLeaderboardEntry__HeapAllocation____const_Array_OnlineUser__HeapAllocation____" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the online leaderboard entries for an arbitrary set of users. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetLeaderboardEntriesForUsers(const OnlineLeaderboard&amp; leaderboard, Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;&amp; entries, const Array&lt;OnlineUser, HeapAllocation&gt;&amp; users)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;OnlineLeaderboardEntry, HeapAllocation&gt;</span></span>
+        <span class="parametername">entries</span>
+        <p><p>The list of result entries.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;OnlineUser, HeapAllocation&gt;</span></span>
+        <span class="parametername">users</span>
+        <p><p>The list of users to read their ranks on the leaderboard.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetOrCreateLeaderboard_const_StringView___OnlineLeaderboardSortModes_OnlineLeaderboardValueFormats_OnlineLeaderboard___User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetOrCreateLeaderboard(const%20StringView%20%26%2COnlineLeaderboardSortModes%2COnlineLeaderboardValueFormats%2COnlineLeaderboard%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L341" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_GetOrCreateLeaderboard_" data-uid="IOnlinePlatform.GetOrCreateLeaderboard*"></a>
+  
+  <h4 id="IOnlinePlatform_GetOrCreateLeaderboard_const_StringView___OnlineLeaderboardSortModes_OnlineLeaderboardValueFormats_OnlineLeaderboard___User___" data-uid="IOnlinePlatform.GetOrCreateLeaderboard(const StringView &amp;,OnlineLeaderboardSortModes,OnlineLeaderboardValueFormats,OnlineLeaderboard &amp;,User *)"><a href="#collapsible-IOnlinePlatform_GetOrCreateLeaderboard_const_StringView___OnlineLeaderboardSortModes_OnlineLeaderboardValueFormats_OnlineLeaderboard___User___" class="expander" data-toggle="collapse">GetOrCreateLeaderboard(const StringView&amp; name, OnlineLeaderboardSortModes sortMode, OnlineLeaderboardValueFormats valueFormat, OnlineLeaderboard&amp; value, User* localUser=nullptr)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_GetOrCreateLeaderboard_const_StringView___OnlineLeaderboardSortModes_OnlineLeaderboardValueFormats_OnlineLeaderboard___User___" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or creates the online leaderboard. It will not create it if already exists. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool GetOrCreateLeaderboard(const StringView&amp; name, OnlineLeaderboardSortModes sortMode, OnlineLeaderboardValueFormats valueFormat, OnlineLeaderboard&amp; value, User* localUser=nullptr)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
+        <span class="parametername">name</span>
+        <p><p>The leaderboard name.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboardSortModes.html">OnlineLeaderboardSortModes</a></span>
+        <span class="parametername">sortMode</span>
+        <p><p>The leaderboard sorting mode.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboardValueFormats.html">OnlineLeaderboardValueFormats</a></span>
+        <span class="parametername">valueFormat</span>
+        <p><p>The leaderboard values formatting.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">value</span>
+        <p><p>The result value.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">User</span></span>
+        <span class="parametername">localUser</span>
+        <p><p>The local user (null if use default one).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetSaveGame_const_StringView___Array_byte__HeapAllocation____User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetSaveGame(const%20StringView%20%26%2CArray%3Cbyte%2C%20HeapAllocation%3E%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L227" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L397" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetSaveGame_" data-uid="IOnlinePlatform.GetSaveGame*"></a>
@@ -310,7 +733,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetStat_const_StringView___float___User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetStat(const%20StringView%20%26%2Cfloat%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L208" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L311" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetStat_" data-uid="IOnlinePlatform.GetStat*"></a>
@@ -377,7 +800,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetUser_OnlineUser___User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetUser(OnlineUser%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L155" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L258" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetUser_" data-uid="IOnlinePlatform.GetUser*"></a>
@@ -437,7 +860,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_GetUserLoggedIn_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.GetUserLoggedIn(User%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L250" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_GetUserLoggedIn_" data-uid="IOnlinePlatform.GetUserLoggedIn*"></a>
@@ -490,7 +913,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_ResetAchievements_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.ResetAchievements(User%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L197" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L300" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_ResetAchievements_" data-uid="IOnlinePlatform.ResetAchievements*"></a>
@@ -540,10 +963,77 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_SetLeaderboardEntry_const_OnlineLeaderboard___int32_bool_.md&amp;value=---%0Auid%3A%20IOnlinePlatform.SetLeaderboardEntry(const%20OnlineLeaderboard%20%26%2Cint32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L387" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="IOnlinePlatform_SetLeaderboardEntry_" data-uid="IOnlinePlatform.SetLeaderboardEntry*"></a>
+  
+  <h4 id="IOnlinePlatform_SetLeaderboardEntry_const_OnlineLeaderboard___int32_bool_" data-uid="IOnlinePlatform.SetLeaderboardEntry(const OnlineLeaderboard &amp;,int32,bool)"><a href="#collapsible-IOnlinePlatform_SetLeaderboardEntry_const_OnlineLeaderboard___int32_bool_" class="expander" data-toggle="collapse">SetLeaderboardEntry(const OnlineLeaderboard&amp; leaderboard, int32 score, bool keepBest=false)</a></h4>
+  
+  <div id="collapsible-IOnlinePlatform_SetLeaderboardEntry_const_OnlineLeaderboard___int32_bool_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the online leaderboard entry for the user. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual bool SetLeaderboardEntry(const OnlineLeaderboard&amp; leaderboard, int32 score, bool keepBest=false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="OnlineLeaderboard.html">OnlineLeaderboard</a></span>
+        <span class="parametername">leaderboard</span>
+        <p><p>The leaderboard.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">int32</span></span>
+        <span class="parametername">score</span>
+        <p><p>The score value to set.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">keepBest</span>
+        <p><p>True if store value only if it&#39;s better than existing value (if any), otherwise will override any existing score for that user.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if failed, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_SetSaveGame_const_StringView___const_Span_byte____User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.SetSaveGame(const%20StringView%20%26%2Cconst%20Span%3Cbyte%3E%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L236" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L406" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_SetSaveGame_" data-uid="IOnlinePlatform.SetSaveGame*"></a>
@@ -610,7 +1100,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_SetStat_const_StringView___float_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.SetStat(const%20StringView%20%26%2Cfloat%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L217" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L320" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_SetStat_" data-uid="IOnlinePlatform.SetStat*"></a>
@@ -677,7 +1167,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_UnlockAchievement_const_StringView___User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.UnlockAchievement(const%20StringView%20%26%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L180" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L283" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_UnlockAchievement_" data-uid="IOnlinePlatform.UnlockAchievement*"></a>
@@ -737,7 +1227,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_UnlockAchievementProgress_const_StringView___float_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.UnlockAchievementProgress(const%20StringView%20%26%2Cfloat%2CUser%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L189" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L292" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_UnlockAchievementProgress_" data-uid="IOnlinePlatform.UnlockAchievementProgress*"></a>
@@ -804,7 +1294,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_UserLogin_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.UserLogin(User%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L236" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_UserLogin_" data-uid="IOnlinePlatform.UserLogin*"></a>
@@ -857,7 +1347,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform_UserLogout_User___.md&amp;value=---%0Auid%3A%20IOnlinePlatform.UserLogout(User%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L243" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="IOnlinePlatform_UserLogout_" data-uid="IOnlinePlatform.UserLogout*"></a>
@@ -917,7 +1407,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=IOnlinePlatform.md&amp;value=---%0Auid%3A%20IOnlinePlatform%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L105" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Online/IOnlinePlatform.h/#L208" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

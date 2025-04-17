@@ -97,7 +97,6 @@
 <p><img src="media/shader-editing.png" alt="Editing Shader Source"></p>
 <h2 id="2-write-vertex-and-pixel-shaders">2. Write Vertex and Pixel shaders</h2>
 <p>Now, we want to write a simple Vertex and Pixel shaders that will process our geometry and display it on a screen. To do so we first declare a constant buffer with object transformation (<code>WorldMatrix</code>) and camera+screen transformation (<code>ViewProjectionMatrix</code>). Those matrices are used to transform the vertex from model local-space to the world-space and then to the screen. This transformation is performed per-vertex in function <code>VS_Custom</code>. As you can see it gets <code>ModelInput</code> structure data as input (single vertex data) and outputs the processed vertex data in structure <code>VertexOutput</code>. Then, this data is processed by GPU which builds triangles, interpolates the triangles, performs the depth-test and calls the pixel shader function <code>PS_Custom</code> for every visible pixel on a screen. In this example we simple create a color gradient based on the pixel <code>WorldPoition.y</code> which is a location on Y axis of the pixel in the game world.</p>
-<p>Also, note that vertex shader function contains a <code>META_VS_IN_ELEMENT(..)</code> attribute that informs the shader compiler and graphics pipeline backend that this function accepts the single RGB32 data as vertex position. If your ModelInput needs more data, remember to add the attributes there.</p>
 <pre><code class="lang-hlsl">#include &quot;./Flax/Common.hlsl&quot;
 
 META_CB_BEGIN(0, Data)
@@ -127,7 +126,6 @@ struct PixelInput
 
 // Vertex shader function for custom geometry processing
 META_VS(true, FEATURE_LEVEL_ES2)
-META_VS_IN_ELEMENT(POSITION, 0, R32G32B32_FLOAT, 0, 0, PER_VERTEX, 0, true)
 VertexOutput VS_Custom(ModelInput input)
 {
     VertexOutput output;
@@ -216,7 +214,11 @@ public class CustomGeometryDrawing : PostProcessEffect
         _vertexBuffer = new GPUBuffer();
         fixed (Float3* ptr = _vertices)
         {
-            var desc = GPUBufferDescription.Vertex(sizeof(Float3), _vertices.Length, new IntPtr(ptr));
+            var layout = GPUVertexLayout.Get([
+                // Layout of the vertex structure (must match vertex data format)
+                new VertexElement(VertexElement.Types.Position, 0, 0, false, PixelFormat.R32G32B32_Float)
+            ]);
+            var desc = GPUBufferDescription.Vertex(layout, sizeof(Float3), _vertices.Length, new IntPtr(ptr));
             _vertexBuffer.Init(ref desc);
         }
 
@@ -318,7 +320,7 @@ As you can see, the script registers in <code>OnEnable</code> and disposes in <c
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/0d22a7e82b67dcb5002e612b55849773b38d4583/manual/graphics/shaders/custom-geometry-drawing.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/graphics/shaders/custom-geometry-drawing.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

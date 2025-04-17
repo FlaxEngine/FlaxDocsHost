@@ -165,7 +165,8 @@ public static BatteryInfo BatteryInfo { get; }</code></pre>
   <h4 id="FlaxEngine_Platform_CacheLineSize" data-uid="FlaxEngine.Platform.CacheLineSize"><a href="#collapsible-FlaxEngine_Platform_CacheLineSize" class="expander" data-toggle="collapse">CacheLineSize</a></h4>
   
   <div id="collapsible-FlaxEngine_Platform_CacheLineSize" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the CPU cache line size.</p>
+  <div class="markdown level1 summary"><p>Gets the CPU cache line size.
+[Deprecated in v1.10]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -995,6 +996,82 @@ public static ScreenOrientationType ScreenOrientationType { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Platform_SystemName_" data-uid="FlaxEngine.Platform.SystemName*"></a>
+  
+  <h4 id="FlaxEngine_Platform_SystemName" data-uid="FlaxEngine.Platform.SystemName"><a href="#collapsible-FlaxEngine_Platform_SystemName" class="expander" data-toggle="collapse">SystemName</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_SystemName" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the name of the operating system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static string SystemName { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Platform_SystemVersion_" data-uid="FlaxEngine.Platform.SystemVersion*"></a>
+  
+  <h4 id="FlaxEngine_Platform_SystemVersion" data-uid="FlaxEngine.Platform.SystemVersion"><a href="#collapsible-FlaxEngine_Platform_SystemVersion" class="expander" data-toggle="collapse">SystemVersion</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_SystemVersion" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the version of the operating system version.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Version SystemVersion { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Version</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Platform_TimeCycles_" data-uid="FlaxEngine.Platform.TimeCycles*"></a>
   
   <h4 id="FlaxEngine_Platform_TimeCycles" data-uid="FlaxEngine.Platform.TimeCycles"><a href="#collapsible-FlaxEngine_Platform_TimeCycles" class="expander" data-toggle="collapse">TimeCycles</a></h4>
@@ -1532,9 +1609,9 @@ public static void Error(string msg)</code></pre>
   
   <a id="FlaxEngine_Platform_Fatal_" data-uid="FlaxEngine.Platform.Fatal*"></a>
   
-  <h4 id="FlaxEngine_Platform_Fatal_System_String_" data-uid="FlaxEngine.Platform.Fatal(System.String)"><a href="#collapsible-FlaxEngine_Platform_Fatal_System_String_" class="expander" data-toggle="collapse">Fatal(String)</a></h4>
+  <h4 id="FlaxEngine_Platform_Fatal_System_String_FlaxEngine_FatalErrorType_" data-uid="FlaxEngine.Platform.Fatal(System.String,FlaxEngine.FatalErrorType)"><a href="#collapsible-FlaxEngine_Platform_Fatal_System_String_FlaxEngine_FatalErrorType_" class="expander" data-toggle="collapse">Fatal(String, FatalErrorType)</a></h4>
   
-  <div id="collapsible-FlaxEngine_Platform_Fatal_System_String_" class="collapse in">
+  <div id="collapsible-FlaxEngine_Platform_Fatal_System_String_FlaxEngine_FatalErrorType_" class="collapse in">
   <div class="markdown level1 summary"><p>Shows the fatal error message to the user.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1542,7 +1619,7 @@ public static void Error(string msg)</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void Fatal(string msg)</code></pre>
+public static void Fatal(string msg, FatalErrorType error)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1552,6 +1629,70 @@ public static void Fatal(string msg)</code></pre>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">msg</span>
         <p><p>The message content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.FatalErrorType.html">FatalErrorType</a></span>
+        <span class="parametername">error</span>
+        <p><p>The fatal error type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Platform_Fatal_" data-uid="FlaxEngine.Platform.Fatal*"></a>
+  
+  <h4 id="FlaxEngine_Platform_Fatal_System_String_System_IntPtr_FlaxEngine_FatalErrorType_" data-uid="FlaxEngine.Platform.Fatal(System.String,System.IntPtr,FlaxEngine.FatalErrorType)"><a href="#collapsible-FlaxEngine_Platform_Fatal_System_String_System_IntPtr_FlaxEngine_FatalErrorType_" class="expander" data-toggle="collapse">Fatal(String, IntPtr, FatalErrorType)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_Fatal_System_String_System_IntPtr_FlaxEngine_FatalErrorType_" class="collapse in">
+  <div class="markdown level1 summary"><p>Shows the fatal error message to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void Fatal(string msg, IntPtr context, FatalErrorType error)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">msg</span>
+        <p><p>The message content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.IntPtr</span></span>
+        <span class="parametername">context</span>
+        <p><p>The platform-dependent context for the stack trace collecting (eg. platform exception info).</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.FatalErrorType.html">FatalErrorType</a></span>
+        <span class="parametername">error</span>
+        <p><p>The fatal error type.</p>
 </p>
       </td>
     </tr>
