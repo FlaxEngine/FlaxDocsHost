@@ -694,7 +694,7 @@ public CharacterController.CollisionFlags Flags { get; }</code></pre>
   <h4 id="FlaxEngine_CharacterController_Height" data-uid="FlaxEngine.CharacterController.Height"><a href="#collapsible-FlaxEngine_CharacterController_Height" class="expander" data-toggle="collapse">Height</a></h4>
   
   <div id="collapsible-FlaxEngine_CharacterController_Height" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the height of the capsule, measured in the object&apos;s local space. The capsule height will be scaled by the actor&apos;s world scale.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the height of the capsule as a distance between the two sphere centers at the end of the capsule. The capsule height is measured in the object&apos;s local space and will be scaled by the actor&apos;s world scale.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -836,6 +836,46 @@ public CharacterController.NonWalkableModes NonWalkableMode { get; set; }</code>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.CharacterController.NonWalkableModes.html">CharacterController.NonWalkableModes</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CharacterController_OriginMode_" data-uid="FlaxEngine.CharacterController.OriginMode*"></a>
+  
+  <h4 id="FlaxEngine_CharacterController_OriginMode" data-uid="FlaxEngine.CharacterController.OriginMode"><a href="#collapsible-FlaxEngine_CharacterController_OriginMode" class="expander" data-toggle="collapse">OriginMode</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CharacterController_OriginMode" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the position origin placement mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(216)]
+[EditorDisplay(&quot;Character Controller&quot;, null)]
+[Unmanaged]
+public CharacterController.OriginModes OriginMode { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.CharacterController.OriginModes.html">CharacterController.OriginModes</a>
         <p>
       </td>
     </tr>
@@ -1093,6 +1133,54 @@ public CharacterController.CollisionFlags Move(Vector3 displacement)</code></pre
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_CharacterController_Resize_" data-uid="FlaxEngine.CharacterController.Resize*"></a>
+  
+  <h4 id="FlaxEngine_CharacterController_Resize_System_Single_System_Single_" data-uid="FlaxEngine.CharacterController.Resize(System.Single,System.Single)"><a href="#collapsible-FlaxEngine_CharacterController_Resize_System_Single_System_Single_" class="expander" data-toggle="collapse">Resize(Single, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_CharacterController_Resize_System_Single_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the character height and center position to ensure its feet position stays the same. This can be used to implement a &apos;crouch&apos; functionality for example. Maintains the same actor position to stay in the middle of capsule by adjusting center of collider accordingly to height difference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void Resize(float height, float radius)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">height</span>
+        <p><p>The height of the capsule, measured in the object&apos;s local space.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">radius</span>
+        <p><p>The radius of the capsule, measured in the object&apos;s local space.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   

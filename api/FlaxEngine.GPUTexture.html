@@ -1322,6 +1322,64 @@ public bool Resize(int width, int height, int depth, PixelFormat format)</code><
   </div>
   
   
+  <a id="FlaxEngine_GPUTexture_UploadData_" data-uid="FlaxEngine.GPUTexture.UploadData*"></a>
+  
+  <h4 id="FlaxEngine_GPUTexture_UploadData_FlaxEngine_TextureData_System_Boolean_" data-uid="FlaxEngine.GPUTexture.UploadData(FlaxEngine.TextureData,System.Boolean)"><a href="#collapsible-FlaxEngine_GPUTexture_UploadData_FlaxEngine_TextureData_System_Boolean_" class="expander" data-toggle="collapse">UploadData(TextureData, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUTexture_UploadData_FlaxEngine_TextureData_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Uploads texture data to the GPU. Actual data copy to the GPU memory is performed via async task.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public bool UploadData(TextureData data, bool copyData = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.TextureData.html">TextureData</a></span>
+        <span class="parametername">data</span>
+        <p><p>Data to upload, it must match texture dimensions. It must be valid for the next couple of frames due to GPU async task latency or use data copy.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">copyData</span>
+        <p><p>If true, the data will be copied to the async execution task instead of using the input pointer provided.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p><p>True if cannot upload data, otherwise false.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_GPUTexture_View_" data-uid="FlaxEngine.GPUTexture.View*"></a>
   
   <h4 id="FlaxEngine_GPUTexture_View" data-uid="FlaxEngine.GPUTexture.View"><a href="#collapsible-FlaxEngine_GPUTexture_View" class="expander" data-toggle="collapse">View()</a></h4>
@@ -1539,6 +1597,45 @@ public GPUTextureView ViewReadOnlyDepth()</code></pre>
       <td>
         <a class="xref" href="FlaxEngine.GPUTextureView.html">GPUTextureView</a>
         <p><p>The view to the depth-stencil resource descriptor as read-only depth.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GPUTexture_ViewStencil_" data-uid="FlaxEngine.GPUTexture.ViewStencil*"></a>
+  
+  <h4 id="FlaxEngine_GPUTexture_ViewStencil" data-uid="FlaxEngine.GPUTexture.ViewStencil"><a href="#collapsible-FlaxEngine_GPUTexture_ViewStencil" class="expander" data-toggle="collapse">ViewStencil()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GPUTexture_ViewStencil" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the view to the texture as stencil buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public GPUTextureView ViewStencil()</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.GPUTextureView.html">GPUTextureView</a>
+        <p><p>The view to the stencil resource descriptor.</p>
 </p>
       </td>
     </tr>

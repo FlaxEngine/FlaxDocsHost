@@ -350,6 +350,45 @@ public static int ScenesCount { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Level_StreamingFrameBudget_" data-uid="FlaxEngine.Level.StreamingFrameBudget*"></a>
+  
+  <h4 id="FlaxEngine_Level_StreamingFrameBudget" data-uid="FlaxEngine.Level.StreamingFrameBudget"><a href="#collapsible-FlaxEngine_Level_StreamingFrameBudget" class="expander" data-toggle="collapse">StreamingFrameBudget</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Level_StreamingFrameBudget" class="collapse in">
+  <div class="markdown level1 summary"><p>Fraction of the frame budget to limit time spent on levels streaming. For example, value of 0.3 means that 30% of frame time can be spent on levels loading within a single frame (eg. 0.3 at 60fps is 4.8ms budget).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DebugCommand]
+[Unmanaged]
+public static float StreamingFrameBudget { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Level_TickEnabled_" data-uid="FlaxEngine.Level.TickEnabled*"></a>
   
   <h4 id="FlaxEngine_Level_TickEnabled" data-uid="FlaxEngine.Level.TickEnabled"><a href="#collapsible-FlaxEngine_Level_TickEnabled" class="expander" data-toggle="collapse">TickEnabled</a></h4>
@@ -361,7 +400,8 @@ public static int ScenesCount { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
+    <pre><code class="lang-csharp hljs">[DebugCommand]
+[Unmanaged]
 public static bool TickEnabled { get; set; }</code></pre>
   </div>
 
@@ -1512,6 +1552,56 @@ public static int GetLayerIndex(string layer)</code></pre>
       <td>
         <span class="xref">System.Int32</span>
         <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Level_GetLayerName_" data-uid="FlaxEngine.Level.GetLayerName*"></a>
+  
+  <h4 id="FlaxEngine_Level_GetLayerName_System_Int32_" data-uid="FlaxEngine.Level.GetLayerName(System.Int32)"><a href="#collapsible-FlaxEngine_Level_GetLayerName_System_Int32_" class="expander" data-toggle="collapse">GetLayerName(Int32)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Level_GetLayerName_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the name of the layer based on the index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static string GetLayerName(int layerIndex)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">layerIndex</span>
+        <p><p>The index to find the layer string. 0 - 32.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p><p>The layer string. Returns a blank string if index not found.</p>
+</p>
       </td>
     </tr>
   </table>

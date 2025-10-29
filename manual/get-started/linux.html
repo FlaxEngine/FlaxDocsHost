@@ -91,8 +91,12 @@
 
 <p><img src="media/flax-editor-linux-vulkan.png" alt="Flax Editor on Linux with Vulkan"></p>
 <h2 id="download">Download</h2>
-<p>You can get Flax from your <a href="https://flaxengine.com/download/">Download</a> page or compile it manually from the official <a href="https://github.com/FlaxEngine/FlaxEngine">source code repository</a>.</p>
-<p>The Editor executable is in folder <code>Binaries/Editor/Linux/Development/FlaxEditor</code> (you can use also Debug or Release configuration if you want).</p>
+<p>You can get Flax from your <a href="https://flaxengine.com/download/">Download</a> page, or compile it manually from the official <a href="https://github.com/FlaxEngine/FlaxEngine">source code repository</a>.</p>
+<p>The Editor executable is located in folder <code>Binaries/Editor/Linux/Development/FlaxEditor</code> (you can use also Debug or Release configuration if you want).</p>
+<h3 id="third-party-launchers">Third Party Launchers</h3>
+<ul>
+<li><a href="https://github.com/MineBill/Seed">Seed</a> - Seed is a cross-platform launcher for Flax that manages multiple engine versions and projects.</li>
+</ul>
 <h2 id="requirements">Requirements</h2>
 <p>For developers using Flax Editor on Linux platforms the requirements are:</p>
 <table>
@@ -105,7 +109,7 @@
 <tbody>
 <tr>
 <td>Tested operating systems</td>
-<td>Ubuntu 23</td>
+<td>Ubuntu 24 or above</td>
 </tr>
 <tr>
 <td>Processor</td>
@@ -129,13 +133,16 @@
 <ul>
 <li><code>curl</code> lib on the system:</li>
 </ul>
-<pre><code>apt-get install -y curl libcurl4-gnutls-dev
+<pre><code>sudo apt-get install -y curl libcurl4-gnutls-dev
 </code></pre><ul>
-<li><code>.Net 8 SDK</code> (<a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">https://dotnet.microsoft.com/en-us/download/dotnet/8.0</a>). Setup can be verified with:</li>
+<li><code>.Net 8 SDK</code> (<a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">https://dotnet.microsoft.com/en-us/download/dotnet/8.0</a>).
+<code>sudo apt install dotnet-sdk-8.0</code></li>
 </ul>
+<p>.Net version can be verified with:</p>
 <pre><code>dotnet --version
-</code></pre><p>*On Fedora you might need additional fix for invalid lib linkage: <code>sudo ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4</code>.</p>
-<h2 id="gpu-drivers">GPU Drivers</h2>
+</code></pre><p><strong>Note:</strong> On Fedora you might need additional fix for invalid lib linkage: </p>
+<pre><code>sudo ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
+</code></pre><h2 id="gpu-drivers">GPU Drivers</h2>
 <p>Please ensure to have the latest GPU drivers installed. Helper links:</p>
 <ul>
 <li><a href="http://www.nvidia.com/Download/index.aspx?lang=en-us/">NVIDIA drivers</a></li>
@@ -143,7 +150,7 @@
 </ul>
 <p>For information about supported platforms, see <a href="../platforms/index.html">Platforms</a>.</p>
 <h2 id="command-line-access">Command line access</h2>
-<p>Ig you&#39;re using laptop with integrated GPU and you want Flax to run on dedicated GPU for more power you can use command line switches to instruct engine to select a desire GPU based on the manufacturer:</p>
+<p>If you&#39;re using laptop with integrated GPU, and you want Flax to run on dedicated GPU for more power, you can use command line switches to instruct engine to select a desire GPU based on the manufacturer:</p>
 <table>
 <thead>
 <tr>
@@ -166,15 +173,27 @@
 </tr>
 </tbody>
 </table>
-<p>To learn more about command line switches see <a href="../editor/advanced/command-line-access.html">this documentation page</a>.</p>
+<p>To learn more about command line switches see the <a href="../editor/advanced/command-line-access.html">command line access page</a>.</p>
 <p>Example command line to run Editor with custom options:</p>
 <pre><code>./FlaxEditor -project &quot;&lt;project-path&gt;&quot; -std -nvidia
-</code></pre><h2 id="sample-projects">Sample projects</h2>
+</code></pre><h2 id="run-the-editor">Run the Editor</h2>
+<p>The Editor is located in <code>Binaries/Editor/Linux/Development/FlaxEditor</code>.</p>
+<p>To run the editor, Flax needs to know the path of the folder that contains the project files:</p>
+<pre><code>./FlaxEditor -project &lt;&quot;project-path&quot;&gt;
+</code></pre><p>In case you don&#39;t specify a project path, a windows will appear asking you to indicate where the <code>flax-proj</code> file is located.</p>
+<pre><code>./FlaxEditor
+</code></pre><p>You can start by using a Sample project or creating a new project.</p>
+<h2 id="sample-projects">Sample projects</h2>
 <p>To help you start using Flax pick the latest Flax Samples from <a href="https://github.com/FlaxEngine/FlaxSamples">https://github.com/FlaxEngine/FlaxSamples</a>. This collection contains various example projects that showcase the engine features and can be used as a foundation for your future Flax projects. Have fun!</p>
 <p><img src="media/editor-playing-on-linux-vulkan.gif" alt="Flax Editor Play Mode on Linux with Vulkan"></p>
 <h2 id="new-project">New project</h2>
-<p>To create a new project to run Flax Editor executable as follows <code>./FlaxEditor -new -project &lt;new_project_path&gt;</code> to create a new project inside a specified folder. Editor will generate a project template and open it.</p>
-</article>
+<p>To create a new project, first you need to create a new folder that will contain the project files. Then, run Flax Editor executable as follows:</p>
+<pre><code>./FlaxEditor -new -project &lt;&quot;new_project_path&quot;&gt;
+</code></pre><p>This will create a new project inside the specified folder. The Editor will generate a project template and open it.</p>
+<p>From here, you&#39;ll probably want to know how to <a href="https://docs.flaxengine.com/manual/get-started/scenes/index.html">create a Scene</a> , or take the first steps on the <a href="https://docs.flaxengine.com/manual/get-started/editor.html">Flax Editor</a>.</p>
+<p><strong>Note:</strong> When creating a new project, if the Editor informs that a <em>script compilation failure</em> has ocurred, is because <code>Flax.Build</code> file needs to be set as an executable. In folder <code>Binaries/Tools</code> right-click on the file, select &quot;Properties&quot;, and check the box that says &quot;Allow executing file as program&quot;. Or use the command line: </p>
+<pre><code>chmod a+x Flax.Build
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -182,7 +201,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/get-started/linux.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/get-started/linux.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

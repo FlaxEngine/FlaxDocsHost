@@ -94,6 +94,7 @@
 <h2 id="character-volume">Character volume</h2>
 <p>The character uses a <strong>capsule</strong>, defined by a center position, a vertical height and a radius. The height is the distance between the two sphere centers at the end of the capsule. For example, the capsule has better behavior when climbing stairs.</p>
 <p><img src="media/cc-capsule.png" alt="Character Volume"></p>
+<p>To implement character crouching or dynamic size changing, use <code>Resize(float height, float radius)</code>. It updates the character height and center position to ensure its feet position stays the same. It maintains the same actor position to stay in the middle of capsule by adjusting center of collider accordingly to height difference.</p>
 <h2 id="auto-stepping">Auto stepping</h2>
 <p>Without auto-stepping it is easy for a character to get stuck against slight elevation changes in a ground mesh. It feels unnatural because in the real world a person would just cross over these small obstacles.</p>
 <p>You can adjust auto-stepping behaviour by using <a href="https://docs.flaxengine.com/api/FlaxEngine.CharacterController.html#FlaxEngine_CharacterController_SlopeLimit">CharacterController.SlopeLimit</a> and <a href="https://docs.flaxengine.com/api/FlaxEngine.CharacterController.html#FlaxEngine_CharacterController_StepOffset">CharacterController.StepOffset</a> properties.</p>
@@ -137,15 +138,27 @@
 </tr>
 <tr>
 <td><strong>Non Walkable Mode</strong></td>
-<td>Specifies the non-walkable mode for the character controller.</td>
+<td>Specifies the non-walkable mode for the character controller. Possible options: <br><table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Prevent Climbing</strong></td><td>Stops character from climbing up non-walkable slopes, but doesn&#39;t move it otherwise.</td></tr><tr><td><strong>Prevent Climbing and Force Sliding</strong></td><td>Stops character from climbing up non-walkable slopes, and forces it to slide down those slopes.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Origin Mode</strong></td>
+<td>Specifies how a character controller capsule placement. Possible options: <br><table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Capsule Center</strong></td><td>Character origin starts at capsule center (including Center offset properly).</td></tr><tr><td><strong>Base</strong></td><td>Character origin starts at capsule base position aka character feet placement.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Step Offset</strong></td>
 <td>The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height or it will generate an error.</td>
 </tr>
 <tr>
+<td><strong>Up Direction</strong></td>
+<td>Character up vector.</td>
+</tr>
+<tr>
 <td><strong>Min Move Distance</strong></td>
 <td>The minimum travelled distance to consider. If travelled distance is smaller, the character doesn&#39;t move. This is used to stop the recursive motion algorithm when remaining distance to travel is small.</td>
+</tr>
+<tr>
+<td><strong>Auto Gravity</strong></td>
+<td>Automatic gravity force applying mode. Can be toggled off if gameplay controls character movement velocity including gravity, or toggled on if gravity should be applied together with root motion from animation movement.</td>
 </tr>
 </tbody>
 </table>
@@ -157,7 +170,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/physics/character-controller.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/physics/character-controller.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -150,7 +150,50 @@ PROFILE_GPU(&quot;MyFunction&quot;); // or PROFILE_GPU_CPU to inject both CPU an
 </code></pre></section>
 </div>
 <h3 id="memory">Memory</h3>
-<p>The memory profiling mode focused on breaking down system memory allocations. This includes separate stats for native memory allocation and managed C# allocations.</p>
+<p><img src="media/memory-profiler-editor.png" alt="Memory Profiler in Editor"></p>
+<p>The memory profiling mode focused on breaking down system memory allocations. This includes separate stats for native memory allocation and managed C# allocations. Below the charts there is a table with memory usage broken down into certain engine categories such as: physics, graphics, level, audio, scripting, etc.</p>
+<p>Table contains 4 collumns:</p>
+<ul>
+<li>name of the group,</li>
+<li>memory usage,</li>
+<li>peek of memory usage (since the start of the program),</li>
+<li>amount of active memory allocations.</li>
+</ul>
+<p>By default, detailed memory allocations profiling is disabled (due to performance overhead). <strong>To use memory profiling run Editor or Game with</strong> <code>-mem</code> <strong>command line</strong>. It&#39;s supported in Development and Debug builds.</p>
+<p>To add a code section to redirect specific memory allocation within into a group ,use:</p>
+<div class="tabGroup" id="tabgroup_3-KwuCJ8YS-2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS-2_code-csharp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS-2_code-csharp" data-tab="code-csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3-KwuCJ8YS-2_code-cpp" role="tab" aria-controls="tabpanel_3-KwuCJ8YS-2_code-cpp" data-tab="code-cpp" tabindex="-1">C++</a>
+</li>
+</ul>
+<section id="tabpanel_3-KwuCJ8YS-2_code-csharp" role="tabpanel" data-tab="code-csharp">
+<pre><code class="lang-cs">ProfilerMemory.BeginGroup(ProfilerMemory.Groups.CustomGame0);
+// do some native memory allocations
+var testObject = new PointLight();
+ProfilerMemory.EndGroup();
+
+// Renaming custom group to show custom name in a profiler:
+ProfilerMemory.RenameGroup(ProfilerMemory.Groups.CustomGame0, &quot;MyGameLogic&quot;);
+</code></pre></section>
+<section id="tabpanel_3-KwuCJ8YS-2_code-cpp" role="tabpanel" data-tab="code-cpp" aria-hidden="true" hidden="hidden">
+<pre><code class="lang-cpp">#include &quot;Engine/Profiler/ProfilerMemory.h&quot;
+
+PROFILE_MEM(CustomGame0);
+// do some native memory allocations
+auto testObject = New&lt;PointLight&gt;();
+
+// Renaming custom group to show custom name in a profiler:
+ProfilerMemory::RenameGroup(ProfilerMemory::Groups::CustomGame0, TEXT(&quot;MyGameLogic&quot;));
+</code></pre></section>
+</div>
+<p><a href="../../scripting/advanced/debug-commands.html">Debug Command</a> <code>ProfilerMemory.Dump</code> prints memory allocations stats (grouped) to the log. It shows top <code>20</code> categories (sorted by size). Argument <code>all</code> shows every used category (<code>ProfilerMemory.Dump all</code>), argument <code>file</code> saves the dump of all categories into a separate file (<code>ProfilerMemory.Dump file</code>, usefull for capturing snapshots for A/B diff).</p>
+<p><img src="media/memory-dump-command.png" alt="Memory Dump Command"></p>
+<p><a href="tracy.html">Tracy</a> profiler has integration with the main memory categories such as Graphics, Physics, UI which comes handly when profiling game remotely (eg. on Android or Switch platforms) to have an overview of memory usage.</p>
+<p><img src="media/tracy-memory.png" alt="Tracy Memory Profiler"></p>
 <h3 id="network">Network</h3>
 <p><img src="media/network-profiler.png" alt="Network Profiler in Editor"></p>
 <p>The network data transfer sends/receives charts over game time. When using high-level networking it displays RPC methods and replication packets sent from the Editor to other peers.</p>
@@ -162,7 +205,7 @@ PROFILE_GPU(&quot;MyFunction&quot;); // or PROFILE_GPU_CPU to inject both CPU an
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/editor/profiling/profiler.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/editor/profiling/profiler.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

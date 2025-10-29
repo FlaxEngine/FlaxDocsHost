@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cel Shading | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cel Shading | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Cel Shading | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cel-shading">Cel Shading</h1>
+
+<p><img src="media/cel-shading-material.png" alt="Cel Shading Material"></p>
+<p>In this tutorial you will learn how to create <strong>Cel Shading</strong> effect, also known as <strong>Toon Shading</strong>.</p>
+<h2 id="1-create-a-new-material">1. Create a new material</h2>
+<p><img src="media/shading-model-custom-lit.png" alt="Custom Lit material Shading Model"></p>
+<p>Create a new <a href="../materials/basics/index.html">material</a> and set <strong>Shading Model</strong> to <strong>Custom Lit</strong>. This mode exposes lighting information in a shader which contains:</p>
+<ul>
+<li>directional light,</li>
+<li>sky light,</li>
+<li>local lights (point, spot lights),</li>
+<li>environment probe,</li>
+<li>exponential fog.</li>
+</ul>
+<p>It supports both opaque and transparent surfaces, particles, skinned meshes and deformables.</p>
+<h2 id="2-write-a-shader-for-cel-shading">2. Write a shader for Cel Shading</h2>
+<p>Add new <strong>Custom Global Code</strong> node that implements cel shading based on the light inputs.</p>
+<pre><code class="lang-hlsl">// Material properties
+struct CelShadingMaterial
+{
+    float3 HighlightColor;
+    float HighlightThreshold;
+    float3 KeyColor;
+    float ShadowThreshold;
+    float3 ShadowColor;
+    float OutlineThickness;
+    float3 OutlineColor;
+};
+
+// Cel shading calculations.
+struct CelShading
+{
+    float3 Color;
+    float Visibility;
+
+    void Mix(CelShading other)
+    {
+        // Use the highest light
+        if (other.Visibility &gt; Visibility)
+        {
+            Color = other.Color;
+            Visibility = other.Visibility;
+        }
+    }
+
+    float3 Lit(CelShadingMaterial mat)
+    {
+        if (Visibility &gt; mat.HighlightThreshold)
+        {
+            // Highlight
+            return mat.HighlightThreshold * saturate(Color);
+        }
+        if (Visibility &gt; mat.ShadowThreshold)
+        {
+            // Key
+            return mat.KeyColor * lerp(saturate(Color), (float3)1, 0.5);
+        }
+        return mat.ShadowColor;
+    }
+};
+
+// Calculates the cel shading for a given light
+CelShading GetCelShading(MaterialInput input, LightData light, bool isRadial)
+{
+    float3 L = light.Direction;
+    float3 N = input.TBN[2];
+    float NoL = dot(N, L);
+    float attenuation = 1;
+
+    if (isRadial)
+    {
+        // Local lights attenutation
+        bool isSpotLight = light.SpotAngles.x &gt; -2.0f;
+        float3 toLight = light.Position - input.WorldPosition;
+        GetRadialLightAttenuation(light, isSpotLight, toLight, N, NoL, attenuation);
+    }
+
+    CelShading result;
+    result.Visibility = saturate(NoL) * attenuation;
+    result.Color = light.Color;
+    return result;
+}
+</code></pre><h2 id="3-write-a-shader-for-lighting-and-outline">3. Write a shader for lighting and outline</h2>
+<p><img src="media/cel-shading-linkage.png" alt="Cel Shading Material Setup Linkage"></p>
+<p>Now, add a <em>**Custom Code</em>* node that inputs 3 colors: highlight, key and shadow for the cel shading of this material. Those can be made as parameters to be customized per <a href="../materials/instanced-materials/index.html">Material Instance</a>. Output of the custom code node should go directly to the materials&#39; Emissive as final lighting output.</p>
+<pre><code class="lang-hlsl">// Setup surface material
+CelShadingMaterial mat;
+mat.HighlightColor = Input0;
+mat.KeyColor = Input1;
+mat.ShadowColor = Input2;
+mat.HighlightThreshold = 0.9;
+mat.ShadowThreshold = 0.4;
+mat.OutlineThickness = 0.2f;
+mat.OutlineColor = float3(0, 0, 0);
+
+// Calculate cel shading properties
+CelShading cel = GetCelShading(input, GetDirectionalLight(), false);
+LOOP
+for (uint i = 0; i &lt; GetLocalLightsCount(); i++)
+{
+    const LightData localLight = GetLocalLight(i);
+    cel.Mix(GetCelShading(input, localLight, true));
+}
+
+// Perform cel shading
+float3 lighting = cel.Lit(mat);
+
+// Add outline
+float3 cameraVector = normalize(ViewPos.xyz - input.WorldPosition);
+float outline = saturate(dot(cameraVector, input.TBN[2]));
+if (outline &lt; mat.OutlineThickness)
+    lighting = mat.OutlineColor;
+
+Output0 = float4(lighting, 1);
+</code></pre><h3 id="4-test-it-out">4. Test it out!</h3>
+<p>Finally, use this material on objects in your project. Those will react to the sun and local lights around with proper cel shading and outlines. This example shader could be further improved to support reflections sampling for fake-reflective surfaces or perform lights mixing differently. Also, outlines can be calculated in <a href="../post-effects/post-fx-materials.html">PostFx Material</a> rather than inside a shader to provide normal-based or depth-based smoothing.</p>
+<p><img src="media/cel-shading.gif" alt="Cel Shading in action"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/graphics/shaders/cel-shading.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

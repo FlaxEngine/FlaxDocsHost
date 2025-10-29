@@ -95,20 +95,20 @@
 <li><p>Navigate to the Content directory in the <em>Content</em> window</p>
 </li>
 <li><p>Right-click and select option <strong>New -&gt; Settings</strong>, specify the asset name (eg. <em>Physics Settings</em>) and hit <em>Enter</em>
-<br><img src="media/new-settings.jpg" alt="Tutorial"></p>
+<br><img src="media/new-settings.png" alt="Tutorial"></p>
 </li>
 <li><p>Choose option <strong>Physics Settings</strong> and press <strong>Create</strong> button
-<br><img src="media/physics-settings-new.jpg" alt="Tutorial"></p>
+<br><img src="media/physics-settings-new.png" alt="Tutorial"></p>
 </li>
 <li><p>Double-click on an asset to open it and edit
-<br><img src="media/empty-physics-settings.jpg" alt="Tutorial"></p>
+<br><img src="media/empty-physics-settings.png" alt="Tutorial"></p>
 </li>
 </ol>
 <h2 id="use-physics-settings">Use physics settings</h2>
 <p>You can create as many physics settings as you want (even special versions per platform) but only one can be used during game building. Use <strong>Game Settings</strong> asset (always located in <code>Content/GameSettings.json</code>) to link the physics options. If your game is using more advanced configuration you can edit the game settings from code in your build script (use <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Load">GameSettings.Load</a> and <a href="https://docs.flaxengine.com/api/FlaxEditor.Content.Settings.GameSettings.html#FlaxEditor_Content_Settings_GameSettings_Save__1___0_">GameSettings.Save</a> from C# API).</p>
-<p><img src="media/use-physics-settings.jpg" alt="Use Physics Settings"></p>
+<p><img src="media/use-physics-settings.png" alt="Use Physics Settings"></p>
 <h2 id="simulation-options">Simulation options</h2>
-<p><img src="media/physics-simulation-options.jpg" alt="Simulation"></p>
+<p><img src="media/physics-simulation-options.png" alt="Simulation"></p>
 <table>
 <thead>
 <tr>
@@ -119,15 +119,7 @@
 <tbody>
 <tr>
 <td><strong>Default Gravity</strong></td>
-<td>The default gravity force value (in cm^2/s).</td>
-</tr>
-<tr>
-<td><strong>Queries Hit Triggers</strong></td>
-<td>If checked, any <a href="raycasting.html">raycast</a> or other scene query that intersects with a collider marked as a trigger will returns with a hit. Individual raycasts can override this behavior.</td>
-</tr>
-<tr>
-<td><strong>Triangle Mesh Triangle Min Area Threshold</strong></td>
-<td>Triangles from triangle meshes (CSG) with an area less than or equal to this value will be removed from physics collision data. Set to less than or equal 0 to disable.</td>
+<td>The default gravity value (in cm/(s^2)).</td>
 </tr>
 <tr>
 <td><strong>Bounce Threshold Velocity</strong></td>
@@ -135,26 +127,34 @@
 </tr>
 <tr>
 <td><strong>Friction Combine Mode</strong></td>
-<td>The default friction combine mode, controls how friction is computed for multiple materials.</td>
+<td>The default friction combine mode, controls how friction is computed for multiple materials. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Average</strong></td><td>Uses the average value of the touching materials: (a+b)/2.</td></tr><tr><td><strong>Minimum</strong></td><td>Uses the smaller value of the touching materials: min(a,b).</td></tr><tr><td><strong>Multiply</strong></td><td>Multiplies the values of the touching materials: a<em>b.</em></td></tr><tr><td><em>Maximum</em>*</td><td>Uses the larger value of the touching materials: max(a, b).</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Restitution Combine Mode</strong></td>
-<td>The default restitution combine mode, controls how restitution is computed for multiple materials.</td>
+<td>The default restitution combine mode, controls how restitution is computed for multiple materials. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Average</strong></td><td>Uses the average value of the touching materials: (a+b)/2.</td></tr><tr><td><strong>Minimum</strong></td><td>Uses the smaller value of the touching materials: min(a,b).</td></tr><tr><td><strong>Multiply</strong></td><td>Multiplies the values of the touching materials: a<em>b.</em></td></tr><tr><td><em>Maximum</em>*</td><td>Uses the larger value of the touching materials: max(a, b).</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td><strong>Disable CCD</strong></td>
 <td>If checked, CCD will be ignored. This is an optimization when CCD is never used which removes the need for physics engine to check it internally.</td>
 </tr>
 <tr>
-<td><strong>Enable Adaptive Force</strong></td>
-<td>Enables adaptive forces to accelerate convergence of the solver. Can improve physics simulation performance but lead to artifacts.</td>
+<td><strong>Broad Phase Type</strong></td>
+<td>Broad phase algorithm to use in the simulation. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Sweep And Prune</strong></td><td>3-axes sweep-and-prune. Good generic choice with great performance when many objects are sleeping.</td></tr><tr><td><strong>Multi Box Pruning</strong></td><td>Alternative broad phase algorithm that does not suffer from the same performance issues as SAP when all objects are moving or when inserting large numbers of objects.</td></tr><tr><td><strong>Automatic Box Pruning</strong></td><td>Revisited implementation of MBP, which automatically manages broad-phase regions.</td></tr><tr><td><strong>Parallel Automatic Box Pruning</strong></td><td>Parallel implementation of ABP. It can often be the fastest (CPU) broadphase, but it can use more memory than ABP.</td></tr></tbody></table></td>
+</tr>
+<tr>
+<td><strong>Enable Enhanced Determinism</strong></td>
+<td>Enables enhanced determinism in the simulation. This has a performance impact.</td>
+</tr>
+<tr>
+<td><strong>Solver Type</strong></td>
+<td>The solver type to use in the simulation. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Projected Gauss Seidel Iterative Solver</strong></td><td>The iterative sequential impulse solver</td></tr><tr><td><strong>Temporal Gauss Seidel Solver</strong></td><td>Non linear iterative solver. This kind of solver can lead to improved convergence and handle large mass ratios, long chains and jointed systems better. It is slightly more expensive than the default solver and can introduce more energy to correct joint and contact errors.</td></tr></tbody></table></td>
 </tr>
 </tbody>
 </table>
 <div class="TIP"><h5>Tip</h5><p>When Continuous Collision Detection (<strong>CCD</strong>) is turned on, the affected rigid bodies will not go through other objects at high velocities (a problem also known as <em>tunnelling</em>).</p>
 </div>
 <h2 id="framerate-options">Framerate options</h2>
-<p><img src="media/physics-framerate-options.jpg" alt="Simulation"></p>
+<p><img src="media/physics-framerate-options.png" alt="Simulation"></p>
 <table>
 <thead>
 <tr>
@@ -182,11 +182,11 @@
 </tbody>
 </table>
 <h2 id="layers-matrix-options">Layers Matrix options</h2>
-<p><img src="media/physics-layers-options.jpg" alt="Simulation"></p>
+<p><img src="media/physics-layers-options.png" alt="Simulation"></p>
 <p>Flax physics simulation supports layer-based collision detection. You can specify collisions mask for each layer that will be used to describe if objects from that layer can collide with objects from the other layers.</p>
 <p>This uses the global layers settings and shows them as a layers matrix. Use checkboxes to define the layers collision mask.</p>
 <h2 id="other">Other</h2>
-<p><img src="media/physics-other-options.jpg" alt="Other"></p>
+<p><img src="media/physics-other-options.png" alt="Other"></p>
 <table>
 <thead>
 <tr>
@@ -199,6 +199,14 @@
 <td><strong>Support Cooking At Runtime</strong></td>
 <td>Enables support for cooking physical collision shapes geometry at runtime. Use it to enable generating runtime terrain collision or convex mesh colliders.</td>
 </tr>
+<tr>
+<td><strong>Triangle Mesh Triangle Min Area Threshold</strong></td>
+<td>Triangles from triangle meshes (CSG) with an area less than or equal to this value will be removed from physics collision data. Set to less than or equal 0 to disable.</td>
+</tr>
+<tr>
+<td><strong>Queries Hit Triggers</strong></td>
+<td>If checked, any <a href="raycasting.html">raycast</a> or other scene query that intersects with a collider marked as a trigger will returns with a hit. Individual raycasts can override this behavior.</td>
+</tr>
 </tbody>
 </table>
 </article>
@@ -209,7 +217,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/physics/physics-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/physics/physics-settings.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

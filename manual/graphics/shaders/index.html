@@ -89,7 +89,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="shaders">Shaders</h1>
 
-<p>Shaders are <strong>GPU program</strong> resources which can run on the GPU and are able to perform rendering calculation using textures, vertices and other resources. Follow this documentation to learn more about wrtting and using shaders in your projects.</p>
+<p>Shaders are <strong>GPU program</strong> resources which can run on the GPU and are able to perform rendering calculation using textures, vertices and other resources. Follow this documentation to learn more about writing and using shaders in your projects.</p>
 <h2 id="graphics-rendering">Graphics rendering</h2>
 <p>Flax supports graphics programming via C++ and/or C# API that wraps the underlaying graphics beckend API with a thin abstraction layer. By using single API game and engine code can perform rendering and support multiple platforms such as DirectX, Vulkan and more. The API is <strong>low-level and object-oriented</strong>, as it contains most common types such as <em>GPUDevice</em>, <em>GPUContext</em>, <em>GPUTexture</em>, <em>GPUBuffer</em>, <em>GPUShader</em>, <em>GPUPipelineState</em>, etc.</p>
 <p>GPU pipeline uses <strong>slot-based binding model</strong> which is explicit and has low-overhead characteristic. When performing drawing or compute work dispatching the GPU resources such as textures and buffers are binded using resource views to the explicit pipeline slots - SRV/UAV/CB. The binding slots are global to all shader stages (vertex, pixel, compute, etc.) so texture view assigned to Shader Resource View slot can be used in binded pipeline state vertex/pixel/compute shaders. The engine implements shaders reflections and optimizes the direct stages binding under the hood.</p>
@@ -195,10 +195,10 @@ The problem is that we have to create a set of different <strong>variations of t
 <p>3) With specular, with IES Profile.</p>
 <p>4) Without specular, with IES Profile.</p>
 <p>However we don’t want to write 4 shaders but single one and just permutate it.
-That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compile shader with different sets of macros (eg. <em>NO_SPECULAR=1</em>, <em>USE_IES_PROFILE=0</em>) and generate different shaders from the same source code. The key to success is that we use data-oriented design and define all possible shader permutation statically in a shader. Later at runtime we just select desire permutation by index and use it in rendering code. This approach is low-overhead and doesn&#39;t generate unnessesery permutations but only the ones delcared by the user.</p>
-<p>Also, if your code needs to be used just for a single shader function use macro <code>_&lt;function_name&gt;</code> (eg. <code>_CS_Sort</code>). In that way also resources used just by this function (eg. buffer slot or texture slot) can be exlucded from other functions compilation.</p>
+That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compile shader with different sets of macros (eg. <em>NO_SPECULAR=1</em>, <em>USE_IES_PROFILE=0</em>) and generate different shaders from the same source code. The key to success is that we use data-oriented design and define all possible shader permutation statically in a shader. Later at runtime we just select desire permutation by index and use it in rendering code. This approach is low-overhead and doesn&#39;t generate unnecessary permutations but only the ones declared by the user.</p>
+<p>Also, if your code needs to be used just for a single shader function use macro <code>_&lt;function_name&gt;</code> (eg. <code>_CS_Sort</code>). In that way also resources used just by this function (eg. buffer slot or texture slot) can be excluded from other functions compilation.</p>
 <h4 id="including-shader-files">Including shader files</h4>
-<p>Shader sources are stored in <code>.shader</code> files. Each file can contain one or more shader functions for the certain graphics rendering implementation. Hovewer when building complex graphics pipeline you might need to split some functionalities into several utility files. For this case, <code>.hlsl</code> files can be used as they can contain custom code to be included. Flax supports including files with a following pattern:</p>
+<p>Shader sources are stored in <code>.shader</code> files. Each file can contain one or more shader functions for the certain graphics rendering implementation. However when building complex graphics pipeline you might need to split some functionalities into several utility files. For this case, <code>.hlsl</code> files can be used as they can contain custom code to be included. Flax supports including files with a following pattern:</p>
 <pre><code class="lang-hlsl">#include &quot;./&lt;project_name&gt;/&lt;file_path&gt;.hlsl&quot;
 
 // Example:
@@ -212,6 +212,7 @@ That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compi
 <li><a href="custom-fullscreen-shader.html">Custom Fullscreen Shader</a></li>
 <li><a href="custom-geometry-drawing.html">Custom Geometry Drawing</a></li>
 <li><a href="custom-compute-shader.html">Custom Compute Shader</a></li>
+<li><a href="cel-shading.html">Cel Shading</a></li>
 <li><a href="graphics-api.html">Graphics API</a></li>
 </ul>
 </article>
@@ -222,7 +223,7 @@ That’s why we use macros <em>META_PERMUTATION_2</em>. Then we can simply compi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/graphics/shaders/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

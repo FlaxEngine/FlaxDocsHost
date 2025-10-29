@@ -90,9 +90,12 @@
 <h1 id="cameras">Cameras</h1>
 
 <p><img src="media/camera.png" alt="Camera"></p>
-<p><strong>Camera</strong> captures the scene and displays it to the user. It defines a view in screen space. A camera&#39;s position and rotaton define the <em>viewport</em> and <em>view direction</em>. Those properties are used to render scene objects and present them to the user.</p>
+<p><strong>Camera</strong> captures the scene and displays it to the user. It defines a view in screen space. A camera&#39;s position and rotation define the <em>viewport</em> and <em>view direction</em>. Those properties are used to render scene objects and present them to the user.</p>
+<h2 id="changing-the-active-camera">Changing the active camera</h2>
 <p>Flax Engine allows to create an unlimited amount of cameras in scenes while the <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html#FlaxEngine_Camera_MainCamera">main one</a> is used for the final frame rendering.</p>
-<h2 id="creating-a-camera-in-the-editor">Creating a camera in the editor</h2>
+<p>To change the camera used for rendering, you can use the following code, where <code>MyCamera</code> is the camera you want to change to:</p>
+<pre><code class="lang-cs">Camera.OverrideMainCamera = MyCamera;
+</code></pre><h2 id="creating-a-camera-in-the-editor">Creating a camera in the editor</h2>
 <p>In the <em>Scene</em> tree window, right-click and select <strong>New -&gt; Camera</strong>.
 The Editor will create new Camera actor with default properties.</p>
 <p><img src="media/new-cam.jpg" alt="New Camera"></p>
@@ -109,7 +112,7 @@ The Editor will create new Camera actor with default properties.</p>
 }
 </code></pre><p>To learn more about the C# scripting API see the <a href="http://docs.flaxengine.com/api/FlaxEngine.Camera.html">Camera</a> class.</p>
 <h2 id="camera-properties">Camera properties</h2>
-<p><img src="media/camera-properties.png" alt="Camera Propertiess"></p>
+<p><img src="media/camera-properties.png" alt="Camera Properties"></p>
 <table>
 <thead>
 <tr>
@@ -119,12 +122,12 @@ The Editor will create new Camera actor with default properties.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>Field Of View</strong></td>
-<td>The vertical field of view (in degrees) used for perspective projection.</td>
-</tr>
-<tr>
 <td><strong>Use Perspective</strong></td>
 <td>If checked, camera will use perspective projection, otherwise orthographic.</td>
+</tr>
+<tr>
+<td><strong>Field Of View</strong></td>
+<td>The vertical field of view (in degrees) used for perspective projection.</td>
 </tr>
 <tr>
 <td><strong>Near Plane</strong></td>
@@ -140,15 +143,23 @@ The Editor will create new Camera actor with default properties.</p>
 </tr>
 <tr>
 <td><strong>Orthographic Size</strong></td>
-<td>The orthographic projection view height (width is based on the aspect ratio). Use <code>0</code> for size to be based on the viewport size.</td>
+<td><em>Only visible when **Use Perspective</em>* is false.* The orthographic projection view height (width is based on the aspect ratio). Use <code>0</code> for size to be based on the viewport size.</td>
 </tr>
 <tr>
 <td><strong>Orthographic Scale</strong></td>
-<td>Additional scale used for the orthographic projection size. This has the effect of zooming in and out.</td>
+<td><em>Only visible when **Use Perspective</em>* is false.* Additional scale used for the orthographic projection size. This has the effect of zooming in and out.</td>
 </tr>
 <tr>
 <td><strong>Render Layers Mask</strong></td>
 <td>The layers mask used for rendering using this camera. Can be used to include or exclude specific actor layers from the drawing.</td>
+</tr>
+<tr>
+<td><strong>Render Flags</strong></td>
+<td>Frame rendering flags used to switch between graphics features for this camera. See <a href="https://docs.flaxengine.com/api/FlaxEngine.ViewFlags.html">ViewFlags</a> api reference.</td>
+</tr>
+<tr>
+<td><strong>Render Mode</strong></td>
+<td>Describes frame rendering modes for this camera. See <a href="https://docs.flaxengine.com/api/FlaxEngine.ViewMode.html">ViewMode</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -222,7 +233,7 @@ The far plane is the furthest point the camera can see. It&#39;s also known as a
 <pre><code class="lang-cs">MainRenderTask.Instance.Buffers.UseAlpha = true;
 </code></pre><p>Then, the renderer will use <code>R16G16B16A16</code> format for the image textures and passthrough the alpha channel. This affects game performance, as the default <code>R11G11B10</code> format is more optimized for lower memory bandwidth. When using alpha in output try to disable unused PostFx features to reduce memory pressure and improve performance.</p>
 <h2 id="override-view">Override view</h2>
-<p>Flax uses an extensible RenderTask system for high-level rendering achitecture. By default a game uses the <code>MainRenderTask.Instance</code> to drive the scene rendering into the main game viewport. You can use it to plug into the rendering pipeline for custom effects, rendering or view override.</p>
+<p>Flax uses an extensible RenderTask system for high-level rendering architecture. By default a game uses the <code>MainRenderTask.Instance</code> to drive the scene rendering into the main game viewport. You can use it to plug into the rendering pipeline for custom effects, rendering or view override.</p>
 <div class="tabGroup" id="tabgroup_xJdqemeYyZ">
 <ul role="tablist">
 <li role="presentation">
@@ -309,7 +320,7 @@ inline MyScript::MyScript(const SpawnParams&amp; params)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ed3848c101d6ec3910a8f5e61d2fd1f82cbe16c3/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/f0f9a578034c10b83926e1a92129a167426f90da/manual/graphics/cameras/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

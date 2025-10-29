@@ -622,14 +622,14 @@ public AnimationGraph AnimationGraph { get; set; }</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_BoundsScale" data-uid="FlaxEngine.AnimatedModel.BoundsScale"><a href="#collapsible-FlaxEngine_AnimatedModel_BoundsScale" class="expander" data-toggle="collapse">BoundsScale</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_BoundsScale" class="collapse in">
-  <div class="markdown level1 summary"><p>The master scale parameter for the actor bounding box. Helps reducing mesh flickering effect on screen edges.</p>
+  <div class="markdown level1 summary"><p>The master scale parameter for the actor bounding box. Helps to reduce mesh flickering effect on screen edges.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(60)]
-[Limit(0F, 3.40282347E+38F, 1F)]
+[Limit(0F, 3.40282347E+38F, 0.025F)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
 public float BoundsScale { get; set; }</code></pre>
@@ -1144,13 +1144,14 @@ public AnimatedModel.AnimationUpdateMode UpdateMode { get; set; }</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_UpdateSpeed" data-uid="FlaxEngine.AnimatedModel.UpdateSpeed"><a href="#collapsible-FlaxEngine_AnimatedModel_UpdateSpeed" class="expander" data-toggle="collapse">UpdateSpeed</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_UpdateSpeed" class="collapse in">
-  <div class="markdown level1 summary"><p>The animation update delta time scale. Can be used to speed up animation playback or create slow motion effect.</p>
+  <div class="markdown level1 summary"><p>The animation update delta timescale. Can be used to speed up animation playback or create slow motion effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(45)]
+[Limit(0F, 3.40282347E+38F, 0.025F)]
 [EditorDisplay(&quot;Skinned Model&quot;, null)]
 [Unmanaged]
 public float UpdateSpeed { get; set; }</code></pre>
@@ -1224,7 +1225,7 @@ public bool UpdateWhenOffscreen { get; set; }</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_UseTimeScale" data-uid="FlaxEngine.AnimatedModel.UseTimeScale"><a href="#collapsible-FlaxEngine_AnimatedModel_UseTimeScale" class="expander" data-toggle="collapse">UseTimeScale</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_UseTimeScale" class="collapse in">
-  <div class="markdown level1 summary"><p>If true, animation speed will be affected by the global time scale parameter.</p>
+  <div class="markdown level1 summary"><p>If true, animation speed will be affected by the global timescale parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1420,6 +1421,54 @@ public void GetCurrentPose(out Matrix[] nodesTransformation, bool worldSpace = f
         <span class="pull-right"><a class="xref" href="FlaxEngine.Matrix.html">Matrix</a>[]</span>
         <span class="parametername">nodesTransformation</span>
         <p><p>The output per-node final transformation matrices.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">worldSpace</span>
+        <p><p>True if convert matrices into world-space, otherwise returned values will be in local-space of the actor.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_GetNodeTransformation_" data-uid="FlaxEngine.AnimatedModel.GetNodeTransformation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_GetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation____System_Boolean_" data-uid="FlaxEngine.AnimatedModel.GetNodeTransformation(FlaxEngine.AnimatedModel.NodeTransformation[]@,System.Boolean)"><a href="#collapsible-FlaxEngine_AnimatedModel_GetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation____System_Boolean_" class="expander" data-toggle="collapse">GetNodeTransformation(ref AnimatedModel.NodeTransformation[], Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_GetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation____System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the node final transformation for a series of nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void GetNodeTransformation(ref AnimatedModel.NodeTransformation[] nodeTransformations, bool worldSpace = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.AnimatedModel.NodeTransformation.html">AnimatedModel.NodeTransformation</a>[]</span>
+        <span class="parametername">nodeTransformations</span>
+        <p><p>The series of nodes that will be returned</p>
 </p>
       </td>
     </tr>
@@ -1713,7 +1762,7 @@ public object GetParameterValue(string name)</code></pre>
   <h4 id="FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" data-uid="FlaxEngine.AnimatedModel.IsPlayingSlotAnimation"><a href="#collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" class="expander" data-toggle="collapse">IsPlayingSlotAnimation()</a></h4>
   
   <div id="collapsible-FlaxEngine_AnimatedModel_IsPlayingSlotAnimation" class="collapse in">
-  <div class="markdown level1 summary"><p>Checks if the any animation playback is active on the any slot in Anim Graph (not paused).</p>
+  <div class="markdown level1 summary"><p>Checks if any  animation playback is active on any  slot in Anim Graph (not paused).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2136,6 +2185,54 @@ public void SetMasterPoseModel(AnimatedModel masterPose)</code></pre>
         <span class="pull-right"><a class="xref" href="FlaxEngine.AnimatedModel.html">AnimatedModel</a></span>
         <span class="parametername">masterPose</span>
         <p><p>The master pose actor to use.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_AnimatedModel_SetNodeTransformation_" data-uid="FlaxEngine.AnimatedModel.SetNodeTransformation*"></a>
+  
+  <h4 id="FlaxEngine_AnimatedModel_SetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation___System_Boolean_" data-uid="FlaxEngine.AnimatedModel.SetNodeTransformation(FlaxEngine.AnimatedModel.NodeTransformation[],System.Boolean)"><a href="#collapsible-FlaxEngine_AnimatedModel_SetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation___System_Boolean_" class="expander" data-toggle="collapse">SetNodeTransformation(AnimatedModel.NodeTransformation[], Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_AnimatedModel_SetNodeTransformation_FlaxEngine_AnimatedModel_NodeTransformation___System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets a group of nodes final transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public void SetNodeTransformation(AnimatedModel.NodeTransformation[] nodeTransformations, bool worldSpace = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.AnimatedModel.NodeTransformation.html">AnimatedModel.NodeTransformation</a>[]</span>
+        <span class="parametername">nodeTransformations</span>
+        <p><p>Array of the final node transformation matrix.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">worldSpace</span>
+        <p><p>True if convert matrices from world-space, otherwise values will be in local-space of the actor.</p>
 </p>
       </td>
     </tr>

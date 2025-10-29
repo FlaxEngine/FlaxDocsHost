@@ -171,9 +171,6 @@
       <a class="xref" href="FlaxEditor.Windows.Assets.AssetEditorWindow.html#FlaxEditor_Windows_Assets_AssetEditorWindow_OnClosing_FlaxEngine_ClosingReason_">AssetEditorWindow.OnClosing(ClosingReason)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEditor.Windows.Assets.AssetEditorWindow.html#FlaxEditor_Windows_Assets_AssetEditorWindow_OnClose">AssetEditorWindow.OnClose()</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEditor.Windows.Assets.AssetEditorWindow.html#FlaxEditor_Windows_Assets_AssetEditorWindow_MarkAsEdited">AssetEditorWindow.MarkAsEdited()</a>
     </div>
     <div>
@@ -244,6 +241,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Windows.EditorWindow.html#FlaxEditor_Windows_EditorWindow_OnPlayBegin">EditorWindow.OnPlayBegin()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEditor.Windows.EditorWindow.html#FlaxEditor_Windows_EditorWindow_OnPlayEnding">EditorWindow.OnPlayEnding()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEditor.Windows.EditorWindow.html#FlaxEditor_Windows_EditorWindow_OnPlayEnd">EditorWindow.OnPlayEnd()</a>
@@ -405,6 +405,9 @@
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_PerformLayout_System_Boolean_">Panel.PerformLayout(Boolean)</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_PerformLayoutAfterChildren">Panel.PerformLayoutAfterChildren()</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_ArrangeAndGetBounds">Panel.ArrangeAndGetBounds()</a>
     </div>
     <div>
@@ -514,9 +517,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_UpdateChildrenBounds">ContainerControl.UpdateChildrenBounds()</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_PerformLayoutAfterChildren">ContainerControl.PerformLayoutAfterChildren()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_ClearState">ContainerControl.ClearState()</a>
@@ -1031,18 +1031,18 @@
   </div>
   
   
-  <a id="FlaxEditor_Windows_Assets_PrefabWindow_LockSelectedObjects_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.LockSelectedObjects*"></a>
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_LockSelection_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.LockSelection*"></a>
   
-  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_LockSelectedObjects" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.LockSelectedObjects"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_LockSelectedObjects" class="expander" data-toggle="collapse">LockSelectedObjects</a></h4>
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_LockSelection" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.LockSelection"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_LockSelection" class="expander" data-toggle="collapse">LockSelection</a></h4>
   
-  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_LockSelectedObjects" class="collapse in">
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_LockSelection" class="collapse in">
   <div class="markdown level1 summary"><p>Indication of if the prefab window selection is locked on specific objects.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool LockSelectedObjects { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool LockSelection { get; set; }</code></pre>
   </div>
 
   
@@ -1061,6 +1061,8 @@
   
   
   
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_LockSelection">IPresenterOwner.LockSelection</a></div>
   
   
   
@@ -1144,12 +1146,51 @@
   </div>
   
   
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_SceneContext_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.SceneContext*"></a>
+  
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_SceneContext" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.SceneContext"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_SceneContext" class="expander" data-toggle="collapse">SceneContext</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_SceneContext" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the scene editing context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISceneEditingContext SceneContext { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEditor.ISceneEditingContext.html">ISceneEditingContext</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_SceneContext">IPresenterOwner.SceneContext</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Windows_Assets_PrefabWindow_Selection_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Selection*"></a>
   
   <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_Selection" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Selection"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Selection" class="expander" data-toggle="collapse">Selection</a></h4>
   
   <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Selection" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the list of selected scene graph nodes in the editor context.</p>
+  <div class="markdown level1 summary"><p>Gets the current selection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1175,6 +1216,7 @@
   
   
   <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.CustomEditors.IPresenterOwner.html#FlaxEditor_CustomEditors_IPresenterOwner_Selection">IPresenterOwner.Selection</a></div>
       <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Selection">ISceneEditingContext.Selection</a></div>
   
   
@@ -1419,6 +1461,36 @@
   </div>
   
   
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_DeleteSelection_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.DeleteSelection*"></a>
+  
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_DeleteSelection" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.DeleteSelection"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_DeleteSelection" class="expander" data-toggle="collapse">DeleteSelection()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_DeleteSelection" class="collapse in">
+  <div class="markdown level1 summary"><p>Deletes selected objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeleteSelection()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_DeleteSelection">ISceneEditingContext.DeleteSelection()</a></div>
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEditor_Windows_Assets_PrefabWindow_Deselect_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Deselect*"></a>
   
   <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_Deselect" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Deselect"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Deselect" class="expander" data-toggle="collapse">Deselect()</a></h4>
@@ -1567,6 +1639,36 @@
   
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">FlaxEditor.Windows.Assets.AssetEditorWindowBase&lt;FlaxEngine.Prefab&gt;.OnAssetLoaded()</span></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_Windows_Assets_PrefabWindow_OnClose_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.OnClose*"></a>
+  
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_OnClose" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.OnClose"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_OnClose" class="expander" data-toggle="collapse">OnClose()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_OnClose" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when window is closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnClose()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FlaxEditor.Windows.Assets.AssetEditorWindow.html#FlaxEditor_Windows_Assets_AssetEditorWindow_OnClose">AssetEditorWindow.OnClose()</a></div>
   
   
   
@@ -2199,16 +2301,16 @@
   
   <a id="FlaxEditor_Windows_Assets_PrefabWindow_Spawn_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Spawn*"></a>
   
-  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Spawn(FlaxEngine.Actor,FlaxEngine.Actor,System.Int32)"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_" class="expander" data-toggle="collapse">Spawn(Actor, Actor, Int32)</a></h4>
+  <h4 id="FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_System_Boolean_" data-uid="FlaxEditor.Windows.Assets.PrefabWindow.Spawn(FlaxEngine.Actor,FlaxEngine.Actor,System.Int32,System.Boolean)"><a href="#collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">Spawn(Actor, Actor, Int32, Boolean)</a></h4>
   
-  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_" class="collapse in">
+  <div id="collapsible-FlaxEditor_Windows_Assets_PrefabWindow_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Spawns the specified actor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Spawn(Actor actor, Actor parent, int orderInParent = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Spawn(Actor actor, Actor parent, int orderInParent = -1, bool autoSelect = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2237,6 +2339,14 @@
 </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">autoSelect</span>
+        <p><p>True if automatically select the spawned actor, otherwise false.</p>
+</p>
+      </td>
+    </tr>
   </table>
   
   
@@ -2245,6 +2355,8 @@
   
   
   
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="FlaxEditor.ISceneEditingContext.html#FlaxEditor_ISceneEditingContext_Spawn_FlaxEngine_Actor_FlaxEngine_Actor_System_Int32_System_Boolean_">ISceneEditingContext.Spawn(Actor, Actor, Int32, Boolean)</a></div>
   
   
   

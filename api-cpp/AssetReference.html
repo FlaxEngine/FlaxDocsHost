@@ -98,8 +98,9 @@
   <div class="inheritance">
     <h5 id="inheritance-AssetReference" data-uid="AssetReference"><a href="#collapsible-inheritance-AssetReference" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
     <div id="collapsible-inheritance-AssetReference" class="collapse">
-    <div class="level0"><a class="xref" href="AssetReferenceBase.html">AssetReferenceBase</a></div>
-    <div class="level1"><span class="xref">AssetReference</span></div>
+    <div class="level0"><a class="xref" href="IAssetReference.html">IAssetReference</a></div>
+    <div class="level1"><a class="xref" href="AssetReferenceBase.html">AssetReferenceBase</a></div>
+    <div class="level2"><span class="xref">AssetReference</span></div>
     </div>
   </div>
   
@@ -110,7 +111,13 @@
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase__asset">AssetReferenceBase::_asset</a>
     </div>
     <div>
+      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase__owner">AssetReferenceBase::_owner</a>
+    </div>
+    <div>
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_AssetReferenceBase__">AssetReferenceBase::AssetReferenceBase()</a>
+    </div>
+    <div>
+      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_AssetReferenceBase_IAssetReference___">AssetReferenceBase::AssetReferenceBase(IAssetReference* owner)</a>
     </div>
     <div>
       <span class="xref">AssetReference</span>
@@ -128,13 +135,16 @@
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_Loaded">AssetReferenceBase::Loaded</a>
     </div>
     <div>
-      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnLoaded_Asset___">AssetReferenceBase::OnLoaded(Asset* asset)</a>
+      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnAssetChanged_Asset___void___">AssetReferenceBase::OnAssetChanged(Asset* asset, void* caller)</a>
+    </div>
+    <div>
+      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnAssetLoaded_Asset___void___">AssetReferenceBase::OnAssetLoaded(Asset* asset, void* caller)</a>
+    </div>
+    <div>
+      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnAssetUnloaded_Asset___void___">AssetReferenceBase::OnAssetUnloaded(Asset* asset, void* caller)</a>
     </div>
     <div>
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnSet_Asset___">AssetReferenceBase::OnSet(Asset* asset)</a>
-    </div>
-    <div>
-      <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_OnUnloaded_Asset___">AssetReferenceBase::OnUnloaded(Asset* asset)</a>
     </div>
     <div>
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase_ToString__">AssetReferenceBase::ToString()</a>
@@ -147,6 +157,9 @@
     </div>
     <div>
       <a class="xref" href="AssetReferenceBase.html#AssetReferenceBase__AssetReferenceBase__">AssetReferenceBase::~AssetReferenceBase()</a>
+    </div>
+    <div>
+      <a class="xref" href="IAssetReference.html#IAssetReference__IAssetReference__">IAssetReference::~IAssetReference()</a>
     </div>
   </div>
   </div>
@@ -180,7 +193,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference__AssetReference__.md&amp;value=---%0Auid%3A%20AssetReference.~AssetReference()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L154" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference__AssetReference_" data-uid="AssetReference.~AssetReference*"></a>
@@ -214,7 +227,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference__.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L86" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L97" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
@@ -248,7 +261,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference_AssetReference____.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference(AssetReference%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L108" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
@@ -292,7 +305,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference_const_AssetReference___.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference(const%20AssetReference%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L130" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
@@ -333,10 +346,98 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference_decltype___nullptr__.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference(decltype(__nullptr))%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L104" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
+  
+  <h4 id="AssetReference_AssetReference_decltype___nullptr__" data-uid="AssetReference.AssetReference(decltype(__nullptr))"><a href="#collapsible-AssetReference_AssetReference_decltype___nullptr__" class="expander" data-toggle="collapse">AssetReference(decltype(__nullptr))</a></h4>
+  
+  <div id="collapsible-AssetReference_AssetReference_decltype___nullptr__" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="AssetReference.html">AssetReference</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public AssetReference(decltype(__nullptr))</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">decltype(__nullptr)</span></span>
+        <span class="parametername">AssetReference_AssetReference_decltype___nullptr__</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference_IAssetReference___.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference(IAssetReference%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
+  
+  <h4 id="AssetReference_AssetReference_IAssetReference___" data-uid="AssetReference.AssetReference(IAssetReference *)"><a href="#collapsible-AssetReference_AssetReference_IAssetReference___" class="expander" data-toggle="collapse">AssetReference(IAssetReference* owner)</a></h4>
+  
+  <div id="collapsible-AssetReference_AssetReference_IAssetReference___" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="AssetReference.html">AssetReference</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public AssetReference(IAssetReference* owner)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="IAssetReference.html">IAssetReference</a></span>
+        <span class="parametername">owner</span>
+        <p><p>The reference owner to keep notified about asset changes.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_AssetReference_T___.md&amp;value=---%0Auid%3A%20AssetReference.AssetReference(T%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L112" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_AssetReference_" data-uid="AssetReference.AssetReference*"></a>
@@ -382,7 +483,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_As__.md&amp;value=---%0Auid%3A%20AssetReference.As()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L206" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L233" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_As_" data-uid="AssetReference.As*"></a>
@@ -434,7 +535,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_Get__.md&amp;value=---%0Auid%3A%20AssetReference.Get()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L197" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L224" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_Get_" data-uid="AssetReference.Get*"></a>
@@ -477,7 +578,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator_bool__.md&amp;value=---%0Auid%3A%20AssetReference.operator%20bool()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L181" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L208" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator_bool_" data-uid="AssetReference.operator bool*"></a>
@@ -520,7 +621,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator_T___.md&amp;value=---%0Auid%3A%20AssetReference.operator%20T*()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L173" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L200" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator_T__" data-uid="AssetReference.operator T**"></a>
@@ -563,7 +664,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator___const_AssetReference___.md&amp;value=---%0Auid%3A%20AssetReference.operator!%3D(const%20AssetReference%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L192" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator___" data-uid="AssetReference.operator!=*"></a>
@@ -616,7 +717,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator___T___.md&amp;value=---%0Auid%3A%20AssetReference.operator!%3D(T%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L160" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L187" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator___" data-uid="AssetReference.operator!=*"></a>
@@ -669,7 +770,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator__AssetReference____.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D(AssetReference%20%26%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L114" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator__" data-uid="AssetReference.operator=*"></a>
@@ -722,7 +823,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator__const_AssetReference___.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D(const%20AssetReference%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L132" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L159" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator__" data-uid="AssetReference.operator=*"></a>
@@ -775,7 +876,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator__const_Guid___.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D(const%20Guid%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L144" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator__" data-uid="AssetReference.operator=*"></a>
@@ -828,7 +929,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator__T___.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D(T%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L138" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator__" data-uid="AssetReference.operator=*"></a>
@@ -881,7 +982,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator___const_AssetReference___.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D%3D(const%20AssetReference%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L155" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L182" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator___" data-uid="AssetReference.operator==*"></a>
@@ -934,7 +1035,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator___T___.md&amp;value=---%0Auid%3A%20AssetReference.operator%3D%3D(T%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator___" data-uid="AssetReference.operator==*"></a>
@@ -987,7 +1088,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_operator____.md&amp;value=---%0Auid%3A%20AssetReference.operator-%3E()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L189" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L216" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_operator___" data-uid="AssetReference.operator-&gt;*"></a>
@@ -1030,7 +1131,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference_Set_T___.md&amp;value=---%0Auid%3A%20AssetReference.Set(T%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L216" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L243" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="AssetReference_Set_" data-uid="AssetReference.Set*"></a>
@@ -1081,7 +1182,7 @@
                     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=AssetReference.md&amp;value=---%0Auid%3A%20AssetReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L76" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/AssetReference.h/#L87" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
