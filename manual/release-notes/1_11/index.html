@@ -102,75 +102,54 @@
 <p><img src="media/memory-dump-command.png" alt="Memory Dump Command"></p>
 <p>This feature comes with a set of great tools, such as Editor&#39;s Profiler integration that groups categories in a table with hot highlights and charts. New <code>ProfilerMemory.Dump</code> command dumps the memory allocations stats (grouped) into the log for quick investigations.</p>
 <h3 id="gpu-particles-performance-improvements">GPU Particles Performance Improvements</h3>
+<p><center>
 <video src="media/flax-game-particles.mp4" autoplay="" muted="" loop="" width="100%"></video>
-| Game made with Flax running on Nintendo Switch
-
-If your project utilizes GPU particles then on 1.11 it should run a lot of faster! Both rendering and simulation have been refactored to scale better across different hardware. GPU particles sortings run parallel and has very fast-path for small emitters (less than <code>2048</code> particles). Finally, GPU execution has been improved by using <strong>UAV overlaps and more optimized memory barriers</strong>.
-
-### Particle Emitter Debug Draw
-
-<img src="media/particle-shapes.png" alt="Particle Emitter Debug Draw">
-
-Particle Systems will now display debug draw shapes for <code>Set Position</code> modules. You can hide this by unchecking the <code>Show Debug Draw</code> checkbox on the particle system actor.
-
-For more advanced effects new Layout tab in Particle Emitter editor displays layout and memory info of the particles.
-
-<img src="media/particle-data-layout.png" alt="Particle Data Layout">
-
-### GPU Profiler in Tracy
-
-<img src="media/tracy-gpu.png" alt="GPU Profiler in Tracy">
-
-For this release, we added integration of GPU profiling with <a href="../../editor/profiling/tracy.html">Tracy</a> profiler. D3D11, D3D12 and Vulkan graphics APIs are supported in GPU performance timeline. Integration automatically inserts timer queries to calculate duration of various events. Additionally Tracy provides functionality to show CPU section that corresponds to the given GPU work event. This can be used to profile rendering performance on connected devices (incl. mobile and console devkits).
-
-### Visject Improvements
-
+<em>Game made with Flax running on Nintendo Switch.</em>
+</center><br></p>
+<p>If your project utilizes GPU particles then on 1.11 it should run a lot of faster! Both rendering and simulation have been refactored to scale better across different hardware. GPU particles sortings run parallel and has very fast-path for small emitters (less than <code>2048</code> particles). Finally, GPU execution has been improved by using <strong>UAV overlaps and more optimized memory barriers</strong>.</p>
+<h3 id="particle-emitter-debug-draw">Particle Emitter Debug Draw</h3>
+<p><img src="media/particle-shapes.png" alt="Particle Emitter Debug Draw"></p>
+<p>Particle Systems will now display debug draw shapes for <code>Set Position</code> modules. You can hide this by unchecking the <code>Show Debug Draw</code> checkbox on the particle system actor.</p>
+<p>For more advanced effects new Layout tab in Particle Emitter editor displays layout and memory info of the particles.</p>
+<p><img src="media/particle-data-layout.png" alt="Particle Data Layout"></p>
+<h3 id="gpu-profiler-in-tracy">GPU Profiler in Tracy</h3>
+<p><img src="media/tracy-gpu.png" alt="GPU Profiler in Tracy"></p>
+<p>For this release, we added integration of GPU profiling with <a href="../../editor/profiling/tracy.html">Tracy</a> profiler. D3D11, D3D12 and Vulkan graphics APIs are supported in GPU performance timeline. Integration automatically inserts timer queries to calculate duration of various events. Additionally Tracy provides functionality to show CPU section that corresponds to the given GPU work event. This can be used to profile rendering performance on connected devices (incl. mobile and console devkits).</p>
+<h3 id="visject-improvements">Visject Improvements</h3>
+<p><center>
 <video src="media/node-formatting-tools.mp4" autoplay="" muted="" loop="" height="400"></video>
-| New node formatting options
-
-Flax has its own graph editing tools, called Visject. It is used in many areas of the engine, from materials and particles to animations. In 1.11, a lot of new features were added and a lot of already existing ones were improved, making assets that use Visject <strong>even quicker and easy to edit</strong>.
-
-Notable changes:
-* Additive and subtractive box select,
-* New node formatting and alignement options,
-* Node socket connections can be moved with a mouse drag,
-* Time node contains now both scaled and unscaled time values,
-
-### Viewport Icons Scaling
-
-<img src="media/editor-icons.gif" alt="Editor Icons">
-
-Viewport icons now change their size based on their distance to the camera. This vastly improves their visibility when they are far away from the camera. 
-
-### New Keyboard Shortcuts
-
-Using your mouse for everything can slow you down a lot. That&#39;s why we <strong>added a bunch of new keyboard shortcuts</strong>. Now, you can switch between windows in the editor by pressing <em>Control + Number</em> or quickly access the debug console text input with <em>Control + Backquote</em> (<code>~</code> key). Debug View Modes and some of the commonly used View Flags also got their own shortcuts (<em>Alt + Number</em> for View Modes and <em>Control + Shift + Number</em> for View Flags). Using those is much quicker than selecting the view mode via <code>View -&gt; Debug View</code>/<code>View Flags</code> in a viewport.
-
-Of course all of these shortcuts <strong>can be customized in the editor settings</strong> (speaking of which: you can now access them by pressing <em>Control + Comma</em>).
-
-### Async Scenes Loading
-
-<img src="media/async-scenes-loading.png" alt="Async Scenes Loading">
-
-Scene loading has been refactored to use a <strong>time budget (per frame)</strong> via time-slicing. It&#39;s configurable and <strong>removes hitches when opening maps or streaming levels</strong>. This smoothens loading large levels, and more parts of that code are running in async now. By default, it&#39;s configured to use max 30% of the total frame time (eg. 4.8ms at 60fps) to ensure the game remains smooth.
-
-### Layers Matrix Highlights
-
-<img src="media/layers-matrix.gif" alt="Layers Matrix Highlights">
-
-The layers matrix could become quite hard to read when there are lots of layers in the project. That&#39;s why in Flax 1.11 we added highlights to the row and column of the checkbox that the mouse is currently hovering over.
-
-### Threading Improvements
-
+<em>New node formatting options</em>
+</center><br></p>
+<p>Flax has its own graph editing tools, called Visject. It is used in many areas of the engine, from materials and particles to animations. In 1.11, a lot of new features were added and a lot of already existing ones were improved, making assets that use Visject <strong>even quicker and easy to edit</strong>.</p>
+<p>Notable changes:</p>
+<ul>
+<li>Additive and subtractive box select,</li>
+<li>New node formatting and alignement options,</li>
+<li>Node socket connections can be moved with a mouse drag,</li>
+<li>Time node contains now both scaled and unscaled time values,</li>
+</ul>
+<h3 id="viewport-icons-scaling">Viewport Icons Scaling</h3>
+<p><img src="media/editor-icons.gif" alt="Editor Icons"></p>
+<p>Viewport icons now change their size based on their distance to the camera. This vastly improves their visibility when they are far away from the camera. </p>
+<h3 id="new-keyboard-shortcuts">New Keyboard Shortcuts</h3>
+<p>Using your mouse for everything can slow you down a lot. That&#39;s why we <strong>added a bunch of new keyboard shortcuts</strong>. Now, you can switch between windows in the editor by pressing <em>Control + Number</em> or quickly access the debug console text input with <em>Control + Backquote</em> (<code>~</code> key). Debug View Modes and some of the commonly used View Flags also got their own shortcuts (<em>Alt + Number</em> for View Modes and <em>Control + Shift + Number</em> for View Flags). Using those is much quicker than selecting the view mode via <code>View -&gt; Debug View</code>/<code>View Flags</code> in a viewport.</p>
+<p>Of course all of these shortcuts <strong>can be customized in the editor settings</strong> (speaking of which: you can now access them by pressing <em>Control + Comma</em>).</p>
+<h3 id="async-scenes-loading">Async Scenes Loading</h3>
+<p><img src="media/async-scenes-loading.png" alt="Async Scenes Loading"></p>
+<p>Scene loading has been refactored to use a <strong>time budget (per frame)</strong> via time-slicing. It&#39;s configurable and <strong>removes hitches when opening maps or streaming levels</strong>. This smoothens loading large levels, and more parts of that code are running in async now. By default, it&#39;s configured to use max 30% of the total frame time (eg. 4.8ms at 60fps) to ensure the game remains smooth.</p>
+<h3 id="layers-matrix-highlights">Layers Matrix Highlights</h3>
+<p><img src="media/layers-matrix.gif" alt="Layers Matrix Highlights"></p>
+<p>The layers matrix could become quite hard to read when there are lots of layers in the project. That&#39;s why in Flax 1.11 we added highlights to the row and column of the checkbox that the mouse is currently hovering over.</p>
+<h3 id="threading-improvements">Threading Improvements</h3>
+<p><center>
 <video src="media/falling-boxes.mp4" autoplay="" muted="" loop="" width="100%"></video>
-| 10,000 falling boxes
-
-We&#39;ve improved many engine parts to use multi-threading more often. Especially, physics simulation results processing, content streaming processing, particles and much more. In the sample falling boxes project, the lowest FPS ancounted when all <code>10,000</code> boxes collide went up from average <code>47fps</code> to <code>75fps</code>. This shows how <strong>engine scales better in large projects</strong> were object count grows exponentionally to meet visual fidelity.
-
-### GPU Texture Preview
-
+<em>10,000 falling boxes</em>
+</center><br></p>
+<p>We improved many engine parts to use multi-threading more often. Especially, physics simulation results processing, content streaming processing, particles and much more. In the sample falling boxes project, the lowest FPS ancounted when all <code>10,000</code> boxes collide went up from average <code>47fps</code> to <code>75fps</code>. This shows how <strong>engine scales better in large projects</strong> were object count grows exponentionally to meet visual fidelity.</p>
+<h3 id="gpu-texture-preview">GPU Texture Preview</h3>
+<p><center>
 <video src="media/gputexture.mp4" autoplay="" muted="" loop="" height="200"></video>
-
+</center><br></p>
 <p>When exposing a <code>GPUTexture</code> to the Properties Panel it will now show a preview as long as something is rendered to it.</p>
 <h3 id="ui-editor-resolution-preview">UI Editor Resolution Preview</h3>
 <p><img src="media/ui-resolution-preset.png" alt="UI Editor Resolution Preview"></p>
@@ -531,7 +510,7 @@ We&#39;ve improved many engine parts to use multi-threading more often. Especial
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/ee97ad993bcca5f2b72f19accf8f8abf71adb84d/manual/release-notes/1_11/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/476356d091d58fb1a2b7039df11183a47799691d/manual/release-notes/1_11/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
