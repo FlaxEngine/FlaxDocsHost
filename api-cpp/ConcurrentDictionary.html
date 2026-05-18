@@ -1,0 +1,727 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ConcurrentDictionary
+   | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ConcurrentDictionary
+   | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Class ConcurrentDictionary
+   | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ConcurrentDictionary">
+  <h1 id="ConcurrentDictionary" data-uid="ConcurrentDictionary">Class ConcurrentDictionary
+  </h1>
+  <div class="markdown level0 summary"><p>Template for unordered dictionary with mapped key with value pairs that supports asynchronous data reading and writing. Implemented via reader-writer lock pattern, so multiple threads can read data at the same time, but only one thread can write data and it blocks all other threads (including readers) until the write operation is finished. Optimized for frequent reads (no lock operation). </p></div>
+  <div class="markdown level0 conceptual"></div>
+
+  <div class="inheritance">
+    <h5 id="inheritance-ConcurrentDictionary" data-uid="ConcurrentDictionary"><a href="#collapsible-inheritance-ConcurrentDictionary" class="expander collapsed" data-toggle="collapse">Inheritance</a></h5>
+    <div id="collapsible-inheritance-ConcurrentDictionary" class="collapse">
+    <div class="level0"><a class="xref" href="HashSetBase.html">HashSetBase</a></div>
+    <div class="level1"><a class="xref" href="Dictionary.html">Dictionary</a></div>
+    <div class="level2"><span class="xref">ConcurrentDictionary</span></div>
+    </div>
+  </div>
+  
+  <div class="inheritedMembers">
+    <h5 id="inheritedMembers-ConcurrentDictionary" data-uid="ConcurrentDictionary.AllocationData"><a href="#collapsible-inheritedMembers-ConcurrentDictionary" class="expander collapsed" data-toggle="collapse">Inherited Members</a></h5>
+  <div id="collapsible-inheritedMembers-ConcurrentDictionary" class="collapse">
+    <div>
+      <span class="xref">ConcurrentDictionary</span>
+    </div>
+    <div>
+      <span class="xref">ConcurrentDictionary</span>
+    </div>
+    <div>
+      <span class="xref">ConcurrentDictionary</span>
+    </div>
+    <div>
+      <span class="xref">ConcurrentDictionary</span>
+    </div>
+  </div>
+  </div>
+  
+  <h6><strong>Assembly</strong>: FlaxEngine.dll</h6>
+  <h6><strong>File</strong>: Engine/Core/Collections/Dictionary.h</h6>
+  
+  <h5 id="ConcurrentDictionary_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public class ConcurrentDictionary&lt;KeyType, ValueType, AllocationType&gt; : public Dictionary</code></pre>
+  </div>
+
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">KeyType</span>
+        <p><p>The type of the keys in the dictionary.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">ValueType</span>
+        <p><p>The type of the values in the dictionary.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="parametername">AllocationType</span>
+        <p><p>The type of memory allocator.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary__ConcurrentDictionary__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.~ConcurrentDictionary()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L51" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary__ConcurrentDictionary_" data-uid="ConcurrentDictionary.~ConcurrentDictionary*"></a>
+  
+  <h4 id="ConcurrentDictionary__ConcurrentDictionary__" data-uid="ConcurrentDictionary.~ConcurrentDictionary()"><a href="#collapsible-ConcurrentDictionary__ConcurrentDictionary__" class="expander" data-toggle="collapse">~ConcurrentDictionary()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary__ConcurrentDictionary__" class="collapse in">
+  <div class="markdown level1 summary"><p>Finalizes an instance of the <a class="xref" href="ConcurrentDictionary.html">ConcurrentDictionary</a> class. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ~ConcurrentDictionary()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_ConcurrentDictionary__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.ConcurrentDictionary()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_ConcurrentDictionary_" data-uid="ConcurrentDictionary.ConcurrentDictionary*"></a>
+  
+  <h4 id="ConcurrentDictionary_ConcurrentDictionary__" data-uid="ConcurrentDictionary.ConcurrentDictionary()"><a href="#collapsible-ConcurrentDictionary_ConcurrentDictionary__" class="expander" data-toggle="collapse">ConcurrentDictionary()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_ConcurrentDictionary__" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes an empty <a class="xref" href="ConcurrentDictionary.html">ConcurrentDictionary</a> without reserving any space. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ConcurrentDictionary()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_ConcurrentDictionary_AllocationTag_.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.ConcurrentDictionary(AllocationTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_ConcurrentDictionary_" data-uid="ConcurrentDictionary.ConcurrentDictionary*"></a>
+  
+  <h4 id="ConcurrentDictionary_ConcurrentDictionary_AllocationTag_" data-uid="ConcurrentDictionary.ConcurrentDictionary(AllocationTag)"><a href="#collapsible-ConcurrentDictionary_ConcurrentDictionary_AllocationTag_" class="expander" data-toggle="collapse">ConcurrentDictionary(AllocationTag tag)</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_ConcurrentDictionary_AllocationTag_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes an empty <a class="xref" href="ConcurrentDictionary.html">ConcurrentDictionary</a> without reserving any space. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ConcurrentDictionary(AllocationTag tag)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">AllocationTag</span></span>
+        <span class="parametername">tag</span>
+        <p><p>The custom allocation tag.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_Add_const_KeyComparableType___const_ValueType___.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.Add(const%20KeyComparableType%20%26%2Cconst%20ValueType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L100" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_Add_" data-uid="ConcurrentDictionary.Add*"></a>
+  
+  <h4 id="ConcurrentDictionary_Add_const_KeyComparableType___const_ValueType___" data-uid="ConcurrentDictionary.Add(const KeyComparableType &amp;,const ValueType &amp;)"><a href="#collapsible-ConcurrentDictionary_Add_const_KeyComparableType___const_ValueType___" class="expander" data-toggle="collapse">Add(const KeyComparableType&amp; key, const ValueType&amp; value)</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_Add_const_KeyComparableType___const_ValueType___" class="collapse in">
+  <div class="markdown level1 summary"><p>Adds a pair of key and value to the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool Add(const KeyComparableType&amp; key, const ValueType&amp; value)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">KeyComparableType</span></span>
+        <span class="parametername">key</span>
+        <p><p>The key.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">ValueType</span></span>
+        <span class="parametername">value</span>
+        <p><p>The value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if added element, otherwise false if it already exists (or other thread added it).</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename KeyComparableType</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_begin__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.begin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L223" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_begin_" data-uid="ConcurrentDictionary.begin*"></a>
+  
+  <h4 id="ConcurrentDictionary_begin__" data-uid="ConcurrentDictionary.begin()"><a href="#collapsible-ConcurrentDictionary_begin__" class="expander" data-toggle="collapse">begin()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_begin__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ConstIterator begin() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">ConstIterator</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_Capacity__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.Capacity()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L69" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_Capacity_" data-uid="ConcurrentDictionary.Capacity*"></a>
+  
+  <h4 id="ConcurrentDictionary_Capacity__" data-uid="ConcurrentDictionary.Capacity()"><a href="#collapsible-ConcurrentDictionary_Capacity__" class="expander" data-toggle="collapse">Capacity()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_Capacity__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the amount of the elements that can be contained by the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Capacity() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_Clear__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.Clear()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L125" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_Clear_" data-uid="ConcurrentDictionary.Clear*"></a>
+  
+  <h4 id="ConcurrentDictionary_Clear__" data-uid="ConcurrentDictionary.Clear()"><a href="#collapsible-ConcurrentDictionary_Clear__" class="expander" data-toggle="collapse">Clear()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_Clear__" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes all elements from the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public void Clear()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_Count__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.Count()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L60" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_Count_" data-uid="ConcurrentDictionary.Count*"></a>
+  
+  <h4 id="ConcurrentDictionary_Count__" data-uid="ConcurrentDictionary.Count()"><a href="#collapsible-ConcurrentDictionary_Count__" class="expander" data-toggle="collapse">Count()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_Count__" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the amount of the elements in the collection. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public int32 Count() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_end__.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.end()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L230" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_end_" data-uid="ConcurrentDictionary.end*"></a>
+  
+  <h4 id="ConcurrentDictionary_end__" data-uid="ConcurrentDictionary.end()"><a href="#collapsible-ConcurrentDictionary_end__" class="expander" data-toggle="collapse">end()</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_end__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public ConstIterator end() const</code></pre>
+  </div>
+
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">ConstIterator</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_Remove_const_KeyComparableType___.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.Remove(const%20KeyComparableType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L115" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_Remove_" data-uid="ConcurrentDictionary.Remove*"></a>
+  
+  <h4 id="ConcurrentDictionary_Remove_const_KeyComparableType___" data-uid="ConcurrentDictionary.Remove(const KeyComparableType &amp;)"><a href="#collapsible-ConcurrentDictionary_Remove_const_KeyComparableType___" class="expander" data-toggle="collapse">Remove(const KeyComparableType&amp; key)</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_Remove_const_KeyComparableType___" class="collapse in">
+  <div class="markdown level1 summary"><p>Removes element with a specified key. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool Remove(const KeyComparableType&amp; key)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">KeyComparableType</span></span>
+        <span class="parametername">key</span>
+        <p><p>The element key to remove.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if item was removed from collection, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename KeyComparableType</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary_TryGet_const_KeyComparableType___ValueType___.md&amp;value=---%0Auid%3A%20ConcurrentDictionary.TryGet(const%20KeyComparableType%20%26%2CValueType%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Threading/ConcurrentDictionary.h/#L82" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ConcurrentDictionary_TryGet_" data-uid="ConcurrentDictionary.TryGet*"></a>
+  
+  <h4 id="ConcurrentDictionary_TryGet_const_KeyComparableType___ValueType___" data-uid="ConcurrentDictionary.TryGet(const KeyComparableType &amp;,ValueType &amp;)"><a href="#collapsible-ConcurrentDictionary_TryGet_const_KeyComparableType___ValueType___" class="expander" data-toggle="collapse">TryGet(const KeyComparableType&amp; key, ValueType&amp; result)</a></h4>
+  
+  <div id="collapsible-ConcurrentDictionary_TryGet_const_KeyComparableType___ValueType___" class="collapse in">
+  <div class="markdown level1 summary"><p>Tries to get element with given key. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public bool TryGet(const KeyComparableType&amp; key, ValueType&amp; result) const</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">KeyComparableType</span></span>
+        <span class="parametername">key</span>
+        <p><p>The key of the element.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">ValueType</span></span>
+        <span class="parametername">result</span>
+        <p><p>The result value.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">bool</span>
+        <p><p>True if element of given key has been found, otherwise false.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">typename KeyComparableType</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ConcurrentDictionary.md&amp;value=---%0Auid%3A%20ConcurrentDictionary%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Core/Collections/Dictionary.h/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1186,12 +1186,50 @@ public static Guid UniqueDeviceId { get; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Platform_UserLanguage_" data-uid="FlaxEngine.Platform.UserLanguage*"></a>
+  
+  <h4 id="FlaxEngine_Platform_UserLanguage" data-uid="FlaxEngine.Platform.UserLanguage"><a href="#collapsible-FlaxEngine_Platform_UserLanguage" class="expander" data-toggle="collapse">UserLanguage</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_UserLanguage" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the current user display language used to localize texts. Returns name of the culture (eg. &quot;pl-PL&quot; or &quot;en-US&quot;), use CultureInfo for display name of the language.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static string UserLanguage { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Platform_UserLocaleName_" data-uid="FlaxEngine.Platform.UserLocaleName*"></a>
   
   <h4 id="FlaxEngine_Platform_UserLocaleName" data-uid="FlaxEngine.Platform.UserLocaleName"><a href="#collapsible-FlaxEngine_Platform_UserLocaleName" class="expander" data-toggle="collapse">UserLocaleName</a></h4>
   
   <div id="collapsible-FlaxEngine_Platform_UserLocaleName" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the current locale culture (eg. &quot;pl-PL&quot; or &quot;en-US&quot;).</p>
+  <div class="markdown level1 summary"><p>Gets the current user locale culture used to localize numbers, currency and dates. Returns name of the culture (eg. &quot;pl-PL&quot; or &quot;en-US&quot;), use CultureInfo for display name of the language.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1761,6 +1799,56 @@ public static Rectangle GetMonitorBounds(Float2 screenPos)</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_Platform_GetScreenColorAt_" data-uid="FlaxEngine.Platform.GetScreenColorAt*"></a>
+  
+  <h4 id="FlaxEngine_Platform_GetScreenColorAt_FlaxEngine_Float2_" data-uid="FlaxEngine.Platform.GetScreenColorAt(FlaxEngine.Float2)"><a href="#collapsible-FlaxEngine_Platform_GetScreenColorAt_FlaxEngine_Float2_" class="expander" data-toggle="collapse">GetScreenColorAt(Float2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_GetScreenColorAt_FlaxEngine_Float2_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the pixel color at the specified coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static Color32 GetScreenColorAt(Float2 pos)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">pos</span>
+        <p><p>Screen-space coordinate to read.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Color32.html">Color32</a>
+        <p><p>Pixel color at the specified coordinates, or transparent color when color couldn&apos;t be picked up.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Platform_Info_" data-uid="FlaxEngine.Platform.Info*"></a>
   
   <h4 id="FlaxEngine_Platform_Info_System_String_" data-uid="FlaxEngine.Platform.Info(System.String)"><a href="#collapsible-FlaxEngine_Platform_Info_System_String_" class="expander" data-toggle="collapse">Info(String)</a></h4>
@@ -1827,6 +1915,35 @@ public static void OpenUrl(string url)</code></pre>
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Platform_PickScreenColor_" data-uid="FlaxEngine.Platform.PickScreenColor*"></a>
+  
+  <h4 id="FlaxEngine_Platform_PickScreenColor" data-uid="FlaxEngine.Platform.PickScreenColor"><a href="#collapsible-FlaxEngine_Platform_PickScreenColor" class="expander" data-toggle="collapse">PickScreenColor()</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_PickScreenColor" class="collapse in">
+  <div class="markdown level1 summary"><p>Starts async color picking. Color will be returned through PickColorDone event when the action ends (user selected the final color with a mouse). When action is active, GetColorAt can be used to read the current value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void PickScreenColor()</code></pre>
+  </div>
+
   
   
   
@@ -2106,6 +2223,43 @@ public static void Warning(string msg)</code></pre>
   </div>
   <h3 id="events">Events
   </h3>
+  
+  
+  
+  <h4 id="FlaxEngine_Platform_PickScreenColorDone" data-uid="FlaxEngine.Platform.PickScreenColorDone"><a href="#collapsible-FlaxEngine_Platform_PickScreenColorDone" class="expander" data-toggle="collapse">PickScreenColorDone</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Platform_PickScreenColorDone" class="collapse in">
+  <div class="markdown level1 summary"><p>Called when PickColor action is finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static event Action&lt;Color32&gt; PickScreenColorDone</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  <h5 class="eventType">Event Type</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Action</span>&lt;<a class="xref" href="FlaxEngine.Color32.html">Color32</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  </div>
   
   
   

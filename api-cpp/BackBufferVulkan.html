@@ -183,7 +183,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BackBufferVulkan_Handle.md&amp;value=---%0Auid%3A%20BackBufferVulkan.Handle%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L40" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   
@@ -232,7 +232,7 @@
   <h4 id="BackBufferVulkan_ImageAcquiredSemaphore" data-uid="BackBufferVulkan.ImageAcquiredSemaphore"><a href="#collapsible-BackBufferVulkan_ImageAcquiredSemaphore" class="expander" data-toggle="collapse">ImageAcquiredSemaphore</a></h4>
   
   <div id="collapsible-BackBufferVulkan_ImageAcquiredSemaphore" class="collapse in">
-  <div class="markdown level1 summary"><p>The image acquired semaphore handle. </p></div>
+  <div class="markdown level1 summary"><p>The semaphore used to signal backbuffer image being ready to be used again for the commands rendering. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -274,7 +274,7 @@
   <h4 id="BackBufferVulkan_RenderingDoneSemaphore" data-uid="BackBufferVulkan.RenderingDoneSemaphore"><a href="#collapsible-BackBufferVulkan_RenderingDoneSemaphore" class="expander" data-toggle="collapse">RenderingDoneSemaphore</a></h4>
   
   <div id="collapsible-BackBufferVulkan_RenderingDoneSemaphore" class="collapse in">
-  <div class="markdown level1 summary"><p>The rendering done semaphore handle. </p></div>
+  <div class="markdown level1 summary"><p>The semaphore used to signal the last command buffer rendering to be completed before presenting the image. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -303,6 +303,48 @@
   
   
   </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BackBufferVulkan_SubmitCmdBuffer.md&amp;value=---%0Auid%3A%20BackBufferVulkan.SubmitCmdBuffer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  
+  <h4 id="BackBufferVulkan_SubmitCmdBuffer" data-uid="BackBufferVulkan.SubmitCmdBuffer"><a href="#collapsible-BackBufferVulkan_SubmitCmdBuffer" class="expander" data-toggle="collapse">SubmitCmdBuffer</a></h4>
+  
+  <div id="collapsible-BackBufferVulkan_SubmitCmdBuffer" class="collapse in">
+  <div class="markdown level1 summary"><p>The last command buffer used to submit commands for rendering to that backbuffer. Used to wait by CPU for the rendering completion before starting recording new commands (ensure that frame is not in flight). </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public CmdBufferVulkan* SubmitCmdBuffer = nullptr</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="CmdBufferVulkan.html">CmdBufferVulkan</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -311,7 +353,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BackBufferVulkan_AsGPUResource__.md&amp;value=---%0Auid%3A%20BackBufferVulkan.AsGPUResource()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L48" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BackBufferVulkan_AsGPUResource_" data-uid="BackBufferVulkan.AsGPUResource*"></a>
@@ -356,7 +398,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BackBufferVulkan_Release__.md&amp;value=---%0Auid%3A%20BackBufferVulkan.Release()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L39" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L44" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BackBufferVulkan_Release_" data-uid="BackBufferVulkan.Release*"></a>
@@ -390,7 +432,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=BackBufferVulkan_Setup_GPUSwapChainVulkan___VkImage_PixelFormat_VkExtent3D_.md&amp;value=---%0Auid%3A%20BackBufferVulkan.Setup(GPUSwapChainVulkan%20*%2CVkImage%2CPixelFormat%2CVkExtent3D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L38" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/Vulkan/GPUSwapChainVulkan.h/#L43" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="BackBufferVulkan_Setup_" data-uid="BackBufferVulkan.Setup*"></a>

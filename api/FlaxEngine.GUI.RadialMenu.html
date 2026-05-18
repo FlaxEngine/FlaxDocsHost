@@ -92,7 +92,7 @@
             <article class="content wrap" id="_content" data-uid="FlaxEngine.GUI.RadialMenu">
   <h1 id="FlaxEngine_GUI_RadialMenu" data-uid="FlaxEngine.GUI.RadialMenu">Class RadialMenu
   </h1>
-  <div class="markdown level0 summary"><p>Radial menu control that arranges child controls (of type Image) in a circle.</p>
+  <div class="markdown level0 summary"><p>Radial menu control that arranges child controls (of type <a class="xref" href="FlaxEngine.GUI.Image.html">Image</a>) in a circle.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
@@ -357,6 +357,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseMoveRelative_FlaxEngine_Float2_">Control.OnMouseMoveRelative(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
     </div>
     <div>
@@ -554,6 +557,9 @@
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_VisibleChanged">Control.VisibleChanged</a>
     </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Focused">Control.Focused</a>
+    </div>
   </div>
   </div>
   
@@ -717,7 +723,7 @@
   <h4 id="FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenInside" data-uid="FlaxEngine.GUI.RadialMenu.AllowChangeSelectionWhenInside"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenInside" class="expander" data-toggle="collapse">AllowChangeSelectionWhenInside</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenInside" class="collapse in">
-  <div class="markdown level1 summary"><p>The allow change selection when inside</p>
+  <div class="markdown level1 summary"><p>Allows the selected to change when the mouse is moved in the empty center of the menu.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -751,10 +757,47 @@ public bool AllowChangeSelectionWhenInside</code></pre>
   
   
   
+  <h4 id="FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenOutside" data-uid="FlaxEngine.GUI.RadialMenu.AllowChangeSelectionWhenOutside"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenOutside" class="expander" data-toggle="collapse">AllowChangeSelectionWhenOutside</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_RadialMenu_AllowChangeSelectionWhenOutside" class="collapse in">
+  <div class="markdown level1 summary"><p>Allows the selected to change when the mouse is moved outside of the menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[VisibleIf(&quot;ShowMatProp&quot;, false)]
+public bool AllowChangeSelectionWhenOutside</code></pre>
+  </div>
+
+  
+  
+  
+  <h5 class="fieldValue">Field Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
   <h4 id="FlaxEngine_GUI_RadialMenu_CenterAsButton" data-uid="FlaxEngine.GUI.RadialMenu.CenterAsButton"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_CenterAsButton" class="expander" data-toggle="collapse">CenterAsButton</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_CenterAsButton" class="collapse in">
-  <div class="markdown level1 summary"><p>The center as button</p>
+  <div class="markdown level1 summary"><p>Wether the center is a button.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -794,7 +837,7 @@ public bool CenterAsButton</code></pre>
   <h4 id="FlaxEngine_GUI_RadialMenu_BackgroundColor" data-uid="FlaxEngine.GUI.RadialMenu.BackgroundColor"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_BackgroundColor" class="expander" data-toggle="collapse">BackgroundColor</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_BackgroundColor" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets control background color (transparent color (alpha=0) means no background rendering).</p>
+  <div class="markdown level1 summary"><p>Gets or sets control background color (transparent color means no background rendering).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -832,7 +875,7 @@ public Color BackgroundColor { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_RadialMenu_EdgeOffset" data-uid="FlaxEngine.GUI.RadialMenu.EdgeOffset"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_EdgeOffset" class="expander" data-toggle="collapse">EdgeOffset</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_EdgeOffset" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the edge offset.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the offset of the outer edge from the bounds of the Control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -909,7 +952,7 @@ public Color ForegroundColor { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_RadialMenu_HighlightColor" data-uid="FlaxEngine.GUI.RadialMenu.HighlightColor"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_HighlightColor" class="expander" data-toggle="collapse">HighlightColor</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_HighlightColor" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the color of the highlight.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the color of the outer edge highlight.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -947,7 +990,7 @@ public Color HighlightColor { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_RadialMenu_Material" data-uid="FlaxEngine.GUI.RadialMenu.Material"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_Material" class="expander" data-toggle="collapse">Material</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_Material" class="collapse in">
-  <div class="markdown level1 summary"><p>The material to use for menu background drawing.</p>
+  <div class="markdown level1 summary"><p>The material used for menu background drawing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1023,7 +1066,7 @@ public Color SelectionColor { get; set; }</code></pre>
   <h4 id="FlaxEngine_GUI_RadialMenu_Thickness" data-uid="FlaxEngine.GUI.RadialMenu.Thickness"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_Thickness" class="expander" data-toggle="collapse">Thickness</a></h4>
   
   <div id="collapsible-FlaxEngine_GUI_RadialMenu_Thickness" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the thickness.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the thickness of the menu.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1342,6 +1385,45 @@ public float Thickness { get; set; }</code></pre>
   
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_PerformLayout_System_Boolean_">ContainerControl.PerformLayout(Boolean)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_GUI_RadialMenu_UpdateAngle_" data-uid="FlaxEngine.GUI.RadialMenu.UpdateAngle*"></a>
+  
+  <h4 id="FlaxEngine_GUI_RadialMenu_UpdateAngle_FlaxEngine_Float2__" data-uid="FlaxEngine.GUI.RadialMenu.UpdateAngle(FlaxEngine.Float2@)"><a href="#collapsible-FlaxEngine_GUI_RadialMenu_UpdateAngle_FlaxEngine_Float2__" class="expander" data-toggle="collapse">UpdateAngle(ref Float2)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_GUI_RadialMenu_UpdateAngle_FlaxEngine_Float2__" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates the current angle and selected segment of the radial menu based on the specified location inside of the control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateAngle(ref Float2 location)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">location</span>
+        <p><p>The position used to determine the angle and segment selection within the radial menu.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
   
   
   

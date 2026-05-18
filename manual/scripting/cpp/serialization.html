@@ -102,6 +102,45 @@
 
 private:
     API_FIELD(Attributes=&quot;Serialize&quot;) float PrivateVarSaved;
+</code></pre><h2 id="serialization-callbacks">Serialization callbacks</h2>
+<p>Flax supports serialization callback methods. A callback can be used to manipulate an object before and/or after its serialization and deserialization by the serializer.</p>
+<ul>
+<li><code>OnSerializing</code></li>
+<li><code>OnSerialized</code></li>
+<li><code>OnDeserializing</code></li>
+<li><code>OnDeserialized</code></li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-cpp">#include &quot;Engine/Serialization/ISerializeModifier.h&quot;
+
+API_CLASS() class FLAXENGINE_API MyScript : public Script
+{
+    API_AUTO_SERIALIZATION();
+    DECLARE_SCENE_OBJECT(MyScript);
+
+public:
+    API_FUNCTION(Attributes=&quot;OnSerializing&quot;, Hidden)
+    void OnSerializing(const CallbackContext&amp; context)
+    {
+    }
+
+    API_FUNCTION(Attributes=&quot;OnSerialized&quot;, Hidden)
+    void OnSerialized(const CallbackContext&amp; context)
+    {
+    }
+
+    API_FUNCTION(Attributes=&quot;OnDeserializing&quot;, Hidden)
+    void OnDeserializing(const CallbackContext&amp; context)
+    {
+        // &#39;context.Modifier-&gt;EngineBuild&#39; holds engine version of saved data
+    }
+
+    API_FUNCTION(Attributes=&quot;OnDeserialized&quot;, Hidden)
+    void OnDeserialized(const CallbackContext&amp; context)
+    {
+        // &#39;context.Modifier-&gt;EngineBuild&#39; holds engine version of saved data
+    }
+};
 </code></pre><h2 id="json">Json</h2>
 <p>Flax uses <a href="https://rapidjson.org">RapidJSON</a> library to serialize data into <em>json</em> format.</p>
 <p>Example:</p>
@@ -192,7 +231,7 @@ struct TIsPODType&lt;MyCustomNativeData&gt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/476356d091d58fb1a2b7039df11183a47799691d/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/scripting/cpp/serialization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

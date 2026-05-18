@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Web | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Web | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="Web | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="web">Web</h1>
+
+<p><img src="media/web.png" alt="Web"></p>
+<div class="WARNING"><h5>Warning</h5><p>Warning! Web support is experimental, and not all engine features are implemented (such as C# support).</p>
+</div>
+<h2 id="technical-information">Technical information</h2>
+<p>Flax supports building games for Web that can be run in a browser. Engine with game code are compiled into <a href="https://webassembly.org/">WebAssembly</a> and use <a href="https://webgpu.org/">WebGPU</a> for rendering.</p>
+<h3 id="browser-support">Browser support</h3>
+<p>Flax uses various features on Web that ensure the final build is fast and small:</p>
+<ul>
+<li><a href="https://caniuse.com/webgpu">WebGPU</a> - <strong>rendering</strong> API used to draw,</li>
+<li><a href="https://caniuse.com/mdn-webassembly_fixed-width-simd">Fixed-width SIMD</a> - Single Instruction Multiple Data (<strong>SIMD</strong>) extension to WebAssembly,</li>
+<li><a href="https://caniuse.com/wf-wasm-jspi">JavaScript Promise Integration</a> - <strong>JSPI</strong> allows to call async code from synchronous WebAssembly which is used by WebGPU async APIs.</li>
+</ul>
+<p>The current browser support coverage:</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Minimum Version</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chrome</strong>/<strong>Edge</strong></td>
+<td><code>v137</code> (May 2025)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Firefox</strong></td>
+<td><code>v147</code> (Jan 2026)</td>
+<td>Requires flag <code>javascript.options.wasm_js_promise_integration</code> set in <code>about:config</code>.</td>
+</tr>
+<tr>
+<td><strong>Safari</strong></td>
+<td><code>Safari Technology Preview 238</code> (Feb 2026)</td>
+<td>The latest stable Safari version doesn&#39;t have JSPI but the <code>Technology Preview 238</code> ships it and works correctly.</td>
+</tr>
+</tbody>
+</table>
+<p>Flax outputs JavaScript code that checks for the minimum browser version and warns user on startup that the browser needs an update in order to run a game. The same applies to other features such as WebGPU or JSPI.</p>
+<div class="TIP"><h5>Tip</h5><p>Game code can access browser name/version info from <code>WebPlatform::GetUserAgent</code>.</p>
+</div>
+<h3 id="jspi-vs-asyncify">JSPI vs ASYNCIFY</h3>
+<p><strong>JSPI</strong> is a relitivly new API thus not all browsers support it by default thus it&#39;s possible to build engine with old-compatible <a href="https://emscripten.org/docs/porting/asyncify.html">Asyncify</a> and lower the requrements hovewer recent browsers contain more stable and usable WebGPU implementation which is desired sinc it&#39;s also relatively new API. You can fork engine and change <code>WithAsyncify</code> to <code>1</code> inside <code>GraphicsDeviceWebGPU.Build.cs</code> to build Web game with wider browser support at cost of significantly larger output website files.</p>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li><strong>C# scripting support is not implemented yet</strong>, which means games can use only native C++ scripting (Visual Scripting relies on C# integration).</li>
+<li>Video playback is not yet implemented.</li>
+<li>Audio playback might be delayed until user interacts with a website due to browser security policy.</li>
+<li>By default, game runs on a single thread due to compability/safety issues. Multi-threading can be enabled manually (see section below).</li>
+<li>See more <a href="https://emscripten.org/docs/porting/guidelines/portability_guidelines.html">Portability Guidelines</a>.</li>
+</ul>
+<h3 id="webgpu">WebGPU</h3>
+<p>WebGPU is a web graphics API that provides low-level and high-performance access to modern GPU features such as Compute Shaders and Indirect Drawing.</p>
+<p>Limitations and notes:</p>
+<ul>
+<li>Texture format support varies across devices thus use <code>GPUDevice::Instance-&gt;GetFormatFeatures(PixelFormat::FORMAT_TO_USE)</code> to check if specific <code>FORMAT_TO_USE</code> has a given flags set,</li>
+<li>By default, engine packs textures using <code>Basis Universal</code> format and converts image on a fly to the runtime format which allows a single game build to run on both mobile and desktop GPUs.</li>
+<li>Use browser console output to inspect any problems with rendering. Non-release builds auto-crash after 20 unhandled errors for inspections.</li>
+<li>Shaders are compiled with <code>glslang</code> into <code>SPIRV</code> and then with <code>tint</code> into <code>WGSL</code>.</li>
+<li>Use <a href="https://github.com/brendan-duncan/webgpu_inspector">WebGPU Inspector</a> or <a href="https://toji.dev/webgpu-profiling/renderdoc">RenderDoc</a> to debug rendering.</li>
+</ul>
+<p>RenderDoc debug command for Chrome:</p>
+<pre><code>set RENDERDOC_HOOK_EGL=0 &amp;&amp; &quot;C:\Program Files\Google\Chrome\Application\chrome.exe&quot; --no-sandbox --disable-gpu-sandbox --disable-direct-composition --gpu-startup-dialog --enable-dawn-features=enable_renderdoc_process_injection,disable_symbol_renaming,use_user_defined_labels_in_backend
+</code></pre><h3 id="threading">Threading</h3>
+<p>Flax has support for multi-threading in browsers via <a href="https://emscripten.org/docs/porting/pthreads.html">pthread</a> API in Emscripten. Hovewer due to security concerns with <code>SharedArrayBuffer</code> due to various exploits, the use of multiple threads for the Web has drawbacks, including the requirement of server-side headers with complete cross-origin isolation. It restricts usage of ads, and third-party integrations on the website hosting your game, which limits the usability.</p>
+<p>By default, Flax compiles in a single-threaded mode, which isn&#39;t as performant but doesn&#39;t require overhead to run game on Web, including on popular Web hosting/publishing services. You can fork engine and edit <code>Flax.flaxproj</code> to use threads on Web by enabling it:</p>
+<pre><code>&quot;Web&quot;: {
+  &quot;Threads&quot;: true,
+},
+</code></pre><h2 id="development-setup">Development Setup</h2>
+<p>Flax Editor supports building game for Web on both Windows, Linux and Mac. Follow these steps to setup your development PC for building game for Web platform:</p>
+<ul>
+<li>Install <a href="https://emscripten.org/">Emscripten</a> (min. ver <code>4.0</code> but recommended latest <code>5.0</code>),</li>
+<li>Set <code>EMSDK</code> environment variable to point to Emscripten SDK installation folder,</li>
+<li>If using engine from Flax Launcher, ensure to download <strong>Web (target platform)</strong> files,</li>
+<li>Adjust project scalability (eg. Motion Blur and SSAO might be too intense visuals to run across all hardware),</li>
+<li>Use <a href="../editor/game-cooker/index.html">Game Cooker</a> to build game for Web.</li>
+</ul>
+<p>Use <code>Release</code> configuration only for final game build as it doesn&#39;t have various tools and no logging inside browser console.</p>
+<h2 id="serving-the-files">Serving the files</h2>
+<p><img src="media/web-export-files.png" alt="Web Export Files"></p>
+<p>Flax builds a standalone website for easy game hosting that includes <code>index.html</code>, JavaScript files, WebAssembly files, <code>files.data</code> with game content and <code>favicon.ico</code>. The output files are ready to be zipped and uploaded to the popular Web publishing stores such as <a href="https://itch.io/">itch.io</a>. Game can be self-hosted too, as long as server complies with <a href="https://emscripten.org/docs/compiling/WebAssembly.html#web-server-setup">Emscripten guidelines</a>.</p>
+<p>Output game can be tested locally <code>emrun</code> tool. See <a href="https://emscripten.org/docs/compiling/Running-html-files-with-emrun.html">this documentation</a> to learn more about it. Alternatively, you can run <code>python -m http.server</code> command and open <code>http://localhost:8000/</code> in your browser.</p>
+<div class="TIP"><h5>Tip</h5><p>Use developer console inside the browser (<code>F12</code> or <code>Ctrl + Shift + I</code>) to inspect engine or game logs available in Development or Debug builds.</p>
+</div>
+<h2 id="build-options">Build options</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Output</strong></td>
+<td>The built game output folder (relative to the project).</td>
+</tr>
+<tr>
+<td><strong>Show Output</strong></td>
+<td>If checked, after building the output folder will be shown in an Explorer.</td>
+</tr>
+<tr>
+<td><strong>Configuration Mode</strong></td>
+<td>Game building mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Release</strong></td><td>The release build ready for shipment. Doesn&#39;t output engine logs to the browser console.</td></tr><tr><td><strong>Debug</strong></td><td>The debug build for testing and profiling. Most of the code optimizations are disabled for the best debugging experience.</td></tr><tr><td><strong>Development</strong></td><td>The development build for testing and profiling but is more optimized for runtime than Debug build.</td></tr></tbody></table></td>
+</tr>
+</tbody>
+</table>
+<h2 id="platform-settings">Platform settings</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Custom Html</strong></td>
+<td>The custom HTML template for the game page.</td>
+</tr>
+<tr>
+<td><strong>Textures Compression</strong></td>
+<td>The output textures compression mode. Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Uncompressed</strong></td><td>Raw image data without any compression algorithm. Mostly for testing or compatibility.</td></tr><tr><td><strong>BC</strong></td><td>Maintains block compression formats BC1-7 that are supported on Desktop but might not work on Mobile.</td></tr><tr><td><strong>ASTC</strong></td><td>Converts compressed textures into ASTC format that is supported on Mobile but not on Desktop.</td></tr><tr><td><strong>Basis</strong></td><td>Converts compressed textures into Basis Universal format that is supercompressed - can be quickly decoded into GPU native format on demand (BC1-7 or ASTC). Supported on all platforms.</td></tr></tbody></table></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/platforms/web.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

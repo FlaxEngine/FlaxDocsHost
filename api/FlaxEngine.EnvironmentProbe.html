@@ -555,6 +555,88 @@ public class EnvironmentProbe : Actor, ISerializable</code></pre>
   </h3>
   
   
+  <a id="FlaxEngine_EnvironmentProbe_BlendDistance_" data-uid="FlaxEngine.EnvironmentProbe.BlendDistance*"></a>
+  
+  <h4 id="FlaxEngine_EnvironmentProbe_BlendDistance" data-uid="FlaxEngine.EnvironmentProbe.BlendDistance"><a href="#collapsible-FlaxEngine_EnvironmentProbe_BlendDistance" class="expander" data-toggle="collapse">BlendDistance</a></h4>
+  
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_BlendDistance" class="collapse in">
+  <div class="markdown level1 summary"><p>The probe shape inner margin over which blend happens to smooth borders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(15)]
+[Limit(0F, 1000F, 0.1F)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[VisibleIf(&quot;BoxProjection&quot;, false)]
+[Unmanaged]
+public float BlendDistance { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_EnvironmentProbe_BoxProjection_" data-uid="FlaxEngine.EnvironmentProbe.BoxProjection*"></a>
+  
+  <h4 id="FlaxEngine_EnvironmentProbe_BoxProjection" data-uid="FlaxEngine.EnvironmentProbe.BoxProjection"><a href="#collapsible-FlaxEngine_EnvironmentProbe_BoxProjection" class="expander" data-toggle="collapse">BoxProjection</a></h4>
+  
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_BoxProjection" class="collapse in">
+  <div class="markdown level1 summary"><p>If checked, probe will use box-projection for mapping reelections onto the object surfaces. This method suits better for indoor areas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(10)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[Unmanaged]
+public bool BoxProjection { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_EnvironmentProbe_Brightness_" data-uid="FlaxEngine.EnvironmentProbe.Brightness*"></a>
   
   <h4 id="FlaxEngine_EnvironmentProbe_Brightness" data-uid="FlaxEngine.EnvironmentProbe.Brightness"><a href="#collapsible-FlaxEngine_EnvironmentProbe_Brightness" class="expander" data-toggle="collapse">Brightness</a></h4>
@@ -607,7 +689,7 @@ public float Brightness { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(30)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(25)]
 [Limit(0F, 3.40282347E+38F, 0.01F)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
@@ -637,6 +719,46 @@ public float CaptureNearPlane { get; set; }</code></pre>
   </div>
   
   
+  <a id="FlaxEngine_EnvironmentProbe_CaptureOffset_" data-uid="FlaxEngine.EnvironmentProbe.CaptureOffset*"></a>
+  
+  <h4 id="FlaxEngine_EnvironmentProbe_CaptureOffset" data-uid="FlaxEngine.EnvironmentProbe.CaptureOffset"><a href="#collapsible-FlaxEngine_EnvironmentProbe_CaptureOffset" class="expander" data-toggle="collapse">CaptureOffset</a></h4>
+  
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_CaptureOffset" class="collapse in">
+  <div class="markdown level1 summary"><p>Probe position offset to apply before capturing which can be used to adjust reflections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(40)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[Unmanaged]
+public Float3 CaptureOffset { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Float3.html">Float3</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_EnvironmentProbe_CubemapResolution_" data-uid="FlaxEngine.EnvironmentProbe.CubemapResolution*"></a>
   
   <h4 id="FlaxEngine_EnvironmentProbe_CubemapResolution" data-uid="FlaxEngine.EnvironmentProbe.CubemapResolution"><a href="#collapsible-FlaxEngine_EnvironmentProbe_CubemapResolution" class="expander" data-toggle="collapse">CubemapResolution</a></h4>
@@ -648,8 +770,8 @@ public float CaptureNearPlane { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(0)]
-[EditorDisplay(&quot;Probe&quot;, null)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(110)]
+[EditorDisplay(&quot;Quality&quot;, null)]
 [Unmanaged]
 public ProbeCubemapResolution CubemapResolution { get; set; }</code></pre>
   </div>
@@ -793,22 +915,19 @@ public GPUTexture Probe { get; }</code></pre>
   </div>
   
   
-  <a id="FlaxEngine_EnvironmentProbe_Radius_" data-uid="FlaxEngine.EnvironmentProbe.Radius*"></a>
+  <a id="FlaxEngine_EnvironmentProbe_ProbeAsset_" data-uid="FlaxEngine.EnvironmentProbe.ProbeAsset*"></a>
   
-  <h4 id="FlaxEngine_EnvironmentProbe_Radius" data-uid="FlaxEngine.EnvironmentProbe.Radius"><a href="#collapsible-FlaxEngine_EnvironmentProbe_Radius" class="expander" data-toggle="collapse">Radius</a></h4>
+  <h4 id="FlaxEngine_EnvironmentProbe_ProbeAsset" data-uid="FlaxEngine.EnvironmentProbe.ProbeAsset"><a href="#collapsible-FlaxEngine_EnvironmentProbe_ProbeAsset" class="expander" data-toggle="collapse">ProbeAsset</a></h4>
   
-  <div id="collapsible-FlaxEngine_EnvironmentProbe_Radius" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the probe radius.</p>
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_ProbeAsset" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the probe texture asset used during rendering (baked or custom one). Returns null when using virtual probe with realtime generation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
-[Limit(0F, 3.40282347E+38F, 1F)]
-[EditorDisplay(&quot;Probe&quot;, null)]
-[Unmanaged]
-public float Radius { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public CubeTexture ProbeAsset { get; }</code></pre>
   </div>
 
   
@@ -819,7 +938,7 @@ public float Radius { get; set; }</code></pre>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Single</span>
+        <a class="xref" href="FlaxEngine.CubeTexture.html">CubeTexture</a>
         <p>
       </td>
     </tr>
@@ -834,19 +953,22 @@ public float Radius { get; set; }</code></pre>
   </div>
   
   
-  <a id="FlaxEngine_EnvironmentProbe_ScaledRadius_" data-uid="FlaxEngine.EnvironmentProbe.ScaledRadius*"></a>
+  <a id="FlaxEngine_EnvironmentProbe_Radius_" data-uid="FlaxEngine.EnvironmentProbe.Radius*"></a>
   
-  <h4 id="FlaxEngine_EnvironmentProbe_ScaledRadius" data-uid="FlaxEngine.EnvironmentProbe.ScaledRadius"><a href="#collapsible-FlaxEngine_EnvironmentProbe_ScaledRadius" class="expander" data-toggle="collapse">ScaledRadius</a></h4>
+  <h4 id="FlaxEngine_EnvironmentProbe_Radius" data-uid="FlaxEngine.EnvironmentProbe.Radius"><a href="#collapsible-FlaxEngine_EnvironmentProbe_Radius" class="expander" data-toggle="collapse">Radius</a></h4>
   
-  <div id="collapsible-FlaxEngine_EnvironmentProbe_ScaledRadius" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets probe scaled radius.</p>
+  <div id="collapsible-FlaxEngine_EnvironmentProbe_Radius" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets or sets the probe radius.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Unmanaged]
-public float ScaledRadius { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[EditorOrder(15)]
+[Limit(0F, 3.40282347E+38F, 1F)]
+[EditorDisplay(&quot;Probe&quot;, null)]
+[Unmanaged]
+public float Radius { get; set; }</code></pre>
   </div>
 
   
@@ -883,7 +1005,7 @@ public float ScaledRadius { get; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(25)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(20)]
 [EditorDisplay(&quot;Probe&quot;, null)]
 [Unmanaged]
 public int SortOrder { get; set; }</code></pre>
@@ -923,8 +1045,8 @@ public int SortOrder { get; set; }</code></pre>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[EditorOrder(30)]
-[EditorDisplay(&quot;Probe&quot;, null)]
+    <pre><code class="lang-csharp hljs">[EditorOrder(100)]
+[EditorDisplay(&quot;Quality&quot;, null)]
 [Unmanaged]
 public EnvironmentProbe.ProbeUpdateMode UpdateMode { get; set; }</code></pre>
   </div>

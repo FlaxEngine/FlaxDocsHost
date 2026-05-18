@@ -235,6 +235,9 @@
       <a class="xref" href="GPUResource.html#GPUResource_OnReleaseGPU__">GPUResource::OnReleaseGPU()</a>
     </div>
     <div>
+      <a class="xref" href="GPUResource.html#GPUResource_OnRenamed__">GPUResource::OnRenamed()</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_OnScriptingDispose__">ScriptingObject::OnScriptingDispose()</a>
     </div>
     <div>
@@ -649,7 +652,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUVertexLayout_GetResourceType__.md&amp;value=---%0Auid%3A%20GPUVertexLayout.GetResourceType()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Shaders/GPUVertexLayout.h/#L92" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Shaders/GPUVertexLayout.h/#L93" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUVertexLayout_GetResourceType_" data-uid="GPUVertexLayout.GetResourceType*"></a>
@@ -734,23 +737,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_.md&amp;value=---%0Auid%3A%20GPUVertexLayout.Merge(GPUVertexLayout%20*%2CGPUVertexLayout%20*%2Cbool%2Cbool%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_bool_.md&amp;value=---%0Auid%3A%20GPUVertexLayout.Merge(GPUVertexLayout%20*%2CGPUVertexLayout%20*%2Cbool%2Cbool%2Cint32%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Shaders/GPUVertexLayout.h/#L88" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Graphics/Shaders/GPUVertexLayout.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUVertexLayout_Merge_" data-uid="GPUVertexLayout.Merge*"></a>
   
-  <h4 id="GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_" data-uid="GPUVertexLayout.Merge(GPUVertexLayout *,GPUVertexLayout *,bool,bool,int32)"><a href="#collapsible-GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_" class="expander" data-toggle="collapse">Merge(GPUVertexLayout* base, GPUVertexLayout* reference, bool removeUnused=false, bool addMissing=true, int32 missingSlotOverride=-1)</a></h4>
+  <h4 id="GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_bool_" data-uid="GPUVertexLayout.Merge(GPUVertexLayout *,GPUVertexLayout *,bool,bool,int32,bool)"><a href="#collapsible-GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_bool_" class="expander" data-toggle="collapse">Merge(GPUVertexLayout* base, GPUVertexLayout* reference, bool removeUnused=false, bool addMissing=true, int32 missingSlotOverride=-1, bool referenceOrder=false)</a></h4>
   
-  <div id="collapsible-GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_" class="collapse in">
+  <div id="collapsible-GPUVertexLayout_Merge_GPUVertexLayout___GPUVertexLayout___bool_bool_int32_bool_" class="collapse in">
   <div class="markdown level1 summary"><p>Merges reference vertex elements into the given set of elements to ensure the reference list is satisfied (vertex shader input requirement). Returns base layout if it&#39;s valid. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public static GPUVertexLayout* Merge(GPUVertexLayout* base, GPUVertexLayout* reference, bool removeUnused=false, bool addMissing=true, int32 missingSlotOverride=-1)</code></pre>
+    <pre><code class="lang-cpp hljs">public static GPUVertexLayout* Merge(GPUVertexLayout* base, GPUVertexLayout* reference, bool removeUnused=false, bool addMissing=true, int32 missingSlotOverride=-1, bool referenceOrder=false)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -788,6 +791,13 @@
         <span class="pull-right"><span class="xref">int32</span></span>
         <span class="parametername">missingSlotOverride</span>
         <p><p>Allows to override the input slot for missing elements. Use value -1 to inherit slot from the reference layout.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">bool</span></span>
+        <span class="parametername">referenceOrder</span>
+        <p><p>True to reorder result elements to match the reference layout. For example, if input vertex buffer layout is different than vertex shader then it can match those.</p></p>
       </td>
     </tr>
   </table>

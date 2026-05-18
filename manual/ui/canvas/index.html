@@ -169,7 +169,35 @@
 </tr>
 </tbody>
 </table>
-</article>
+<h2 id="rendering-canvas-to-gpu-texture">Rendering Canvas to GPU Texture</h2>
+<p>Canvas can be rendered directly to the GPU Texture for use in materials or VFX. Simply change the <code>RenderMode</code> to <code>GPUTexture</code> and provide <code>OutputTexture</code> that will be used as an output image for the canvas elements. See an example script:</p>
+<pre><code class="lang-cs">using FlaxEngine;
+
+namespace Game;
+
+public class RenderCanvasToTexture : Script
+{
+    public GPUTexture MyTexture;
+
+    public override void OnEnable()
+    {
+        // Allocate a new GPU texture and resize it
+        MyTexture = new GPUTexture();
+        var desc = GPUTextureDescription.New2D(300, 200, PixelFormat.R8G8B8A8_UNorm);
+        MyTexture.Init(ref desc);
+
+        // Link texture to the canvas
+        Actor.As&lt;UICanvas&gt;().OutputTexture = MyTexture;
+    }
+
+    public override void OnDisable()
+    {
+        // Release reference and dispose texture memory
+        Actor.As&lt;UICanvas&gt;().OutputTexture = null;
+        Destroy(ref MyTexture);
+    }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -177,7 +205,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/476356d091d58fb1a2b7039df11183a47799691d/manual/ui/canvas/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/ui/canvas/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

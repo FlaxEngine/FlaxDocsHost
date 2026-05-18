@@ -92,7 +92,7 @@
 <p><img src="media/title.jpg" alt="Font"></p>
 <p><strong>Font Assets</strong> are binary resources that contain information of font characters (and/or prerendered characters texture).
 Flax performs the required importing, loading and rasterization of the font glyphs. Fonts are used by the 3D <a href="../text-render/index.html">Text Render</a> actor, as well as the <a href="../index.html">UI</a> system.</p>
-<p>Flax uses the <strong>FreeType</strong> library for font character rasterization and offline rendering.</p>
+<p>Flax uses the <strong>FreeType</strong> library for font character rasterization and offline rendering. Fonts can be rasterized into <code>Bitmap</code> or <code>MSDF</code> (Multi-channel Signed Distance Field generator from <strong>msdfgen</strong> library).</p>
 <h2 id="importing-fonts">Importing fonts</h2>
 <p>You can import font files to use as font assets in your project. Flax supports importing the following file types as fonts:</p>
 <ul>
@@ -117,6 +117,10 @@ You can use it to type text and preview the font.</p>
 </thead>
 <tbody>
 <tr>
+<td><strong>Raster Mode</strong></td>
+<td>The font rasterization mode. Possible options include: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Bitmap</strong></td><td>Use the default FreeType rasterizer to render font atlases.</td></tr><tr><td><strong>MSDF</strong></td><td>Use the Multi-channel Signed Distance Field (MSDF) generator to render font atlases. Need to be rendered with a compatible material.</td></tr></tbody></table></td>
+</tr>
+<tr>
 <td><strong>Hinting</strong></td>
 <td>The font hinting used when rendering characters. Possible options include: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>Default</strong></td><td>Use the default hinting specified in the font.</td></tr><tr><td><strong>Auto</strong></td><td>Force the use of an automatic hinting algorithm (over the fonts native hinter).</td></tr><tr><td><strong>Auto Light</strong></td><td>Force the use of an automatic light hinting algorithm, optimized for non-monochrome displays.</td></tr><tr><td><strong>Monochrome</strong></td><td>Force the use of an automatic hinting algorithm optimized for monochrome displays.</td></tr><tr><td><strong>None</strong></td><td>Do not use hinting. This generally generates &#39;blurrier&#39; bitmap glyphs when the glyphs are rendered in any of the anti-aliased modes.</td></tr></tbody></table></td>
 </tr>
@@ -134,6 +138,13 @@ You can use it to type text and preview the font.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="bitmap-vs-msdf">Bitmap vs MSDF</h2>
+<p><img src="media/font-bitma-vs-msdf.png" alt="Bitmap vs MSDF"></p>
+<p>The default workflow for fonts uses <code>Bitmap</code> mode, which rasterizes character glyphs into a image (stored inside an atlas). Then character image can be sampled directly from it inside GPU shaders (atlas texture uses <code>R8_UNorm</code> format - 8-bit red channel). This method is efficient, fast to render and simple to integrate inside graphics pipeline as text sampling requires just a single texture sample.</p>
+<p>The most common limitations of this technique are isuses when using large font sizes. Then, character glyphs images need higher resolution to avoid aliasing artifacts, which increases memory usage and limits scalability across different hardware, but even tho they might be visible (eg.  when using auto-sized text).</p>
+<p><img src="media/font-msdf-outline.png" alt="SDF Font Outline"></p>
+<p>One of the solutions to this is fonts based on Multi-channel Signed Distance Field, shortened as MSDF. Instead of storing font glyph visibility inside a texture, rasterizer outputs multiple distance fields to the glyph edge and stores them in separate texture channels (<code>R8G8B8A8_UNorm</code> format - 8-bit red, green and blue channels are used). Then each pixel of such a character image contains signed distance to the glyph edge, which can be used to fill pixels that have a non-positive distance (are inside the glyph). The key advantage of this method is significantly lower resolution requrement to for image to represent fonts in high quality at large scale. Additionally, this technique provides <em>almost-free</em> way to implement more advanced text effects such as outline, glow, shadow or procedural texturing.</p>
+<p>To learn how to create a custom material with shader for MSDF font see <a href="../tutorials/create-outline-font-material.html">this tutorial</a>.</p>
 <h2 id="fallback-fonts">Fallback fonts</h2>
 <p>When font used to draw text doesn&#39;t contains certain characters (eg. non-Latin set, emoji or icon) then fallback fonts can be used. Flax supports using one or more fallbacks when the primary font lacks a glyph to be displayed.</p>
 <p>To setup this feature assign <code>Fallback Fonts</code> property in <a href="../../editor/game-settings/graphics-settings.html">Graphics Settings</a>:</p>
@@ -147,7 +158,7 @@ You can use it to type text and preview the font.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/476356d091d58fb1a2b7039df11183a47799691d/manual/ui/fonts/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/ui/fonts/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

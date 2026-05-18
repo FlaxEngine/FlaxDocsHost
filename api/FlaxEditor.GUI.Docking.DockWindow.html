@@ -102,7 +102,7 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="FlaxEngine.GUI.Control.html">Control</a></div>
     <div class="level2"><a class="xref" href="FlaxEngine.GUI.ContainerControl.html">ContainerControl</a></div>
-    <div class="level3"><span class="xref">FlaxEngine.GUI.ScrollableControl</span></div>
+    <div class="level3"><a class="xref" href="FlaxEngine.GUI.ScrollableControl.html">ScrollableControl</a></div>
     <div class="level4"><a class="xref" href="FlaxEngine.GUI.Panel.html">Panel</a></div>
     <div class="level5"><span class="xref">DockWindow</span></div>
       <div class="level6"><a class="xref" href="FlaxEditor.Windows.EditorWindow.html">EditorWindow</a></div>
@@ -204,6 +204,24 @@
       <a class="xref" href="FlaxEngine.GUI.Panel.html#FlaxEngine_GUI_Panel_ScrollbarThumbSelectedColor">Panel.ScrollbarThumbSelectedColor</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl__viewOffset">ScrollableControl._viewOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl_OnViewOffsetChanged">ScrollableControl.OnViewOffsetChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl_DrawChildren">ScrollableControl.DrawChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl_IntersectsContent_FlaxEngine_Float2__FlaxEngine_Float2__">ScrollableControl.IntersectsContent(Float2, Float2)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl_PointToParent_FlaxEngine_Float2__">ScrollableControl.PointToParent(Float2)</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.ScrollableControl.html#FlaxEngine_GUI_ScrollableControl_PointFromParent_FlaxEngine_Float2__">ScrollableControl.PointFromParent(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl__children">ContainerControl._children</a>
     </div>
     <div>
@@ -283,9 +301,6 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawSelf">ContainerControl.DrawSelf()</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_DrawChildren">ContainerControl.DrawChildren()</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.ContainerControl.html#FlaxEngine_GUI_ContainerControl_RayCast_FlaxEngine_Float2__FlaxEngine_GUI_Control__">ContainerControl.RayCast(Float2, Control)</a>
@@ -417,6 +432,9 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnSubmit">Control.OnSubmit()</a>
     </div>
     <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnMouseMoveRelative_FlaxEngine_Float2_">Control.OnMouseMoveRelative(Float2)</a>
+    </div>
+    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTouchLeave">Control.OnTouchLeave()</a>
     </div>
     <div>
@@ -438,22 +456,13 @@
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_OnTestTooltipOverControl_FlaxEngine_Float2__">Control.OnTestTooltipOverControl(Float2)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_IntersectsContent_FlaxEngine_Float2__FlaxEngine_Float2__">Control.IntersectsContent(Float2, Float2)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointToParent_FlaxEngine_GUI_ContainerControl_FlaxEngine_Float2_">Control.PointToParent(ContainerControl, Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointToParent_FlaxEngine_Float2_">Control.PointToParent(Float2)</a>
     </div>
     <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointToParent_FlaxEngine_Float2__">Control.PointToParent(Float2)</a>
-    </div>
-    <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_Float2_">Control.PointFromParent(Float2)</a>
-    </div>
-    <div>
-      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_Float2__">Control.PointFromParent(Float2)</a>
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_PointFromParent_FlaxEngine_GUI_ContainerControl_FlaxEngine_Float2_">Control.PointFromParent(ContainerControl, Float2)</a>
@@ -616,6 +625,9 @@
     </div>
     <div>
       <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_VisibleChanged">Control.VisibleChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FlaxEngine.GUI.Control.html#FlaxEngine_GUI_Control_Focused">Control.Focused</a>
     </div>
   </div>
   </div>
@@ -1313,6 +1325,97 @@
       </td>
     </tr>
   </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_Docking_DockWindow_CreateFloating_" data-uid="FlaxEditor.GUI.Docking.DockWindow.CreateFloating*"></a>
+  
+  <h4 id="FlaxEditor_GUI_Docking_DockWindow_CreateFloating" data-uid="FlaxEditor.GUI.Docking.DockWindow.CreateFloating"><a href="#collapsible-FlaxEditor_GUI_Docking_DockWindow_CreateFloating" class="expander" data-toggle="collapse">CreateFloating()</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_Docking_DockWindow_CreateFloating" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates the window in a floating state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateFloating()</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEditor_GUI_Docking_DockWindow_CreateFloating_" data-uid="FlaxEditor.GUI.Docking.DockWindow.CreateFloating*"></a>
+  
+  <h4 id="FlaxEditor_GUI_Docking_DockWindow_CreateFloating_FlaxEngine_Float2_FlaxEngine_Float2_FlaxEngine_WindowStartPosition_System_Boolean_" data-uid="FlaxEditor.GUI.Docking.DockWindow.CreateFloating(FlaxEngine.Float2,FlaxEngine.Float2,FlaxEngine.WindowStartPosition,System.Boolean)"><a href="#collapsible-FlaxEditor_GUI_Docking_DockWindow_CreateFloating_FlaxEngine_Float2_FlaxEngine_Float2_FlaxEngine_WindowStartPosition_System_Boolean_" class="expander" data-toggle="collapse">CreateFloating(Float2, Float2, WindowStartPosition, Boolean)</a></h4>
+  
+  <div id="collapsible-FlaxEditor_GUI_Docking_DockWindow_CreateFloating_FlaxEngine_Float2_FlaxEngine_Float2_FlaxEngine_WindowStartPosition_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates the window in a floating state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateFloating(Float2 location, Float2 size, WindowStartPosition position, bool showWindow = false)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">location</span>
+        <p><p>Window location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Float2.html">Float2</a></span>
+        <span class="parametername">size</span>
+        <p><p>Window size, set <a class="xref" href="FlaxEngine.Float2.html#FlaxEngine_Float2_Zero">Zero</a> to use default.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.WindowStartPosition.html">WindowStartPosition</a></span>
+        <span class="parametername">position</span>
+        <p><p>Window location.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">showWindow</span>
+        <p><p>Window visibility.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
   
   
   

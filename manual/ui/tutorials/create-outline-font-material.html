@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HOWTO: How to create an outline font material | Flax Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HOWTO: How to create an outline font material | Flax Documentation ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    <meta property="docfx:newtab" content="true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flaxengine">
+    <meta name="og:title" content="HOWTO: How to create an outline font material | Flax Documentation ">
+    <meta property="og:image" content="https://docs.flaxengine.com/media/social-image.jpg">
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-88357703-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-88357703-2');
+    </script>
+  </head>	  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="https://www.flaxengine.com">
+        		<div style="text-align:center; line-height:45px">
+        	    <img id="logo" height="40" width="40" src="../../../logo.png" alt="">
+        		</div>
+        	  </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="howto-how-to-create-an-outline-font-material">HOWTO: How to create an outline font material</h1>
+
+<p>In this tutorial, you will learn how to create a font material that can be used to draw MSDF fonts with an outline effect. A similar approach can be used to implement shadow, glow, or procedural texturing using Sign Distant Field data stored for font character glyphs.</p>
+<h2 id="1-create-a-new-material-asset">1. Create a new material asset</h2>
+<p><strong>Right click</strong> in the <strong>Content Window</strong> and select option <strong>New -&gt; Material -&gt; Material</strong>. Type a name and confirm with Enter. Double-click on created asset and start editing material.</p>
+<p><img src="media/outline-font-step-1.png" alt="New Material"></p>
+<h2 id="2-create-a-texture-parameter-named-font">2. Create a texture parameter named <strong>Font</strong></h2>
+<p><img src="media/outline-font-step-2.png" alt="New Parameter 1"></p>
+<p>Scroll down the material properties panel and select the new parameter type <strong>Texture</strong>, then press <strong>Add parameter</strong>. Next <strong>double-click</strong> on a label with created parameter name and rename it to <strong>Font</strong> (Flax uses a parameter named <code>Font</code> to bind the font atlas texture during rendering).</p>
+<h2 id="3-change-domain-to-gui">3. Change Domain to GUI</h2>
+<p><img src="media/outline-font-step-3.png" alt="Material Domain to GUI"></p>
+<p>Set Material Domain to <strong>GUI</strong> if you want to use this material inside UI Controls. If you want to use this material on Models or Text Render then leave it as default Surface (but use other plug than <em>Opacity</em> if material is opaque).</p>
+<h2 id="4-set-up-the-material-graph">4. Set up the material graph</h2>
+<p><img src="media/outline-font-step-4.png" alt="Material Shader"></p>
+<p>In this step you need to create a material using shader code blocks as shown on a picture above.</p>
+<p>Add a new <strong>Custom Global Code</strong> node and set it;s <strong>Location</strong> to <strong>Includes</strong>, then write the following code there:</p>
+<pre><code>#include &quot;./Flax/GUICommon.hlsl&quot;
+</code></pre><p>This will ensure that various GUI and font sampling utilities will be included to use inside a shader file.</p>
+<p>Then add similar node <strong>Custom Code</strong> with the following code:</p>
+<pre><code>// Get closest distance to the font glyph
+Output0 = GetFontMSDFMedian(Input0).xxxx;
+</code></pre><p>Finally, drag and drop <code>Font</code> parameter (from proprties panel on the right) to sample the font texture. Plug the font <code>Color</code> output into the first <code>Input0</code> of the Custom Code node, then connect <code>Output0</code> from that node to the output <code>Opacity</code> of the material.</p>
+<h2 id="5-assign-the-material">5. Assign the material</h2>
+<p><img src="media/outline-font-step-5.png" alt="Set up label"></p>
+<p>Now, create a new <code>Label</code> control, set it&#39;s Font to asset that uses <code>MSDF</code> as <code>Raster Mode</code> and plug the created material into the <code>Material</code> property. Ensure that font size is not too small to ensure SDF data is correct. Values around 20 are usually a good starting point.</p>
+<p>Now, you should see a basic SDF font rendering that will look like a shadow-like gradient of the text:</p>
+<p><img src="media/outline-font-step-6.png" alt="SDF Font Text Gradient"></p>
+<h2 id="6-make-an-outline">6. Make an outline</h2>
+<p><img src="media/outline-font-step-7.png" alt="SDF Font Text Gradient"></p>
+<p>Finally, let&#39;s pump up the shader to draw an outline of the text and use color from vertex, which will be passed by rendering system directly from the control rendering.</p>
+<p>Edit the <em>Custom Code</em> node:</p>
+<pre><code>// Get closest distance to the font glyph
+float thickness = 4; // Can be exposed as a parameter
+Texture2D font = In1; // Hack to get Font texture parameter
+Output0 = SampleFontMSDFOutline(font, input.TexCoord, thickness);
+</code></pre><p>Final result:</p>
+<p><img src="../fonts/media/font-msdf-outline.png" alt="SDF Font with Outline"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/ui/tutorials/create-outline-font-material.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2012-2024 Wojciech Figat
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

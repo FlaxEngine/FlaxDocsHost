@@ -134,6 +134,10 @@ You can change most of these values at runtime using the <a href="https://docs.f
 <td>The shadow maps quality (textures resolution).</td>
 </tr>
 <tr>
+<td><strong>Allow CSM Blending</strong></td>
+<td>Enables cascades splits blending for directional light shadows.</td>
+</tr>
+<tr>
 <td><strong>Default Probe Resolution</strong></td>
 <td>Default probes cubemap resolution (use for Environment Probes, can be overridden per-actor). Recommended is default <code>128x128</code>. For mobile platforms try using a lower resolution to get more performance.</td>
 </tr>
@@ -174,8 +178,24 @@ You can change most of these values at runtime using the <a href="https://docs.f
 <td>The Global Illumination probes spacing distance (in world units). Defines the quality of the GI resolution. Adjust to 200-500 to improve performance and lower frequency GI data.</td>
 </tr>
 <tr>
+<td><strong>GI Cascades Blending</strong></td>
+<td>Enables cascades splits blending for Global Illumination.</td>
+</tr>
+<tr>
 <td><strong>Global Surface Atlas Resolution</strong></td>
 <td>The Global Surface Atlas resolution. Adjust it if atlas <code>flickers</code> due to overflow (eg. to 4096).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gamma Color Space</strong></td>
+<td>If checked, color space workflow will use Gamma instead of Linear. Gamma color space defines colors with an applied a gamma curve (sRGB) so they are perceptually linear. This makes sense when the output of the rendering represent final color values that will be presented to a non-HDR screen.</td>
+</tr>
+<tr>
+<td><strong>Render Color Format</strong></td>
+<td>Pixel format used by the rendering pipeline (for light buffer and post-processing). Possible options: <table><tbody><tr><th>Option</th><th>Description</th></tr><tr><td><strong>R11G11B10</strong></td><td>HDR 32-bit buffer without alpha channel support. Offers good performance but might result in colors banding or shift towards yellowish colors due to low data precision.</td></tr><tr><td><strong>R8G8B8A8</strong></td><td>LDR 32-bit buffer with alpha channel support. Offers good performance but doesn&#39;t support High Dynamic Range rendering.</td></tr><tr><td><strong>R16G16B16A16</strong></td><td>HDR 64-bit buffer with alpha channel support. Offers very good quality for wide range of colors but requires more memory.</td></tr></tbody></table></td>
 </tr>
 <tr>
 <td></td>
@@ -203,7 +223,7 @@ You can change most of these values at runtime using the <a href="https://docs.f
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/476356d091d58fb1a2b7039df11183a47799691d/manual/editor/game-settings/graphics-settings.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FlaxEngine/FlaxDocs/blob/316c79688865f15437585241873f20c2ddae0252/manual/editor/game-settings/graphics-settings.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

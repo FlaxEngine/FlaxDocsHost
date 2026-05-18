@@ -598,7 +598,7 @@ public Vector3 AdditionalForce { get; set; }</code></pre>
   <h4 id="FlaxEngine_SplineRopeBody_AttachEnd" data-uid="FlaxEngine.SplineRopeBody.AttachEnd"><a href="#collapsible-FlaxEngine_SplineRopeBody_AttachEnd" class="expander" data-toggle="collapse">AttachEnd</a></h4>
   
   <div id="collapsible-FlaxEngine_SplineRopeBody_AttachEnd" class="collapse in">
-  <div class="markdown level1 summary"><p>The target actor too attach the rope end to. If unset the rope end will run freely.</p>
+  <div class="markdown level1 summary"><p>The target actor to attach the rope end to. If unset the rope end will run freely.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -619,6 +619,47 @@ public Actor AttachEnd { get; set; }</code></pre>
     <tr>
       <td>
         <a class="xref" href="FlaxEngine.Actor.html">Actor</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SplineRopeBody_Drag_" data-uid="FlaxEngine.SplineRopeBody.Drag*"></a>
+  
+  <h4 id="FlaxEngine_SplineRopeBody_Drag" data-uid="FlaxEngine.SplineRopeBody.Drag"><a href="#collapsible-FlaxEngine_SplineRopeBody_Drag" class="expander" data-toggle="collapse">Drag</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SplineRopeBody_Drag" class="collapse in">
+  <div class="markdown level1 summary"><p>The scale of velocity applied to rope. The greater the value, the more suppressed the movement. Lower values increase movement freedom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(15)]
+[EditorDisplay(&quot;Rope&quot;, null)]
+[Limit(0F, 0.99F, 0.001F)]
+[Unmanaged]
+public float Drag { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
         <p>
       </td>
     </tr>
@@ -678,7 +719,7 @@ public bool EnableStiffness { get; set; }</code></pre>
   <h4 id="FlaxEngine_SplineRopeBody_GravityScale" data-uid="FlaxEngine.SplineRopeBody.GravityScale"><a href="#collapsible-FlaxEngine_SplineRopeBody_GravityScale" class="expander" data-toggle="collapse">GravityScale</a></h4>
   
   <div id="collapsible-FlaxEngine_SplineRopeBody_GravityScale" class="collapse in">
-  <div class="markdown level1 summary"><p>The world gravity scale applied to the rope. Can be used to adjust gravity force or disable it.</p>
+  <div class="markdown level1 summary"><p>The world gravity scale. Can be used to adjust gravity force or disable it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -688,6 +729,47 @@ public bool EnableStiffness { get; set; }</code></pre>
 [EditorDisplay(&quot;Rope&quot;, null)]
 [Unmanaged]
 public float GravityScale { get; set; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Single</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_SplineRopeBody_StretchLimit_" data-uid="FlaxEngine.SplineRopeBody.StretchLimit*"></a>
+  
+  <h4 id="FlaxEngine_SplineRopeBody_StretchLimit" data-uid="FlaxEngine.SplineRopeBody.StretchLimit"><a href="#collapsible-FlaxEngine_SplineRopeBody_StretchLimit" class="expander" data-toggle="collapse">StretchLimit</a></h4>
+  
+  <div id="collapsible-FlaxEngine_SplineRopeBody_StretchLimit" class="collapse in">
+  <div class="markdown level1 summary"><p>The maximum bones stretch scale. The value of 0 means no stretch, 1 - can stretch up to double length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EditorOrder(19)]
+[EditorDisplay(&quot;Rope&quot;, null)]
+[Limit(0F, 3.40282347E+38F, 1F)]
+[Unmanaged]
+public float StretchLimit { get; set; }</code></pre>
   </div>
 
   

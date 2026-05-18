@@ -118,7 +118,7 @@
   <h5 id="FlaxEngine_Vector4_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public sealed class Vector4 : ValueType, IEquatable&lt;Vector4&gt;, IFormattable</code></pre>
+public sealed class Vector4 : ValueType, IEquatable&lt;Vector4&gt;, IFormattable, ICustomValueEquals</code></pre>
   </div>
 
   
@@ -1458,6 +1458,43 @@ public sealed class Vector4 : ValueType, IEquatable&lt;Vector4&gt;, IFormattable
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Vector4 Negative { get; }</code></pre>
+  </div>
+
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector4_Normalized_" data-uid="FlaxEngine.Vector4.Normalized*"></a>
+  
+  <h4 id="FlaxEngine_Vector4_Normalized" data-uid="FlaxEngine.Vector4.Normalized"><a href="#collapsible-FlaxEngine_Vector4_Normalized" class="expander" data-toggle="collapse">Normalized</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector4_Normalized" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the normalized vector. Returned vector has length equal 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 Normalized { get; }</code></pre>
   </div>
 
   
@@ -4268,6 +4305,133 @@ public sealed class Vector4 : ValueType, IEquatable&lt;Vector4&gt;, IFormattable
   </div>
   
   
+  <a id="FlaxEngine_Vector4_Slerp_" data-uid="FlaxEngine.Vector4.Slerp*"></a>
+  
+  <h4 id="FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_" data-uid="FlaxEngine.Vector4.Slerp(FlaxEngine.Vector4,FlaxEngine.Vector4,System.Single)"><a href="#collapsible-FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_" class="expander" data-toggle="collapse">Slerp(Vector4, Vector4, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a spherical linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 Slerp(Vector4 start, Vector4 end, float amount)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="FlaxEngine.Vector4.html">Vector4</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector4_Slerp_" data-uid="FlaxEngine.Vector4.Slerp*"></a>
+  
+  <h4 id="FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_FlaxEngine_Vector4__" data-uid="FlaxEngine.Vector4.Slerp(FlaxEngine.Vector4@,FlaxEngine.Vector4@,System.Single,FlaxEngine.Vector4@)"><a href="#collapsible-FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_FlaxEngine_Vector4__" class="expander" data-toggle="collapse">Slerp(ref Vector4, ref Vector4, Single, out Vector4)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector4_Slerp_FlaxEngine_Vector4__FlaxEngine_Vector4__System_Single_FlaxEngine_Vector4__" class="collapse in">
+  <div class="markdown level1 summary"><p>Performs a spherical linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Slerp(ref Vector4 start, ref Vector4 end, float amount, out Vector4 result)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">start</span>
+        <p><p>Start vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">end</span>
+        <p><p>End vector.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">amount</span>
+        <p><p>Value between 0 and 1 indicating the weight of <code data-dev-comment-type="paramref" class="paramref">end</code>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Vector4.html">Vector4</a></span>
+        <span class="parametername">result</span>
+        <p><p>When the method completes, contains the linear interpolation of the two vectors.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="FlaxEngine_Vector4_SmoothStep_" data-uid="FlaxEngine.Vector4.SmoothStep*"></a>
   
   <h4 id="FlaxEngine_Vector4_SmoothStep_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_" data-uid="FlaxEngine.Vector4.SmoothStep(FlaxEngine.Vector4,FlaxEngine.Vector4,System.Single)"><a href="#collapsible-FlaxEngine_Vector4_SmoothStep_FlaxEngine_Vector4_FlaxEngine_Vector4_System_Single_" class="expander" data-toggle="collapse">SmoothStep(Vector4, Vector4, Single)</a></h4>
@@ -5174,6 +5338,52 @@ public sealed class Vector4 : ValueType, IEquatable&lt;Vector4&gt;, IFormattable
     </tr>
   </table>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Vector4_ValueEquals_" data-uid="FlaxEngine.Vector4.ValueEquals*"></a>
+  
+  <h4 id="FlaxEngine_Vector4_ValueEquals_System_Object_" data-uid="FlaxEngine.Vector4.ValueEquals(System.Object)"><a href="#collapsible-FlaxEngine_Vector4_ValueEquals_System_Object_" class="expander" data-toggle="collapse">ValueEquals(Object)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Vector4_ValueEquals_System_Object_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ValueEquals(object other)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">other</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
   
   
   

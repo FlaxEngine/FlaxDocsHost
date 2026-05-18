@@ -154,10 +154,16 @@
       <a class="xref" href="Object.html#Object_DeleteObjectNow__">Object::DeleteObjectNow()</a>
     </div>
     <div>
+      <a class="xref" href="GPUContext.html#GPUContext_DEPRECATED__Use_ResetState_instead__">GPUContext::DEPRECATED(&quot;Use ResetState instead&quot;) void ClearState()</a>
+    </div>
+    <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_DestroyManaged__">ScriptingObject::DestroyManaged()</a>
     </div>
     <div>
       <a class="xref" href="GPUContext.html#GPUContext_Draw_GPUTexture___GPUTexture___">GPUContext::Draw(GPUTexture* dst, GPUTexture* src)</a>
+    </div>
+    <div>
+      <a class="xref" href="GPUContext.html#GPUContext_Draw_GPUTexture___GPUTextureView___">GPUContext::Draw(GPUTexture* dst, GPUTextureView* src)</a>
     </div>
     <div>
       <a class="xref" href="GPUContext.html#GPUContext_Draw_GPUTexture___">GPUContext::Draw(GPUTexture* rt)</a>
@@ -338,7 +344,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11__GPUContextDX11__.md&amp;value=---%0Auid%3A%20GPUContextDX11.~GPUContextDX11()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L94" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L95" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11__GPUContextDX11_" data-uid="GPUContextDX11.~GPUContextDX11*"></a>
@@ -372,7 +378,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_GPUContextDX11_GPUDeviceDX11___ID3D11DeviceContext___.md&amp;value=---%0Auid%3A%20GPUContextDX11.GPUContextDX11(GPUDeviceDX11%20*%2CID3D11DeviceContext%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L89" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L90" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_GPUContextDX11_" data-uid="GPUContextDX11.GPUContextDX11*"></a>
@@ -422,10 +428,65 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BeginQuery_GPUQueryType_.md&amp;value=---%0Auid%3A%20GPUContextDX11.BeginQuery(GPUQueryType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L159" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUContextDX11_BeginQuery_" data-uid="GPUContextDX11.BeginQuery*"></a>
+  
+  <h4 id="GPUContextDX11_BeginQuery_GPUQueryType_" data-uid="GPUContextDX11.BeginQuery(GPUQueryType)"><a href="#collapsible-GPUContextDX11_BeginQuery_GPUQueryType_" class="expander" data-toggle="collapse">BeginQuery(GPUQueryType type)</a></h4>
+  
+  <div id="collapsible-GPUContextDX11_BeginQuery_GPUQueryType_" class="collapse in">
+  <div class="markdown level1 summary"><p>Begins the GPU query that will measure commands until EndQuery. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual uint64 BeginQuery(GPUQueryType type) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="GPUQueryType.html">GPUQueryType</a></span>
+        <span class="parametername">type</span>
+        <p><p>Query type.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">uint64</span>
+        <p><p>Unique identifier of the query used to EndQuery and then GetQueryResult to read the query result data.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUContext.html#GPUContext_BeginQuery_GPUQueryType_">GPUContext::BeginQuery(GPUQueryType type)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindCB_int32_GPUConstantBuffer___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindCB(int32%2CGPUConstantBuffer%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L143" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L145" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindCB_" data-uid="GPUContextDX11.BindCB*"></a>
@@ -478,7 +539,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindIB_GPUBuffer___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindIB(GPUBuffer%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L149" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindIB_" data-uid="GPUContextDX11.BindIB*"></a>
@@ -524,7 +585,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindSampler_int32_GPUSampler___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindSampler(int32%2CGPUSampler%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindSampler_" data-uid="GPUContextDX11.BindSampler*"></a>
@@ -577,7 +638,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindSR_int32_GPUResourceView___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindSR(int32%2CGPUResourceView%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L144" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L146" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindSR_" data-uid="GPUContextDX11.BindSR*"></a>
@@ -630,7 +691,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindUA_int32_GPUResourceView___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindUA(int32%2CGPUResourceView%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L145" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L147" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindUA_" data-uid="GPUContextDX11.BindUA*"></a>
@@ -683,7 +744,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_BindVB_const_Span_GPUBuffer______const_uint32___GPUVertexLayout___.md&amp;value=---%0Auid%3A%20GPUContextDX11.BindVB(const%20Span%3CGPUBuffer%20*%3E%20%26%2Cconst%20uint32%20*%2CGPUVertexLayout%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L146" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L148" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_BindVB_" data-uid="GPUContextDX11.BindVB*"></a>
@@ -743,7 +804,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_Clear_GPUTextureView___const_Color___.md&amp;value=---%0Auid%3A%20GPUContextDX11.Clear(GPUTextureView%20*%2Cconst%20Color%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L128" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L130" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_Clear_" data-uid="GPUContextDX11.Clear*"></a>
@@ -796,7 +857,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearDepth_GPUTextureView___float_uint8_.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearDepth(GPUTextureView%20*%2Cfloat%2Cuint8)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L129" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L131" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ClearDepth_" data-uid="GPUContextDX11.ClearDepth*"></a>
@@ -853,46 +914,10 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearState__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
-  </span>
-  
-  <a id="GPUContextDX11_ClearState_" data-uid="GPUContextDX11.ClearState*"></a>
-  
-  <h4 id="GPUContextDX11_ClearState__" data-uid="GPUContextDX11.ClearState()"><a href="#collapsible-GPUContextDX11_ClearState__" class="expander" data-toggle="collapse">ClearState()</a></h4>
-  
-  <div id="collapsible-GPUContextDX11_ClearState__" class="collapse in">
-  <div class="markdown level1 summary"><p>Clears the context state. </p></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public virtual void ClearState() override</code></pre>
-  </div>
-
-  
-  
-  
-  
-  
-  
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="GPUContext.html#GPUContext_ClearState__">GPUContext::ClearState()</a></div>
-  
-  
-  
-  
-  
-  </div>
-  
-  <span class="small pull-right mobile-hide">
-    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearUA_GPUBuffer___const_Float4___.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearUA(GPUBuffer%20*%2Cconst%20Float4%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L130" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L132" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ClearUA_" data-uid="GPUContextDX11.ClearUA*"></a>
@@ -945,7 +970,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearUA_GPUBuffer___const_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearUA(GPUBuffer%20*%2Cconst%20uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L131" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ClearUA_" data-uid="GPUContextDX11.ClearUA*"></a>
@@ -998,7 +1023,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearUA_GPUTexture___const_Float4___.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearUA(GPUTexture%20*%2Cconst%20Float4%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L133" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ClearUA_" data-uid="GPUContextDX11.ClearUA*"></a>
@@ -1051,7 +1076,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ClearUA_GPUTexture___const_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.ClearUA(GPUTexture%20*%2Cconst%20uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L132" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L134" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ClearUA_" data-uid="GPUContextDX11.ClearUA*"></a>
@@ -1104,7 +1129,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_CopyBuffer_GPUBuffer___GPUBuffer___uint32_uint32_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.CopyBuffer(GPUBuffer%20*%2CGPUBuffer%20*%2Cuint32%2Cuint32%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L170" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_CopyBuffer_" data-uid="GPUContextDX11.CopyBuffer*"></a>
@@ -1178,7 +1203,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_CopyCounter_GPUBuffer___uint32_GPUBuffer___.md&amp;value=---%0Auid%3A%20GPUContextDX11.CopyCounter(GPUBuffer%20*%2Cuint32%2CGPUBuffer%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L169" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L174" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_CopyCounter_" data-uid="GPUContextDX11.CopyCounter*"></a>
@@ -1238,7 +1263,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_CopyResource_GPUResource___GPUResource___.md&amp;value=---%0Auid%3A%20GPUContextDX11.CopyResource(GPUResource%20*%2CGPUResource%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L170" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L175" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_CopyResource_" data-uid="GPUContextDX11.CopyResource*"></a>
@@ -1291,7 +1316,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_CopySubresource_GPUResource___uint32_GPUResource___uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.CopySubresource(GPUResource%20*%2Cuint32%2CGPUResource%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L176" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_CopySubresource_" data-uid="GPUContextDX11.CopySubresource*"></a>
@@ -1358,7 +1383,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_CopyTexture_GPUTexture___uint32_uint32_uint32_uint32_GPUTexture___uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.CopyTexture(GPUTexture%20*%2Cuint32%2Cuint32%2Cuint32%2Cuint32%2CGPUTexture%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L167" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L172" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_CopyTexture_" data-uid="GPUContextDX11.CopyTexture*"></a>
@@ -1446,7 +1471,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_Dispatch_GPUShaderProgramCS___uint32_uint32_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.Dispatch(GPUShaderProgramCS%20*%2Cuint32%2Cuint32%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L150" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L152" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_Dispatch_" data-uid="GPUContextDX11.Dispatch*"></a>
@@ -1513,7 +1538,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_DispatchIndirect_GPUShaderProgramCS___GPUBuffer___uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.DispatchIndirect(GPUShaderProgramCS%20*%2CGPUBuffer%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L151" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L153" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_DispatchIndirect_" data-uid="GPUContextDX11.DispatchIndirect*"></a>
@@ -1573,7 +1598,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_DrawIndexedInstanced_uint32_uint32_int32_int32_int32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.DrawIndexedInstanced(uint32%2Cuint32%2Cint32%2Cint32%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L154" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L156" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_DrawIndexedInstanced_" data-uid="GPUContextDX11.DrawIndexedInstanced*"></a>
@@ -1647,7 +1672,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_DrawIndexedInstancedIndirect_GPUBuffer___uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.DrawIndexedInstancedIndirect(GPUBuffer%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L156" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_DrawIndexedInstancedIndirect_" data-uid="GPUContextDX11.DrawIndexedInstancedIndirect*"></a>
@@ -1700,7 +1725,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_DrawInstanced_uint32_uint32_int32_int32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.DrawInstanced(uint32%2Cuint32%2Cint32%2Cint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L153" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L155" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_DrawInstanced_" data-uid="GPUContextDX11.DrawInstanced*"></a>
@@ -1767,7 +1792,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_DrawInstancedIndirect_GPUBuffer___uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.DrawInstancedIndirect(GPUBuffer%20*%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L155" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L157" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_DrawInstancedIndirect_" data-uid="GPUContextDX11.DrawInstancedIndirect*"></a>
@@ -1817,10 +1842,56 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_EndQuery_uint64_.md&amp;value=---%0Auid%3A%20GPUContextDX11.EndQuery(uint64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L160" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUContextDX11_EndQuery_" data-uid="GPUContextDX11.EndQuery*"></a>
+  
+  <h4 id="GPUContextDX11_EndQuery_uint64_" data-uid="GPUContextDX11.EndQuery(uint64)"><a href="#collapsible-GPUContextDX11_EndQuery_uint64_" class="expander" data-toggle="collapse">EndQuery(uint64 queryID)</a></h4>
+  
+  <div id="collapsible-GPUContextDX11_EndQuery_uint64_" class="collapse in">
+  <div class="markdown level1 summary"><p>Ends the GPU query. Use GPUDevice::GetQueryResult to read the results back. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void EndQuery(uint64 queryID) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">uint64</span></span>
+        <span class="parametername">queryID</span>
+        <p><p>Query identifier returned by BeginQuery.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUContext.html#GPUContext_EndQuery_uint64_">GPUContext::EndQuery(uint64 queryID)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_EventBegin_const_Char___.md&amp;value=---%0Auid%3A%20GPUContextDX11.EventBegin(const%20Char%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L123" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L125" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_EventBegin_" data-uid="GPUContextDX11.EventBegin*"></a>
@@ -1866,7 +1937,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_EventEnd__.md&amp;value=---%0Auid%3A%20GPUContextDX11.EventEnd()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L124" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L126" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_EventEnd_" data-uid="GPUContextDX11.EventEnd*"></a>
@@ -1902,7 +1973,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_Flush__.md&amp;value=---%0Auid%3A%20GPUContextDX11.Flush()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L168" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_Flush_" data-uid="GPUContextDX11.Flush*"></a>
@@ -1938,7 +2009,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_FlushState__.md&amp;value=---%0Auid%3A%20GPUContextDX11.FlushState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L167" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_FlushState_" data-uid="GPUContextDX11.FlushState*"></a>
@@ -1974,7 +2045,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_FrameBegin__.md&amp;value=---%0Auid%3A%20GPUContextDX11.FrameBegin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L120" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L122" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_FrameBegin_" data-uid="GPUContextDX11.FrameBegin*"></a>
@@ -2010,7 +2081,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_GetContext__.md&amp;value=---%0Auid%3A%20GPUContextDX11.GetContext()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L102" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L103" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_GetContext_" data-uid="GPUContextDX11.GetContext*"></a>
@@ -2053,7 +2124,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_GetNativePtr__.md&amp;value=---%0Auid%3A%20GPUContextDX11.GetNativePtr()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L126" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L128" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_GetNativePtr_" data-uid="GPUContextDX11.GetNativePtr*"></a>
@@ -2098,7 +2169,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_GetState__.md&amp;value=---%0Auid%3A%20GPUContextDX11.GetState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L159" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_GetState_" data-uid="GPUContextDX11.GetState*"></a>
@@ -2143,7 +2214,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_IsDepthBufferBinded__.md&amp;value=---%0Auid%3A%20GPUContextDX11.IsDepthBufferBinded()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L127" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L129" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_IsDepthBufferBinded_" data-uid="GPUContextDX11.IsDepthBufferBinded*"></a>
@@ -2189,7 +2260,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_OnPresent__.md&amp;value=---%0Auid%3A%20GPUContextDX11.OnPresent()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L121" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L123" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_OnPresent_" data-uid="GPUContextDX11.OnPresent*"></a>
@@ -2225,7 +2296,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_OverlapUA_bool_.md&amp;value=---%0Auid%3A%20GPUContextDX11.OverlapUA(bool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L172" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L177" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_OverlapUA_" data-uid="GPUContextDX11.OverlapUA*"></a>
@@ -2271,7 +2342,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetCB__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetCB()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L142" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L144" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResetCB_" data-uid="GPUContextDX11.ResetCB*"></a>
@@ -2307,7 +2378,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetCounter_GPUBuffer___.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetCounter(GPUBuffer%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L168" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L173" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResetCounter_" data-uid="GPUContextDX11.ResetCounter*"></a>
@@ -2353,7 +2424,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetRenderTarget__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetRenderTarget()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L134" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L136" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResetRenderTarget_" data-uid="GPUContextDX11.ResetRenderTarget*"></a>
@@ -2389,7 +2460,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetSR__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetSR()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L142" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResetSR_" data-uid="GPUContextDX11.ResetSR*"></a>
@@ -2422,10 +2493,46 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetState__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetState()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUContextDX11_ResetState_" data-uid="GPUContextDX11.ResetState*"></a>
+  
+  <h4 id="GPUContextDX11_ResetState__" data-uid="GPUContextDX11.ResetState()"><a href="#collapsible-GPUContextDX11_ResetState__" class="expander" data-toggle="collapse">ResetState()</a></h4>
+  
+  <div id="collapsible-GPUContextDX11_ResetState__" class="collapse in">
+  <div class="markdown level1 summary"><p>Resets the context state. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void ResetState() override</code></pre>
+  </div>
+
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUContext.html#GPUContext_ResetState__">GPUContext::ResetState()</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResetUA__.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResetUA()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L143" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResetUA_" data-uid="GPUContextDX11.ResetUA*"></a>
@@ -2461,7 +2568,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_ResolveMultisample_GPUTexture___GPUTexture___int32_int32_PixelFormat_.md&amp;value=---%0Auid%3A%20GPUContextDX11.ResolveMultisample(GPUTexture%20*%2CGPUTexture%20*%2Cint32%2Cint32%2CPixelFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L152" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L154" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_ResolveMultisample_" data-uid="GPUContextDX11.ResolveMultisample*"></a>
@@ -2535,7 +2642,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetBlendFactor_const_Float4___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetBlendFactor(const%20Float4%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L138" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L140" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetBlendFactor_" data-uid="GPUContextDX11.SetBlendFactor*"></a>
@@ -2578,10 +2685,63 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetDepthBounds_float_float_.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetDepthBounds(float%2Cfloat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L163" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="GPUContextDX11_SetDepthBounds_" data-uid="GPUContextDX11.SetDepthBounds*"></a>
+  
+  <h4 id="GPUContextDX11_SetDepthBounds_float_float_" data-uid="GPUContextDX11.SetDepthBounds(float,float)"><a href="#collapsible-GPUContextDX11_SetDepthBounds_float_float_" class="expander" data-toggle="collapse">SetDepthBounds(float minDepth, float maxDepth)</a></h4>
+  
+  <div id="collapsible-GPUContextDX11_SetDepthBounds_float_float_" class="collapse in">
+  <div class="markdown level1 summary"><p>Sets the minimum and maximum depth values for depth bounds test. </p></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">public virtual void SetDepthBounds(float minDepth, float maxDepth) override</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">minDepth</span>
+        <p><p>The minimum value for depth bound test.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">float</span></span>
+        <span class="parametername">maxDepth</span>
+        <p><p>The maximum value for depth bound test.</p></p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GPUContext.html#GPUContext_SetDepthBounds_float_float_">GPUContext::SetDepthBounds(float minDepth, float maxDepth)</a></div>
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetRenderTarget_GPUTextureView___const_Span_GPUTextureView______.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetRenderTarget(GPUTextureView%20*%2Cconst%20Span%3CGPUTextureView%20*%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetRenderTarget_" data-uid="GPUContextDX11.SetRenderTarget*"></a>
@@ -2634,7 +2794,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetRenderTarget_GPUTextureView___GPUTextureView___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetRenderTarget(GPUTextureView%20*%2CGPUTextureView%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L136" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L138" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetRenderTarget_" data-uid="GPUContextDX11.SetRenderTarget*"></a>
@@ -2687,7 +2847,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetRenderTarget_GPUTextureView___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetRenderTarget(GPUTextureView%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L135" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L137" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetRenderTarget_" data-uid="GPUContextDX11.SetRenderTarget*"></a>
@@ -2733,7 +2893,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetScissor_const_Rectangle___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetScissor(const%20Rectangle%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L158" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L162" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetScissor_" data-uid="GPUContextDX11.SetScissor*"></a>
@@ -2779,7 +2939,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetState_GPUPipelineState___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetState(GPUPipelineState%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L160" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L165" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetState_" data-uid="GPUContextDX11.SetState*"></a>
@@ -2825,7 +2985,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetStencilRef_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetStencilRef(uint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L139" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L141" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetStencilRef_" data-uid="GPUContextDX11.SetStencilRef*"></a>
@@ -2871,7 +3031,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_SetViewport_const_Viewport___.md&amp;value=---%0Auid%3A%20GPUContextDX11.SetViewport(const%20Viewport%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L157" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L161" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_SetViewport_" data-uid="GPUContextDX11.SetViewport*"></a>
@@ -2917,7 +3077,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_UpdateBuffer_GPUBuffer___const_void___uint32_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.UpdateBuffer(GPUBuffer%20*%2Cconst%20void%20*%2Cuint32%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L164" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L169" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_UpdateBuffer_" data-uid="GPUContextDX11.UpdateBuffer*"></a>
@@ -2984,7 +3144,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_UpdateCB_GPUConstantBuffer___const_void___.md&amp;value=---%0Auid%3A%20GPUContextDX11.UpdateCB(GPUConstantBuffer%20*%2Cconst%20void%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L149" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L151" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_UpdateCB_" data-uid="GPUContextDX11.UpdateCB*"></a>
@@ -3037,7 +3197,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=GPUContextDX11_UpdateTexture_GPUTexture___int32_int32_const_void___uint32_uint32_.md&amp;value=---%0Auid%3A%20GPUContextDX11.UpdateTexture(GPUTexture%20*%2Cint32%2Cint32%2Cconst%20void%20*%2Cuint32%2Cuint32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L166" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/GraphicsDevice/DirectX/DX11/GPUContextDX11.h/#L171" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="GPUContextDX11_UpdateTexture_" data-uid="GPUContextDX11.UpdateTexture*"></a>

@@ -202,10 +202,121 @@ public static float NavMeshBuildingProgress { get; }</code></pre>
   
   <a id="FlaxEngine_Navigation_BuildNavMesh_" data-uid="FlaxEngine.Navigation.BuildNavMesh*"></a>
   
+  <h4 id="FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_FlaxEngine_Scene_System_Single_" data-uid="FlaxEngine.Navigation.BuildNavMesh(FlaxEngine.BoundingBox,FlaxEngine.Scene,System.Single)"><a href="#collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_FlaxEngine_Scene_System_Single_" class="expander" data-toggle="collapse">BuildNavMesh(BoundingBox, Scene, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_FlaxEngine_Scene_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Builds the Nav Mesh for the given scene (builds only the tiles overlapping the given bounding box).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void BuildNavMesh(BoundingBox dirtyBounds, Scene scene = null, float timeoutMs = 50F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">dirtyBounds</span>
+        <p><p>The bounds in world-space to build overlapping tiles.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.Scene.html">Scene</a></span>
+        <span class="parametername">scene</span>
+        <p><p>The scene. Pass null to build navmesh for all loaded scenes that intersect with a given bounds.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">timeoutMs</span>
+        <p><p>The timeout to wait before building Nav Mesh (in milliseconds).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_FlaxEngine_Scene_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requests are enqueued till the next game scripts update. Actual navmesh building in done via Thread Pool tasks in a background to prevent game thread stalls.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Navigation_BuildNavMesh_" data-uid="FlaxEngine.Navigation.BuildNavMesh*"></a>
+  
+  <h4 id="FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_System_Single_" data-uid="FlaxEngine.Navigation.BuildNavMesh(FlaxEngine.BoundingBox,System.Single)"><a href="#collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_System_Single_" class="expander" data-toggle="collapse">BuildNavMesh(BoundingBox, Single)</a></h4>
+  
+  <div id="collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_System_Single_" class="collapse in">
+  <div class="markdown level1 summary"><p>Builds the Nav Mesh for all the loaded scenes (builds only the tiles overlapping the given bounding box).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Unmanaged]
+public static void BuildNavMesh(BoundingBox dirtyBounds, float timeoutMs = 50F)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="FlaxEngine.BoundingBox.html">BoundingBox</a></span>
+        <span class="parametername">dirtyBounds</span>
+        <p><p>The bounds in world-space to build overlapping tiles.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Single</span></span>
+        <span class="parametername">timeoutMs</span>
+        <p><p>The timeout to wait before building Nav Mesh (in milliseconds).</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_BoundingBox_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requests are enqueued till the next game scripts update. Actual navmesh building in done via Thread Pool tasks in a background to prevent game thread stalls.</p>
+</div>
+  
+  
+  
+  </div>
+  
+  
+  <a id="FlaxEngine_Navigation_BuildNavMesh_" data-uid="FlaxEngine.Navigation.BuildNavMesh*"></a>
+  
   <h4 id="FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_Scene_FlaxEngine_BoundingBox_System_Single_" data-uid="FlaxEngine.Navigation.BuildNavMesh(FlaxEngine.Scene,FlaxEngine.BoundingBox,System.Single)"><a href="#collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_Scene_FlaxEngine_BoundingBox_System_Single_" class="expander" data-toggle="collapse">BuildNavMesh(Scene, BoundingBox, Single)</a></h4>
   
   <div id="collapsible-FlaxEngine_Navigation_BuildNavMesh_FlaxEngine_Scene_FlaxEngine_BoundingBox_System_Single_" class="collapse in">
-  <div class="markdown level1 summary"><p>Builds the Nav Mesh for the given scene (builds only the tiles overlapping the given bounding box).</p>
+  <div class="markdown level1 summary"><p>Builds the Nav Mesh for the given scene (builds only the tiles overlapping the given bounding box).
+[Deprecated in v1.12]</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -271,7 +382,7 @@ public static void BuildNavMesh(Scene scene, BoundingBox dirtyBounds, float time
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Unmanaged]
-public static void BuildNavMesh(Scene scene, float timeoutMs = 50F)</code></pre>
+public static void BuildNavMesh(Scene scene = null, float timeoutMs = 50F)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -280,7 +391,7 @@ public static void BuildNavMesh(Scene scene, float timeoutMs = 50F)</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="FlaxEngine.Scene.html">Scene</a></span>
         <span class="parametername">scene</span>
-        <p><p>The scene.</p>
+        <p><p>The scene. Pass null to build navmesh for all loaded scenes.</p>
 </p>
       </td>
     </tr>
@@ -416,7 +527,7 @@ public static bool FindDistanceToWall(Vector3 startPosition, out NavMeshHit hitI
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p>True if ray hits an matching object, otherwise false.</p>
+        <p><p>True if ray hits a matching object, otherwise false.</p>
 </p>
       </td>
     </tr>
@@ -723,7 +834,7 @@ public static bool RayCast(Vector3 startPosition, Vector3 endPosition, out NavMe
     <tr>
       <td>
         <span class="xref">System.Boolean</span>
-        <p><p>True if ray hits an matching object, otherwise false.</p>
+        <p><p>True if ray hits a matching object, otherwise false.</p>
 </p>
       </td>
     </tr>

@@ -119,9 +119,6 @@
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler__macros">ShaderCompiler::_macros</a>
     </div>
     <div>
-      <a class="xref" href="ShaderCompiler.html#ShaderCompiler__profile">ShaderCompiler::_profile</a>
-    </div>
-    <div>
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_Compile_ShaderCompilationContext___">ShaderCompiler::Compile(ShaderCompilationContext* context)</a>
     </div>
     <div>
@@ -137,6 +134,9 @@
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_GetIncludedFileSource_ShaderCompilationContext___const_char___const_char___const_char____int32___">ShaderCompiler::GetIncludedFileSource(ShaderCompilationContext* context, const char* sourceFile, const char* includedFile, const char*&amp; source, int32&amp; sourceLength)</a>
     </div>
     <div>
+      <a class="xref" href="ShaderCompiler.html#ShaderCompiler_GetPlatform__">ShaderCompiler::GetPlatform()</a>
+    </div>
+    <div>
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_GetProfile__">ShaderCompiler::GetProfile()</a>
     </div>
     <div>
@@ -146,7 +146,7 @@
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_ParseVertexElementType_StringAnsiView_uint32_">ShaderCompiler::ParseVertexElementType(StringAnsiView semantic, uint32 index = 0)</a>
     </div>
     <div>
-      <a class="xref" href="ShaderCompiler.html#ShaderCompiler_ShaderCompiler_ShaderProfile_">ShaderCompiler::ShaderCompiler(ShaderProfile profile)</a>
+      <a class="xref" href="ShaderCompiler.html#ShaderCompiler_ShaderCompiler_ShaderProfile_PlatformType_">ShaderCompiler::ShaderCompiler(ShaderProfile profile, PlatformType platform=(PlatformType) 0)</a>
     </div>
     <div>
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_WriteCustomDataHS_ShaderCompilationContext___ShaderFunctionMeta___int32_const_Array_ShaderMacro____void___">ShaderCompiler::WriteCustomDataHS(ShaderCompilationContext* context, ShaderFunctionMeta&amp; meta, int32 permutationIndex, const Array&lt;ShaderMacro&gt;&amp; macros, void* additionalData)</a>
@@ -165,6 +165,9 @@
     </div>
     <div>
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_WriteShaderFunctionPermutation_ShaderCompilationContext___ShaderFunctionMeta___int32_const_ShaderBindings___const_void___int32_const_void___int32_">ShaderCompiler::WriteShaderFunctionPermutation(ShaderCompilationContext* context, ShaderFunctionMeta&amp; meta, int32 permutationIndex, const ShaderBindings&amp; bindings, const void* header, int32 headerSize, const void* cache, int32 cacheSize)</a>
+    </div>
+    <div>
+      <a class="xref" href="ShaderCompiler.html#ShaderCompiler_WriteShaderFunctionPermutation_ShaderCompilationContext___ShaderFunctionMeta___int32_const_ShaderBindings___const_void___int32_const_void___int32_const_void___int32_">ShaderCompiler::WriteShaderFunctionPermutation(ShaderCompilationContext* context, ShaderFunctionMeta&amp; meta, int32 permutationIndex, const ShaderBindings&amp; bindings, const void* header, int32 headerSize, const void* cache1, int32 cache1Size, const void* cache2, int32 cache2Size)</a>
     </div>
     <div>
       <a class="xref" href="ShaderCompiler.html#ShaderCompiler_WriteShaderFunctionPermutation_ShaderCompilationContext___ShaderFunctionMeta___int32_const_ShaderBindings___const_void___int32_">ShaderCompiler::WriteShaderFunctionPermutation(ShaderCompilationContext* context, ShaderFunctionMeta&amp; meta, int32 permutationIndex, const ShaderBindings&amp; bindings, const void* cache, int32 cacheSize)</a>
@@ -195,7 +198,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX__ShaderCompilerDX__.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.~ShaderCompilerDX()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L30" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L33" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ShaderCompilerDX__ShaderCompilerDX_" data-uid="ShaderCompilerDX.~ShaderCompilerDX*"></a>
@@ -226,23 +229,23 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
-    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.ShaderCompilerDX(ShaderProfile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_PlatformType_void___.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.ShaderCompilerDX(ShaderProfile%2CPlatformType%2Cvoid%20*)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L25" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L28" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ShaderCompilerDX_ShaderCompilerDX_" data-uid="ShaderCompilerDX.ShaderCompilerDX*"></a>
   
-  <h4 id="ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_" data-uid="ShaderCompilerDX.ShaderCompilerDX(ShaderProfile)"><a href="#collapsible-ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_" class="expander" data-toggle="collapse">ShaderCompilerDX(ShaderProfile profile)</a></h4>
+  <h4 id="ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_PlatformType_void___" data-uid="ShaderCompilerDX.ShaderCompilerDX(ShaderProfile,PlatformType,void *)"><a href="#collapsible-ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_PlatformType_void___" class="expander" data-toggle="collapse">ShaderCompilerDX(ShaderProfile profile, PlatformType platform=(PlatformType) 0, void* dxcCreateInstanceProc=nullptr)</a></h4>
   
-  <div id="collapsible-ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_" class="collapse in">
+  <div id="collapsible-ShaderCompilerDX_ShaderCompilerDX_ShaderProfile_PlatformType_void___" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="ShaderCompilerDX.html">ShaderCompilerDX</a> class. </p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-cpp hljs">public ShaderCompilerDX(ShaderProfile profile)</code></pre>
+    <pre><code class="lang-cpp hljs">public ShaderCompilerDX(ShaderProfile profile, PlatformType platform=(PlatformType) 0, void* dxcCreateInstanceProc=nullptr)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -252,6 +255,20 @@
         <span class="pull-right"><a class="xref" href="ShaderProfile.html">ShaderProfile</a></span>
         <span class="parametername">profile</span>
         <p><p>The profile.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="PlatformType.html">PlatformType</a></span>
+        <span class="parametername">platform</span>
+        <p><p>The platform.</p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">void</span></span>
+        <span class="parametername">dxcCreateInstanceProc</span>
+        <p><p>The custom DXC Compiler factory function.</p></p>
       </td>
     </tr>
   </table>
@@ -275,7 +292,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX_CompileShader_ShaderFunctionMeta___WritePermutationData_.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.CompileShader(ShaderFunctionMeta%20%26%2CWritePermutationData)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L34" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L41" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ShaderCompilerDX_CompileShader_" data-uid="ShaderCompilerDX.CompileShader*"></a>
@@ -334,10 +351,61 @@
   
   <span class="small pull-right mobile-hide">
     <span class="divider"> </span>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX_GetArgs_ShaderFunctionMeta___Array_const_Char____InlinedAllocation_250_____.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.GetArgs(ShaderFunctionMeta%20%26%2CArray%3Cconst%20Char%20*%2C%20InlinedAllocation%3C250%3E%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L36" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+  
+  <a id="ShaderCompilerDX_GetArgs_" data-uid="ShaderCompilerDX.GetArgs*"></a>
+  
+  <h4 id="ShaderCompilerDX_GetArgs_ShaderFunctionMeta___Array_const_Char____InlinedAllocation_250_____" data-uid="ShaderCompilerDX.GetArgs(ShaderFunctionMeta &amp;,Array&lt;const Char *, InlinedAllocation&lt;250&gt;&gt; &amp;)"><a href="#collapsible-ShaderCompilerDX_GetArgs_ShaderFunctionMeta___Array_const_Char____InlinedAllocation_250_____" class="expander" data-toggle="collapse">GetArgs(ShaderFunctionMeta&amp; meta, Array&lt;const Char* , InlinedAllocation&lt;250&gt;&gt;&amp; args)</a></h4>
+  
+  <div id="collapsible-ShaderCompilerDX_GetArgs_ShaderFunctionMeta___Array_const_Char____InlinedAllocation_250_____" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-cpp hljs">protected virtual void GetArgs(ShaderFunctionMeta&amp; meta, Array&lt;const Char* , InlinedAllocation&lt;250&gt;&gt;&amp; args)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="ShaderFunctionMeta.html">ShaderFunctionMeta</a></span>
+        <span class="parametername">meta</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">Array&lt;Char , InlinedAllocation&lt;250&gt;&gt;</span></span>
+        <span class="parametername">args</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=ShaderCompilerDX_OnCompileBegin__.md&amp;value=---%0Auid%3A%20ShaderCompilerDX.OnCompileBegin()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L35" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/ShadersCompilation/DirectX/ShaderCompilerDX.h/#L42" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="ShaderCompilerDX_OnCompileBegin_" data-uid="ShaderCompilerDX.OnCompileBegin*"></a>

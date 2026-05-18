@@ -321,13 +321,13 @@
       <a class="xref" href="ScriptingObject.html#ScriptingObject_HasManagedInstance__">ScriptingObject::HasManagedInstance()</a>
     </div>
     <div>
-      <a class="xref" href="BinaryAsset.html#BinaryAsset_init_AssetInitData___">BinaryAsset::init(AssetInitData&amp; initData)</a>
-    </div>
-    <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_Init_const_FlaxStorageReference___AssetHeader___">BinaryAsset::Init(const FlaxStorageReference&amp; storage, AssetHeader&amp; header)</a>
     </div>
     <div>
       <a class="xref" href="BinaryAsset.html#BinaryAsset_Init_AssetInitData___">BinaryAsset::Init(AssetInitData&amp; initData)</a>
+    </div>
+    <div>
+      <a class="xref" href="BinaryAsset.html#BinaryAsset_init_AssetInitData___">BinaryAsset::init(AssetInitData&amp; initData)</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_InitAsVirtual__">Asset::InitAsVirtual()</a>
@@ -426,10 +426,10 @@
       <a class="xref" href="Asset.html#Asset_onLoad_LoadAssetTask___">Asset::onLoad(LoadAssetTask* task)</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
+      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
     </div>
     <div>
-      <a class="xref" href="Asset.html#Asset_onLoaded__">Asset::onLoaded()</a>
+      <a class="xref" href="Asset.html#Asset_OnLoaded">Asset::OnLoaded</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_onLoaded_MainThread__">Asset::onLoaded_MainThread()</a>
@@ -532,6 +532,12 @@
     </div>
     <div>
       <a class="xref" href="ScriptingObject.html#ScriptingObject_UnregisterObject__">ScriptingObject::UnregisterObject()</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_WaitForInitGraphics__">Asset::WaitForInitGraphics()</a>
+    </div>
+    <div>
+      <a class="xref" href="Asset.html#Asset_WaitForInitPhysics__">Asset::WaitForInitPhysics()</a>
     </div>
     <div>
       <a class="xref" href="Asset.html#Asset_WaitForLoaded_double_">Asset::WaitForLoaded(double timeoutInMilliseconds=30000.0)</a>
@@ -654,7 +660,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MaterialBase_CreateVirtualInstance__.md&amp;value=---%0Auid%3A%20MaterialBase.CreateVirtualInstance()%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L75" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L77" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MaterialBase_CreateVirtualInstance_" data-uid="MaterialBase.CreateVirtualInstance*"></a>
@@ -793,7 +799,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MaterialBase_GetParameterValue_const_StringView___.md&amp;value=---%0Auid%3A%20MaterialBase.GetParameterValue(const%20StringView%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L61" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L63" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MaterialBase_GetParameterValue_" data-uid="MaterialBase.GetParameterValue*"></a>
@@ -801,7 +807,8 @@
   <h4 id="MaterialBase_GetParameterValue_const_StringView___" data-uid="MaterialBase.GetParameterValue(const StringView &amp;)"><a href="#collapsible-MaterialBase_GetParameterValue_const_StringView___" class="expander" data-toggle="collapse">GetParameterValue(const StringView&amp; name)</a></h4>
   
   <div id="collapsible-MaterialBase_GetParameterValue_const_StringView___" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets the material parameter value. </p></div>
+  <div class="markdown level1 summary"><p>Gets the material parameter value. </p><p>For material instances that inherit a base material, returned value might come from base material if the current one doesn&#39;t override it.</p>
+<p></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
@@ -815,7 +822,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="StringView.html">StringView</a></span>
         <span class="parametername">name</span>
-        <p>
+        <p><p>The parameter name.</p></p>
       </td>
     </tr>
   </table>
@@ -846,7 +853,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MaterialBase_GetReferences_Array_Guid____Array_String____.md&amp;value=---%0Auid%3A%20MaterialBase.GetReferences(Array%3CGuid%3E%20%26%2CArray%3CString%3E%20%26)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L80" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L82" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MaterialBase_GetReferences_" data-uid="MaterialBase.GetReferences*"></a>
@@ -983,7 +990,7 @@
     <a href="https://github.com/FlaxEngine/FlaxEngine/new/master/apiSpec/new?filename=MaterialBase_SetParameterValue_const_StringView___const_Variant___bool_.md&amp;value=---%0Auid%3A%20MaterialBase.SetParameterValue(const%20StringView%20%26%2Cconst%20Variant%20%26%2Cbool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Improve this Doc"><i class="fa fa-pencil"></i></a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L69" title="View Source"><i class="fa fa-code"></i></a>
+    <a href="https://github.com/FlaxEngine/FlaxEngine/blob/master/Source/Engine/Content/Assets/MaterialBase.h/#L71" title="View Source"><i class="fa fa-code"></i></a>
   </span>
   
   <a id="MaterialBase_SetParameterValue_" data-uid="MaterialBase.SetParameterValue*"></a>

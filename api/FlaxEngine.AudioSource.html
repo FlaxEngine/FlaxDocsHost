@@ -684,14 +684,14 @@ public AudioClip Clip { get; set; }</code></pre>
   <h4 id="FlaxEngine_AudioSource_DopplerFactor" data-uid="FlaxEngine.AudioSource.DopplerFactor"><a href="#collapsible-FlaxEngine_AudioSource_DopplerFactor" class="expander" data-toggle="collapse">DopplerFactor</a></h4>
   
   <div id="collapsible-FlaxEngine_AudioSource_DopplerFactor" class="collapse in">
-  <div class="markdown level1 summary"><p>Gets or sets the doppler effect factor. Scale for source velocity. Default is 1.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the doppler effect factor. Scale for source velocity. Default is 1. Used by spatial sources only. Cannot scale the effect up (only dim it).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[EditorOrder(75)]
-[Limit(0F, 3.40282347E+38F, 0.1F)]
+[Limit(0F, 1F, 0.1F)]
 [EditorDisplay(&quot;Audio Source&quot;, null)]
 [Unmanaged]
 public float DopplerFactor { get; set; }</code></pre>
